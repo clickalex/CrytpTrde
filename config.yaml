@@ -44,6 +44,12 @@ asset_discovery:
   max_assets: 50           # keep the top 50 by turnover so a run stays FAST.
                            # null/0 = ALL ~500+ active pairs -> a run takes
                            # minutes again (every pair = 1+ API request).
+  # Safety net so the top-50 cap doesn't miss oversold coins outside it:
+  # ALSO scan any other active INR market that dropped hard in the last 24h
+  # (uses the one all-markets ticker call discovery already makes - no extra
+  # cost to find them). 0 disables the safety net.
+  dipped_scan_pct: 8       # qualify if 24h change <= -8% or price within 2% of the 24h low
+  dipped_scan_max: 150     # hard cap on extra dipped markets per scan
 
 # --- Strategy: "RSI Swing" (condition-based, hourly) --------------------------
 # The bot checks hourly. It acts ONLY when a condition is met:

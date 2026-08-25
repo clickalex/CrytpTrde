@@ -159,6 +159,12 @@ class CoinDCX:
         # exceeds the configured requests/sec cap or double-fetches caches.
         self._rate_lock = threading.Lock()
         self._cache_lock = threading.Lock()
+        # Keep-alive connection pool: parallel workers reuse TCP/TLS
+        # connections instead of paying a handshake per request.
+        self._session = requests.Session()
+        # Adaptive politeness: after any failed request, slow the global pace
+        # (3x interval) for a while instead of hammering a struggling server.
+        self._penalty_until = 0.0
 
     # ------------------------------------------------------------------ public
     def _reserve_request_slot(self) -> None:
@@ -166,17 +172,29 @@ class CoinDCX:
 
         Request STARTS are spaced at least `request_interval` apart no matter
         how many threads are fetching, so parallel fetching overlaps network
-        latency without exceeding the configured requests/sec cap.
+        latency without exceeding the configured requests/sec cap. While a
+        recent request FAILED, the pace triples (adaptive backoff).
         """
         if not self.request_interval:
             return
         with self._rate_lock:
             now = time.monotonic()
-            slot = max(now, self._last_request_at + self.request_interval)
+            interval = self.request_interval
+            if now < self._penalty_until:
+                interval *= 3.0
+            slot = max(now, self._last_request_at + interval)
             self._last_request_at = slot
         wait = slot - now
         if wait > 0:
             time.sleep(wait)
+
+    def _note_failure(self, retry_after: float | None = None) -> None:
+        """Back off globally after a failed/429/5xx request."""
+        penalty = float(retry_after) if retry_after is not None else 10.0
+        penalty = min(max(penalty, 5.0), 60.0)
+        with self._rate_lock:
+            self._penalty_until = max(self._penalty_until,
+                                      time.monotonic() + penalty)
 
     def _get_json(self, url: str, params: dict | None = None,
                   retries: int = 3):
@@ -184,15 +202,24 @@ class CoinDCX:
         for attempt in range(1, max(1, retries) + 1):
             self._reserve_request_slot()
             try:
-                resp = requests.get(url, params=params, timeout=self.timeout)
+                resp = self._session.get(url, params=params, timeout=self.timeout)
                 resp.raise_for_status()
                 data = resp.json()
                 if isinstance(data, dict) and data.get("status") == "error":
+                    self._note_failure()
                     raise CoinDCXError(
                         f"CoinDCX error {data.get('code')}: {data.get('message')}")
                 return data
             except (requests.RequestException, ValueError) as exc:
                 last_exc = exc
+                retry_after = None
+                resp_exc = getattr(exc, "response", None)
+                if resp_exc is not None:
+                    try:
+                        retry_after = float(resp_exc.headers.get("Retry-After"))
+                    except (TypeError, ValueError, AttributeError):
+                        retry_after = None
+                self._note_failure(retry_after)
                 if attempt < retries:
                     time.sleep(min(2 ** attempt, 5))
         raise CoinDCXError(f"Network error hitting {url}: {last_exc}") from last_exc
@@ -268,6 +295,53 @@ class CoinDCX:
 
         discovered.sort(key=lambda item: item[0], reverse=True)
         assets = [asset for _, asset in discovered]
+        if limit is not None and limit > 0:
+            assets = assets[:limit]
+        return assets
+
+    def dipped_inr_markets(self, dip_pct: float = 8.0, limit: int = 150,
+                           exclude: set[str] | None = None,
+                           require_market_order: bool = True) -> list[dict]:
+        """Active INR spot markets that fell hard in the last 24h.
+
+        Safety net for top-N turnover caps: an hourly-RSI oversold dip almost
+        always coincides with a sharp 24h drop, and the all-markets ticker
+        list (already fetched for discovery) carries 24h change/high/low for
+        EVERY market - so crashed coins outside the liquidity cap get caught
+        at zero extra API cost. A market qualifies if its 24h change is
+        <= -dip_pct OR its last price is within 2% of the 24h low.
+        """
+        exclude = exclude or set()
+        details = self.markets_details()
+        tickers = self.tickers()
+
+        out: list[tuple[float, dict]] = []
+        for md in details.values():
+            if str(md.get("status", "")).lower() != "active":
+                continue
+            if str(md.get("base_currency_short_name", "")).upper() != "INR":
+                continue
+            if str(md.get("ecode", "")).upper() != "I":
+                continue
+            if require_market_order and "market_order" not in (md.get("order_types") or []):
+                continue
+            name = str(md.get("coindcx_name") or "")
+            pair = str(md.get("pair") or "")
+            if not name or not pair or name in exclude:
+                continue
+            t = tickers.get(name, {})
+            try:
+                chg = float(t.get("change_24_hour") or 0.0)
+                last = float(t.get("last_price") or 0.0)
+                low = float(t.get("low") or 0.0)
+            except (TypeError, ValueError):
+                continue
+            near_low = last > 0 and low > 0 and last <= low * 1.02
+            if chg <= -dip_pct or near_low:
+                out.append((chg, {"name": name, "pair": pair}))
+
+        out.sort(key=lambda item: item[0])   # biggest drop first
+        assets = [asset for _, asset in out]
         if limit is not None and limit > 0:
             assets = assets[:limit]
         return assets
@@ -562,12 +636,35 @@ def fetch_workers(cfg: dict) -> int:
     return max(1, min(w, 32))
 
 
-def _run_parallel(fn, items: list, workers: int) -> list:
-    """Map `fn` over `items`, in parallel when useful, preserving order."""
+def _run_parallel(fn, items: list, workers: int,
+                  progress_label: str | None = None,
+                  progress_every: int = 25) -> list:
+    """Map `fn` over `items`, in parallel when useful, preserving order.
+
+    With `progress_label`, prints e.g. "  market data: 40/500 fetched ..."
+    every `progress_every` completions so long scans show life."""
+    def run_one(i):
+        return i, fn(items[i])
+
+    results: list = [None] * len(items)
+    done = 0
+
+    def tick():
+        nonlocal done
+        done += 1
+        if progress_label and done % progress_every == 0 and done < len(items):
+            print(f"  {progress_label}: {done}/{len(items)} fetched ...")
+
     if workers > 1 and len(items) > 1:
         with ThreadPoolExecutor(max_workers=min(workers, len(items))) as pool:
-            return list(pool.map(fn, items))
-    return [fn(item) for item in items]
+            for i, res in pool.map(run_one, range(len(items))):
+                results[i] = res
+                tick()
+    else:
+        for i, item in enumerate(items):
+            results[i] = fn(item)
+            tick()
+    return results
 
 
 def make_public_coin(cfg: dict) -> CoinDCX:
@@ -596,12 +693,15 @@ def ensure_initialised(cfg: dict, broker: PaperBroker) -> None:
 
 
 def resolve_assets(cfg: dict, force_all: bool = False,
-                   extra_state_dirs: list[Path] | None = None) -> list[dict]:
+                   extra_state_dirs: list[Path] | None = None,
+                   include_dipped: bool = True) -> list[dict]:
     """Resolve config assets into the explicit ``[{name, pair}]`` list.
 
     ``assets: auto`` (or ``--all-assets``) discovers every active INR spot
     market rather than only BTC/ETH/SOL. Existing holdings are always merged in
     so a discovered universe change never leaves an open position unsellable.
+    With ``include_dipped`` (default), markets outside a top-N cap that fell
+    hard in the last 24h are also added - see CoinDCX.dipped_inr_markets.
     """
     configured = cfg.get("assets")
     assets_cfg = cfg.get("asset_discovery") or {}
@@ -627,6 +727,23 @@ def resolve_assets(cfg: dict, force_all: bool = False,
         discovered = coin.discover_inr_markets(min_volume_inr=min_volume, limit=limit)
         for a in discovered:
             add_asset(a)
+        # Safety net for the liquidity cap: also catch sharply-dipped markets
+        # outside it (cheap - reuses the discovery ticker call). Skipped for
+        # --all-assets (everything already scanned) and for explicit lists.
+        if include_dipped and not force_all:
+            dip_pct = float(assets_cfg.get("dipped_scan_pct", 8) or 0)
+            if dip_pct > 0:
+                try:
+                    dip_max = int(assets_cfg.get("dipped_scan_max", 150) or 0)
+                except (TypeError, ValueError):
+                    dip_max = 150
+                dipped = coin.dipped_inr_markets(dip_pct=dip_pct, limit=dip_max,
+                                                 exclude=set(names))
+                for a in dipped:
+                    add_asset(a)
+                if dipped:
+                    print(f"+{len(dipped)} sharply-dipped market(s) added to the scan "
+                          f"(24h drop <= -{dip_pct:g}% or near the 24h low).")
     elif isinstance(configured, list):
         for a in configured:
             add_asset(a)
@@ -691,9 +808,13 @@ def build_market_cache(cfg: dict, coin: CoinDCX,
             try:
                 bid = float(t.get("bid") or 0.0)
                 ask = float(t.get("ask") or 0.0)
+                last = float(t.get("last_price") or 0.0)
             except (TypeError, ValueError):
-                bid = ask = 0.0
+                bid = ask = last = 0.0
             if bid <= 0 or ask <= 0:
+                if last <= 0:
+                    # dead book: avoid the orderbook+ticker-refetch fallback
+                    return name, None, "no live quote (dead market) - skipped"
                 bid, ask = coin.best_bid_ask(pair)
         except (CoinDCXError, KeyError, ValueError, IndexError) as exc:
             return name, None, f"quote data failed ({exc})"
@@ -705,8 +826,10 @@ def build_market_cache(cfg: dict, coin: CoinDCX,
         except (CoinDCXError, KeyError, ValueError, IndexError) as exc:
             return name, None, f"candle data failed ({exc})"
 
+    label = "market data" if len(assets) > 25 else None
     cache: dict[str, tuple] = {}
-    for res in _run_parallel(fetch_one, assets, fetch_workers(cfg)):
+    for res in _run_parallel(fetch_one, assets, fetch_workers(cfg),
+                             progress_label=label):
         if res is None:
             continue
         name, payload, err = res
@@ -898,7 +1021,9 @@ def fetch_history(cfg: dict, coin: CoinDCX, assets: list[dict],
             return a["name"], None, exc
 
     candles: dict[str, list[dict]] = {}
-    for name, cls, exc in _run_parallel(fetch_one, assets, fetch_workers(cfg)):
+    label = "history" if len(assets) > 25 else None
+    for name, cls, exc in _run_parallel(fetch_one, assets, fetch_workers(cfg),
+                                        progress_label=label):
         if exc is not None:
             print(f"  {name}: SKIPPED ({exc})")
             continue
@@ -1782,8 +1907,13 @@ def main():
         extra_state_dirs = []
         if args.command in {"sweep-live", "sweep-status"} and ACCOUNTS_DIR.exists():
             extra_state_dirs = [p for p in ACCOUNTS_DIR.iterdir() if p.is_dir()]
+        # backtest/sweep compare strategies over a STABLE universe -> no
+        # dipped-market extras there (they flap hour to hour); live checks
+        # (check/run/sweep-live/status) do want them so nothing crashed is missed.
+        include_dipped = args.command not in {"backtest", "sweep"}
         cfg["assets"] = resolve_assets(cfg, force_all=args.all_assets,
-                                       extra_state_dirs=extra_state_dirs)
+                                       extra_state_dirs=extra_state_dirs,
+                                       include_dipped=include_dipped)
 
         args.func(cfg, args)
     except CoinDCXError as exc:
