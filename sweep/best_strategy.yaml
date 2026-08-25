@@ -1,0 +1,70 @@
+# Winner of the 200-account tournament (2026-08-25 08:02 UTC)
+# account acc_086 | e28_x80_tp12_sl2.0_p50 | return +6.73% | maxDD 3.3%
+# Use:  python3 bot.py --config sweep/best_strategy.yaml check
+mode: paper
+initial_cash_inr: 50000
+fee_rate: 0.001
+slippage_bps: 5
+simulate_tds: true
+tds_rate: 0.01
+check_interval_min: 60
+assets:
+- name: BTCINR
+  pair: I-BTC_INR
+- name: ETHINR
+  pair: I-ETH_INR
+- name: SOLINR
+  pair: I-SOL_INR
+strategy:
+  entry_rsi: 28
+  exit_rsi: 80
+  take_profit_pct: 12
+  stop_loss_pct: 2
+  position_size_pct: 50
+backtest:
+  days: 30
+  start_cash_inr: 100000
+  fee_rate: 0.001
+  slippage_bps: 5
+  tds_rate: 0.01
+sweep:
+  accounts: 200
+  start_cash_inr: 10000
+  days: 30
+  entry_rsi:
+  - 22
+  - 25
+  - 28
+  - 30
+  - 33
+  - 36
+  - 40
+  exit_rsi:
+  - 64
+  - 68
+  - 72
+  - 76
+  - 80
+  take_profit_pct:
+  - 3
+  - 4
+  - 5
+  - 6
+  - 8
+  - 10
+  - 12
+  stop_loss_pct:
+  - 1
+  - 1.5
+  - 2
+  - 3
+  position_size_pct:
+  - 20
+  - 30
+  - 40
+  - 50
+  - 60
+live:
+  enabled: false
+  api_key_env: COINDCX_API_KEY
+  api_secret_env: COINDCX_API_SECRET
