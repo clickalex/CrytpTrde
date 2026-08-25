@@ -1,0 +1,77 @@
+name: Crypto Bot
+
+# Runs the bot for free in GitHub's cloud.
+#   - Every hour at minute :30 UTC = minute 00 IST (e.g. 09:00, 10:00 ... IST).
+#     Default: `sweep-live` — the 100-account tournament: 100 demo accounts,
+#     each with a different strategy, trading LIVE on real prices. The ranking
+#     is in sweep/live_summary.csv after every run. Use the Actions dropdown
+#     to run `check` / `status` / `backtest` / `sweep` (offline tournament)
+#     manually from your phone.
+#   - Free quota: hourly runs use ~36% of the 2,000 minutes/month. Make the
+#     repo PUBLIC for unlimited minutes, or reduce frequency here if needed.
+on:
+  schedule:
+    - cron: "30 * * * *"
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "What to run"
+        type: choice
+        options:
+          - sweep-live
+          - check
+          - status
+          - sweep
+          - backtest
+        default: sweep-live
+      reset:
+        description: "Reset all demo accounts (restart at Rs 10,000 each)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: crypto-bot
+  cancel-in-progress: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run bot
+        env:
+          # Live trading (optional): repo -> Settings -> Secrets and actions.
+          # Leave unset in paper mode — the bot runs without them.
+          COINDCX_API_KEY: ${{ secrets.COINDCX_API_KEY }}
+          COINDCX_API_SECRET: ${{ secrets.COINDCX_API_SECRET }}
+        run: |
+          CMD="${{ github.event.inputs.command }}"
+          CMD="${CMD:-sweep-live}"
+          ARGS=""
+          if [ "${{ github.event.inputs.reset }}" = "true" ] && [ "${CMD}" = "sweep-live" ]; then ARGS="--reset"; fi
+          python cryptobot.py ${CMD} ${ARGS}
+
+      - name: Save state back to the repo
+        run: |
+          git config user.name "crypto-bot"
+          git config user.email "crypto-bot@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No state changes — nothing to commit."
+          else
+            git commit -qm "bot state: $(date -u +%FT%TZ)"
+            git push
+            echo "State saved."
+          fi
