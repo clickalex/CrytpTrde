@@ -22,7 +22,9 @@ import os
 import re
 import shutil
 import sys
+import threading
 import time
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -153,19 +155,36 @@ class CoinDCX:
         self._last_request_at = 0.0
         self._tickers: dict[str, dict] | None = None
         self._markets: dict[str, dict] | None = None
+        # Thread-safe pacing/caching so parallel market-data fetching never
+        # exceeds the configured requests/sec cap or double-fetches caches.
+        self._rate_lock = threading.Lock()
+        self._cache_lock = threading.Lock()
 
     # ------------------------------------------------------------------ public
+    def _reserve_request_slot(self) -> None:
+        """Global request pacing across ALL worker threads.
+
+        Request STARTS are spaced at least `request_interval` apart no matter
+        how many threads are fetching, so parallel fetching overlaps network
+        latency without exceeding the configured requests/sec cap.
+        """
+        if not self.request_interval:
+            return
+        with self._rate_lock:
+            now = time.monotonic()
+            slot = max(now, self._last_request_at + self.request_interval)
+            self._last_request_at = slot
+        wait = slot - now
+        if wait > 0:
+            time.sleep(wait)
+
     def _get_json(self, url: str, params: dict | None = None,
                   retries: int = 3):
         last_exc: Exception | None = None
         for attempt in range(1, max(1, retries) + 1):
-            if self.request_interval:
-                wait = self._last_request_at + self.request_interval - time.monotonic()
-                if wait > 0:
-                    time.sleep(wait)
+            self._reserve_request_slot()
             try:
                 resp = requests.get(url, params=params, timeout=self.timeout)
-                self._last_request_at = time.monotonic()
                 resp.raise_for_status()
                 data = resp.json()
                 if isinstance(data, dict) and data.get("status") == "error":
@@ -181,8 +200,10 @@ class CoinDCX:
     def tickers(self, refresh: bool = False) -> dict[str, dict]:
         """All tickers keyed by market name, e.g. {"BTCINR": {...}}."""
         if self._tickers is None or refresh:
-            data = self._get_json(f"{API_BASE}/exchange/ticker")
-            self._tickers = {t["market"]: t for t in data}
+            with self._cache_lock:
+                if self._tickers is None or refresh:
+                    data = self._get_json(f"{API_BASE}/exchange/ticker")
+                    self._tickers = {t["market"]: t for t in data}
         return self._tickers
 
     def ticker(self, market: str, refresh: bool = False) -> dict:
@@ -194,8 +215,10 @@ class CoinDCX:
     def markets_details(self, refresh: bool = False) -> dict[str, dict]:
         """Market rules keyed by coindcx_name (e.g. 'BTCINR'): precision, step, min_notional."""
         if self._markets is None or refresh:
-            data = self._get_json(f"{API_BASE}/exchange/v1/markets_details")
-            self._markets = {m["coindcx_name"]: m for m in data}
+            with self._cache_lock:
+                if self._markets is None or refresh:
+                    data = self._get_json(f"{API_BASE}/exchange/v1/markets_details")
+                    self._markets = {m["coindcx_name"]: m for m in data}
         return self._markets
 
     def market(self, name: str) -> dict:
@@ -530,6 +553,23 @@ def public_request_interval(cfg: dict) -> float:
     return max(0.0, float(cfg.get("public_request_interval_sec", 0.0) or 0.0))
 
 
+def fetch_workers(cfg: dict) -> int:
+    """How many assets to fetch market data for in parallel (network.fetch_workers)."""
+    try:
+        w = int((cfg.get("network") or {}).get("fetch_workers", 8) or 8)
+    except (TypeError, ValueError):
+        w = 8
+    return max(1, min(w, 32))
+
+
+def _run_parallel(fn, items: list, workers: int) -> list:
+    """Map `fn` over `items`, in parallel when useful, preserving order."""
+    if workers > 1 and len(items) > 1:
+        with ThreadPoolExecutor(max_workers=min(workers, len(items))) as pool:
+            return list(pool.map(fn, items))
+    return [fn(item) for item in items]
+
+
 def make_public_coin(cfg: dict) -> CoinDCX:
     """Public-market-data client. Never requires live API keys."""
     return CoinDCX(timeout=30, request_interval=public_request_interval(cfg))
@@ -628,20 +668,24 @@ def runtime_assets(cfg: dict, broker: PaperBroker) -> list[dict]:
 def build_market_cache(cfg: dict, coin: CoinDCX,
                        assets: list[dict] | None = None) -> dict[str, tuple]:
     """Fetch candles + bid/ask ONCE per asset so a sweep of many accounts uses
-    identical market data (fair comparison) with minimal API calls."""
+    identical market data (fair comparison) with minimal API calls.
+
+    Assets are fetched in PARALLEL (see network.fetch_workers). The CoinDCX
+    client still paces request starts to `public_request_interval_sec`
+    globally across all workers, so the exchange is never hammered."""
     s = cfg["strategy"]
     assets = assets or cfg["assets"]
-    cache: dict[str, tuple] = {}
 
     # Tickers give bid/ask for every market in one request. This is important
     # when scanning all INR markets: one ticker call is much safer than one
     # order-book request per asset.
     tickers = coin.tickers(refresh=True)
-    for a in assets:
+
+    def fetch_one(a: dict):
         name = a["name"]
         pair = a.get("pair")
         if not pair:
-            continue
+            return None
         try:
             t = tickers.get(name, {})
             try:
@@ -652,15 +696,24 @@ def build_market_cache(cfg: dict, coin: CoinDCX,
             if bid <= 0 or ask <= 0:
                 bid, ask = coin.best_bid_ask(pair)
         except (CoinDCXError, KeyError, ValueError, IndexError) as exc:
-            print(f"  {name}: quote data failed ({exc})")
-            continue
+            return name, None, f"quote data failed ({exc})"
         try:
             candles = coin.candles(pair,
                                    interval=s.get("timeframe", "1h"),
                                    limit=int(s.get("signal_lookback", 200)))
-            cache[name] = (candles, bid, ask)
+            return name, (candles, bid, ask), None
         except (CoinDCXError, KeyError, ValueError, IndexError) as exc:
-            print(f"  {name}: candle data failed ({exc})")
+            return name, None, f"candle data failed ({exc})"
+
+    cache: dict[str, tuple] = {}
+    for res in _run_parallel(fetch_one, assets, fetch_workers(cfg)):
+        if res is None:
+            continue
+        name, payload, err = res
+        if err is not None:
+            print(f"  {name}: {err}")
+            continue
+        cache[name] = payload
     return cache
 
 
@@ -834,6 +887,27 @@ def fetch_hours(coin: CoinDCX, pair: str, days: int) -> list[dict]:
     return sorted(out.values(), key=lambda c: c["time"])
 
 
+def fetch_history(cfg: dict, coin: CoinDCX, assets: list[dict],
+                  days: int) -> dict[str, list[dict]]:
+    """Fetch `days` of 1h history per asset (in PARALLEL, see network.fetch_workers),
+    shared by every account/backtest so the data — and the comparison — is fair."""
+    def fetch_one(a: dict):
+        try:
+            return a["name"], fetch_hours(coin, a["pair"], days), None
+        except Exception as exc:  # noqa: BLE001
+            return a["name"], None, exc
+
+    candles: dict[str, list[dict]] = {}
+    for name, cls, exc in _run_parallel(fetch_one, assets, fetch_workers(cfg)):
+        if exc is not None:
+            print(f"  {name}: SKIPPED ({exc})")
+            continue
+        candles[name] = cls
+        last = cls[-1]["close"] if cls else float("nan")
+        print(f"  {name}: {len(cls)} hourly candles  (last close Rs.{last:,.2f})")
+    return candles
+
+
 # =============================================================================
 # backtest.py
 # =============================================================================
@@ -950,15 +1024,7 @@ def run_backtest(cfg: dict, days: int | None = None, chart_path: str | None = No
     assets = cfg["assets"]
 
     print(f"Fetching {days} days of 1h candles from CoinDCX for {len(assets)} assets ...")
-    candles: dict[str, list[dict]] = {}
-    for a in assets:
-        try:
-            cls = fetch_hours(coin, a["pair"], days)
-            candles[a["name"]] = cls
-            print(f"  {a['name']}: {len(cls)} hourly candles  "
-                  f"(last close â¹{cls[-1]['close']:,.2f})")
-        except Exception as exc:  # noqa: BLE001
-            print(f"  {a['name']}: SKIPPED ({exc})")
+    candles = fetch_history(cfg, coin, assets, days)
     if not candles or all(len(v) < 100 for v in candles.values()):
         raise SystemExit("Not enough hourly data â aborting backtest.")
 
@@ -1277,14 +1343,7 @@ def run_sweep(cfg: dict, days: int | None = None, count: int | None = None,
 
     print(f"Fetching {days} days of real 1h candles from CoinDCX (once, shared "
           f"by all {len(rows)} accounts) ...")
-    candles = {}
-    for a in assets:
-        try:
-            cls = fetch_hours(coin, a["pair"], days)
-            candles[a["name"]] = cls
-            print(f"  {a['name']}: {len(cls)} hourly candles (last â¹{cls[-1]['close']:,.2f})")
-        except Exception as exc:  # noqa: BLE001
-            print(f"  {a['name']}: SKIPPED ({exc})")
+    candles = fetch_history(cfg, coin, assets, days)
     if not candles:
         raise SystemExit("No candle data â aborting sweep.")
 

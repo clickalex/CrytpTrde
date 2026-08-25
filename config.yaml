@@ -16,12 +16,20 @@ tds_rate: 0.01             # 1% TDS under Section 194S
 check_interval_min: 60     # in `run` mode, how often to re-check (minutes)
 
 # Throttle public CoinDCX requests when scanning many markets. 0 disables it;
-# 0.15 means at most roughly 7 requests/second.
-public_request_interval_sec: 0.15
+# 0.05 means at most ~20 request STARTS/second across ALL parallel fetchers
+# combined (the cap is global, not per worker).
+public_request_interval_sec: 0.05
+
+# How many assets get their market data (candles) at the same time. Parallel
+# fetching overlaps network latency so a scan of 50 assets takes seconds
+# instead of a minute+. 1 = old one-at-a-time behaviour.
+network:
+  fetch_workers: 8
 
 # --- Assets (INR spot pairs on CoinDCX) --------------------------------------
-# Use "auto" to discover every active INR spot market from CoinDCX at startup.
-# To return to the original small watchlist, replace "auto" with:
+# Use "auto" to discover active INR spot markets from CoinDCX at startup,
+# filtered to the most liquid ones (below). To return to the original small
+# watchlist, replace "auto" with:
 #   - name: BTCINR
 #     pair: I-BTC_INR
 #   - name: ETHINR
@@ -32,8 +40,10 @@ assets: auto
 
 asset_discovery:
   enabled: false           # also set true to force discovery even if assets is a list
-  min_volume_inr: 0        # skip tiny/illiquid pairs, e.g. 100000 for ₹1L 24h turnover
-  max_assets: null         # null/0 = all discovered assets; e.g. 50 for top by turnover
+  min_volume_inr: 1000000  # only pairs with >= Rs.10 lakh 24h turnover (skips illiquid tails)
+  max_assets: 50           # keep the top 50 by turnover so a run stays FAST.
+                           # null/0 = ALL ~500+ active pairs -> a run takes
+                           # minutes again (every pair = 1+ API request).
 
 # --- Strategy: "RSI Swing" (condition-based, hourly) --------------------------
 # The bot checks hourly. It acts ONLY when a condition is met:
