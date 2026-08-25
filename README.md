@@ -2,6 +2,8 @@
 
 CoinDCX paper-trading bot with an RSI swing strategy.
 
+> Branch note: `arena/01a0392d-crytptrde` is an Arena session workspace branch opened against `main`.
+
 ## Scan more than BTC / ETH / SOL
 
 `config.yaml` now supports automatic asset discovery:
