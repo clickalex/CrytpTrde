@@ -143,24 +143,40 @@ class CoinDCXError(RuntimeError):
 
 class CoinDCX:
     def __init__(self, api_key: str | None = None, api_secret: str | None = None,
-                 timeout: int = 20):
+                 timeout: int = 20, request_interval: float = 0.0):
         self.api_key = api_key
         self.api_secret = api_secret
         self.timeout = timeout
+        # Optional throttle for scanning hundreds of markets without hammering
+        # CoinDCX's public endpoints.
+        self.request_interval = max(0.0, request_interval)
+        self._last_request_at = 0.0
         self._tickers: dict[str, dict] | None = None
         self._markets: dict[str, dict] | None = None
 
     # ------------------------------------------------------------------ public
-    def _get_json(self, url: str, params: dict | None = None):
-        try:
-            resp = requests.get(url, params=params, timeout=self.timeout)
-            resp.raise_for_status()
-            data = resp.json()
-        except requests.RequestException as exc:
-            raise CoinDCXError(f"Network error hitting {url}: {exc}") from exc
-        if isinstance(data, dict) and data.get("status") == "error":
-            raise CoinDCXError(f"CoinDCX error {data.get('code')}: {data.get('message')}")
-        return data
+    def _get_json(self, url: str, params: dict | None = None,
+                  retries: int = 3):
+        last_exc: Exception | None = None
+        for attempt in range(1, max(1, retries) + 1):
+            if self.request_interval:
+                wait = self._last_request_at + self.request_interval - time.monotonic()
+                if wait > 0:
+                    time.sleep(wait)
+            try:
+                resp = requests.get(url, params=params, timeout=self.timeout)
+                self._last_request_at = time.monotonic()
+                resp.raise_for_status()
+                data = resp.json()
+                if isinstance(data, dict) and data.get("status") == "error":
+                    raise CoinDCXError(
+                        f"CoinDCX error {data.get('code')}: {data.get('message')}")
+                return data
+            except (requests.RequestException, ValueError) as exc:
+                last_exc = exc
+                if attempt < retries:
+                    time.sleep(min(2 ** attempt, 5))
+        raise CoinDCXError(f"Network error hitting {url}: {last_exc}") from last_exc
 
     def tickers(self, refresh: bool = False) -> dict[str, dict]:
         """All tickers keyed by market name, e.g. {"BTCINR": {...}}."""
@@ -184,6 +200,54 @@ class CoinDCX:
 
     def market(self, name: str) -> dict:
         return self.markets_details().get(name) or {}
+
+    def discover_inr_markets(self, min_volume_inr: float = 0.0,
+                             limit: int | None = None,
+                             require_market_order: bool = True) -> list[dict]:
+        """Return active INR spot markets, sorted by 24h INR turnover.
+
+        This lets the bot scan every eligible CoinDCX INR pair instead of being
+        limited to the hard-coded BTC/ETH/SOL list. The result contains the same
+        ``{"name": "BTCINR", "pair": "I-BTC_INR"}`` shape used by config.yaml.
+        """
+        details = self.markets_details(refresh=True)
+        tickers = self.tickers(refresh=True)
+
+        discovered: list[tuple[float, dict]] = []
+        for md in details.values():
+            if str(md.get("status", "")).lower() != "active":
+                continue
+            if str(md.get("base_currency_short_name", "")).upper() != "INR":
+                continue
+            # CoinDCX's own INR spot book uses ecode "I"; pairs from other venues
+            # may end in INR but are not always the same spot market/order route.
+            if str(md.get("ecode", "")).upper() != "I":
+                continue
+            if require_market_order and "market_order" not in (md.get("order_types") or []):
+                continue
+
+            name = str(md.get("coindcx_name") or "")
+            pair = str(md.get("pair") or "")
+            if not name or not pair:
+                continue
+
+            t = tickers.get(name, {})
+            try:
+                last = float(t.get("last_price") or 0.0)
+                volume = float(t.get("volume") or 0.0)
+            except (TypeError, ValueError):
+                last, volume = 0.0, 0.0
+            turnover = last * volume
+            if turnover < min_volume_inr:
+                continue
+
+            discovered.append((turnover, {"name": name, "pair": pair}))
+
+        discovered.sort(key=lambda item: item[0], reverse=True)
+        assets = [asset for _, asset in discovered]
+        if limit is not None and limit > 0:
+            assets = assets[:limit]
+        return assets
 
     def candles(self, pair: str, interval: str = "1d", start_ms: int | None = None,
                 end_ms: int | None = None, limit: int = 1000) -> list[dict]:
@@ -219,7 +283,14 @@ class CoinDCX:
                 return ob["bids"][-1][0], ob["asks"][0][0]
         except CoinDCXError:
             pass
-        market = pair.split("_")[-1] + pair.split("_")[1]  # I-BTC_INR -> BTCINR
+        # Prefer market metadata (e.g. I-BTC_INR -> BTCINR) and only fall back
+        # to string parsing for the usual I-ASSET_INR form.
+        market = next((name for name, md in self.markets_details().items()
+                       if md.get("pair") == pair), "")
+        if not market and "_" in pair:
+            parts = pair.split("_", 1)
+            prefix, base = parts[0].split("-", 1) if "-" in parts[0] else ("", parts[0])
+            market = f"{base}{parts[-1]}" if prefix == "I" else ""
         t = self.ticker(market, refresh=True)
         return float(t["bid"]), float(t["ask"])
 
@@ -455,11 +526,22 @@ def make_broker(cfg: dict, state_dir: Path | None = None) -> PaperBroker:
     )
 
 
+def public_request_interval(cfg: dict) -> float:
+    return max(0.0, float(cfg.get("public_request_interval_sec", 0.0) or 0.0))
+
+
+def make_public_coin(cfg: dict) -> CoinDCX:
+    """Public-market-data client. Never requires live API keys."""
+    return CoinDCX(timeout=30, request_interval=public_request_interval(cfg))
+
+
 def make_coin(cfg: dict) -> CoinDCX:
+    interval = public_request_interval(cfg)
     if cfg.get("live", {}).get("enabled"):
         k, s = env_keys(cfg["live"]["api_key_env"], cfg["live"]["api_secret_env"])
-        return CoinDCX(api_key=k, api_secret=s)
-    return CoinDCX()
+        return CoinDCX(api_key=k, api_secret=s, timeout=20,
+                       request_interval=interval)
+    return CoinDCX(timeout=20, request_interval=interval)
 
 
 def ensure_initialised(cfg: dict, broker: PaperBroker) -> None:
@@ -473,21 +555,112 @@ def ensure_initialised(cfg: dict, broker: PaperBroker) -> None:
     broker.save()
 
 
+def resolve_assets(cfg: dict, force_all: bool = False,
+                   extra_state_dirs: list[Path] | None = None) -> list[dict]:
+    """Resolve config assets into the explicit ``[{name, pair}]`` list.
+
+    ``assets: auto`` (or ``--all-assets``) discovers every active INR spot
+    market rather than only BTC/ETH/SOL. Existing holdings are always merged in
+    so a discovered universe change never leaves an open position unsellable.
+    """
+    configured = cfg.get("assets")
+    assets_cfg = cfg.get("asset_discovery") or {}
+    explicit_assets: list[dict] = []
+    names: set[str] = set()
+
+    def add_asset(a: dict, allow_missing_pair: bool = False) -> None:
+        if not isinstance(a, dict):
+            return
+        name = str(a.get("name") or "").upper()
+        pair = str(a.get("pair") or "")
+        if not name or (not pair and not allow_missing_pair):
+            return
+        if name not in names:
+            names.add(name)
+            explicit_assets.append({"name": name, "pair": pair})
+
+    if configured == "auto" or force_all or assets_cfg.get("enabled") is True:
+        coin = make_public_coin(cfg)
+        min_volume = float(assets_cfg.get("min_volume_inr", 0.0) or 0.0)
+        limit = assets_cfg.get("max_assets")
+        limit = int(limit) if limit not in (None, "", 0, "0") else None
+        discovered = coin.discover_inr_markets(min_volume_inr=min_volume, limit=limit)
+        for a in discovered:
+            add_asset(a)
+    elif isinstance(configured, list):
+        for a in configured:
+            add_asset(a)
+    else:
+        raise ValueError("config 'assets' must be a list of assets or 'auto'")
+
+    state_dirs = [Path(__file__).resolve().parent / "state"]
+    if extra_state_dirs:
+        state_dirs.extend(Path(p) for p in extra_state_dirs)
+    for state_dir in state_dirs:
+        portfolio = state_dir / "portfolio.json"
+        if not portfolio.exists():
+            continue
+        try:
+            data = json.loads(portfolio.read_text())
+            for name in (data.get("holdings") or {}):
+                add_asset({"name": name, "pair": ""}, allow_missing_pair=True)
+        except (OSError, ValueError, TypeError):
+            continue
+
+    if not explicit_assets:
+        raise ValueError("No assets resolved. Check CoinDCX connectivity or config.")
+    return explicit_assets
+
+
+def runtime_assets(cfg: dict, broker: PaperBroker) -> list[dict]:
+    """Configured assets plus any asset currently held by this broker."""
+    assets = list(cfg.get("assets") or [])
+    names = {a["name"] for a in assets if isinstance(a, dict)}
+    for name, pos in broker.positions.items():
+        if pos.qty > 0 and name not in names:
+            pair = next((a.get("pair", "") for a in assets
+                         if isinstance(a, dict) and a.get("name") == name), "")
+            assets.append({"name": name, "pair": pair})
+    return assets
+
+
 # ----------------------------------------------------------------- market data
-def build_market_cache(cfg: dict, coin: CoinDCX) -> dict[str, tuple]:
+def build_market_cache(cfg: dict, coin: CoinDCX,
+                       assets: list[dict] | None = None) -> dict[str, tuple]:
     """Fetch candles + bid/ask ONCE per asset so a sweep of many accounts uses
     identical market data (fair comparison) with minimal API calls."""
     s = cfg["strategy"]
+    assets = assets or cfg["assets"]
     cache: dict[str, tuple] = {}
-    for a in cfg["assets"]:
+
+    # Tickers give bid/ask for every market in one request. This is important
+    # when scanning all INR markets: one ticker call is much safer than one
+    # order-book request per asset.
+    tickers = coin.tickers(refresh=True)
+    for a in assets:
+        name = a["name"]
+        pair = a.get("pair")
+        if not pair:
+            continue
         try:
-            candles = coin.candles(a["pair"],
+            t = tickers.get(name, {})
+            try:
+                bid = float(t.get("bid") or 0.0)
+                ask = float(t.get("ask") or 0.0)
+            except (TypeError, ValueError):
+                bid = ask = 0.0
+            if bid <= 0 or ask <= 0:
+                bid, ask = coin.best_bid_ask(pair)
+        except (CoinDCXError, KeyError, ValueError, IndexError) as exc:
+            print(f"  {name}: quote data failed ({exc})")
+            continue
+        try:
+            candles = coin.candles(pair,
                                    interval=s.get("timeframe", "1h"),
                                    limit=int(s.get("signal_lookback", 200)))
-            bid, ask = coin.best_bid_ask(a["pair"])
-            cache[a["name"]] = (candles, bid, ask)
+            cache[name] = (candles, bid, ask)
         except (CoinDCXError, KeyError, ValueError, IndexError) as exc:
-            print(f"  {a['name']}: market data failed ({exc})")
+            print(f"  {name}: candle data failed ({exc})")
     return cache
 
 
@@ -500,68 +673,106 @@ def run_cycle(cfg: dict, broker: PaperBroker, coin: CoinDCX,
     """
     ensure_initialised(cfg, broker)
     s = cfg["strategy"]
+    assets = runtime_assets(cfg, broker)
+    if market_cache is None:
+        market_cache = build_market_cache(cfg, coin, assets)
+
+    show_all = verbose and len(assets) <= 20
+    counts = {"bought": 0, "sold": 0, "held": 0, "no_entry": 0,
+              "errors": 0, "low_cash": 0}
     if verbose:
         print(f"[{datetime.now(IST):%Y-%m-%d %H:%M IST}] Signal check "
-              f"(entry RSI â¤ {s.get('entry_rsi', 30)}, "
-              f"exit RSI â¥ {s.get('exit_rsi', 999)})")
+              f"({len(assets)} assets; entry RSI <= {s.get('entry_rsi', 30)}, "
+              f"exit RSI >= {s.get('exit_rsi', 999)})")
 
-    for a in cfg["assets"]:
-        md = coin.market(a["name"])
+    for a in assets:
+        name = a["name"]
+        pair = a.get("pair") or coin.market(name).get("pair", "")
+        if not pair and name not in market_cache:
+            if show_all:
+                print(f"  {name}: market metadata unavailable - will retry next check")
+            counts["errors"] += 1
+            continue
+
+        md = coin.market(name)
         step = md.get("step", 1e-6) or 1e-6
         prec = md.get("target_currency_precision", 6)
         min_notional = float(md.get("min_notional", 100))
 
-        if market_cache and a["name"] in market_cache:
-            candles, bid, ask = market_cache[a["name"]]
+        if name in market_cache:
+            candles, bid, ask = market_cache[name]
         else:
             try:
-                candles = coin.candles(a["pair"], interval=s.get("timeframe", "1h"),
+                candles = coin.candles(pair, interval=s.get("timeframe", "1h"),
                                        limit=int(s.get("signal_lookback", 200)))
-                bid, ask = coin.best_bid_ask(a["pair"])
+                t = coin.tickers().get(name, {})
+                bid = float(t.get("bid") or 0.0)
+                ask = float(t.get("ask") or 0.0)
+                if bid <= 0 or ask <= 0:
+                    bid, ask = coin.best_bid_ask(pair)
             except (CoinDCXError, KeyError, ValueError, IndexError) as exc:
-                print(f"  {a['name']}: market data failed ({exc}) â will retry next check")
+                if show_all:
+                    print(f"  {name}: market data failed ({exc}) - will retry next check")
+                counts["errors"] += 1
                 continue
 
         rsi_val = rsi_value(candles, int(s.get("rsi_period", 14)))
-        pos = broker.positions.get(a["name"])
+        rsi_text = f"{rsi_val:.1f}" if rsi_val is not None else "n/a"
+        pos = broker.positions.get(name)
 
         if pos and pos.qty > 0:
             reason = exit_reason(rsi_val, bid, pos.avg_cost, s)
             if reason:
-                res = broker.sell(a["name"], pos.qty, bid, step=step, precision=prec)
+                res = broker.sell(name, pos.qty, bid, step=step, precision=prec)
                 if res["ok"]:
-                    msg = (f"  ð» SELL ALL {a['name']} ({reason}) @ â¹{res['price']:,.2f}"
-                           f" x {res['qty']:.8f} â â¹{res['notional']:,.2f}"
-                           f" (fee â¹{res['fee']:.2f}, TDS â¹{res['tds']:.2f})")
-                    print(msg) if verbose else None
-                else:
-                    print(f"  {a['name']}: sell failed â {res['reason']}") if verbose else None
-            else:
-                pnl_pct = (bid / pos.avg_cost - 1) * 100 if pos.avg_cost else 0.0
-                if verbose:
-                    print(f"  {a['name']}: HOLD {pos.qty:.8f} @ â¹{pos.avg_cost:,.2f} "
-                          f"(now â¹{bid:,.2f}, {pnl_pct:+.1f}%, RSI {rsi_val:.1f})")
-        elif pos is None or pos.qty <= 0:
-            if entry_signal(rsi_val, s):
-                amount = position_amount(broker.cash, s)
-                if amount < float(s.get("min_buy_inr", 500)):
-                    print(f"  {a['name']}: BUY condition MET (RSI {rsi_val:.1f} â¤ "
-                          f"{s.get('entry_rsi')}) but â¹{amount:,.0f} < min_buy_inr â "
-                          f"top up the paper cash or lower min_buy_inr.") if verbose else None
-                    continue
-                res = broker.buy(a["name"], amount, ask, step=step, precision=prec,
-                                 min_notional=min_notional)
-                if res["ok"]:
+                    counts["sold"] += 1
                     if verbose:
-                        print(f"  ð¢ BUY {a['name']} â¹{res['notional']:,.2f} @ â¹{res['price']:,.2f}"
-                              f" x {res['qty']:.8f} (fee â¹{res['fee']:.2f}) | RSI {rsi_val:.1f} â¤ "
-                              f"{s.get('entry_rsi')} â opened, watching for exit")
+                        print(f"  SELL ALL {name} ({reason}) @ Rs.{res['price']:,.2f}"
+                              f" x {res['qty']:.8f} -> Rs.{res['notional']:,.2f}"
+                              f" (fee Rs.{res['fee']:.2f}, TDS Rs.{res['tds']:.2f})")
                 else:
-                    print(f"  {a['name']}: BUY skipped â {res['reason']}") if verbose else None
+                    counts["errors"] += 1
+                    if verbose:
+                        print(f"  {name}: sell failed - {res['reason']}")
             else:
+                counts["held"] += 1
+                if show_all:
+                    pnl_pct = (bid / pos.avg_cost - 1) * 100 if pos.avg_cost else 0.0
+                    print(f"  {name}: HOLD {pos.qty:.8f} @ Rs.{pos.avg_cost:,.2f} "
+                          f"(now Rs.{bid:,.2f}, {pnl_pct:+.1f}%, RSI {rsi_text})")
+            continue
+
+        if entry_signal(rsi_val, s):
+            amount = position_amount(broker.cash, s)
+            if amount < float(s.get("min_buy_inr", 500)):
+                counts["low_cash"] += 1
+                if show_all:
+                    print(f"  {name}: BUY condition MET (RSI {rsi_text} <= "
+                          f"{s.get('entry_rsi')}) but Rs.{amount:,.0f} < min_buy_inr - "
+                          f"top up paper cash or lower min_buy_inr.")
+                continue
+            res = broker.buy(name, amount, ask, step=step, precision=prec,
+                             min_notional=min_notional)
+            if res["ok"]:
+                counts["bought"] += 1
                 if verbose:
-                    print(f"  {a['name']}: no position, RSI {rsi_val:.1f} â no entry "
-                          f"(need â¤ {s.get('entry_rsi')} to buy)")
+                    print(f"  BUY {name} Rs.{res['notional']:,.2f} @ Rs.{res['price']:,.2f}"
+                          f" x {res['qty']:.8f} (fee Rs.{res['fee']:.2f}) | "
+                          f"RSI {rsi_text} <= {s.get('entry_rsi')}")
+            else:
+                counts["errors"] += 1
+                if show_all:
+                    print(f"  {name}: BUY skipped - {res['reason']}")
+        else:
+            counts["no_entry"] += 1
+            if show_all:
+                print(f"  {name}: no position, RSI {rsi_text} - no entry "
+                      f"(need <= {s.get('entry_rsi')} to buy)")
+
+    if verbose and not show_all:
+        print(f"  summary: bought {counts['bought']}, sold {counts['sold']}, "
+              f"held {counts['held']}, no-entry {counts['no_entry']}, "
+              f"low-cash {counts['low_cash']}, errors {counts['errors']}")
     if verbose:
         print("Check done.")
 
@@ -735,10 +946,10 @@ def _simulate(cfg: dict, coin: CoinDCX, assets: list[dict],
 
 def run_backtest(cfg: dict, days: int | None = None, chart_path: str | None = None) -> dict:
     days = days or cfg["backtest"]["days"]
-    coin = CoinDCX(timeout=30)
+    coin = make_public_coin(cfg)
     assets = cfg["assets"]
 
-    print(f"Fetching {days} days of 1h candles from CoinDCX ...")
+    print(f"Fetching {days} days of 1h candles from CoinDCX for {len(assets)} assets ...")
     candles: dict[str, list[dict]] = {}
     for a in assets:
         try:
@@ -1341,37 +1552,67 @@ def _print_price_header():
 
 def cmd_status(cfg: dict, args) -> None:
     broker = make_broker(cfg)
+    cfg["assets"] = runtime_assets(cfg, broker)
     coin = make_coin(cfg)
     tickers = coin.tickers()
     prices = {}
-    _print_price_header()
+    rows = []
+    held_count = 0
     for a in cfg["assets"]:
         t = tickers.get(a["name"])
         price = float(t["last_price"]) if t else 0.0
         prices[a["name"]] = price
         pos = broker.positions.get(a["name"])
         if pos and pos.qty > 0:
+            held_count += 1
             pnl = pos.qty * (price - pos.avg_cost)
             pnl_pct = (price / pos.avg_cost - 1) * 100 if pos.avg_cost else 0.0
-            print(f"{a['name']:<8}{pos.qty:>14,.8f}{price:>16,.2f}{pos.qty * price:>14,.2f}"
-                  f"{pos.avg_cost:>14,.2f}{pnl:>+14,.2f}{pnl_pct:>+8.1f}%")
-        else:
-            print(f"{a['name']:<8}{'-':>14}{price:>16,.2f}{'-':>14}{'-':>14}{'-':>14}{'-':>9}")
+            rows.append((a["name"], pos.qty, price, pos.qty * price,
+                         pos.avg_cost, pnl, pnl_pct))
+
+    if rows and len(cfg["assets"]) <= 20:
+        _print_price_header()
+        for a in cfg["assets"]:
+            t = tickers.get(a["name"])
+            price = float(t["last_price"]) if t else 0.0
+            pos = broker.positions.get(a["name"])
+            if pos and pos.qty > 0:
+                pnl = pos.qty * (price - pos.avg_cost)
+                pnl_pct = (price / pos.avg_cost - 1) * 100 if pos.avg_cost else 0.0
+                print(f"{a['name']:<8}{pos.qty:>14,.8f}{price:>16,.2f}{pos.qty * price:>14,.2f}"
+                      f"{pos.avg_cost:>14,.2f}{pnl:>+14,.2f}{pnl_pct:>+8.1f}%")
+            else:
+                print(f"{a['name']:<8}{'-':>14}{price:>16,.2f}{'-':>14}{'-':>14}{'-':>14}{'-':>9}")
+    else:
+        print(f"Watching {len(cfg['assets'])} assets; {held_count} currently held.")
+        if rows:
+            _print_price_header()
+            for name, qty, price, value, avg, pnl, pnl_pct in rows:
+                print(f"{name:<8}{qty:>14,.8f}{price:>16,.2f}{value:>14,.2f}"
+                      f"{avg:>14,.2f}{pnl:>+14,.2f}{pnl_pct:>+8.1f}%")
+
     mv = broker.market_value(prices)
-    print(f"\nCash: â¹{broker.cash:,.2f} | Holdings value: â¹{mv:,.2f} | "
-          f"Total: â¹{broker.cash + mv:,.2f}")
-    print(f"Unrealized P&L: â¹{broker.unrealized_pnl(prices):+,.2f} | "
-          f"Realized P&L: â¹{broker.realized_pnl:+,.2f}")
+    print(f"\nCash: Rs.{broker.cash:,.2f} | Holdings value: Rs.{mv:,.2f} | "
+          f"Total: Rs.{broker.cash + mv:,.2f}")
+    print(f"Unrealized P&L: Rs.{broker.unrealized_pnl(prices):+,.2f} | "
+          f"Realized P&L: Rs.{broker.realized_pnl:+,.2f}")
     tax = broker.tax_summary()
     if tax["sell_count"]:
         print(f"\n--- Tax (paper estimate) ---\n"
               f"Sells logged: {tax['sell_count']}\n"
-              f"Realized P&L total: â¹{tax['total_realized']:,.2f}\n"
-              f"Gross gains (taxable @30%): â¹{tax['gross_gains']:,.2f}\n"
-              f"Gross losses (NOT offsettable in India): â¹{tax['gross_losses']:,.2f}\n"
-              f"Estimated tax on gains: â¹{tax['estimated_tax_30pct']:,.2f}\n"
-              f"1% TDS withheld (claim as credit): â¹{tax['tds_credit']:,.2f}")
-    print("(See tax_notes.md â this is an estimate, not tax advice.)")
+              f"Realized P&L total: Rs.{tax['total_realized']:,.2f}\n"
+              f"Gross gains (taxable @30%): Rs.{tax['gross_gains']:,.2f}\n"
+              f"Gross losses (NOT offsettable in India): Rs.{tax['gross_losses']:,.2f}\n"
+              f"Estimated tax on gains: Rs.{tax['estimated_tax_30pct']:,.2f}\n"
+              f"1% TDS withheld (claim as credit): Rs.{tax['tds_credit']:,.2f}")
+    print("(See tax_notes.md - this is an estimate, not tax advice.)")
+
+
+def cmd_assets(cfg: dict, args) -> None:
+    assets = cfg["assets"]
+    print(f"Resolved {len(assets)} assets:")
+    for a in assets:
+        print(f"  {a['name']:<16} {a['pair']}")
 
 
 def cmd_check(cfg: dict, args) -> None:
@@ -1422,49 +1663,76 @@ def cmd_sweep_status(cfg: dict, args) -> None:
 def main():
     parser = argparse.ArgumentParser(description="CoinDCX signal trading bot (paper)")
     parser.add_argument("--config", default=str(HERE / "config.yaml"))
+    global_parser = argparse.ArgumentParser(add_help=False)
+    global_parser.add_argument(
+        "--all-assets", action="store_true",
+        help="ignore the configured asset list and discover all active INR spot markets")
+
     sub = parser.add_subparsers(dest="command", required=True)
 
-    p = sub.add_parser("init", help="create/reset paper portfolio")
+    p = sub.add_parser("init", parents=[global_parser], help="create/reset paper portfolio")
     p.add_argument("--yes", action="store_true")
     p.set_defaults(func=cmd_init)
 
-    p = sub.add_parser("status", help="portfolio & tax view")
+    p = sub.add_parser("status", parents=[global_parser], help="portfolio & tax view")
     p.set_defaults(func=cmd_status)
 
-    p = sub.add_parser("check", help="run one signal-check cycle")
+    p = sub.add_parser("assets", parents=[global_parser],
+                       help="list the assets this config will check/trade")
+    p.set_defaults(func=cmd_assets)
+
+    p = sub.add_parser("check", parents=[global_parser], help="run one signal-check cycle")
     p.set_defaults(func=cmd_check)
 
-    p = sub.add_parser("run", help="run forever (hourly checker)")
+    p = sub.add_parser("run", parents=[global_parser], help="run forever (hourly checker)")
     p.set_defaults(func=cmd_run)
 
-    p = sub.add_parser("reset", help="delete paper state")
+    p = sub.add_parser("reset", parents=[global_parser], help="delete paper state")
     p.add_argument("--yes", action="store_true")
     p.set_defaults(func=cmd_reset)
 
-    p = sub.add_parser("backtest", help="backtest signal strategy on 1h data")
+    p = sub.add_parser("backtest", parents=[global_parser],
+                       help="backtest signal strategy on 1h data")
     p.add_argument("--days", type=int, default=None)
     p.add_argument("--chart", default=None)
     p.set_defaults(func=cmd_backtest)
 
-    p = sub.add_parser("sweep", help="100-account strategy tournament (history)")
+    p = sub.add_parser("sweep", parents=[global_parser],
+                       help="100-account strategy tournament (history)")
     p.add_argument("--days", type=int, default=None)
     p.add_argument("--count", type=int, default=None)
     p.add_argument("--chart", default=None)
     p.set_defaults(func=cmd_sweep)
 
-    p = sub.add_parser("sweep-live", help="run all demo accounts live (paper)")
+    p = sub.add_parser("sweep-live", parents=[global_parser],
+                       help="run all demo accounts live (paper)")
     p.add_argument("--top", type=int, default=None, help="only first N accounts")
     p.add_argument("--rank-only", action="store_true", help="no trading, just ranking")
     p.add_argument("--reset", action="store_true",
-                   help="wipe all demo accounts & restart at â¹10,000 each")
+                   help="wipe all demo accounts & restart at Rs.10,000 each")
     p.set_defaults(func=cmd_sweep_live)
 
-    p = sub.add_parser("sweep-status", help="live ranking of demo accounts")
+    p = sub.add_parser("sweep-status", parents=[global_parser],
+                       help="live ranking of demo accounts")
     p.set_defaults(func=cmd_sweep_status)
 
     args = parser.parse_args()
-    cfg = load_cfg(Path(args.config))
-    args.func(cfg, args)
+    try:
+        cfg = load_cfg(Path(args.config))
+
+        extra_state_dirs = []
+        if args.command in {"sweep-live", "sweep-status"} and ACCOUNTS_DIR.exists():
+            extra_state_dirs = [p for p in ACCOUNTS_DIR.iterdir() if p.is_dir()]
+        cfg["assets"] = resolve_assets(cfg, force_all=args.all_assets,
+                                       extra_state_dirs=extra_state_dirs)
+
+        args.func(cfg, args)
+    except CoinDCXError as exc:
+        print(f"CoinDCX request failed: {exc}", file=sys.stderr)
+        raise SystemExit(1) from exc
+    except (OSError, ValueError, yaml.YAMLError) as exc:
+        print(f"Error: {exc}", file=sys.stderr)
+        raise SystemExit(1) from exc
 
 
 if __name__ == "__main__":

@@ -15,14 +15,25 @@ tds_rate: 0.01             # 1% TDS under Section 194S
 
 check_interval_min: 60     # in `run` mode, how often to re-check (minutes)
 
+# Throttle public CoinDCX requests when scanning many markets. 0 disables it;
+# 0.15 means at most roughly 7 requests/second.
+public_request_interval_sec: 0.15
+
 # --- Assets (INR spot pairs on CoinDCX) --------------------------------------
-assets:
-  - name: BTCINR
-    pair: I-BTC_INR
-  - name: ETHINR
-    pair: I-ETH_INR
-  - name: SOLINR
-    pair: I-SOL_INR
+# Use "auto" to discover every active INR spot market from CoinDCX at startup.
+# To return to the original small watchlist, replace "auto" with:
+#   - name: BTCINR
+#     pair: I-BTC_INR
+#   - name: ETHINR
+#     pair: I-ETH_INR
+#   - name: SOLINR
+#     pair: I-SOL_INR
+assets: auto
+
+asset_discovery:
+  enabled: false           # also set true to force discovery even if assets is a list
+  min_volume_inr: 0        # skip tiny/illiquid pairs, e.g. 100000 for ₹1L 24h turnover
+  max_assets: null         # null/0 = all discovered assets; e.g. 50 for top by turnover
 
 # --- Strategy: "RSI Swing" (condition-based, hourly) --------------------------
 # The bot checks hourly. It acts ONLY when a condition is met:
@@ -71,4 +82,3 @@ live:
   enabled: false
   api_key_env: COINDCX_API_KEY      # set these as environment variables
   api_secret_env: COINDCX_API_SECRET
-
