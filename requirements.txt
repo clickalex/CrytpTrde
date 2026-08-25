@@ -1,0 +1,6 @@
+# Core dependencies
+requests>=2.31
+PyYAML>=6.0
+
+# Optional (only needed for `backtest --chart`)
+# matplotlib>=3.8
