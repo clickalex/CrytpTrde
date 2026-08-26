@@ -1,5 +1,5 @@
-# Winner of the 200-account tournament (2026-08-26 05:30 UTC)
-# account acc_070 | e28_x72_tp3_sl3.0_p60 | return +6.66% | maxDD 3.7%
+# Winner of the 500-account tournament (2026-08-26 16:10 UTC)
+# account acc_399 | mom_e30_x85_tp8_sl5.0_p60_h720 | return +20.01% | maxDD 9.7%
 # Use:  python3 bot.py --config sweep/best_strategy.yaml check
 mode: paper
 initial_cash_inr: 50000
@@ -16,10 +16,10 @@ assets:
   pair: I-BTC_INR
 - name: ETHINR
   pair: I-ETH_INR
-- name: BNBINR
-  pair: I-BNB_INR
 - name: SOLINR
   pair: I-SOL_INR
+- name: BNBINR
+  pair: I-BNB_INR
 - name: USDTINR
   pair: I-USDT_INR
 - name: XRPINR
@@ -28,58 +28,56 @@ assets:
   pair: I-LINK_INR
 - name: TRUMPINR
   pair: I-TRUMP_INR
-- name: SUIINR
-  pair: I-SUI_INR
 - name: TRBINR
   pair: I-TRB_INR
-- name: ONDOINR
-  pair: I-ONDO_INR
-- name: NEARINR
-  pair: I-NEAR_INR
-- name: DOTINR
-  pair: I-DOT_INR
+- name: SUIINR
+  pair: I-SUI_INR
 - name: ICPINR
   pair: I-ICP_INR
-- name: ADAINR
-  pair: I-ADA_INR
-- name: RENDERINR
-  pair: I-RENDER_INR
-- name: DOGEINR
-  pair: I-DOGE_INR
-- name: TRXINR
-  pair: I-TRX_INR
+- name: NEARINR
+  pair: I-NEAR_INR
 - name: FARTCOININR
   pair: I-FARTCOIN_INR
-- name: APTINR
-  pair: I-APT_INR
+- name: ONDOINR
+  pair: I-ONDO_INR
+- name: RENDERINR
+  pair: I-RENDER_INR
+- name: DOTINR
+  pair: I-DOT_INR
+- name: TRXINR
+  pair: I-TRX_INR
+- name: ADAINR
+  pair: I-ADA_INR
+- name: DOGEINR
+  pair: I-DOGE_INR
 - name: FILINR
   pair: I-FIL_INR
-- name: ORCAINR
-  pair: I-ORCA_INR
-- name: ARBINR
-  pair: I-ARB_INR
+- name: APTINR
+  pair: I-APT_INR
 - name: GASINR
   pair: I-GAS_INR
-- name: CAKEINR
-  pair: I-CAKE_INR
 - name: JUPINR
   pair: I-JUP_INR
 - name: RIFINR
   pair: I-RIF_INR
-- name: POPCATINR
-  pair: I-POPCAT_INR
-- name: APEINR
-  pair: I-APE_INR
-- name: PUMPINR
-  pair: I-PUMP_INR
+- name: CAKEINR
+  pair: I-CAKE_INR
+- name: ARBINR
+  pair: I-ARB_INR
 - name: SUSHIINR
   pair: I-SUSHI_INR
 - name: PYTHINR
   pair: I-PYTH_INR
-- name: PENGUINR
-  pair: I-PENGU_INR
+- name: ORCAINR
+  pair: I-ORCA_INR
+- name: PUMPINR
+  pair: I-PUMP_INR
+- name: POPCATINR
+  pair: I-POPCAT_INR
 - name: SEIINR
   pair: I-SEI_INR
+- name: APEINR
+  pair: I-APE_INR
 asset_discovery:
   enabled: false
   min_volume_inr: 1000000
@@ -87,11 +85,13 @@ asset_discovery:
   dipped_scan_pct: 8
   dipped_scan_max: 150
 strategy:
-  entry_rsi: 28
-  exit_rsi: 72
-  take_profit_pct: 3
-  stop_loss_pct: 3
+  entry_mode: momentum
+  entry_rsi: 30
+  exit_rsi: 85
+  take_profit_pct: 8
+  stop_loss_pct: 5
   position_size_pct: 60
+  max_hold_hours: 720
 backtest:
   days: 30
   start_cash_inr: 100000
@@ -99,10 +99,15 @@ backtest:
   slippage_bps: 5
   tds_rate: 0.01
 sweep:
-  accounts: 200
+  accounts: 500
   start_cash_inr: 10000
   days: 30
+  entry_mode:
+  - dip
+  - momentum
   entry_rsi:
+  - 15
+  - 18
   - 22
   - 25
   - 28
@@ -110,13 +115,17 @@ sweep:
   - 33
   - 36
   - 40
+  - 45
   exit_rsi:
+  - 60
   - 64
   - 68
   - 72
   - 76
   - 80
+  - 85
   take_profit_pct:
+  - 2
   - 3
   - 4
   - 5
@@ -124,17 +133,27 @@ sweep:
   - 8
   - 10
   - 12
+  - 15
   stop_loss_pct:
   - 1
   - 1.5
   - 2
   - 3
+  - 5
   position_size_pct:
+  - 10
   - 20
   - 30
   - 40
   - 50
   - 60
+  - 80
+  max_hold_hours:
+  - 0
+  - 72
+  - 168
+  - 336
+  - 720
 live:
   enabled: false
   api_key_env: COINDCX_API_KEY
