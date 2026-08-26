@@ -11,13 +11,17 @@ Stubs CoinDCX endpoints with realistic latency and checks:
   7. adaptive rate backoff: pace triples after a failed request
   8. dead markets are skipped without orderbook/ticker-refetch fallbacks
   9. progress lines appear on long scans
+  10. run_cycle smoke: oversold candles -> BUY, rally -> take-profit SELL
+  11. PaperBroker round-trip: fee/TDS/PnL accounting, persistence, rejections
 """
 import io
 import sys
+import tempfile
 import threading
 import time
 import urllib.error
 from contextlib import redirect_stdout
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -28,12 +32,15 @@ LAT = 0.30  # simulated network round-trip per request
 
 
 class FakeResp:
-    def __init__(self, payload):
+    def __init__(self, payload, status=200):
         self._payload = payload
+        self.status_code = status
         self.headers = {}
 
     def raise_for_status(self):
-        pass
+        if self.status_code >= 400:
+            raise requests_mod.exceptions.HTTPError(
+                f"{self.status_code} error", response=self)
 
     def json(self):
         return self._payload
@@ -211,6 +218,12 @@ def test_config_caps_flow():
     assert cfg["asset_discovery"]["min_volume_inr"] == 1000000
     assert cfg["asset_discovery"]["dipped_scan_pct"] == 8
     assert cfg["network"]["fetch_workers"] == 8
+    # multi-strategy tournament config: 500 bots, two families, hold periods
+    sweep = cfg["sweep"]
+    assert sweep["accounts"] == 500
+    assert sweep["entry_mode"] == ["dip", "momentum"]
+    assert cfg["strategy"]["entry_mode"] == "dip"
+    assert {0, 168, 720} <= set(sweep["max_hold_hours"])
 
     fake = FakeCoin(12)
     for i, t in enumerate(fake._tk.values()):  # turnover ~ (100+i)*50k = Rs.50L+
@@ -239,11 +252,14 @@ def test_dipped_scan():
     coin = FakeCoin(12)
     # A3 crashed -18% (biggest drop), A7 near its 24h low, others flat
     coin._tk["A3INR"]["change_24_hour"] = "-18.0"
-    coin._tk["A7INR"]["low"] = str(100.0 + 7)  # last == low -> within 2%
+    coin._tk["A7INR"]["low"] = str(100.0 + 7)  # last == low, but high 200 ->
+    #                                            a real 24h range -> within 2%
+    # A5 traded dead-flat all day (low == high == last): stale book, NOT a dip
+    coin._tk["A5INR"].update({"low": "105.0", "high": "105.0"})
     top3 = {"A9INR", "A10INR", "A11INR"}
     dipped = coin.dipped_inr_markets(dip_pct=8, exclude=top3)
     got = [a["name"] for a in dipped]
-    assert got == ["A3INR", "A7INR"], got  # biggest drop first
+    assert got == ["A3INR", "A7INR"], got  # biggest drop first; A5 excluded
     # cap
     dipped_cap = coin.dipped_inr_markets(dip_pct=8, exclude=top3, limit=1)
     assert [a["name"] for a in dipped_cap] == ["A3INR"]
@@ -305,8 +321,31 @@ def test_adaptive_backoff():
         coin._session.get = orig_get
     assert time.monotonic() < coin._penalty_until, "penalty window should be active"
     assert slow_gap >= interval * 3 * 0.8, f"post-error gap {slow_gap:.3f}s too small"
+
+    # deterministic client errors (4xx, e.g. a delisted pair) must fail fast:
+    # a single attempt, no retry loop, and NO global penalty - they say
+    # nothing about server health (unlike 429/5xx/network failures)
+    nf = {"n": 0}
+
+    def notfound_get(url, params=None, timeout=0):
+        nf["n"] += 1
+        return FakeResp({"error": "not found"}, status=404)
+
+    penalty_before = coin._penalty_until
+    coin._session.get = notfound_get
+    try:
+        try:
+            coin.candles("I-GONE_INR")
+            raise AssertionError("404 must surface as CoinDCXError")
+        except cb.CoinDCXError:
+            pass
+    finally:
+        coin._session.get = orig_get
+    assert nf["n"] == 1, f"404 was attempted {nf['n']}x - must fail fast"
+    assert coin._penalty_until == penalty_before, "404 must not penalise the global pace"
     print(f"  adaptive backoff: after a failure, next request delayed "
-          f"{slow_gap*1000:.0f}ms (3x {interval*1000:.0f}ms cap)")
+          f"{slow_gap*1000:.0f}ms (3x {interval*1000:.0f}ms cap); "
+          f"4xx fails fast with no penalty")
 
 
 def test_dead_market_skipped():
@@ -346,11 +385,197 @@ def test_progress_lines():
     print("  progress: 'market data: 25/60 fetched ...' shown on long scans")
 
 
+class CrashCoin(FakeCoin):
+    """FakeCoin whose candles are in a steady decline -> RSI ~ 0 (oversold)."""
+
+    def candles(self, pair, interval="1h", start_ms=None, end_ms=None, limit=200):
+        with self._lock:
+            self.candle_calls += 1
+        time.sleep(LAT)
+        t0 = 1_700_000_000_000
+        return [{"open": 100.0 - k, "high": 100.0 - k, "low": 100.0 - k,
+                 "close": 100.0 - k, "volume": 1.0, "time": t0 + k * 3_600_000}
+                for k in range(50)]
+
+
+def test_run_cycle_smoke():
+    """Full signal-check cycle offline: fresh paper state -> BUY on oversold,
+    price rally -> SELL via take-profit. Exercises ensure_initialised,
+    runtime_assets, build_market_cache, run_cycle and the paper broker."""
+    with tempfile.TemporaryDirectory() as td:
+        cfg = {"initial_cash_inr": 100000, "fee_rate": 0.001, "slippage_bps": 5,
+               "tds_rate": 0.01, "simulate_tds": True,
+               "network": {"fetch_workers": 4},
+               "assets": [{"name": "A0INR", "pair": "I-A0_INR"},
+                          {"name": "A1INR", "pair": "I-A1_INR"}],
+               "strategy": {"timeframe": "1h", "signal_lookback": 50,
+                            "rsi_period": 14, "entry_rsi": 30, "exit_rsi": 72,
+                            "take_profit_pct": 1, "stop_loss_pct": 0,
+                            "position_size_pct": 40, "min_buy_inr": 500}}
+        coin = CrashCoin(2)
+        broker = cb.make_broker(cfg, state_dir=Path(td))
+        start_cash = broker.cash
+
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            cb.run_cycle(cfg, broker, coin)          # crashing market -> buys
+        out1 = buf.getvalue()
+        assert "Signal check" in out1 and "Check done." in out1, out1
+        assert "BUY A0INR" in out1 and "BUY A1INR" in out1, out1
+        assert set(broker.positions) == {"A0INR", "A1INR"}, broker.positions
+        assert broker.cash < start_cash * 0.5        # 2 x 40% deployed
+        assert broker.file.exists(), "portfolio.json must be persisted"
+        trades = broker.read_trades()
+        assert [t["side"] for t in trades] == ["buy", "buy"], trades
+        cash_after_buys = broker.cash
+
+        # market rallies 50% -> take-profit (avg cost +1%) fires on the next check
+        for t in coin._tk.values():
+            t["bid"] = t["ask"] = t["last_price"] = "150.0"
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            cb.run_cycle(cfg, broker, coin)
+        out2 = buf.getvalue()
+        assert "SELL ALL A0INR (take_profit)" in out2, out2
+        assert "SELL ALL A1INR (take_profit)" in out2, out2
+        assert broker.positions == {}, "take-profit must flatten positions"
+        assert broker.cash > cash_after_buys, "selling at +50% must return cash"
+
+        rows = broker.read_trades()
+        assert [r["side"] for r in rows] == ["buy", "buy", "sell", "sell"], rows
+        sells = [r for r in rows if r["side"] == "sell"]
+        assert all(float(r["tds_inr"]) > 0 for r in sells), "1% TDS must be simulated on sells"
+        assert broker.realized_pnl != 0.0
+        # broker reloads its own state faithfully
+        again = cb.make_broker(cfg, state_dir=Path(td))
+        assert again.cash == broker.cash and again.realized_pnl == broker.realized_pnl
+
+        # week/month-holding bots: max_hold_hours exits a stale position on
+        # schedule ("hold_timeout") even when tp/sl/exit-RSI never fire
+        hold_cfg = {"initial_cash_inr": 50000, "fee_rate": 0.001, "slippage_bps": 5,
+                    "tds_rate": 0.01, "simulate_tds": True,
+                    "network": {"fetch_workers": 1},
+                    "assets": [{"name": "A0INR", "pair": "I-A0_INR"}],
+                    "strategy": {"timeframe": "1h", "signal_lookback": 50,
+                                 "rsi_period": 14, "entry_rsi": 30, "exit_rsi": 999,
+                                 "take_profit_pct": 0, "stop_loss_pct": 0,
+                                 "max_hold_hours": 1, "position_size_pct": 40,
+                                 "min_buy_inr": 500}}
+        coin3 = CrashCoin(1)
+        broker3 = cb.make_broker(hold_cfg, state_dir=Path(td) / "hold")
+        assert broker3.buy("A0INR", 5000.0, ask=100.0, step=1e-6,
+                           precision=6, min_notional=100.0)["ok"]
+        two_hours_ago = (datetime.now(timezone.utc) - timedelta(hours=2)).isoformat(timespec="seconds")
+        broker3.positions["A0INR"].last_buy_at = two_hours_ago
+        broker3.save()
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            cb.run_cycle(hold_cfg, broker3, coin3)
+        assert "SELL ALL A0INR (hold_timeout)" in buf.getvalue(), buf.getvalue()
+
+        # control: same stale position WITHOUT max_hold_hours -> no time exit
+        keep_cfg = {**hold_cfg, "strategy": {**hold_cfg["strategy"],
+                                             "max_hold_hours": 0}}
+        broker4 = cb.make_broker(keep_cfg, state_dir=Path(td) / "keep")
+        assert broker4.buy("A0INR", 5000.0, ask=100.0, step=1e-6,
+                           precision=6, min_notional=100.0)["ok"]
+        broker4.positions["A0INR"].last_buy_at = two_hours_ago
+        broker4.save()
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            cb.run_cycle(keep_cfg, broker4, coin3)
+        assert "SELL ALL" not in buf.getvalue(), "0 must disable the hold timeout"
+
+        # second strategy family: momentum bots buy STRENGTH (RSI >= entry),
+        # dip bots ignore the same market - flat candles give RSI 100
+        flat = FakeCoin(1)
+        mom_cfg = {"initial_cash_inr": 50000, "fee_rate": 0.001, "slippage_bps": 5,
+                   "tds_rate": 0.01, "simulate_tds": True,
+                   "network": {"fetch_workers": 1},
+                   "assets": [{"name": "A0INR", "pair": "I-A0_INR"}],
+                   "strategy": {"entry_mode": "momentum", "timeframe": "1h",
+                                "signal_lookback": 50, "rsi_period": 14,
+                                "entry_rsi": 70, "exit_rsi": 999,
+                                "take_profit_pct": 0, "stop_loss_pct": 0,
+                                "max_hold_hours": 0, "position_size_pct": 40,
+                                "min_buy_inr": 500}}
+        broker5 = cb.make_broker(mom_cfg, state_dir=Path(td) / "mom")
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            cb.run_cycle(mom_cfg, broker5, flat)
+        assert "BUY A0INR" in buf.getvalue(), "momentum must buy RSI 100 >= 70"
+        dip_cfg = {**mom_cfg, "strategy": {**mom_cfg["strategy"],
+                                           "entry_mode": "dip", "entry_rsi": 30}}
+        broker6 = cb.make_broker(dip_cfg, state_dir=Path(td) / "dip")
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            cb.run_cycle(dip_cfg, broker6, flat)
+        assert "BUY A0INR" not in buf.getvalue(), "dip bot must not buy RSI 100 > 30"
+    print("  run_cycle smoke: oversold -> 2 BUYs, +50% rally -> take-profit SELLs, "
+          "state persisted; week/month hold_timeout exits fire, 0 keeps holding")
+
+
+def test_paper_broker_roundtrip():
+    """Buy -> partial sell -> full sell with fee/TDS accounting, persistence
+    and the rejection paths (min notional, insufficient cash, unknown asset)."""
+    with tempfile.TemporaryDirectory() as td:
+        b = cb.PaperBroker(state_dir=Path(td), cash=100000.0, fee_rate=0.001,
+                           slippage_bps=5, tds_rate=0.01, simulate_tds=True)
+
+        r1 = b.buy("A0INR", 20000.0, ask=100.0, step=1e-6, precision=6,
+                   min_notional=100.0)
+        assert r1["ok"], r1
+        assert r1["notional"] == r1["qty"] * r1["price"]
+        assert abs(r1["fee"] - r1["notional"] * 0.001) < 1e-6
+        assert r1["notional"] + r1["fee"] <= 20000.0, "fee must fit in the amount"
+        assert r1["notional"] + r1["fee"] > 19999.0, "O(1) fee-fit must not over-trim"
+        cash_after_buy = 100000.0 - r1["notional"] - r1["fee"]
+        assert abs(b.cash - cash_after_buy) < 1e-6
+        pos = b.positions["A0INR"]
+        assert abs(pos.qty - r1["qty"]) < 1e-9
+        assert abs(pos.avg_cost - (r1["notional"] + r1["fee"]) / r1["qty"]) < 1e-9
+
+        # partial sell at a profit
+        half = r1["qty"] / 2
+        r2 = b.sell("A0INR", half, bid=120.0, step=1e-6, precision=6)
+        assert r2["ok"], r2
+        assert r2["tds"] == r2["notional"] * 0.01
+        cost_half = half * pos.avg_cost
+        assert abs(r2["realized_pnl"] - ((r2["notional"] - r2["fee"]) - cost_half)) < 1e-6
+        assert "A0INR" in b.positions and b.positions["A0INR"].qty < r1["qty"]
+
+        # full exit
+        r3 = b.sell("A0INR", b.positions["A0INR"].qty, bid=110.0,
+                    step=1e-6, precision=6)
+        assert r3["ok"] and "A0INR" not in b.positions
+        tds_total = r2["tds"] + r3["tds"]
+        # cash conservation: cash delta == realized pnl minus the TDS skimmed
+        assert abs((b.cash - 100000.0) - (b.realized_pnl - tds_total)) < 1e-6
+        assert b.realized_pnl > 0, "selling 100@->120/110 must realize a profit"
+
+        # rejections
+        bad = b.buy("A1INR", 50.0, ask=100.0, step=1e-6, precision=6,
+                    min_notional=100.0)
+        assert not bad["ok"] and "min notional" in bad["reason"], bad
+        broke = b.buy("A1INR", 10_000_000.0, ask=100.0, step=1e-6, precision=6)
+        assert not broke["ok"] and "insufficient cash" in broke["reason"], broke
+        ghost = b.sell("NOPE", 1.0, bid=100.0, step=1e-6, precision=6)
+        assert not ghost["ok"] and "no such position" in ghost["reason"], ghost
+
+        # persistence round-trip
+        b2 = cb.PaperBroker(state_dir=Path(td), cash=0.0, fee_rate=0.001,
+                            slippage_bps=5, tds_rate=0.01, simulate_tds=True)
+        assert b2.cash == b.cash and b2.realized_pnl == b.realized_pnl
+        assert b2.positions == {} and len(b2.read_trades()) == 3
+    print("  paper broker: buy/partial-sell/exit accounting exact, "
+          "rejections + persistence ok")
+
+
 if __name__ == "__main__":
     tests = [test_build_market_cache, test_rate_limiter_global_pacing,
              test_fetch_history, test_discovery_caps, test_config_caps_flow,
              test_dipped_scan, test_adaptive_backoff, test_dead_market_skipped,
-             test_progress_lines]
+             test_progress_lines, test_run_cycle_smoke, test_paper_broker_roundtrip]
     for t in tests:
         print(f"* {t.__name__}")
         t()

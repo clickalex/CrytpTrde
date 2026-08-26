@@ -1,13 +1,28 @@
 #!/usr/bin/env python3
-# cryptobot.py - CryptoBot for CoinDCX (India) - SINGLE-FILE build.
-# Generated from the modular sources by build_single_file.py; edit the modules
-# and re-run that script, or edit this file directly (it is self-contained).
+# cryptobot.py — CryptoBot for CoinDCX (India) — SINGLE-FILE build.
+#
+# A paper-trading bot that scans INR spot markets on CoinDCX, computes hourly
+# RSI signals, and fills a simulated portfolio (fees + slippage + 1% TDS).
+# Nothing here places real orders unless you explicitly enable live mode.
 #
 # Command examples:
-#   python3 cryptobot.py status           live portfolio view
-#   python3 cryptobot.py check --force    run one DCA buy cycle now
-#   python3 cryptobot.py backtest         Smart DCA vs plain DCA on real data
-# See README.md / CLOUD_SETUP.md for the full guide.
+#   python3 cryptobot.py status           portfolio & tax view
+#   python3 cryptobot.py check            run one RSI signal-check cycle now
+#   python3 cryptobot.py run              hourly checker loop (daemon)
+#   python3 cryptobot.py assets           list the discovered/resolved universe
+#   python3 cryptobot.py backtest         RSI swing vs HODL on real 1h data
+#   python3 cryptobot.py sweep            200-account strategy tournament
+#   python3 cryptobot.py sweep-live       tournament on live prices (paper)
+# See README.md for the full guide and config.yaml for every knob.
+#
+# File layout (sections were once separate modules; kept as markers):
+#   indicators.py  - RSI / SMA math
+#   coindcx.py     - API client: global rate limiting, retries, discovery
+#   broker.py      - PaperBroker: fills, fee/TDS accounting, persistence
+#   engine.py      - market-data cache + run_cycle (the live decision loop)
+#   backtest.py    - historical replay (_simulate) + HODL benchmark
+#   sweep.py       - strategy grid, tournament sim, live tournament
+#   bot.py         - CLI commands and main()
 #
 # DISCLAIMER: educational software, not financial advice.
 import argparse
@@ -19,14 +34,13 @@ import itertools
 import json
 import math
 import os
-import re
 import shutil
 import sys
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
-from dataclasses import dataclass, field
-from datetime import datetime, timedelta, timezone
+from dataclasses import dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 import requests
@@ -37,7 +51,13 @@ import yaml
 # indicators.py
 # =============================================================================
 def rsi(closes: list[float], period: int = 14) -> float | None:
-    """Wilder's RSI. Returns None when there is not enough data."""
+    """Wilder's RSI. Returns None when there is not enough data.
+
+    RSI = 100 - 100/(1+RS), where RS = avg gain / avg loss over `period`
+    bars. Value is 0..100: high = overbought (recent bars mostly up),
+    low = oversold. The bot BUYS oversold dips (RSI <= entry_rsi) and can
+    exit overbought holds (RSI >= exit_rsi).
+    """
     if len(closes) < period + 1:
         return None
     deltas = [closes[i] - closes[i - 1] for i in range(1, len(closes))]
@@ -90,6 +110,7 @@ def rsi_series(closes: list[float], period: int = 14) -> list[float | None]:
 
 
 def sma(values: list[float], period: int) -> float | None:
+    """Simple moving average of the last `period` values (None if too short)."""
     if len(values) < period:
         return None
     return sum(values[-period:]) / period
@@ -104,13 +125,55 @@ def rsi_value(candles: list[dict], period: int = 14) -> float | None:
 
 
 def entry_signal(rsi_val: float | None, cfg: dict) -> bool:
-    """Buy when hourly RSI is oversold (dip) â 'condition met' for entries."""
-    return rsi_val is not None and rsi_val <= float(cfg.get("entry_rsi", 30))
+    """Entry gate for the two strategy families (`entry_mode`):
+
+      dip      (default) - buy WEAKNESS:  RSI <= entry_rsi (oversold dip)
+      momentum           - buy STRENGTH:  RSI >= entry_rsi (breakout/strong)
+
+    `entry_rsi` means the opposite threshold in the two families (30-ish for
+    dip bots, 55-70 for momentum bots), which is why the sweep grid carries
+    its own entry_rsi list covering both. Used identically by run_cycle,
+    _simulate and _sim_account, so backtests always match live behaviour.
+    """
+    if rsi_val is None:
+        return False
+    mode = str(cfg.get("entry_mode", "dip") or "dip").lower()
+    entry = float(cfg.get("entry_rsi", 30))
+    if mode == "momentum":
+        return rsi_val >= entry
+    return rsi_val <= entry
+
+
+def position_hold_hours(pos: "Position", now: datetime | None = None) -> float | None:
+    """Hours since the position's last buy (drives max_hold_hours exits).
+
+    Returns None when the entry time is unknown (pre-existing state without
+    a timestamp) - those positions are never timed out, they still exit via
+    take-profit / stop-loss / RSI.
+    """
+    if not pos or not pos.last_buy_at:
+        return None
+    try:
+        t0 = datetime.fromisoformat(str(pos.last_buy_at))
+    except ValueError:
+        return None
+    if t0.tzinfo is None:
+        t0 = t0.replace(tzinfo=timezone.utc)
+    now = now or datetime.now(timezone.utc)
+    return max(0.0, (now - t0).total_seconds() / 3600.0)
 
 
 def exit_reason(rsi_val: float | None, price: float, avg_cost: float,
-                cfg: dict) -> str | None:
-    """Which exit condition is met, or None if we keep holding."""
+                cfg: dict, held_hours: float | None = None) -> str | None:
+    """Which exit condition is met, or None if we keep holding.
+
+    Priority: take-profit, stop-loss, hold_timeout, then the opportunistic
+    RSI exit. `hold_timeout` fires when the position has been held at least
+    `max_hold_hours` (0 disables) - that is what the week-holding (168h) and
+    month-holding (720h) strategies use to realize on a schedule. Callers
+    that don't track entry time pass held_hours=None and simply never time
+    out.
+    """
     if avg_cost <= 0 or price <= 0:
         return None
     tp = float(cfg.get("take_profit_pct", 0) or 0)
@@ -119,6 +182,9 @@ def exit_reason(rsi_val: float | None, price: float, avg_cost: float,
         return "take_profit"
     if sl > 0 and price <= avg_cost * (1 - sl / 100):
         return "stop_loss"
+    max_hold = float(cfg.get("max_hold_hours", 0) or 0)
+    if max_hold > 0 and held_hours is not None and held_hours >= max_hold:
+        return "hold_timeout"
     exit_rsi = float(cfg.get("exit_rsi", 999))
     if rsi_val is not None and rsi_val >= exit_rsi:
         return "rsi_overbought"
@@ -126,10 +192,15 @@ def exit_reason(rsi_val: float | None, price: float, avg_cost: float,
 
 
 def position_amount(cash: float, cfg: dict) -> float:
-    """How much INR to deploy on an entry: position_size_pct of available cash."""
+    """How much INR to deploy on an entry: position_size_pct of available cash.
+
+    Floored (not rounded) to the paisa so the amount can never exceed the
+    cash that is actually available - with position_size_pct 100 a rounded-up
+    amount made `notional + fee <= cash` a coin flip that silently skipped
+    buys in the sims and occasionally in the live broker."""
     pct = float(cfg.get("position_size_pct", 40))
-    amount = max(0.0, cash * pct / 100.0)
-    return round(amount, 2)
+    amount = math.floor(max(0.0, cash) * pct / 100.0 * 100.0) / 100.0
+    return amount
 
 
 # =============================================================================
@@ -144,6 +215,18 @@ class CoinDCXError(RuntimeError):
 
 
 class CoinDCX:
+    """CoinDCX REST client (thread-safe).
+
+    Public market data (tickers, market rules, candles, order books) needs no
+    auth; private_post/create_market_order are only used by live mode. All
+    requests go through _get_json, which (a) reserves a GLOBAL pacing slot so
+    request starts stay `request_interval` apart no matter how many worker
+    threads call concurrently, and (b) retries transient failures with
+    exponential backoff while backing the global pace off after failures
+    (adaptive backoff). Responses are cached per instance: tickers/markets
+    are fetched once and reused across the ~500-market scans.
+    """
+
     def __init__(self, api_key: str | None = None, api_secret: str | None = None,
                  timeout: int = 20, request_interval: float = 0.0):
         self.api_key = api_key
@@ -198,6 +281,17 @@ class CoinDCX:
 
     def _get_json(self, url: str, params: dict | None = None,
                   retries: int = 3):
+        """GET `url` and return the parsed JSON body.
+
+        Retry policy per call (default 3 attempts):
+          - success                           -> return data
+          - 4xx client error (except 408/429) -> fail IMMEDIATELY, no retry,
+            and no global penalty (a bad pair is our bug, not the server's)
+          - 429 / 5xx / network / bad JSON    -> note failure (global pace
+            slows to 1/3 for ~10s, longer if the server sends Retry-After),
+            then retry after a 2s/4s backoff
+        Raises CoinDCXError when every attempt failed.
+        """
         last_exc: Exception | None = None
         for attempt in range(1, max(1, retries) + 1):
             self._reserve_request_slot()
@@ -210,16 +304,27 @@ class CoinDCX:
                     raise CoinDCXError(
                         f"CoinDCX error {data.get('code')}: {data.get('message')}")
                 return data
+            except requests.HTTPError as exc:
+                last_exc = exc
+                resp_exc = getattr(exc, "response", None)
+                status = int(getattr(resp_exc, "status_code", 0) or 0)
+                if 400 <= status < 500 and status not in (408, 429):
+                    # Deterministic client error (bad pair, bad param, auth):
+                    # retrying cannot help and it says nothing about server
+                    # health, so fail fast without penalising the global pace.
+                    raise CoinDCXError(
+                        f"CoinDCX client error {status} on {url}: {exc}") from exc
+                retry_after = None
+                try:
+                    retry_after = float(resp_exc.headers.get("Retry-After"))
+                except (TypeError, ValueError, AttributeError):
+                    retry_after = None
+                self._note_failure(retry_after)
+                if attempt < retries:
+                    time.sleep(min(2 ** attempt, 5))
             except (requests.RequestException, ValueError) as exc:
                 last_exc = exc
-                retry_after = None
-                resp_exc = getattr(exc, "response", None)
-                if resp_exc is not None:
-                    try:
-                        retry_after = float(resp_exc.headers.get("Retry-After"))
-                    except (TypeError, ValueError, AttributeError):
-                        retry_after = None
-                self._note_failure(retry_after)
+                self._note_failure()
                 if attempt < retries:
                     time.sleep(min(2 ** attempt, 5))
         raise CoinDCXError(f"Network error hitting {url}: {last_exc}") from last_exc
@@ -309,7 +414,9 @@ class CoinDCX:
         list (already fetched for discovery) carries 24h change/high/low for
         EVERY market - so crashed coins outside the liquidity cap get caught
         at zero extra API cost. A market qualifies if its 24h change is
-        <= -dip_pct OR its last price is within 2% of the 24h low.
+        <= -dip_pct OR its last price is within 2% of the 24h low while
+        trading meaningfully (>= 2%) below the 24h high - flat/stale books
+        with low == high == last are NOT dips.
         """
         exclude = exclude or set()
         details = self.markets_details()
@@ -334,9 +441,15 @@ class CoinDCX:
                 chg = float(t.get("change_24_hour") or 0.0)
                 last = float(t.get("last_price") or 0.0)
                 low = float(t.get("low") or 0.0)
+                high = float(t.get("high") or 0.0)
             except (TypeError, ValueError):
                 continue
-            near_low = last > 0 and low > 0 and last <= low * 1.02
+            # "Near the low" only counts when the market actually has a 24h
+            # range and sits meaningfully below its high. A stale book that
+            # traded flat all day has low == high == last (0% change) and is
+            # NOT a dip - without the high check every flat market qualified.
+            off_high = high > 0 and last <= high * 0.98
+            near_low = last > 0 and low > 0 and off_high and last <= low * 1.02
             if chg <= -dip_pct or near_low:
                 out.append((chg, {"name": name, "pair": pair}))
 
@@ -433,9 +546,10 @@ def qty_from_inr(amount_inr: float, price: float, step: float, precision: int) -
     if price <= 0 or amount_inr <= 0:
         return 0.0
     raw = amount_inr / price
-    steps = int(raw / step) if step > 0 else int(raw * (10 ** precision))
-    qty = steps * step
-    return round(qty, precision)
+    if step > 0:
+        return round(int(raw / step) * step, precision)
+    # step-less market: floor on the precision grid instead
+    return round(int(raw * (10 ** precision)) / (10 ** precision), precision)
 
 
 def env_keys(api_key_env: str, api_secret_env: str) -> tuple[str | None, str | None]:
@@ -448,8 +562,8 @@ def env_keys(api_key_env: str, api_secret_env: str) -> tuple[str | None, str | N
 @dataclass
 class Position:
     qty: float = 0.0
-    avg_cost: float = 0.0          # per-unit cost basis (includes fees)
-    invested: float = 0.0          # total INR put in
+    avg_cost: float = 0.0          # per-unit cost basis, INCLUDING buy fee
+    invested: float = 0.0          # total INR put in (notional + fees)
     last_buy_at: str = ""
 
     def to_dict(self) -> dict:
@@ -466,6 +580,25 @@ class Position:
 
 
 class PaperBroker:
+    """Simulated exchange account (the bot's book-keeping core).
+
+    Fill model: market orders fill at ticker price +/- `slippage`, pay a
+    taker `fee_rate` on notional, and sells additionally deduct a 1% TDS
+    (Section 194S, simulated; it is a credit you get back at tax time, so it
+    is NOT counted into realized_pnl - see tax_summary).
+
+    Accounting invariants (verified by test_speed_fix.py):
+      cash        -= notional + fee              on buys
+      cash        += notional - fee - tds        on sells
+      avg_cost     = (notional + fee) / qty      fee included in cost basis
+      realized_pnl = (sell notional - fee) - qty * avg_cost
+      cash_delta over the account's life == realized_pnl - total TDS
+
+    State is one JSON file (atomic tmp+rename save) plus an append-only
+    trades.csv audit log, both inside `state_dir`. Run ONE bot process per
+    state dir - concurrent writers can clobber each other's portfolio.
+    """
+
     def __init__(self, state_dir: Path, cash: float, fee_rate: float,
                  slippage_bps: float, tds_rate: float = 0.01, simulate_tds: bool = True):
         self.dir = Path(state_dir)
@@ -517,11 +650,18 @@ class PaperBroker:
             precision: int, min_notional: float = 100.0) -> dict:
         """Market-buy `amount_inr` of `asset` at `ask` (pre-slippage). Returns fill info."""
         fill_price = ask * (1 + self.slippage)
-        qty = qty_from_inr(amount_inr, fill_price, step, precision)
+        if fill_price <= 0:
+            return {"ok": False, "reason": f"invalid price Rs.{fill_price}"}
+        # Largest step-multiple qty whose cost INCLUDING the taker fee fits in
+        # amount_inr - solved directly. (The old code floored qty to amount
+        # excluding the fee and then decremented one step at a time; on a
+        # 1e-6-step market that loop spun ~200k times per large buy.)
+        budget = amount_inr / (1 + self.fee_rate)
+        qty = qty_from_inr(budget, fill_price, step, precision)
         if qty <= 0:
-            return {"ok": False, "reason": f"quantity rounds to zero at â¹{fill_price:.2f}"}
+            return {"ok": False, "reason": f"quantity rounds to zero at Rs.{fill_price:.2f}"}
         notional = qty * fill_price
-        # floor qty so fee fits inside the intended amount
+        # float-safety trim (normally 0 iterations)
         while notional + notional * self.fee_rate > amount_inr and qty > 0:
             qty = round(qty - step, precision)
             if qty < step:
@@ -584,6 +724,9 @@ class PaperBroker:
             return list(csv.DictReader(fh))
 
     def tax_summary(self) -> dict:
+        """Aggregate the trades.csv log: realized gains/losses, a flat 30%
+        tax estimate on gross gains (India taxes VDA gains at 30% + cess,
+        no loss offset), and the TDS paid (creditable against that tax)."""
         trades = self.read_trades()
         sells = [t for t in trades if t["side"] == "sell"]
         gains = sum(float(t["realized_pnl_inr"]) for t in sells if float(t["realized_pnl_inr"]) > 0)
@@ -789,7 +932,13 @@ def build_market_cache(cfg: dict, coin: CoinDCX,
 
     Assets are fetched in PARALLEL (see network.fetch_workers). The CoinDCX
     client still paces request starts to `public_request_interval_sec`
-    globally across all workers, so the exchange is never hammered."""
+    globally across all workers, so the exchange is never hammered.
+
+    Returns {market_name: (candles, bid, ask)} for every healthy asset.
+    Assets with no live quote ("dead market") or failing candle fetches are
+    reported on stdout and left OUT of the dict - callers treat a missing
+    name as "retry next check", never as an error.
+    """
     s = cfg["strategy"]
     assets = assets or cfg["assets"]
 
@@ -846,6 +995,13 @@ def run_cycle(cfg: dict, broker: PaperBroker, coin: CoinDCX,
     """One signal-check cycle. Trades ONLY when a condition is met:
        - BUY  : 1h RSI <= entry_rsi and no open position
        - SELL : take-profit / stop-loss / RSI >= exit_rsi
+
+    Timing rules (identical to the backtest/sweep sims): the signal comes
+    from the LAST CLOSED candles, fills happen at the CURRENT bid/ask.
+    Buys deploy position_size_pct of available cash (fee-inclusive, same
+    formula as PaperBroker.buy); sells flatten the whole position. Every
+    asset ends up in exactly one of: bought / sold / held / no_entry /
+    low_cash / errors - printed as a one-line summary for large universes.
     """
     ensure_initialised(cfg, broker)
     s = cfg["strategy"]
@@ -897,7 +1053,8 @@ def run_cycle(cfg: dict, broker: PaperBroker, coin: CoinDCX,
         pos = broker.positions.get(name)
 
         if pos and pos.qty > 0:
-            reason = exit_reason(rsi_val, bid, pos.avg_cost, s)
+            reason = exit_reason(rsi_val, bid, pos.avg_cost, s,
+                                 position_hold_hours(pos))
             if reason:
                 res = broker.sell(name, pos.qty, bid, step=step, precision=prec)
                 if res["ok"]:
@@ -957,10 +1114,19 @@ def run_cycle(cfg: dict, broker: PaperBroker, coin: CoinDCX,
 def hodl_benchmark(cfg: dict, coin: CoinDCX, assets: list[dict],
                    candles: dict[str, list[dict]],
                    start_cash: float | None = None) -> dict:
-    """Same starting cash, all invested once at the start, held to the end."""
+    """Same starting cash, split EQUAL-WEIGHT across all assets at the first
+    candle, held to the end (valued at each asset's last close). Assets that
+    have no candle at the very first timestamp (e.g. listed later) are
+    skipped from the benchmark, so it never looks better than it should.
+    No TDS is charged - HODL never sells, and TDS is only owed on disposal.
+    """
     cash = start_cash if start_cash is not None else cfg["backtest"]["start_cash_inr"]
     start = cash
     invested = 0.0
+    if not candles or not any(candles.values()):
+        # nothing fetched (e.g. total API outage) - report a flat benchmark
+        # instead of crashing on min() of an empty sequence
+        return {"final_value": cash, "invested": 0.0, "pnl": 0.0, "pnl_pct": 0.0}
     first_ts = min(c[0]["time"] for c in candles.values() if c)
     for a in assets:
         cls = candles[a["name"]]
@@ -971,7 +1137,9 @@ def hodl_benchmark(cfg: dict, coin: CoinDCX, assets: list[dict],
         step = md.get("step", 1e-6) or 1e-6
         prec = md.get("target_currency_precision", 6)
         fill = first["open"] * (1 + cfg["backtest"]["slippage_bps"] / 10_000.0)
-        share = cash / len(assets)
+        # equal-weight split, computed ONCE - inside the loop `cash` already
+        # includes earlier assets' final values, which skewed later shares
+        share = start / len(assets)
         qty = qty_from_inr(share, fill, step, prec)
         notional = qty * fill
         fee = notional * cfg["backtest"]["fee_rate"]
@@ -985,7 +1153,13 @@ def hodl_benchmark(cfg: dict, coin: CoinDCX, assets: list[dict],
 
 
 def fetch_hours(coin: CoinDCX, pair: str, days: int) -> list[dict]:
-    """Fetch hourly candles going back `days`, paging the API by ~990h chunks."""
+    """Fetch hourly candles going back `days`, paging the API by ~990h chunks.
+
+    Each page requests [end - 990h, end]; the next page ends just before the
+    oldest candle received, so pages walk backwards to `start_ms` without
+    overlap. Candles are de-duplicated by timestamp and returned oldest
+    first. Stops early on API error or an empty page.
+    """
     now_ms = int(datetime.now(timezone.utc).timestamp() * 1000)
     start_ms = now_ms - days * 86400 * 1000
     window = 990 * 3600 * 1000
@@ -1041,6 +1215,14 @@ WINDOW_MS = 990 * 3600 * 1000   # ~990 hours per API request
 
 def _simulate(cfg: dict, coin: CoinDCX, assets: list[dict],
               candles: dict[str, list[dict]]) -> dict:
+    """Replay the RSI-swing strategy over shared 1h history (the `backtest`
+    command). Rules match live trading exactly: signal from bars BEFORE the
+    current bar (rs[i-1]), execute at the current bar's OPEN, fee-inclusive
+    qty sizing, fees + slippage + 1% TDS on every side. No look-ahead.
+
+    Returns metrics (round_trips, win_rate, pnl_pct, max_drawdown_pct, ...)
+    plus the full equity curve and per-round-trip trade list for CSV/chart.
+    """
     s = cfg["strategy"]
     fee = cfg["backtest"]["fee_rate"]
     slip = cfg["backtest"]["slippage_bps"] / 10_000.0
@@ -1053,66 +1235,84 @@ def _simulate(cfg: dict, coin: CoinDCX, assets: list[dict],
     trades: list[dict] = []                    # one entry per round trip
     open_trade: dict[str, dict] = {}
 
-    # merged hourly timeline
+    # precompute per-asset arrays for O(1) signal lookup (same pattern as
+    # _sim_account: rsi_series once per asset instead of recomputing the RSI
+    # from a growing close list at EVERY bar, which made backtests O(n^2))
+    idx_by_time: dict[str, dict[int, int]] = {}
+    rs: dict[str, list] = {}
+    bar_by_time: dict[str, dict[int, dict]] = {}
+    meta: dict[str, dict] = {}
+    last_close: dict[str, float | None] = {a["name"]: None for a in assets}
+    period = int(s.get("rsi_period", 14))
+    for a in assets:
+        cls = candles[a["name"]]
+        idx_by_time[a["name"]] = {c["time"]: i for i, c in enumerate(cls)}
+        rs[a["name"]] = rsi_series([c["close"] for c in cls], period)
+        bar_by_time[a["name"]] = {c["time"]: c for c in cls}
+        md = coin.market(a["name"])
+        meta[a["name"]] = {"step": md.get("step", 1e-6) or 1e-6,
+                           "prec": md.get("target_currency_precision", 6),
+                           "min_notional": float(md.get("min_notional", 100))}
+
     all_ts = sorted({c["time"] for cls in candles.values() for c in cls})
-    last_close = {a["name"]: None for a in assets}
     equity = []
 
     for ts in all_ts:
-        bars = {}
         for a in assets:
-            c = next((x for x in candles[a["name"]] if x["time"] == ts), None)
-            if c is not None:
-                bars[a["name"]] = c
-                last_close[a["name"]] = c["close"]
-
-        for a in assets:
-            bar = bars.get(a["name"])
+            name = a["name"]
+            bar = bar_by_time[name].get(ts)
             if bar is None:
                 continue
-            price_open = bar["open"]
-            closes_up_to_now = [x["close"] for x in candles[a["name"]] if x["time"] < ts]
-            rsi_val = rsi_value([{"close": v} for v in closes_up_to_now],
-                                int(s.get("rsi_period", 14))) if len(closes_up_to_now) >= 15 else None
-            md = coin.market(a["name"])
-            step = md.get("step", 1e-6) or 1e-6
-            prec = md.get("target_currency_precision", 6)
-            min_notional = float(md.get("min_notional", 100))
+            last_close[name] = bar["close"]
+            i = idx_by_time[name][ts]
+            # signal from bars BEFORE this one (rs[i-1] == rsi of closes[:i]),
+            # execute at this bar's OPEN - identical to live run_cycle rules
+            rsi_val = rs[name][i - 1] if i > 0 else None
+            step = meta[name]["step"]
+            prec = meta[name]["prec"]
+            min_notional = meta[name]["min_notional"]
 
-            if holdings.get(a["name"], 0.0) > 0:
-                reason = exit_reason(rsi_val, price_open, entry_cost.get(a["name"], 0.0), s)
+            if holdings.get(name, 0.0) > 0:
+                held_hours = ((ts - open_trade[name]["ts"]) / 3_600_000.0
+                              if name in open_trade else None)
+                reason = exit_reason(rsi_val, bar["open"], entry_cost.get(name, 0.0), s,
+                                     held_hours)
                 if reason:
-                    qty = holdings[a["name"]]
-                    fill = price_open * (1 - slip)
+                    qty = holdings[name]
+                    fill = bar["open"] * (1 - slip)
                     notional = qty * fill
                     fe = notional * fee
                     td = notional * tds
-                    cost_basis = qty * entry_cost[a["name"]]
+                    cost_basis = qty * entry_cost[name]
                     cash += notional - fe - td
                     pnl = (notional - fe) - cost_basis
                     trades.append({
-                        "asset": a["name"], "entry": open_trade[a["name"]],
+                        "asset": name, "entry": open_trade[name],
                         "exit_ts": ts, "exit": fill, "reason": reason,
                         "pnl": pnl,
-                        "pnl_pct": (fill / entry_cost[a["name"]] - 1) * 100,
+                        "pnl_pct": (fill / entry_cost[name] - 1) * 100,
                     })
-                    del open_trade[a["name"]]
-                    holdings[a["name"]] = 0.0
-                    entry_cost[a["name"]] = 0.0
+                    del open_trade[name]
+                    holdings[name] = 0.0
+                    entry_cost[name] = 0.0
             else:
                 if entry_signal(rsi_val, s):
                     amount = position_amount(cash, s)
                     if amount >= max(s.get("min_buy_inr", 500), min_notional):
-                        fill = price_open * (1 + slip)
-                        qty = qty_from_inr(amount, fill, step, prec)
+                        fill = bar["open"] * (1 + slip)
+                        # fee-inclusive sizing, same as PaperBroker.buy, so the
+                        # backtest fills match live paper fills exactly (with
+                        # position_size_pct 100 the old fee-exclusive qty made
+                        # notional + fee > cash and silently skipped EVERY buy)
+                        qty = qty_from_inr(amount / (1 + fee), fill, step, prec)
                         notional = qty * fill
                         fe = notional * fee
                         if notional >= min_notional and notional + fe <= cash:
                             cash -= notional + fe
-                            holdings[a["name"]] = qty
-                            entry_cost[a["name"]] = (notional + fe) / qty
+                            holdings[name] = qty
+                            entry_cost[name] = (notional + fe) / qty
                             invested += notional + fe
-                            open_trade[a["name"]] = {"ts": ts, "price": fill, "qty": qty,
+                            open_trade[name] = {"ts": ts, "price": fill, "qty": qty,
                                                      "rsi": rsi_val}
 
         value = cash + sum(holdings[a["name"]] * (last_close[a["name"]] or 0.0)
@@ -1236,11 +1436,16 @@ ACCOUNTS_DIR = SWEEP_DIR / "accounts"
 IST = ZoneInfo("Asia/Kolkata")
 
 DEFAULT_GRID = {
-    "entry_rsi": [22, 25, 28, 30, 33, 36, 40],
-    "exit_rsi": [64, 68, 72, 76, 80],
-    "take_profit_pct": [3, 4, 5, 6, 8, 10, 12],
-    "stop_loss_pct": [1, 1.5, 2, 3],
-    "position_size_pct": [20, 30, 40, 50, 60],
+    # two strategy families: dip (buy oversold) and momentum (buy strength)
+    "entry_mode": ["dip", "momentum"],
+    "entry_rsi": [15, 18, 22, 25, 28, 30, 33, 36, 40, 45],
+    "exit_rsi": [60, 64, 68, 72, 76, 80, 85],
+    "take_profit_pct": [2, 3, 4, 5, 6, 8, 10, 12, 15],
+    "stop_loss_pct": [1, 1.5, 2, 3, 5],
+    "position_size_pct": [10, 20, 30, 40, 50, 60, 80],
+    # holding-period bots: 0 = hold until tp/sl/exit RSI, 72 = 3 days,
+    # 168 = one week, 336 = two weeks, 720 = ~a month
+    "max_hold_hours": [0, 72, 168, 336, 720],
 }
 PARAM_KEYS = list(DEFAULT_GRID.keys())
 ACCOUNT_CSV = SWEEP_DIR / "accounts.csv"
@@ -1281,6 +1486,9 @@ def account_grid(cfg: dict, count: int | None = None) -> list[dict]:
     if count == 1:
         chosen = [combos[0]]
     elif len(combos) >= count:
+        # sample `count` combos EVENLY across the whole product grid:
+        # index j walks from 0 to len-1 in equal strides, so the chosen
+        # strategies cover every corner of the grid, not just one region
         for i in range(count):
             j = round(i * (len(combos) - 1) / (count - 1))
             chosen.append(combos[j])
@@ -1296,21 +1504,36 @@ def account_grid(cfg: dict, count: int | None = None) -> list[dict]:
         unique.append(unique[len(unique) % len(unique)])
     unique = unique[:count]
 
-    # row 0 = baseline exactly as configured
-    baseline = tuple(float(base.get(k)) for k in PARAM_KEYS)
-    if unique[0] != baseline:
-        unique[0] = baseline
+    # row 0 = baseline exactly as configured. Numeric params are compared as
+    # floats; string params (entry_mode) as-is. If the strategy section is
+    # missing a parameter entirely, keep combos[0] rather than crashing -
+    # the grid still fills `count` rows.
+    if all(isinstance(base.get(k), (int, float, str))
+           and not isinstance(base.get(k), bool) for k in PARAM_KEYS):
+        baseline = tuple(base[k] if isinstance(base[k], str) else float(base[k])
+                         for k in PARAM_KEYS)
+        if unique[0] != baseline:
+            unique[0] = baseline
     unique = list(dict.fromkeys(unique))  # guarantee: no duplicate strategies
+    # The dedupe above can SHRINK the list (the baseline may already sit in the
+    # grid, and the padding path repeats combos). Returning fewer than `count`
+    # rows is never acceptable: live_sweep compares len(rows) to the configured
+    # account count and would wipe the whole tournament again on EVERY run.
+    if len(unique) < count:
+        pool = [c for c in chosen if c not in set(unique)] or chosen
+        unique.extend(itertools.islice(itertools.cycle(pool), count - len(unique)))
     unique = unique[:count]
 
     rows = []
     for i, combo in enumerate(unique):
         params = dict(zip(PARAM_KEYS, combo))
         params["account"] = f"acc_{i + 1:03d}"
-        params["name"] = (f"e{params['entry_rsi']:.0f}_x{params['exit_rsi']:.0f}"
+        params["name"] = (f"{params['entry_mode'][:3]}_e{params['entry_rsi']:.0f}"
+                          f"_x{params['exit_rsi']:.0f}"
                           f"_tp{params['take_profit_pct']:.0f}"
                           f"_sl{params['stop_loss_pct']:.1f}"
-                          f"_p{params['position_size_pct']:.0f}")
+                          f"_p{params['position_size_pct']:.0f}"
+                          f"_h{params['max_hold_hours']:.0f}")
         rows.append(params)
     return rows
 
@@ -1333,9 +1556,18 @@ def save_account_rows(rows: list[dict]) -> Path:
 
 
 def load_account_rows() -> list[dict]:
+    """Read sweep/accounts.csv, restoring numeric types for numeric params.
+    String params (entry_mode) are kept as-is - float() would crash on them."""
     with open(ACCOUNT_CSV) as fh:
-        return [{k: (float(v) if k in PARAM_KEYS else v) for k, v in r.items()}
-                for r in csv.DictReader(fh)]
+        rows = []
+        for r in csv.DictReader(fh):
+            for k in PARAM_KEYS:
+                try:
+                    r[k] = float(r[k])
+                except (TypeError, ValueError):
+                    pass  # not numeric (entry_mode) - keep the string
+            rows.append(r)
+        return rows
 
 
 # --------------------------------------------------- fast historical sim (exact)
@@ -1393,7 +1625,10 @@ def _sim_account(cfg: dict, row: dict, assets: list[dict],
             min_notional = float(md.get("min_notional", 100))
 
             if holdings[a["name"]] > 0:
-                reason = exit_reason(rsi_prev, o, entry_cost[a["name"]], strat)
+                held_hours = ((ts - open_trade[a["name"]]["ts"]) / 3_600_000.0
+                              if a["name"] in open_trade else None)
+                reason = exit_reason(rsi_prev, o, entry_cost[a["name"]], strat,
+                                     held_hours)
                 if reason:
                     qty = holdings[a["name"]]
                     fill = o * (1 - slip)
@@ -1417,7 +1652,8 @@ def _sim_account(cfg: dict, row: dict, assets: list[dict],
                     amount = position_amount(cash, strat)
                     if amount >= max(min_buy, min_notional):
                         fill = o * (1 + slip)
-                        qty = qty_from_inr(amount, fill, step, prec)
+                        # fee-inclusive sizing, identical to PaperBroker.buy
+                        qty = qty_from_inr(amount / (1 + fee), fill, step, prec)
                         notional = qty * fill
                         fe = notional * fee
                         if notional >= min_notional and notional + fe <= cash:
@@ -1469,7 +1705,7 @@ def run_sweep(cfg: dict, days: int | None = None, count: int | None = None,
     print(f"Fetching {days} days of real 1h candles from CoinDCX (once, shared "
           f"by all {len(rows)} accounts) ...")
     candles = fetch_history(cfg, coin, assets, days)
-    if not candles:
+    if not candles or not any(candles.values()):
         raise SystemExit("No candle data â aborting sweep.")
 
     meta = {a["name"]: coin.market(a["name"]) for a in assets}
@@ -1537,18 +1773,21 @@ def _print_leaderboard(leaderboard: list[dict], hodl: dict) -> None:
     print("\n" + "=" * 108)
     print(f" {len(leaderboard)}-ACCOUNT TOURNAMENT â ranked by return | "
           f"everything after fees + slippage + 1% TDS")
+    print(" entry: dip = buys oversold (RSI<=entry), momentum = buys strength (RSI>=entry)")
+    print(" hold: hours after which the bot exits on schedule (hold_timeout); 0 = until tp/sl/exit-RSI")
     print(f" HODL benchmark for the same cash: â¹{hodl['final_value']:,.0f} "
           f"({hodl['pnl_pct']:+.1f}%)")
     print("=" * 108)
     hodl_ret = hodl["pnl_pct"]
     hdr = (f"{'#':>3} {'account':<8}{'entry':>6}{'exit':>6}{'tp%':>6}{'sl%':>6}"
-           f"{'pos%':>6}{'trades':>7}{'win%':>6}{'PF':>6}{'ret%':>9}"
+           f"{'pos%':>6}{'hold':>6}{'trades':>7}{'win%':>6}{'PF':>6}{'ret%':>9}"
            f"{'vsHODL':>8}{'maxDD%':>8}")
     print(hdr)
     for i, r in enumerate(leaderboard[:15], 1):
         print(f"{i:>3} {r['account']:<8}{r['entry_rsi']:>6.0f}{r['exit_rsi']:>6.0f}"
               f"{r['take_profit_pct']:>6.0f}{r['stop_loss_pct']:>6.1f}"
-              f"{r['position_size_pct']:>6.0f}{r['round_trips']:>7}"
+              f"{r['position_size_pct']:>6.0f}{r['max_hold_hours']:>6.0f}"
+              f"{r['round_trips']:>7}"
               f"{r['win_rate']:>6.0f}{r['profit_factor']:>6.2f}"
               f"{r['pnl_pct']:>+9.2f}{r['pnl_pct'] - hodl_ret:>+8.2f}"
               f"{r['max_drawdown_pct']:>8.1f}")
@@ -1559,7 +1798,7 @@ def _print_leaderboard(leaderboard: list[dict], hodl: dict) -> None:
     for r in worst:
         print(f"   {r['account']}  entryâ¤{r['entry_rsi']:.0f} exitâ¥{r['exit_rsi']:.0f} "
               f"tp{r['take_profit_pct']:.0f}% sl{r['stop_loss_pct']:.1f}% "
-              f"pos{r['position_size_pct']:.0f}% -> "
+              f"pos{r['position_size_pct']:.0f}% h{r['max_hold_hours']:.0f} -> "
               f"{r['pnl_pct']:+.2f}% (win {r['win_rate']:.0f}%)")
     def best(key, label):
         r = max(leaderboard, key=lambda x: x.get(key, -1e9))
@@ -1659,15 +1898,15 @@ def live_sweep(cfg: dict, top_n: int | None = None, rank_only: bool = False,
 
     trade_rows = rows[:top_n] if top_n else rows
     coin = make_coin(cfg)
-    cache = build_market_cache(cfg, coin)
-    if cache:
-        print(f"Live signal data cached for {len(cache)} assets "
-              f"(shared by all {len(trade_rows)} traded accounts).")
     start_cash = sweep_start_cash(cfg)
     if not rank_only:
+        cache = build_market_cache(cfg, coin)
+        if cache:
+            print(f"Live signal data cached for {len(cache)} assets "
+                  f"(shared by all {len(trade_rows)} traded accounts).")
         for row in trade_rows:
             cfg2 = apply_overrides(cfg, row)
-            cfg2["initial_cash_inr"] = start_cash   # every account starts at â¹10,000
+            cfg2["initial_cash_inr"] = start_cash   # every account starts at ₹10,000
             broker = make_broker(cfg2, state_dir=ACCOUNTS_DIR / row["account"])
             run_cycle(cfg2, broker, coin, market_cache=cache, verbose=False)
     _live_summary(cfg, rows)
@@ -1903,6 +2142,16 @@ def main():
     args = parser.parse_args()
     try:
         cfg = load_cfg(Path(args.config))
+        # fail fast on an unknown strategy family - entry_signal would
+        # otherwise silently trade it as a dip bot (e.g. a "mometum" typo)
+        emode = str((cfg.get("strategy") or {}).get("entry_mode", "dip") or "dip").lower()
+        if emode not in ("dip", "momentum"):
+            raise SystemExit(
+                f"config strategy.entry_mode must be 'dip' or 'momentum', "
+                f"got {emode!r}")
+        # Every command works with an explicit [{name, pair}, ...] list:
+        # "auto" (and --all-assets) is resolved HERE, once, before dispatch,
+        # so cmd_* functions and the sims never see the raw "auto" string
 
         extra_state_dirs = []
         if args.command in {"sweep-live", "sweep-status"} and ACCOUNTS_DIR.exists():

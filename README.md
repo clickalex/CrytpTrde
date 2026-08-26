@@ -2,7 +2,7 @@
 
 CoinDCX paper-trading bot with an RSI swing strategy.
 
-> Branch note: `arena/01a0392d-crytptrde` is an Arena session workspace branch opened against `main`.
+> Branch note: feature work happens on Arena session branches (`arena/*`) opened against `main` via pull requests.
 
 ## Scan more than BTC / ETH / SOL
 
@@ -54,8 +54,49 @@ fetch 30 days of candles per asset, so they take a bit longer either way.
 | Higher request pace (20/s) could annoy CoinDCX | **Adaptive backoff**: after any failed/429/5xx request the global pace auto-slows to 1/3 for ~10s (longer if the server sends `Retry-After`). Connections are pooled (keep-alive), not re-handshaked per request. |
 | Long scans look frozen | Progress lines every 25 assets (`market data: 25/500 fetched ...`). |
 | Dead/zero-liquidity books waste calls | Markets with no bid/ask/last price are skipped without orderbook/candle calls. |
+| Two bot processes on the same `state/` can clobber each other's portfolio | Run ONE bot process per state dir (the GitHub Actions workflow already serialises runs via `concurrency:`). `save()` itself is atomic (temp file + rename), so a crash never corrupts the file. |
+
+## Holding-period bots (week / month)
+
+Every strategy now has an optional time-based exit — `strategy.max_hold_hours`:
+the bot sells a position once it has been held that many hours (`hold_timeout`),
+whatever the price is doing. `0` (the default) keeps the old behaviour: hold
+until take-profit / stop-loss / exit-RSI.
+
+```yaml
+strategy:
+  max_hold_hours: 0     # 168 = hold-one-week bot, 720 = hold-one-month bot
+```
+
+The sweep tournament runs **500 bots** across **two strategy families** —
+`dip` bots buy oversold dips (RSI <= entry_rsi), `momentum` bots buy
+breakouts/strength (RSI >= entry_rsi) — with hold periods of hold-forever,
+3 days, one week, two weeks and one month:
+
+```yaml
+sweep:
+  accounts: 500
+  entry_mode: ["dip", "momentum"]
+  max_hold_hours: [0, 72, 168, 336, 720]
+```
+
+Account names carry the family and hold period (`dip_e30_x72_tp4_sl2.0_p40_h168`,
+`mom_e55_x80_tp6_sl3.0_p60_h720`, ...); the leaderboard prints an `entry`
+legend for the two families. Because the strategy grid changed, the first
+`sweep-live` run after this change restarts all demo accounts at Rs.10,000 —
+that is the normal grid-change wipe, not a bug.
 
 `backtest` and `sweep` deliberately keep a **stable** universe (no dipped
 extras, which flap hour to hour) so strategy comparisons stay comparable
 across runs.
 
+## Going live (read before touching `live:`)
+
+**Today this bot is paper-only.** Setting `live.enabled: true` (plus API-key
+secrets) only switches the API client to authenticated endpoints — **no real
+orders are placed by `check`/`run`**; the PaperBroker still simulates every
+fill. The low-level `create_market_order` helper exists in `cryptobot.py`
+but is intentionally not wired into any command. Treat the `live:` config
+block as scaffolding for a future, carefully-reviewed feature: if you want
+real trading, verify order placement with a tiny manual order first and
+never let a bot you haven't watched trade size.
