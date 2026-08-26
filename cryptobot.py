@@ -997,7 +997,9 @@ def hodl_benchmark(cfg: dict, coin: CoinDCX, assets: list[dict],
         step = md.get("step", 1e-6) or 1e-6
         prec = md.get("target_currency_precision", 6)
         fill = first["open"] * (1 + cfg["backtest"]["slippage_bps"] / 10_000.0)
-        share = cash / len(assets)
+        # equal-weight split, computed ONCE - inside the loop `cash` already
+        # includes earlier assets' final values, which skewed later shares
+        share = start / len(assets)
         qty = qty_from_inr(share, fill, step, prec)
         notional = qty * fill
         fee = notional * cfg["backtest"]["fee_rate"]
@@ -1079,66 +1081,77 @@ def _simulate(cfg: dict, coin: CoinDCX, assets: list[dict],
     trades: list[dict] = []                    # one entry per round trip
     open_trade: dict[str, dict] = {}
 
-    # merged hourly timeline
+    # precompute per-asset arrays for O(1) signal lookup (same pattern as
+    # _sim_account: rsi_series once per asset instead of recomputing the RSI
+    # from a growing close list at EVERY bar, which made backtests O(n^2))
+    idx_by_time: dict[str, dict[int, int]] = {}
+    rs: dict[str, list] = {}
+    bar_by_time: dict[str, dict[int, dict]] = {}
+    meta: dict[str, dict] = {}
+    last_close: dict[str, float | None] = {a["name"]: None for a in assets}
+    period = int(s.get("rsi_period", 14))
+    for a in assets:
+        cls = candles[a["name"]]
+        idx_by_time[a["name"]] = {c["time"]: i for i, c in enumerate(cls)}
+        rs[a["name"]] = rsi_series([c["close"] for c in cls], period)
+        bar_by_time[a["name"]] = {c["time"]: c for c in cls}
+        md = coin.market(a["name"])
+        meta[a["name"]] = {"step": md.get("step", 1e-6) or 1e-6,
+                           "prec": md.get("target_currency_precision", 6),
+                           "min_notional": float(md.get("min_notional", 100))}
+
     all_ts = sorted({c["time"] for cls in candles.values() for c in cls})
-    last_close = {a["name"]: None for a in assets}
     equity = []
 
     for ts in all_ts:
-        bars = {}
         for a in assets:
-            c = next((x for x in candles[a["name"]] if x["time"] == ts), None)
-            if c is not None:
-                bars[a["name"]] = c
-                last_close[a["name"]] = c["close"]
-
-        for a in assets:
-            bar = bars.get(a["name"])
+            name = a["name"]
+            bar = bar_by_time[name].get(ts)
             if bar is None:
                 continue
-            price_open = bar["open"]
-            closes_up_to_now = [x["close"] for x in candles[a["name"]] if x["time"] < ts]
-            rsi_val = rsi_value([{"close": v} for v in closes_up_to_now],
-                                int(s.get("rsi_period", 14))) if len(closes_up_to_now) >= 15 else None
-            md = coin.market(a["name"])
-            step = md.get("step", 1e-6) or 1e-6
-            prec = md.get("target_currency_precision", 6)
-            min_notional = float(md.get("min_notional", 100))
+            last_close[name] = bar["close"]
+            i = idx_by_time[name][ts]
+            # signal from bars BEFORE this one (rs[i-1] == rsi of closes[:i]),
+            # execute at this bar's OPEN - identical to live run_cycle rules
+            rsi_val = rs[name][i - 1] if i > 0 else None
+            step = meta[name]["step"]
+            prec = meta[name]["prec"]
+            min_notional = meta[name]["min_notional"]
 
-            if holdings.get(a["name"], 0.0) > 0:
-                reason = exit_reason(rsi_val, price_open, entry_cost.get(a["name"], 0.0), s)
+            if holdings.get(name, 0.0) > 0:
+                reason = exit_reason(rsi_val, bar["open"], entry_cost.get(name, 0.0), s)
                 if reason:
-                    qty = holdings[a["name"]]
-                    fill = price_open * (1 - slip)
+                    qty = holdings[name]
+                    fill = bar["open"] * (1 - slip)
                     notional = qty * fill
                     fe = notional * fee
                     td = notional * tds
-                    cost_basis = qty * entry_cost[a["name"]]
+                    cost_basis = qty * entry_cost[name]
                     cash += notional - fe - td
                     pnl = (notional - fe) - cost_basis
                     trades.append({
-                        "asset": a["name"], "entry": open_trade[a["name"]],
+                        "asset": name, "entry": open_trade[name],
                         "exit_ts": ts, "exit": fill, "reason": reason,
                         "pnl": pnl,
-                        "pnl_pct": (fill / entry_cost[a["name"]] - 1) * 100,
+                        "pnl_pct": (fill / entry_cost[name] - 1) * 100,
                     })
-                    del open_trade[a["name"]]
-                    holdings[a["name"]] = 0.0
-                    entry_cost[a["name"]] = 0.0
+                    del open_trade[name]
+                    holdings[name] = 0.0
+                    entry_cost[name] = 0.0
             else:
                 if entry_signal(rsi_val, s):
                     amount = position_amount(cash, s)
                     if amount >= max(s.get("min_buy_inr", 500), min_notional):
-                        fill = price_open * (1 + slip)
+                        fill = bar["open"] * (1 + slip)
                         qty = qty_from_inr(amount, fill, step, prec)
                         notional = qty * fill
                         fe = notional * fee
                         if notional >= min_notional and notional + fe <= cash:
                             cash -= notional + fe
-                            holdings[a["name"]] = qty
-                            entry_cost[a["name"]] = (notional + fe) / qty
+                            holdings[name] = qty
+                            entry_cost[name] = (notional + fe) / qty
                             invested += notional + fe
-                            open_trade[a["name"]] = {"ts": ts, "price": fill, "qty": qty,
+                            open_trade[name] = {"ts": ts, "price": fill, "qty": qty,
                                                      "rsi": rsi_val}
 
         value = cash + sum(holdings[a["name"]] * (last_close[a["name"]] or 0.0)
@@ -1327,6 +1340,13 @@ def account_grid(cfg: dict, count: int | None = None) -> list[dict]:
     if unique[0] != baseline:
         unique[0] = baseline
     unique = list(dict.fromkeys(unique))  # guarantee: no duplicate strategies
+    # The dedupe above can SHRINK the list (the baseline may already sit in the
+    # grid, and the padding path repeats combos). Returning fewer than `count`
+    # rows is never acceptable: live_sweep compares len(rows) to the configured
+    # account count and would wipe the whole tournament again on EVERY run.
+    if len(unique) < count:
+        pool = [c for c in chosen if c not in set(unique)] or chosen
+        unique.extend(itertools.islice(itertools.cycle(pool), count - len(unique)))
     unique = unique[:count]
 
     rows = []
@@ -1685,15 +1705,15 @@ def live_sweep(cfg: dict, top_n: int | None = None, rank_only: bool = False,
 
     trade_rows = rows[:top_n] if top_n else rows
     coin = make_coin(cfg)
-    cache = build_market_cache(cfg, coin)
-    if cache:
-        print(f"Live signal data cached for {len(cache)} assets "
-              f"(shared by all {len(trade_rows)} traded accounts).")
     start_cash = sweep_start_cash(cfg)
     if not rank_only:
+        cache = build_market_cache(cfg, coin)
+        if cache:
+            print(f"Live signal data cached for {len(cache)} assets "
+                  f"(shared by all {len(trade_rows)} traded accounts).")
         for row in trade_rows:
             cfg2 = apply_overrides(cfg, row)
-            cfg2["initial_cash_inr"] = start_cash   # every account starts at â¹10,000
+            cfg2["initial_cash_inr"] = start_cash   # every account starts at ₹10,000
             broker = make_broker(cfg2, state_dir=ACCOUNTS_DIR / row["account"])
             run_cycle(cfg2, broker, coin, market_cache=cache, verbose=False)
     _live_summary(cfg, rows)
