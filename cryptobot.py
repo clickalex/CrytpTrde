@@ -126,10 +126,15 @@ def exit_reason(rsi_val: float | None, price: float, avg_cost: float,
 
 
 def position_amount(cash: float, cfg: dict) -> float:
-    """How much INR to deploy on an entry: position_size_pct of available cash."""
+    """How much INR to deploy on an entry: position_size_pct of available cash.
+
+    Floored (not rounded) to the paisa so the amount can never exceed the
+    cash that is actually available - with position_size_pct 100 a rounded-up
+    amount made `notional + fee <= cash` a coin flip that silently skipped
+    buys in the sims and occasionally in the live broker."""
     pct = float(cfg.get("position_size_pct", 40))
-    amount = max(0.0, cash * pct / 100.0)
-    return round(amount, 2)
+    amount = math.floor(max(0.0, cash) * pct / 100.0 * 100.0) / 100.0
+    return amount
 
 
 # =============================================================================
@@ -452,9 +457,10 @@ def qty_from_inr(amount_inr: float, price: float, step: float, precision: int) -
     if price <= 0 or amount_inr <= 0:
         return 0.0
     raw = amount_inr / price
-    steps = int(raw / step) if step > 0 else int(raw * (10 ** precision))
-    qty = steps * step
-    return round(qty, precision)
+    if step > 0:
+        return round(int(raw / step) * step, precision)
+    # step-less market: floor on the precision grid instead
+    return round(int(raw * (10 ** precision)) / (10 ** precision), precision)
 
 
 def env_keys(api_key_env: str, api_secret_env: str) -> tuple[str | None, str | None]:
@@ -987,6 +993,10 @@ def hodl_benchmark(cfg: dict, coin: CoinDCX, assets: list[dict],
     cash = start_cash if start_cash is not None else cfg["backtest"]["start_cash_inr"]
     start = cash
     invested = 0.0
+    if not candles or not any(candles.values()):
+        # nothing fetched (e.g. total API outage) - report a flat benchmark
+        # instead of crashing on min() of an empty sequence
+        return {"final_value": cash, "invested": 0.0, "pnl": 0.0, "pnl_pct": 0.0}
     first_ts = min(c[0]["time"] for c in candles.values() if c)
     for a in assets:
         cls = candles[a["name"]]
@@ -1143,7 +1153,11 @@ def _simulate(cfg: dict, coin: CoinDCX, assets: list[dict],
                     amount = position_amount(cash, s)
                     if amount >= max(s.get("min_buy_inr", 500), min_notional):
                         fill = bar["open"] * (1 + slip)
-                        qty = qty_from_inr(amount, fill, step, prec)
+                        # fee-inclusive sizing, same as PaperBroker.buy, so the
+                        # backtest fills match live paper fills exactly (with
+                        # position_size_pct 100 the old fee-exclusive qty made
+                        # notional + fee > cash and silently skipped EVERY buy)
+                        qty = qty_from_inr(amount / (1 + fee), fill, step, prec)
                         notional = qty * fill
                         fe = notional * fee
                         if notional >= min_notional and notional + fe <= cash:
@@ -1335,10 +1349,14 @@ def account_grid(cfg: dict, count: int | None = None) -> list[dict]:
         unique.append(unique[len(unique) % len(unique)])
     unique = unique[:count]
 
-    # row 0 = baseline exactly as configured
-    baseline = tuple(float(base.get(k)) for k in PARAM_KEYS)
-    if unique[0] != baseline:
-        unique[0] = baseline
+    # row 0 = baseline exactly as configured. If the strategy section is
+    # missing (or non-numeric on) a parameter, keep combos[0] rather than
+    # crashing on float(None)/float(list) - the grid still fills `count` rows.
+    if all(isinstance(base.get(k), (int, float))
+           and not isinstance(base.get(k), bool) for k in PARAM_KEYS):
+        baseline = tuple(float(base[k]) for k in PARAM_KEYS)
+        if unique[0] != baseline:
+            unique[0] = baseline
     unique = list(dict.fromkeys(unique))  # guarantee: no duplicate strategies
     # The dedupe above can SHRINK the list (the baseline may already sit in the
     # grid, and the padding path repeats combos). Returning fewer than `count`
@@ -1463,7 +1481,8 @@ def _sim_account(cfg: dict, row: dict, assets: list[dict],
                     amount = position_amount(cash, strat)
                     if amount >= max(min_buy, min_notional):
                         fill = o * (1 + slip)
-                        qty = qty_from_inr(amount, fill, step, prec)
+                        # fee-inclusive sizing, identical to PaperBroker.buy
+                        qty = qty_from_inr(amount / (1 + fee), fill, step, prec)
                         notional = qty * fill
                         fe = notional * fee
                         if notional >= min_notional and notional + fe <= cash:
@@ -1515,7 +1534,7 @@ def run_sweep(cfg: dict, days: int | None = None, count: int | None = None,
     print(f"Fetching {days} days of real 1h candles from CoinDCX (once, shared "
           f"by all {len(rows)} accounts) ...")
     candles = fetch_history(cfg, coin, assets, days)
-    if not candles:
+    if not candles or not any(candles.values()):
         raise SystemExit("No candle data â aborting sweep.")
 
     meta = {a["name"]: coin.market(a["name"]) for a in assets}
