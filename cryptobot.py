@@ -1598,15 +1598,24 @@ def save_account_rows(rows: list[dict]) -> Path:
 
 def load_account_rows() -> list[dict]:
     """Read sweep/accounts.csv, restoring numeric types for numeric params.
-    String params (entry_mode) are kept as-is - float() would crash on them."""
+    String params (entry_mode) are kept as-is - float() would crash on them.
+
+    Older CSVs (before the dip/momentum grid) may omit columns such as
+    entry_mode. Missing keys used to raise KeyError and kill GitHub Actions
+    with only 'Process completed with exit code 1'.
+    """
     with open(ACCOUNT_CSV) as fh:
         rows = []
         for r in csv.DictReader(fh):
             for k in PARAM_KEYS:
+                raw = r.get(k, "")
+                if raw in (None, ""):
+                    r[k] = DEFAULT_GRID[k][0]
+                    continue
                 try:
-                    r[k] = float(r[k])
+                    r[k] = float(raw)
                 except (TypeError, ValueError):
-                    pass  # not numeric (entry_mode) - keep the string
+                    r[k] = raw  # not numeric (entry_mode) - keep the string
             rows.append(r)
         return rows
 
@@ -1913,7 +1922,7 @@ def live_sweep(cfg: dict, top_n: int | None = None, rank_only: bool = False,
     desired = int((cfg.get("sweep") or {}).get("accounts", 200))
     sig = grid_signature(cfg)
     needs_wipe = reset
-    if ACCOUNT_CSV.exists():
+    if ACCOUNT_CSV.exists() and not reset:
         rows = load_account_rows()
         old_sig = SIGNATURE_FILE.read_text().strip() if SIGNATURE_FILE.exists() else ""
         if len(rows) != desired or old_sig != sig:
