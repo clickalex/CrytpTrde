@@ -335,7 +335,13 @@ class CoinDCX:
             with self._cache_lock:
                 if self._tickers is None or refresh:
                     data = self._get_json(f"{API_BASE}/exchange/ticker")
-                    self._tickers = {t["market"]: t for t in data}
+                    if not isinstance(data, list):
+                        raise CoinDCXError(
+                            f"Unexpected ticker response: {str(data)[:200]}")
+                    self._tickers = {
+                        t["market"]: t for t in data
+                        if isinstance(t, dict) and t.get("market")
+                    }
         return self._tickers
 
     def ticker(self, market: str, refresh: bool = False) -> dict:
@@ -1920,7 +1926,10 @@ def _live_summary(cfg: dict, rows: list[dict]) -> None:
     for a in cfg["assets"]:
         t = tickers.get(a["name"])
         if t:
-            prices[a["name"]] = float(t["last_price"])
+            try:
+                prices[a["name"]] = float(t.get("last_price") or 0.0)
+            except (TypeError, ValueError):
+                continue
     out = []
     for row in rows:
         broker = make_broker(cfg, state_dir=ACCOUNTS_DIR / row["account"])
@@ -2168,7 +2177,7 @@ def main():
     except CoinDCXError as exc:
         print(f"CoinDCX request failed: {exc}", file=sys.stderr)
         raise SystemExit(1) from exc
-    except (OSError, ValueError, yaml.YAMLError) as exc:
+    except (OSError, ValueError, yaml.YAMLError, KeyError, TypeError) as exc:
         print(f"Error: {exc}", file=sys.stderr)
         raise SystemExit(1) from exc
 
