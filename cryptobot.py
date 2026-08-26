@@ -214,6 +214,26 @@ class CoinDCXError(RuntimeError):
     pass
 
 
+def _json_rows(data, keys: tuple[str, ...] = ()) -> list:
+    """Normalise CoinDCX JSON into a list of dict rows.
+
+    The public API usually returns a bare list. Some responses wrap it in
+    ``{"data": [...]}`` or send a dict keyed by market name. Iterating a
+    dict as if it were a list of objects raises TypeError and GitHub
+    Actions only reports that as 'Process completed with exit code 1'.
+    """
+    if isinstance(data, list):
+        return data
+    if isinstance(data, dict):
+        for k in keys:
+            v = data.get(k)
+            if isinstance(v, list):
+                return v
+        if data and all(isinstance(v, dict) for v in data.values()):
+            return list(data.values())
+    return []
+
+
 class CoinDCX:
     """CoinDCX REST client (thread-safe).
 
@@ -245,6 +265,13 @@ class CoinDCX:
         # Keep-alive connection pool: parallel workers reuse TCP/TLS
         # connections instead of paying a handshake per request.
         self._session = requests.Session()
+        self._session.headers.update({
+            "User-Agent": (
+                "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            ),
+            "Accept": "application/json,text/plain,*/*",
+        })
         # Adaptive politeness: after any failed request, slow the global pace
         # (3x interval) for a while instead of hammering a struggling server.
         self._penalty_until = 0.0
@@ -335,13 +362,14 @@ class CoinDCX:
             with self._cache_lock:
                 if self._tickers is None or refresh:
                     data = self._get_json(f"{API_BASE}/exchange/ticker")
-                    if not isinstance(data, list):
-                        raise CoinDCXError(
-                            f"Unexpected ticker response: {str(data)[:200]}")
+                    rows = _json_rows(data, keys=("markets", "data", "ticker"))
                     self._tickers = {
-                        t["market"]: t for t in data
+                        t["market"]: t for t in rows
                         if isinstance(t, dict) and t.get("market")
                     }
+                    if not self._tickers:
+                        raise CoinDCXError(
+                            f"Unexpected ticker response: {str(data)[:200]}")
         return self._tickers
 
     def ticker(self, market: str, refresh: bool = False) -> dict:
@@ -356,7 +384,14 @@ class CoinDCX:
             with self._cache_lock:
                 if self._markets is None or refresh:
                     data = self._get_json(f"{API_BASE}/exchange/v1/markets_details")
-                    self._markets = {m["coindcx_name"]: m for m in data}
+                    rows = _json_rows(data, keys=("markets", "data", "markets_details"))
+                    self._markets = {
+                        m["coindcx_name"]: m for m in rows
+                        if isinstance(m, dict) and m.get("coindcx_name")
+                    }
+                    if not self._markets:
+                        raise CoinDCXError(
+                            f"Unexpected markets_details response: {str(data)[:200]}")
         return self._markets
 
     def market(self, name: str) -> dict:
@@ -2178,7 +2213,12 @@ def main():
         print(f"CoinDCX request failed: {exc}", file=sys.stderr)
         raise SystemExit(1) from exc
     except (OSError, ValueError, yaml.YAMLError, KeyError, TypeError) as exc:
-        print(f"Error: {exc}", file=sys.stderr)
+        print(f"Error: {type(exc).__name__}: {exc}", file=sys.stderr)
+        raise SystemExit(1) from exc
+    except Exception as exc:  # noqa: BLE001 — always show a real traceback in CI
+        import traceback
+        traceback.print_exc()
+        print(f"Error: {type(exc).__name__}: {exc}", file=sys.stderr)
         raise SystemExit(1) from exc
 
 
