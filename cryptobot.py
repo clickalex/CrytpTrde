@@ -1,13 +1,28 @@
 #!/usr/bin/env python3
-# cryptobot.py - CryptoBot for CoinDCX (India) - SINGLE-FILE build.
-# Generated from the modular sources by build_single_file.py; edit the modules
-# and re-run that script, or edit this file directly (it is self-contained).
+# cryptobot.py — CryptoBot for CoinDCX (India) — SINGLE-FILE build.
+#
+# A paper-trading bot that scans INR spot markets on CoinDCX, computes hourly
+# RSI signals, and fills a simulated portfolio (fees + slippage + 1% TDS).
+# Nothing here places real orders unless you explicitly enable live mode.
 #
 # Command examples:
-#   python3 cryptobot.py status           live portfolio view
-#   python3 cryptobot.py check --force    run one DCA buy cycle now
-#   python3 cryptobot.py backtest         Smart DCA vs plain DCA on real data
-# See README.md / CLOUD_SETUP.md for the full guide.
+#   python3 cryptobot.py status           portfolio & tax view
+#   python3 cryptobot.py check            run one RSI signal-check cycle now
+#   python3 cryptobot.py run              hourly checker loop (daemon)
+#   python3 cryptobot.py assets           list the discovered/resolved universe
+#   python3 cryptobot.py backtest         RSI swing vs HODL on real 1h data
+#   python3 cryptobot.py sweep            200-account strategy tournament
+#   python3 cryptobot.py sweep-live       tournament on live prices (paper)
+# See README.md for the full guide and config.yaml for every knob.
+#
+# File layout (sections were once separate modules; kept as markers):
+#   indicators.py  - RSI / SMA math
+#   coindcx.py     - API client: global rate limiting, retries, discovery
+#   broker.py      - PaperBroker: fills, fee/TDS accounting, persistence
+#   engine.py      - market-data cache + run_cycle (the live decision loop)
+#   backtest.py    - historical replay (_simulate) + HODL benchmark
+#   sweep.py       - strategy grid, tournament sim, live tournament
+#   bot.py         - CLI commands and main()
 #
 # DISCLAIMER: educational software, not financial advice.
 import argparse
@@ -19,14 +34,13 @@ import itertools
 import json
 import math
 import os
-import re
 import shutil
 import sys
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
-from dataclasses import dataclass, field
-from datetime import datetime, timedelta, timezone
+from dataclasses import dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 import requests
@@ -37,7 +51,13 @@ import yaml
 # indicators.py
 # =============================================================================
 def rsi(closes: list[float], period: int = 14) -> float | None:
-    """Wilder's RSI. Returns None when there is not enough data."""
+    """Wilder's RSI. Returns None when there is not enough data.
+
+    RSI = 100 - 100/(1+RS), where RS = avg gain / avg loss over `period`
+    bars. Value is 0..100: high = overbought (recent bars mostly up),
+    low = oversold. The bot BUYS oversold dips (RSI <= entry_rsi) and can
+    exit overbought holds (RSI >= exit_rsi).
+    """
     if len(closes) < period + 1:
         return None
     deltas = [closes[i] - closes[i - 1] for i in range(1, len(closes))]
@@ -90,6 +110,7 @@ def rsi_series(closes: list[float], period: int = 14) -> list[float | None]:
 
 
 def sma(values: list[float], period: int) -> float | None:
+    """Simple moving average of the last `period` values (None if too short)."""
     if len(values) < period:
         return None
     return sum(values[-period:]) / period
@@ -149,6 +170,18 @@ class CoinDCXError(RuntimeError):
 
 
 class CoinDCX:
+    """CoinDCX REST client (thread-safe).
+
+    Public market data (tickers, market rules, candles, order books) needs no
+    auth; private_post/create_market_order are only used by live mode. All
+    requests go through _get_json, which (a) reserves a GLOBAL pacing slot so
+    request starts stay `request_interval` apart no matter how many worker
+    threads call concurrently, and (b) retries transient failures with
+    exponential backoff while backing the global pace off after failures
+    (adaptive backoff). Responses are cached per instance: tickers/markets
+    are fetched once and reused across the ~500-market scans.
+    """
+
     def __init__(self, api_key: str | None = None, api_secret: str | None = None,
                  timeout: int = 20, request_interval: float = 0.0):
         self.api_key = api_key
@@ -203,6 +236,17 @@ class CoinDCX:
 
     def _get_json(self, url: str, params: dict | None = None,
                   retries: int = 3):
+        """GET `url` and return the parsed JSON body.
+
+        Retry policy per call (default 3 attempts):
+          - success                           -> return data
+          - 4xx client error (except 408/429) -> fail IMMEDIATELY, no retry,
+            and no global penalty (a bad pair is our bug, not the server's)
+          - 429 / 5xx / network / bad JSON    -> note failure (global pace
+            slows to 1/3 for ~10s, longer if the server sends Retry-After),
+            then retry after a 2s/4s backoff
+        Raises CoinDCXError when every attempt failed.
+        """
         last_exc: Exception | None = None
         for attempt in range(1, max(1, retries) + 1):
             self._reserve_request_slot()
@@ -473,8 +517,8 @@ def env_keys(api_key_env: str, api_secret_env: str) -> tuple[str | None, str | N
 @dataclass
 class Position:
     qty: float = 0.0
-    avg_cost: float = 0.0          # per-unit cost basis (includes fees)
-    invested: float = 0.0          # total INR put in
+    avg_cost: float = 0.0          # per-unit cost basis, INCLUDING buy fee
+    invested: float = 0.0          # total INR put in (notional + fees)
     last_buy_at: str = ""
 
     def to_dict(self) -> dict:
@@ -491,6 +535,25 @@ class Position:
 
 
 class PaperBroker:
+    """Simulated exchange account (the bot's book-keeping core).
+
+    Fill model: market orders fill at ticker price +/- `slippage`, pay a
+    taker `fee_rate` on notional, and sells additionally deduct a 1% TDS
+    (Section 194S, simulated; it is a credit you get back at tax time, so it
+    is NOT counted into realized_pnl - see tax_summary).
+
+    Accounting invariants (verified by test_speed_fix.py):
+      cash        -= notional + fee              on buys
+      cash        += notional - fee - tds        on sells
+      avg_cost     = (notional + fee) / qty      fee included in cost basis
+      realized_pnl = (sell notional - fee) - qty * avg_cost
+      cash_delta over the account's life == realized_pnl - total TDS
+
+    State is one JSON file (atomic tmp+rename save) plus an append-only
+    trades.csv audit log, both inside `state_dir`. Run ONE bot process per
+    state dir - concurrent writers can clobber each other's portfolio.
+    """
+
     def __init__(self, state_dir: Path, cash: float, fee_rate: float,
                  slippage_bps: float, tds_rate: float = 0.01, simulate_tds: bool = True):
         self.dir = Path(state_dir)
@@ -616,6 +679,9 @@ class PaperBroker:
             return list(csv.DictReader(fh))
 
     def tax_summary(self) -> dict:
+        """Aggregate the trades.csv log: realized gains/losses, a flat 30%
+        tax estimate on gross gains (India taxes VDA gains at 30% + cess,
+        no loss offset), and the TDS paid (creditable against that tax)."""
         trades = self.read_trades()
         sells = [t for t in trades if t["side"] == "sell"]
         gains = sum(float(t["realized_pnl_inr"]) for t in sells if float(t["realized_pnl_inr"]) > 0)
@@ -821,7 +887,13 @@ def build_market_cache(cfg: dict, coin: CoinDCX,
 
     Assets are fetched in PARALLEL (see network.fetch_workers). The CoinDCX
     client still paces request starts to `public_request_interval_sec`
-    globally across all workers, so the exchange is never hammered."""
+    globally across all workers, so the exchange is never hammered.
+
+    Returns {market_name: (candles, bid, ask)} for every healthy asset.
+    Assets with no live quote ("dead market") or failing candle fetches are
+    reported on stdout and left OUT of the dict - callers treat a missing
+    name as "retry next check", never as an error.
+    """
     s = cfg["strategy"]
     assets = assets or cfg["assets"]
 
@@ -878,6 +950,13 @@ def run_cycle(cfg: dict, broker: PaperBroker, coin: CoinDCX,
     """One signal-check cycle. Trades ONLY when a condition is met:
        - BUY  : 1h RSI <= entry_rsi and no open position
        - SELL : take-profit / stop-loss / RSI >= exit_rsi
+
+    Timing rules (identical to the backtest/sweep sims): the signal comes
+    from the LAST CLOSED candles, fills happen at the CURRENT bid/ask.
+    Buys deploy position_size_pct of available cash (fee-inclusive, same
+    formula as PaperBroker.buy); sells flatten the whole position. Every
+    asset ends up in exactly one of: bought / sold / held / no_entry /
+    low_cash / errors - printed as a one-line summary for large universes.
     """
     ensure_initialised(cfg, broker)
     s = cfg["strategy"]
@@ -989,7 +1068,12 @@ def run_cycle(cfg: dict, broker: PaperBroker, coin: CoinDCX,
 def hodl_benchmark(cfg: dict, coin: CoinDCX, assets: list[dict],
                    candles: dict[str, list[dict]],
                    start_cash: float | None = None) -> dict:
-    """Same starting cash, all invested once at the start, held to the end."""
+    """Same starting cash, split EQUAL-WEIGHT across all assets at the first
+    candle, held to the end (valued at each asset's last close). Assets that
+    have no candle at the very first timestamp (e.g. listed later) are
+    skipped from the benchmark, so it never looks better than it should.
+    No TDS is charged - HODL never sells, and TDS is only owed on disposal.
+    """
     cash = start_cash if start_cash is not None else cfg["backtest"]["start_cash_inr"]
     start = cash
     invested = 0.0
@@ -1023,7 +1107,13 @@ def hodl_benchmark(cfg: dict, coin: CoinDCX, assets: list[dict],
 
 
 def fetch_hours(coin: CoinDCX, pair: str, days: int) -> list[dict]:
-    """Fetch hourly candles going back `days`, paging the API by ~990h chunks."""
+    """Fetch hourly candles going back `days`, paging the API by ~990h chunks.
+
+    Each page requests [end - 990h, end]; the next page ends just before the
+    oldest candle received, so pages walk backwards to `start_ms` without
+    overlap. Candles are de-duplicated by timestamp and returned oldest
+    first. Stops early on API error or an empty page.
+    """
     now_ms = int(datetime.now(timezone.utc).timestamp() * 1000)
     start_ms = now_ms - days * 86400 * 1000
     window = 990 * 3600 * 1000
@@ -1079,6 +1169,14 @@ WINDOW_MS = 990 * 3600 * 1000   # ~990 hours per API request
 
 def _simulate(cfg: dict, coin: CoinDCX, assets: list[dict],
               candles: dict[str, list[dict]]) -> dict:
+    """Replay the RSI-swing strategy over shared 1h history (the `backtest`
+    command). Rules match live trading exactly: signal from bars BEFORE the
+    current bar (rs[i-1]), execute at the current bar's OPEN, fee-inclusive
+    qty sizing, fees + slippage + 1% TDS on every side. No look-ahead.
+
+    Returns metrics (round_trips, win_rate, pnl_pct, max_drawdown_pct, ...)
+    plus the full equity curve and per-round-trip trade list for CSV/chart.
+    """
     s = cfg["strategy"]
     fee = cfg["backtest"]["fee_rate"]
     slip = cfg["backtest"]["slippage_bps"] / 10_000.0
@@ -1334,6 +1432,9 @@ def account_grid(cfg: dict, count: int | None = None) -> list[dict]:
     if count == 1:
         chosen = [combos[0]]
     elif len(combos) >= count:
+        # sample `count` combos EVENLY across the whole product grid:
+        # index j walks from 0 to len-1 in equal strides, so the chosen
+        # strategies cover every corner of the grid, not just one region
         for i in range(count):
             j = round(i * (len(combos) - 1) / (count - 1))
             chosen.append(combos[j])
@@ -1968,6 +2069,9 @@ def main():
     args = parser.parse_args()
     try:
         cfg = load_cfg(Path(args.config))
+        # Every command works with an explicit [{name, pair}, ...] list:
+        # "auto" (and --all-assets) is resolved HERE, once, before dispatch,
+        # so cmd_* functions and the sims never see the raw "auto" string
 
         extra_state_dirs = []
         if args.command in {"sweep-live", "sweep-status"} and ACCOUNTS_DIR.exists():
