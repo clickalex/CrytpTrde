@@ -1,5 +1,5 @@
-# Winner of the 200-account tournament (2026-08-25 08:02 UTC)
-# account acc_086 | e28_x80_tp12_sl2.0_p50 | return +6.73% | maxDD 3.3%
+# Winner of the 200-account tournament (2026-08-26 05:30 UTC)
+# account acc_070 | e28_x72_tp3_sl3.0_p60 | return +6.66% | maxDD 3.7%
 # Use:  python3 bot.py --config sweep/best_strategy.yaml check
 mode: paper
 initial_cash_inr: 50000
@@ -8,19 +8,90 @@ slippage_bps: 5
 simulate_tds: true
 tds_rate: 0.01
 check_interval_min: 60
+public_request_interval_sec: 0.05
+network:
+  fetch_workers: 8
 assets:
 - name: BTCINR
   pair: I-BTC_INR
 - name: ETHINR
   pair: I-ETH_INR
+- name: BNBINR
+  pair: I-BNB_INR
 - name: SOLINR
   pair: I-SOL_INR
+- name: USDTINR
+  pair: I-USDT_INR
+- name: XRPINR
+  pair: I-XRP_INR
+- name: LINKINR
+  pair: I-LINK_INR
+- name: TRUMPINR
+  pair: I-TRUMP_INR
+- name: SUIINR
+  pair: I-SUI_INR
+- name: TRBINR
+  pair: I-TRB_INR
+- name: ONDOINR
+  pair: I-ONDO_INR
+- name: NEARINR
+  pair: I-NEAR_INR
+- name: DOTINR
+  pair: I-DOT_INR
+- name: ICPINR
+  pair: I-ICP_INR
+- name: ADAINR
+  pair: I-ADA_INR
+- name: RENDERINR
+  pair: I-RENDER_INR
+- name: DOGEINR
+  pair: I-DOGE_INR
+- name: TRXINR
+  pair: I-TRX_INR
+- name: FARTCOININR
+  pair: I-FARTCOIN_INR
+- name: APTINR
+  pair: I-APT_INR
+- name: FILINR
+  pair: I-FIL_INR
+- name: ORCAINR
+  pair: I-ORCA_INR
+- name: ARBINR
+  pair: I-ARB_INR
+- name: GASINR
+  pair: I-GAS_INR
+- name: CAKEINR
+  pair: I-CAKE_INR
+- name: JUPINR
+  pair: I-JUP_INR
+- name: RIFINR
+  pair: I-RIF_INR
+- name: POPCATINR
+  pair: I-POPCAT_INR
+- name: APEINR
+  pair: I-APE_INR
+- name: PUMPINR
+  pair: I-PUMP_INR
+- name: SUSHIINR
+  pair: I-SUSHI_INR
+- name: PYTHINR
+  pair: I-PYTH_INR
+- name: PENGUINR
+  pair: I-PENGU_INR
+- name: SEIINR
+  pair: I-SEI_INR
+asset_discovery:
+  enabled: false
+  min_volume_inr: 1000000
+  max_assets: 50
+  dipped_scan_pct: 8
+  dipped_scan_max: 150
 strategy:
   entry_rsi: 28
-  exit_rsi: 80
-  take_profit_pct: 12
-  stop_loss_pct: 2
-  position_size_pct: 50
+  exit_rsi: 72
+  take_profit_pct: 3
+  stop_loss_pct: 3
+  position_size_pct: 60
 backtest:
   days: 30
   start_cash_inr: 100000
