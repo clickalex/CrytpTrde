@@ -1,5 +1,18 @@
 {
-  "cash_inr": 10000.0,
-  "realized_pnl": 0.0,
-  "holdings": {}
+  "cash_inr": 4822.854202940525,
+  "realized_pnl": -134.60174415374968,
+  "holdings": {
+    "SUIINR": {
+      "qty": 38.8,
+      "avg_cost": 75.95980692299999,
+      "invested": 2947.2405086123995,
+      "last_buy_at": "2026-08-25T21:51:00+00:00"
+    },
+    "TRUMPINR": {
+      "qty": 9.429,
+      "avg_cost": 219.178384425,
+      "invested": 2066.632986743325,
+      "last_buy_at": "2026-08-26T02:07:29+00:00"
+    }
+  }
 }
