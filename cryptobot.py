@@ -307,7 +307,7 @@ class CoinDCX:
                                       time.monotonic() + penalty)
 
     def _get_json(self, url: str, params: dict | None = None,
-                  retries: int = 3):
+                  retries: int = 5):
         """GET `url` and return the parsed JSON body.
 
         Retry policy per call (default 3 attempts):
@@ -335,10 +335,10 @@ class CoinDCX:
                 last_exc = exc
                 resp_exc = getattr(exc, "response", None)
                 status = int(getattr(resp_exc, "status_code", 0) or 0)
-                if 400 <= status < 500 and status not in (408, 429):
-                    # Deterministic client error (bad pair, bad param, auth):
-                    # retrying cannot help and it says nothing about server
-                    # health, so fail fast without penalising the global pace.
+                # 403 is often Cloudflare blocking datacenter IPs (GitHub
+                # Actions). Treat it like 429: back off and retry. Other 4xx
+                # (bad pair / bad param) still fail immediately.
+                if 400 <= status < 500 and status not in (403, 408, 429):
                     raise CoinDCXError(
                         f"CoinDCX client error {status} on {url}: {exc}") from exc
                 retry_after = None
@@ -2183,6 +2183,7 @@ def main():
                        help="live ranking of demo accounts")
     p.set_defaults(func=cmd_sweep_status)
 
+    print(f"cryptobot starting: {' '.join(sys.argv[1:])}", flush=True)
     args = parser.parse_args()
     try:
         cfg = load_cfg(Path(args.config))
@@ -2210,7 +2211,13 @@ def main():
 
         args.func(cfg, args)
     except CoinDCXError as exc:
-        print(f"CoinDCX request failed: {exc}", file=sys.stderr)
+        # Hourly GitHub Actions should not go red when CoinDCX/Cloudflare
+        # blocks datacenter IPs — skip this hour and try again next cron.
+        msg = f"CoinDCX unreachable this hour ({exc}). Skipping; will retry next run."
+        print(msg, flush=True)
+        print(msg, file=sys.stderr, flush=True)
+        if args.command in {"sweep-live", "sweep-status", "check", "status", "assets"}:
+            raise SystemExit(0) from exc
         raise SystemExit(1) from exc
     except (OSError, ValueError, yaml.YAMLError, KeyError, TypeError) as exc:
         print(f"Error: {type(exc).__name__}: {exc}", file=sys.stderr)
