@@ -210,16 +210,27 @@ class CoinDCX:
                     raise CoinDCXError(
                         f"CoinDCX error {data.get('code')}: {data.get('message')}")
                 return data
+            except requests.HTTPError as exc:
+                last_exc = exc
+                resp_exc = getattr(exc, "response", None)
+                status = int(getattr(resp_exc, "status_code", 0) or 0)
+                if 400 <= status < 500 and status not in (408, 429):
+                    # Deterministic client error (bad pair, bad param, auth):
+                    # retrying cannot help and it says nothing about server
+                    # health, so fail fast without penalising the global pace.
+                    raise CoinDCXError(
+                        f"CoinDCX client error {status} on {url}: {exc}") from exc
+                retry_after = None
+                try:
+                    retry_after = float(resp_exc.headers.get("Retry-After"))
+                except (TypeError, ValueError, AttributeError):
+                    retry_after = None
+                self._note_failure(retry_after)
+                if attempt < retries:
+                    time.sleep(min(2 ** attempt, 5))
             except (requests.RequestException, ValueError) as exc:
                 last_exc = exc
-                retry_after = None
-                resp_exc = getattr(exc, "response", None)
-                if resp_exc is not None:
-                    try:
-                        retry_after = float(resp_exc.headers.get("Retry-After"))
-                    except (TypeError, ValueError, AttributeError):
-                        retry_after = None
-                self._note_failure(retry_after)
+                self._note_failure()
                 if attempt < retries:
                     time.sleep(min(2 ** attempt, 5))
         raise CoinDCXError(f"Network error hitting {url}: {last_exc}") from last_exc
@@ -309,7 +320,9 @@ class CoinDCX:
         list (already fetched for discovery) carries 24h change/high/low for
         EVERY market - so crashed coins outside the liquidity cap get caught
         at zero extra API cost. A market qualifies if its 24h change is
-        <= -dip_pct OR its last price is within 2% of the 24h low.
+        <= -dip_pct OR its last price is within 2% of the 24h low while
+        trading meaningfully (>= 2%) below the 24h high - flat/stale books
+        with low == high == last are NOT dips.
         """
         exclude = exclude or set()
         details = self.markets_details()
@@ -334,9 +347,15 @@ class CoinDCX:
                 chg = float(t.get("change_24_hour") or 0.0)
                 last = float(t.get("last_price") or 0.0)
                 low = float(t.get("low") or 0.0)
+                high = float(t.get("high") or 0.0)
             except (TypeError, ValueError):
                 continue
-            near_low = last > 0 and low > 0 and last <= low * 1.02
+            # "Near the low" only counts when the market actually has a 24h
+            # range and sits meaningfully below its high. A stale book that
+            # traded flat all day has low == high == last (0% change) and is
+            # NOT a dip - without the high check every flat market qualified.
+            off_high = high > 0 and last <= high * 0.98
+            near_low = last > 0 and low > 0 and off_high and last <= low * 1.02
             if chg <= -dip_pct or near_low:
                 out.append((chg, {"name": name, "pair": pair}))
 
@@ -517,11 +536,18 @@ class PaperBroker:
             precision: int, min_notional: float = 100.0) -> dict:
         """Market-buy `amount_inr` of `asset` at `ask` (pre-slippage). Returns fill info."""
         fill_price = ask * (1 + self.slippage)
-        qty = qty_from_inr(amount_inr, fill_price, step, precision)
+        if fill_price <= 0:
+            return {"ok": False, "reason": f"invalid price Rs.{fill_price}"}
+        # Largest step-multiple qty whose cost INCLUDING the taker fee fits in
+        # amount_inr - solved directly. (The old code floored qty to amount
+        # excluding the fee and then decremented one step at a time; on a
+        # 1e-6-step market that loop spun ~200k times per large buy.)
+        budget = amount_inr / (1 + self.fee_rate)
+        qty = qty_from_inr(budget, fill_price, step, precision)
         if qty <= 0:
-            return {"ok": False, "reason": f"quantity rounds to zero at â¹{fill_price:.2f}"}
+            return {"ok": False, "reason": f"quantity rounds to zero at Rs.{fill_price:.2f}"}
         notional = qty * fill_price
-        # floor qty so fee fits inside the intended amount
+        # float-safety trim (normally 0 iterations)
         while notional + notional * self.fee_rate > amount_inr and qty > 0:
             qty = round(qty - step, precision)
             if qty < step:

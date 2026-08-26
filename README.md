@@ -54,6 +54,7 @@ fetch 30 days of candles per asset, so they take a bit longer either way.
 | Higher request pace (20/s) could annoy CoinDCX | **Adaptive backoff**: after any failed/429/5xx request the global pace auto-slows to 1/3 for ~10s (longer if the server sends `Retry-After`). Connections are pooled (keep-alive), not re-handshaked per request. |
 | Long scans look frozen | Progress lines every 25 assets (`market data: 25/500 fetched ...`). |
 | Dead/zero-liquidity books waste calls | Markets with no bid/ask/last price are skipped without orderbook/candle calls. |
+| Two bot processes on the same `state/` can clobber each other's portfolio | Run ONE bot process per state dir (the GitHub Actions workflow already serialises runs via `concurrency:`). `save()` itself is atomic (temp file + rename), so a crash never corrupts the file. |
 
 `backtest` and `sweep` deliberately keep a **stable** universe (no dipped
 extras, which flap hour to hour) so strategy comparisons stay comparable

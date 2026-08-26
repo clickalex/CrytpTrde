@@ -31,12 +31,15 @@ LAT = 0.30  # simulated network round-trip per request
 
 
 class FakeResp:
-    def __init__(self, payload):
+    def __init__(self, payload, status=200):
         self._payload = payload
+        self.status_code = status
         self.headers = {}
 
     def raise_for_status(self):
-        pass
+        if self.status_code >= 400:
+            raise requests_mod.exceptions.HTTPError(
+                f"{self.status_code} error", response=self)
 
     def json(self):
         return self._payload
@@ -242,11 +245,14 @@ def test_dipped_scan():
     coin = FakeCoin(12)
     # A3 crashed -18% (biggest drop), A7 near its 24h low, others flat
     coin._tk["A3INR"]["change_24_hour"] = "-18.0"
-    coin._tk["A7INR"]["low"] = str(100.0 + 7)  # last == low -> within 2%
+    coin._tk["A7INR"]["low"] = str(100.0 + 7)  # last == low, but high 200 ->
+    #                                            a real 24h range -> within 2%
+    # A5 traded dead-flat all day (low == high == last): stale book, NOT a dip
+    coin._tk["A5INR"].update({"low": "105.0", "high": "105.0"})
     top3 = {"A9INR", "A10INR", "A11INR"}
     dipped = coin.dipped_inr_markets(dip_pct=8, exclude=top3)
     got = [a["name"] for a in dipped]
-    assert got == ["A3INR", "A7INR"], got  # biggest drop first
+    assert got == ["A3INR", "A7INR"], got  # biggest drop first; A5 excluded
     # cap
     dipped_cap = coin.dipped_inr_markets(dip_pct=8, exclude=top3, limit=1)
     assert [a["name"] for a in dipped_cap] == ["A3INR"]
@@ -308,8 +314,31 @@ def test_adaptive_backoff():
         coin._session.get = orig_get
     assert time.monotonic() < coin._penalty_until, "penalty window should be active"
     assert slow_gap >= interval * 3 * 0.8, f"post-error gap {slow_gap:.3f}s too small"
+
+    # deterministic client errors (4xx, e.g. a delisted pair) must fail fast:
+    # a single attempt, no retry loop, and NO global penalty - they say
+    # nothing about server health (unlike 429/5xx/network failures)
+    nf = {"n": 0}
+
+    def notfound_get(url, params=None, timeout=0):
+        nf["n"] += 1
+        return FakeResp({"error": "not found"}, status=404)
+
+    penalty_before = coin._penalty_until
+    coin._session.get = notfound_get
+    try:
+        try:
+            coin.candles("I-GONE_INR")
+            raise AssertionError("404 must surface as CoinDCXError")
+        except cb.CoinDCXError:
+            pass
+    finally:
+        coin._session.get = orig_get
+    assert nf["n"] == 1, f"404 was attempted {nf['n']}x - must fail fast"
+    assert coin._penalty_until == penalty_before, "404 must not penalise the global pace"
     print(f"  adaptive backoff: after a failure, next request delayed "
-          f"{slow_gap*1000:.0f}ms (3x {interval*1000:.0f}ms cap)")
+          f"{slow_gap*1000:.0f}ms (3x {interval*1000:.0f}ms cap); "
+          f"4xx fails fast with no penalty")
 
 
 def test_dead_market_skipped():
@@ -430,6 +459,7 @@ def test_paper_broker_roundtrip():
         assert r1["notional"] == r1["qty"] * r1["price"]
         assert abs(r1["fee"] - r1["notional"] * 0.001) < 1e-6
         assert r1["notional"] + r1["fee"] <= 20000.0, "fee must fit in the amount"
+        assert r1["notional"] + r1["fee"] > 19999.0, "O(1) fee-fit must not over-trim"
         cash_after_buy = 100000.0 - r1["notional"] - r1["fee"]
         assert abs(b.cash - cash_after_buy) < 1e-6
         pos = b.positions["A0INR"]
