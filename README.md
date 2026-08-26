@@ -56,6 +56,31 @@ fetch 30 days of candles per asset, so they take a bit longer either way.
 | Dead/zero-liquidity books waste calls | Markets with no bid/ask/last price are skipped without orderbook/candle calls. |
 | Two bot processes on the same `state/` can clobber each other's portfolio | Run ONE bot process per state dir (the GitHub Actions workflow already serialises runs via `concurrency:`). `save()` itself is atomic (temp file + rename), so a crash never corrupts the file. |
 
+## Holding-period bots (week / month)
+
+Every strategy now has an optional time-based exit — `strategy.max_hold_hours`:
+the bot sells a position once it has been held that many hours (`hold_timeout`),
+whatever the price is doing. `0` (the default) keeps the old behaviour: hold
+until take-profit / stop-loss / exit-RSI.
+
+```yaml
+strategy:
+  max_hold_hours: 0     # 168 = hold-one-week bot, 720 = hold-one-month bot
+```
+
+The sweep tournament mixes hold periods too, so the 200 accounts now include
+**hold-forever**, **hold-one-week** (168h) and **hold-one-month** (720h) bots:
+
+```yaml
+sweep:
+  max_hold_hours: [0, 168, 720]
+```
+
+The leaderboard shows a `hold` column (`h0` / `h168` / `h720` in account
+names). Because the strategy grid changed, the first `sweep-live` run after
+this change restarts all demo accounts at Rs.10,000 — that is the normal
+grid-change wipe, not a bug.
+
 `backtest` and `sweep` deliberately keep a **stable** universe (no dipped
 extras, which flap hour to hour) so strategy comparisons stay comparable
 across runs.

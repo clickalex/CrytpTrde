@@ -129,9 +129,36 @@ def entry_signal(rsi_val: float | None, cfg: dict) -> bool:
     return rsi_val is not None and rsi_val <= float(cfg.get("entry_rsi", 30))
 
 
+def position_hold_hours(pos: "Position", now: datetime | None = None) -> float | None:
+    """Hours since the position's last buy (drives max_hold_hours exits).
+
+    Returns None when the entry time is unknown (pre-existing state without
+    a timestamp) - those positions are never timed out, they still exit via
+    take-profit / stop-loss / RSI.
+    """
+    if not pos or not pos.last_buy_at:
+        return None
+    try:
+        t0 = datetime.fromisoformat(str(pos.last_buy_at))
+    except ValueError:
+        return None
+    if t0.tzinfo is None:
+        t0 = t0.replace(tzinfo=timezone.utc)
+    now = now or datetime.now(timezone.utc)
+    return max(0.0, (now - t0).total_seconds() / 3600.0)
+
+
 def exit_reason(rsi_val: float | None, price: float, avg_cost: float,
-                cfg: dict) -> str | None:
-    """Which exit condition is met, or None if we keep holding."""
+                cfg: dict, held_hours: float | None = None) -> str | None:
+    """Which exit condition is met, or None if we keep holding.
+
+    Priority: take-profit, stop-loss, hold_timeout, then the opportunistic
+    RSI exit. `hold_timeout` fires when the position has been held at least
+    `max_hold_hours` (0 disables) - that is what the week-holding (168h) and
+    month-holding (720h) strategies use to realize on a schedule. Callers
+    that don't track entry time pass held_hours=None and simply never time
+    out.
+    """
     if avg_cost <= 0 or price <= 0:
         return None
     tp = float(cfg.get("take_profit_pct", 0) or 0)
@@ -140,6 +167,9 @@ def exit_reason(rsi_val: float | None, price: float, avg_cost: float,
         return "take_profit"
     if sl > 0 and price <= avg_cost * (1 - sl / 100):
         return "stop_loss"
+    max_hold = float(cfg.get("max_hold_hours", 0) or 0)
+    if max_hold > 0 and held_hours is not None and held_hours >= max_hold:
+        return "hold_timeout"
     exit_rsi = float(cfg.get("exit_rsi", 999))
     if rsi_val is not None and rsi_val >= exit_rsi:
         return "rsi_overbought"
@@ -1008,7 +1038,8 @@ def run_cycle(cfg: dict, broker: PaperBroker, coin: CoinDCX,
         pos = broker.positions.get(name)
 
         if pos and pos.qty > 0:
-            reason = exit_reason(rsi_val, bid, pos.avg_cost, s)
+            reason = exit_reason(rsi_val, bid, pos.avg_cost, s,
+                                 position_hold_hours(pos))
             if reason:
                 res = broker.sell(name, pos.qty, bid, step=step, precision=prec)
                 if res["ok"]:
@@ -1227,7 +1258,10 @@ def _simulate(cfg: dict, coin: CoinDCX, assets: list[dict],
             min_notional = meta[name]["min_notional"]
 
             if holdings.get(name, 0.0) > 0:
-                reason = exit_reason(rsi_val, bar["open"], entry_cost.get(name, 0.0), s)
+                held_hours = ((ts - open_trade[name]["ts"]) / 3_600_000.0
+                              if name in open_trade else None)
+                reason = exit_reason(rsi_val, bar["open"], entry_cost.get(name, 0.0), s,
+                                     held_hours)
                 if reason:
                     qty = holdings[name]
                     fill = bar["open"] * (1 - slip)
@@ -1392,6 +1426,9 @@ DEFAULT_GRID = {
     "take_profit_pct": [3, 4, 5, 6, 8, 10, 12],
     "stop_loss_pct": [1, 1.5, 2, 3],
     "position_size_pct": [20, 30, 40, 50, 60],
+    # holding-period bots: 0 = hold until tp/sl/exit RSI, 168 = exit after
+    # one week, 720 = exit after ~a month (see strategy.max_hold_hours)
+    "max_hold_hours": [0, 168, 720],
 }
 PARAM_KEYS = list(DEFAULT_GRID.keys())
 ACCOUNT_CSV = SWEEP_DIR / "accounts.csv"
@@ -1475,7 +1512,8 @@ def account_grid(cfg: dict, count: int | None = None) -> list[dict]:
         params["name"] = (f"e{params['entry_rsi']:.0f}_x{params['exit_rsi']:.0f}"
                           f"_tp{params['take_profit_pct']:.0f}"
                           f"_sl{params['stop_loss_pct']:.1f}"
-                          f"_p{params['position_size_pct']:.0f}")
+                          f"_p{params['position_size_pct']:.0f}"
+                          f"_h{params['max_hold_hours']:.0f}")
         rows.append(params)
     return rows
 
@@ -1558,7 +1596,10 @@ def _sim_account(cfg: dict, row: dict, assets: list[dict],
             min_notional = float(md.get("min_notional", 100))
 
             if holdings[a["name"]] > 0:
-                reason = exit_reason(rsi_prev, o, entry_cost[a["name"]], strat)
+                held_hours = ((ts - open_trade[a["name"]]["ts"]) / 3_600_000.0
+                              if a["name"] in open_trade else None)
+                reason = exit_reason(rsi_prev, o, entry_cost[a["name"]], strat,
+                                     held_hours)
                 if reason:
                     qty = holdings[a["name"]]
                     fill = o * (1 - slip)
@@ -1703,18 +1744,20 @@ def _print_leaderboard(leaderboard: list[dict], hodl: dict) -> None:
     print("\n" + "=" * 108)
     print(f" {len(leaderboard)}-ACCOUNT TOURNAMENT â ranked by return | "
           f"everything after fees + slippage + 1% TDS")
+    print(" hold: hours after which the bot exits on schedule (hold_timeout); 0 = until tp/sl/exit-RSI")
     print(f" HODL benchmark for the same cash: â¹{hodl['final_value']:,.0f} "
           f"({hodl['pnl_pct']:+.1f}%)")
     print("=" * 108)
     hodl_ret = hodl["pnl_pct"]
     hdr = (f"{'#':>3} {'account':<8}{'entry':>6}{'exit':>6}{'tp%':>6}{'sl%':>6}"
-           f"{'pos%':>6}{'trades':>7}{'win%':>6}{'PF':>6}{'ret%':>9}"
+           f"{'pos%':>6}{'hold':>6}{'trades':>7}{'win%':>6}{'PF':>6}{'ret%':>9}"
            f"{'vsHODL':>8}{'maxDD%':>8}")
     print(hdr)
     for i, r in enumerate(leaderboard[:15], 1):
         print(f"{i:>3} {r['account']:<8}{r['entry_rsi']:>6.0f}{r['exit_rsi']:>6.0f}"
               f"{r['take_profit_pct']:>6.0f}{r['stop_loss_pct']:>6.1f}"
-              f"{r['position_size_pct']:>6.0f}{r['round_trips']:>7}"
+              f"{r['position_size_pct']:>6.0f}{r['max_hold_hours']:>6.0f}"
+              f"{r['round_trips']:>7}"
               f"{r['win_rate']:>6.0f}{r['profit_factor']:>6.2f}"
               f"{r['pnl_pct']:>+9.2f}{r['pnl_pct'] - hodl_ret:>+8.2f}"
               f"{r['max_drawdown_pct']:>8.1f}")
@@ -1725,7 +1768,7 @@ def _print_leaderboard(leaderboard: list[dict], hodl: dict) -> None:
     for r in worst:
         print(f"   {r['account']}  entryâ¤{r['entry_rsi']:.0f} exitâ¥{r['exit_rsi']:.0f} "
               f"tp{r['take_profit_pct']:.0f}% sl{r['stop_loss_pct']:.1f}% "
-              f"pos{r['position_size_pct']:.0f}% -> "
+              f"pos{r['position_size_pct']:.0f}% h{r['max_hold_hours']:.0f} -> "
               f"{r['pnl_pct']:+.2f}% (win {r['win_rate']:.0f}%)")
     def best(key, label):
         r = max(leaderboard, key=lambda x: x.get(key, -1e9))

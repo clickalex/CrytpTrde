@@ -21,6 +21,7 @@ import threading
 import time
 import urllib.error
 from contextlib import redirect_stdout
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -442,8 +443,44 @@ def test_run_cycle_smoke():
         # broker reloads its own state faithfully
         again = cb.make_broker(cfg, state_dir=Path(td))
         assert again.cash == broker.cash and again.realized_pnl == broker.realized_pnl
+
+        # week/month-holding bots: max_hold_hours exits a stale position on
+        # schedule ("hold_timeout") even when tp/sl/exit-RSI never fire
+        hold_cfg = {"initial_cash_inr": 50000, "fee_rate": 0.001, "slippage_bps": 5,
+                    "tds_rate": 0.01, "simulate_tds": True,
+                    "network": {"fetch_workers": 1},
+                    "assets": [{"name": "A0INR", "pair": "I-A0_INR"}],
+                    "strategy": {"timeframe": "1h", "signal_lookback": 50,
+                                 "rsi_period": 14, "entry_rsi": 30, "exit_rsi": 999,
+                                 "take_profit_pct": 0, "stop_loss_pct": 0,
+                                 "max_hold_hours": 1, "position_size_pct": 40,
+                                 "min_buy_inr": 500}}
+        coin3 = CrashCoin(1)
+        broker3 = cb.make_broker(hold_cfg, state_dir=Path(td) / "hold")
+        assert broker3.buy("A0INR", 5000.0, ask=100.0, step=1e-6,
+                           precision=6, min_notional=100.0)["ok"]
+        two_hours_ago = (datetime.now(timezone.utc) - timedelta(hours=2)).isoformat(timespec="seconds")
+        broker3.positions["A0INR"].last_buy_at = two_hours_ago
+        broker3.save()
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            cb.run_cycle(hold_cfg, broker3, coin3)
+        assert "SELL ALL A0INR (hold_timeout)" in buf.getvalue(), buf.getvalue()
+
+        # control: same stale position WITHOUT max_hold_hours -> no time exit
+        keep_cfg = {**hold_cfg, "strategy": {**hold_cfg["strategy"],
+                                             "max_hold_hours": 0}}
+        broker4 = cb.make_broker(keep_cfg, state_dir=Path(td) / "keep")
+        assert broker4.buy("A0INR", 5000.0, ask=100.0, step=1e-6,
+                           precision=6, min_notional=100.0)["ok"]
+        broker4.positions["A0INR"].last_buy_at = two_hours_ago
+        broker4.save()
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            cb.run_cycle(keep_cfg, broker4, coin3)
+        assert "SELL ALL" not in buf.getvalue(), "0 must disable the hold timeout"
     print("  run_cycle smoke: oversold -> 2 BUYs, +50% rally -> take-profit SELLs, "
-          "state persisted")
+          "state persisted; week/month hold_timeout exits fire, 0 keeps holding")
 
 
 def test_paper_broker_roundtrip():
