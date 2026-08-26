@@ -68,18 +68,23 @@ strategy:
   max_hold_hours: 0     # 168 = hold-one-week bot, 720 = hold-one-month bot
 ```
 
-The sweep tournament mixes hold periods too, so the 200 accounts now include
-**hold-forever**, **hold-one-week** (168h) and **hold-one-month** (720h) bots:
+The sweep tournament runs **500 bots** across **two strategy families** —
+`dip` bots buy oversold dips (RSI <= entry_rsi), `momentum` bots buy
+breakouts/strength (RSI >= entry_rsi) — with hold periods of hold-forever,
+3 days, one week, two weeks and one month:
 
 ```yaml
 sweep:
-  max_hold_hours: [0, 168, 720]
+  accounts: 500
+  entry_mode: ["dip", "momentum"]
+  max_hold_hours: [0, 72, 168, 336, 720]
 ```
 
-The leaderboard shows a `hold` column (`h0` / `h168` / `h720` in account
-names). Because the strategy grid changed, the first `sweep-live` run after
-this change restarts all demo accounts at Rs.10,000 — that is the normal
-grid-change wipe, not a bug.
+Account names carry the family and hold period (`dip_e30_x72_tp4_sl2.0_p40_h168`,
+`mom_e55_x80_tp6_sl3.0_p60_h720`, ...); the leaderboard prints an `entry`
+legend for the two families. Because the strategy grid changed, the first
+`sweep-live` run after this change restarts all demo accounts at Rs.10,000 —
+that is the normal grid-change wipe, not a bug.
 
 `backtest` and `sweep` deliberately keep a **stable** universe (no dipped
 extras, which flap hour to hour) so strategy comparisons stay comparable

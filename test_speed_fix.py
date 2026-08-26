@@ -218,6 +218,12 @@ def test_config_caps_flow():
     assert cfg["asset_discovery"]["min_volume_inr"] == 1000000
     assert cfg["asset_discovery"]["dipped_scan_pct"] == 8
     assert cfg["network"]["fetch_workers"] == 8
+    # multi-strategy tournament config: 500 bots, two families, hold periods
+    sweep = cfg["sweep"]
+    assert sweep["accounts"] == 500
+    assert sweep["entry_mode"] == ["dip", "momentum"]
+    assert cfg["strategy"]["entry_mode"] == "dip"
+    assert {0, 168, 720} <= set(sweep["max_hold_hours"])
 
     fake = FakeCoin(12)
     for i, t in enumerate(fake._tk.values()):  # turnover ~ (100+i)*50k = Rs.50L+
@@ -479,6 +485,32 @@ def test_run_cycle_smoke():
         with redirect_stdout(buf):
             cb.run_cycle(keep_cfg, broker4, coin3)
         assert "SELL ALL" not in buf.getvalue(), "0 must disable the hold timeout"
+
+        # second strategy family: momentum bots buy STRENGTH (RSI >= entry),
+        # dip bots ignore the same market - flat candles give RSI 100
+        flat = FakeCoin(1)
+        mom_cfg = {"initial_cash_inr": 50000, "fee_rate": 0.001, "slippage_bps": 5,
+                   "tds_rate": 0.01, "simulate_tds": True,
+                   "network": {"fetch_workers": 1},
+                   "assets": [{"name": "A0INR", "pair": "I-A0_INR"}],
+                   "strategy": {"entry_mode": "momentum", "timeframe": "1h",
+                                "signal_lookback": 50, "rsi_period": 14,
+                                "entry_rsi": 70, "exit_rsi": 999,
+                                "take_profit_pct": 0, "stop_loss_pct": 0,
+                                "max_hold_hours": 0, "position_size_pct": 40,
+                                "min_buy_inr": 500}}
+        broker5 = cb.make_broker(mom_cfg, state_dir=Path(td) / "mom")
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            cb.run_cycle(mom_cfg, broker5, flat)
+        assert "BUY A0INR" in buf.getvalue(), "momentum must buy RSI 100 >= 70"
+        dip_cfg = {**mom_cfg, "strategy": {**mom_cfg["strategy"],
+                                           "entry_mode": "dip", "entry_rsi": 30}}
+        broker6 = cb.make_broker(dip_cfg, state_dir=Path(td) / "dip")
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            cb.run_cycle(dip_cfg, broker6, flat)
+        assert "BUY A0INR" not in buf.getvalue(), "dip bot must not buy RSI 100 > 30"
     print("  run_cycle smoke: oversold -> 2 BUYs, +50% rally -> take-profit SELLs, "
           "state persisted; week/month hold_timeout exits fire, 0 keeps holding")
 

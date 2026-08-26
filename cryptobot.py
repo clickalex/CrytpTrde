@@ -125,8 +125,23 @@ def rsi_value(candles: list[dict], period: int = 14) -> float | None:
 
 
 def entry_signal(rsi_val: float | None, cfg: dict) -> bool:
-    """Buy when hourly RSI is oversold (dip) â 'condition met' for entries."""
-    return rsi_val is not None and rsi_val <= float(cfg.get("entry_rsi", 30))
+    """Entry gate for the two strategy families (`entry_mode`):
+
+      dip      (default) - buy WEAKNESS:  RSI <= entry_rsi (oversold dip)
+      momentum           - buy STRENGTH:  RSI >= entry_rsi (breakout/strong)
+
+    `entry_rsi` means the opposite threshold in the two families (30-ish for
+    dip bots, 55-70 for momentum bots), which is why the sweep grid carries
+    its own entry_rsi list covering both. Used identically by run_cycle,
+    _simulate and _sim_account, so backtests always match live behaviour.
+    """
+    if rsi_val is None:
+        return False
+    mode = str(cfg.get("entry_mode", "dip") or "dip").lower()
+    entry = float(cfg.get("entry_rsi", 30))
+    if mode == "momentum":
+        return rsi_val >= entry
+    return rsi_val <= entry
 
 
 def position_hold_hours(pos: "Position", now: datetime | None = None) -> float | None:
@@ -1421,14 +1436,16 @@ ACCOUNTS_DIR = SWEEP_DIR / "accounts"
 IST = ZoneInfo("Asia/Kolkata")
 
 DEFAULT_GRID = {
-    "entry_rsi": [22, 25, 28, 30, 33, 36, 40],
-    "exit_rsi": [64, 68, 72, 76, 80],
-    "take_profit_pct": [3, 4, 5, 6, 8, 10, 12],
-    "stop_loss_pct": [1, 1.5, 2, 3],
-    "position_size_pct": [20, 30, 40, 50, 60],
-    # holding-period bots: 0 = hold until tp/sl/exit RSI, 168 = exit after
-    # one week, 720 = exit after ~a month (see strategy.max_hold_hours)
-    "max_hold_hours": [0, 168, 720],
+    # two strategy families: dip (buy oversold) and momentum (buy strength)
+    "entry_mode": ["dip", "momentum"],
+    "entry_rsi": [15, 18, 22, 25, 28, 30, 33, 36, 40, 45],
+    "exit_rsi": [60, 64, 68, 72, 76, 80, 85],
+    "take_profit_pct": [2, 3, 4, 5, 6, 8, 10, 12, 15],
+    "stop_loss_pct": [1, 1.5, 2, 3, 5],
+    "position_size_pct": [10, 20, 30, 40, 50, 60, 80],
+    # holding-period bots: 0 = hold until tp/sl/exit RSI, 72 = 3 days,
+    # 168 = one week, 336 = two weeks, 720 = ~a month
+    "max_hold_hours": [0, 72, 168, 336, 720],
 }
 PARAM_KEYS = list(DEFAULT_GRID.keys())
 ACCOUNT_CSV = SWEEP_DIR / "accounts.csv"
@@ -1487,12 +1504,14 @@ def account_grid(cfg: dict, count: int | None = None) -> list[dict]:
         unique.append(unique[len(unique) % len(unique)])
     unique = unique[:count]
 
-    # row 0 = baseline exactly as configured. If the strategy section is
-    # missing (or non-numeric on) a parameter, keep combos[0] rather than
-    # crashing on float(None)/float(list) - the grid still fills `count` rows.
-    if all(isinstance(base.get(k), (int, float))
+    # row 0 = baseline exactly as configured. Numeric params are compared as
+    # floats; string params (entry_mode) as-is. If the strategy section is
+    # missing a parameter entirely, keep combos[0] rather than crashing -
+    # the grid still fills `count` rows.
+    if all(isinstance(base.get(k), (int, float, str))
            and not isinstance(base.get(k), bool) for k in PARAM_KEYS):
-        baseline = tuple(float(base[k]) for k in PARAM_KEYS)
+        baseline = tuple(base[k] if isinstance(base[k], str) else float(base[k])
+                         for k in PARAM_KEYS)
         if unique[0] != baseline:
             unique[0] = baseline
     unique = list(dict.fromkeys(unique))  # guarantee: no duplicate strategies
@@ -1509,7 +1528,8 @@ def account_grid(cfg: dict, count: int | None = None) -> list[dict]:
     for i, combo in enumerate(unique):
         params = dict(zip(PARAM_KEYS, combo))
         params["account"] = f"acc_{i + 1:03d}"
-        params["name"] = (f"e{params['entry_rsi']:.0f}_x{params['exit_rsi']:.0f}"
+        params["name"] = (f"{params['entry_mode'][:3]}_e{params['entry_rsi']:.0f}"
+                          f"_x{params['exit_rsi']:.0f}"
                           f"_tp{params['take_profit_pct']:.0f}"
                           f"_sl{params['stop_loss_pct']:.1f}"
                           f"_p{params['position_size_pct']:.0f}"
@@ -1536,9 +1556,18 @@ def save_account_rows(rows: list[dict]) -> Path:
 
 
 def load_account_rows() -> list[dict]:
+    """Read sweep/accounts.csv, restoring numeric types for numeric params.
+    String params (entry_mode) are kept as-is - float() would crash on them."""
     with open(ACCOUNT_CSV) as fh:
-        return [{k: (float(v) if k in PARAM_KEYS else v) for k, v in r.items()}
-                for r in csv.DictReader(fh)]
+        rows = []
+        for r in csv.DictReader(fh):
+            for k in PARAM_KEYS:
+                try:
+                    r[k] = float(r[k])
+                except (TypeError, ValueError):
+                    pass  # not numeric (entry_mode) - keep the string
+            rows.append(r)
+        return rows
 
 
 # --------------------------------------------------- fast historical sim (exact)
@@ -1744,6 +1773,7 @@ def _print_leaderboard(leaderboard: list[dict], hodl: dict) -> None:
     print("\n" + "=" * 108)
     print(f" {len(leaderboard)}-ACCOUNT TOURNAMENT â ranked by return | "
           f"everything after fees + slippage + 1% TDS")
+    print(" entry: dip = buys oversold (RSI<=entry), momentum = buys strength (RSI>=entry)")
     print(" hold: hours after which the bot exits on schedule (hold_timeout); 0 = until tp/sl/exit-RSI")
     print(f" HODL benchmark for the same cash: â¹{hodl['final_value']:,.0f} "
           f"({hodl['pnl_pct']:+.1f}%)")
