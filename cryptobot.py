@@ -2142,6 +2142,13 @@ def main():
     args = parser.parse_args()
     try:
         cfg = load_cfg(Path(args.config))
+        # fail fast on an unknown strategy family - entry_signal would
+        # otherwise silently trade it as a dip bot (e.g. a "mometum" typo)
+        emode = str((cfg.get("strategy") or {}).get("entry_mode", "dip") or "dip").lower()
+        if emode not in ("dip", "momentum"):
+            raise SystemExit(
+                f"config strategy.entry_mode must be 'dip' or 'momentum', "
+                f"got {emode!r}")
         # Every command works with an explicit [{name, pair}, ...] list:
         # "auto" (and --all-assets) is resolved HERE, once, before dispatch,
         # so cmd_* functions and the sims never see the raw "auto" string

@@ -2,7 +2,7 @@
 
 CoinDCX paper-trading bot with an RSI swing strategy.
 
-> Branch note: `arena/01a0392d-crytptrde` is an Arena session workspace branch opened against `main`.
+> Branch note: feature work happens on Arena session branches (`arena/*`) opened against `main` via pull requests.
 
 ## Scan more than BTC / ETH / SOL
 
@@ -90,3 +90,13 @@ that is the normal grid-change wipe, not a bug.
 extras, which flap hour to hour) so strategy comparisons stay comparable
 across runs.
 
+## Going live (read before touching `live:`)
+
+**Today this bot is paper-only.** Setting `live.enabled: true` (plus API-key
+secrets) only switches the API client to authenticated endpoints — **no real
+orders are placed by `check`/`run`**; the PaperBroker still simulates every
+fill. The low-level `create_market_order` helper exists in `cryptobot.py`
+but is intentionally not wired into any command. Treat the `live:` config
+block as scaffolding for a future, carefully-reviewed feature: if you want
+real trading, verify order placement with a tiny manual order first and
+never let a bot you haven't watched trade size.
