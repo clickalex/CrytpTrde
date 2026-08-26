@@ -214,6 +214,26 @@ class CoinDCXError(RuntimeError):
     pass
 
 
+def _json_rows(data, keys: tuple[str, ...] = ()) -> list:
+    """Normalise CoinDCX JSON into a list of dict rows.
+
+    The public API usually returns a bare list. Some responses wrap it in
+    ``{"data": [...]}`` or send a dict keyed by market name. Iterating a
+    dict as if it were a list of objects raises TypeError and GitHub
+    Actions only reports that as 'Process completed with exit code 1'.
+    """
+    if isinstance(data, list):
+        return data
+    if isinstance(data, dict):
+        for k in keys:
+            v = data.get(k)
+            if isinstance(v, list):
+                return v
+        if data and all(isinstance(v, dict) for v in data.values()):
+            return list(data.values())
+    return []
+
+
 class CoinDCX:
     """CoinDCX REST client (thread-safe).
 
@@ -245,6 +265,13 @@ class CoinDCX:
         # Keep-alive connection pool: parallel workers reuse TCP/TLS
         # connections instead of paying a handshake per request.
         self._session = requests.Session()
+        self._session.headers.update({
+            "User-Agent": (
+                "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            ),
+            "Accept": "application/json,text/plain,*/*",
+        })
         # Adaptive politeness: after any failed request, slow the global pace
         # (3x interval) for a while instead of hammering a struggling server.
         self._penalty_until = 0.0
@@ -280,7 +307,7 @@ class CoinDCX:
                                       time.monotonic() + penalty)
 
     def _get_json(self, url: str, params: dict | None = None,
-                  retries: int = 3):
+                  retries: int = 5):
         """GET `url` and return the parsed JSON body.
 
         Retry policy per call (default 3 attempts):
@@ -308,10 +335,10 @@ class CoinDCX:
                 last_exc = exc
                 resp_exc = getattr(exc, "response", None)
                 status = int(getattr(resp_exc, "status_code", 0) or 0)
-                if 400 <= status < 500 and status not in (408, 429):
-                    # Deterministic client error (bad pair, bad param, auth):
-                    # retrying cannot help and it says nothing about server
-                    # health, so fail fast without penalising the global pace.
+                # 403 is often Cloudflare blocking datacenter IPs (GitHub
+                # Actions). Treat it like 429: back off and retry. Other 4xx
+                # (bad pair / bad param) still fail immediately.
+                if 400 <= status < 500 and status not in (403, 408, 429):
                     raise CoinDCXError(
                         f"CoinDCX client error {status} on {url}: {exc}") from exc
                 retry_after = None
@@ -335,7 +362,14 @@ class CoinDCX:
             with self._cache_lock:
                 if self._tickers is None or refresh:
                     data = self._get_json(f"{API_BASE}/exchange/ticker")
-                    self._tickers = {t["market"]: t for t in data}
+                    rows = _json_rows(data, keys=("markets", "data", "ticker"))
+                    self._tickers = {
+                        t["market"]: t for t in rows
+                        if isinstance(t, dict) and t.get("market")
+                    }
+                    if not self._tickers:
+                        raise CoinDCXError(
+                            f"Unexpected ticker response: {str(data)[:200]}")
         return self._tickers
 
     def ticker(self, market: str, refresh: bool = False) -> dict:
@@ -350,7 +384,14 @@ class CoinDCX:
             with self._cache_lock:
                 if self._markets is None or refresh:
                     data = self._get_json(f"{API_BASE}/exchange/v1/markets_details")
-                    self._markets = {m["coindcx_name"]: m for m in data}
+                    rows = _json_rows(data, keys=("markets", "data", "markets_details"))
+                    self._markets = {
+                        m["coindcx_name"]: m for m in rows
+                        if isinstance(m, dict) and m.get("coindcx_name")
+                    }
+                    if not self._markets:
+                        raise CoinDCXError(
+                            f"Unexpected markets_details response: {str(data)[:200]}")
         return self._markets
 
     def market(self, name: str) -> dict:
@@ -1557,15 +1598,24 @@ def save_account_rows(rows: list[dict]) -> Path:
 
 def load_account_rows() -> list[dict]:
     """Read sweep/accounts.csv, restoring numeric types for numeric params.
-    String params (entry_mode) are kept as-is - float() would crash on them."""
+    String params (entry_mode) are kept as-is - float() would crash on them.
+
+    Older CSVs (before the dip/momentum grid) may omit columns such as
+    entry_mode. Missing keys used to raise KeyError and kill GitHub Actions
+    with only 'Process completed with exit code 1'.
+    """
     with open(ACCOUNT_CSV) as fh:
         rows = []
         for r in csv.DictReader(fh):
             for k in PARAM_KEYS:
+                raw = r.get(k, "")
+                if raw in (None, ""):
+                    r[k] = DEFAULT_GRID[k][0]
+                    continue
                 try:
-                    r[k] = float(r[k])
+                    r[k] = float(raw)
                 except (TypeError, ValueError):
-                    pass  # not numeric (entry_mode) - keep the string
+                    r[k] = raw  # not numeric (entry_mode) - keep the string
             rows.append(r)
         return rows
 
@@ -1872,7 +1922,7 @@ def live_sweep(cfg: dict, top_n: int | None = None, rank_only: bool = False,
     desired = int((cfg.get("sweep") or {}).get("accounts", 200))
     sig = grid_signature(cfg)
     needs_wipe = reset
-    if ACCOUNT_CSV.exists():
+    if ACCOUNT_CSV.exists() and not reset:
         rows = load_account_rows()
         old_sig = SIGNATURE_FILE.read_text().strip() if SIGNATURE_FILE.exists() else ""
         if len(rows) != desired or old_sig != sig:
@@ -1920,7 +1970,10 @@ def _live_summary(cfg: dict, rows: list[dict]) -> None:
     for a in cfg["assets"]:
         t = tickers.get(a["name"])
         if t:
-            prices[a["name"]] = float(t["last_price"])
+            try:
+                prices[a["name"]] = float(t.get("last_price") or 0.0)
+            except (TypeError, ValueError):
+                continue
     out = []
     for row in rows:
         broker = make_broker(cfg, state_dir=ACCOUNTS_DIR / row["account"])
@@ -2139,6 +2192,7 @@ def main():
                        help="live ranking of demo accounts")
     p.set_defaults(func=cmd_sweep_status)
 
+    print(f"cryptobot starting: {' '.join(sys.argv[1:])}", flush=True)
     args = parser.parse_args()
     try:
         cfg = load_cfg(Path(args.config))
@@ -2166,10 +2220,21 @@ def main():
 
         args.func(cfg, args)
     except CoinDCXError as exc:
-        print(f"CoinDCX request failed: {exc}", file=sys.stderr)
+        # Hourly GitHub Actions should not go red when CoinDCX/Cloudflare
+        # blocks datacenter IPs — skip this hour and try again next cron.
+        msg = f"CoinDCX unreachable this hour ({exc}). Skipping; will retry next run."
+        print(msg, flush=True)
+        print(msg, file=sys.stderr, flush=True)
+        if args.command in {"sweep-live", "sweep-status", "check", "status", "assets"}:
+            raise SystemExit(0) from exc
         raise SystemExit(1) from exc
-    except (OSError, ValueError, yaml.YAMLError) as exc:
-        print(f"Error: {exc}", file=sys.stderr)
+    except (OSError, ValueError, yaml.YAMLError, KeyError, TypeError) as exc:
+        print(f"Error: {type(exc).__name__}: {exc}", file=sys.stderr)
+        raise SystemExit(1) from exc
+    except Exception as exc:  # noqa: BLE001 — always show a real traceback in CI
+        import traceback
+        traceback.print_exc()
+        print(f"Error: {type(exc).__name__}: {exc}", file=sys.stderr)
         raise SystemExit(1) from exc
 
 
