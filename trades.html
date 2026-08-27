@@ -35,7 +35,11 @@
         </a>
         <a href="trades.html" class="nav-link-item active">
           <span>⚡ Trades Log</span>
-          <span class="nav-badge">92</span>
+          <span class="nav-badge">8.1K</span>
+        </a>
+        <a href="trades.html#view=last_trades" class="nav-link-item">
+          <span>🕐 Last Trade</span>
+          <span class="nav-badge">500</span>
         </a>
         <a href="live.html" class="nav-link-item">
           <span>🟢 Live Accounts</span>
@@ -69,8 +73,8 @@
     <!-- Page Intro Header -->
     <div class="page-intro-header">
       <div class="page-title-group">
-        <h2>⚡ Backtest Trades Log</h2>
-        <p>92 simulated trade entries & exits with timing, RSI, prices, and PnL breakdown</p>
+        <h2>⚡ Trades Log</h2>
+        <p>Backtest trades, plus the last trade &amp; every fill of the 500 live bots</p>
       </div>
       <div class="header-actions">
         <button class="btn btn-sm btn-ghost" id="btn-tool-streak">🎯 Streak Analyzer</button>
@@ -78,6 +82,16 @@
         <button class="btn btn-sm btn-ghost" id="btn-tool-print">🖨️ Print Log</button>
       </div>
     </div>
+
+    <!-- Trades View Switcher -->
+    <div class="trades-view-switcher" id="trades-view-switcher" role="tablist" aria-label="Trades view">
+      <button class="trades-view-btn" data-view="trades" role="tab" aria-selected="true">⚡ Backtest Trades</button>
+      <button class="trades-view-btn" data-view="live_trades" role="tab" aria-selected="false">🟢 Live Trades (all)</button>
+      <button class="trades-view-btn" data-view="last_trades" role="tab" aria-selected="false">🕐 Last Trade / Bot</button>
+    </div>
+
+    <!-- Latest Live Trade Banner -->
+    <div class="last-trade-banner" id="last-trade-banner" style="display:none;"></div>
 
     <!-- KPI Summary Metrics Grid -->
     <section class="metrics-grid" id="metrics-cards-grid">
@@ -88,7 +102,7 @@
     <section class="charts-panel">
       <div class="charts-panel-header" id="charts-panel-header">
         <div class="charts-panel-title">
-          <span>📈 Trade Distribution & PnL by Asset Charts</span>
+          <span id="charts-panel-title-text">📈 Trade Distribution & PnL by Asset Charts</span>
         </div>
         <span id="charts-toggle-chevron" style="font-size: 0.8rem; color: var(--text-muted);">▼</span>
       </div>
@@ -188,7 +202,11 @@
         </a>
         <a href="trades.html" class="drawer-nav-item active">
           <span>⚡ Trades Log</span>
-          <span class="nav-badge">92</span>
+          <span class="nav-badge">8.1K</span>
+        </a>
+        <a href="trades.html#view=last_trades" class="drawer-nav-item">
+          <span>🕐 Last Trade</span>
+          <span class="nav-badge">500</span>
         </a>
         <a href="live.html" class="drawer-nav-item">
           <span>🟢 Live Accounts</span>
