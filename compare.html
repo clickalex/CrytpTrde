@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategy Comparator — CrytpTrde Analytics</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body data-page="compare">
+
+  <div class="app-container">
+    
+    <!-- Top Navigation Header -->
+    <header class="app-header">
+      <a href="index.html" class="brand-section">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-title">
+          <h1>
+            CrytpTrde
+            <span class="brand-badge">Paper & Live</span>
+            <span class="github-free-badge">✓ Free</span>
+          </h1>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-links-desktop">
+        <a href="index.html" class="nav-link-item">
+          <span>🏆 Sweep Results</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="trades.html" class="nav-link-item">
+          <span>⚡ Trades Log</span>
+          <span class="nav-badge">92</span>
+        </a>
+        <a href="live.html" class="nav-link-item">
+          <span>🟢 Live Accounts</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="configs.html" class="nav-link-item">
+          <span>⚙️ Configs Grid</span>
+        </a>
+        <a href="analytics.html" class="nav-link-item">
+          <span>📈 Quant Analytics</span>
+        </a>
+        <a href="compare.html" class="nav-link-item active">
+          <span>⚖️ Comparator</span>
+        </a>
+        <a href="importer.html" class="nav-link-item">
+          <span>📁 Import File</span>
+        </a>
+      </nav>
+
+      <!-- Right Controls -->
+      <div class="header-controls">
+        <button class="btn btn-sm" id="theme-toggle-btn" title="Toggle Dark/Light Mode">
+          <span>☀️ Light</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" title="Open Navigation Menu">
+          <span>☰</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Page Intro Header -->
+    <div class="page-intro-header">
+      <div class="page-title-group">
+        <h2>⚖️ Multi-Strategy Performance & Parameter Comparator</h2>
+        <p>Side-by-side strategy diffs with multi-line equity curve comparison vs HODL benchmark</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-sm btn-ghost" id="btn-tool-print">🖨️ Print Comparison</button>
+      </div>
+    </div>
+
+    <!-- Strategy Comparator Container -->
+    <section class="filter-section" id="comparator-content">
+      <!-- Injected by app.js -->
+    </section>
+
+  </div>
+
+  <!-- Mobile Slide-Out Drawer Menu -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop">
+    <div class="mobile-drawer">
+      <div class="drawer-header">
+        <div class="brand-section">
+          <div class="brand-icon">⚡</div>
+          <span style="font-weight: 700; font-size: 1.1rem;">CrytpTrde</span>
+        </div>
+        <button class="modal-close-btn" id="mobile-drawer-close">&times;</button>
+      </div>
+      <div class="drawer-nav-list">
+        <a href="index.html" class="drawer-nav-item">
+          <span>🏆 Sweep Results</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="trades.html" class="drawer-nav-item">
+          <span>⚡ Trades Log</span>
+          <span class="nav-badge">92</span>
+        </a>
+        <a href="live.html" class="drawer-nav-item">
+          <span>🟢 Live Accounts</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="configs.html" class="drawer-nav-item">
+          <span>⚙️ Bot Configs Grid</span>
+        </a>
+        <a href="analytics.html" class="drawer-nav-item">
+          <span>📈 Quant Analytics</span>
+        </a>
+        <a href="compare.html" class="drawer-nav-item active">
+          <span>⚖️ Strategy Comparator</span>
+        </a>
+        <a href="importer.html" class="drawer-nav-item">
+          <span>📁 Import Custom File</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom App Bar -->
+  <nav class="mobile-bottom-bar">
+    <div class="mobile-bottom-bar-grid">
+      <a href="index.html" class="bottom-tab-btn">
+        <span class="tab-icon">🏆</span>
+        <span>Sweep</span>
+      </a>
+      <a href="trades.html" class="bottom-tab-btn">
+        <span class="tab-icon">⚡</span>
+        <span>Trades</span>
+      </a>
+      <a href="live.html" class="bottom-tab-btn">
+        <span class="tab-icon">🟢</span>
+        <span>Live</span>
+      </a>
+      <a href="analytics.html" class="bottom-tab-btn">
+        <span class="tab-icon">📈</span>
+        <span>Quant</span>
+      </a>
+      <button class="bottom-tab-btn" id="bottom-tab-more">
+        <span class="tab-icon">☰</span>
+        <span>More</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
