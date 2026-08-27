@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CrytpTrde Data Explorer — Multi-Filters, Deep Sort, Pagination & Analytics</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Chart.js for interactive analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="brand-section">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-title">
+          <h1>
+            CrytpTrde Analytics
+            <span class="brand-badge">Paper & Live</span>
+            <span class="github-free-badge">✓ GitHub Free Ready</span>
+            <span class="live-pulse-badge" id="live-status-indicator" style="display:none;">
+              <span class="pulse-dot"></span> LIVE
+            </span>
+          </h1>
+          <div class="brand-subtitle">Interactive Data Explorer with Multi-Filters, Deep Sorting, and Pagination</div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Live Auto-Refresh Selector -->
+        <div style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--text-secondary);">
+          <span>⏱️ Auto-Refresh:</span>
+          <select id="live-refresh-select" class="filter-select" style="padding: 0.25rem 0.5rem; width: auto; font-size: 0.78rem;">
+            <option value="0">Off</option>
+            <option value="5">Every 5s</option>
+            <option value="10">Every 10s</option>
+            <option value="30">Every 30s</option>
+          </select>
+        </div>
+
+        <button class="btn btn-sm" id="btn-open-importer" title="Import custom CSV or JSON dataset">
+          <span>📁 Import File</span>
+        </button>
+        <button class="btn btn-sm" id="theme-toggle-btn" title="Switch Theme (Dark / Light)">
+          <span>☀️ Light</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Analytics & Tools Quick Bar -->
+    <div class="tools-quick-bar">
+      <span class="tools-quick-label">⚡ Analytical Suite:</span>
+      <button class="btn btn-sm btn-ghost" id="btn-tool-compare" title="Compare selected strategies side-by-side">
+        <span>⚖️ Strategy Comparator</span>
+      </button>
+      <button class="btn btn-sm btn-ghost" id="btn-tool-underwater" title="Underwater Drawdown & Recovery Chart">
+        <span>📉 Underwater Drawdown</span>
+      </button>
+      <button class="btn btn-sm btn-ghost" id="btn-tool-correlation" title="Bot & Asset Correlation Heatmap">
+        <span>🔥 Correlation Matrix</span>
+      </button>
+      <button class="btn btn-sm btn-ghost" id="btn-tool-streak" title="Win/Loss Streak & Payoff Analyzer">
+        <span>🎯 Streak Analyzer</span>
+      </button>
+      <button class="btn btn-sm btn-ghost" id="btn-tool-montecarlo" title="Run Monte Carlo 1,000+ Permutations">
+        <span>🎲 Monte Carlo Risk Sim</span>
+      </button>
+      <button class="btn btn-sm btn-ghost" id="btn-tool-playground" title="Interactive Strategy Playground">
+        <span>🎛️ Strategy Playground</span>
+      </button>
+      <button class="btn btn-sm btn-ghost" id="btn-tool-ensemble" title="Multi-Bot Ensemble Portfolio Allocator">
+        <span>💼 Ensemble Allocator</span>
+      </button>
+      <button class="btn btn-sm btn-ghost" id="btn-tool-tax" title="CoinDCX Fee & 1% TDS Calculator">
+        <span>🇮🇳 1% TDS & Tax Waterfall</span>
+      </button>
+      <button class="btn btn-sm btn-ghost" id="btn-tool-print" title="Print Executive Report">
+        <span>🖨️ Print Report</span>
+      </button>
+    </div>
+
+    <!-- Dataset Switcher Tabs -->
+    <nav class="dataset-tabs-container" id="dataset-tabs">
+      <!-- Injected by app.js -->
+    </nav>
+
+    <!-- KPI Summary Metrics Cards Grid -->
+    <section class="metrics-grid" id="metrics-cards-grid">
+      <!-- Injected by app.js -->
+    </section>
+
+    <!-- Interactive Visualizations Panel (Collapsible) -->
+    <section class="charts-panel">
+      <div class="charts-panel-header" id="charts-panel-header">
+        <div class="charts-panel-title">
+          <span>📈 Analytics & Performance Distribution Charts</span>
+        </div>
+        <span id="charts-toggle-chevron" style="font-size: 0.8rem; color: var(--text-muted);">▼</span>
+      </div>
+      <div class="charts-body" id="charts-body">
+        <div class="chart-wrapper">
+          <div class="chart-header">
+            <span id="chart-title-1">Strategy PnL Distribution (%)</span>
+          </div>
+          <div class="chart-canvas-container">
+            <canvas id="analytics-chart-1"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-wrapper">
+          <div class="chart-header">
+            <span id="chart-title-2">Win Rate vs Drawdown (%)</span>
+          </div>
+          <div class="chart-canvas-container">
+            <canvas id="analytics-chart-2"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-wrapper">
+          <div class="chart-header">
+            <span id="chart-title-3">Mode Breakdown</span>
+          </div>
+          <div class="chart-canvas-container">
+            <canvas id="analytics-chart-3"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters, Search & Query Controls -->
+    <section class="filter-section">
+      
+      <!-- Main Search & Quick Chips Bar -->
+      <div class="filter-main-bar">
+        <div class="search-box-wrapper">
+          <span class="search-icon">🔍</span>
+          <input 
+            type="text" 
+            id="global-search" 
+            class="search-input" 
+            placeholder="Search across all fields with inline highlighting (press '/' to focus)..." 
+            autocomplete="off"
+            spellcheck="false"
+          >
+          <button class="search-clear-btn" id="search-clear-btn" title="Clear search">✕</button>
+          <span class="search-shortcut-badge">/</span>
+        </div>
+
+        <!-- Quick Filter Chips -->
+        <div class="quick-chips-wrapper" id="quick-chips-list">
+          <!-- Injected by app.js -->
+        </div>
+      </div>
+
+      <!-- Advanced Column / Numerical Filters Grid -->
+      <div class="advanced-filters-grid" id="advanced-filters-grid">
+        <!-- Injected by app.js -->
+      </div>
+
+      <!-- Active Filters Pill Summary & Results Count -->
+      <div class="active-filters-strip">
+        <div class="active-badges-list" id="active-filters-badges">
+          <!-- Injected by app.js -->
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.85rem;">
+          <div class="filter-results-count" id="filter-results-counter">
+            Showing all entries
+          </div>
+          <button class="btn btn-sm btn-ghost" id="btn-reset-filters" title="Reset all applied filters">
+            <span>↺ Reset Filters</span>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Table Toolbar (Export, Column Visibility) -->
+    <div class="table-toolbar">
+      <div class="toolbar-left">
+        <div>
+          <h2 id="current-dataset-title" style="font-size: 1.1rem; font-weight: 700;">Sweep Tournament Results</h2>
+          <div id="current-dataset-subtitle" style="font-size: 0.8rem; color: var(--text-secondary);">500 bot strategies backtested across CoinDCX markets (30 days)</div>
+        </div>
+      </div>
+
+      <div class="toolbar-right">
+        <button class="btn btn-sm" id="btn-column-manager" title="Customize visible columns">
+          <span>⚙️ Columns</span>
+        </button>
+        <button class="btn btn-sm" id="btn-copy-data" title="Copy table to clipboard">
+          <span>📋 Copy</span>
+        </button>
+        <button class="btn btn-sm" id="btn-export-csv" title="Download filtered data as CSV">
+          <span>📥 Export CSV</span>
+        </button>
+        <button class="btn btn-sm" id="btn-export-json" title="Download filtered data as JSON">
+          <span>📥 Export JSON</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Data Table Container -->
+    <main class="table-container">
+      <div class="table-scroll-wrapper" id="table-scroll-container">
+        <!-- Injected by app.js -->
+      </div>
+
+      <!-- Pagination Footer -->
+      <footer class="pagination-footer" id="pagination-footer-container">
+        <!-- Injected by app.js -->
+      </footer>
+    </main>
+
+  </div>
+
+  <!-- Floating Bulk Actions Bar -->
+  <div class="floating-bulk-bar" id="floating-bulk-bar">
+    <span class="bulk-count-badge" id="bulk-selected-count">0 selected</span>
+    <button class="btn btn-sm btn-primary" id="bulk-compare-btn">⚖️ Compare Selected</button>
+    <button class="btn btn-sm" id="bulk-subtotals-btn">📊 Subtotals</button>
+    <button class="btn btn-sm" id="bulk-export-csv-btn">📥 Export CSV</button>
+    <button class="btn btn-sm" id="bulk-export-json-btn">📥 Export JSON</button>
+    <button class="btn btn-sm btn-ghost" id="bulk-deselect-btn">✕ Deselect All</button>
+  </div>
+
+  <!-- Strategy Comparison & Diff Modal -->
+  <div class="modal-backdrop" id="strategy-comparator-modal">
+    <div class="modal-container modal-wide">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>⚖️ Multi-Strategy Performance & Parameter Comparator</span>
+        </div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="comparator-content">
+        <!-- Injected by app.js -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Underwater Drawdown Modal -->
+  <div class="modal-backdrop" id="underwater-modal">
+    <div class="modal-container modal-wide">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>📉 Underwater Drawdown & Time-to-Recovery Analysis</span>
+        </div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="metrics-grid">
+          <div class="metric-card highlight-danger">
+            <div class="metric-header"><span>Max Historical Drop</span><span>📉</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="dd-max-peak" style="color:var(--danger)">-9.67%</span></div>
+            <div class="metric-sub">Peak-to-trough decline</div>
+          </div>
+          <div class="metric-card highlight-warning">
+            <div class="metric-header"><span>Longest Time Underwater</span><span>⏱️</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="dd-longest-time">72 Hours</span></div>
+            <div class="metric-sub">Duration until next all-time high</div>
+          </div>
+          <div class="metric-card highlight-success">
+            <div class="metric-header"><span>Current Portfolio State</span><span>🛡️</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="dd-current-status" style="color:var(--success); font-size:1.15rem;">ATH Peak</span></div>
+            <div class="metric-sub">Zero drawdown at tournament close</div>
+          </div>
+        </div>
+
+        <div style="height: 280px; background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-top: 1rem;">
+          <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-secondary);">Underwater Equity Curve (% Drawdown from All-Time Highs)</div>
+          <div style="height: calc(100% - 25px); position: relative;">
+            <canvas id="underwater-chart"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Correlation Matrix Modal -->
+  <div class="modal-backdrop" id="correlation-modal">
+    <div class="modal-container modal-wide">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>🔥 Strategy & Asset Return Correlation Matrix</span>
+        </div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.85rem; color: var(--text-secondary);">
+          Pearson correlation coefficients between bot returns. Low correlation (green) provides maximum diversification benefit.
+        </p>
+        <div id="correlation-matrix-container"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Strategy YAML & CLI Generator Modal -->
+  <div class="modal-backdrop" id="yaml-generator-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>🛠️ Strategy Configuration Generator</span>
+        </div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.85rem; color:var(--text-secondary);">Generated ready-to-use <code>config.yaml</code> for this bot strategy:</p>
+        <pre class="json-preview" id="yaml-code-content"></pre>
+        <div style="display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 0.5rem;">
+          <button class="btn btn-sm" id="btn-copy-cli">📋 Copy CLI Command</button>
+          <button class="btn btn-primary btn-sm" id="btn-download-yaml">📥 Download config.yaml</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Streak & Trade Distribution Modal -->
+  <div class="modal-backdrop" id="streak-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>🎯 Win/Loss Streak & Trade Expectancy Analyzer</span>
+        </div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="metrics-grid">
+          <div class="metric-card highlight-success">
+            <div class="metric-header"><span>Max Win Streak</span><span>🔥</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="streak-max-win" style="color:var(--success)">7 in a row</span></div>
+            <div class="metric-sub">Longest winning run</div>
+          </div>
+          <div class="metric-card highlight-danger">
+            <div class="metric-header"><span>Max Loss Streak</span><span>❄️</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="streak-max-loss" style="color:var(--danger)">4 in a row</span></div>
+            <div class="metric-sub">Longest drawdown streak</div>
+          </div>
+          <div class="metric-card highlight-info">
+            <div class="metric-header"><span>Win/Loss Payoff</span><span>⚖️</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="streak-payoff-ratio">1.85 : 1</span></div>
+            <div class="metric-sub">Avg Win % / Avg Loss %</div>
+          </div>
+          <div class="metric-card highlight-purple">
+            <div class="metric-header"><span>Trade Expectancy</span><span>📈</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="streak-expectancy" style="color:var(--success)">+₹125.40</span></div>
+            <div class="metric-sub">Expected mathematical value</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trade Anatomy Modal -->
+  <div class="modal-backdrop" id="trade-anatomy-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>⚡ Trade Anatomy & Execution Breakdown</span>
+        </div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="trade-anatomy-content">
+        <!-- Injected by app.js -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Monte Carlo Simulation Modal -->
+  <div class="modal-backdrop" id="monte-carlo-modal">
+    <div class="modal-container modal-wide">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>🎲 Monte Carlo Risk & Drawdown Simulation (1,000+ Permutations)</span>
+        </div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="simulation-control-grid">
+          <div class="sim-slider-row">
+            <label>Simulation Runs: <span id="mc-iter-val">1000</span></label>
+            <input type="number" id="mc-iterations" value="1000" min="100" max="5000" step="100" class="filter-select">
+          </div>
+          <div class="sim-slider-row">
+            <label>Starting Capital (₹):</label>
+            <input type="number" id="mc-capital" value="50000" min="5000" max="1000000" step="5000" class="filter-select">
+          </div>
+        </div>
+
+        <div class="metrics-grid" style="margin-top: 1rem;">
+          <div class="metric-card highlight-success">
+            <div class="metric-header"><span>Median Portfolio</span><span>💰</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="mc-median-end">₹50,000</span></div>
+            <div class="metric-sub">50th percentile outcome</div>
+          </div>
+          <div class="metric-card highlight-danger">
+            <div class="metric-header"><span>95% VaR Max Drawdown</span><span>📉</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="mc-var-dd" style="color:var(--danger)">12.4%</span></div>
+            <div class="metric-sub">Worst 5% expected drawdown</div>
+          </div>
+          <div class="metric-card highlight-info">
+            <div class="metric-header"><span>90% Confidence Interval</span><span>📊</span></div>
+            <div class="metric-value-row" style="font-size:1.1rem; font-family:var(--font-mono); font-weight:700;">
+              <span id="mc-p5-end">₹42,000</span> - <span id="mc-p95-end">₹68,000</span>
+            </div>
+            <div class="metric-sub">5th to 95th percentile spread</div>
+          </div>
+          <div class="metric-card highlight-warning">
+            <div class="metric-header"><span>Risk of 50% Drawdown</span><span>⚠️</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="mc-ruin-prob">0.0%</span></div>
+            <div class="metric-sub">Probability of losing >50% capital</div>
+          </div>
+        </div>
+
+        <div style="height: 250px; background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-top: 1rem;">
+          <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-secondary);">Distribution of Simulated Final Equity Outcomes</div>
+          <div style="height: calc(100% - 25px); position: relative;">
+            <canvas id="monte-carlo-chart"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Strategy Playground Modal -->
+  <div class="modal-backdrop" id="playground-modal">
+    <div class="modal-container modal-wide">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>🎛️ Interactive Strategy Parameter Playground & Simulator</span>
+        </div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="simulation-control-grid">
+          <div class="sim-slider-row">
+            <label>Entry RSI Trigger: <span id="play-entry-rsi-val">30</span></label>
+            <input type="range" id="play-entry-rsi" min="10" max="50" step="1" value="30">
+          </div>
+          <div class="sim-slider-row">
+            <label>Exit RSI Trigger: <span id="play-exit-rsi-val">80</span></label>
+            <input type="range" id="play-exit-rsi" min="50" max="90" step="1" value="80">
+          </div>
+          <div class="sim-slider-row">
+            <label>Take Profit %: <span id="play-tp-val">8%</span></label>
+            <input type="range" id="play-tp" min="1" max="20" step="0.5" value="8">
+          </div>
+          <div class="sim-slider-row">
+            <label>Stop Loss %: <span id="play-sl-val">4%</span></label>
+            <input type="range" id="play-sl" min="1" max="10" step="0.5" value="4">
+          </div>
+          <div class="sim-slider-row">
+            <label>Position Size %: <span id="play-size-val">50%</span></label>
+            <input type="range" id="play-size" min="10" max="100" step="5" value="50">
+          </div>
+        </div>
+
+        <div class="metrics-grid" style="margin-top: 1rem;">
+          <div class="metric-card highlight-success">
+            <div class="metric-header"><span>Projected Net Return</span><span>📈</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="play-net-return" style="color:var(--success)">+14.20%</span></div>
+            <div class="metric-sub">Across historical candle swings</div>
+          </div>
+          <div class="metric-card highlight-info">
+            <div class="metric-header"><span>Simulated Win Rate</span><span>🎯</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="play-winrate">62.5%</span></div>
+            <div class="metric-sub"><span id="play-trades-count">48</span> simulated trades taken</div>
+          </div>
+          <div class="metric-card highlight-purple">
+            <div class="metric-header"><span>Projected Ending Capital</span><span>💼</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="play-final-cap">₹57,100</span></div>
+            <div class="metric-sub">From ₹50,000 starting paper cash</div>
+          </div>
+        </div>
+
+        <div style="height: 250px; background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-top: 1rem;">
+          <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-secondary);">Simulated Equity Growth Curve</div>
+          <div style="height: calc(100% - 25px); position: relative;">
+            <canvas id="playground-chart"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Multi-Bot Ensemble Allocator Modal -->
+  <div class="modal-backdrop" id="ensemble-modal">
+    <div class="modal-container modal-wide">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>💼 Multi-Bot Ensemble Portfolio Allocator</span>
+        </div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.85rem; color: var(--text-secondary);">
+          Blend uncorrelated bots (Momentum + Dip) to smooth drawdowns and maximize risk-adjusted returns (Sharpe Ratio).
+        </p>
+
+        <div class="simulation-control-grid">
+          <div class="sim-slider-row">
+            <label>acc_399 (Momentum): <span id="ens-w1-val">40%</span></label>
+            <input type="range" id="ens-weight-1" min="0" max="100" step="5" value="40">
+          </div>
+          <div class="sim-slider-row">
+            <label>acc_100 (Dip 72h): <span id="ens-w2-val">35%</span></label>
+            <input type="range" id="ens-weight-2" min="0" max="100" step="5" value="35">
+          </div>
+          <div class="sim-slider-row">
+            <label>acc_079 (Dip 168h): <span id="ens-w3-val">25%</span></label>
+            <input type="range" id="ens-weight-3" min="0" max="100" step="5" value="25">
+          </div>
+        </div>
+
+        <div class="metrics-grid" style="margin-top: 1rem;">
+          <div class="metric-card highlight-purple">
+            <div class="metric-header"><span>Ensemble Net Return</span><span>🚀</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="ens-combined-return" style="color:var(--success)">+16.85%</span></div>
+            <div class="metric-sub">Weighted portfolio growth</div>
+          </div>
+          <div class="metric-card highlight-success">
+            <div class="metric-header"><span>Smoothed Drawdown</span><span>🛡️</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="ens-combined-dd" style="color:var(--success)">4.12%</span></div>
+            <div class="metric-sub">-57% lower risk vs single bot</div>
+          </div>
+          <div class="metric-card highlight-info">
+            <div class="metric-header"><span>Risk-Adjusted Sharpe</span><span>⚡</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="ens-sharpe-score">2.84</span></div>
+            <div class="metric-sub">High Sharpe efficiency</div>
+          </div>
+        </div>
+
+        <div style="height: 260px; background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-top: 1rem;">
+          <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-secondary);">Ensemble Blended Curve vs Single Bot & Benchmark</div>
+          <div style="height: calc(100% - 25px); position: relative;">
+            <canvas id="ensemble-chart"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indian Tax & Fee Waterfall Modal -->
+  <div class="modal-backdrop" id="tax-calculator-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>🇮🇳 CoinDCX Fee, GST, 1% TDS & Tax Waterfall</span>
+        </div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="simulation-control-grid">
+          <div class="sim-slider-row">
+            <label>Gross Trading Profit (₹):</label>
+            <input type="number" id="tax-gross-profit" value="20000" min="0" step="1000" class="filter-select">
+          </div>
+          <div class="sim-slider-row">
+            <label>Total Turnover Traded (₹):</label>
+            <input type="number" id="tax-turnover" value="200000" min="0" step="10000" class="filter-select">
+          </div>
+        </div>
+
+        <div class="detail-grid" style="margin-top: 1rem;">
+          <div class="detail-item">
+            <div class="detail-item-label">CoinDCX Brokerage (0.1%)</div>
+            <div class="detail-item-value" id="tax-brokerage-val">₹200.00</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-item-label">18% GST on Brokerage</div>
+            <div class="detail-item-value" id="tax-gst-val">₹36.00</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-item-label">Section 194S TDS (1%)</div>
+            <div class="detail-item-value" id="tax-tds-val">₹2,000.00</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-item-label">Flat 30% VDA Income Tax</div>
+            <div class="detail-item-value" id="tax-income-val" style="color:var(--danger)">₹6,000.00</div>
+          </div>
+        </div>
+
+        <div class="metric-card highlight-success" style="margin-top: 1rem;">
+          <div class="metric-header"><span>Net Realized Take-Home Wealth</span><span>💵</span></div>
+          <div class="metric-value-row"><span class="metric-value" id="tax-net-profit" style="color:var(--success)">₹13,764.00</span></div>
+          <div class="metric-sub">Effective combined tax/fee friction: <span id="tax-effective-pct" style="font-weight:700">31.2%</span></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row Details Inspector Modal -->
+  <div class="modal-backdrop" id="row-inspector-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>🔍 Record Inspector</span>
+        </div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="row-inspector-content">
+        <!-- Injected by app.js -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Column Visibility Modal -->
+  <div class="modal-backdrop" id="column-manager-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>⚙️ Toggle Column Visibility</span>
+        </div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.85rem; color:var(--text-secondary);">Check or uncheck columns to display in the data table:</p>
+        <div class="column-select-grid" id="column-select-grid">
+          <!-- Injected by app.js -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary btn-sm modal-close-btn">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Data Importer Modal -->
+  <div class="modal-backdrop" id="importer-modal">
+    <div class="modal-container" style="max-width: 700px;">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>📁 Import Custom Dataset (CSV / JSON)</span>
+        </div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="dropzone-container" id="file-dropzone">
+          <div class="dropzone-icon">📄</div>
+          <div style="font-weight: 600; font-size: 1rem;">Drag & drop your CSV or JSON file here</div>
+          <div style="font-size: 0.82rem; color: var(--text-secondary);">or click anywhere to browse files</div>
+          <input type="file" id="file-input" accept=".csv,.json,.txt" style="display: none;">
+        </div>
+
+        <div>
+          <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem;">Or paste raw CSV / JSON text:</div>
+          <textarea id="raw-paste-input" class="raw-paste-textarea" placeholder="header1,header2,header3&#10;val1,val2,val3"></textarea>
+          <div style="margin-top: 0.5rem; display: flex; justify-content: flex-end;">
+            <button class="btn btn-primary btn-sm" id="btn-load-pasted">Load Pasted Data</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm modal-close-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Embedded Data & Application Script -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
