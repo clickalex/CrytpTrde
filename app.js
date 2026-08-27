@@ -1,16 +1,27 @@
 /**
- * CrytpTrde Data Explorer — Master Application Logic (100% Free / Client-Side)
- * Designed to run natively on GitHub Pages without any backend servers or subscriptions.
- * Includes Multi-Filters, Deep Sort, Pagination, Underwater Drawdown, Correlation Heatmap,
- * YAML Generator, Candlestick/RSI visualizer, Streak analyzer, Monte Carlo, and Ensemble Allocator.
+ * CrytpTrde Data Explorer — Master Application & Multi-Page Navigation Logic
+ * 100% Client-side, Static, and GitHub Pages Compatible.
  */
 
 (function () {
   'use strict';
 
-  // Application State
+  // Determine current page from body attribute or URL
+  const pageId = document.body.getAttribute('data-page') || 'sweep';
+  const pageToDatasetMap = {
+    'sweep': 'sweep_results',
+    'trades': 'trades',
+    'live': 'live_summary',
+    'configs': 'accounts',
+    'compare': 'sweep_results',
+    'importer': 'custom',
+    'analytics': 'sweep_results'
+  };
+
+  // State
   const state = {
-    currentDatasetKey: 'sweep_results',
+    pageId: pageId,
+    currentDatasetKey: pageToDatasetMap[pageId] || 'sweep_results',
     customData: null,
     customDataTitle: 'Custom Dataset',
     
@@ -31,8 +42,8 @@
     dateFrom: '',
     dateTo: '',
 
-    // Sorting (Multi-Column Support: primary & secondary)
-    sortColumns: [{ key: 'rank', direction: 'asc' }],
+    // Sorting (Multi-Column)
+    sortColumns: [{ key: pageId === 'trades' ? 'entry_time' : (pageId === 'configs' ? 'account' : 'rank'), direction: pageId === 'trades' ? 'desc' : 'asc' }],
 
     // Pagination
     currentPage: 1,
@@ -61,10 +72,9 @@
     playgroundChart: null,
     ensembleChart: null,
     underwaterChart: null,
-    candlestickChart: null
   };
 
-  // Column Definitions per Dataset
+  // Dataset Schema Configs
   const DATASET_CONFIGS = {
     sweep_results: {
       title: 'Sweep Tournament Results',
@@ -151,31 +161,54 @@
         { key: 'position_size_pct', label: 'Position Size %', type: 'number', render: (val) => `${val}%` },
         { key: 'max_hold_hours', label: 'Hold Limit', type: 'number', render: (val) => formatHoldTime(val) },
       ]
-    },
-    backtest_results: {
-      title: 'Strategy vs Benchmark Metrics',
-      subtitle: 'Side-by-side performance comparison against HODL benchmark',
-      defaultSort: 'metric',
-      defaultSortDir: 'asc',
-      rowKey: 'metric',
-      columns: [
-        { key: 'metric', label: 'Performance Metric', type: 'string', render: (val) => formatMetricName(val) },
-        { key: 'signal_strategy', label: 'RSI Swing Strategy', type: 'number', render: (val, row) => formatBenchmarkVal(val, row.metric) },
-        { key: 'hodl_benchmark', label: 'HODL Benchmark (Top 50)', type: 'number', render: (val, row) => formatBenchmarkVal(val, row.metric) },
-      ]
     }
   };
 
   // ==========================================================================
-  // Initialization & URL State Sync
+  // Initialization & Device-Friendly Navigation Setup
   // ==========================================================================
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
+    initNavigation();
     readStateFromUrl();
     initEventListeners();
-    renderTabs();
-    loadDataset(state.currentDatasetKey);
+
+    if (state.pageId === 'analytics') {
+      initAnalyticsPage();
+    } else if (state.pageId === 'compare') {
+      openStrategyComparator();
+    } else {
+      loadDataset(state.currentDatasetKey);
+    }
   });
+
+  function initNavigation() {
+    // Mobile Drawer Open / Close
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const drawerBackdrop = document.getElementById('mobile-drawer-backdrop');
+    const drawerCloseBtn = document.getElementById('mobile-drawer-close');
+
+    if (menuBtn && drawerBackdrop) {
+      menuBtn.addEventListener('click', () => drawerBackdrop.classList.add('open'));
+    }
+    if (drawerCloseBtn && drawerBackdrop) {
+      drawerCloseBtn.addEventListener('click', () => drawerBackdrop.classList.remove('open'));
+    }
+    if (drawerBackdrop) {
+      drawerBackdrop.addEventListener('click', (e) => {
+        if (e.target === drawerBackdrop) drawerBackdrop.classList.remove('open');
+      });
+    }
+
+    // Bottom App Bar Drawer Trigger
+    const moreBtn = document.getElementById('bottom-tab-more');
+    if (moreBtn && drawerBackdrop) {
+      moreBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        drawerBackdrop.classList.add('open');
+      });
+    }
+  }
 
   function readStateFromUrl() {
     try {
@@ -183,7 +216,6 @@
       if (!hash) return;
       const params = new URLSearchParams(hash);
 
-      if (params.has('dataset')) state.currentDatasetKey = params.get('dataset');
       if (params.has('search')) state.searchQuery = params.get('search');
       if (params.has('mode')) state.selectedMode = params.get('mode');
       if (params.has('hold')) state.selectedHoldHours = params.get('hold');
@@ -202,7 +234,6 @@
   function syncStateToUrl() {
     try {
       const params = new URLSearchParams();
-      params.set('dataset', state.currentDatasetKey);
       if (state.searchQuery) params.set('search', state.searchQuery);
       if (state.selectedMode !== 'all') params.set('mode', state.selectedMode);
       if (state.selectedHoldHours !== 'all') params.set('hold', state.selectedHoldHours);
@@ -233,7 +264,7 @@
     document.documentElement.setAttribute('data-theme', state.theme);
     localStorage.setItem('crytptrde_theme', state.theme);
     updateThemeIcon();
-    renderCharts();
+    renderCharts(filterData(getRawDataset(state.currentDatasetKey)));
   }
 
   function updateThemeIcon() {
@@ -244,75 +275,8 @@
   }
 
   // ==========================================================================
-  // Dataset Switching & Tabs
+  // Dataset Management & Custom Configs
   // ==========================================================================
-  function renderTabs() {
-    const tabsContainer = document.getElementById('dataset-tabs');
-    if (!tabsContainer) return;
-
-    const datasets = [
-      { key: 'sweep_results', label: '🏆 Sweep Results', count: window.DATA_SETS?.sweep_results?.length || 500 },
-      { key: 'trades', label: '⚡ Trades Log', count: window.DATA_SETS?.trades?.length || 92 },
-      { key: 'live_summary', label: '🟢 Live Accounts', count: window.DATA_SETS?.live_summary?.length || 500 },
-      { key: 'accounts', label: '⚙️ Bot Configs', count: window.DATA_SETS?.accounts?.length || 500 },
-      { key: 'backtest_results', label: '📊 Strategy vs HODL', count: window.DATA_SETS?.backtest_results?.length || 8 },
-    ];
-
-    if (state.customData) {
-      datasets.push({ key: 'custom', label: `📁 ${state.customDataTitle}`, count: state.customData.length });
-    }
-
-    tabsContainer.innerHTML = datasets.map(d => `
-      <button class="dataset-tab ${state.currentDatasetKey === d.key ? 'active' : ''}" data-key="${d.key}">
-        <span>${d.label}</span>
-        <span class="tab-badge">${d.count}</span>
-      </button>
-    `).join('');
-
-    tabsContainer.querySelectorAll('.dataset-tab').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const key = btn.getAttribute('data-key');
-        if (key !== state.currentDatasetKey) {
-          switchDataset(key);
-        }
-      });
-    });
-  }
-
-  function switchDataset(key) {
-    state.currentDatasetKey = key;
-    state.searchQuery = '';
-    state.selectedMode = 'all';
-    state.selectedReason = 'all';
-    state.selectedAsset = 'all';
-    state.selectedHoldHours = 'all';
-    state.selectedPnlStatus = 'all';
-    state.minWinRate = null;
-    state.maxWinRate = null;
-    state.minPnlPct = null;
-    state.maxPnlPct = null;
-    state.minRsi = null;
-    state.maxRsi = null;
-    state.activeQuickFilter = 'all';
-    state.dateFrom = '';
-    state.dateTo = '';
-    state.currentPage = 1;
-    state.selectedRowKeys.clear();
-    state.hiddenColumns.clear();
-
-    const config = getActiveConfig();
-    state.sortColumns = [{
-      key: config.defaultSort || (config.columns[0] ? config.columns[0].key : ''),
-      direction: config.defaultSortDir || 'asc'
-    }];
-
-    const searchInput = document.getElementById('global-search');
-    if (searchInput) searchInput.value = '';
-
-    renderTabs();
-    loadDataset(key);
-  }
-
   function getActiveConfig() {
     if (state.currentDatasetKey === 'custom' && state.customData) {
       return getCustomConfig(state.customData);
@@ -841,12 +805,8 @@
     const pageSize = parseInt(state.pageSize, 10) || 25;
     const totalPages = Math.max(1, Math.ceil(data.length / pageSize));
     
-    if (state.currentPage > totalPages) {
-      state.currentPage = totalPages;
-    }
-    if (state.currentPage < 1) {
-      state.currentPage = 1;
-    }
+    if (state.currentPage > totalPages) state.currentPage = totalPages;
+    if (state.currentPage < 1) state.currentPage = 1;
 
     const startIndex = (state.currentPage - 1) * pageSize;
     const endIndex = Math.min(startIndex + pageSize, data.length);
@@ -1002,34 +962,10 @@
       const totalPnl = data.reduce((acc, d) => acc + (d.pnl || 0), 0);
 
       cards = [
-        {
-          title: 'Matching Strategies',
-          value: `${data.length}`,
-          sub: `out of ${rawData.length} total`,
-          icon: '📊',
-          highlight: 'purple'
-        },
-        {
-          title: 'Average Win Rate',
-          value: `${avgWinRate.toFixed(1)}%`,
-          sub: `${profitable} profitable (${data.length ? ((profitable/data.length)*100).toFixed(0) : 0}%)`,
-          icon: '🎯',
-          highlight: 'info'
-        },
-        {
-          title: 'Top Strategy Return',
-          value: bestPerformer ? `+${bestPerformer.pnl_pct.toFixed(2)}%` : '0%',
-          sub: bestPerformer ? `${bestPerformer.account} (₹${formatNumber(bestPerformer.pnl, 2)})` : '-',
-          icon: '🏆',
-          highlight: 'success'
-        },
-        {
-          title: 'Avg Max Drawdown',
-          value: `${avgDrawdown.toFixed(2)}%`,
-          sub: `Tournament total PnL: ₹${formatNumber(totalPnl, 0)}`,
-          icon: '📉',
-          highlight: 'warning'
-        }
+        { title: 'Matching Strategies', value: `${data.length}`, sub: `out of ${rawData.length} total`, icon: '📊', highlight: 'purple' },
+        { title: 'Average Win Rate', value: `${avgWinRate.toFixed(1)}%`, sub: `${profitable} profitable (${data.length ? ((profitable/data.length)*100).toFixed(0) : 0}%)`, icon: '🎯', highlight: 'info' },
+        { title: 'Top Strategy Return', value: bestPerformer ? `+${bestPerformer.pnl_pct.toFixed(2)}%` : '0%', sub: bestPerformer ? `${bestPerformer.account} (₹${formatNumber(bestPerformer.pnl, 2)})` : '-', icon: '🏆', highlight: 'success' },
+        { title: 'Avg Max Drawdown', value: `${avgDrawdown.toFixed(2)}%`, sub: `Tournament PnL: ₹${formatNumber(totalPnl, 0)}`, icon: '📉', highlight: 'warning' }
       ];
     } else if (key === 'trades') {
       const winningTrades = data.filter(d => (d.pnl_inr || 0) > 0).length;
@@ -1040,34 +976,10 @@
       const slCount = data.filter(d => d.reason === 'stop_loss').length;
 
       cards = [
-        {
-          title: 'Filtered Trades',
-          value: `${data.length}`,
-          sub: `${winningTrades} Wins / ${data.length - winningTrades} Losses`,
-          icon: '⚡',
-          highlight: 'purple'
-        },
-        {
-          title: 'Trade Win Rate',
-          value: `${winRate.toFixed(1)}%`,
-          sub: `${tpCount} Take Profit / ${slCount} Stop Loss`,
-          icon: '🎯',
-          highlight: winRate >= 50 ? 'success' : 'warning'
-        },
-        {
-          title: 'Total Realized PnL',
-          value: formatPnl(totalPnl, '₹'),
-          sub: `Avg per trade: ₹${data.length ? formatNumber(totalPnl / data.length, 2) : 0}`,
-          icon: totalPnl >= 0 ? '💰' : '🔻',
-          highlight: totalPnl >= 0 ? 'success' : 'danger'
-        },
-        {
-          title: 'Best Single Trade',
-          value: bestTrade ? `+${bestTrade.pnl_pct.toFixed(2)}%` : '0%',
-          sub: bestTrade ? `${bestTrade.asset} (+₹${formatNumber(bestTrade.pnl_inr, 2)})` : '-',
-          icon: '🚀',
-          highlight: 'success'
-        }
+        { title: 'Filtered Trades', value: `${data.length}`, sub: `${winningTrades} Wins / ${data.length - winningTrades} Losses`, icon: '⚡', highlight: 'purple' },
+        { title: 'Trade Win Rate', value: `${winRate.toFixed(1)}%`, sub: `${tpCount} Take Profit / ${slCount} Stop Loss`, icon: '🎯', highlight: winRate >= 50 ? 'success' : 'warning' },
+        { title: 'Total Realized PnL', value: formatPnl(totalPnl, '₹'), sub: `Avg per trade: ₹${data.length ? formatNumber(totalPnl / data.length, 2) : 0}`, icon: totalPnl >= 0 ? '💰' : '🔻', highlight: totalPnl >= 0 ? 'success' : 'danger' },
+        { title: 'Best Single Trade', value: bestTrade ? `+${bestTrade.pnl_pct.toFixed(2)}%` : '0%', sub: bestTrade ? `${bestTrade.asset} (+₹${formatNumber(bestTrade.pnl_inr, 2)})` : '-', icon: '🚀', highlight: 'success' }
       ];
     } else if (key === 'live_summary') {
       const totalVal = data.reduce((acc, d) => acc + (d.value_inr || 0), 0);
@@ -1076,65 +988,17 @@
       const activeBots = data.filter(d => (d.trades || 0) > 0).length;
 
       cards = [
-        {
-          title: 'Accounts Monitored',
-          value: `${data.length}`,
-          sub: `${activeBots} accounts with trades`,
-          icon: '🤖',
-          highlight: 'purple'
-        },
-        {
-          title: 'Total Portfolio Value',
-          value: `₹${formatNumber(totalVal, 0)}`,
-          sub: `Holdings: ₹${formatNumber(totalHoldings, 0)}`,
-          icon: '💼',
-          highlight: 'info'
-        },
-        {
-          title: 'Tournament Realized PnL',
-          value: formatPnl(totalRealized, '₹'),
-          sub: `Across ${data.length} accounts`,
-          icon: totalRealized >= 0 ? '📈' : '📉',
-          highlight: totalRealized >= 0 ? 'success' : 'danger'
-        },
-        {
-          title: 'Dip vs Momentum',
-          value: `${data.filter(d => d.entry_mode === 'dip').length} / ${data.filter(d => d.entry_mode === 'momentum').length}`,
-          sub: 'Strategy breakdown',
-          icon: '⚖️',
-          highlight: 'warning'
-        }
+        { title: 'Accounts Monitored', value: `${data.length}`, sub: `${activeBots} accounts with trades`, icon: '🤖', highlight: 'purple' },
+        { title: 'Total Portfolio Value', value: `₹${formatNumber(totalVal, 0)}`, sub: `Holdings: ₹${formatNumber(totalHoldings, 0)}`, icon: '💼', highlight: 'info' },
+        { title: 'Tournament Realized PnL', value: formatPnl(totalRealized, '₹'), sub: `Across ${data.length} accounts`, icon: totalRealized >= 0 ? '📈' : '📉', highlight: totalRealized >= 0 ? 'success' : 'danger' },
+        { title: 'Dip vs Momentum', value: `${data.filter(d => d.entry_mode === 'dip').length} / ${data.filter(d => d.entry_mode === 'momentum').length}`, sub: 'Strategy breakdown', icon: '⚖️', highlight: 'warning' }
       ];
     } else {
       cards = [
-        {
-          title: 'Active Records',
-          value: `${data.length}`,
-          sub: `Total loaded: ${rawData.length}`,
-          icon: '📁',
-          highlight: 'purple'
-        },
-        {
-          title: 'Columns Detected',
-          value: `${getActiveConfig().columns.length}`,
-          sub: 'Auto-typed attributes',
-          icon: '📋',
-          highlight: 'info'
-        },
-        {
-          title: 'Primary Sort',
-          value: (state.sortColumns[0]?.key || 'None').toUpperCase(),
-          sub: `Direction: ${(state.sortColumns[0]?.direction || 'asc').toUpperCase()}`,
-          icon: '⇅',
-          highlight: 'warning'
-        },
-        {
-          title: 'Current Page Size',
-          value: `${state.pageSize}`,
-          sub: `Page ${state.currentPage}`,
-          icon: '📄',
-          highlight: 'success'
-        }
+        { title: 'Active Records', value: `${data.length}`, sub: `Total loaded: ${rawData.length}`, icon: '📁', highlight: 'purple' },
+        { title: 'Columns Detected', value: `${getActiveConfig().columns.length}`, sub: 'Auto-typed attributes', icon: '📋', highlight: 'info' },
+        { title: 'Primary Sort', value: (state.sortColumns[0]?.key || 'None').toUpperCase(), sub: `Direction: ${(state.sortColumns[0]?.direction || 'asc').toUpperCase()}`, icon: '⇅', highlight: 'warning' },
+        { title: 'Current Page Size', value: `${state.pageSize}`, sub: `Page ${state.currentPage}`, icon: '📄', highlight: 'success' }
       ];
     }
 
@@ -1226,12 +1090,12 @@
         return `<td class="${isNum ? 'numeric' : ''}">${renderedVal}</td>`;
       }).join('');
 
-      let actionBtn = `<button class="btn btn-sm btn-ghost row-inspect-btn" data-row-idx="${rowIdx}" title="Inspect record details">👁️</button>`;
+      let actionBtn = `<button class="btn btn-sm btn-ghost row-inspect-btn" data-row-idx="${rowIdx}" title="Inspect details">👁️</button>`;
       if (state.currentDatasetKey === 'trades') {
-        actionBtn += `<button class="btn btn-sm btn-ghost trade-anatomy-btn" data-row-idx="${rowIdx}" title="View Trade Anatomy & Execution Chart">📊</button>`;
+        actionBtn += `<button class="btn btn-sm btn-ghost trade-anatomy-btn" data-row-idx="${rowIdx}" title="View Anatomy">📊</button>`;
       }
       if (state.currentDatasetKey === 'sweep_results' || state.currentDatasetKey === 'accounts') {
-        actionBtn += `<button class="btn btn-sm btn-ghost strategy-yaml-btn" data-row-idx="${rowIdx}" title="Generate and Download config.yaml">🛠️</button>`;
+        actionBtn += `<button class="btn btn-sm btn-ghost strategy-yaml-btn" data-row-idx="${rowIdx}" title="Generate YAML">🛠️</button>`;
       }
 
       return `
@@ -1442,10 +1306,6 @@
             <span class="spec-label">Hold Limit</span>
             <span class="spec-val">${formatHoldTime(s.max_hold_hours)}</span>
           </div>
-          <div class="comparator-spec-row">
-            <span class="spec-label">Fees & TDS</span>
-            <span class="spec-val">₹${formatNumber((s.fees_paid || 0) + (s.tds_paid || 0), 2)}</span>
-          </div>
         </div>
       `;
     }).join('');
@@ -1618,9 +1478,12 @@
       return dd;
     });
 
-    document.getElementById('dd-max-peak').textContent = `${maxDrawdown.toFixed(2)}%`;
-    document.getElementById('dd-longest-time').textContent = `${longestUnderwaterHours} Hours (${Math.round(longestUnderwaterHours/24)} days)`;
-    document.getElementById('dd-current-status').textContent = 'Recovered to ATH Peak';
+    const peakEl = document.getElementById('dd-max-peak');
+    const timeEl = document.getElementById('dd-longest-time');
+    const statusEl = document.getElementById('dd-current-status');
+    if (peakEl) peakEl.textContent = `${maxDrawdown.toFixed(2)}%`;
+    if (timeEl) timeEl.textContent = `${longestUnderwaterHours} Hours (${Math.round(longestUnderwaterHours/24)} days)`;
+    if (statusEl) statusEl.textContent = 'Recovered to ATH Peak';
 
     const ctx = document.getElementById('underwater-chart')?.getContext('2d');
     if (ctx) {
@@ -1660,10 +1523,8 @@
     if (!modal || !container) return;
     modal.classList.add('open');
 
-    const assets = ['acc_399', 'acc_317', 'acc_100', 'acc_079', 'hodl'];
     const labels = ['acc_399 (Mom)', 'acc_317 (Mom)', 'acc_100 (Dip)', 'acc_079 (Dip)', 'HODL Bench'];
 
-    // Precomputed Pearson correlation coefficients
     const matrix = [
       [1.00, 0.88, 0.12, 0.15, 0.62],
       [0.88, 1.00, 0.08, 0.18, 0.58],
@@ -1679,7 +1540,7 @@
         let color = '#ffffff';
         if (val === 1.0) { bg = 'rgba(99, 102, 241, 0.8)'; color = '#fff'; }
         else if (val >= 0.7) { bg = 'rgba(99, 102, 241, 0.5)'; }
-        else if (val <= 0.2) { bg = 'rgba(16, 185, 129, 0.5)'; } // High diversification benefit
+        else if (val <= 0.2) { bg = 'rgba(16, 185, 129, 0.5)'; }
         else { bg = 'rgba(245, 158, 11, 0.3)'; }
 
         return `<td style="background:${bg}; color:${color}; font-weight:700;">${val.toFixed(2)}</td>`;
@@ -1804,10 +1665,28 @@ strategy:
     const winRate = trades.length > 0 ? (winCount / trades.length) : 0;
     const expectancy = (winRate * avgWin) - ((1 - winRate) * avgLoss);
 
-    document.getElementById('streak-max-win').textContent = `${maxWinStreak} in a row`;
-    document.getElementById('streak-max-loss').textContent = `${maxLossStreak} in a row`;
-    document.getElementById('streak-payoff-ratio').textContent = `${payoffRatio.toFixed(2)} : 1`;
-    document.getElementById('streak-expectancy').textContent = `₹${formatNumber(expectancy, 2)} / trade`;
+    const winEl = document.getElementById('streak-max-win');
+    const lossEl = document.getElementById('streak-max-loss');
+    const payoffEl = document.getElementById('streak-payoff-ratio');
+    const expEl = document.getElementById('streak-expectancy');
+
+    if (winEl) winEl.textContent = `${maxWinStreak} in a row`;
+    if (lossEl) lossEl.textContent = `${maxLossStreak} in a row`;
+    if (payoffEl) payoffEl.textContent = `${payoffRatio.toFixed(2)} : 1`;
+    if (expEl) expEl.textContent = `₹${formatNumber(expectancy, 2)} / trade`;
+  }
+
+  // ==========================================================================
+  // Analytics Page Initializer
+  // ==========================================================================
+  function initAnalyticsPage() {
+    runMonteCarloSimulation();
+    runPlaygroundSimulation();
+    runEnsembleAllocation();
+    calculateTaxWaterfall();
+    openUnderwaterDrawdownModal();
+    openCorrelationHeatmapModal();
+    openStreakAnalyzerModal();
   }
 
   // ==========================================================================
@@ -1860,11 +1739,17 @@ strategy:
     const var95DD = maxDrawdowns[Math.floor(maxDrawdowns.length * 0.95)];
     const ruinProb = (ruinedCount / iterations) * 100;
 
-    document.getElementById('mc-median-end').textContent = `₹${formatNumber(medianEnd, 0)}`;
-    document.getElementById('mc-p5-end').textContent = `₹${formatNumber(p5End, 0)}`;
-    document.getElementById('mc-p95-end').textContent = `₹${formatNumber(p95End, 0)}`;
-    document.getElementById('mc-var-dd').textContent = `${var95DD.toFixed(1)}%`;
-    document.getElementById('mc-ruin-prob').textContent = `${ruinProb.toFixed(1)}%`;
+    const medEl = document.getElementById('mc-median-end');
+    const p5El = document.getElementById('mc-p5-end');
+    const p95El = document.getElementById('mc-p95-end');
+    const varEl = document.getElementById('mc-var-dd');
+    const ruinEl = document.getElementById('mc-ruin-prob');
+
+    if (medEl) medEl.textContent = `₹${formatNumber(medianEnd, 0)}`;
+    if (p5El) p5El.textContent = `₹${formatNumber(p5End, 0)}`;
+    if (p95El) p95El.textContent = `₹${formatNumber(p95End, 0)}`;
+    if (varEl) varEl.textContent = `${var95DD.toFixed(1)}%`;
+    if (ruinEl) ruinEl.textContent = `${ruinProb.toFixed(1)}%`;
 
     const ctx = document.getElementById('monte-carlo-chart')?.getContext('2d');
     if (ctx) {
@@ -1927,11 +1812,17 @@ strategy:
     const sl = parseFloat(document.getElementById('play-sl')?.value || '4');
     const size = parseFloat(document.getElementById('play-size')?.value || '50');
 
-    document.getElementById('play-entry-rsi-val').textContent = entryRsi;
-    document.getElementById('play-exit-rsi-val').textContent = exitRsi;
-    document.getElementById('play-tp-val').textContent = `${tp}%`;
-    document.getElementById('play-sl-val').textContent = `${sl}%`;
-    document.getElementById('play-size-val').textContent = `${size}%`;
+    const eVal = document.getElementById('play-entry-rsi-val');
+    const xVal = document.getElementById('play-exit-rsi-val');
+    const tpVal = document.getElementById('play-tp-val');
+    const slVal = document.getElementById('play-sl-val');
+    const szVal = document.getElementById('play-size-val');
+
+    if (eVal) eVal.textContent = entryRsi;
+    if (xVal) xVal.textContent = exitRsi;
+    if (tpVal) tpVal.textContent = `${tp}%`;
+    if (slVal) slVal.textContent = `${sl}%`;
+    if (szVal) szVal.textContent = `${size}%`;
 
     const baseTrades = window.DATA_SETS?.trades || [];
     let capital = 50000;
@@ -1956,10 +1847,15 @@ strategy:
     const winRate = totalTrades > 0 ? (wins / totalTrades) * 100 : 0;
     const netReturn = ((capital - 50000) / 50000) * 100;
 
-    document.getElementById('play-winrate').textContent = `${winRate.toFixed(1)}%`;
-    document.getElementById('play-net-return').textContent = `${netReturn >= 0 ? '+' : ''}${netReturn.toFixed(2)}%`;
-    document.getElementById('play-final-cap').textContent = `₹${formatNumber(capital, 2)}`;
-    document.getElementById('play-trades-count').textContent = `${totalTrades}`;
+    const winEl = document.getElementById('play-winrate');
+    const retEl = document.getElementById('play-net-return');
+    const capEl = document.getElementById('play-final-cap');
+    const trEl = document.getElementById('play-trades-count');
+
+    if (winEl) winEl.textContent = `${winRate.toFixed(1)}%`;
+    if (retEl) retEl.textContent = `${netReturn >= 0 ? '+' : ''}${netReturn.toFixed(2)}%`;
+    if (capEl) capEl.textContent = `₹${formatNumber(capital, 2)}`;
+    if (trEl) trEl.textContent = `${totalTrades}`;
 
     const ctx = document.getElementById('playground-chart')?.getContext('2d');
     if (ctx) {
@@ -2010,9 +1906,13 @@ strategy:
     const normW2 = w2 / totalW;
     const normW3 = w3 / totalW;
 
-    document.getElementById('ens-w1-val').textContent = `${Math.round(normW1 * 100)}%`;
-    document.getElementById('ens-w2-val').textContent = `${Math.round(normW2 * 100)}%`;
-    document.getElementById('ens-w3-val').textContent = `${Math.round(normW3 * 100)}%`;
+    const w1El = document.getElementById('ens-w1-val');
+    const w2El = document.getElementById('ens-w2-val');
+    const w3El = document.getElementById('ens-w3-val');
+
+    if (w1El) w1El.textContent = `${Math.round(normW1 * 100)}%`;
+    if (w2El) w2El.textContent = `${Math.round(normW2 * 100)}%`;
+    if (w3El) w3El.textContent = `${Math.round(normW3 * 100)}%`;
 
     const equity = window.DATA_SETS?.top10_equity || [];
     const sampledDates = equity.filter((_, i) => i % 12 === 0);
@@ -2028,9 +1928,13 @@ strategy:
     const finalVal = ensembleEquity[ensembleEquity.length - 1] || initial;
     const ensembleReturn = ((finalVal - initial) / initial) * 100;
 
-    document.getElementById('ens-combined-return').textContent = `+${ensembleReturn.toFixed(2)}%`;
-    document.getElementById('ens-combined-dd').textContent = `4.12% (Diversified)`;
-    document.getElementById('ens-sharpe-score').textContent = `2.84 Sharpe`;
+    const retEl = document.getElementById('ens-combined-return');
+    const ddEl = document.getElementById('ens-combined-dd');
+    const shEl = document.getElementById('ens-sharpe-score');
+
+    if (retEl) retEl.textContent = `+${ensembleReturn.toFixed(2)}%`;
+    if (ddEl) ddEl.textContent = `4.12% (Diversified)`;
+    if (shEl) shEl.textContent = `2.84 Sharpe`;
 
     const ctx = document.getElementById('ensemble-chart')?.getContext('2d');
     if (ctx) {
@@ -2078,12 +1982,19 @@ strategy:
     const flat30Tax = Math.max(0, grossProfit) * 0.30;
     const netTakeHome = grossProfit - brokerageFee - gstOnFee - flat30Tax;
 
-    document.getElementById('tax-brokerage-val').textContent = `₹${formatNumber(brokerageFee, 2)}`;
-    document.getElementById('tax-gst-val').textContent = `₹${formatNumber(gstOnFee, 2)}`;
-    document.getElementById('tax-tds-val').textContent = `₹${formatNumber(tds194s, 2)}`;
-    document.getElementById('tax-income-val').textContent = `₹${formatNumber(flat30Tax, 2)}`;
-    document.getElementById('tax-net-profit').textContent = `₹${formatNumber(netTakeHome, 2)}`;
-    document.getElementById('tax-effective-pct').textContent = `${grossProfit > 0 ? (((grossProfit - netTakeHome) / grossProfit) * 100).toFixed(1) : 0}%`;
+    const bEl = document.getElementById('tax-brokerage-val');
+    const gEl = document.getElementById('tax-gst-val');
+    const tEl = document.getElementById('tax-tds-val');
+    const iEl = document.getElementById('tax-income-val');
+    const netEl = document.getElementById('tax-net-profit');
+    const effEl = document.getElementById('tax-effective-pct');
+
+    if (bEl) bEl.textContent = `₹${formatNumber(brokerageFee, 2)}`;
+    if (gEl) gEl.textContent = `₹${formatNumber(gstOnFee, 2)}`;
+    if (tEl) tEl.textContent = `₹${formatNumber(tds194s, 2)}`;
+    if (iEl) iEl.textContent = `₹${formatNumber(flat30Tax, 2)}`;
+    if (netEl) netEl.textContent = `₹${formatNumber(netTakeHome, 2)}`;
+    if (effEl) effEl.textContent = `${grossProfit > 0 ? (((grossProfit - netTakeHome) / grossProfit) * 100).toFixed(1) : 0}%`;
   }
 
   // ==========================================================================
@@ -2263,9 +2174,12 @@ strategy:
     const key = state.currentDatasetKey;
 
     if (key === 'sweep_results' || key === 'live_summary') {
-      document.getElementById('chart-title-1').textContent = 'Strategy PnL Distribution (%)';
-      document.getElementById('chart-title-2').textContent = 'Win Rate vs Max Drawdown (%)';
-      document.getElementById('chart-title-3').textContent = 'Strategy Mode Breakdown';
+      const title1 = document.getElementById('chart-title-1');
+      const title2 = document.getElementById('chart-title-2');
+      const title3 = document.getElementById('chart-title-3');
+      if (title1) title1.textContent = 'Strategy PnL Distribution (%)';
+      if (title2) title2.textContent = 'Win Rate vs Max Drawdown (%)';
+      if (title3) title3.textContent = 'Strategy Mode Breakdown';
 
       const topStrategies = [...data].sort((a, b) => (b.pnl_pct || 0) - (a.pnl_pct || 0)).slice(0, 15);
       charts.chart1 = new Chart(ctx1, {
@@ -2340,9 +2254,12 @@ strategy:
         }
       });
     } else if (key === 'trades') {
-      document.getElementById('chart-title-1').textContent = 'Trade PnL by Asset (₹)';
-      document.getElementById('chart-title-2').textContent = 'RSI at Entry vs PnL %';
-      document.getElementById('chart-title-3').textContent = 'Exit Reason Distribution';
+      const title1 = document.getElementById('chart-title-1');
+      const title2 = document.getElementById('chart-title-2');
+      const title3 = document.getElementById('chart-title-3');
+      if (title1) title1.textContent = 'Trade PnL by Asset (₹)';
+      if (title2) title2.textContent = 'RSI at Entry vs PnL %';
+      if (title3) title3.textContent = 'Exit Reason Distribution';
 
       const pnlByAsset = {};
       data.forEach(t => {
@@ -2593,9 +2510,9 @@ strategy:
 
       state.customData = parsed;
       state.customDataTitle = filename ? filename.replace(/\.[^/.]+$/, '') : 'Custom Data';
+      state.currentDatasetKey = 'custom';
       closeAllModals();
-      renderTabs();
-      switchDataset('custom');
+      loadDataset('custom');
       showToast(`Successfully loaded ${parsed.length} custom records!`, 'success');
     } catch (err) {
       showToast(`Error parsing data: ${err.message}`, 'error');

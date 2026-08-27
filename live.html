@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sweep Tournament — CrytpTrde Analytics</title>
+  <title>Live Accounts — CrytpTrde Analytics</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
-<body data-page="sweep">
+<body data-page="live">
 
   <div class="app-container">
     
-    <!-- Device-Friendly Top Navigation Header -->
+    <!-- Top Navigation Header -->
     <header class="app-header">
       <a href="index.html" class="brand-section">
         <div class="brand-icon">⚡</div>
@@ -22,14 +22,16 @@
           <h1>
             CrytpTrde
             <span class="brand-badge">Paper & Live</span>
-            <span class="github-free-badge">✓ Free</span>
+            <span class="live-pulse-badge" id="live-status-indicator" style="display:none;">
+              <span class="pulse-dot"></span> LIVE
+            </span>
           </h1>
         </div>
       </a>
 
       <!-- Desktop Navigation Menu -->
       <nav class="nav-links-desktop">
-        <a href="index.html" class="nav-link-item active">
+        <a href="index.html" class="nav-link-item">
           <span>🏆 Sweep Results</span>
           <span class="nav-badge">500</span>
         </a>
@@ -37,7 +39,7 @@
           <span>⚡ Trades Log</span>
           <span class="nav-badge">92</span>
         </a>
-        <a href="live.html" class="nav-link-item">
+        <a href="live.html" class="nav-link-item active">
           <span>🟢 Live Accounts</span>
           <span class="nav-badge">500</span>
         </a>
@@ -57,6 +59,15 @@
 
       <!-- Right Controls -->
       <div class="header-controls">
+        <div style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.78rem; color: var(--text-secondary);">
+          <span>⏱️ Live Polling:</span>
+          <select id="live-refresh-select" class="filter-select" style="padding: 0.2rem 0.45rem; width: auto; font-size: 0.78rem; min-height:32px;">
+            <option value="0">Off</option>
+            <option value="5">Every 5s</option>
+            <option value="10">Every 10s</option>
+            <option value="30">Every 30s</option>
+          </select>
+        </div>
         <button class="btn btn-sm" id="theme-toggle-btn" title="Toggle Dark/Light Mode">
           <span>☀️ Light</span>
         </button>
@@ -69,13 +80,12 @@
     <!-- Page Intro Header -->
     <div class="page-intro-header">
       <div class="page-title-group">
-        <h2>🏆 Sweep Tournament Results</h2>
-        <p>500 bot strategies backtested across CoinDCX INR markets (30-day horizon)</p>
+        <h2>🟢 Live Tournament Demo Accounts</h2>
+        <p>500 demo accounts trading live spot prices with real-time portfolio tracking</p>
       </div>
       <div class="header-actions">
-        <button class="btn btn-sm btn-ghost" id="btn-tool-compare">⚖️ Compare Top Bots</button>
-        <button class="btn btn-sm btn-ghost" id="btn-tool-underwater">📉 Drawdown</button>
-        <button class="btn btn-sm btn-ghost" id="btn-tool-print">🖨️ Print Report</button>
+        <button class="btn btn-sm btn-ghost" id="btn-tool-compare">⚖️ Compare Live Bots</button>
+        <button class="btn btn-sm btn-ghost" id="btn-tool-print">🖨️ Print Portfolio</button>
       </div>
     </div>
 
@@ -84,36 +94,12 @@
       <!-- Injected by app.js -->
     </section>
 
-    <!-- Visualizations Panel (Collapsible) -->
-    <section class="charts-panel">
-      <div class="charts-panel-header" id="charts-panel-header">
-        <div class="charts-panel-title">
-          <span>📈 Strategy Performance Distribution Charts</span>
-        </div>
-        <span id="charts-toggle-chevron" style="font-size: 0.8rem; color: var(--text-muted);">▼</span>
-      </div>
-      <div class="charts-body" id="charts-body">
-        <div class="chart-wrapper">
-          <div class="chart-header"><span id="chart-title-1">Strategy PnL Distribution (%)</span></div>
-          <div class="chart-canvas-container"><canvas id="analytics-chart-1"></canvas></div>
-        </div>
-        <div class="chart-wrapper">
-          <div class="chart-header"><span id="chart-title-2">Win Rate vs Max Drawdown (%)</span></div>
-          <div class="chart-canvas-container"><canvas id="analytics-chart-2"></canvas></div>
-        </div>
-        <div class="chart-wrapper">
-          <div class="chart-header"><span id="chart-title-3">Strategy Mode Breakdown</span></div>
-          <div class="chart-canvas-container"><canvas id="analytics-chart-3"></canvas></div>
-        </div>
-      </div>
-    </section>
-
     <!-- Filters, Search & Query Controls -->
     <section class="filter-section">
       <div class="filter-main-bar">
         <div class="search-box-wrapper">
           <span class="search-icon">🔍</span>
-          <input type="text" id="global-search" class="search-input" placeholder="Search strategies (press '/' to focus)..." autocomplete="off" spellcheck="false">
+          <input type="text" id="global-search" class="search-input" placeholder="Search accounts by ID or mode (press '/' to focus)..." autocomplete="off" spellcheck="false">
           <button class="search-clear-btn" id="search-clear-btn" title="Clear search">✕</button>
           <span class="search-shortcut-badge">/</span>
         </div>
@@ -140,7 +126,7 @@
     <!-- Table Toolbar -->
     <div class="table-toolbar">
       <div class="toolbar-left">
-        <h3 style="font-size: 1.05rem; font-weight: 700;">Strategy Leaderboard</h3>
+        <h3 style="font-size: 1.05rem; font-weight: 700;">Live Demo Accounts</h3>
       </div>
       <div class="toolbar-right">
         <button class="btn btn-sm" id="btn-column-manager" title="Customize visible columns">⚙️ Columns</button>
@@ -183,7 +169,7 @@
         <button class="modal-close-btn" id="mobile-drawer-close">&times;</button>
       </div>
       <div class="drawer-nav-list">
-        <a href="index.html" class="drawer-nav-item active">
+        <a href="index.html" class="drawer-nav-item">
           <span>🏆 Sweep Results</span>
           <span class="nav-badge">500</span>
         </a>
@@ -191,7 +177,7 @@
           <span>⚡ Trades Log</span>
           <span class="nav-badge">92</span>
         </a>
-        <a href="live.html" class="drawer-nav-item">
+        <a href="live.html" class="drawer-nav-item active">
           <span>🟢 Live Accounts</span>
           <span class="nav-badge">500</span>
         </a>
@@ -214,7 +200,7 @@
   <!-- Mobile Bottom App Bar -->
   <nav class="mobile-bottom-bar">
     <div class="mobile-bottom-bar-grid">
-      <a href="index.html" class="bottom-tab-btn active">
+      <a href="index.html" class="bottom-tab-btn">
         <span class="tab-icon">🏆</span>
         <span>Sweep</span>
       </a>
@@ -222,7 +208,7 @@
         <span class="tab-icon">⚡</span>
         <span>Trades</span>
       </a>
-      <a href="live.html" class="bottom-tab-btn">
+      <a href="live.html" class="bottom-tab-btn active">
         <span class="tab-icon">🟢</span>
         <span>Live</span>
       </a>
@@ -249,39 +235,10 @@
     </div>
   </div>
 
-  <div class="modal-backdrop" id="underwater-modal">
-    <div class="modal-container modal-wide">
-      <div class="modal-header">
-        <div class="modal-title"><span>📉 Underwater Drawdown & Recovery Timeline</span></div>
-        <button class="modal-close-btn">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="metrics-grid">
-          <div class="metric-card highlight-danger">
-            <div class="metric-header"><span>Max Drop</span><span>📉</span></div>
-            <div class="metric-value-row"><span class="metric-value" id="dd-max-peak" style="color:var(--danger)">-9.67%</span></div>
-          </div>
-          <div class="metric-card highlight-warning">
-            <div class="metric-header"><span>Underwater Duration</span><span>⏱️</span></div>
-            <div class="metric-value-row"><span class="metric-value" id="dd-longest-time">72 Hours</span></div>
-          </div>
-          <div class="metric-card highlight-success">
-            <div class="metric-header"><span>Current State</span><span>🛡️</span></div>
-            <div class="metric-value-row"><span class="metric-value" id="dd-current-status" style="color:var(--success)">ATH Peak</span></div>
-          </div>
-        </div>
-        <div style="height: 280px; background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-top: 1rem;">
-          <div style="height: 100%; position: relative;"><canvas id="underwater-chart"></canvas></div>
-        </div>
-      </div>
-      <div class="modal-footer"><button class="btn btn-sm modal-close-btn">Close</button></div>
-    </div>
-  </div>
-
   <div class="modal-backdrop" id="row-inspector-modal">
     <div class="modal-container">
       <div class="modal-header">
-        <div class="modal-title"><span>🔍 Record Details</span></div>
+        <div class="modal-title"><span>🔍 Account Details</span></div>
         <button class="modal-close-btn">&times;</button>
       </div>
       <div class="modal-body" id="row-inspector-content"></div>
@@ -299,23 +256,6 @@
         <div class="column-select-grid" id="column-select-grid"></div>
       </div>
       <div class="modal-footer"><button class="btn btn-primary btn-sm modal-close-btn">Done</button></div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop" id="yaml-generator-modal">
-    <div class="modal-container">
-      <div class="modal-header">
-        <div class="modal-title"><span>🛠️ Strategy Configuration Generator</span></div>
-        <button class="modal-close-btn">&times;</button>
-      </div>
-      <div class="modal-body">
-        <pre class="json-preview" id="yaml-code-content"></pre>
-        <div style="display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 0.5rem;">
-          <button class="btn btn-sm" id="btn-copy-cli">📋 Copy CLI Command</button>
-          <button class="btn btn-primary btn-sm" id="btn-download-yaml">📥 Download config.yaml</button>
-        </div>
-      </div>
-      <div class="modal-footer"><button class="btn btn-sm modal-close-btn">Close</button></div>
     </div>
   </div>
 

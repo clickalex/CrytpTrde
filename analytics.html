@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quant Analytics & Simulators — CrytpTrde</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body data-page="analytics">
+
+  <div class="app-container">
+    
+    <!-- Top Navigation Header -->
+    <header class="app-header">
+      <a href="index.html" class="brand-section">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-title">
+          <h1>
+            CrytpTrde
+            <span class="brand-badge">Paper & Live</span>
+            <span class="github-free-badge">✓ Free</span>
+          </h1>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-links-desktop">
+        <a href="index.html" class="nav-link-item">
+          <span>🏆 Sweep Results</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="trades.html" class="nav-link-item">
+          <span>⚡ Trades Log</span>
+          <span class="nav-badge">92</span>
+        </a>
+        <a href="live.html" class="nav-link-item">
+          <span>🟢 Live Accounts</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="configs.html" class="nav-link-item">
+          <span>⚙️ Configs Grid</span>
+        </a>
+        <a href="analytics.html" class="nav-link-item active">
+          <span>📈 Quant Analytics</span>
+        </a>
+        <a href="compare.html" class="nav-link-item">
+          <span>⚖️ Comparator</span>
+        </a>
+        <a href="importer.html" class="nav-link-item">
+          <span>📁 Import File</span>
+        </a>
+      </nav>
+
+      <!-- Right Controls -->
+      <div class="header-controls">
+        <button class="btn btn-sm" id="theme-toggle-btn" title="Toggle Dark/Light Mode">
+          <span>☀️ Light</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" title="Open Navigation Menu">
+          <span>☰</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Page Intro Header -->
+    <div class="page-intro-header">
+      <div class="page-title-group">
+        <h2>📈 Quantitative Analytics & Simulator Suite</h2>
+        <p>Monte Carlo Risk Permutations, Underwater Drawdown Curves, Strategy Playground & Correlation Heatmaps</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-sm btn-ghost" id="btn-tool-print">🖨️ Print Full Report</button>
+      </div>
+    </div>
+
+    <!-- Section 1: Monte Carlo Simulation -->
+    <section class="filter-section">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">🎲 Monte Carlo Risk & Ruin Simulation (1,000+ Permutations)</h3>
+        <span class="badge badge-dip">Risk-Adjusted VaR</span>
+      </div>
+      
+      <div class="simulation-control-grid">
+        <div class="sim-slider-row">
+          <label>Simulation Runs: <span id="mc-iter-val">1000</span></label>
+          <input type="number" id="mc-iterations" value="1000" min="100" max="5000" step="100" class="filter-select">
+        </div>
+        <div class="sim-slider-row">
+          <label>Starting Capital (₹):</label>
+          <input type="number" id="mc-capital" value="50000" min="5000" max="1000000" step="5000" class="filter-select">
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card highlight-success">
+          <div class="metric-header"><span>Median Portfolio</span><span>💰</span></div>
+          <div class="metric-value-row"><span class="metric-value" id="mc-median-end">₹50,000</span></div>
+          <div class="metric-sub">50th percentile outcome</div>
+        </div>
+        <div class="metric-card highlight-danger">
+          <div class="metric-header"><span>95% VaR Max Drawdown</span><span>📉</span></div>
+          <div class="metric-value-row"><span class="metric-value" id="mc-var-dd" style="color:var(--danger)">12.4%</span></div>
+          <div class="metric-sub">Worst 5% expected drawdown</div>
+        </div>
+        <div class="metric-card highlight-info">
+          <div class="metric-header"><span>90% Confidence Spread</span><span>📊</span></div>
+          <div class="metric-value-row" style="font-size:1.1rem; font-family:var(--font-mono); font-weight:700;">
+            <span id="mc-p5-end">₹42,000</span> - <span id="mc-p95-end">₹68,000</span>
+          </div>
+          <div class="metric-sub">5th to 95th percentile outcome</div>
+        </div>
+        <div class="metric-card highlight-warning">
+          <div class="metric-header"><span>Ruin Probability</span><span>⚠️</span></div>
+          <div class="metric-value-row"><span class="metric-value" id="mc-ruin-prob">0.0%</span></div>
+          <div class="metric-sub">Risk of losing >50% capital</div>
+        </div>
+      </div>
+
+      <div style="height: 260px; background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+        <div style="font-size: 0.82rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-secondary);">Simulated Outcome Frequency Distribution</div>
+        <div style="height: calc(100% - 20px); position: relative;"><canvas id="monte-carlo-chart"></canvas></div>
+      </div>
+    </section>
+
+    <!-- Section 2: Strategy Playground Simulator -->
+    <section class="filter-section">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">🎛️ Interactive Strategy Parameter Playground & Simulator</h3>
+        <span class="badge badge-momentum">Instant Backtest</span>
+      </div>
+
+      <div class="simulation-control-grid">
+        <div class="sim-slider-row">
+          <label>Entry RSI Trigger: <span id="play-entry-rsi-val">30</span></label>
+          <input type="range" id="play-entry-rsi" min="10" max="50" step="1" value="30">
+        </div>
+        <div class="sim-slider-row">
+          <label>Exit RSI Trigger: <span id="play-exit-rsi-val">80</span></label>
+          <input type="range" id="play-exit-rsi" min="50" max="90" step="1" value="80">
+        </div>
+        <div class="sim-slider-row">
+          <label>Take Profit %: <span id="play-tp-val">8%</span></label>
+          <input type="range" id="play-tp" min="1" max="20" step="0.5" value="8">
+        </div>
+        <div class="sim-slider-row">
+          <label>Stop Loss %: <span id="play-sl-val">4%</span></label>
+          <input type="range" id="play-sl" min="1" max="10" step="0.5" value="4">
+        </div>
+        <div class="sim-slider-row">
+          <label>Position Size %: <span id="play-size-val">50%</span></label>
+          <input type="range" id="play-size" min="10" max="100" step="5" value="50">
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card highlight-success">
+          <div class="metric-header"><span>Projected Net Return</span><span>📈</span></div>
+          <div class="metric-value-row"><span class="metric-value" id="play-net-return" style="color:var(--success)">+14.20%</span></div>
+          <div class="metric-sub">Across historical price swings</div>
+        </div>
+        <div class="metric-card highlight-info">
+          <div class="metric-header"><span>Simulated Win Rate</span><span>🎯</span></div>
+          <div class="metric-value-row"><span class="metric-value" id="play-winrate">62.5%</span></div>
+          <div class="metric-sub"><span id="play-trades-count">48</span> trades executed</div>
+        </div>
+        <div class="metric-card highlight-purple">
+          <div class="metric-header"><span>Ending Portfolio Capital</span><span>💼</span></div>
+          <div class="metric-value-row"><span class="metric-value" id="play-final-cap">₹57,100</span></div>
+          <div class="metric-sub">From ₹50,000 starting cash</div>
+        </div>
+      </div>
+
+      <div style="height: 260px; background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+        <div style="font-size: 0.82rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-secondary);">Simulated Equity Growth Timeline</div>
+        <div style="height: calc(100% - 20px); position: relative;"><canvas id="playground-chart"></canvas></div>
+      </div>
+    </section>
+
+    <!-- Section 3: Multi-Bot Ensemble Allocator -->
+    <section class="filter-section">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">💼 Multi-Bot Ensemble Portfolio Allocator</h3>
+        <span class="badge badge-tp">Sharpe Optimization</span>
+      </div>
+      <p style="font-size: 0.82rem; color: var(--text-secondary);">
+        Blend uncorrelated strategies (Momentum + Dip) to smooth drawdown risk and achieve higher Sharpe efficiency.
+      </p>
+
+      <div class="simulation-control-grid">
+        <div class="sim-slider-row">
+          <label>acc_399 (Momentum): <span id="ens-w1-val">40%</span></label>
+          <input type="range" id="ens-weight-1" min="0" max="100" step="5" value="40">
+        </div>
+        <div class="sim-slider-row">
+          <label>acc_100 (Dip 72h): <span id="ens-w2-val">35%</span></label>
+          <input type="range" id="ens-weight-2" min="0" max="100" step="35" value="35">
+        </div>
+        <div class="sim-slider-row">
+          <label>acc_079 (Dip 168h): <span id="ens-w3-val">25%</span></label>
+          <input type="range" id="ens-weight-3" min="0" max="100" step="25" value="25">
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card highlight-purple">
+          <div class="metric-header"><span>Ensemble Net Return</span><span>🚀</span></div>
+          <div class="metric-value-row"><span class="metric-value" id="ens-combined-return" style="color:var(--success)">+16.85%</span></div>
+          <div class="metric-sub">Weighted blended growth</div>
+        </div>
+        <div class="metric-card highlight-success">
+          <div class="metric-header"><span>Smoothed Drawdown</span><span>🛡️</span></div>
+          <div class="metric-value-row"><span class="metric-value" id="ens-combined-dd" style="color:var(--success)">4.12%</span></div>
+          <div class="metric-sub">-57% risk reduction vs single bot</div>
+        </div>
+        <div class="metric-card highlight-info">
+          <div class="metric-header"><span>Sharpe Efficiency</span><span>⚡</span></div>
+          <div class="metric-value-row"><span class="metric-value" id="ens-sharpe-score">2.84</span></div>
+          <div class="metric-sub">Exceptional risk-adjusted ratio</div>
+        </div>
+      </div>
+
+      <div style="height: 260px; background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+        <div style="font-size: 0.82rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-secondary);">Ensemble Curve vs Single Bot & Benchmark</div>
+        <div style="height: calc(100% - 20px); position: relative;"><canvas id="ensemble-chart"></canvas></div>
+      </div>
+    </section>
+
+    <!-- Section 4: Correlation Matrix Heatmap -->
+    <section class="filter-section">
+      <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">🔥 Bot & Asset Correlation Matrix Heatmap</h3>
+      <p style="font-size: 0.82rem; color: var(--text-secondary);">Pearson correlation between strategy returns. Green indicates maximum diversification benefit.</p>
+      <div id="correlation-matrix-container"></div>
+    </section>
+
+  </div>
+
+  <!-- Mobile Slide-Out Drawer Menu -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop">
+    <div class="mobile-drawer">
+      <div class="drawer-header">
+        <div class="brand-section">
+          <div class="brand-icon">⚡</div>
+          <span style="font-weight: 700; font-size: 1.1rem;">CrytpTrde</span>
+        </div>
+        <button class="modal-close-btn" id="mobile-drawer-close">&times;</button>
+      </div>
+      <div class="drawer-nav-list">
+        <a href="index.html" class="drawer-nav-item">
+          <span>🏆 Sweep Results</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="trades.html" class="drawer-nav-item">
+          <span>⚡ Trades Log</span>
+          <span class="nav-badge">92</span>
+        </a>
+        <a href="live.html" class="drawer-nav-item">
+          <span>🟢 Live Accounts</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="configs.html" class="drawer-nav-item">
+          <span>⚙️ Bot Configs Grid</span>
+        </a>
+        <a href="analytics.html" class="drawer-nav-item active">
+          <span>📈 Quant Analytics</span>
+        </a>
+        <a href="compare.html" class="drawer-nav-item">
+          <span>⚖️ Strategy Comparator</span>
+        </a>
+        <a href="importer.html" class="drawer-nav-item">
+          <span>📁 Import Custom File</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom App Bar -->
+  <nav class="mobile-bottom-bar">
+    <div class="mobile-bottom-bar-grid">
+      <a href="index.html" class="bottom-tab-btn">
+        <span class="tab-icon">🏆</span>
+        <span>Sweep</span>
+      </a>
+      <a href="trades.html" class="bottom-tab-btn">
+        <span class="tab-icon">⚡</span>
+        <span>Trades</span>
+      </a>
+      <a href="live.html" class="bottom-tab-btn">
+        <span class="tab-icon">🟢</span>
+        <span>Live</span>
+      </a>
+      <a href="analytics.html" class="bottom-tab-btn active">
+        <span class="tab-icon">📈</span>
+        <span>Quant</span>
+      </a>
+      <button class="bottom-tab-btn" id="bottom-tab-more">
+        <span class="tab-icon">☰</span>
+        <span>More</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
