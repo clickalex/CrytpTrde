@@ -30,6 +30,7 @@
     selectedMode: 'all',
     selectedReason: 'all',
     selectedAsset: 'all',
+    selectedSide: 'all',
     selectedHoldHours: 'all',
     selectedPnlStatus: 'all',
     minWinRate: null,
@@ -121,6 +122,44 @@
         { key: 'pnl_pct', label: 'PnL %', type: 'number', render: (val) => formatPnlPct(val) },
       ]
     },
+    live_trades: {
+      title: 'Live Bot Trades',
+      subtitle: 'Every paper fill from the 500 live tournament bots, newest first',
+      defaultSort: 'timestamp_utc',
+      defaultSortDir: 'desc',
+      rowKey: ['account', 'timestamp_utc', 'asset', 'side', 'quantity'],
+      columns: [
+        { key: 'account', label: 'Account', type: 'string', render: (val) => formatAccount(val) },
+        { key: 'timestamp_utc', label: 'Time (UTC)', type: 'date', render: (val) => formatDate(val) },
+        { key: 'asset', label: 'Asset', type: 'string', render: (val) => formatAsset(val) },
+        { key: 'side', label: 'Side', type: 'string', render: (val) => formatSideBadge(val) },
+        { key: 'price_inr', label: 'Price (₹)', type: 'number', render: (val) => formatPrice(val) },
+        { key: 'quantity', label: 'Quantity', type: 'number', render: (val) => formatQuantity(val) },
+        { key: 'notional_inr', label: 'Notional (₹)', type: 'number', render: (val) => formatCurrency(val) },
+        { key: 'fee_inr', label: 'Fee (₹)', type: 'number', render: (val) => formatCurrency(val) },
+        { key: 'tds_inr', label: 'TDS (₹)', type: 'number', render: (val) => formatCurrency(val) },
+        { key: 'realized_pnl_inr', label: 'Realized PnL', type: 'number', render: (val) => formatPnl(val, '₹') },
+      ]
+    },
+    last_trades: {
+      title: 'Last Trade per Bot',
+      subtitle: 'The single most recent fill for each of the 500 live bots',
+      defaultSort: 'timestamp_utc',
+      defaultSortDir: 'desc',
+      rowKey: 'account',
+      columns: [
+        { key: 'account', label: 'Account', type: 'string', render: (val) => formatAccount(val) },
+        { key: 'timestamp_utc', label: 'Last Trade (UTC)', type: 'date', render: (val) => formatDate(val) },
+        { key: 'asset', label: 'Asset', type: 'string', render: (val) => formatAsset(val) },
+        { key: 'side', label: 'Side', type: 'string', render: (val) => formatSideBadge(val) },
+        { key: 'price_inr', label: 'Price (₹)', type: 'number', render: (val) => formatPrice(val) },
+        { key: 'quantity', label: 'Quantity', type: 'number', render: (val) => formatQuantity(val) },
+        { key: 'notional_inr', label: 'Notional (₹)', type: 'number', render: (val) => formatCurrency(val) },
+        { key: 'fee_inr', label: 'Fee (₹)', type: 'number', render: (val) => formatCurrency(val) },
+        { key: 'tds_inr', label: 'TDS (₹)', type: 'number', render: (val) => formatCurrency(val) },
+        { key: 'realized_pnl_inr', label: 'Realized PnL', type: 'number', render: (val) => formatPnl(val, '₹') },
+      ]
+    },
     live_summary: {
       title: 'Live Tournament Accounts',
       subtitle: '500 tournament demo accounts tracked with cash, holdings, and PnL',
@@ -179,6 +218,7 @@
       openStrategyComparator();
     } else {
       loadDataset(state.currentDatasetKey);
+      applyInitialTradesView();
     }
   });
 
@@ -244,6 +284,9 @@
         params.set('sort', state.sortColumns[0].key);
         params.set('dir', state.sortColumns[0].direction);
       }
+      if (['trades', 'live_trades', 'last_trades'].indexOf(state.currentDatasetKey) !== -1) {
+        params.set('view', state.currentDatasetKey);
+      }
 
       window.history.replaceState(null, '', '#' + params.toString());
     } catch (e) {
@@ -299,7 +342,130 @@
 
     renderFilterControls();
     renderQuickFilterChips();
+    renderLastTradeBanner();
+    syncTradesViewSwitcher();
+    updateChartsPanelTitle();
     updateUI();
+  }
+
+  // ==========================================================================
+  // Trades Page View Switcher (Backtest / Live / Last-per-bot)
+  // ==========================================================================
+  function switchTradesView(key) {
+    if (['trades', 'live_trades', 'last_trades'].indexOf(key) === -1) return;
+
+    state.currentDatasetKey = key;
+    state.searchQuery = '';
+    state.selectedMode = 'all';
+    state.selectedReason = 'all';
+    state.selectedAsset = 'all';
+    state.selectedSide = 'all';
+    state.selectedHoldHours = 'all';
+    state.selectedPnlStatus = 'all';
+    state.minWinRate = null;
+    state.minPnlPct = null;
+    state.dateFrom = '';
+    state.dateTo = '';
+    state.activeQuickFilter = 'all';
+    state.currentPage = 1;
+    state.selectedRowKeys.clear();
+    state.hiddenColumns.clear();
+
+    const config = getActiveConfig();
+    state.sortColumns = [{ key: config.defaultSort || 'rank', direction: config.defaultSortDir || 'asc' }];
+
+    const searchInput = document.getElementById('global-search');
+    if (searchInput) searchInput.value = '';
+    const searchClear = document.getElementById('search-clear-btn');
+    if (searchClear) searchClear.style.display = 'none';
+
+    loadDataset(key);
+  }
+
+  // Apply a deep-link like trades.html#view=last_trades on first load.
+  function applyInitialTradesView() {
+    if (state.pageId !== 'trades') return;
+    try {
+      const params = new URLSearchParams(window.location.hash.replace('#', ''));
+      const view = params.get('view');
+      if (view && ['trades', 'live_trades', 'last_trades'].indexOf(view) !== -1) {
+        switchTradesView(view);
+      }
+    } catch (e) {
+      console.warn('Could not read trades view from URL:', e);
+    }
+  }
+
+  function syncTradesViewSwitcher() {
+    const switcher = document.getElementById('trades-view-switcher');
+    if (!switcher) return;
+    switcher.querySelectorAll('[data-view]').forEach(btn => {
+      const isActive = btn.getAttribute('data-view') === state.currentDatasetKey;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+  }
+
+  function updateChartsPanelTitle() {
+    const titleSpan = document.getElementById('charts-panel-title-text');
+    if (!titleSpan) return;
+    const titles = {
+      'trades': 'Trade Distribution & PnL by Asset Charts',
+      'live_trades': 'Live Trade Analytics — PnL, Notional & Side',
+      'last_trades': 'Last-Trade per Bot Analytics'
+    };
+    titleSpan.textContent = '📈 ' + (titles[state.currentDatasetKey] || 'Trade Analytics');
+  }
+
+  function renderLastTradeBanner() {
+    const banner = document.getElementById('last-trade-banner');
+    if (!banner) return;
+
+    const lastTrades = window.DATA_SETS?.last_trades || [];
+    const latest = lastTrades[0];
+
+    if (!latest) {
+      banner.style.display = 'none';
+      return;
+    }
+
+    banner.style.display = '';
+    const pnl = parseFloat(latest.realized_pnl_inr || 0);
+    const pnlColor = pnl > 0 ? 'var(--success)' : (pnl < 0 ? 'var(--danger)' : 'var(--text-secondary)');
+    const pnlText = pnl > 0 ? `+₹${formatNumber(pnl, 2)}` : (pnl < 0 ? `-₹${formatNumber(Math.abs(pnl), 2)}` : '₹0.00');
+
+    banner.innerHTML = `
+      <div class="last-trade-badge">
+        <span class="pulse-dot"></span> LAST TRADE
+      </div>
+      <div class="last-trade-main">
+        <div class="last-trade-title">
+          ${formatAccount(latest.account)}
+          ${formatSideBadge(latest.side)}
+          <span class="last-trade-asset">${escapeHtml(latest.asset)}</span>
+        </div>
+        <div class="last-trade-meta">
+          <span>⏱️ ${escapeHtml(latest.timestamp_utc)}</span>
+          <span>💱 Price ${formatPrice(latest.price_inr)}</span>
+          <span>🔢 Qty ${formatQuantity(latest.quantity)}</span>
+          <span>💼 Notional ${formatCurrency(latest.notional_inr)}</span>
+          <span>🧾 Fee ${formatCurrency(latest.fee_inr)}</span>
+          <span>🏛️ TDS ${formatCurrency(latest.tds_inr)}</span>
+        </div>
+      </div>
+      <div class="last-trade-pnl">
+        <div class="last-trade-pnl-label">Realized PnL</div>
+        <div class="last-trade-pnl-value" style="color:${pnlColor}">${pnlText}</div>
+      </div>
+      <div class="last-trade-actions">
+        <button class="btn btn-sm btn-primary" id="banner-open-live" title="Open the full live trade log">⚡ View all ${lastTrades.length} live trades</button>
+      </div>
+    `;
+
+    const openLiveBtn = document.getElementById('banner-open-live');
+    if (openLiveBtn) {
+      openLiveBtn.addEventListener('click', () => switchTradesView('live_trades'));
+    }
   }
 
   function getCustomConfig(data) {
@@ -436,6 +602,45 @@
           </div>
         </div>
       `;
+    } else if (key === 'live_trades' || key === 'last_trades') {
+      const assets = Array.from(new Set(data.map(d => d.asset).filter(Boolean))).sort();
+
+      html += `
+        <div class="filter-control-group">
+          <label>Crypto Asset</label>
+          <select id="filter-asset" class="filter-select">
+            <option value="all" ${state.selectedAsset === 'all' ? 'selected' : ''}>All Assets (${assets.length})</option>
+            ${assets.map(a => `<option value="${a}" ${state.selectedAsset === a ? 'selected' : ''}>${a}</option>`).join('')}
+          </select>
+        </div>
+
+        <div class="filter-control-group">
+          <label>Order Side</label>
+          <select id="filter-side" class="filter-select">
+            <option value="all" ${state.selectedSide === 'all' ? 'selected' : ''}>Buys & Sells</option>
+            <option value="buy" ${state.selectedSide === 'buy' ? 'selected' : ''}>🛒 Buys Only</option>
+            <option value="sell" ${state.selectedSide === 'sell' ? 'selected' : ''}>💰 Sells Only</option>
+          </select>
+        </div>
+
+        <div class="filter-control-group">
+          <label>Realized PnL</label>
+          <select id="filter-pnl-status" class="filter-select">
+            <option value="all" ${state.selectedPnlStatus === 'all' ? 'selected' : ''}>All Outcomes</option>
+            <option value="profit" ${state.selectedPnlStatus === 'profit' ? 'selected' : ''}>Profitable Fills Only</option>
+            <option value="loss" ${state.selectedPnlStatus === 'loss' ? 'selected' : ''}>Loss Fills Only</option>
+          </select>
+        </div>
+
+        <div class="filter-control-group">
+          <label>Date Filter</label>
+          <div class="range-inputs-dual">
+            <input type="date" id="filter-date-from" class="filter-select" value="${state.dateFrom}">
+            <span class="range-sep">to</span>
+            <input type="date" id="filter-date-to" class="filter-select" value="${state.dateTo}">
+          </div>
+        </div>
+      `;
     }
 
     container.innerHTML = html;
@@ -519,6 +724,16 @@
       });
     }
 
+    const sideSelect = document.getElementById('filter-side');
+    if (sideSelect) {
+      sideSelect.addEventListener('change', (e) => {
+        state.selectedSide = e.target.value;
+        state.currentPage = 1;
+        state.activeQuickFilter = 'custom';
+        updateUI();
+      });
+    }
+
     const dateFromInput = document.getElementById('filter-date-from');
     if (dateFromInput) {
       dateFromInput.addEventListener('change', (e) => {
@@ -574,6 +789,22 @@
         { id: 'momentum', label: '🚀 Momentum Strategies' },
         { id: 'active_trades', label: '⚡ Traded > 0' },
       ];
+    } else if (key === 'live_trades') {
+      chips = [
+        { id: 'all', label: 'All Fills' },
+        { id: 'sells', label: '💰 Sells' },
+        { id: 'buys', label: '🛒 Buys' },
+        { id: 'profit', label: '🟢 Profitable Sells' },
+        { id: 'loss', label: '🔴 Loss Sells' },
+      ];
+    } else if (key === 'last_trades') {
+      chips = [
+        { id: 'all', label: 'All Bots (500)' },
+        { id: 'sells', label: '💰 Last Trade = Sell' },
+        { id: 'buys', label: '🛒 Last Trade = Buy' },
+        { id: 'profit', label: '🟢 Profitable Last Trade' },
+        { id: 'loss', label: '🔴 Loss Last Trade' },
+      ];
     }
 
     container.innerHTML = chips.map(c => `
@@ -597,6 +828,7 @@
     state.selectedMode = 'all';
     state.selectedReason = 'all';
     state.selectedAsset = 'all';
+    state.selectedSide = 'all';
     state.selectedHoldHours = 'all';
     state.selectedPnlStatus = 'all';
     state.minWinRate = null;
@@ -622,6 +854,10 @@
       state.selectedReason = 'take_profit';
     } else if (chipId === 'rsi') {
       state.selectedReason = 'rsi_overbought';
+    } else if (chipId === 'buys') {
+      state.selectedSide = 'buy';
+    } else if (chipId === 'sells') {
+      state.selectedSide = 'sell';
     }
 
     renderFilterControls();
@@ -634,6 +870,7 @@
     state.selectedMode = 'all';
     state.selectedReason = 'all';
     state.selectedAsset = 'all';
+    state.selectedSide = 'all';
     state.selectedHoldHours = 'all';
     state.selectedPnlStatus = 'all';
     state.minWinRate = null;
@@ -702,6 +939,10 @@
         return false;
       }
 
+      if (state.selectedSide !== 'all' && row.side !== state.selectedSide) {
+        return false;
+      }
+
       if (state.selectedReason !== 'all' && row.reason !== state.selectedReason) {
         return false;
       }
@@ -712,7 +953,7 @@
       }
 
       if (state.dateFrom || state.dateTo) {
-        const entryTime = row.entry_time || row.date;
+        const entryTime = row.entry_time || row.timestamp_utc || row.date;
         if (entryTime) {
           const rowDate = new Date(entryTime).toISOString().slice(0, 10);
           if (state.dateFrom && rowDate < state.dateFrom) return false;
@@ -906,6 +1147,14 @@
       }});
     }
 
+    if (state.selectedSide !== 'all') {
+      badges.push({ label: `Side: ${state.selectedSide}`, onRemove: () => {
+        state.selectedSide = 'all';
+        renderFilterControls();
+        updateUI();
+      }});
+    }
+
     if (state.selectedReason !== 'all') {
       badges.push({ label: `Reason: ${state.selectedReason}`, onRemove: () => {
         state.selectedReason = 'all';
@@ -992,6 +1241,32 @@
         { title: 'Total Portfolio Value', value: `₹${formatNumber(totalVal, 0)}`, sub: `Holdings: ₹${formatNumber(totalHoldings, 0)}`, icon: '💼', highlight: 'info' },
         { title: 'Tournament Realized PnL', value: formatPnl(totalRealized, '₹'), sub: `Across ${data.length} accounts`, icon: totalRealized >= 0 ? '📈' : '📉', highlight: totalRealized >= 0 ? 'success' : 'danger' },
         { title: 'Dip vs Momentum', value: `${data.filter(d => d.entry_mode === 'dip').length} / ${data.filter(d => d.entry_mode === 'momentum').length}`, sub: 'Strategy breakdown', icon: '⚖️', highlight: 'warning' }
+      ];
+    } else if (key === 'live_trades') {
+      const buys = data.filter(d => d.side === 'buy').length;
+      const sells = data.filter(d => d.side === 'sell').length;
+      const totalNotional = data.reduce((acc, d) => acc + (d.notional_inr || 0), 0);
+      const totalFees = data.reduce((acc, d) => acc + (d.fee_inr || 0) + (d.tds_inr || 0), 0);
+      const totalPnl = data.reduce((acc, d) => acc + (d.realized_pnl_inr || 0), 0);
+      const newest = data.length ? [...data].sort((a, b) => String(b.timestamp_utc).localeCompare(String(a.timestamp_utc)))[0] : null;
+
+      cards = [
+        { title: 'Live Fills', value: `${data.length}`, sub: `${buys} Buys / ${sells} Sells`, icon: '⚡', highlight: 'purple' },
+        { title: 'Total Notional', value: `₹${formatNumber(totalNotional, 0)}`, sub: 'Traded volume across bots', icon: '💼', highlight: 'info' },
+        { title: 'Fees + TDS Paid', value: `₹${formatNumber(totalFees, 0)}`, sub: 'Brokerage + 1% TDS friction', icon: '🧾', highlight: 'warning' },
+        { title: 'Realized PnL', value: formatPnl(totalPnl, '₹'), sub: newest ? `Last fill: ${newest.account} · ${newest.asset}` : 'No fills', icon: totalPnl >= 0 ? '📈' : '📉', highlight: totalPnl >= 0 ? 'success' : 'danger' }
+      ];
+    } else if (key === 'last_trades') {
+      const sells = data.filter(d => d.side === 'sell').length;
+      const buys = data.length - sells;
+      const totalPnl = data.reduce((acc, d) => acc + (d.realized_pnl_inr || 0), 0);
+      const newest = data[0] || null;
+
+      cards = [
+        { title: 'Bots Tracked', value: `${data.length}`, sub: 'One latest fill per bot', icon: '🤖', highlight: 'purple' },
+        { title: 'Latest Trade (UTC)', value: newest ? formatDate(newest.timestamp_utc) : '-', sub: newest ? `${newest.account} · ${newest.asset}` : '-', icon: '🕐', highlight: 'info' },
+        { title: 'Last-Trade PnL', value: formatPnl(totalPnl, '₹'), sub: `Sum of each bot's last fill`, icon: totalPnl >= 0 ? '📈' : '📉', highlight: totalPnl >= 0 ? 'success' : 'danger' },
+        { title: 'Buys / Sells', value: `${buys} / ${sells}`, sub: 'Last trade side split', icon: '⚖️', highlight: 'warning' }
       ];
     } else {
       cards = [
@@ -1180,8 +1455,12 @@
 
   function getRowKey(row, fallbackIdx) {
     const config = getActiveConfig();
-    const keyField = config.rowKey || 'account' || 'asset';
-    return String(row[keyField] || `row_${fallbackIdx}`);
+    const keyField = config.rowKey;
+    if (Array.isArray(keyField)) {
+      return keyField.map(f => String(row[f] ?? '')).join('|');
+    }
+    const kf = keyField || 'account' || 'asset';
+    return String(row[kf] || `row_${fallbackIdx}`);
   }
 
   function handleColumnSort(colKey, isShiftKey) {
@@ -2333,6 +2612,160 @@ strategy:
           plugins: { legend: { position: 'bottom', labels: { color: textColor } } }
         }
       });
+    } else if (key === 'live_trades') {
+      const title1 = document.getElementById('chart-title-1');
+      const title2 = document.getElementById('chart-title-2');
+      const title3 = document.getElementById('chart-title-3');
+      if (title1) title1.textContent = 'Realized PnL by Asset (₹)';
+      if (title2) title2.textContent = 'Buy vs Sell Notional (₹)';
+      if (title3) title3.textContent = 'Fill Side Distribution';
+
+      const pnlByAsset = {};
+      data.forEach(t => {
+        pnlByAsset[t.asset] = (pnlByAsset[t.asset] || 0) + (t.realized_pnl_inr || 0);
+      });
+      const sortedAssets = Object.keys(pnlByAsset).sort((a, b) => pnlByAsset[b] - pnlByAsset[a]);
+
+      charts.chart1 = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+          labels: sortedAssets,
+          datasets: [{
+            label: 'Realized PnL (₹)',
+            data: sortedAssets.map(a => pnlByAsset[a]),
+            backgroundColor: sortedAssets.map(a => pnlByAsset[a] >= 0 ? '#10b981' : '#ef4444'),
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 9 } } },
+            y: { grid: { color: gridColor }, ticks: { color: textColor } }
+          }
+        }
+      });
+
+      const buyNotional = data.filter(t => t.side === 'buy').reduce((a, t) => a + (t.notional_inr || 0), 0);
+      const sellNotional = data.filter(t => t.side === 'sell').reduce((a, t) => a + (t.notional_inr || 0), 0);
+      charts.chart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+          labels: ['Buys', 'Sells'],
+          datasets: [{
+            label: 'Notional (₹)',
+            data: [buyNotional, sellNotional],
+            backgroundColor: ['rgba(14, 165, 233, 0.85)', 'rgba(168, 85, 247, 0.85)'],
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { color: gridColor }, ticks: { color: textColor } },
+            y: { grid: { color: gridColor }, ticks: { color: textColor } }
+          }
+        }
+      });
+
+      const buyCount = data.filter(t => t.side === 'buy').length;
+      const sellCount = data.filter(t => t.side === 'sell').length;
+      charts.chart3 = new Chart(ctx3, {
+        type: 'doughnut',
+        data: {
+          labels: ['Buys', 'Sells'],
+          datasets: [{
+            data: [buyCount, sellCount],
+            backgroundColor: ['#0ea5e9', '#a855f7'],
+            borderWidth: 2,
+            borderColor: isDark ? '#141c2e' : '#ffffff'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'bottom', labels: { color: textColor } } }
+        }
+      });
+    } else if (key === 'last_trades') {
+      const title1 = document.getElementById('chart-title-1');
+      const title2 = document.getElementById('chart-title-2');
+      const title3 = document.getElementById('chart-title-3');
+      if (title1) title1.textContent = 'Last-Trade Realized PnL by Account (₹)';
+      if (title2) title2.textContent = 'Last Trade Side Split';
+      if (title3) title3.textContent = 'Last Trade by Asset';
+
+      const topPnL = [...data].sort((a, b) => (b.realized_pnl_inr || 0) - (a.realized_pnl_inr || 0)).slice(0, 15);
+      charts.chart1 = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+          labels: topPnL.map(t => t.account),
+          datasets: [{
+            label: 'Realized PnL (₹)',
+            data: topPnL.map(t => t.realized_pnl_inr || 0),
+            backgroundColor: topPnL.map(t => (t.realized_pnl_inr || 0) >= 0 ? '#10b981' : '#ef4444'),
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 9 } } },
+            y: { grid: { color: gridColor }, ticks: { color: textColor } }
+          }
+        }
+      });
+
+      const buyCount = data.filter(t => t.side === 'buy').length;
+      const sellCount = data.filter(t => t.side === 'sell').length;
+      charts.chart2 = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+          labels: ['Buys', 'Sells'],
+          datasets: [{
+            data: [buyCount, sellCount],
+            backgroundColor: ['#0ea5e9', '#a855f7'],
+            borderWidth: 2,
+            borderColor: isDark ? '#141c2e' : '#ffffff'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'bottom', labels: { color: textColor } } }
+        }
+      });
+
+      const byAsset = {};
+      data.forEach(t => { byAsset[t.asset] = (byAsset[t.asset] || 0) + 1; });
+      const topAssets = Object.keys(byAsset).sort((a, b) => byAsset[b] - byAsset[a]).slice(0, 15);
+      charts.chart3 = new Chart(ctx3, {
+        type: 'bar',
+        data: {
+          labels: topAssets,
+          datasets: [{
+            label: 'Bots',
+            data: topAssets.map(a => byAsset[a]),
+            backgroundColor: 'rgba(99, 102, 241, 0.8)',
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 9 } } },
+            y: { grid: { color: gridColor }, ticks: { color: textColor } }
+          }
+        }
+      });
     }
   }
 
@@ -2652,6 +3085,14 @@ strategy:
       });
     }
 
+    // Trades Page View Switcher (Backtest / Live / Last-per-bot)
+    const tradesViewSwitcher = document.getElementById('trades-view-switcher');
+    if (tradesViewSwitcher) {
+      tradesViewSwitcher.querySelectorAll('[data-view]').forEach(btn => {
+        btn.addEventListener('click', () => switchTradesView(btn.getAttribute('data-view')));
+      });
+    }
+
     // Charts Accordion Toggle
     const chartsToggle = document.getElementById('charts-panel-header');
     const chartsBody = document.getElementById('charts-body');
@@ -2750,6 +3191,18 @@ strategy:
     return reason;
   }
 
+  function formatSideBadge(side) {
+    if (!side) return '-';
+    if (side === 'buy') return `<span class="badge badge-buy">🛒 Buy</span>`;
+    if (side === 'sell') return `<span class="badge badge-sell">💰 Sell</span>`;
+    return `<span class="badge">${escapeHtml(side)}</span>`;
+  }
+
+  function formatAccount(account) {
+    if (!account) return '-';
+    return `<span class="account-mono">${highlightSearchText(escapeHtml(account))}</span>`;
+  }
+
   function formatAsset(asset) {
     if (!asset) return '-';
     const shortName = asset.replace('INR', '');
@@ -2806,6 +3259,20 @@ strategy:
     if (val === null || val === undefined) return '-';
     const num = parseFloat(val);
     return `₹${num.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  }
+
+  function formatPrice(val) {
+    if (val === null || val === undefined) return '-';
+    const num = parseFloat(val);
+    if (isNaN(num)) return val;
+    return `₹${num.toLocaleString('en-IN', { maximumFractionDigits: 8 })}`;
+  }
+
+  function formatQuantity(val) {
+    if (val === null || val === undefined) return '-';
+    const num = parseFloat(val);
+    if (isNaN(num)) return val;
+    return num.toLocaleString('en-US', { maximumFractionDigits: 8 });
   }
 
   function formatDate(isoStr) {

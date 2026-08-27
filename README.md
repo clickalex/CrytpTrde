@@ -332,12 +332,19 @@ by `.github/workflows/static.yml`:
 | Page | What's on it |
 |---|---|
 | `index.html` | 🏆 Sweep tournament leaderboard — 500 strategies, P&L / win-rate / drawdown charts |
-| `trades.html` | ⚡ Backtest trade log, with a streak analyzer and a 1% TDS calculator |
+| `trades.html` | ⚡ Trades log: backtest trades, plus the **last trade** and **every fill** of the 500 live bots (with a streak analyzer and a 1% TDS calculator) |
 | `live.html` | 🟢 The 500 live demo accounts, ranked on current balances |
 | `configs.html` | ⚙️ Every bot's parameter spec, with one-click `config.yaml` download |
 | `compare.html` | ⚖️ Side-by-side strategy diffs + multi-line equity curves vs HODL |
 | `analytics.html` | 📈 Monte Carlo risk & ruin runs, VaR, underwater drawdown curves, correlation heatmaps, strategy playground |
 | `importer.html` | 📁 Drag-and-drop / paste any CSV or JSON and the same explorer runs on it |
+
+`trades.html` has three switchable views — ⚡ **Backtest Trades**, 🟢 **Live
+Trades** (every fill of the 500 live bots) and 🕐 **Last Trade / Bot** (the
+single most recent fill per bot). The site navigation mirrors this: the ⚡
+**Trades Log** entry carries the live-fill count and a dedicated 🕐 **Last
+Trade** entry deep-links to `trades.html#view=last_trades`
+(`#view=live_trades` and `#view=trades` work the same way).
 
 Shared assets: `app.js` (filter/sort/paginate/export logic), `styles.css`
 (dark + light theme, print styles), `data.js` (the datasets). Chart.js loads from
@@ -361,12 +368,20 @@ shows the datasets as of the last time `data.js` was refreshed by hand.
 | `backtest_results` | `backtest_results.csv` |
 | `backtest_equity` | `backtest_equity.csv` |
 | `top10_equity` | `sweep/equity_top10.csv` |
+| `live_trades` | every `sweep/accounts/acc_XXX/trades.csv` (via `build_data_js.py`) |
+| `last_trades` | same — the single latest fill per bot (via `build_data_js.py`) |
 
 Two things follow from that. The **bot state** in the repo (`state/portfolio.json`)
 is committed after every Actions run, so `live.html` can poll it directly — its
 optional live polling (off / 5s / 10s / 30s) refetches that file and never touches
 `data.js`. And to refresh the tournament views on the site, regenerate `data.js`
-from the CSVs above and push to `main`.
+from the CSVs above and push to `main`. The two live-trade datasets aren't
+produced by any single CSV, so rebuild them with:
+
+```bash
+python3 build_data_js.py            # flatten all 500 bots' trades.csv into data.js
+python3 build_data_js.py --check    # dry-run: just print counts
+```
 
 To browse against your local run before pushing:
 
@@ -454,6 +469,7 @@ sweep/                  tournament outputs
 index.html live.html trades.html configs.html
 compare.html analytics.html importer.html   the 7-page static dashboard
 app.js styles.css data.js   dashboard logic, styling, embedded datasets
+build_data_js.py           regenerates the live_trades / last_trades datasets
 
 .github/workflows/      dca.yml (hourly bot) · tests.yml · static.yml · jekyll…
 docs/ci/                workflow drop-ins + notes
