@@ -12,7 +12,7 @@ and publishes every result to a **static analytics dashboard on GitHub Pages**.
 | **Mode** | paper only. **No real orders are ever placed** — see [Going live](#going-live-read-before-touching-live) |
 | **Runtime** | Python 3.10+ · `requests` + `PyYAML` |
 | **Scheduling** | GitHub Actions cron (hourly) — free, no server |
-| **Tests** | 11 offline tests, stubbed API, no network or secrets needed |
+| **Tests** | 12 offline tests, stubbed API, no network or secrets needed |
 
 > Branch note: feature work happens on Arena session branches (`arena/*`) opened against `main` via pull requests.
 
@@ -79,6 +79,8 @@ python3 cryptobot.py backtest --chart eq.png
 python3 cryptobot.py sweep                 # 500-bot tournament on the same history
 python3 cryptobot.py sweep-live            # same 500 bots, trading live prices (paper)
 python3 cryptobot.py sweep-status          # re-rank without trading
+python3 cryptobot.py bot acc_001           # full buy/sell history of one tournament bot
+python3 cryptobot.py coin BTCINR           # which tournament bots traded a given coin
 ```
 
 No API key is needed in paper mode. To keep it running, either start the
@@ -104,6 +106,8 @@ watchlist and scan every active INR market).
 | `sweep [--days N] [--count N] [--chart FILE.png]` | Historical tournament across the strategy grid |
 | `sweep-live [--top N] [--rank-only] [--reset]` | Run every demo account on live prices (paper); `--reset` restarts all at ₹10,000 |
 | `sweep-status` | `sweep-live --rank-only`: rebuild the ranking without trading |
+| `bot <account> [--json]` | Full trade history of one tournament bot (all fills + current holdings), read straight from `sweep/accounts/` — offline, no CoinDCX call |
+| `coin <asset> [--json]` | Every tournament bot that bought/sold a given coin, with per-bot buy/sell counts, net qty, fees, TDS and realized P&L |
 
 `backtest` writes its CSVs at the repo root; `sweep` and `sweep-live` write into
 `sweep/` — see [data files](#repo-layout--data-files).
@@ -332,7 +336,7 @@ by `.github/workflows/static.yml`:
 | Page | What's on it |
 |---|---|
 | `index.html` | 🏆 Sweep tournament leaderboard — 500 strategies, P&L / win-rate / drawdown charts |
-| `trades.html` | ⚡ Trades log: backtest trades, plus the **last trade** and **every fill** of the 500 live bots (with a streak analyzer and a 1% TDS calculator) |
+| `trades.html` | ⚡ Trades log: backtest trades, plus the **last trade** and **every fill** of the 500 live bots (with a streak analyzer, a 1% TDS calculator, and **🤖 Bot Details** / **🪙 Coin Details** drill-downs — pick a bot or a coin and see every buy/sell in detail) |
 | `live.html` | 🟢 The 500 live demo accounts, ranked on current balances |
 | `configs.html` | ⚙️ Every bot's parameter spec, with one-click `config.yaml` download |
 | `compare.html` | ⚖️ Side-by-side strategy diffs + multi-line equity curves vs HODL |
@@ -424,15 +428,16 @@ other, but not against your laptop).
 ## Tests & CI
 
 ```bash
-python3 test_speed_fix.py     # 11 offline tests, no network, no secrets
+python3 test_speed_fix.py     # 12 offline tests, no network, no secrets
 ```
 
 The suite stubs the CoinDCX client and covers the behaviour that is easy to
 silently break: market-cache building, global rate limiting, parallel history
 fetching, discovery caps, the dipped-market safety net, adaptive backoff,
 dead-market skipping, progress lines, a full `run_cycle` smoke test (entry →
-take-profit → hold-timeout exits), and `PaperBroker` buy/partial-sell/exit
-accounting + persistence.
+take-profit → hold-timeout exits), `PaperBroker` buy/partial-sell/exit
+accounting + persistence, and the `bot`/`coin` drill-down reports (per-fill PnL
+attribution, offline).
 
 `.github/workflows/tests.yml` runs it on every push and pull request, so a
 regression — a broken exit rule, a crashed simulator — fails before it reaches
@@ -452,7 +457,7 @@ cryptobot.py            the whole bot: indicators · API client · PaperBroker �
                         the file name the original modules)
 config.yaml             every knob; paper by default
 requirements.txt        requests + PyYAML (matplotlib optional)
-test_speed_fix.py       offline test suite (11 tests)
+test_speed_fix.py       offline test suite (12 tests)
 
 state/                  the LIVE bot's state: portfolio.json + trades.csv
 backtest_{results,equity,trades}.csv   outputs of the last `backtest`

@@ -480,6 +480,13 @@ mark.search-highlight {
   margin-top: 0.15rem;
 }
 
+.page-intro-header .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
 /* Tools Quick Bar */
 .tools-quick-bar {
   display: flex;
@@ -1891,6 +1898,82 @@ mark.search-highlight {
   color: var(--text-primary);
   outline: none;
   resize: vertical;
+}
+
+/* Bot / Coin Drill-Down & Run-Bot Command Panel */
+.drill-select-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+}
+
+.drill-select-row label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.cmd-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.cmd-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "cmd copy"
+    "desc copy";
+  gap: 0.15rem 0.75rem;
+  align-items: center;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.7rem 0.85rem;
+}
+
+.cmd-item .btn {
+  grid-area: copy;
+  white-space: nowrap;
+}
+
+.cmd-command {
+  grid-area: cmd;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent-primary);
+  word-break: break-all;
+}
+
+.cmd-command code {
+  font-family: inherit;
+  color: inherit;
+}
+
+.cmd-desc {
+  grid-area: desc;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 520px) {
+  .cmd-item {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "cmd"
+      "desc"
+      "copy";
+  }
+  .cmd-item .btn {
+    justify-self: start;
+  }
 }
 
 /* Toast Notifications */
