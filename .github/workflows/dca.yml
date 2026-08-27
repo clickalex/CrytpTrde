@@ -2,13 +2,16 @@ name: Crypto Bot
 
 # Runs the bot for free in GitHub's cloud.
 #   - Every hour at minute :30 UTC = minute 00 IST (e.g. 09:00, 10:00 ... IST).
-#     Default: `sweep-live` — the 100-account tournament: 100 demo accounts,
-#     each with a different strategy, trading LIVE on real prices. The ranking
-#     is in sweep/live_summary.csv after every run. Use the Actions dropdown
-#     to run `check` / `status` / `backtest` / `sweep` (offline tournament)
-#     manually from your phone.
-#   - Free quota: hourly runs use ~36% of the 2,000 minutes/month. Make the
-#     repo PUBLIC for unlimited minutes, or reduce frequency here if needed.
+#     Default: `sweep-live` — the 500-bot tournament: 500 demo accounts, each
+#     with a unique strategy (dip + momentum families, hold periods from
+#     forever to one month), trading LIVE on real prices. The ranking is in
+#     sweep/live_summary.csv after every run. Use the Actions dropdown to run
+#     `check` / `status` / `backtest` / `sweep` (offline tournament) manually
+#     from your phone.
+#   - Free quota (private repos): hourly runs stay within the 2,000 minutes/
+#     month for the current tournament size. Make the repo PUBLIC for
+#     unlimited minutes, or reduce frequency / sweep.accounts if needed.
+#   - Pushes and pull requests are ALSO tested by tests.yml (offline suite).
 on:
   schedule:
     - cron: "30 * * * *"
