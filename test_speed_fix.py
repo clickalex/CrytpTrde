@@ -14,7 +14,11 @@ Stubs CoinDCX endpoints with realistic latency and checks:
   10. run_cycle smoke: oversold candles -> BUY, rally -> take-profit SELL
   11. PaperBroker round-trip: fee/TDS/PnL accounting, persistence, rejections
 """
+import argparse
+import csv
 import io
+import json
+import shutil
 import sys
 import tempfile
 import threading
@@ -571,11 +575,112 @@ def test_paper_broker_roundtrip():
           "rejections + persistence ok")
 
 
+def test_bot_and_coin_drilldown():
+    """The `bot` and `coin` commands read the local tournament state and work
+    without touching CoinDCX. Verifies per-fill PnL attribution (the broker logs
+    CUMULATIVE realized PnL on a sell row, so it must be re-attributed) and that
+    both report commands produce correct, offline output (incl. clean --json)."""
+    tmp = Path(tempfile.mkdtemp())
+    orig = (cb.SWEEP_DIR, cb.ACCOUNTS_DIR, cb.ACCOUNT_CSV)
+    cb.SWEEP_DIR = tmp
+    cb.ACCOUNTS_DIR = tmp / "accounts"
+    cb.ACCOUNT_CSV = tmp / "accounts.csv"
+    try:
+        rows = [
+            {"account": "acc_001", "name": "dip_e30_x72_tp4_sl2_p40_h0",
+             "entry_mode": "dip", "entry_rsi": 30, "exit_rsi": 72,
+             "take_profit_pct": 4, "stop_loss_pct": 2,
+             "position_size_pct": 40, "max_hold_hours": 0},
+            {"account": "acc_002", "name": "mom_e70_x80_tp6_sl3_p60_h168",
+             "entry_mode": "momentum", "entry_rsi": 70, "exit_rsi": 80,
+             "take_profit_pct": 6, "stop_loss_pct": 3,
+             "position_size_pct": 60, "max_hold_hours": 168},
+        ]
+        cb.save_account_rows(rows)
+
+        # acc_001: buy->sell BTCINR at a profit, plus a still-open ETHINR buy
+        a1 = cb.ACCOUNTS_DIR / "acc_001"
+        a1.mkdir(parents=True, exist_ok=True)
+        with open(a1 / "trades.csv", "w", newline="") as fh:
+            w = csv.writer(fh)
+            w.writerow(["timestamp_utc", "asset", "side", "price_inr",
+                        "quantity", "notional_inr", "fee_inr", "tds_inr",
+                        "realized_pnl_inr"])
+            w.writerow(["2026-08-26T10:00:00+00:00", "BTCINR", "buy",
+                        "100.000000", "1.00000000", "100.00", "0.10", "0.00", ""])
+            w.writerow(["2026-08-26T11:00:00+00:00", "BTCINR", "sell",
+                        "110.000000", "1.00000000", "110.00", "0.11", "1.10", "9.79"])
+            w.writerow(["2026-08-26T12:00:00+00:00", "ETHINR", "buy",
+                        "2000.000000", "1.00000000", "2000.00", "2.00", "0.00", ""])
+        with open(a1 / "portfolio.json", "w") as fh:
+            json.dump({"cash_inr": 100.0, "realized_pnl": 9.79,
+                       "holdings": {"ETHINR": {"qty": 1, "avg_cost": 2002.0,
+                                               "invested": 2002.0,
+                                               "last_buy_at": "x"}}}, fh)
+
+        # acc_002: only bought BTCINR (still holding -> shows in the coin drill)
+        a2 = cb.ACCOUNTS_DIR / "acc_002"
+        a2.mkdir(parents=True, exist_ok=True)
+        with open(a2 / "trades.csv", "w", newline="") as fh:
+            w = csv.writer(fh)
+            w.writerow(["timestamp_utc", "asset", "side", "price_inr",
+                        "quantity", "notional_inr", "fee_inr", "tds_inr",
+                        "realized_pnl_inr"])
+            w.writerow(["2026-08-26T09:00:00+00:00", "BTCINR", "buy",
+                        "90.000000", "2.00000000", "180.00", "0.18", "0.00", ""])
+        with open(a2 / "portfolio.json", "w") as fh:
+            json.dump({"cash_inr": 0.0, "realized_pnl": 0.0, "holdings": {}}, fh)
+
+        # per-fill PnL attribution: (110 - 0.11) - 1 * 100.1 = 9.79
+        a = cb._analyze_fills(cb._account_trades("acc_001"))
+        assert a["buy_count"] == 2 and a["sell_count"] == 1, a
+        assert abs(a["total_realized"] - 9.79) < 0.01, a
+        assert set(a["holdings"]) == {"ETHINR"}, a  # BTCINR sold flat
+
+        # `bot` command (human output)
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            cb.cmd_bot({}, argparse.Namespace(account="acc_001", json=False))
+        out = buf.getvalue()
+        for needle in ("acc_001", "FULL TRADE HISTORY", "BTCINR", "ETHINR"):
+            assert needle in out, f"missing {needle} in:\n{out}"
+
+        # `coin` command aggregates every bot that traded the asset
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            cb.cmd_coin({}, argparse.Namespace(coin="BTCINR", json=False))
+        out = buf.getvalue()
+        assert "2 bots traded BTCINR" in out, out
+        assert "acc_001" in out and "acc_002" in out, out
+
+        # `coin --json` is pure JSON on stdout
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            cb.cmd_coin({}, argparse.Namespace(coin="BTCINR", json=True))
+        payload = json.loads(buf.getvalue())
+        assert payload["coin"] == "BTCINR" and len(payload["bots"]) == 2, payload
+
+        # unknown account is rejected cleanly
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            try:
+                cb.cmd_bot({}, argparse.Namespace(account="acc_999", json=False))
+                raise AssertionError("acc_999 must not exist")
+            except SystemExit:
+                pass
+    finally:
+        cb.SWEEP_DIR, cb.ACCOUNTS_DIR, cb.ACCOUNT_CSV = orig
+        shutil.rmtree(tmp, ignore_errors=True)
+    print("  bot/coin drill-down: per-fill PnL attribution + offline report "
+          "commands (incl. clean --json)")
+
+
 if __name__ == "__main__":
     tests = [test_build_market_cache, test_rate_limiter_global_pacing,
              test_fetch_history, test_discovery_caps, test_config_caps_flow,
              test_dipped_scan, test_adaptive_backoff, test_dead_market_skipped,
-             test_progress_lines, test_run_cycle_smoke, test_paper_broker_roundtrip]
+             test_progress_lines, test_run_cycle_smoke, test_paper_broker_roundtrip,
+             test_bot_and_coin_drilldown]
     for t in tests:
         print(f"* {t.__name__}")
         t()

@@ -2837,6 +2837,378 @@ strategy:
   }
 
   // ==========================================================================
+  // Bot / Coin Drill-Down Tools (and the manual "Run Bot" command panel)
+  // ==========================================================================
+  // These read the same embedded datasets (live_trades / live_summary /
+  // accounts) as the rest of the site, and reconstruct per-sell realized PnL
+  // with the broker's moving-average cost accounting — exactly matching the
+  // `cryptobot.py bot` / `cryptobot.py coin` CLI commands.
+  function getBotAccounts() {
+    const live = window.DATA_SETS?.live_summary || [];
+    const accts = window.DATA_SETS?.accounts || [];
+    const source = live.length ? live : accts;
+    const seen = new Set();
+    const arr = [];
+    source.forEach(r => {
+      const a = r && r.account;
+      if (a && !seen.has(a)) { seen.add(a); arr.push(a); }
+    });
+    if (!arr.length) {
+      (window.DATA_SETS?.live_trades || []).forEach(f => {
+        const a = f && f.account;
+        if (a && !seen.has(a)) { seen.add(a); arr.push(a); }
+      });
+    }
+    return arr.sort();
+  }
+
+  function getCoins() {
+    const seen = new Set();
+    const arr = [];
+    (window.DATA_SETS?.live_trades || []).forEach(f => {
+      const a = f && f.asset;
+      if (a && !seen.has(a)) { seen.add(a); arr.push(a); }
+    });
+    return arr.sort();
+  }
+
+  function analyzeFills(fills) {
+    // Mirrors cryptobot._analyze_fills: replay fills with moving-average cost.
+    const state = {};      // asset -> {qty, avg_cost}
+    const enriched = [];
+    let buyCount = 0, sellCount = 0, buyNotional = 0, buyFee = 0;
+    let sellNotional = 0, sellFee = 0, sellTds = 0, totalRealized = 0, wins = 0, losses = 0;
+
+    (fills || []).forEach(f => {
+      const asset = f.asset, side = (f.side || '').toLowerCase();
+      const qty = Number(f.quantity) || 0;
+      const notional = Number(f.notional_inr) || 0;
+      const fee = Number(f.fee_inr) || 0;
+      const tds = Number(f.tds_inr) || 0;
+      const st = state[asset] || (state[asset] = { qty: 0, avg_cost: 0 });
+      let attributed = null;
+      if (side === 'buy') {
+        const newQty = st.qty + qty;
+        if (newQty) st.avg_cost = (st.avg_cost * st.qty + notional + fee) / newQty;
+        st.qty = newQty;
+        buyCount++; buyNotional += notional; buyFee += fee;
+      } else if (side === 'sell') {
+        sellCount++;
+        attributed = st.avg_cost > 0 ? (notional - fee) - qty * st.avg_cost : 0;
+        st.qty = Math.max(0, st.qty - qty);
+        totalRealized += attributed;
+        if (attributed > 0) wins++; else losses++;
+        sellNotional += notional; sellFee += fee; sellTds += tds;
+      }
+      enriched.push(Object.assign({}, f, { attributed_pnl: attributed }));
+    });
+
+    const holdings = Object.keys(state)
+      .filter(a => state[a].qty > 0)
+      .map(a => ({ asset: a, qty: state[a].qty, avg_cost: state[a].avg_cost }));
+    return {
+      fills: enriched, holdings,
+      buyCount, sellCount, buyNotional, buyFee,
+      sellNotional, sellFee, sellTds, totalRealized, wins, losses,
+      winRate: sellCount ? (wins / sellCount * 100) : 0
+    };
+  }
+
+  function pnlCell(v) {
+    if (v === null || v === undefined || isNaN(Number(v))) return '<span class="text-muted">-</span>';
+    return formatPnl(Number(v), '₹');
+  }
+
+  function fillRowsHtml(fills) {
+    if (!fills.length) return '<div class="table-empty-state" style="padding:1.5rem;"><span>No fills recorded.</span></div>';
+    const header = ['Time (UTC)', 'Asset', 'Side', 'Price (₹)', 'Qty', 'Notional (₹)', 'Fee (₹)', 'TDS (₹)', 'Realized'];
+    const rows = fills.map(f => `
+      <tr>
+        <td style="font-family:var(--font-mono);">${escapeHtml(f.timestamp_utc)}</td>
+        <td>${formatAsset(f.asset)}</td>
+        <td>${formatSideBadge(f.side)}</td>
+        <td class="numeric">${formatPrice(f.price_inr)}</td>
+        <td class="numeric">${formatQuantity(f.quantity)}</td>
+        <td class="numeric">${formatCurrency(f.notional_inr)}</td>
+        <td class="numeric">${formatCurrency(f.fee_inr)}</td>
+        <td class="numeric">${formatCurrency(f.tds_inr)}</td>
+        <td class="numeric">${pnlCell(f.attributed_pnl)}</td>
+      </tr>
+    `).join('');
+    return `<div style="overflow-x:auto; max-height:360px;"><table class="data-table" style="font-size:0.8rem;">
+      <thead><tr>${header.map(h => `<th>${h}</th>`).join('')}</tr></thead>
+      <tbody>${rows}</tbody>
+    </table></div>`;
+  }
+
+  function renderBotDetailsBody(account) {
+    const container = document.getElementById('bot-detail-container');
+    if (!container) return;
+
+    const live = window.DATA_SETS?.live_summary || [];
+    const accts = window.DATA_SETS?.accounts || [];
+    const row = live.find(r => r.account === account) || accts.find(r => r.account === account) || {};
+    const fills = (window.DATA_SETS?.live_trades || []).filter(f => f.account === account);
+    const sorted = [...fills].sort((a, b) =>
+      String(a.timestamp_utc).localeCompare(String(b.timestamp_utc)) ||
+      String(a.asset).localeCompare(String(b.asset)) || String(a.side).localeCompare(String(b.side)));
+    const a = analyzeFills(sorted);
+
+    const mode = row.entry_mode;
+    const params = `
+      <div class="detail-grid">
+        <div class="detail-item"><div class="detail-item-label">Account</div><div class="detail-item-value">${escapeHtml(account)}</div></div>
+        <div class="detail-item"><div class="detail-item-label">Strategy</div><div class="detail-item-value">${escapeHtml(row.name || '-')}</div></div>
+        <div class="detail-item"><div class="detail-item-label">Entry Mode</div><div class="detail-item-value">${formatModeBadge(mode)}</div></div>
+        <div class="detail-item"><div class="detail-item-label">Entry / Exit RSI</div><div class="detail-item-value">${formatNumber(row.entry_rsi, 1)} / ${formatNumber(row.exit_rsi, 1)}</div></div>
+        <div class="detail-item"><div class="detail-item-label">Take Profit / Stop Loss</div><div class="detail-item-value">${formatNumber(row.take_profit_pct, 1)}% / ${formatNumber(row.stop_loss_pct, 1)}%</div></div>
+        <div class="detail-item"><div class="detail-item-label">Position Size / Hold</div><div class="detail-item-value">${formatNumber(row.position_size_pct, 0)}% / ${formatHoldTime(row.max_hold_hours)}</div></div>
+      </div>
+    `;
+
+    const valueInr = Number(row.value_inr) || (a.totalRealized + 10000);
+    const realized = Number(row.realized_pnl_inr) || a.totalRealized;
+    const kpis = `
+      <div class="metrics-grid">
+        <div class="metric-card highlight-info"><div class="metric-header"><span>Total Value</span><span>💼</span></div>
+          <div class="metric-value-row"><span class="metric-value">${formatCurrency(valueInr)}</span></div>
+          <div class="metric-sub">Cash ${formatCurrency(row.cash_inr)} · Holdings ${formatCurrency(row.holdings_inr)}</div></div>
+        <div class="metric-card highlight-${realized >= 0 ? 'success' : 'danger'}"><div class="metric-header"><span>Realized PnL</span><span>📈</span></div>
+          <div class="metric-value-row"><span class="metric-value">${formatPnl(realized, '₹')}</span></div>
+          <div class="metric-sub">Fills: ${a.buyCount} buys / ${a.sellCount} sells</div></div>
+        <div class="metric-card highlight-warning"><div class="metric-header"><span>Sell Win Rate</span><span>🎯</span></div>
+          <div class="metric-value-row"><span class="metric-value">${a.winRate.toFixed(1)}%</span></div>
+          <div class="metric-sub">${a.wins} wins / ${a.losses} losses</div></div>
+        <div class="metric-card highlight-purple"><div class="metric-header"><span>Attributed PnL</span><span>🔍</span></div>
+          <div class="metric-value-row"><span class="metric-value">${formatPnl(a.totalRealized, '₹')}</span></div>
+          <div class="metric-sub">Fees ₹${formatNumber(a.buyFee + a.sellFee, 0)} · TDS ₹${formatNumber(a.sellTds, 0)}</div></div>
+      </div>
+    `;
+
+    const holdingsHtml = a.holdings.length
+      ? `<div style="overflow-x:auto;"><table class="data-table" style="font-size:0.8rem;">
+          <thead><tr><th>Asset</th><th>Qty</th><th>Avg Cost (₹)</th><th>Invested (₹)</th></tr></thead>
+          <tbody>${a.holdings.map(h => `
+            <tr><td>${formatAsset(h.asset)}</td><td class="numeric">${formatQuantity(h.qty)}</td>
+            <td class="numeric">${formatCurrency(h.avg_cost)}</td>
+            <td class="numeric">${formatCurrency(h.qty * h.avg_cost)}</td></tr>`).join('')}</tbody>
+        </table></div>`
+      : '<p style="color:var(--text-muted);">No open positions — the bot is flat.</p>';
+
+    container.innerHTML = `
+      ${params}
+      <div style="margin-top:0.25rem;">${kpis}</div>
+      <div>
+        <div class="detail-item-label" style="margin-bottom:0.5rem;">Open Positions (derived from fills)</div>
+        ${holdingsHtml}
+      </div>
+      <div>
+        <div class="detail-item-label" style="margin-bottom:0.5rem;">Full Trade History — every fill (${a.fills.length})</div>
+        ${fillRowsHtml(a.fills)}
+      </div>
+    `;
+  }
+
+  function openBotDetailsModal() {
+    const modal = document.getElementById('bot-details-modal');
+    const content = document.getElementById('bot-details-content');
+    if (!modal || !content) return;
+
+    const accounts = getBotAccounts();
+    if (!accounts.length) {
+      content.innerHTML = '<p style="color:var(--text-muted);">No live bot data available. Run <code>cryptobot.py sweep-live</code> then <code>build_data_js.py</code> to populate it.</p>';
+      modal.classList.add('open');
+      return;
+    }
+
+    content.innerHTML = `
+      <div class="drill-select-row">
+        <label for="bot-select">🤖 Choose a bot to inspect</label>
+        <select id="bot-select" class="filter-select">${accounts.map(a => `<option value="${escapeHtml(a)}">${escapeHtml(a)}</option>`).join('')}</select>
+      </div>
+      <div id="bot-detail-container"></div>
+    `;
+    modal.classList.add('open');
+
+    const select = document.getElementById('bot-select');
+    if (select) {
+      renderBotDetailsBody(select.value);
+      select.addEventListener('change', () => renderBotDetailsBody(select.value));
+    }
+  }
+
+  function renderCoinDetailsBody(asset) {
+    const container = document.getElementById('coin-detail-container');
+    if (!container) return;
+
+    const fills = (window.DATA_SETS?.live_trades || []).filter(f => f.asset === asset);
+    const accountMap = {};
+    fills.forEach(f => {
+      const acct = f.account;
+      if (!accountMap[acct]) accountMap[acct] = [];
+      accountMap[acct].push(f);
+    });
+
+    const bots = Object.keys(accountMap).map(acct => {
+      const sorted = [...accountMap[acct]].sort((a, b) =>
+        String(a.timestamp_utc).localeCompare(String(b.timestamp_utc)) ||
+        String(a.asset).localeCompare(String(b.asset)) || String(a.side).localeCompare(String(b.side)));
+      const a = analyzeFills(sorted);
+      let netQty = 0;
+      a.holdings.forEach(h => { netQty += h.qty; });
+      return { account: acct, a, netQty,
+               notional: a.buyNotional + a.sellNotional,
+               fees: a.buyFee + a.sellFee, tds: a.sellTds };
+    });
+
+    const totalBuys = bots.reduce((s, b) => s + b.a.buyCount, 0);
+    const totalSells = bots.reduce((s, b) => s + b.a.sellCount, 0);
+    const totalNotional = bots.reduce((s, b) => s + b.notional, 0);
+    const totalFees = bots.reduce((s, b) => s + b.fees, 0);
+    const totalTds = bots.reduce((s, b) => s + b.tds, 0);
+    const totalRealized = bots.reduce((s, b) => s + b.a.totalRealized, 0);
+    const holdingBots = bots.filter(b => b.netQty > 0).length;
+
+    const kpis = `
+      <div class="metrics-grid">
+        <div class="metric-card highlight-purple"><div class="metric-header"><span>Bots Traded</span><span>🤖</span></div>
+          <div class="metric-value-row"><span class="metric-value">${bots.length}</span></div>
+          <div class="metric-sub">${holdingBots} still holding</div></div>
+        <div class="metric-card highlight-info"><div class="metric-header"><span>Fills</span><span>⚡</span></div>
+          <div class="metric-value-row"><span class="metric-value">${fills.length}</span></div>
+          <div class="metric-sub">${totalBuys} buys / ${totalSells} sells</div></div>
+        <div class="metric-card highlight-warning"><div class="metric-header"><span>Notional Traded</span><span>💼</span></div>
+          <div class="metric-value-row"><span class="metric-value">${formatCurrency(totalNotional)}</span></div>
+          <div class="metric-sub">Fees ₹${formatNumber(totalFees, 0)} · TDS ₹${formatNumber(totalTds, 0)}</div></div>
+        <div class="metric-card highlight-${totalRealized >= 0 ? 'success' : 'danger'}"><div class="metric-header"><span>Realized PnL</span><span>📈</span></div>
+          <div class="metric-value-row"><span class="metric-value">${formatPnl(totalRealized, '₹')}</span></div>
+          <div class="metric-sub">Across all ${asset} sells</div></div>
+      </div>
+    `;
+
+    const botsSorted = [...bots].sort((x, y) => y.a.totalRealized - x.a.totalRealized);
+    const botTable = botsSorted.length
+      ? `<div style="overflow-x:auto; max-height:320px;"><table class="data-table" style="font-size:0.8rem;">
+          <thead><tr><th>Bot</th><th>Buys</th><th>Sells</th><th>Net Qty</th><th>Notional (₹)</th><th>Fees (₹)</th><th>TDS (₹)</th><th>Realized</th></tr></thead>
+          <tbody>${botsSorted.map(b => `
+            <tr><td>${escapeHtml(b.account)}</td><td class="numeric">${b.a.buyCount}</td><td class="numeric">${b.a.sellCount}</td>
+            <td class="numeric">${formatQuantity(b.netQty)}</td><td class="numeric">${formatCurrency(b.notional)}</td>
+            <td class="numeric">${formatCurrency(b.fees)}</td><td class="numeric">${formatCurrency(b.tds)}</td>
+            <td class="numeric">${pnlCell(b.a.totalRealized)}</td></tr>`).join('')}</tbody>
+        </table></div>`
+      : '<p style="color:var(--text-muted);">No bots traded this coin yet.</p>';
+
+    // The combined fill list must attribute P&L PER ACCOUNT (each bot has its
+    // own cost basis); analyzing all fills together would mix bots' bases for
+    // the same coin and produce wrong per-fill numbers.
+    let allCoinFills = [];
+    for (const acct in accountMap) {
+      const sorted = [...accountMap[acct]].sort((a, b) =>
+        String(a.timestamp_utc).localeCompare(String(b.timestamp_utc)) ||
+        String(a.asset).localeCompare(String(b.asset)) || String(a.side).localeCompare(String(b.side)));
+      const a = analyzeFills(sorted);
+      allCoinFills = allCoinFills.concat(a.fills);
+    }
+    allCoinFills.sort((a, b) => String(a.timestamp_utc).localeCompare(String(b.timestamp_utc)));
+
+    container.innerHTML = `
+      ${kpis}
+      <div>
+        <div class="detail-item-label" style="margin-bottom:0.5rem;">Which bots bought / sold ${escapeHtml(asset)}</div>
+        ${botTable}
+      </div>
+      <div>
+        <div class="detail-item-label" style="margin-bottom:0.5rem;">Every ${escapeHtml(asset)} fill across the tournament</div>
+        ${fillRowsHtml(allCoinFills)}
+      </div>
+    `;
+  }
+
+  function openCoinDetailsModal() {
+    const modal = document.getElementById('coin-details-modal');
+    const content = document.getElementById('coin-details-content');
+    if (!modal || !content) return;
+
+    const coins = getCoins();
+    if (!coins.length) {
+      content.innerHTML = '<p style="color:var(--text-muted);">No live trade data available. Run <code>cryptobot.py sweep-live</code> then <code>build_data_js.py</code> to populate it.</p>';
+      modal.classList.add('open');
+      return;
+    }
+
+    content.innerHTML = `
+      <div class="drill-select-row">
+        <label for="coin-select">🪙 Choose a coin to inspect</label>
+        <select id="coin-select" class="filter-select">${coins.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('')}</select>
+      </div>
+      <div id="coin-detail-container"></div>
+    `;
+    modal.classList.add('open');
+
+    const select = document.getElementById('coin-select');
+    if (select) {
+      renderCoinDetailsBody(select.value);
+      select.addEventListener('change', () => renderCoinDetailsBody(select.value));
+    }
+  }
+
+  function openRunBotModal() {
+    const modal = document.getElementById('run-bot-modal');
+    const content = document.getElementById('run-bot-content');
+    if (!modal || !content) return;
+
+    const commands = [
+      { cmd: 'python3 cryptobot.py check', desc: 'Run one RSI signal-check cycle on the live paper portfolio' },
+      { cmd: 'python3 cryptobot.py status', desc: 'Show the paper portfolio, per-asset P&L, and the tax estimate' },
+      { cmd: 'python3 cryptobot.py run', desc: 'Daemon — keep checking every check_interval_min minutes' },
+      { cmd: 'python3 cryptobot.py sweep-live', desc: 'Run the 500-bot tournament on live prices (paper)' },
+      { cmd: 'python3 cryptobot.py sweep-live --reset', desc: 'Wipe all 500 demo accounts and restart at ₹10,000' },
+      { cmd: 'python3 cryptobot.py sweep', desc: 'Offline 500-bot tournament over 30 days of history' },
+      { cmd: 'python3 cryptobot.py backtest', desc: 'Backtest RSI swing vs the HODL benchmark' },
+      { cmd: 'python3 cryptobot.py bot acc_001', desc: 'Full trade history of one tournament bot (try any acc_XXX)' },
+      { cmd: 'python3 cryptobot.py coin BTCINR', desc: 'Which tournament bots bought/sold a given coin' },
+      { cmd: 'python3 build_data_js.py', desc: 'Refresh the live-trade datasets embedded in data.js' },
+      { cmd: 'python3 -m http.server 8000', desc: 'Serve the static dashboard locally at localhost:8000' },
+    ];
+
+    content.innerHTML = `
+      <p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:0.5rem;">
+        The bot is paper-trading and normally runs on a schedule (GitHub Actions, hourly). To run it
+        <strong>manually</strong> from a terminal, copy the command you need — these run the real
+        <code>cryptobot.py</code> / <code>build_data_js.py</code> on your machine or in CI.
+      </p>
+      <div class="cmd-list">${commands.map((c, i) => `
+        <div class="cmd-item">
+          <div class="cmd-command"><code>${escapeHtml(c.cmd)}</code></div>
+          <div class="cmd-desc">${escapeHtml(c.desc)}</div>
+          <button class="btn btn-sm btn-primary" data-copy-idx="${i}" title="Copy command">📋 Copy</button>
+        </div>`).join('')}
+      </div>
+      <div class="detail-item" style="margin-top:1rem;">
+        <div class="detail-item-label">From GitHub (no terminal needed)</div>
+        <div class="detail-item-value" style="font-family:var(--font-sans);font-weight:500;color:var(--text-secondary);">
+          Repo → <strong>Actions</strong> → <strong>Crypto Bot</strong> → <strong>Run workflow</strong> → pick
+          <code>sweep-live</code> / <code>check</code> / <code>status</code> / <code>sweep</code> / <code>backtest</code>.
+          Tick <strong>reset</strong> to restart all 500 demo accounts at ₹10,000.
+        </div>
+      </div>
+    `;
+    modal.classList.add('open');
+
+    content.querySelectorAll('[data-copy-idx]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.getAttribute('data-copy-idx'), 10);
+        const text = commands[idx] ? commands[idx].cmd : '';
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('Copied command to clipboard!', 'success');
+          btn.textContent = '✅ Copied';
+          setTimeout(() => { btn.textContent = '📋 Copy'; }, 1500);
+        }).catch(() => showToast('Failed to copy.', 'error'));
+      });
+    });
+  }
+
+  // ==========================================================================
   // Data Export & Subtotals
   // ==========================================================================
   function exportFilteredData(format, customRows = null) {
@@ -3041,6 +3413,9 @@ strategy:
     document.getElementById('btn-tool-montecarlo')?.addEventListener('click', openMonteCarloSimulator);
     document.getElementById('btn-tool-playground')?.addEventListener('click', openStrategyPlayground);
     document.getElementById('btn-tool-ensemble')?.addEventListener('click', openEnsembleAllocator);
+    document.getElementById('btn-tool-bot-details')?.addEventListener('click', openBotDetailsModal);
+    document.getElementById('btn-tool-coin-details')?.addEventListener('click', openCoinDetailsModal);
+    document.getElementById('btn-tool-run-bot')?.addEventListener('click', openRunBotModal);
     document.getElementById('btn-tool-tax')?.addEventListener('click', openTaxCalculatorModal);
     document.getElementById('btn-tool-underwater')?.addEventListener('click', openUnderwaterDrawdownModal);
     document.getElementById('btn-tool-correlation')?.addEventListener('click', openCorrelationHeatmapModal);

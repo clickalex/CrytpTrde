@@ -11,8 +11,10 @@
 #   python3 cryptobot.py run              hourly checker loop (daemon)
 #   python3 cryptobot.py assets           list the discovered/resolved universe
 #   python3 cryptobot.py backtest         RSI swing vs HODL on real 1h data
-#   python3 cryptobot.py sweep            200-account strategy tournament
+#   python3 cryptobot.py sweep            500-account strategy tournament
 #   python3 cryptobot.py sweep-live       tournament on live prices (paper)
+#   python3 cryptobot.py bot acc_001      full trade history of one tournament bot
+#   python3 cryptobot.py coin BTCINR      which tournament bots traded a given coin
 # See README.md for the full guide and config.yaml for every knob.
 #
 # File layout (sections were once separate modules; kept as markers):
@@ -2091,6 +2093,253 @@ def cmd_assets(cfg: dict, args) -> None:
         print(f"  {a['name']:<16} {a['pair']}")
 
 
+# ------------------------------------------------------------------ drill-down
+# These helpers read the local tournament state (sweep/accounts/acc_XXX) so the
+# `bot` and `coin` commands work WITHOUT touching CoinDCX — they are pure file
+# reads and run fine in CI or on a machine with no network.
+
+def _sweep_accounts() -> list[str]:
+    """Sorted tournament account ids from sweep/accounts/ (e.g. acc_001..acc_500)."""
+    if not ACCOUNTS_DIR.exists():
+        return []
+    return sorted(d.name for d in ACCOUNTS_DIR.iterdir() if d.is_dir())
+
+
+def _account_row(account: str) -> dict:
+    """The strategy row for `account` from sweep/accounts.csv ({} if unknown)."""
+    for r in load_account_rows():
+        if r["account"] == account:
+            return r
+    return {}
+
+
+def _account_trades(account: str) -> list[dict]:
+    """Read one account's append-only sweep/accounts/acc_XXX/trades.csv log."""
+    path = ACCOUNTS_DIR / account / "trades.csv"
+    if not path.exists():
+        return []
+    with path.open() as fh:
+        rows = list(csv.DictReader(fh))
+    # append-only file is already chronological; keep a stable order for ties.
+    rows.sort(key=lambda r: (r.get("timestamp_utc", ""), r.get("asset", ""),
+                             r.get("side", "")))
+    return rows
+
+
+def _account_portfolio(account: str) -> dict:
+    """Read one account's current sweep/accounts/acc_XXX/portfolio.json state."""
+    path = ACCOUNTS_DIR / account / "portfolio.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text())
+    except (OSError, ValueError):
+        return {}
+
+
+def _analyze_fills(fills: list[dict]) -> dict:
+    """Reconstruct per-fill attributed realized P&L and current holdings.
+
+    The broker (PaperBroker) logs each sell's CUMULATIVE account realized P&L
+    in trades.csv, so `realized_pnl_inr` on a row is not that sell's own P&L.
+    This replays the fills with the broker's moving-average cost accounting
+    (identical to PaperBroker: a buy's cost basis = notional + fee, averaged
+    per unit; a sell realizes (notional - fee) - qty * avg_cost) to attribute a
+    per-sell P&L and work out what is still held. Returns a summary dict.
+    """
+    state: dict[str, dict] = {}   # asset -> {"qty": float, "avg_cost": float}
+    enriched: list[dict] = []
+    buy_count = sell_count = 0
+    buy_notional = buy_fee = 0.0
+    sell_notional = sell_fee = sell_tds = 0.0
+    total_realized = wins = losses = 0.0
+
+    for f in fills:
+        asset = str(f.get("asset") or "")
+        side = str(f.get("side") or "").lower()
+        try:
+            qty = float(f.get("quantity") or 0)
+            notional = float(f.get("notional_inr") or 0)
+            fee = float(f.get("fee_inr") or 0)
+            tds = float(f.get("tds_inr") or 0)
+        except (TypeError, ValueError):
+            continue
+        st = state.setdefault(asset, {"qty": 0.0, "avg_cost": 0.0})
+        attributed: float | None = None
+        if side == "buy":
+            new_qty = st["qty"] + qty
+            if new_qty:
+                st["avg_cost"] = (st["avg_cost"] * st["qty"] + notional + fee) / new_qty
+            st["qty"] = new_qty
+            buy_count += 1
+            buy_notional += notional
+            buy_fee += fee
+        elif side == "sell":
+            sell_count += 1
+            attributed = (notional - fee) - qty * st["avg_cost"] if st["avg_cost"] > 0 else 0.0
+            st["qty"] = max(0.0, st["qty"] - qty)
+            total_realized += attributed
+            if attributed > 0:
+                wins += 1
+            else:
+                losses += 1
+            sell_notional += notional
+            sell_fee += fee
+            sell_tds += tds
+        enriched.append({**f, "attributed_pnl": attributed})
+
+    holdings = {a: s for a, s in state.items() if s["qty"] > 0}
+    return {
+        "fills": enriched, "holdings": holdings,
+        "buy_count": buy_count, "sell_count": sell_count,
+        "buy_notional": buy_notional, "buy_fee": buy_fee,
+        "sell_notional": sell_notional, "sell_fee": sell_fee,
+        "sell_tds": sell_tds, "total_realized": total_realized,
+        "win_sells": wins, "loss_sells": losses,
+        "win_rate": (wins / sell_count * 100) if sell_count else 0.0,
+    }
+
+
+def cmd_bot(cfg: dict, args) -> None:
+    """Show the FULL trade history of one tournament bot (all fills + holdings)."""
+    account = args.account
+    available = _sweep_accounts()
+    if account not in available:
+        msg = (f"No tournament account '{account}'. Found {len(available)} accounts "
+               f"(e.g. acc_001..acc_{len(available):03d}).")
+        # JSON consumers want a clean stream on stdout; errors go to stderr.
+        print(msg, file=sys.stderr if getattr(args, "json", False) else sys.stdout)
+        sys.exit(1)
+
+    row = _account_row(account)
+    portfolio = _account_portfolio(account)
+    fills = _account_trades(account)
+    a = _analyze_fills(fills)
+
+    if getattr(args, "json", False):
+        print(json.dumps({
+            "account": account, "strategy": row, "portfolio": portfolio,
+            **a,
+        }, indent=2, ensure_ascii=False))
+        return
+
+    print(f"\n===== {account} — FULL TRADE HISTORY =====")
+    if row:
+        name = row.get("name", "")
+        print(f"  strategy : {name or '(unknown)'}")
+        print(f"  params   : {row.get('entry_mode')}  entry_RSI {row.get('entry_rsi')}  "
+              f"exit_RSI {row.get('exit_rsi')}  TP {row.get('take_profit_pct')}%  "
+              f"SL {row.get('stop_loss_pct')}%  size {row.get('position_size_pct')}%  "
+              f"hold {row.get('max_hold_hours')}h")
+    print(f"  cash     : Rs.{float(portfolio.get('cash_inr', 0)):,.2f}   "
+          f"realized Rs.{float(portfolio.get('realized_pnl', 0)):+,.2f}")
+    if portfolio.get("holdings"):
+        print("  holdings :")
+        for asset, pos in portfolio["holdings"].items():
+            print(f"      {asset:<10} qty {float(pos['qty']):,.8f}  "
+                  f"avg cost Rs.{float(pos['avg_cost']):,.2f}  "
+                  f"invested Rs.{float(pos['invested']):,.2f}")
+    else:
+        print("  holdings : none (all flat)")
+
+    if not a["fills"]:
+        print("  trades   : no fills recorded yet.")
+        return
+
+    print(f"\n  {'TIME (UTC)':<22}{'ASSET':<10}{'SIDE':<6}{'PRICE':>14}"
+          f"{'QTY':>14}{'NOTIONAL':>14}{'FEE':>9}{'TDS':>9}{'REALIZED':>11}")
+    for f in a["fills"]:
+        pnl = f["attributed_pnl"]
+        pnl_txt = "   -" if pnl is None else f"{pnl:>+11,.2f}"
+        print(f"  {f.get('timestamp_utc',''):<22}{f.get('asset',''):<10}"
+              f"{f.get('side',''):<6}{float(f.get('price_inr',0)):>14,.6f}"
+              f"{float(f.get('quantity',0)):>14,.8f}{float(f.get('notional_inr',0)):>14,.2f}"
+              f"{float(f.get('fee_inr',0)):>9,.2f}{float(f.get('tds_inr',0)):>9,.2f}"
+              f"{pnl_txt}")
+
+    print(f"\n  SUMMARY: {a['buy_count']} buys (Rs.{a['buy_notional']:,.2f} notional, "
+          f"Rs.{a['buy_fee']:,.2f} fees) | {a['sell_count']} sells "
+          f"(Rs.{a['sell_notional']:,.2f} notional, Rs.{a['sell_fee']:,.2f} fees, "
+          f"Rs.{a['sell_tds']:,.2f} TDS)")
+    print(f"           attributed realized P&L: Rs.{a['total_realized']:+,.2f} "
+          f"({a['win_sells']:.0f} wins / {a['loss_sells']:.0f} losses, "
+          f"{a['win_rate']:.1f}% sell win rate)")
+
+
+def cmd_coin(cfg: dict, args) -> None:
+    """Show which tournament bots bought/sold a given coin (in detail)."""
+    asset = str(args.coin).upper()
+    per_bot: list[dict] = []
+
+    for acct in _sweep_accounts():
+        fills = _account_trades(acct)
+        coin_fills = [f for f in fills if str(f.get("asset") or "").upper() == asset]
+        if not coin_fills:
+            continue
+        a = _analyze_fills(coin_fills)
+        row = _account_row(acct)
+        per_bot.append({
+            "account": acct,
+            "name": row.get("name", ""),
+            "buy_count": a["buy_count"],
+            "sell_count": a["sell_count"],
+            "net_qty": sum(s["qty"] for s in a["holdings"].values()),
+            "total_realized": a["total_realized"],
+            "buy_notional": a["buy_notional"],
+            "sell_notional": a["sell_notional"],
+            "fees": a["buy_fee"] + a["sell_fee"],
+            "tds": a["sell_tds"],
+            "fills": a["fills"],   # already per-account attributed
+        })
+
+    if getattr(args, "json", False):
+        # JSON is the aggregate-per-bot view: don't embed the per-fill list
+        # (the `bot` command + the text report already cover the fills).
+        slim = [{k: v for k, v in b.items() if k != "fills"} for b in per_bot]
+        print(json.dumps({"coin": asset, "bots": slim}, indent=2, ensure_ascii=False))
+        return
+
+    if not per_bot:
+        print(f"\nNo tournament bot has traded {asset} yet.")
+        return
+
+    total_buys = sum(b["buy_count"] for b in per_bot)
+    total_sells = sum(b["sell_count"] for b in per_bot)
+    total_realized = sum(b["total_realized"] for b in per_bot)
+    total_fees = sum(b["fees"] for b in per_bot)
+    total_tds = sum(b["tds"] for b in per_bot)
+    total_notional = sum(b["buy_notional"] + b["sell_notional"] for b in per_bot)
+    holding_bots = sum(1 for b in per_bot if b["net_qty"] > 0)
+
+    print(f"\n===== {asset} — WHICH BOTS TRADED IT =====")
+    print(f"  {len(per_bot)} bots traded {asset}: {total_buys} buys / {total_sells} sells "
+          f"| {holding_bots} still holding")
+    print(f"  notional Rs.{total_notional:,.2f} | fees Rs.{total_fees:,.2f} | "
+          f"TDS Rs.{total_tds:,.2f}")
+    print(f"  attributed realized P&L across all sells: Rs.{total_realized:+,.2f}")
+
+    print(f"\n  {'BOT':<10}{'BUYS':>6}{'SELLS':>6}{'NET QTY':>14}{'NOTIONAL':>14}"
+          f"{'FEES':>10}{'TDS':>10}{'REALIZED':>12}")
+    for b in sorted(per_bot, key=lambda x: x["total_realized"], reverse=True):
+        print(f"  {b['account']:<10}{b['buy_count']:>6}{b['sell_count']:>6}"
+              f"{b['net_qty']:>14,.8f}{b['buy_notional'] + b['sell_notional']:>14,.2f}"
+              f"{b['fees']:>10,.2f}{b['tds']:>10,.2f}{b['total_realized']:>+12,.2f}")
+
+    # drill into the individual fills of the most-traded bots (each bot's
+    # fills were already attributed to ITS OWN cost basis during aggregation)
+    print(f"\n  All {asset} fills across bots:")
+    print(f"    {'TIME (UTC)':<22}{'BOT':<10}{'SIDE':<6}{'PRICE':>14}{'QTY':>14}"
+          f"{'NOTIONAL':>14}{'REALIZED':>11}")
+    for b in sorted(per_bot, key=lambda x: x["total_realized"], reverse=True):
+        for f in b["fills"]:
+            pnl = f["attributed_pnl"]
+            pnl_txt = "   -" if pnl is None else f"{pnl:>+11,.2f}"
+            print(f"    {f.get('timestamp_utc',''):<22}{b['account']:<10}"
+                  f"{f.get('side',''):<6}{float(f.get('price_inr',0)):>14,.6f}"
+                  f"{float(f.get('quantity',0)):>14,.8f}{float(f.get('notional_inr',0)):>14,.2f}"
+                  f"{pnl_txt}")
+
+
 def cmd_check(cfg: dict, args) -> None:
     run_cycle(cfg, make_broker(cfg), make_coin(cfg))
 
@@ -2192,8 +2441,23 @@ def main():
                        help="live ranking of demo accounts")
     p.set_defaults(func=cmd_sweep_status)
 
-    print(f"cryptobot starting: {' '.join(sys.argv[1:])}", flush=True)
+    p = sub.add_parser("bot", parents=[global_parser],
+                       help="full trade history of a single tournament bot (from sweep/accounts)")
+    p.add_argument("account", help="e.g. acc_001")
+    p.add_argument("--json", action="store_true", help="emit machine-readable JSON")
+    p.set_defaults(func=cmd_bot)
+
+    p = sub.add_parser("coin", parents=[global_parser],
+                       help="which tournament bots traded a given coin (from sweep/accounts)")
+    p.add_argument("coin", help="e.g. BTCINR")
+    p.add_argument("--json", action="store_true", help="emit machine-readable JSON")
+    p.set_defaults(func=cmd_coin)
+
     args = parser.parse_args()
+    # The startup banner is for human logs; `--json` consumers want a pure
+    # JSON stream on stdout, so route the banner to stderr for those commands.
+    banner_stream = sys.stderr if (args.command in {"bot", "coin"} and args.json) else sys.stdout
+    print(f"cryptobot starting: {' '.join(sys.argv[1:])}", flush=True, file=banner_stream)
     try:
         cfg = load_cfg(Path(args.config))
         # fail fast on an unknown strategy family - entry_signal would
@@ -2207,16 +2471,19 @@ def main():
         # "auto" (and --all-assets) is resolved HERE, once, before dispatch,
         # so cmd_* functions and the sims never see the raw "auto" string
 
-        extra_state_dirs = []
-        if args.command in {"sweep-live", "sweep-status"} and ACCOUNTS_DIR.exists():
-            extra_state_dirs = [p for p in ACCOUNTS_DIR.iterdir() if p.is_dir()]
-        # backtest/sweep compare strategies over a STABLE universe -> no
-        # dipped-market extras there (they flap hour to hour); live checks
-        # (check/run/sweep-live/status) do want them so nothing crashed is missed.
-        include_dipped = args.command not in {"backtest", "sweep"}
-        cfg["assets"] = resolve_assets(cfg, force_all=args.all_assets,
-                                       extra_state_dirs=extra_state_dirs,
-                                       include_dipped=include_dipped)
+        if args.command not in {"bot", "coin"}:
+            extra_state_dirs = []
+            if args.command in {"sweep-live", "sweep-status"} and ACCOUNTS_DIR.exists():
+                extra_state_dirs = [p for p in ACCOUNTS_DIR.iterdir() if p.is_dir()]
+            # backtest/sweep compare strategies over a STABLE universe -> no
+            # dipped-market extras there (they flap hour to hour); live checks
+            # (check/run/sweep-live/status) do want them so nothing crashed is missed.
+            include_dipped = args.command not in {"backtest", "sweep"}
+            cfg["assets"] = resolve_assets(cfg, force_all=args.all_assets,
+                                           extra_state_dirs=extra_state_dirs,
+                                           include_dipped=include_dipped)
+        # `bot` / `coin` read the local tournament state only — no asset scan,
+        # no CoinDCX call needed, so they run offline (and in CI).
 
         args.func(cfg, args)
     except CoinDCXError as exc:

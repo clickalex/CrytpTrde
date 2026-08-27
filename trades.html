@@ -77,6 +77,9 @@
         <p>Backtest trades, plus the last trade &amp; every fill of the 500 live bots</p>
       </div>
       <div class="header-actions">
+        <button class="btn btn-sm btn-ghost" id="btn-tool-bot-details" title="See a specific bot's full buy/sell history">🤖 Bot Details</button>
+        <button class="btn btn-sm btn-ghost" id="btn-tool-coin-details" title="See which bots bought/sold a specific coin">🪙 Coin Details</button>
+        <button class="btn btn-sm btn-ghost" id="btn-tool-run-bot" title="Run the bot manually — copyable command cheat-sheet">▶️ Run Bot</button>
         <button class="btn btn-sm btn-ghost" id="btn-tool-streak">🎯 Streak Analyzer</button>
         <button class="btn btn-sm btn-ghost" id="btn-tool-tax">🇮🇳 1% TDS Calculator</button>
         <button class="btn btn-sm btn-ghost" id="btn-tool-print">🖨️ Print Log</button>
@@ -350,6 +353,42 @@
         <div class="column-select-grid" id="column-select-grid"></div>
       </div>
       <div class="modal-footer"><button class="btn btn-primary btn-sm modal-close-btn">Done</button></div>
+    </div>
+  </div>
+
+  <!-- Bot Details Drill-Down -->
+  <div class="modal-backdrop" id="bot-details-modal">
+    <div class="modal-container modal-wide">
+      <div class="modal-header">
+        <div class="modal-title"><span>🤖 Bot Trade Details</span></div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="bot-details-content"></div>
+      <div class="modal-footer"><button class="btn btn-sm modal-close-btn">Close</button></div>
+    </div>
+  </div>
+
+  <!-- Coin Details Drill-Down -->
+  <div class="modal-backdrop" id="coin-details-modal">
+    <div class="modal-container modal-wide">
+      <div class="modal-header">
+        <div class="modal-title"><span>🪙 Coin Details — Which Bots Traded It</span></div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="coin-details-content"></div>
+      <div class="modal-footer"><button class="btn btn-sm modal-close-btn">Close</button></div>
+    </div>
+  </div>
+
+  <!-- Run Bot (manual command cheat-sheet) -->
+  <div class="modal-backdrop" id="run-bot-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title"><span>▶️ Run the Bot Manually</span></div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="run-bot-content"></div>
+      <div class="modal-footer"><button class="btn btn-sm modal-close-btn">Close</button></div>
     </div>
   </div>
 
