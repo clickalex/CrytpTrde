@@ -35,6 +35,7 @@ and publishes every result to a **static analytics dashboard on GitHub Pages**.
 - [Repo layout & data files](#repo-layout--data-files)
 - [India tax notes](#india-tax-notes)
 - [Going live (read before touching `live:`)](#going-live-read-before-touching-live)
+- [Ideas for new bots](#ideas-for-new-bots)
 - [Disclaimer](#disclaimer)
 
 ---
@@ -87,6 +88,18 @@ No API key is needed in paper mode. To keep it running, either start the
 daemon (`python3 cryptobot.py run`) or let GitHub Actions do it — see
 [Running in the cloud](#running-in-the-cloud-github-actions).
 
+**Wipe everything and start the site over** (the manual-only "Reset Bot"):
+
+```bash
+python3 cryptobot.py wipe --dry-run        # preview what would be deleted
+python3 cryptobot.py wipe --yes            # delete ALL data, rebuild web/data.js -> blank site
+```
+
+**Learn the strategies and trade by hand** — open `web/manual.html` (the
+🎓 **Strategy Lab**): it explains each strategy, shows the live RSI/price
+signal a dip-bot would act on, and lets *you* place the BUYs/SELLs in a paper
+sandbox. No bot, no orders.
+
 ---
 
 ## Commands
@@ -109,6 +122,7 @@ watchlist and scan every active INR market).
 | `bot <account> [--json]` | Full trade history of one tournament bot (all fills + current holdings), read straight from `data/sweep/accounts/` — offline, no CoinDCX call |
 | `coin <asset> [--json]` | Every tournament bot that bought/sold a given coin, with per-bot buy/sell counts, net qty, fees, TDS and realized P&L |
 | `prune [--max-trades N]` | Trim `trades.csv` audit logs across all accounts to the retention limit (`max_trades`, default 100) |
+| `wipe [--yes] [--dry-run]` | **Manual only (never scheduled).** Delete ALL bot data (`data/state/`, `data/sweep/`, `data/backtest/`) and rebuild `web/data.js` so the dashboard opens as a blank slate — the "Reset Bot" |
 
 `backtest` writes its CSVs into `data/backtest/`; `sweep` and `sweep-live`
 write into `data/sweep/` — see [data files](#repo-layout--data-files).
@@ -361,6 +375,7 @@ while still 404ing at the root, because the repo root has no `index.html`.
 | `compare.html` | ⚖️ Side-by-side strategy diffs + multi-line equity curves vs HODL |
 | `analytics.html` | 📈 Monte Carlo risk & ruin runs, VaR, underwater drawdown curves, correlation heatmaps, strategy playground |
 | `importer.html` | 📁 Drag-and-drop / paste any CSV or JSON and the same explorer runs on it |
+| `manual.html` | 🎓 **Strategy Lab** — learn the strategies from explainer cards, see the live RSI/price signal a dip-bot would act on, and **trade manually** in a paper sandbox (no bot, no orders placed) |
 | `health.html` | 🩺 **Data Health** — is the bot still running? Snapshot age, per-dataset row counts and payload sizes, staleness warnings, the next hourly run countdown, and the main paper portfolio |
 
 `trades.html` has three switchable views — ⚡ **Backtest Trades**, 🟢 **Live
@@ -531,6 +546,7 @@ Start over anytime:
 ```bash
 python3 cryptobot.py reset --yes      # live bot state
 python3 cryptobot.py sweep-live --reset   # all 500 demo accounts
+python3 cryptobot.py wipe --yes        # WIPE EVERYTHING -> blank site (Reset Bot)
 ```
 
 ---
@@ -564,6 +580,46 @@ fill. The low-level `create_market_order` helper exists in
 block as scaffolding for a future, carefully-reviewed feature: if you want
 real trading, verify order placement with a tiny manual order first and
 never let a bot you haven't watched trade size.
+
+---
+
+## Ideas for new bots
+
+The tournament already mixes two families (`dip` / `momentum`) across a grid of
+RSI, take-profit, stop-loss and hold-period settings. Here are natural next
+bots that would slot into the same `sweep` machinery (each is just a new
+`entry_mode` / exit rule in `strategy.py` plus a slice of the parameter grid in
+`config/config.yaml`):
+
+- **DCA bot** — *Dollar-Cost Averaging*: ignore signals and buy a fixed ₹
+  amount on a fixed schedule (every N hours) regardless of price. Great
+  baseline vs the signal bots, and the `dca.yml` workflow name already hints at
+  it. Needs a `cadence_hours` param and a "skip if just bought" guard.
+- **Trend bot (EMA / MACD crossover)** — buy when a fast EMA crosses above a
+  slow EMA (or MACD histogram turns positive), sell on the cross back. Captures
+  sustained trends the RSI dip bot misses; pairs naturally with a trailing
+  stop-loss instead of a fixed one.
+- **Mean-reversion bot (Bollinger bands)** — buy when price tags the lower
+  band, sell at the mean / upper band. A cleaner statistical cousin of the dip
+  bot that doesn't depend on RSI.
+- **Grid bot** — place a ladder of buys below and sells above the current price
+  inside a range, harvesting volatility. Needs a `grid_levels` / `grid_step_pct`
+  param and the most new code (multiple open orders per asset).
+- **Rebalancer bot** — hold a fixed basket (e.g. 40% BTC / 30% ETH / 30% SOL)
+  and rebalance back to target weights when drift exceeds a threshold. A
+  portfolio-level bot rather than per-asset.
+- **Volatility-breakout bot** — buy when price breaks the session's N-hour
+  range with volume confirmation, sell on a fade. Needs `breakout_lookback` and
+  a volume filter.
+- **News / sentiment bot** — weight entries by a sentiment score (from a free
+  headlines feed) on top of the existing signal. Most external-dependency of the
+  set; keep it clearly labelled "experimental".
+
+Each candidate is a hypothesis, not alpha — the right way to evaluate any of
+them is to add it to the `sweep` grid and let the 500-bot tournament rank it
+against everything else on the same real prices, exactly as today. The
+🎓 **Strategy Lab** (`web/manual.html`) is the place to feel how the *current*
+rules behave before trusting a new one.
 
 ---
 
