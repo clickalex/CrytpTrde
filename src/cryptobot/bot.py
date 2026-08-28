@@ -467,7 +467,8 @@ def main():
     p.set_defaults(func=cmd_backtest)
 
     p = sub.add_parser("sweep", parents=[global_parser],
-                       help="100-account strategy tournament (history)")
+                       help="offline strategy tournament over historical "
+                            "candles (sweep.accounts bots, from config)")
     p.add_argument("--days", type=int, default=None)
     p.add_argument("--count", type=int, default=None)
     p.add_argument("--chart", default=None)

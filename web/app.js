@@ -84,7 +84,7 @@
   const DATASET_CONFIGS = {
     sweep_results: {
       title: 'Sweep Tournament Results',
-      subtitle: '500 bot strategies backtested across CoinDCX markets (30 days)',
+      subtitle: '{count} bot strategies backtested across CoinDCX markets (30 days)',
       defaultSort: 'rank',
       defaultSortDir: 'asc',
       rowKey: 'account',
@@ -111,7 +111,7 @@
     },
     trades: {
       title: 'Backtest Trades Log',
-      subtitle: '92 simulated trade entries & exits with timing, RSI, and PnL',
+      subtitle: '{count} simulated trade entries & exits with timing, RSI, and PnL',
       defaultSort: 'entry_time',
       defaultSortDir: 'desc',
       rowKey: 'entry_time',
@@ -129,7 +129,7 @@
     },
     live_trades: {
       title: 'Live Bot Trades',
-      subtitle: 'Every paper fill from the 500 live tournament bots, newest first',
+      subtitle: 'Every paper fill from the {count} tournament bots, newest first',
       defaultSort: 'timestamp_utc',
       defaultSortDir: 'desc',
       rowKey: ['account', 'timestamp_utc', 'asset', 'side', 'quantity'],
@@ -148,7 +148,7 @@
     },
     last_trades: {
       title: 'Last Trade per Bot',
-      subtitle: 'The single most recent fill for each of the 500 live bots',
+      subtitle: 'The single most recent fill for each of {count} live bots',
       defaultSort: 'timestamp_utc',
       defaultSortDir: 'desc',
       rowKey: 'account',
@@ -167,7 +167,7 @@
     },
     live_summary: {
       title: 'Live Tournament Accounts',
-      subtitle: '500 tournament demo accounts tracked with cash, holdings, and PnL',
+      subtitle: '{count} tournament demo accounts tracked with cash, holdings, and PnL',
       defaultSort: 'rank',
       defaultSortDir: 'asc',
       rowKey: 'account',
@@ -190,7 +190,7 @@
     },
     accounts: {
       title: 'Bot Config Grid',
-      subtitle: '500 parameterized trading strategy accounts specifications',
+      subtitle: '{count} parameterized trading strategy account specifications',
       defaultSort: 'account',
       defaultSortDir: 'asc',
       rowKey: 'account',
@@ -327,6 +327,46 @@
       badge.textContent = formatBadgeCount(rows.length);
       badge.title = `${rows.length.toLocaleString()} rows in ${key}`;
     });
+  }
+
+  const PAGE_INTRO_SUBTITLES = {
+    sweep: n => `${n} bot strategies backtested across CoinDCX INR markets`,
+    live: n => `${n} demo accounts trading live spot prices with real-time portfolio tracking`,
+    trades: n => `Backtest trades, plus the last trade & every fill of ${n} live bots`,
+  };
+
+  function updatePageIntro() {
+    // The same drift as the nav badges, one level up: index/live/trades each
+    // hardcoded the tournament size into their intro paragraph.
+    const el = document.getElementById('page-intro-subtitle');
+    const build = PAGE_INTRO_SUBTITLES[state.pageId];
+    if (!el || !build) return;
+    // NB: the trades page talks about "every fill of the N live BOTS", so it
+    // counts accounts (live_summary), not fills (live_trades) — the nav badge
+    // for the same page counts fills, which is a different number.
+    const rows = window.DATA_SETS ? window.DATA_SETS[{
+      sweep: 'sweep_results', live: 'live_summary', trades: 'live_summary',
+    }[state.pageId]] : null;
+    if (!Array.isArray(rows)) return;
+    el.textContent = build(rows.length.toLocaleString());
+  }
+
+  function renderMissingDataBanner() {
+    // Every page is built from the generated web/data.js. If it 404s (first
+    // Pages deploy, blocked path, failed build) the tables just render empty
+    // with no explanation at all — say so instead.
+    if (window.DATA_SETS) return;
+    const host = document.querySelector('.app-container');
+    if (!host) return;
+    const banner = document.createElement('div');
+    banner.className = 'health-warning health-warning-danger';
+    banner.style.marginBottom = '1rem';
+    banner.innerHTML = '<span class="health-warning-icon">🔴</span><span>'
+      + '<strong>data.js did not load.</strong> Every page here is built from '
+      + 'the generated dataset <code>web/data.js</code>, so there is nothing to '
+      + 'show without it. Run <code>python3 scripts/build_data_js.py</code> and '
+      + 'redeploy, or check the Pages deploy picked the file up.</span>';
+    host.insertBefore(banner, host.firstChild);
   }
 
   // ==========================================================================
@@ -613,6 +653,8 @@
     initNavigation();
     renderBotRunBadge();
     updateNavBadges();
+    updatePageIntro();
+    renderMissingDataBanner();
     readStateFromUrl();
     initEventListeners();
 
@@ -730,10 +772,18 @@
   // Dataset Management & Custom Configs
   // ==========================================================================
   function getActiveConfig() {
-    if (state.currentDatasetKey === 'custom' && state.customData) {
-      return getCustomConfig(state.customData);
-    }
-    return DATASET_CONFIGS[state.currentDatasetKey] || DATASET_CONFIGS.sweep_results;
+    const config = state.currentDatasetKey === 'custom' && state.customData
+      ? getCustomConfig(state.customData)
+      : (DATASET_CONFIGS[state.currentDatasetKey] || DATASET_CONFIGS.sweep_results);
+    // Subtitles carry a {count} placeholder instead of a literal number so
+    // they cannot drift from the data — the same bug as the nav badges. The
+    // backtest one still claimed "92 simulated trade entries" after the
+    // dataset had shrunk to 56 rows.
+    const rows = getRawDataset(state.currentDatasetKey);
+    return {
+      ...config,
+      subtitle: String(config.subtitle || '').replace('{count}', rows.length.toLocaleString()),
+    };
   }
 
   function getRawDataset(key) {
@@ -3986,6 +4036,13 @@ strategy:
         updateUI();
       });
     }
+
+    // Escape closes any open modal. Clicking the backdrop already worked, but
+    // there was no keyboard equivalent, which left keyboard-only and
+    // screen-reader users with no way to dismiss one.
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeAllModals();
+    });
 
     const resetFiltersBtn = document.getElementById('btn-reset-filters');
     if (resetFiltersBtn) resetFiltersBtn.addEventListener('click', clearAllFilters);
