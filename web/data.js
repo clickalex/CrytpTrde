@@ -7,7 +7,7 @@ window.DATA_SETS = {
     "command": "check",
     "status": "ok",
     "runner": "github-actions",
-    "data_generated_utc": "2026-08-28T08:53:35+00:00"
+    "data_generated_utc": "2026-08-28T09:07:56+00:00"
   },
   "sweep_results": [
     {
