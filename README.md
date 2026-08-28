@@ -329,16 +329,26 @@ something to size up on.
 
 ## Web dashboard (GitHub Pages)
 
-The static site lives in **`web/`** and is deployed to GitHub Pages:
+The static site lives in **`web/`**:
 
 **→ https://clickalex.github.io/CrytpTrde/**
 
-Two legacy workflows currently do the deploying (`.github/workflows/static.yml`
-and `.github/workflows/jekyll-gh-pages.yml`). Both upload the **entire
-repository** as the site, which publishes `src/`, `config/config.yaml` and
-`data/` as public web content — and makes the two deployments race each other on
-every push. `docs/ci/pages.yml` is a drop-in replacement that uploads `web/`
-only; see [docs/ci/](docs/ci/README.md).
+> **Heads up — the published site is pointed at the wrong folder.**
+> Pages is configured as *Deploy from a branch → `main` / `/docs`*, so the
+> URL above serves `docs/` (these CI notes) instead of the dashboard, and
+> the root URL 404s. Fix it under **Settings → Pages → Source**:
+> either *Deploy from a branch → `main` / **`/web`*** (one setting, no code
+> change), or switch the source to **GitHub Actions** and apply the
+> `docs/ci/pages.yml` drop-in. Both are described in
+> [docs/ci/README.md](docs/ci/README.md).
+
+Two redundant workflows (`.github/workflows/static.yml` and
+`.github/workflows/jekyll-gh-pages.yml`) also run on every push to `main`.
+They are not what serves the site today, but they share the `pages`
+concurrency group so they race each other and burn minutes — and
+`static.yml` uploads the **entire repository** (`path: '.'`), which would
+publish `src/`, `config/config.yaml` and `data/` as public web content
+while still 404ing at the root, because the repo root has no `index.html`.
 
 | Page (under `web/`) | What's on it |
 |---|---|

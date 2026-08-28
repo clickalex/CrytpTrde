@@ -1,31 +1,38 @@
 # Drop-in: publish ONLY the dashboard to GitHub Pages.
 #
-# WHY: the repo currently ships TWO competing Pages workflows —
-# `.github/workflows/static.yml` and `.github/workflows/jekyll-gh-pages.yml`.
-# Both trigger on every push to main, both use concurrency group "pages", and
-# both upload the ENTIRE repository (`path: '.'`). That means:
+# WHY: the dashboard in web/ is not currently published at all.
 #
-#   1. Two deployments race each other on every push — whichever finishes last
-#      wins, so the site you see is nondeterministic, and the minutes are billed
-#      twice.
-#   2. The whole repo is published as a public website: src/, config/config.yaml,
-#      data/ (including web/state/portfolio.json), .github/ and .git metadata.
-#      Source and configuration were never meant to be served.
-#   3. The Jekyll build is pointless here — the dashboard is plain static HTML
-#      with no Jekyll config, and Jekyll also skips dotfiles and can mangle
-#      paths.
+# Pages is configured as "Deploy from a branch -> main / /docs", so
+# https://clickalex.github.io/CrytpTrde/ serves the docs/ folder (these CI
+# notes) instead of the dashboard: the root URL 404s, and so does
+# /web/index.html.
 #
-# FIX: use this single workflow, which uploads `web/` only, and delete the two
-# legacy ones.
+# This workflow is one of TWO ways to fix that. The other needs no file
+# change at all: Settings -> Pages -> Source -> "Deploy from a branch" ->
+# main / /web. Pick one, not both.
 #
-# APPLY (needs `workflows` permission — the sandbox App token does not have it):
+# A) SETTINGS FIX (30 seconds, no workflow permission needed)
+#      Settings -> Pages -> Source -> Deploy from a branch
+#      Branch: main   Folder: /web   -> Save
+#    Then delete the two legacy workflows below whenever convenient.
 #
-#   git rm .github/workflows/static.yml
-#   git rm .github/workflows/jekyll-gh-pages.yml
-#   cp docs/ci/pages.yml .github/workflows/pages.yml
-#   git add .github/workflows/pages.yml && git commit -m "ci: publish web/ only"
+# B) ACTIONS FIX (this file — needs `workflows` permission, which the sandbox
+#    App token does not have):
 #
-# Then: repo -> Settings -> Pages -> Source -> "GitHub Actions".
+#      git rm .github/workflows/static.yml
+#      git rm .github/workflows/jekyll-gh-pages.yml
+#      cp docs/ci/pages.yml .github/workflows/pages.yml
+#      git add .github/workflows/pages.yml && git commit -m "ci: publish web/ only"
+#
+#    Then: Settings -> Pages -> Source -> "GitHub Actions".
+#
+# Either way the two legacy workflows should go. They both fire on every push
+# to main and share the "pages" concurrency group, so they race each other and
+# bill minutes twice. `static.yml` also uploads the ENTIRE repository
+# (`path: '.'`), which would publish src/, config/config.yaml and data/ as
+# public web content and still 404 at the root, since the repo root has no
+# index.html. The Jekyll build is pointless too: the dashboard is plain static
+# HTML with no Jekyll config.
 
 name: Deploy dashboard to Pages
 

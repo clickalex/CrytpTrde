@@ -19,7 +19,7 @@ cp docs/ci/pages.yml  .github/workflows/pages.yml   # publish web/ only
 |------|--------|
 | `tests.yml` | **Out of date.** The live workflow still says "12 tests"; the suite now runs 13 (the extra one asserts every module imports the helpers it calls). Copy this drop-in to pick up the label. |
 | `dca.yml.suggested` | **Already applied.** `.github/workflows/dca.yml` is byte-identical to this file — kept here only as a reference. |
-| `pages.yml` | **New.** Replaces the two legacy Pages workflows with one that publishes `web/` only. Not yet applied. |
+| `pages.yml` | **New.** One of two ways to publish `web/` — the dashboard is currently not published at all. Not yet applied. |
 
 ## `tests.yml` — offline suite
 
@@ -36,13 +36,23 @@ Already applied to the live workflow.
 
 ## `pages.yml` — Pages deployment
 
-The repo currently ships **two** competing Pages workflows (`static.yml` and
-`jekyll-gh-pages.yml`). They both fire on every push to main, share the `pages`
-concurrency group, and upload the entire repository, so they race each other and
-publish the source tree and `config/config.yaml` as a public website.
+**The dashboard is not currently live.** Pages is configured as
+*Deploy from a branch → `main` / `/docs`*, so the site root is the `docs/`
+folder: `https://clickalex.github.io/CrytpTrde/` 404s, and so does
+`/web/index.html`. It serves these CI notes instead.
 
-`pages.yml` replaces both with a single workflow that uploads `web/` only.
-See the header comments in that file for the exact apply steps.
+Two ways to fix it — pick one:
+
+- **Settings (no file change, no `workflows` permission needed):**
+  Settings → Pages → Source → *Deploy from a branch* → branch `main`,
+  folder **`/web`**.
+- **Actions (this drop-in):** delete the two legacy workflows, copy
+  `pages.yml` into `.github/workflows/`, then set the Pages source to
+  *GitHub Actions*.
+
+Either way the legacy workflows should be deleted: they both fire on every
+push to `main`, share the `pages` concurrency group (so they race and bill
+minutes twice), and `static.yml` uploads the whole repository (`path: '.'`).
 
 ## Note on the root compatibility shims
 
