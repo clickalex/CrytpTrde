@@ -1,6 +1,6 @@
-# Winner of the 500-account tournament (2026-08-28 08:49 UTC)
-# account acc_124 | dip_e28_x85_tp6_sl2.0_p80_h72 | return +21.21% | maxDD 6.7%
-# Use:  python3 bot.py --config sweep/best_strategy.yaml check
+# Winner of the 500-account tournament (2026-08-28 13:36 UTC)
+# account acc_172 | dip_e33_x80_tp15_sl3.0_p80_h168 | return +22.96% | maxDD 7.6%
+# Use:  python3 cryptobot.py --config data/sweep/best_strategy.yaml check
 mode: paper
 initial_cash_inr: 50000
 fee_rate: 0.001
@@ -28,44 +28,44 @@ assets:
   pair: I-XRP_INR
 - name: LINKINR
   pair: I-LINK_INR
-- name: SUIINR
-  pair: I-SUI_INR
 - name: NEARINR
   pair: I-NEAR_INR
+- name: SUIINR
+  pair: I-SUI_INR
 - name: TRBINR
   pair: I-TRB_INR
-- name: DOTINR
-  pair: I-DOT_INR
 - name: ICPINR
   pair: I-ICP_INR
+- name: ONDOINR
+  pair: I-ONDO_INR
 - name: ADAINR
   pair: I-ADA_INR
 - name: RENDERINR
   pair: I-RENDER_INR
-- name: ONDOINR
-  pair: I-ONDO_INR
+- name: DOTINR
+  pair: I-DOT_INR
 - name: TRXINR
   pair: I-TRX_INR
-- name: DOGEINR
-  pair: I-DOGE_INR
 - name: FARTCOININR
   pair: I-FARTCOIN_INR
+- name: DOGEINR
+  pair: I-DOGE_INR
 - name: APTINR
   pair: I-APT_INR
 - name: CAKEINR
   pair: I-CAKE_INR
-- name: FILINR
-  pair: I-FIL_INR
 - name: JUPINR
   pair: I-JUP_INR
+- name: FILINR
+  pair: I-FIL_INR
 - name: ARBINR
   pair: I-ARB_INR
-- name: GASINR
-  pair: I-GAS_INR
-- name: POPCATINR
-  pair: I-POPCAT_INR
 - name: CHILLGUYINR
   pair: I-CHILLGUY_INR
+- name: POPCATINR
+  pair: I-POPCAT_INR
+- name: GASINR
+  pair: I-GAS_INR
 - name: RIFINR
   pair: I-RIF_INR
 asset_discovery:
@@ -76,12 +76,12 @@ asset_discovery:
   dipped_scan_max: 150
 strategy:
   entry_mode: dip
-  entry_rsi: 28
-  exit_rsi: 85
-  take_profit_pct: 6
-  stop_loss_pct: 2
+  entry_rsi: 33
+  exit_rsi: 80
+  take_profit_pct: 15
+  stop_loss_pct: 3
   position_size_pct: 80
-  max_hold_hours: 72
+  max_hold_hours: 168
 backtest:
   days: 30
   start_cash_inr: 100000
