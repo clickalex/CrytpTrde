@@ -818,13 +818,109 @@ def test_data_js_compaction():
           "small ones stay diffable")
 
 
+def test_trade_retention_pruning():
+    """Trade retention rules keep trades.csv bounded while preserving lifetime stats.
+
+    Verifies:
+      1. PaperBroker(max_trades=3) keeps at most 3 recent fills in trades.csv
+      2. portfolio.json preserves exact lifetime trade counts, P&L and tax metrics
+      3. broker.prune_trades() trims excess rows safely on existing files
+      4. prune_tournament_trades trims across accounts and cmd_prune works offline
+      5. max_trades=0 keeps all trades (unlimited mode)
+    """
+    tmp = Path(tempfile.mkdtemp())
+    try:
+        # 1. Bounded trade retention during active trading
+        broker = cb.PaperBroker(tmp / "acc1", cash=50000.0, fee_rate=0.001,
+                                slippage_bps=5, tds_rate=0.01, simulate_tds=True,
+                                max_trades=3)
+        # 5 consecutive fills
+        assert broker.buy("A0INR", 5000.0, ask=100.0, step=1e-6, precision=6)["ok"]
+        assert broker.buy("A1INR", 5000.0, ask=50.0, step=1e-6, precision=6)["ok"]
+        assert broker.sell("A0INR", broker.positions["A0INR"].qty, bid=120.0, step=1e-6, precision=6)["ok"]
+        assert broker.buy("A0INR", 5000.0, ask=110.0, step=1e-6, precision=6)["ok"]
+        assert broker.sell("A1INR", broker.positions["A1INR"].qty, bid=60.0, step=1e-6, precision=6)["ok"]
+
+        trades = broker.read_trades()
+        assert len(trades) == 3, f"expected 3 retained trades, got {len(trades)}"
+        assert [t["side"] for t in trades] == ["sell", "buy", "sell"], [t["side"] for t in trades]
+        assert [t["asset"] for t in trades] == ["A0INR", "A0INR", "A1INR"]
+
+        # 2. Lifetime accounting preserved in portfolio.json and tax_summary
+        assert broker.total_trades == 5
+        assert broker.sell_count == 2
+        tax = broker.tax_summary()
+        assert tax["sell_count"] == 2
+        assert tax["total_realized"] == broker.realized_pnl
+        assert tax["gross_gains"] > 0
+        assert tax["tds_credit"] > 0
+
+        # Reload from disk and verify persistence
+        reloaded = cb.PaperBroker(tmp / "acc1", cash=50000.0, fee_rate=0.001,
+                                  slippage_bps=5, tds_rate=0.01, simulate_tds=True,
+                                  max_trades=3)
+        assert reloaded.total_trades == 5
+        assert reloaded.sell_count == 2
+        assert reloaded.realized_pnl == broker.realized_pnl
+        assert len(reloaded.read_trades()) == 3
+
+        # 3. Manual / on-demand prune_trades
+        pruned = reloaded.prune_trades(max_trades=1)
+        assert pruned == 2
+        assert len(reloaded.read_trades()) == 1
+
+        # 4. Unlimited retention mode (max_trades=0)
+        unlimited = cb.PaperBroker(tmp / "unlimited", cash=50000.0, fee_rate=0.001,
+                                   slippage_bps=5, max_trades=0)
+        for _ in range(5):
+            unlimited.buy("A0INR", 1000.0, ask=100.0, step=1e-6, precision=6)
+        assert len(unlimited.read_trades()) == 5
+
+        # 5. Tournament-wide pruning
+        orig_accounts = cb.paths.ACCOUNTS_DIR
+        cb.paths.ACCOUNTS_DIR = tmp / "accounts"
+        try:
+            for i in range(1, 4):
+                acc_dir = cb.paths.ACCOUNTS_DIR / f"acc_{i:03d}"
+                acc_dir.mkdir(parents=True, exist_ok=True)
+                with open(acc_dir / "trades.csv", "w", newline="") as fh:
+                    w = csv.writer(fh)
+                    w.writerow(["timestamp_utc", "asset", "side", "price_inr", "quantity",
+                                "notional_inr", "fee_inr", "tds_inr", "realized_pnl_inr"])
+                    for j in range(10):
+                        w.writerow([f"2026-08-28T{j:02d}:00:00+00:00", "A0INR", "buy",
+                                    "100.000000", "1.00000000", "100.00", "0.10", "0.00", ""])
+
+            total_pruned = cb.prune_tournament_trades(max_trades=4)
+            assert total_pruned == 3 * (10 - 4), f"expected 18 pruned, got {total_pruned}"
+            for i in range(1, 4):
+                trades_file = cb.paths.ACCOUNTS_DIR / f"acc_{i:03d}" / "trades.csv"
+                with open(trades_file) as fh:
+                    lines = [ln for ln in fh.read().splitlines() if ln]
+                assert len(lines) == 5  # 1 header + 4 rows
+
+            # Test cmd_prune
+            buf = io.StringIO()
+            with redirect_stdout(buf):
+                cb.cmd_prune({"max_trades": 2}, argparse.Namespace(max_trades=2))
+            out = buf.getvalue()
+            assert "Pruned 6 excess trade log entries" in out, out
+        finally:
+            cb.paths.ACCOUNTS_DIR = orig_accounts
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    print("  trade retention: max_trades bounds log size while keeping lifetime stats, "
+          "prune_trades + tournament pruning ok")
+
+
 if __name__ == "__main__":
     tests = [test_build_market_cache, test_rate_limiter_global_pacing,
              test_fetch_history, test_discovery_caps, test_config_caps_flow,
              test_dipped_scan, test_adaptive_backoff, test_dead_market_skipped,
              test_progress_lines, test_run_cycle_smoke, test_paper_broker_roundtrip,
              test_bot_and_coin_drilldown, test_no_undefined_names,
-             test_corrupt_state_recovery, test_data_js_compaction]
+             test_corrupt_state_recovery, test_data_js_compaction,
+             test_trade_retention_pruning]
     for t in tests:
         print(f"* {t.__name__}")
         t()

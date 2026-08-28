@@ -12,6 +12,7 @@ fee_rate: 0.001            # exchange taker fee per trade, fraction (0.001 = 0.1
 slippage_bps: 5            # simulated slippage in basis points (5 bps = 0.05%)
 simulate_tds: true         # simulate the 1% TDS that Indian exchanges deduct on sells
 tds_rate: 0.01             # 1% TDS under Section 194S
+max_trades: 100            # max fills retained in trades.csv audit log (0 = unlimited)
 
 check_interval_min: 60     # in `run` mode, how often to re-check (minutes)
 
@@ -92,6 +93,7 @@ sweep:
   accounts: 500             # how many demo bots run in the tournament
   start_cash_inr: 10000     # starting paper balance for EACH demo account
   days: 30                  # history replayed in the `sweep` tournament
+  max_trades: 100           # max trade fills retained per tournament account (0 = unlimited)
   # --- multiple strategies, mixed across the 500 bots -----------------
   # entry_mode: TWO strategy families - dip bots buy oversold dips,
   # momentum bots buy breakouts/strength (RSI >= entry_rsi)

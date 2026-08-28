@@ -23,10 +23,11 @@ cp docs/ci/pages.yml  .github/workflows/pages.yml   # publish web/ only
 
 ## `tests.yml` — offline suite
 
-`python3 tests/test_speed_fix.py` (13 tests) on every push and pull request.
+`python3 tests/test_speed_fix.py` (16 tests) on every push and pull request.
 No network and no secrets needed. Test 13 walks each module's compiled bytecode
 and asserts every `LOAD_GLOBAL` resolves at import time, so a missing import
-after the package split cannot reach the hourly bot run again.
+after the package split cannot reach the hourly bot run again. Test 16 verifies
+trade retention and pruning rules.
 
 ## `dca.yml.suggested` — hourly bot workflow
 
