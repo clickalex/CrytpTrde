@@ -258,6 +258,54 @@ mark.search-highlight {
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
 }
 
+/* "Last bot run" header badge (rendered by app.js on every page).
+   Green = ran within the expected hourly cycle, amber = running late or
+   skipped, red = silent for 6h+ / last run errored. */
+.bot-run-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  cursor: help;
+}
+
+.bot-run-badge .bot-run-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-full);
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.bot-run-badge.is-fresh {
+  background: var(--success-bg);
+  color: var(--success);
+  border-color: var(--success-border);
+}
+
+.bot-run-badge.is-fresh .bot-run-dot {
+  animation: pulseAnimation 1.8s infinite;
+}
+
+.bot-run-badge.is-late {
+  background: var(--warning-bg);
+  color: var(--warning);
+  border-color: var(--warning-border);
+}
+
+.bot-run-badge.is-dead {
+  background: var(--danger-bg);
+  color: var(--danger);
+  border-color: var(--danger-border);
+}
+
 /* Desktop Navigation Menu Links */
 .nav-links-desktop {
   display: flex;
@@ -2068,6 +2116,16 @@ mark.search-highlight {
 
   .brand-title h1 {
     font-size: 1.1rem;
+  }
+
+  .header-controls {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .bot-run-badge {
+    font-size: 0.68rem;
+    padding: 0.15rem 0.5rem;
   }
 
   .mobile-bottom-bar {

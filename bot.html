@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Strategy Comparator — CrytpTrde Analytics</title>
+  <title>Bot Details — CrytpTrde Analytics</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
-<body data-page="compare">
+<body data-page="bot">
 
   <div class="app-container">
-    
+
     <!-- Top Navigation Header -->
     <header class="app-header">
       <a href="index.html" class="brand-section">
@@ -22,7 +22,9 @@
           <h1>
             CrytpTrde
             <span class="brand-badge">Paper & Live</span>
-            <span class="github-free-badge">✓ Free</span>
+            <span class="live-pulse-badge" id="live-status-indicator" style="display:none;">
+              <span class="pulse-dot"></span> LIVE
+            </span>
           </h1>
         </div>
       </a>
@@ -45,7 +47,7 @@
           <span>🟢 Live Accounts</span>
           <span class="nav-badge">500</span>
         </a>
-        <a href="bot.html" class="nav-link-item">
+        <a href="bot.html" class="nav-link-item active">
           <span>🤖 Bot Details</span>
           <span class="nav-badge">1</span>
         </a>
@@ -55,7 +57,7 @@
         <a href="analytics.html" class="nav-link-item">
           <span>📈 Quant Analytics</span>
         </a>
-        <a href="compare.html" class="nav-link-item active">
+        <a href="compare.html" class="nav-link-item">
           <span>⚖️ Comparator</span>
         </a>
         <a href="importer.html" class="nav-link-item">
@@ -77,18 +79,39 @@
     <!-- Page Intro Header -->
     <div class="page-intro-header">
       <div class="page-title-group">
-        <h2>⚖️ Multi-Strategy Performance & Parameter Comparator</h2>
-        <p>Side-by-side strategy diffs with multi-line equity curve comparison vs HODL benchmark</p>
-      </div>
-      <div class="header-actions">
-        <button class="btn btn-sm btn-ghost" id="btn-tool-print">🖨️ Print Comparison</button>
+        <h2>🤖 Bot Details</h2>
+        <p>Deep-dive into one tournament bot — its strategy, performance, open positions and every fill it ever made</p>
       </div>
     </div>
 
-    <!-- Strategy Comparator Container -->
-    <section class="filter-section" id="comparator-content">
-      <!-- Injected by app.js -->
+    <!-- Bot Picker Toolbar -->
+    <section class="filter-section">
+      <div class="filter-main-bar">
+        <div class="drill-select-row" style="flex:1; flex-wrap:wrap; align-items:center;">
+          <label for="bot-page-select">🤖 Bot</label>
+          <select id="bot-page-select" class="filter-select" style="width:auto; min-width:160px;"></select>
+          <button class="btn btn-sm" id="bot-page-prev" title="Previous bot">← Prev</button>
+          <button class="btn btn-sm" id="bot-page-next" title="Next bot">Next →</button>
+          <span id="bot-page-rank-info" class="filter-results-count" style="margin-left:auto;"></span>
+        </div>
+      </div>
     </section>
+
+    <!-- Equity / Cash Chart -->
+    <section class="charts-body" style="display:grid;">
+      <div class="chart-wrapper">
+        <div class="chart-header"><span id="bot-page-chart-title">Cash Balance & Realized P&L Over Time</span></div>
+        <div class="chart-canvas-container"><canvas id="bot-page-chart"></canvas></div>
+        <div id="bot-page-chart-empty" class="table-empty-state" style="display:none; padding:2rem;">
+          <span>No fills recorded for this bot yet — the chart appears after its first trade.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full Bot Details (strategy, KPIs, positions, trade history) -->
+    <main class="table-container" style="padding:1.25rem;">
+      <div id="bot-detail-container"></div>
+    </main>
 
   </div>
 
@@ -119,7 +142,7 @@
           <span>🟢 Live Accounts</span>
           <span class="nav-badge">500</span>
         </a>
-        <a href="bot.html" class="drawer-nav-item">
+        <a href="bot.html" class="drawer-nav-item active">
           <span>🤖 Bot Details</span>
           <span class="nav-badge">1</span>
         </a>
@@ -129,7 +152,7 @@
         <a href="analytics.html" class="drawer-nav-item">
           <span>📈 Quant Analytics</span>
         </a>
-        <a href="compare.html" class="drawer-nav-item active">
+        <a href="compare.html" class="drawer-nav-item">
           <span>⚖️ Strategy Comparator</span>
         </a>
         <a href="importer.html" class="drawer-nav-item">

@@ -65,6 +65,12 @@ jobs:
           if [ "${{ github.event.inputs.reset }}" = "true" ] && [ "${CMD}" = "sweep-live" ]; then ARGS="--reset"; fi
           python cryptobot.py ${CMD} ${ARGS}
 
+      - name: Rebuild dashboard data (data.js)
+        # Embeds the fresh heartbeat (state/last_run.json -> "bot_status",
+        # rendered as the "Last bot run" badge) plus the latest tournament
+        # trades into data.js, so the Pages site shows WHEN the bot last ran.
+        run: python3 build_data_js.py
+
       - name: Save state back to the repo
         run: |
           git config user.name "crypto-bot"
