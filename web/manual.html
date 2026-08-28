@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategy Lab — CrytpTrde</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>%E2%9A%A1</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    /* Scoped styles for the Strategy Lab page only. */
+    .lab-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    @media (min-width: 980px) {
+      .lab-grid { grid-template-columns: 1.05fr 0.95fr; align-items: start; }
+    }
+    .lesson-card {
+      background: var(--bg-primary); border: 1px solid var(--border-color);
+      border-radius: var(--radius-md); padding: 1rem 1.1rem; margin-bottom: 0.85rem;
+    }
+    .lesson-card h4 { margin: 0 0 0.35rem; font-size: 1rem; display: flex; gap: 0.5rem; align-items: center; }
+    .lesson-card p { margin: 0; color: var(--text-muted); font-size: 0.875rem; line-height: 1.5; }
+    .lesson-tag {
+      font-size: 0.7rem; font-weight: 700; padding: 0.1rem 0.45rem; border-radius: 999px;
+      background: var(--chip-bg, rgba(120,120,140,.18)); color: var(--text-secondary);
+    }
+    .trade-panel { background: var(--bg-primary); border: 1px solid var(--border-color);
+      border-radius: var(--radius-md); padding: 1rem 1.1rem; }
+    .trade-panel .row { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; margin-bottom: 0.7rem; }
+    .amount-input {
+      flex: 1; min-width: 140px; background: var(--bg-secondary); color: var(--text-primary);
+      border: 1px solid var(--border-color); border-radius: var(--radius-sm);
+      padding: 0.55rem 0.7rem; font-size: 1rem; font-family: var(--font-mono, monospace);
+    }
+    .pct-chip {
+      border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-secondary);
+      border-radius: 999px; padding: 0.35rem 0.6rem; font-size: 0.78rem; cursor: pointer;
+    }
+    .pct-chip:hover { border-color: var(--accent, #6ea8fe); color: var(--text-primary); }
+    .signal-banner {
+      border-radius: var(--radius-sm); padding: 0.6rem 0.8rem; margin: 0.6rem 0;
+      font-size: 0.85rem; border: 1px dashed var(--border-color);
+    }
+    .signal-buy { background: rgba(34,197,94,.10); border-color: rgba(34,197,94,.4); color: var(--success); }
+    .signal-sell { background: rgba(239,68,68,.10); border-color: rgba(239,68,68,.4); color: var(--danger); }
+    .signal-hold { background: rgba(120,120,140,.10); }
+    .kv { display: grid; grid-template-columns: auto 1fr; gap: 0.15rem 0.8rem; font-size: 0.85rem; }
+    .kv .k { color: var(--text-muted); }
+    .kv .v { text-align: right; font-family: var(--font-mono, monospace); }
+    .pos-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .pos-table th, .pos-table td { padding: 0.45rem 0.5rem; border-bottom: 1px solid var(--border-color); text-align: right; }
+    .pos-table th:first-child, .pos-table td:first-child { text-align: left; }
+    .pill { font-size: 0.72rem; padding: 0.1rem 0.4rem; border-radius: 999px; }
+    .pill.up { background: rgba(34,197,94,.15); color: var(--success); }
+    .pill.down { background: rgba(239,68,68,.15); color: var(--danger); }
+    .hint { font-size: 0.78rem; color: var(--text-muted); }
+    .mini-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.6rem; }
+    .disclaimer {
+      background: rgba(250,204,21,.08); border: 1px solid rgba(250,204,21,.3);
+      color: var(--warning); border-radius: var(--radius-sm); padding: 0.7rem 0.9rem;
+      font-size: 0.82rem; line-height: 1.5; margin-top: 1rem;
+    }
+  </style>
+</head>
+<body data-page="manual">
+
+  <div class="app-container">
+
+    <!-- Top Navigation Header -->
+    <header class="app-header">
+      <a href="index.html" class="brand-section">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-title">
+          <h1>
+            CrytpTrde
+            <span class="brand-badge">Paper &amp; Live</span>
+            <span class="github-free-badge">✓ Free</span>
+          </h1>
+        </div>
+      </a>
+
+      <nav class="nav-links-desktop">
+        <a href="index.html" class="nav-link-item">
+          <span>🏆 Sweep Results</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="trades.html" class="nav-link-item">
+          <span>⚡ Trades Log</span>
+          <span class="nav-badge">8.1K</span>
+        </a>
+        <a href="trades.html#view=last_trades" class="nav-link-item">
+          <span>🕐 Last Trade</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="live.html" class="nav-link-item">
+          <span>🟢 Live Accounts</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="bot.html" class="nav-link-item">
+          <span>🤖 Bot Details</span>
+          <span class="nav-badge">1</span>
+        </a>
+        <a href="configs.html" class="nav-link-item">
+          <span>⚙️ Configs Grid</span>
+        </a>
+        <a href="analytics.html" class="nav-link-item">
+          <span>📈 Quant Analytics</span>
+        </a>
+        <a href="compare.html" class="nav-link-item">
+          <span>⚖️ Comparator</span>
+        </a>
+        <a href="manual.html" class="nav-link-item active">
+          <span>🎓 Strategy Lab</span>
+        </a>
+        <a href="importer.html" class="nav-link-item">
+          <span>📁 Import File</span>
+        </a>
+        <a href="health.html" class="nav-link-item">
+          <span>🩺 Data Health</span>
+        </a>
+      </nav>
+
+      <div class="header-controls">
+        <button class="btn btn-sm" id="theme-toggle-btn" title="Toggle Dark/Light Mode">
+          <span>☀️ Light</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" title="Open Navigation Menu">
+          <span>☰</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Page Intro Header -->
+    <div class="page-intro-header">
+      <div class="page-title-group">
+        <h2>🎓 Strategy Lab — Learn by trading manually</h2>
+        <p>Read the same signals the bots use (price, RSI, 24h change) and decide every BUY / SELL yourself. No bot trades for you here.</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-sm btn-ghost" id="btn-refresh">🔄 Refresh prices</button>
+        <button class="btn btn-sm btn-danger" id="btn-reset-sandbox">↺ Reset sandbox</button>
+      </div>
+    </div>
+
+    <!-- Learn: strategy lessons -->
+    <section style="margin-bottom: 1.25rem;">
+      <h3 style="font-size:1.05rem; margin:0 0 0.75rem;">📚 The strategies you can practice</h3>
+      <div class="lab-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+        <div class="lesson-card">
+          <h4>📉 RSI Swing · Dip <span class="lesson-tag">default bot</span></h4>
+          <p>Buy <b>weakness</b>: when the 1h RSI drops to / below <b>30</b> (oversold) and you hold nothing. The original CrytpTrde strategy.</p>
+        </div>
+        <div class="lesson-card">
+          <h4>🚀 RSI Swing · Momentum <span class="lesson-tag">family 2</span></h4>
+          <p>Buy <b>strength</b>: when the 1h RSI rises to / above <b>55</b> (breakout). Good in trending markets; the second family in the 500-bot tournament.</p>
+        </div>
+        <div class="lesson-card">
+          <h4>🎯 Take-Profit</h4>
+          <p>Sell once price is <b>+4%</b> above your average cost. Locks in gains instead of waiting for the top.</p>
+        </div>
+        <div class="lesson-card">
+          <h4>🛡️ Stop-Loss</h4>
+          <p>Sell once price is <b>−2%</b> below average cost. Caps the damage on a wrong call. Same engine for both bot families.</p>
+        </div>
+        <div class="lesson-card">
+          <h4>🔥 RSI Overbought Exit</h4>
+          <p>Sell early when the 1h RSI climbs to <b>72</b> — the coin looks toppy, take profits before the swing back.</p>
+        </div>
+        <div class="lesson-card">
+          <h4>⏳ Hold-Period Bot</h4>
+          <p>Exit on a <b>schedule</b>: sell after the position has been held N hours (e.g. <b>168h = 1 week</b>, <b>720h = 1 month</b>), price be damned.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Manual trading sandbox -->
+    <section class="lab-grid">
+      <!-- LEFT: market + chart + trade panel -->
+      <div>
+        <div class="trade-panel" style="margin-bottom:1rem;">
+          <div class="row">
+            <label for="asset-select" style="font-weight:600;">🪙 Pair</label>
+            <select id="asset-select" class="filter-select" style="flex:1; min-width:160px;"></select>
+            <span id="live-dot" class="hint" title="data source">…</span>
+          </div>
+          <div class="kv" style="margin-bottom:0.5rem;">
+            <span class="k">Last price</span><span class="v" id="m-price">—</span>
+            <span class="k">24h change</span><span class="v" id="m-change">—</span>
+            <span class="k">RSI(14), 1h</span><span class="v" id="m-rsi">—</span>
+          </div>
+          <div id="signal-banner" class="signal-banner signal-hold">🤖 What a dip-bot would do here: loading…</div>
+          <div style="height:240px; background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:0.5rem;">
+            <canvas id="price-chart"></canvas>
+          </div>
+        </div>
+
+        <div class="trade-panel">
+          <h3 style="font-size:1rem; margin:0 0 0.6rem;">✍️ Your order (paper only)</h3>
+          <div class="row">
+            <input type="number" id="amount-input" class="amount-input" placeholder="Amount in ₹" min="0" step="100" value="1000">
+          </div>
+          <div class="row">
+            <span class="hint">Quick:</span>
+            <button class="pct-chip" data-pct="0.25">25%</button>
+            <button class="pct-chip" data-pct="0.5">50%</button>
+            <button class="pct-chip" data-pct="0.75">75%</button>
+            <button class="pct-chip" data-pct="1">Max</button>
+          </div>
+          <div class="kv" style="margin-bottom:0.6rem;">
+            <span class="k">Est. quantity</span><span class="v" id="o-qty">—</span>
+            <span class="k">Fee (0.10%)</span><span class="v" id="o-fee">—</span>
+            <span class="k">TDS (1% on sell)</span><span class="v" id="o-tds">—</span>
+            <span class="k">You receive / spend</span><span class="v" id="o-total">—</span>
+          </div>
+          <div class="mini-actions">
+            <button class="btn btn-success" id="btn-buy">🟢 BUY</button>
+            <button class="btn btn-danger" id="btn-sell">🔴 SELL</button>
+          </div>
+          <p class="hint" id="order-msg" style="margin-top:0.6rem;"></p>
+        </div>
+      </div>
+
+      <!-- RIGHT: portfolio + positions + log -->
+      <div>
+        <section class="metrics-grid" id="metrics-cards-grid" style="margin-bottom:1rem;"></section>
+
+        <div class="trade-panel" style="margin-bottom:1rem;">
+          <h3 style="font-size:1rem; margin:0 0 0.6rem;">📦 Open positions</h3>
+          <div id="positions-wrap">
+            <p class="hint">No open positions yet. Place a BUY to start.</p>
+          </div>
+        </div>
+
+        <div class="trade-panel">
+          <h3 style="font-size:1rem; margin:0 0 0.6rem;">🧾 Trade log</h3>
+          <div id="log-wrap" style="max-height:320px; overflow:auto;">
+            <p class="hint">No trades yet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="disclaimer">
+      ⚠️ <b>Demo only.</b> This page is a paper sandbox that runs entirely in your browser — prices are fetched live from CoinDCX public market data when available (with a built-in demo fallback offline), but <b>no order is ever placed</b>. Nothing here is financial advice. Compare your manual calls with the automated bots on the 🏆 Sweep and 🟢 Live pages.
+    </div>
+  </div>
+
+  <!-- Mobile Slide-Out Drawer Menu -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop">
+    <div class="mobile-drawer">
+      <div class="drawer-header">
+        <div class="brand-section">
+          <div class="brand-icon">⚡</div>
+          <span style="font-weight: 700; font-size: 1.1rem;">CrytpTrde</span>
+        </div>
+        <button class="modal-close-btn" id="mobile-drawer-close">&times;</button>
+      </div>
+      <div class="drawer-nav-list">
+        <a href="index.html" class="drawer-nav-item">
+          <span>🏆 Sweep Results</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="trades.html" class="drawer-nav-item">
+          <span>⚡ Trades Log</span>
+          <span class="nav-badge">8.1K</span>
+        </a>
+        <a href="trades.html#view=last_trades" class="drawer-nav-item">
+          <span>🕐 Last Trade</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="live.html" class="drawer-nav-item">
+          <span>🟢 Live Accounts</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="bot.html" class="drawer-nav-item">
+          <span>🤖 Bot Details</span>
+          <span class="nav-badge">1</span>
+        </a>
+        <a href="configs.html" class="drawer-nav-item">
+          <span>⚙️ Bot Configs Grid</span>
+        </a>
+        <a href="analytics.html" class="drawer-nav-item">
+          <span>📈 Quant Analytics</span>
+        </a>
+        <a href="compare.html" class="drawer-nav-item">
+          <span>⚖️ Strategy Comparator</span>
+        </a>
+        <a href="manual.html" class="drawer-nav-item active">
+          <span>🎓 Strategy Lab</span>
+        </a>
+        <a href="importer.html" class="drawer-nav-item">
+          <span>📁 Import Custom File</span>
+        </a>
+        <a href="health.html" class="drawer-nav-item">
+          <span>🩺 Data Health &amp; Freshness</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="manual.js"></script>
+</body>
+</html>

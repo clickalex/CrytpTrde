@@ -19,9 +19,9 @@ from .engine import (load_cfg, make_broker, make_coin, resolve_assets,
 from .sweep import (live_sweep, load_account_rows, prune_tournament_trades,
                     run_sweep)
 
-# `bot` / `coin` / `prune` are offline, read-only or maintenance commands —
-# not bot runs — so they never touch the "last bot run" heartbeat.
-NO_HEARTBEAT_COMMANDS = {"bot", "coin", "prune"}
+# `bot` / `coin` / `prune` / `wipe` are offline, read-only or maintenance
+# commands — not bot runs — so they never touch the "last bot run" heartbeat.
+NO_HEARTBEAT_COMMANDS = {"bot", "coin", "prune", "wipe"}
 
 
 def record_last_run(command: str, status: str = "ok", note: str = "") -> None:
@@ -413,6 +413,106 @@ def cmd_reset(cfg: dict, args) -> None:
     print("Paper state reset.")
 
 
+def cmd_wipe(cfg: dict, args) -> None:
+    """Manual-only maintenance: wipe ALL bot data and rebuild a fresh site.
+
+    This is the **Reset Bot**. It NEVER runs on a schedule (it is not in the
+    hourly GitHub Actions workflow) — you invoke it by hand when you want to
+    throw everything away and start the website over as a blank slate:
+
+        python3 cryptobot.py wipe --yes
+
+    It deletes every paper portfolio, every one of the 500 tournament
+    accounts, every backtest result and the live heartbeat, clears the
+    mirrored ``web/state/`` copy, then regenerates ``web/data.js`` so the
+    dashboard opens on an empty leaderboard. ``--dry-run`` previews what would
+    be removed without touching anything.
+    """
+    import shutil
+    import subprocess
+
+    dry = bool(getattr(args, "dry_run", False))
+    if not args.yes and not dry:
+        print("This WIPES ALL bot data and resets the website to a blank slate:")
+        print("  - data/state/      paper portfolio, trades.csv, last-run heartbeat")
+        print("  - data/sweep/      all tournament accounts + rankings + results")
+        print("  - data/backtest/   backtest trades, results, equity curves")
+        print("  - web/state/       mirrored paper portfolio shown on the site")
+        print("Then it rebuilds web/data.js so the dashboard starts fresh.")
+        print("Pass --yes to confirm, or --dry-run to preview without deleting.")
+        return
+
+    # Targets whose *contents* we clear (the directories themselves stay, so
+    # the paths the rest of the code expects keep existing).
+    targets = [paths.STATE_DIR, paths.SWEEP_DIR, paths.BACKTEST_DIR]
+    removed_files = 0
+    removed_bytes = 0
+
+    def _tally(p: Path) -> None:
+        nonlocal removed_files, removed_bytes
+        try:
+            if p.is_dir():
+                for c in p.rglob("*"):
+                    if c.is_file():
+                        removed_files += 1
+                        removed_bytes += c.stat().st_size
+            elif p.exists():
+                removed_files += 1
+                removed_bytes += p.stat().st_size
+        except OSError:
+            pass
+
+    for d in targets:
+        if not d.exists():
+            continue
+        if dry:
+            for child in sorted(d.rglob("*")):
+                if child.is_file():
+                    _tally(child)
+            print(f"  [dry-run] would clear {d}")
+            continue
+        for child in list(d.iterdir()):
+            if child.is_dir():
+                shutil.rmtree(child, ignore_errors=True)
+            else:
+                try:
+                    child.unlink()
+                except OSError:
+                    pass
+        print(f"  cleared {d}")
+
+    # The mirrored paper portfolio under web/state is part of the public site.
+    web_state = paths.WEB_DIR / "state"
+    if web_state.exists():
+        if dry:
+            print("  [dry-run] would clear web/state/")
+        else:
+            shutil.rmtree(web_state, ignore_errors=True)
+            print("  cleared web/state/")
+
+    if dry:
+        print(f"\n[dry-run] Would remove ~{removed_files:,} files "
+              f"({removed_bytes/1024:.0f} KiB). Nothing deleted.")
+        return
+
+    # Heartbeat is written into data/state/ AFTER it is cleared, so it survives
+    # and the rebuilt data.js can show 'last run: wipe'.
+    record_last_run("wipe", "ok", note="site wiped & reset to a clean slate")
+
+    # Regenerate the dashboard dataset from the now-empty data/ tree so the
+    # site opens on a fresh, empty leaderboard (only bot_status survives).
+    try:
+        subprocess.run(
+            [sys.executable, str(paths.REPO_ROOT / "scripts" / "build_data_js.py")],
+            check=False,
+        )
+    except OSError as exc:
+        print(f"  ! could not rebuild web/data.js: {exc}")
+
+    print("\nSite wiped. All bot data cleared and web/data.js rebuilt — "
+          "the dashboard now opens as a new, empty site.")
+
+
 def cmd_backtest(cfg: dict, args) -> None:
     run_backtest(cfg, days=args.days, chart_path=args.chart)
 
@@ -526,6 +626,14 @@ def main():
                    help="max fills to keep per account (defaults to config max_trades, 100)")
     p.set_defaults(func=cmd_prune)
 
+    p = sub.add_parser("wipe", parents=[global_parser],
+                       help="MANUAL ONLY: wipe ALL data & reset the website to a clean slate")
+    p.add_argument("--yes", action="store_true",
+                   help="confirm deletion of all bot data and the site reset")
+    p.add_argument("--dry-run", action="store_true", dest="dry_run",
+                   help="preview what would be deleted, change nothing")
+    p.set_defaults(func=cmd_wipe)
+
     args = parser.parse_args()
     # The startup banner is for human logs; `--json` consumers want a pure
     # JSON stream on stdout, so route the banner to stderr for those commands.
@@ -544,7 +652,7 @@ def main():
         # "auto" (and --all-assets) is resolved HERE, once, before dispatch,
         # so cmd_* functions and the sims never see the raw "auto" string
 
-        if args.command not in {"bot", "coin", "prune"}:
+        if args.command not in {"bot", "coin", "prune", "wipe"}:
             extra_state_dirs = []
             if args.command in {"sweep-live", "sweep-status"} and paths.ACCOUNTS_DIR.exists():
                 extra_state_dirs = [p for p in paths.ACCOUNTS_DIR.iterdir() if p.is_dir()]
