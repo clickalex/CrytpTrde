@@ -3,11 +3,11 @@
 // Do not edit by hand — run `python3 build_data_js.py` to regenerate.
 window.DATA_SETS = {
   "bot_status": {
-    "timestamp_utc": "2026-08-28T13:36:27+00:00",
-    "command": "sweep",
+    "timestamp_utc": "2026-08-28T13:37:50+00:00",
+    "command": "backtest",
     "status": "ok",
     "runner": "github-actions",
-    "data_generated_utc": "2026-08-28T13:36:28+00:00"
+    "data_generated_utc": "2026-08-28T13:37:50+00:00"
   },
   "sweep_results": [
     {
@@ -24517,37 +24517,37 @@ window.DATA_SETS = {
   ],
   "trades": [
     {
+      "asset": "TRBINR",
+      "entry_time": "2026-07-30T07:00+00:00",
+      "entry_price": 1326.76,
+      "rsi_at_entry": 26.6,
+      "exit_time": "2026-07-31T21:00+00:00",
+      "exit_price": 1380.61,
+      "reason": "take_profit",
+      "pnl_inr": 1540.2,
+      "pnl_pct": 3.95
+    },
+    {
       "asset": "GASINR",
-      "entry_time": "2026-08-01T06:00+00:00",
-      "entry_price": 93.0,
-      "rsi_at_entry": 10.6,
-      "exit_time": "2026-08-01T20:00+00:00",
-      "exit_price": 90.69,
+      "entry_time": "2026-07-31T19:00+00:00",
+      "entry_price": 95.05,
+      "rsi_at_entry": 28.8,
+      "exit_time": "2026-08-01T06:00+00:00",
+      "exit_price": 92.91,
       "reason": "stop_loss",
-      "pnl_inr": -83.67,
-      "pnl_pct": -2.58
+      "pnl_inr": -127.05,
+      "pnl_pct": -2.35
     },
     {
       "asset": "LINKINR",
       "entry_time": "2026-08-01T19:00+00:00",
       "entry_price": 793.23,
-      "rsi_at_entry": 27.1,
+      "rsi_at_entry": 27.3,
       "exit_time": "2026-08-02T03:00+00:00",
       "exit_price": 830.67,
       "reason": "take_profit",
-      "pnl_inr": 50.51,
+      "pnl_inr": 350.36,
       "pnl_pct": 4.62
-    },
-    {
-      "asset": "GASINR",
-      "entry_time": "2026-08-01T21:00+00:00",
-      "entry_price": 90.78,
-      "rsi_at_entry": 29.7,
-      "exit_time": "2026-08-02T03:00+00:00",
-      "exit_price": 94.95,
-      "reason": "take_profit",
-      "pnl_inr": 82.52,
-      "pnl_pct": 4.49
     },
     {
       "asset": "RIFINR",
@@ -24557,7 +24557,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-03T13:00+00:00",
       "exit_price": 7.83,
       "reason": "stop_loss",
-      "pnl_inr": -31.46,
+      "pnl_inr": -62.92,
       "pnl_pct": -2.12
     },
     {
@@ -24568,7 +24568,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-03T17:00+00:00",
       "exit_price": 7.73,
       "reason": "stop_loss",
-      "pnl_inr": -23.51,
+      "pnl_inr": -47.01,
       "pnl_pct": -2.12
     },
     {
@@ -24579,36 +24579,47 @@ window.DATA_SETS = {
       "exit_time": "2026-08-04T05:00+00:00",
       "exit_price": 7.32,
       "reason": "stop_loss",
-      "pnl_inr": -35.79,
+      "pnl_inr": -71.57,
       "pnl_pct": -3.33
+    },
+    {
+      "asset": "GASINR",
+      "entry_time": "2026-08-01T13:00+00:00",
+      "entry_price": 92.39,
+      "rsi_at_entry": 25.6,
+      "exit_time": "2026-08-04T06:00+00:00",
+      "exit_price": 95.4,
+      "reason": "rsi_overbought",
+      "pnl_inr": 658.55,
+      "pnl_pct": 3.16
     },
     {
       "asset": "RENDERINR",
       "entry_time": "2026-07-31T15:00+00:00",
       "entry_price": 137.07,
-      "rsi_at_entry": 28.5,
+      "rsi_at_entry": 28.9,
       "exit_time": "2026-08-05T00:00+00:00",
       "exit_price": 132.94,
       "reason": "stop_loss",
-      "pnl_inr": -277.37,
+      "pnl_inr": -277.15,
       "pnl_pct": -3.11
     },
     {
       "asset": "TRBINR",
-      "entry_time": "2026-07-30T06:00+00:00",
-      "entry_price": 1339.97,
-      "rsi_at_entry": 29.3,
+      "entry_time": "2026-08-03T10:00+00:00",
+      "entry_price": 1316.46,
+      "rsi_at_entry": 29.7,
       "exit_time": "2026-08-05T03:00+00:00",
       "exit_price": 1359.22,
       "reason": "rsi_overbought",
-      "pnl_inr": 493.57,
-      "pnl_pct": 1.34
+      "pnl_inr": 143.71,
+      "pnl_pct": 3.15
     },
     {
       "asset": "ETHINR",
       "entry_time": "2026-07-31T15:00+00:00",
       "entry_price": 186181.54,
-      "rsi_at_entry": 28.6,
+      "rsi_at_entry": 30.0,
       "exit_time": "2026-08-05T20:00+00:00",
       "exit_price": 191046.53,
       "reason": "rsi_overbought",
@@ -24623,7 +24634,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-06T05:00+00:00",
       "exit_price": 6.4,
       "reason": "stop_loss",
-      "pnl_inr": -725.3,
+      "pnl_inr": -464.83,
       "pnl_pct": -4.01
     },
     {
@@ -24634,7 +24645,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-06T07:00+00:00",
       "exit_price": 6.16,
       "reason": "stop_loss",
-      "pnl_inr": -891.34,
+      "pnl_inr": -431.48,
       "pnl_pct": -5.05
     },
     {
@@ -24645,7 +24656,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-06T13:00+00:00",
       "exit_price": 67.98,
       "reason": "stop_loss",
-      "pnl_inr": -397.54,
+      "pnl_inr": -192.53,
       "pnl_pct": -2.25
     },
     {
@@ -24656,7 +24667,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-06T15:00+00:00",
       "exit_price": 18.07,
       "reason": "stop_loss",
-      "pnl_inr": -534.55,
+      "pnl_inr": -248.04,
       "pnl_pct": -2.61
     },
     {
@@ -24667,19 +24678,8 @@ window.DATA_SETS = {
       "exit_time": "2026-08-06T17:00+00:00",
       "exit_price": 95.4,
       "reason": "take_profit",
-      "pnl_inr": 50.29,
+      "pnl_inr": 529.86,
       "pnl_pct": 4.98
-    },
-    {
-      "asset": "XRPINR",
-      "entry_time": "2026-07-31T16:00+00:00",
-      "entry_price": 105.75,
-      "rsi_at_entry": 29.7,
-      "exit_time": "2026-08-06T19:00+00:00",
-      "exit_price": 102.95,
-      "reason": "stop_loss",
-      "pnl_inr": -147.59,
-      "pnl_pct": -2.75
     },
     {
       "asset": "ONDOINR",
@@ -24689,7 +24689,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-06T21:00+00:00",
       "exit_price": 36.28,
       "reason": "stop_loss",
-      "pnl_inr": -56.85,
+      "pnl_inr": -188.91,
       "pnl_pct": -2.3
     },
     {
@@ -24700,8 +24700,19 @@ window.DATA_SETS = {
       "exit_time": "2026-08-07T04:00+00:00",
       "exit_price": 35.03,
       "reason": "stop_loss",
-      "pnl_inr": -450.49,
+      "pnl_inr": -365.22,
       "pnl_pct": -2.42
+    },
+    {
+      "asset": "XRPINR",
+      "entry_time": "2026-08-06T04:00+00:00",
+      "entry_price": 104.12,
+      "rsi_at_entry": 29.4,
+      "exit_time": "2026-08-07T06:00+00:00",
+      "exit_price": 101.99,
+      "reason": "stop_loss",
+      "pnl_inr": -151.93,
+      "pnl_pct": -2.14
     },
     {
       "asset": "CAKEINR",
@@ -24711,7 +24722,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-07T09:00+00:00",
       "exit_price": 137.29,
       "reason": "stop_loss",
-      "pnl_inr": -13.52,
+      "pnl_inr": -142.45,
       "pnl_pct": -2.09
     },
     {
@@ -24722,7 +24733,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-07T09:00+00:00",
       "exit_price": 18.9,
       "reason": "take_profit",
-      "pnl_inr": 1139.57,
+      "pnl_inr": 544.64,
       "pnl_pct": 4.8
     },
     {
@@ -24733,18 +24744,18 @@ window.DATA_SETS = {
       "exit_time": "2026-08-08T01:00+00:00",
       "exit_price": 34.46,
       "reason": "stop_loss",
-      "pnl_inr": -295.34,
+      "pnl_inr": -316.44,
       "pnl_pct": -2.11
     },
     {
       "asset": "SOLINR",
       "entry_time": "2026-08-01T19:00+00:00",
       "entry_price": 7145.27,
-      "rsi_at_entry": 24.2,
+      "rsi_at_entry": 24.3,
       "exit_time": "2026-08-08T05:00+00:00",
       "exit_price": 7445.48,
       "reason": "take_profit",
-      "pnl_inr": 74.55,
+      "pnl_inr": 516.68,
       "pnl_pct": 4.1
     },
     {
@@ -24755,7 +24766,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-09T16:00+00:00",
       "exit_price": 94.75,
       "reason": "rsi_overbought",
-      "pnl_inr": 494.83,
+      "pnl_inr": 501.09,
       "pnl_pct": 2.8
     },
     {
@@ -24766,19 +24777,8 @@ window.DATA_SETS = {
       "exit_time": "2026-08-10T19:00+00:00",
       "exit_price": 94.75,
       "reason": "rsi_overbought",
-      "pnl_inr": 537.69,
+      "pnl_inr": 711.11,
       "pnl_pct": 3.62
-    },
-    {
-      "asset": "XRPINR",
-      "entry_time": "2026-08-07T04:00+00:00",
-      "entry_price": 102.23,
-      "rsi_at_entry": 29.6,
-      "exit_time": "2026-08-11T08:00+00:00",
-      "exit_price": 99.2,
-      "reason": "stop_loss",
-      "pnl_inr": -338.53,
-      "pnl_pct": -3.06
     },
     {
       "asset": "LINKINR",
@@ -24788,8 +24788,19 @@ window.DATA_SETS = {
       "exit_time": "2026-08-11T10:00+00:00",
       "exit_price": 863.57,
       "reason": "take_profit",
-      "pnl_inr": 53.05,
+      "pnl_inr": 105.6,
       "pnl_pct": 6.33
+    },
+    {
+      "asset": "XRPINR",
+      "entry_time": "2026-08-10T23:00+00:00",
+      "entry_price": 100.55,
+      "rsi_at_entry": 29.7,
+      "exit_time": "2026-08-11T15:00+00:00",
+      "exit_price": 98.06,
+      "reason": "stop_loss",
+      "pnl_inr": -415.71,
+      "pnl_pct": -2.57
     },
     {
       "asset": "NEARINR",
@@ -24799,7 +24810,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-11T15:00+00:00",
       "exit_price": 151.98,
       "reason": "stop_loss",
-      "pnl_inr": -527.57,
+      "pnl_inr": -533.69,
       "pnl_pct": -4.71
     },
     {
@@ -24810,7 +24821,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-11T15:00+00:00",
       "exit_price": 1327.14,
       "reason": "stop_loss",
-      "pnl_inr": -299.51,
+      "pnl_inr": -311.18,
       "pnl_pct": -2.45
     },
     {
@@ -24821,7 +24832,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-12T00:00+00:00",
       "exit_price": 161.28,
       "reason": "take_profit",
-      "pnl_inr": 317.55,
+      "pnl_inr": 430.27,
       "pnl_pct": 4.9
     },
     {
@@ -24832,7 +24843,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-12T03:00+00:00",
       "exit_price": 1420.29,
       "reason": "take_profit",
-      "pnl_inr": 201.17,
+      "pnl_inr": 272.3,
       "pnl_pct": 8.52
     },
     {
@@ -24843,7 +24854,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-12T10:00+00:00",
       "exit_price": 17.04,
       "reason": "stop_loss",
-      "pnl_inr": -137.9,
+      "pnl_inr": -186.81,
       "pnl_pct": -2.55
     },
     {
@@ -24854,7 +24865,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-12T14:00+00:00",
       "exit_price": 94.24,
       "reason": "rsi_overbought",
-      "pnl_inr": 399.0,
+      "pnl_inr": 540.3,
       "pnl_pct": 3.71
     },
     {
@@ -24865,7 +24876,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-14T12:00+00:00",
       "exit_price": 17.86,
       "reason": "stop_loss",
-      "pnl_inr": -408.22,
+      "pnl_inr": -552.78,
       "pnl_pct": -2.12
     },
     {
@@ -24876,7 +24887,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-14T13:00+00:00",
       "exit_price": 65.47,
       "reason": "stop_loss",
-      "pnl_inr": -90.19,
+      "pnl_inr": -122.13,
       "pnl_pct": -2.49
     },
     {
@@ -24887,7 +24898,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-14T18:00+00:00",
       "exit_price": 32.1,
       "reason": "stop_loss",
-      "pnl_inr": -105.97,
+      "pnl_inr": -143.4,
       "pnl_pct": -2.56
     },
     {
@@ -24898,7 +24909,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-14T21:00+00:00",
       "exit_price": 144.55,
       "reason": "take_profit",
-      "pnl_inr": 440.99,
+      "pnl_inr": 597.24,
       "pnl_pct": 4.66
     },
     {
@@ -24909,7 +24920,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-14T21:00+00:00",
       "exit_price": 1.06,
       "reason": "take_profit",
-      "pnl_inr": 368.46,
+      "pnl_inr": 498.95,
       "pnl_pct": 4.09
     },
     {
@@ -24920,7 +24931,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-14T23:00+00:00",
       "exit_price": 7.25,
       "reason": "stop_loss",
-      "pnl_inr": -140.79,
+      "pnl_inr": -190.68,
       "pnl_pct": -2.33
     },
     {
@@ -24931,7 +24942,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-15T03:00+00:00",
       "exit_price": 94.63,
       "reason": "take_profit",
-      "pnl_inr": 84.23,
+      "pnl_inr": 114.07,
       "pnl_pct": 4.14
     },
     {
@@ -24942,7 +24953,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-16T15:00+00:00",
       "exit_price": 144.4,
       "reason": "take_profit",
-      "pnl_inr": 53.0,
+      "pnl_inr": 71.79,
       "pnl_pct": 4.34
     },
     {
@@ -24953,7 +24964,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-18T16:00+00:00",
       "exit_price": 90.87,
       "reason": "stop_loss",
-      "pnl_inr": -124.37,
+      "pnl_inr": -168.37,
       "pnl_pct": -3.01
     },
     {
@@ -24964,7 +24975,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-19T07:00+00:00",
       "exit_price": 75.84,
       "reason": "take_profit",
-      "pnl_inr": 312.07,
+      "pnl_inr": 422.5,
       "pnl_pct": 4.79
     },
     {
@@ -24975,19 +24986,8 @@ window.DATA_SETS = {
       "exit_time": "2026-08-19T12:00+00:00",
       "exit_price": 95.15,
       "reason": "take_profit",
-      "pnl_inr": 173.18,
+      "pnl_inr": 234.46,
       "pnl_pct": 4.51
-    },
-    {
-      "asset": "XRPINR",
-      "entry_time": "2026-08-11T15:00+00:00",
-      "entry_price": 98.16,
-      "rsi_at_entry": 27.3,
-      "exit_time": "2026-08-19T13:00+00:00",
-      "exit_price": 100.24,
-      "reason": "rsi_overbought",
-      "pnl_inr": 310.83,
-      "pnl_pct": 2.02
     },
     {
       "asset": "ETHINR",
@@ -24997,7 +24997,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-19T15:00+00:00",
       "exit_price": 194039.43,
       "reason": "rsi_overbought",
-      "pnl_inr": 325.29,
+      "pnl_inr": 430.4,
       "pnl_pct": 3.66
     },
     {
@@ -25008,19 +25008,19 @@ window.DATA_SETS = {
       "exit_time": "2026-08-19T15:00+00:00",
       "exit_price": 66.67,
       "reason": "take_profit",
-      "pnl_inr": 757.19,
+      "pnl_inr": 1025.65,
       "pnl_pct": 4.2
     },
     {
       "asset": "BTCINR",
-      "entry_time": "2026-07-31T14:00+00:00",
-      "entry_price": 6328423.93,
-      "rsi_at_entry": 29.7,
+      "entry_time": "2026-07-31T15:00+00:00",
+      "entry_price": 6282673.27,
+      "rsi_at_entry": 25.4,
       "exit_time": "2026-08-19T16:00+00:00",
       "exit_price": 6722553.94,
       "reason": "take_profit",
-      "pnl_inr": 1440.48,
-      "pnl_pct": 6.12
+      "pnl_inr": 1626.4,
+      "pnl_pct": 6.89
     },
     {
       "asset": "FILINR",
@@ -25030,7 +25030,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-19T16:00+00:00",
       "exit_price": 64.92,
       "reason": "take_profit",
-      "pnl_inr": 637.43,
+      "pnl_inr": 863.0,
       "pnl_pct": 5.85
     },
     {
@@ -25041,7 +25041,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-19T21:00+00:00",
       "exit_price": 1326.44,
       "reason": "take_profit",
-      "pnl_inr": 94.82,
+      "pnl_inr": 128.36,
       "pnl_pct": 4.12
     },
     {
@@ -25052,7 +25052,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-25T21:00+00:00",
       "exit_price": 74.96,
       "reason": "stop_loss",
-      "pnl_inr": -683.11,
+      "pnl_inr": -708.73,
       "pnl_pct": -2.79
     },
     {
@@ -25063,7 +25063,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-26T02:00+00:00",
       "exit_price": 73.26,
       "reason": "take_profit",
-      "pnl_inr": 955.26,
+      "pnl_inr": 991.23,
       "pnl_pct": 4.21
     },
     {
@@ -25074,7 +25074,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-26T15:00+00:00",
       "exit_price": 73.26,
       "reason": "stop_loss",
-      "pnl_inr": -509.07,
+      "pnl_inr": -528.46,
       "pnl_pct": -3.55
     },
     {
@@ -25085,7 +25085,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-27T00:00+00:00",
       "exit_price": 233.38,
       "reason": "take_profit",
-      "pnl_inr": 512.5,
+      "pnl_inr": 531.65,
       "pnl_pct": 6.22
     },
     {
@@ -25096,7 +25096,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-27T09:00+00:00",
       "exit_price": 143.37,
       "reason": "take_profit",
-      "pnl_inr": 656.8,
+      "pnl_inr": 681.42,
       "pnl_pct": 4.6
     },
     {
@@ -25107,7 +25107,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-27T09:00+00:00",
       "exit_price": 77.18,
       "reason": "take_profit",
-      "pnl_inr": 279.45,
+      "pnl_inr": 290.33,
       "pnl_pct": 5.62
     },
     {
@@ -25118,7 +25118,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-27T09:00+00:00",
       "exit_price": 21.33,
       "reason": "take_profit",
-      "pnl_inr": 605.66,
+      "pnl_inr": 628.56,
       "pnl_pct": 4.4
     },
     {
@@ -25129,7 +25129,7 @@ window.DATA_SETS = {
       "exit_time": "2026-08-27T09:00+00:00",
       "exit_price": 9.29,
       "reason": "take_profit",
-      "pnl_inr": 361.25,
+      "pnl_inr": 374.88,
       "pnl_pct": 4.37
     }
   ],
@@ -25146,27 +25146,27 @@ window.DATA_SETS = {
     },
     {
       "metric": "invested",
-      "signal_strategy": 604932.7185,
-      "hodl_benchmark": 100018.7843
+      "signal_strategy": 674204.1993,
+      "hodl_benchmark": 100007.0351
     },
     {
       "metric": "final_value",
-      "signal_strategy": 100371.4727,
-      "hodl_benchmark": 123247.4111
+      "signal_strategy": 104205.3488,
+      "hodl_benchmark": 123153.1483
     },
     {
       "metric": "pnl",
-      "signal_strategy": 371.4727,
-      "hodl_benchmark": 23247.4111
+      "signal_strategy": 4205.3488,
+      "hodl_benchmark": 23153.1483
     },
     {
       "metric": "pnl_pct",
-      "signal_strategy": 0.3715,
-      "hodl_benchmark": 23.2474
+      "signal_strategy": 4.2053,
+      "hodl_benchmark": 23.1531
     },
     {
       "metric": "max_drawdown_pct",
-      "signal_strategy": 6.8809,
+      "signal_strategy": 5.4958,
       "hodl_benchmark": 0
     },
     {
@@ -35341,23 +35341,7 @@ window.DATA_SETS = {
       "signal_value": 100000.0
     },
     {
-      "date": "2026-07-29",
-      "signal_value": 100000.0
-    },
-    {
-      "date": "2026-07-29",
-      "signal_value": 100000.0
-    },
-    {
-      "date": "2026-07-29",
-      "signal_value": 100000.0
-    },
-    {
-      "date": "2026-07-29",
-      "signal_value": 100000.0
-    },
-    {
-      "date": "2026-07-29",
+      "date": "2026-07-30",
       "signal_value": 100000.0
     },
     {
@@ -35386,2811 +35370,2827 @@ window.DATA_SETS = {
     },
     {
       "date": "2026-07-30",
-      "signal_value": 99546.43
+      "signal_value": 99940.07
     },
     {
       "date": "2026-07-30",
-      "signal_value": 99546.43
+      "signal_value": 99940.07
     },
     {
       "date": "2026-07-30",
-      "signal_value": 99546.43
+      "signal_value": 99940.07
     },
     {
       "date": "2026-07-30",
-      "signal_value": 99546.43
+      "signal_value": 99940.07
     },
     {
       "date": "2026-07-30",
-      "signal_value": 99546.43
+      "signal_value": 99940.07
     },
     {
       "date": "2026-07-30",
-      "signal_value": 99546.43
+      "signal_value": 101313.45
     },
     {
       "date": "2026-07-30",
-      "signal_value": 100906.27
+      "signal_value": 101442.96
     },
     {
       "date": "2026-07-30",
-      "signal_value": 101034.5
+      "signal_value": 100759.28
     },
     {
       "date": "2026-07-30",
-      "signal_value": 100357.57
+      "signal_value": 100759.28
     },
     {
       "date": "2026-07-30",
-      "signal_value": 100357.57
+      "signal_value": 100759.28
     },
     {
       "date": "2026-07-30",
-      "signal_value": 100357.57
+      "signal_value": 100759.28
     },
     {
       "date": "2026-07-30",
-      "signal_value": 100357.57
+      "signal_value": 101391.76
     },
     {
       "date": "2026-07-30",
-      "signal_value": 100983.81
+      "signal_value": 100476.17
     },
     {
       "date": "2026-07-30",
-      "signal_value": 100077.25
+      "signal_value": 100476.17
     },
     {
       "date": "2026-07-30",
-      "signal_value": 100077.25
+      "signal_value": 100476.17
     },
     {
       "date": "2026-07-30",
-      "signal_value": 100077.25
+      "signal_value": 100476.17
     },
     {
       "date": "2026-07-30",
-      "signal_value": 100077.25
+      "signal_value": 100476.17
     },
     {
       "date": "2026-07-30",
-      "signal_value": 100077.25
-    },
-    {
-      "date": "2026-07-30",
-      "signal_value": 100077.25
+      "signal_value": 100476.17
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100077.25
+      "signal_value": 100476.17
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100077.25
+      "signal_value": 100476.17
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100077.25
+      "signal_value": 100476.17
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100077.25
+      "signal_value": 100476.17
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100077.25
+      "signal_value": 100476.17
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100867.5
+      "signal_value": 101274.3
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100867.5
+      "signal_value": 101274.3
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100867.5
+      "signal_value": 101274.3
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100867.5
+      "signal_value": 101274.3
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100867.5
+      "signal_value": 101274.3
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100867.5
+      "signal_value": 101274.3
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100867.5
+      "signal_value": 101274.3
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100855.58
+      "signal_value": 101262.25
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100855.58
+      "signal_value": 101262.25
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100855.58
+      "signal_value": 101262.25
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100646.85
+      "signal_value": 101262.25
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100681.12
+      "signal_value": 101260.78
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100888.93
+      "signal_value": 101436.69
     },
     {
       "date": "2026-07-31",
-      "signal_value": 101097.3
+      "signal_value": 101640.68
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100224.16
+      "signal_value": 100749.99
     },
     {
       "date": "2026-07-31",
-      "signal_value": 100094.01
+      "signal_value": 100621.73
     },
     {
       "date": "2026-07-31",
-      "signal_value": 101204.66
+      "signal_value": 101750.5
     },
     {
       "date": "2026-07-31",
-      "signal_value": 101274.27
+      "signal_value": 101346.85
     },
     {
       "date": "2026-07-31",
-      "signal_value": 101240.05
+      "signal_value": 101310.63
     },
     {
       "date": "2026-07-31",
-      "signal_value": 101169.9
+      "signal_value": 101248.29
     },
     {
       "date": "2026-08-01",
-      "signal_value": 101286.27
+      "signal_value": 101353.39
     },
     {
       "date": "2026-08-01",
-      "signal_value": 101381.32
+      "signal_value": 101430.23
     },
     {
       "date": "2026-08-01",
-      "signal_value": 101471.09
+      "signal_value": 101515.61
     },
     {
       "date": "2026-08-01",
-      "signal_value": 101756.5
+      "signal_value": 101539.54
     },
     {
       "date": "2026-08-01",
-      "signal_value": 101669.64
+      "signal_value": 101422.55
     },
     {
       "date": "2026-08-01",
-      "signal_value": 101290.92
+      "signal_value": 101331.67
     },
     {
       "date": "2026-08-01",
-      "signal_value": 101444.18
+      "signal_value": 101331.72
     },
     {
       "date": "2026-08-01",
-      "signal_value": 100812.7
+      "signal_value": 101349.41
     },
     {
       "date": "2026-08-01",
-      "signal_value": 100367.8
+      "signal_value": 101274.51
     },
     {
       "date": "2026-08-01",
-      "signal_value": 100180.95
+      "signal_value": 101087.2
     },
     {
       "date": "2026-08-01",
-      "signal_value": 100394.24
+      "signal_value": 101294.6
     },
     {
       "date": "2026-08-01",
-      "signal_value": 100740.64
+      "signal_value": 101224.1
     },
     {
       "date": "2026-08-01",
-      "signal_value": 99897.49
+      "signal_value": 101269.46
     },
     {
       "date": "2026-08-01",
-      "signal_value": 99806.06
+      "signal_value": 101176.94
     },
     {
       "date": "2026-08-01",
-      "signal_value": 99713.16
+      "signal_value": 101088.44
     },
     {
       "date": "2026-08-01",
-      "signal_value": 100528.44
+      "signal_value": 101827.0
     },
     {
       "date": "2026-08-01",
-      "signal_value": 100020.01
+      "signal_value": 101647.52
     },
     {
       "date": "2026-08-01",
-      "signal_value": 99972.65
+      "signal_value": 101634.25
     },
     {
       "date": "2026-08-01",
-      "signal_value": 100149.13
+      "signal_value": 101036.71
     },
     {
       "date": "2026-08-01",
-      "signal_value": 100323.21
+      "signal_value": 100510.17
     },
     {
       "date": "2026-08-01",
-      "signal_value": 100325.65
+      "signal_value": 100604.15
     },
     {
       "date": "2026-08-01",
-      "signal_value": 100509.14
+      "signal_value": 100853.78
     },
     {
       "date": "2026-08-01",
-      "signal_value": 100560.2
+      "signal_value": 100892.73
     },
     {
       "date": "2026-08-01",
-      "signal_value": 100496.73
+      "signal_value": 100884.19
     },
     {
       "date": "2026-08-02",
-      "signal_value": 100630.96
+      "signal_value": 101020.75
     },
     {
       "date": "2026-08-02",
-      "signal_value": 101161.76
+      "signal_value": 101208.77
     },
     {
       "date": "2026-08-02",
-      "signal_value": 101601.2
+      "signal_value": 102741.0
     },
     {
       "date": "2026-08-02",
-      "signal_value": 101619.85
+      "signal_value": 102719.43
     },
     {
       "date": "2026-08-02",
-      "signal_value": 100262.18
+      "signal_value": 101917.65
     },
     {
       "date": "2026-08-02",
-      "signal_value": 100247.11
+      "signal_value": 101927.97
     },
     {
       "date": "2026-08-02",
-      "signal_value": 101335.19
+      "signal_value": 102662.1
     },
     {
       "date": "2026-08-02",
-      "signal_value": 101313.69
+      "signal_value": 102629.12
     },
     {
       "date": "2026-08-02",
-      "signal_value": 99850.33
+      "signal_value": 102381.72
     },
     {
       "date": "2026-08-02",
-      "signal_value": 100088.92
+      "signal_value": 102640.84
     },
     {
       "date": "2026-08-02",
-      "signal_value": 99879.73
+      "signal_value": 102433.39
     },
     {
       "date": "2026-08-02",
-      "signal_value": 99836.94
+      "signal_value": 101318.02
     },
     {
       "date": "2026-08-02",
-      "signal_value": 100551.15
+      "signal_value": 101381.63
     },
     {
       "date": "2026-08-02",
-      "signal_value": 100450.96
+      "signal_value": 101311.66
     },
     {
       "date": "2026-08-02",
-      "signal_value": 101263.4
+      "signal_value": 101984.56
     },
     {
       "date": "2026-08-02",
-      "signal_value": 100343.85
+      "signal_value": 102206.29
     },
     {
       "date": "2026-08-02",
-      "signal_value": 100252.31
+      "signal_value": 102101.12
     },
     {
       "date": "2026-08-02",
-      "signal_value": 100268.03
+      "signal_value": 102167.95
     },
     {
       "date": "2026-08-02",
-      "signal_value": 100405.88
+      "signal_value": 102288.06
     },
     {
       "date": "2026-08-02",
-      "signal_value": 100430.12
+      "signal_value": 102331.15
     },
     {
       "date": "2026-08-02",
-      "signal_value": 100556.85
+      "signal_value": 102499.83
     },
     {
       "date": "2026-08-02",
-      "signal_value": 100716.04
+      "signal_value": 102635.29
     },
     {
       "date": "2026-08-02",
-      "signal_value": 100719.13
+      "signal_value": 102614.94
     },
     {
       "date": "2026-08-02",
-      "signal_value": 100561.66
+      "signal_value": 102383.32
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100541.37
+      "signal_value": 102413.13
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100375.31
+      "signal_value": 102238.36
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100229.35
+      "signal_value": 102091.73
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100056.22
+      "signal_value": 101920.87
     },
     {
       "date": "2026-08-03",
-      "signal_value": 99814.0
+      "signal_value": 101687.41
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100023.13
+      "signal_value": 101894.89
     },
     {
       "date": "2026-08-03",
-      "signal_value": 99815.56
+      "signal_value": 101593.78
     },
     {
       "date": "2026-08-03",
-      "signal_value": 99855.85
+      "signal_value": 101667.85
     },
     {
       "date": "2026-08-03",
-      "signal_value": 99798.35
+      "signal_value": 101340.04
     },
     {
       "date": "2026-08-03",
-      "signal_value": 99123.2
+      "signal_value": 101565.16
     },
     {
       "date": "2026-08-03",
-      "signal_value": 99250.68
+      "signal_value": 101692.54
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100003.24
+      "signal_value": 101473.48
     },
     {
       "date": "2026-08-03",
-      "signal_value": 99975.4
+      "signal_value": 101458.89
     },
     {
       "date": "2026-08-03",
-      "signal_value": 99859.26
+      "signal_value": 101310.74
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100326.52
+      "signal_value": 101907.26
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100770.86
+      "signal_value": 102432.11
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100546.67
+      "signal_value": 102173.34
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100644.79
+      "signal_value": 102258.52
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100806.15
+      "signal_value": 102438.86
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100715.83
+      "signal_value": 102370.89
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100612.77
+      "signal_value": 102317.02
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100572.64
+      "signal_value": 102127.57
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100550.96
+      "signal_value": 102100.47
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100448.81
+      "signal_value": 102055.05
     },
     {
       "date": "2026-08-03",
-      "signal_value": 100369.13
+      "signal_value": 101887.09
     },
     {
       "date": "2026-08-04",
-      "signal_value": 100396.67
+      "signal_value": 101966.86
     },
     {
       "date": "2026-08-04",
-      "signal_value": 100590.15
+      "signal_value": 102147.51
     },
     {
       "date": "2026-08-04",
-      "signal_value": 100745.79
+      "signal_value": 102297.28
     },
     {
       "date": "2026-08-04",
-      "signal_value": 100398.64
+      "signal_value": 101876.91
     },
     {
       "date": "2026-08-04",
-      "signal_value": 100728.56
+      "signal_value": 102272.34
     },
     {
       "date": "2026-08-04",
-      "signal_value": 100604.02
+      "signal_value": 102739.96
     },
     {
       "date": "2026-08-04",
-      "signal_value": 100384.38
+      "signal_value": 102020.76
     },
     {
       "date": "2026-08-04",
-      "signal_value": 100211.49
+      "signal_value": 102008.2
     },
     {
       "date": "2026-08-04",
-      "signal_value": 100280.91
+      "signal_value": 102049.34
     },
     {
       "date": "2026-08-04",
-      "signal_value": 99694.6
+      "signal_value": 101919.82
     },
     {
       "date": "2026-08-04",
-      "signal_value": 99729.53
+      "signal_value": 101941.4
     },
     {
       "date": "2026-08-04",
-      "signal_value": 99836.12
+      "signal_value": 102296.46
     },
     {
       "date": "2026-08-04",
-      "signal_value": 99664.04
+      "signal_value": 102104.5
     },
     {
       "date": "2026-08-04",
-      "signal_value": 99541.37
+      "signal_value": 101824.3
     },
     {
       "date": "2026-08-04",
-      "signal_value": 99789.78
+      "signal_value": 102051.31
     },
     {
       "date": "2026-08-04",
-      "signal_value": 99383.14
+      "signal_value": 101968.51
     },
     {
       "date": "2026-08-04",
-      "signal_value": 99331.83
+      "signal_value": 101865.46
     },
     {
       "date": "2026-08-04",
-      "signal_value": 99436.98
+      "signal_value": 101952.43
     },
     {
       "date": "2026-08-04",
-      "signal_value": 99488.66
+      "signal_value": 102025.65
     },
     {
       "date": "2026-08-04",
-      "signal_value": 99513.01
+      "signal_value": 102045.66
     },
     {
       "date": "2026-08-04",
-      "signal_value": 99630.42
+      "signal_value": 102306.24
     },
     {
       "date": "2026-08-04",
-      "signal_value": 99479.15
+      "signal_value": 102051.12
     },
     {
       "date": "2026-08-04",
-      "signal_value": 99480.19
+      "signal_value": 102112.47
     },
     {
       "date": "2026-08-04",
-      "signal_value": 99130.47
+      "signal_value": 101748.5
     },
     {
       "date": "2026-08-05",
-      "signal_value": 99057.97
+      "signal_value": 101565.98
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100282.75
+      "signal_value": 102136.31
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100512.34
+      "signal_value": 102280.89
     },
     {
       "date": "2026-08-05",
-      "signal_value": 99924.43
+      "signal_value": 102346.81
     },
     {
       "date": "2026-08-05",
-      "signal_value": 99942.76
+      "signal_value": 102372.18
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100005.56
+      "signal_value": 102590.3
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100047.95
+      "signal_value": 102559.7
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100026.97
+      "signal_value": 102518.02
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100507.62
+      "signal_value": 102873.17
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100434.7
+      "signal_value": 102825.06
     },
     {
       "date": "2026-08-05",
-      "signal_value": 99914.76
+      "signal_value": 102465.6
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100397.96
+      "signal_value": 102637.01
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100081.98
+      "signal_value": 102529.46
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100506.51
+      "signal_value": 102733.45
     },
     {
       "date": "2026-08-05",
-      "signal_value": 99979.94
+      "signal_value": 102531.09
     },
     {
       "date": "2026-08-05",
-      "signal_value": 99805.19
+      "signal_value": 102388.26
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100265.33
+      "signal_value": 102931.0
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100958.31
+      "signal_value": 103164.12
     },
     {
       "date": "2026-08-05",
-      "signal_value": 101032.64
+      "signal_value": 103351.63
     },
     {
       "date": "2026-08-05",
-      "signal_value": 101084.58
+      "signal_value": 103321.48
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100931.19
+      "signal_value": 103090.56
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100922.2
+      "signal_value": 102958.28
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100818.83
+      "signal_value": 102807.7
     },
     {
       "date": "2026-08-05",
-      "signal_value": 100589.08
+      "signal_value": 102705.63
     },
     {
       "date": "2026-08-06",
-      "signal_value": 100784.5
+      "signal_value": 102947.57
     },
     {
       "date": "2026-08-06",
-      "signal_value": 100742.23
+      "signal_value": 102937.45
     },
     {
       "date": "2026-08-06",
-      "signal_value": 100607.67
+      "signal_value": 102813.46
     },
     {
       "date": "2026-08-06",
-      "signal_value": 100369.35
+      "signal_value": 102622.65
     },
     {
       "date": "2026-08-06",
-      "signal_value": 99651.54
+      "signal_value": 102268.18
     },
     {
       "date": "2026-08-06",
-      "signal_value": 99538.08
+      "signal_value": 102297.36
     },
     {
       "date": "2026-08-06",
-      "signal_value": 98957.61
+      "signal_value": 101785.2
     },
     {
       "date": "2026-08-06",
-      "signal_value": 98568.29
+      "signal_value": 101411.6
     },
     {
       "date": "2026-08-06",
-      "signal_value": 98279.76
+      "signal_value": 101349.32
     },
     {
       "date": "2026-08-06",
-      "signal_value": 98113.97
+      "signal_value": 101134.15
     },
     {
       "date": "2026-08-06",
-      "signal_value": 98029.03
+      "signal_value": 101043.91
     },
     {
       "date": "2026-08-06",
-      "signal_value": 98044.53
+      "signal_value": 101106.0
     },
     {
       "date": "2026-08-06",
-      "signal_value": 97590.58
+      "signal_value": 100744.88
     },
     {
       "date": "2026-08-06",
-      "signal_value": 97182.4
+      "signal_value": 100503.86
     },
     {
       "date": "2026-08-06",
-      "signal_value": 96983.43
+      "signal_value": 100567.53
     },
     {
       "date": "2026-08-06",
-      "signal_value": 96884.9
+      "signal_value": 100546.31
     },
     {
       "date": "2026-08-06",
-      "signal_value": 96966.15
+      "signal_value": 101096.53
     },
     {
       "date": "2026-08-06",
-      "signal_value": 96921.4
+      "signal_value": 100908.82
     },
     {
       "date": "2026-08-06",
-      "signal_value": 96715.32
+      "signal_value": 100580.14
     },
     {
       "date": "2026-08-06",
-      "signal_value": 96631.12
+      "signal_value": 100477.07
     },
     {
       "date": "2026-08-06",
-      "signal_value": 96660.74
+      "signal_value": 100519.94
     },
     {
       "date": "2026-08-06",
-      "signal_value": 97251.09
+      "signal_value": 100727.6
     },
     {
       "date": "2026-08-06",
-      "signal_value": 97139.14
+      "signal_value": 100546.36
     },
     {
       "date": "2026-08-06",
-      "signal_value": 96911.16
+      "signal_value": 100439.69
     },
     {
       "date": "2026-08-07",
-      "signal_value": 96858.22
+      "signal_value": 100436.8
     },
     {
       "date": "2026-08-07",
-      "signal_value": 96841.37
+      "signal_value": 100437.1
     },
     {
       "date": "2026-08-07",
-      "signal_value": 96732.2
+      "signal_value": 100287.3
     },
     {
       "date": "2026-08-07",
-      "signal_value": 96646.98
+      "signal_value": 100121.11
     },
     {
       "date": "2026-08-07",
-      "signal_value": 96440.8
+      "signal_value": 99933.29
     },
     {
       "date": "2026-08-07",
-      "signal_value": 96247.56
+      "signal_value": 99749.26
     },
     {
       "date": "2026-08-07",
-      "signal_value": 96305.87
+      "signal_value": 99828.44
     },
     {
       "date": "2026-08-07",
-      "signal_value": 96330.57
+      "signal_value": 99865.36
     },
     {
       "date": "2026-08-07",
-      "signal_value": 97289.17
+      "signal_value": 100301.78
     },
     {
       "date": "2026-08-07",
-      "signal_value": 97117.74
+      "signal_value": 100222.45
     },
     {
       "date": "2026-08-07",
-      "signal_value": 97169.9
+      "signal_value": 100299.51
     },
     {
       "date": "2026-08-07",
-      "signal_value": 97269.38
+      "signal_value": 100459.91
     },
     {
       "date": "2026-08-07",
-      "signal_value": 97280.07
+      "signal_value": 100451.71
     },
     {
       "date": "2026-08-07",
-      "signal_value": 97397.77
+      "signal_value": 100562.16
     },
     {
       "date": "2026-08-07",
-      "signal_value": 97145.4
+      "signal_value": 100320.39
     },
     {
       "date": "2026-08-07",
-      "signal_value": 97110.8
+      "signal_value": 100347.04
     },
     {
       "date": "2026-08-07",
-      "signal_value": 96765.94
+      "signal_value": 100060.78
     },
     {
       "date": "2026-08-07",
-      "signal_value": 96696.57
+      "signal_value": 99857.99
     },
     {
       "date": "2026-08-07",
-      "signal_value": 96742.76
+      "signal_value": 99972.67
     },
     {
       "date": "2026-08-07",
-      "signal_value": 97031.86
+      "signal_value": 100191.14
     },
     {
       "date": "2026-08-07",
-      "signal_value": 96987.65
+      "signal_value": 100199.91
     },
     {
       "date": "2026-08-07",
-      "signal_value": 96874.88
+      "signal_value": 100024.65
     },
     {
       "date": "2026-08-07",
-      "signal_value": 96633.5
+      "signal_value": 99853.83
     },
     {
       "date": "2026-08-07",
-      "signal_value": 96872.66
+      "signal_value": 100017.98
     },
     {
       "date": "2026-08-08",
-      "signal_value": 96816.66
+      "signal_value": 100026.34
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97349.35
+      "signal_value": 100536.49
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97251.44
+      "signal_value": 100423.79
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97716.92
+      "signal_value": 100891.63
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97642.36
+      "signal_value": 100927.8
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97597.1
+      "signal_value": 100741.56
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97542.05
+      "signal_value": 100677.09
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97407.23
+      "signal_value": 100611.16
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97452.58
+      "signal_value": 100603.62
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97208.93
+      "signal_value": 100354.92
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97491.9
+      "signal_value": 100597.61
     },
     {
       "date": "2026-08-08",
-      "signal_value": 96790.74
+      "signal_value": 99918.0
     },
     {
       "date": "2026-08-08",
-      "signal_value": 96842.36
+      "signal_value": 99915.65
     },
     {
       "date": "2026-08-08",
-      "signal_value": 96694.35
+      "signal_value": 99830.91
     },
     {
       "date": "2026-08-08",
-      "signal_value": 96852.12
+      "signal_value": 99964.05
     },
     {
       "date": "2026-08-08",
-      "signal_value": 96880.44
+      "signal_value": 99967.8
     },
     {
       "date": "2026-08-08",
-      "signal_value": 96957.65
+      "signal_value": 99972.05
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97373.03
+      "signal_value": 100396.13
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97097.88
+      "signal_value": 100174.39
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97193.45
+      "signal_value": 100271.74
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97049.13
+      "signal_value": 100209.56
     },
     {
       "date": "2026-08-08",
-      "signal_value": 96952.9
+      "signal_value": 100105.01
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97013.37
+      "signal_value": 100153.96
     },
     {
       "date": "2026-08-08",
-      "signal_value": 97023.08
+      "signal_value": 100163.75
     },
     {
       "date": "2026-08-09",
-      "signal_value": 97071.36
+      "signal_value": 100188.92
     },
     {
       "date": "2026-08-09",
-      "signal_value": 97013.75
+      "signal_value": 100182.84
     },
     {
       "date": "2026-08-09",
-      "signal_value": 96943.93
+      "signal_value": 100085.15
     },
     {
       "date": "2026-08-09",
-      "signal_value": 96552.3
+      "signal_value": 99641.56
     },
     {
       "date": "2026-08-09",
-      "signal_value": 96590.35
+      "signal_value": 99769.64
     },
     {
       "date": "2026-08-09",
-      "signal_value": 96488.74
+      "signal_value": 99620.8
     },
     {
       "date": "2026-08-09",
-      "signal_value": 96551.07
+      "signal_value": 99665.16
     },
     {
       "date": "2026-08-09",
-      "signal_value": 96502.36
+      "signal_value": 99613.29
     },
     {
       "date": "2026-08-09",
-      "signal_value": 96416.65
+      "signal_value": 99567.29
     },
     {
       "date": "2026-08-09",
-      "signal_value": 96409.34
+      "signal_value": 99550.19
     },
     {
       "date": "2026-08-09",
-      "signal_value": 96451.96
+      "signal_value": 99586.9
     },
     {
       "date": "2026-08-09",
-      "signal_value": 96545.75
+      "signal_value": 99676.33
     },
     {
       "date": "2026-08-09",
-      "signal_value": 96559.42
+      "signal_value": 99651.5
     },
     {
       "date": "2026-08-09",
-      "signal_value": 96677.35
+      "signal_value": 99772.74
     },
     {
       "date": "2026-08-09",
-      "signal_value": 96860.65
+      "signal_value": 99965.81
     },
     {
       "date": "2026-08-09",
-      "signal_value": 97871.25
+      "signal_value": 100954.92
     },
     {
       "date": "2026-08-09",
-      "signal_value": 97717.67
+      "signal_value": 100857.75
     },
     {
       "date": "2026-08-09",
-      "signal_value": 97587.19
+      "signal_value": 100760.44
     },
     {
       "date": "2026-08-09",
-      "signal_value": 97673.74
+      "signal_value": 100822.61
     },
     {
       "date": "2026-08-09",
-      "signal_value": 97605.68
+      "signal_value": 100771.09
     },
     {
       "date": "2026-08-09",
-      "signal_value": 97619.87
+      "signal_value": 100774.57
     },
     {
       "date": "2026-08-09",
-      "signal_value": 97544.03
+      "signal_value": 100712.62
     },
     {
       "date": "2026-08-09",
-      "signal_value": 97483.86
+      "signal_value": 100634.26
     },
     {
       "date": "2026-08-09",
-      "signal_value": 97313.27
+      "signal_value": 100525.09
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97469.28
+      "signal_value": 100686.17
     },
     {
       "date": "2026-08-10",
-      "signal_value": 96921.38
+      "signal_value": 100098.79
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97128.73
+      "signal_value": 100272.03
     },
     {
       "date": "2026-08-10",
-      "signal_value": 96996.99
+      "signal_value": 100190.0
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97427.24
+      "signal_value": 100606.91
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97536.07
+      "signal_value": 100699.03
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97572.3
+      "signal_value": 100779.58
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97611.59
+      "signal_value": 100755.02
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97414.94
+      "signal_value": 100615.66
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97321.2
+      "signal_value": 100538.56
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97335.58
+      "signal_value": 100550.83
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97235.79
+      "signal_value": 100479.43
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97208.2
+      "signal_value": 100432.11
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97000.1
+      "signal_value": 100274.89
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97082.41
+      "signal_value": 100305.8
     },
     {
       "date": "2026-08-10",
-      "signal_value": 96966.55
+      "signal_value": 100225.25
     },
     {
       "date": "2026-08-10",
-      "signal_value": 96729.48
+      "signal_value": 100014.98
     },
     {
       "date": "2026-08-10",
-      "signal_value": 96773.89
+      "signal_value": 100084.46
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97158.26
+      "signal_value": 100644.68
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97206.64
+      "signal_value": 100622.03
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97233.55
+      "signal_value": 100674.9
     },
     {
       "date": "2026-08-10",
-      "signal_value": 97074.73
+      "signal_value": 100564.75
     },
     {
       "date": "2026-08-10",
-      "signal_value": 96948.27
+      "signal_value": 100489.37
     },
     {
       "date": "2026-08-10",
-      "signal_value": 96913.05
+      "signal_value": 100451.97
     },
     {
       "date": "2026-08-11",
-      "signal_value": 97074.56
+      "signal_value": 100623.62
     },
     {
       "date": "2026-08-11",
-      "signal_value": 97187.94
+      "signal_value": 100765.64
     },
     {
       "date": "2026-08-11",
-      "signal_value": 97130.62
+      "signal_value": 100697.95
     },
     {
       "date": "2026-08-11",
-      "signal_value": 97108.02
+      "signal_value": 100652.59
     },
     {
       "date": "2026-08-11",
-      "signal_value": 97021.31
+      "signal_value": 100561.14
     },
     {
       "date": "2026-08-11",
-      "signal_value": 96933.1
+      "signal_value": 100459.7
     },
     {
       "date": "2026-08-11",
-      "signal_value": 96954.86
+      "signal_value": 100469.07
     },
     {
       "date": "2026-08-11",
-      "signal_value": 96698.3
+      "signal_value": 100159.69
     },
     {
       "date": "2026-08-11",
-      "signal_value": 96201.82
+      "signal_value": 99864.99
     },
     {
       "date": "2026-08-11",
-      "signal_value": 96270.94
+      "signal_value": 99982.99
     },
     {
       "date": "2026-08-11",
-      "signal_value": 96253.47
+      "signal_value": 99946.21
     },
     {
       "date": "2026-08-11",
-      "signal_value": 96253.79
+      "signal_value": 100011.42
     },
     {
       "date": "2026-08-11",
-      "signal_value": 96390.16
+      "signal_value": 100054.26
     },
     {
       "date": "2026-08-11",
-      "signal_value": 96365.19
+      "signal_value": 100091.33
     },
     {
       "date": "2026-08-11",
-      "signal_value": 95434.32
+      "signal_value": 98803.66
     },
     {
       "date": "2026-08-11",
-      "signal_value": 95570.32
+      "signal_value": 98598.33
     },
     {
       "date": "2026-08-11",
-      "signal_value": 95634.17
+      "signal_value": 98587.9
     },
     {
       "date": "2026-08-11",
-      "signal_value": 95901.97
+      "signal_value": 98820.3
     },
     {
       "date": "2026-08-11",
-      "signal_value": 95769.61
+      "signal_value": 98678.03
     },
     {
       "date": "2026-08-11",
-      "signal_value": 96042.48
+      "signal_value": 98911.49
     },
     {
       "date": "2026-08-11",
-      "signal_value": 96210.56
+      "signal_value": 99114.11
     },
     {
       "date": "2026-08-11",
-      "signal_value": 96238.04
+      "signal_value": 99019.88
     },
     {
       "date": "2026-08-11",
-      "signal_value": 96383.83
+      "signal_value": 99209.32
     },
     {
       "date": "2026-08-11",
-      "signal_value": 96410.63
+      "signal_value": 99375.33
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96570.83
+      "signal_value": 99376.41
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96650.25
+      "signal_value": 99503.79
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96738.07
+      "signal_value": 99821.67
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96898.67
+      "signal_value": 99890.67
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96977.28
+      "signal_value": 100057.1
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96896.88
+      "signal_value": 99948.24
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96631.12
+      "signal_value": 99598.92
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96605.57
+      "signal_value": 99547.15
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96592.25
+      "signal_value": 99561.65
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96726.7
+      "signal_value": 99590.98
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96747.8
+      "signal_value": 99614.31
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96859.98
+      "signal_value": 99763.91
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96392.89
+      "signal_value": 99340.25
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96712.16
+      "signal_value": 99743.81
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96123.89
+      "signal_value": 99152.25
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96154.43
+      "signal_value": 99084.49
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96106.96
+      "signal_value": 99192.1
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96298.55
+      "signal_value": 99375.46
     },
     {
       "date": "2026-08-12",
-      "signal_value": 96174.41
+      "signal_value": 99308.72
     },
     {
       "date": "2026-08-12",
-      "signal_value": 95962.64
+      "signal_value": 98979.09
     },
     {
       "date": "2026-08-12",
-      "signal_value": 95964.35
+      "signal_value": 99043.9
     },
     {
       "date": "2026-08-12",
-      "signal_value": 95914.87
+      "signal_value": 98937.94
     },
     {
       "date": "2026-08-12",
-      "signal_value": 95883.46
+      "signal_value": 98926.6
     },
     {
       "date": "2026-08-12",
-      "signal_value": 95841.3
+      "signal_value": 98915.4
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96030.04
+      "signal_value": 99097.93
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96039.62
+      "signal_value": 99208.33
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96152.93
+      "signal_value": 99354.79
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96635.7
+      "signal_value": 99740.97
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96656.36
+      "signal_value": 99813.58
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96729.21
+      "signal_value": 99956.89
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96712.78
+      "signal_value": 99938.62
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96673.18
+      "signal_value": 99792.58
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96877.27
+      "signal_value": 100064.21
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96799.45
+      "signal_value": 99987.41
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96283.51
+      "signal_value": 99474.09
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96079.09
+      "signal_value": 99208.92
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96241.48
+      "signal_value": 99450.44
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96332.31
+      "signal_value": 99519.84
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96626.29
+      "signal_value": 99800.97
     },
     {
       "date": "2026-08-13",
-      "signal_value": 95976.07
+      "signal_value": 99117.31
     },
     {
       "date": "2026-08-13",
-      "signal_value": 95724.2
+      "signal_value": 98734.6
     },
     {
       "date": "2026-08-13",
-      "signal_value": 95800.57
+      "signal_value": 98954.97
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96080.77
+      "signal_value": 99149.77
     },
     {
       "date": "2026-08-13",
-      "signal_value": 95894.4
+      "signal_value": 98977.33
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96027.4
+      "signal_value": 99044.27
     },
     {
       "date": "2026-08-13",
-      "signal_value": 95935.83
+      "signal_value": 98974.39
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96056.9
+      "signal_value": 99115.5
     },
     {
       "date": "2026-08-13",
-      "signal_value": 96026.69
+      "signal_value": 99037.93
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95896.09
+      "signal_value": 98961.99
     },
     {
       "date": "2026-08-14",
-      "signal_value": 96122.38
+      "signal_value": 99116.33
     },
     {
       "date": "2026-08-14",
-      "signal_value": 96150.32
+      "signal_value": 99152.31
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95401.02
+      "signal_value": 98434.47
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95526.31
+      "signal_value": 98535.49
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95854.69
+      "signal_value": 98902.97
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95630.31
+      "signal_value": 98685.7
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95532.33
+      "signal_value": 98548.03
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95615.09
+      "signal_value": 98650.73
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95542.96
+      "signal_value": 98566.61
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95321.67
+      "signal_value": 98311.95
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95305.63
+      "signal_value": 98262.94
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95007.41
+      "signal_value": 97892.77
     },
     {
       "date": "2026-08-14",
-      "signal_value": 94754.72
+      "signal_value": 97671.68
     },
     {
       "date": "2026-08-14",
-      "signal_value": 94926.52
+      "signal_value": 97780.07
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95067.59
+      "signal_value": 98012.8
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95486.68
+      "signal_value": 98519.83
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95376.59
+      "signal_value": 98441.96
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95289.7
+      "signal_value": 98339.82
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95438.42
+      "signal_value": 98547.87
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95681.68
+      "signal_value": 98919.93
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95543.9
+      "signal_value": 98724.38
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95251.3
+      "signal_value": 98478.25
     },
     {
       "date": "2026-08-14",
-      "signal_value": 95362.12
+      "signal_value": 98438.6
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95516.08
+      "signal_value": 98571.95
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95548.66
+      "signal_value": 98620.51
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95703.89
+      "signal_value": 98685.68
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95643.61
+      "signal_value": 98633.16
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95649.05
+      "signal_value": 98634.06
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95565.49
+      "signal_value": 98591.12
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95651.41
+      "signal_value": 98631.7
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95500.78
+      "signal_value": 98626.46
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95511.56
+      "signal_value": 98550.04
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95583.38
+      "signal_value": 98620.5
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95460.29
+      "signal_value": 98626.98
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95580.75
+      "signal_value": 98629.41
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95426.65
+      "signal_value": 98451.9
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95517.77
+      "signal_value": 98562.71
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95430.82
+      "signal_value": 98484.57
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95407.83
+      "signal_value": 98463.18
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95504.19
+      "signal_value": 98576.65
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95281.61
+      "signal_value": 98481.28
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95448.81
+      "signal_value": 98541.45
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95261.2
+      "signal_value": 98428.67
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95479.68
+      "signal_value": 98545.53
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95427.25
+      "signal_value": 98575.41
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95442.99
+      "signal_value": 98492.06
     },
     {
       "date": "2026-08-15",
-      "signal_value": 95390.11
+      "signal_value": 98533.82
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95459.35
+      "signal_value": 98535.21
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95437.07
+      "signal_value": 98520.83
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95385.28
+      "signal_value": 98436.26
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95380.79
+      "signal_value": 98475.99
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95385.22
+      "signal_value": 98497.31
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95358.24
+      "signal_value": 98497.73
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95296.77
+      "signal_value": 98421.52
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95330.37
+      "signal_value": 98409.42
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95334.16
+      "signal_value": 98421.05
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95335.52
+      "signal_value": 98447.32
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95299.66
+      "signal_value": 98442.15
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95367.74
+      "signal_value": 98512.5
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95296.6
+      "signal_value": 98450.8
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95307.96
+      "signal_value": 98431.47
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95256.35
+      "signal_value": 98475.05
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95326.28
+      "signal_value": 98457.61
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95396.81
+      "signal_value": 98524.65
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95335.14
+      "signal_value": 98438.01
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95340.38
+      "signal_value": 98481.06
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95374.08
+      "signal_value": 98544.48
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95309.53
+      "signal_value": 98434.26
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95113.26
+      "signal_value": 98384.19
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95132.23
+      "signal_value": 98332.06
     },
     {
       "date": "2026-08-16",
-      "signal_value": 95143.99
+      "signal_value": 98373.61
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95130.63
+      "signal_value": 98358.07
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95311.58
+      "signal_value": 98492.5
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95528.89
+      "signal_value": 98697.5
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95609.33
+      "signal_value": 98747.64
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95567.74
+      "signal_value": 98715.35
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95574.29
+      "signal_value": 98734.87
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95683.88
+      "signal_value": 98787.06
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95599.37
+      "signal_value": 98739.96
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95352.46
+      "signal_value": 98535.19
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95397.15
+      "signal_value": 98583.27
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95694.55
+      "signal_value": 98800.09
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95517.04
+      "signal_value": 98775.44
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95494.21
+      "signal_value": 98684.65
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95554.49
+      "signal_value": 98725.37
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95583.92
+      "signal_value": 98786.36
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95887.8
+      "signal_value": 98974.31
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95695.25
+      "signal_value": 98856.11
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95818.17
+      "signal_value": 98940.86
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95677.74
+      "signal_value": 98923.86
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95854.98
+      "signal_value": 99004.18
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95856.41
+      "signal_value": 99032.49
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95643.09
+      "signal_value": 98880.74
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95691.6
+      "signal_value": 98862.96
     },
     {
       "date": "2026-08-17",
-      "signal_value": 95914.78
+      "signal_value": 99096.15
     },
     {
       "date": "2026-08-18",
-      "signal_value": 95843.19
+      "signal_value": 99034.59
     },
     {
       "date": "2026-08-18",
-      "signal_value": 95752.4
+      "signal_value": 98968.92
     },
     {
       "date": "2026-08-18",
-      "signal_value": 95563.13
+      "signal_value": 98843.87
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96001.51
+      "signal_value": 99333.49
     },
     {
       "date": "2026-08-18",
-      "signal_value": 95975.15
+      "signal_value": 99305.87
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96140.85
+      "signal_value": 99516.58
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96204.7
+      "signal_value": 99585.85
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96205.26
+      "signal_value": 99562.23
     },
     {
       "date": "2026-08-18",
-      "signal_value": 95996.72
+      "signal_value": 99327.12
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96207.22
+      "signal_value": 99594.8
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96487.22
+      "signal_value": 99915.2
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96430.05
+      "signal_value": 99811.45
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96240.04
+      "signal_value": 99716.96
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96207.14
+      "signal_value": 99687.08
     },
     {
       "date": "2026-08-18",
-      "signal_value": 97028.88
+      "signal_value": 100634.17
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96719.61
+      "signal_value": 100175.88
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96889.4
+      "signal_value": 100343.28
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96606.97
+      "signal_value": 100136.25
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96817.82
+      "signal_value": 100247.86
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96824.1
+      "signal_value": 100275.24
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96613.54
+      "signal_value": 100032.8
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96561.33
+      "signal_value": 99960.57
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96483.42
+      "signal_value": 99807.29
     },
     {
       "date": "2026-08-18",
-      "signal_value": 96684.67
+      "signal_value": 100159.45
     },
     {
       "date": "2026-08-19",
-      "signal_value": 96633.82
+      "signal_value": 100058.1
     },
     {
       "date": "2026-08-19",
-      "signal_value": 96796.64
+      "signal_value": 100258.02
     },
     {
       "date": "2026-08-19",
-      "signal_value": 96773.94
+      "signal_value": 100239.14
     },
     {
       "date": "2026-08-19",
-      "signal_value": 96763.73
+      "signal_value": 100264.06
     },
     {
       "date": "2026-08-19",
-      "signal_value": 96960.5
+      "signal_value": 100494.71
     },
     {
       "date": "2026-08-19",
-      "signal_value": 96818.12
+      "signal_value": 100370.54
     },
     {
       "date": "2026-08-19",
-      "signal_value": 96894.15
+      "signal_value": 100473.71
     },
     {
       "date": "2026-08-19",
-      "signal_value": 96876.24
+      "signal_value": 100442.59
     },
     {
       "date": "2026-08-19",
-      "signal_value": 96864.22
+      "signal_value": 100356.28
     },
     {
       "date": "2026-08-19",
-      "signal_value": 97026.89
+      "signal_value": 100573.34
     },
     {
       "date": "2026-08-19",
-      "signal_value": 97053.24
+      "signal_value": 100614.55
     },
     {
       "date": "2026-08-19",
-      "signal_value": 97153.57
+      "signal_value": 100738.82
     },
     {
       "date": "2026-08-19",
-      "signal_value": 97294.81
+      "signal_value": 100663.96
     },
     {
       "date": "2026-08-19",
-      "signal_value": 97111.31
+      "signal_value": 100629.78
     },
     {
       "date": "2026-08-19",
-      "signal_value": 97887.04
+      "signal_value": 101581.46
     },
     {
       "date": "2026-08-19",
-      "signal_value": 98957.92
+      "signal_value": 102719.47
     },
     {
       "date": "2026-08-19",
-      "signal_value": 98530.52
+      "signal_value": 102241.92
     },
     {
       "date": "2026-08-19",
-      "signal_value": 98530.52
+      "signal_value": 102241.92
     },
     {
       "date": "2026-08-19",
-      "signal_value": 98530.52
+      "signal_value": 102241.92
     },
     {
       "date": "2026-08-19",
-      "signal_value": 98530.52
+      "signal_value": 102241.92
     },
     {
       "date": "2026-08-19",
-      "signal_value": 98554.6
+      "signal_value": 102274.51
     },
     {
       "date": "2026-08-19",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-19",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-19",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-20",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-21",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-22",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98526.35
+      "signal_value": 102236.26
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98826.5
+      "signal_value": 102547.73
     },
     {
       "date": "2026-08-23",
-      "signal_value": 98765.96
+      "signal_value": 102484.91
     },
     {
       "date": "2026-08-24",
-      "signal_value": 98846.68
+      "signal_value": 102568.67
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99028.3
+      "signal_value": 102757.13
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99028.3
+      "signal_value": 102757.13
     },
     {
       "date": "2026-08-24",
-      "signal_value": 98858.79
+      "signal_value": 102581.23
     },
     {
       "date": "2026-08-24",
-      "signal_value": 98907.22
+      "signal_value": 102631.49
     },
     {
       "date": "2026-08-24",
-      "signal_value": 98911.26
+      "signal_value": 102635.67
     },
     {
       "date": "2026-08-24",
-      "signal_value": 98959.69
+      "signal_value": 102685.93
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99032.34
+      "signal_value": 102761.31
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99024.27
+      "signal_value": 102752.94
     },
     {
       "date": "2026-08-24",
-      "signal_value": 98939.51
+      "signal_value": 102664.99
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99068.66
+      "signal_value": 102799.01
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99129.2
+      "signal_value": 102861.83
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99129.2
+      "signal_value": 102861.83
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99157.45
+      "signal_value": 102891.14
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99096.91
+      "signal_value": 102828.32
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99153.42
+      "signal_value": 102886.95
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99209.92
+      "signal_value": 102945.59
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99165.53
+      "signal_value": 102899.52
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99185.71
+      "signal_value": 102920.46
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99371.36
+      "signal_value": 103113.11
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99371.36
+      "signal_value": 103113.11
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99371.36
+      "signal_value": 103113.11
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99113.06
+      "signal_value": 102845.07
     },
     {
       "date": "2026-08-24",
-      "signal_value": 99121.13
+      "signal_value": 102853.45
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99121.13
+      "signal_value": 102853.45
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99117.09
+      "signal_value": 102849.26
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99335.04
+      "signal_value": 103075.41
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99234.14
+      "signal_value": 102970.71
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99314.86
+      "signal_value": 103054.47
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99274.5
+      "signal_value": 103012.59
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99246.25
+      "signal_value": 102983.28
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99355.22
+      "signal_value": 103096.35
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99456.12
+      "signal_value": 103201.05
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99444.01
+      "signal_value": 103188.49
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99565.09
+      "signal_value": 103314.13
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99484.37
+      "signal_value": 103230.37
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99573.16
+      "signal_value": 103322.51
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99472.26
+      "signal_value": 103217.81
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99250.28
+      "signal_value": 102987.47
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99468.23
+      "signal_value": 103213.62
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99314.86
+      "signal_value": 103054.47
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99456.12
+      "signal_value": 103201.05
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99278.53
+      "signal_value": 103016.78
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99464.19
+      "signal_value": 103209.43
     },
     {
       "date": "2026-08-25",
-      "signal_value": 98815.57
+      "signal_value": 102536.48
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99046.19
+      "signal_value": 102775.83
     },
     {
       "date": "2026-08-25",
-      "signal_value": 98724.78
+      "signal_value": 102442.34
     },
     {
       "date": "2026-08-25",
-      "signal_value": 99042.23
+      "signal_value": 102771.74
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99121.43
+      "signal_value": 102853.94
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99596.34
+      "signal_value": 103346.73
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99409.36
+      "signal_value": 103152.72
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99134.56
+      "signal_value": 102867.59
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99244.1
+      "signal_value": 102981.22
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99606.26
+      "signal_value": 103357.02
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99694.08
+      "signal_value": 103448.11
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99500.65
+      "signal_value": 103247.37
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99208.77
+      "signal_value": 102944.52
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99078.07
+      "signal_value": 102808.81
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99370.09
+      "signal_value": 103111.86
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99241.4
+      "signal_value": 102978.33
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99176.51
+      "signal_value": 102910.95
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99123.74
+      "signal_value": 102856.13
     },
     {
       "date": "2026-08-26",
-      "signal_value": 98664.87
+      "signal_value": 102379.96
     },
     {
       "date": "2026-08-26",
-      "signal_value": 98290.0
+      "signal_value": 101990.91
     },
     {
       "date": "2026-08-26",
-      "signal_value": 98383.19
+      "signal_value": 102087.58
     },
     {
       "date": "2026-08-26",
-      "signal_value": 98799.19
+      "signal_value": 102519.26
     },
     {
       "date": "2026-08-26",
-      "signal_value": 98475.17
+      "signal_value": 102183.05
     },
     {
       "date": "2026-08-26",
-      "signal_value": 98548.41
+      "signal_value": 102259.09
     },
     {
       "date": "2026-08-26",
-      "signal_value": 98623.76
+      "signal_value": 102337.3
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99258.08
+      "signal_value": 102995.51
     },
     {
       "date": "2026-08-26",
-      "signal_value": 99497.54
+      "signal_value": 103243.96
     },
     {
       "date": "2026-08-26",
-      "signal_value": 100301.23
+      "signal_value": 104077.94
     },
     {
       "date": "2026-08-27",
-      "signal_value": 99956.04
+      "signal_value": 103719.76
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100217.61
+      "signal_value": 103991.21
     },
     {
       "date": "2026-08-27",
-      "signal_value": 99842.74
+      "signal_value": 103602.18
     },
     {
       "date": "2026-08-27",
-      "signal_value": 99802.84
+      "signal_value": 103560.68
     },
     {
       "date": "2026-08-27",
-      "signal_value": 99660.69
+      "signal_value": 103413.16
     },
     {
       "date": "2026-08-27",
-      "signal_value": 99828.96
+      "signal_value": 103587.85
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100007.13
+      "signal_value": 103772.81
     },
     {
       "date": "2026-08-27",
-      "signal_value": 99907.59
+      "signal_value": 103669.51
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100807.27
+      "signal_value": 104603.19
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100472.37
+      "signal_value": 104255.6
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100472.37
+      "signal_value": 104255.6
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100427.98
+      "signal_value": 104209.54
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100444.12
+      "signal_value": 104226.29
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100472.37
+      "signal_value": 104255.6
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100496.59
+      "signal_value": 104280.73
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100500.62
+      "signal_value": 104284.92
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100589.42
+      "signal_value": 104377.06
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100593.45
+      "signal_value": 104381.24
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100452.19
+      "signal_value": 104234.66
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100452.19
+      "signal_value": 104234.66
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100444.12
+      "signal_value": 104226.29
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100444.12
+      "signal_value": 104226.29
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100436.05
+      "signal_value": 104217.91
     },
     {
       "date": "2026-08-27",
-      "signal_value": 100436.05
+      "signal_value": 104217.91
     },
     {
       "date": "2026-08-28",
-      "signal_value": 100436.05
+      "signal_value": 104217.91
     },
     {
       "date": "2026-08-28",
-      "signal_value": 100504.66
+      "signal_value": 104289.11
     },
     {
       "date": "2026-08-28",
-      "signal_value": 100464.3
+      "signal_value": 104247.23
     },
     {
       "date": "2026-08-28",
-      "signal_value": 100589.42
+      "signal_value": 104377.06
     },
     {
       "date": "2026-08-28",
-      "signal_value": 100581.34
+      "signal_value": 104368.68
     },
     {
       "date": "2026-08-28",
-      "signal_value": 100444.12
+      "signal_value": 104226.29
     },
     {
       "date": "2026-08-28",
-      "signal_value": 100355.33
+      "signal_value": 104134.15
     },
     {
       "date": "2026-08-28",
-      "signal_value": 100460.26
+      "signal_value": 104243.04
     },
     {
       "date": "2026-08-28",
-      "signal_value": 100371.47
+      "signal_value": 104238.85
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 104092.27
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 104092.27
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 104155.09
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 104117.4
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 104205.35
     }
   ],
   "live_trades": [
