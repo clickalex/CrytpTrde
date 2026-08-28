@@ -19,7 +19,6 @@ IST = ZoneInfo("Asia/Kolkata")
 
 # ------------------------------------------------------------------ construction
 def load_cfg(path: Path) -> dict:
-    import yaml
     with open(path) as fh:
         return yaml.safe_load(fh)
 

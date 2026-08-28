@@ -72,6 +72,9 @@ FILE_HEADER = """// CrytpTrde Embedded Datasets
 window.DATA_SETS = {
 """
 
+# Datasets larger than this are emitted on a single compact line. See _js_block.
+COMPACT_ABOVE_BYTES = 64 * 1024
+
 
 def _coerce(value):
     """CSV cells are strings; restore number types the dashboard expects."""
@@ -183,7 +186,16 @@ def build_bot_status(last_trades):
 
 
 def _js_block(name, data):
+    """Serialise one dataset, pretty-printed when small, compact when huge.
+
+    `data.js` is downloaded in full by EVERY dashboard page, and the fill log
+    (`live_trades`) is by far the largest dataset — indent=2 whitespace was
+    pure overhead there (it alone accounted for about a third of the file).
+    Small datasets stay indented so they remain diffable in git.
+    """
     body = json.dumps(data, indent=2, ensure_ascii=False)
+    if len(body.encode("utf-8")) > COMPACT_ABOVE_BYTES:
+        return f'  "{name}": {json.dumps(data, separators=(",", ":"), ensure_ascii=False)}'
     body = "\n".join(("  " + ln) if ln else ln for ln in body.split("\n"))
     body = body.lstrip()
     return f'  "{name}": {body}'

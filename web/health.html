@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bot Details — CrytpTrde Analytics</title>
+  <title>Data Health — CrytpTrde Analytics</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
-<body data-page="bot">
+<body data-page="health">
 
   <div class="app-container">
-
+    
     <!-- Top Navigation Header -->
     <header class="app-header">
       <a href="index.html" class="brand-section">
@@ -22,9 +22,7 @@
           <h1>
             CrytpTrde
             <span class="brand-badge">Paper & Live</span>
-            <span class="live-pulse-badge" id="live-status-indicator" style="display:none;">
-              <span class="pulse-dot"></span> LIVE
-            </span>
+            <span class="github-free-badge">✓ Free</span>
           </h1>
         </div>
       </a>
@@ -47,7 +45,7 @@
           <span>🟢 Live Accounts</span>
           <span class="nav-badge">500</span>
         </a>
-        <a href="bot.html" class="nav-link-item active">
+        <a href="bot.html" class="nav-link-item">
           <span>🤖 Bot Details</span>
           <span class="nav-badge">1</span>
         </a>
@@ -63,7 +61,7 @@
         <a href="importer.html" class="nav-link-item">
           <span>📁 Import File</span>
         </a>
-        <a href="health.html" class="nav-link-item">
+        <a href="health.html" class="nav-link-item active">
           <span>🩺 Data Health</span>
         </a>
       </nav>
@@ -82,39 +80,89 @@
     <!-- Page Intro Header -->
     <div class="page-intro-header">
       <div class="page-title-group">
-        <h2>🤖 Bot Details</h2>
-        <p>Deep-dive into one tournament bot — its strategy, performance, open positions and every fill it ever made</p>
+        <h2>🩺 Data Health &amp; Freshness</h2>
+        <p>Is the bot still running, how old is this snapshot, and what is embedded in data.js</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-sm btn-ghost" id="btn-tool-print" title="Print this report">🖨️ Print Report</button>
       </div>
     </div>
 
-    <!-- Bot Picker Toolbar -->
+    <!-- KPI Summary Metrics Grid -->
+    <section class="metrics-grid" id="health-metrics">
+      <!-- Injected by app.js -->
+    </section>
+
+    <!-- Health Checks -->
     <section class="filter-section">
-      <div class="filter-main-bar">
-        <div class="drill-select-row" style="flex:1; flex-wrap:wrap; align-items:center;">
-          <label for="bot-page-select">🤖 Bot</label>
-          <select id="bot-page-select" class="filter-select" style="width:auto; min-width:160px;"></select>
-          <button class="btn btn-sm" id="bot-page-prev" title="Previous bot">← Prev</button>
-          <button class="btn btn-sm" id="bot-page-next" title="Next bot">Next →</button>
-          <span id="bot-page-rank-info" class="filter-results-count" style="margin-left:auto;"></span>
-        </div>
+      <div class="health-section-title">Health checks</div>
+      <div id="health-warnings">
+        <!-- Injected by app.js -->
       </div>
     </section>
 
-    <!-- Equity / Cash Chart -->
-    <section class="charts-body" style="display:grid;">
-      <div class="chart-wrapper">
-        <div class="chart-header"><span id="bot-page-chart-title">Cash Balance & Realized P&L Over Time</span></div>
-        <div class="chart-canvas-container"><canvas id="bot-page-chart"></canvas></div>
-        <div id="bot-page-chart-empty" class="table-empty-state" style="display:none; padding:2rem;">
-          <span>No fills recorded for this bot yet — the chart appears after its first trade.</span>
-        </div>
+    <!-- Schedule & Main Paper Portfolio -->
+    <section class="filter-section">
+      <div class="health-section-title">Schedule</div>
+      <div class="detail-grid" id="health-schedule">
+        <!-- Injected by app.js -->
+      </div>
+
+      <div class="health-section-title" style="margin-top: 1.25rem;">
+        Main paper portfolio
+        <span style="text-transform:none; letter-spacing:0; font-weight:500; color:var(--text-muted);">
+          — the <code>cryptobot.py check</code> / <code>status</code> account, polled live from
+          <code>state/portfolio.json</code>. This is separate from the 500 tournament demo accounts.
+        </span>
+      </div>
+      <div class="detail-grid" id="main-portfolio-card">
+        <!-- Injected by app.js -->
       </div>
     </section>
 
-    <!-- Full Bot Details (strategy, KPIs, positions, trade history) -->
-    <main class="table-container" style="padding:1.25rem;">
-      <div id="bot-detail-container"></div>
+    <!-- Dataset Inventory -->
+    <div class="table-toolbar">
+      <div class="toolbar-left">
+        <h3 style="font-size: 1.05rem; font-weight: 700;">Embedded dataset inventory</h3>
+      </div>
+      <div class="toolbar-right">
+        <div style="font-size: 0.78rem; color: var(--text-secondary);">
+          Every page downloads all of these — keep an eye on the total payload.
+        </div>
+      </div>
+    </div>
+
+    <main class="table-container">
+      <div id="health-dataset-table">
+        <!-- Injected by app.js -->
+      </div>
     </main>
+
+    <!-- How To Refresh -->
+    <section class="filter-section">
+      <div class="health-section-title">How to refresh this page</div>
+      <div class="detail-item">
+        <div class="detail-item-label">Automatically</div>
+        <div class="detail-item-value" style="font-family:var(--font-sans); font-weight:500; color:var(--text-secondary);">
+          The GitHub Actions workflow <strong>Crypto Bot</strong> runs hourly at minute :30 UTC, commits the new
+          state, and rebuilds <code>web/data.js</code>. Nothing to do — this page goes green on its own.
+        </div>
+      </div>
+      <div class="detail-item" style="margin-top: 0.6rem;">
+        <div class="detail-item-label">Manually</div>
+        <div class="detail-item-value" style="font-family:var(--font-mono); font-size:0.82rem;">
+          python3 cryptobot.py sweep-live<br>
+          python3 scripts/build_data_js.py
+        </div>
+      </div>
+      <div class="detail-item" style="margin-top: 0.6rem;">
+        <div class="detail-item-label">Never run a backtest yet?</div>
+        <div class="detail-item-value" style="font-family:var(--font-sans); font-weight:500; color:var(--text-secondary);">
+          The three backtest datasets stay <em>empty</em> until you run <code>cryptobot.py backtest</code>.
+          That is expected — it is reported as info, not an error.
+        </div>
+      </div>
+    </section>
 
   </div>
 
@@ -145,7 +193,7 @@
           <span>🟢 Live Accounts</span>
           <span class="nav-badge">500</span>
         </a>
-        <a href="bot.html" class="drawer-nav-item active">
+        <a href="bot.html" class="drawer-nav-item">
           <span>🤖 Bot Details</span>
           <span class="nav-badge">1</span>
         </a>
@@ -161,7 +209,7 @@
         <a href="importer.html" class="drawer-nav-item">
           <span>📁 Import Custom File</span>
         </a>
-        <a href="health.html" class="drawer-nav-item">
+        <a href="health.html" class="drawer-nav-item active">
           <span>🩺 Data Health &amp; Freshness</span>
         </a>
       </div>

@@ -15,6 +15,8 @@ Stubs CoinDCX endpoints with realistic latency and checks:
   11. PaperBroker round-trip: fee/TDS/PnL accounting, persistence, rejections
   12. bot/coin drill-down: per-fill PnL attribution + offline report commands
   13. every module imports what it calls (no runtime NameError after the split)
+  14. an unreadable portfolio.json is backed up, not fatal
+  15. data.js emits big datasets compact and small ones pretty-printed
 """
 import argparse
 import builtins
@@ -741,12 +743,88 @@ def test_no_undefined_names():
           "(no runtime NameError)")
 
 
+def test_corrupt_state_recovery():
+    """An unreadable portfolio.json must not brick the bot forever.
+
+    PaperBroker used to call json.loads() on the state file with no guard. A
+    truncated write (disk full, killed process) or a hand-edited file then
+    raised on EVERY startup — including the hourly Actions run — with no way
+    back short of deleting the file by hand. It now keeps a copy of the bad
+    file and starts from the configured cash instead.
+    """
+    tmp = Path(tempfile.mkdtemp())
+    try:
+        broker = cb.PaperBroker(tmp, cash=1000.0, fee_rate=0.001, slippage_bps=5)
+        broker.save()
+        assert (tmp / "portfolio.json").exists()
+
+        # Simulate a truncated write / hand edit: valid JSON prefix, no close.
+        (tmp / "portfolio.json").write_text('{"cash_inr": 12345, "holdings": {')
+
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            fresh = cb.PaperBroker(tmp, cash=1000.0, fee_rate=0.001, slippage_bps=5)
+        out = buf.getvalue()
+
+        assert fresh.cash == 1000.0, fresh.cash          # configured cash, not the garbage
+        assert fresh.positions == {}, fresh.positions
+        assert fresh.realized_pnl == 0.0, fresh.realized_pnl
+        assert "unreadable" in out, f"no warning printed:\\n{out}"
+        backups = list(tmp.glob("portfolio.json.corrupt-*"))
+        assert len(backups) == 1, f"bad file not kept for inspection: {backups}"
+
+        # ...and the bot keeps working from there (state is writable again).
+        fresh.buy("BTCINR", 100.0, 50.0, 1e-6, 6, min_notional=10.0)
+        fresh.save()
+        reloaded = cb.PaperBroker(tmp, cash=1000.0, fee_rate=0.001, slippage_bps=5)
+        assert "BTCINR" in reloaded.positions, reloaded.positions
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    print("  corrupt state: unreadable portfolio.json is backed up, bot starts "
+          "fresh and keeps trading")
+
+
+def test_data_js_compaction():
+    """Big datasets go out compact; small ones stay pretty-printed.
+
+    data.js is downloaded in full by every dashboard page, and live_trades
+    alone was ~3 MB of it — a third of which was indent=2 whitespace. Datasets
+    above the threshold are now emitted on a single line; the small ones stay
+    indented so they remain readable in git diffs.
+    """
+    script = Path(__file__).resolve().parent.parent / "scripts" / "build_data_js.py"
+    spec = importlib.util.spec_from_file_location("build_data_js", script)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+
+    small = [{"account": f"acc_{i:03d}", "pnl_pct": 1.5 * i} for i in range(3)]
+    big = [{"timestamp_utc": "2026-08-28T07:26:42+00:00", "account": f"acc_{i:03d}",
+            "asset": "BTCINR", "side": "buy", "price_inr": 7850000.0,
+            "quantity": 0.001, "notional_inr": 7850.0, "fee_inr": 7.85,
+            "tds_inr": 0.0, "realized_pnl_inr": 0.0} for i in range(4000)]
+
+    small_block = mod._js_block("small", small)
+    big_block = mod._js_block("big", big)
+
+    assert "\n" in small_block, "small datasets should stay pretty-printed"
+    assert "\n" not in big_block, "huge datasets should be one compact line"
+    # Real-world saving: data.js went 4.1 MB -> 2.9 MB (live_trades dominates).
+    assert len(big_block) < 0.85 * len(json.dumps(big, indent=2)), "not compacted enough"
+
+    # compact must not change the data: it has to parse back identical.
+    assert json.loads(big_block.split(": ", 1)[1]) == big
+    assert json.loads(small_block.split(": ", 1)[1]) == small
+    print("  data.js: big datasets emitted compact (smaller page download), "
+          "small ones stay diffable")
+
+
 if __name__ == "__main__":
     tests = [test_build_market_cache, test_rate_limiter_global_pacing,
              test_fetch_history, test_discovery_caps, test_config_caps_flow,
              test_dipped_scan, test_adaptive_backoff, test_dead_market_skipped,
              test_progress_lines, test_run_cycle_smoke, test_paper_broker_roundtrip,
-             test_bot_and_coin_drilldown, test_no_undefined_names]
+             test_bot_and_coin_drilldown, test_no_undefined_names,
+             test_corrupt_state_recovery, test_data_js_compaction]
     for t in tests:
         print(f"* {t.__name__}")
         t()

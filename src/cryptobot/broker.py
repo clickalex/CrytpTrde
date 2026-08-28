@@ -64,11 +64,29 @@ class PaperBroker:
 
     # ---------------------------------------------------------------- persistence
     def _load(self):
-        if self.file.exists():
+        if not self.file.exists():
+            return
+        try:
             data = json.loads(self.file.read_text())
             self.cash = float(data.get("cash_inr", self.cash))
             self.positions = {k: Position.from_dict(v) for k, v in data.get("holdings", {}).items()}
             self.realized_pnl = float(data.get("realized_pnl", 0.0))
+        except (OSError, ValueError, TypeError, KeyError) as exc:
+            # A truncated write, a disk-full save or a hand-edited file must
+            # not brick the bot forever — the hourly run would keep crashing on
+            # startup with no way back. Keep the bad file for inspection and
+            # start from the configured cash instead.
+            stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+            backup = self.file.with_name(f"{self.file.name}.corrupt-{stamp}")
+            try:
+                self.file.replace(backup)
+                kept = backup.name
+            except OSError:
+                kept = f"{self.file.name} (left in place)"
+            print(f"  ! {self.file} is unreadable ({exc}).")
+            print(f"    Kept a copy at {kept}; starting fresh at "
+                  f"Rs.{self.cash:,.2f}. Restore it by hand if you need the "
+                  f"old state.")
 
     def save(self):
         self.dir.mkdir(parents=True, exist_ok=True)
