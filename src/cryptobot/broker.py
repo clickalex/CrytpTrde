@@ -44,12 +44,15 @@ class PaperBroker:
       cash_delta over the account's life == realized_pnl - total TDS
 
     State is one JSON file (atomic tmp+rename save) plus an append-only
-    trades.csv audit log, both inside `state_dir`. Run ONE bot process per
-    state dir - concurrent writers can clobber each other's portfolio.
+    trades.csv audit log, both inside `state_dir`. When `max_trades` is set
+    (default 100), trades.csv retains at most the most recent N fills to prevent
+    unbounded disk/repo growth, while portfolio.json preserves lifetime trade
+    counts, cumulative P&L and tax metrics.
     """
 
     def __init__(self, state_dir: Path, cash: float, fee_rate: float,
-                 slippage_bps: float, tds_rate: float = 0.01, simulate_tds: bool = True):
+                 slippage_bps: float, tds_rate: float = 0.01, simulate_tds: bool = True,
+                 max_trades: int = 100):
         self.dir = Path(state_dir)
         self.file = self.dir / "portfolio.json"
         self.trades_csv = self.dir / "trades.csv"
@@ -57,12 +60,61 @@ class PaperBroker:
         self.slippage = slippage_bps / 10_000.0
         self.tds_rate = tds_rate
         self.simulate_tds = simulate_tds
+        self.max_trades = max_trades
         self.cash = cash
         self.positions: dict[str, Position] = {}
         self.realized_pnl = 0.0
+        self.total_trades = 0
+        self.sell_count = 0
+        self.gross_gains = 0.0
+        self.gross_losses = 0.0
+        self.total_tds = 0.0
         self._load()
 
     # ---------------------------------------------------------------- persistence
+    def _reconstruct_lifetime_from_csv(self):
+        """Populate lifetime counters from trades.csv for legacy state files."""
+        try:
+            trades = self.read_trades()
+            if not trades:
+                return
+            self.total_trades = len(trades)
+            sells = [t for t in trades if str(t.get("side") or "").lower() == "sell"]
+            self.sell_count = len(sells)
+            self.total_tds = sum(float(t.get("tds_inr") or 0.0) for t in sells)
+
+            state: dict[str, dict] = {}
+            total_realized = gains = losses = 0.0
+            for t in trades:
+                asset = str(t.get("asset") or "")
+                side = str(t.get("side") or "").lower()
+                try:
+                    qty = float(t.get("quantity") or 0)
+                    notional = float(t.get("notional_inr") or 0)
+                    fee = float(t.get("fee_inr") or 0)
+                except (TypeError, ValueError):
+                    continue
+                st = state.setdefault(asset, {"qty": 0.0, "avg_cost": 0.0})
+                if side == "buy":
+                    new_qty = st["qty"] + qty
+                    if new_qty:
+                        st["avg_cost"] = (st["avg_cost"] * st["qty"] + notional + fee) / new_qty
+                    st["qty"] = new_qty
+                elif side == "sell":
+                    pnl = (notional - fee) - qty * st["avg_cost"] if st["avg_cost"] > 0 else 0.0
+                    st["qty"] = max(0.0, st["qty"] - qty)
+                    total_realized += pnl
+                    if pnl > 0:
+                        gains += pnl
+                    else:
+                        losses += pnl
+            self.gross_gains = gains
+            self.gross_losses = losses
+            if self.realized_pnl == 0.0 and total_realized != 0.0:
+                self.realized_pnl = total_realized
+        except Exception:
+            pass
+
     def _load(self):
         if not self.file.exists():
             return
@@ -71,6 +123,14 @@ class PaperBroker:
             self.cash = float(data.get("cash_inr", self.cash))
             self.positions = {k: Position.from_dict(v) for k, v in data.get("holdings", {}).items()}
             self.realized_pnl = float(data.get("realized_pnl", 0.0))
+            self.total_trades = int(data.get("total_trades", 0))
+            self.sell_count = int(data.get("sell_count", 0))
+            self.gross_gains = float(data.get("gross_gains", 0.0))
+            self.gross_losses = float(data.get("gross_losses", 0.0))
+            self.total_tds = float(data.get("total_tds", 0.0))
+
+            if "total_trades" not in data and self.trades_csv.exists():
+                self._reconstruct_lifetime_from_csv()
         except (OSError, ValueError, TypeError, KeyError) as exc:
             # A truncated write, a disk-full save or a hand-edited file must
             # not brick the bot forever — the hourly run would keep crashing on
@@ -93,24 +153,82 @@ class PaperBroker:
         data = {
             "cash_inr": self.cash,
             "realized_pnl": self.realized_pnl,
+            "total_trades": self.total_trades,
+            "sell_count": self.sell_count,
+            "gross_gains": round(self.gross_gains, 2),
+            "gross_losses": round(self.gross_losses, 2),
+            "total_tds": round(self.total_tds, 2),
             "holdings": {k: p.to_dict() for k, p in self.positions.items()},
         }
         tmp = self.file.with_suffix(".json.tmp")
         tmp.write_text(json.dumps(data, indent=2))
         tmp.replace(self.file)
 
+    def prune_trades(self, max_trades: int | None = None) -> int:
+        """Trim trades.csv to keep only the newest `max_trades` rows.
+        Returns the count of pruned rows."""
+        limit = self.max_trades if max_trades is None else max_trades
+        if not limit or limit <= 0 or not self.trades_csv.exists():
+            return 0
+        try:
+            with self.trades_csv.open("r", newline="", encoding="utf-8") as fh:
+                r = csv.reader(fh)
+                header = next(r, None)
+                if not header:
+                    return 0
+                rows = list(r)
+            if len(rows) <= limit:
+                return 0
+            pruned_count = len(rows) - limit
+            kept = rows[-limit:]
+            tmp = self.trades_csv.with_suffix(".csv.tmp")
+            with tmp.open("w", newline="", encoding="utf-8") as fh:
+                w = csv.writer(fh)
+                w.writerow(header)
+                w.writerows(kept)
+            tmp.replace(self.trades_csv)
+            return pruned_count
+        except OSError:
+            return 0
+
     def _log_trade(self, asset, side, price, qty, notional, fee, tds):
         self.dir.mkdir(parents=True, exist_ok=True)
         new = not self.trades_csv.exists()
-        with self.trades_csv.open("a", newline="") as fh:
+        realized = round(self.realized_pnl, 2) if side == "sell" else ""
+        new_row = [
+            datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            asset, side, f"{price:.6f}", f"{qty:.8f}",
+            f"{notional:.2f}", f"{fee:.2f}", f"{tds:.2f}", realized
+        ]
+
+        if not new and self.max_trades and self.max_trades > 0:
+            try:
+                with self.trades_csv.open("r", newline="", encoding="utf-8") as fh:
+                    r = csv.reader(fh)
+                    header = next(r, None)
+                    rows = list(r)
+                if header is None:
+                    header = ["timestamp_utc", "asset", "side", "price_inr", "quantity",
+                              "notional_inr", "fee_inr", "tds_inr", "realized_pnl_inr"]
+                rows.append(new_row)
+                if len(rows) > self.max_trades:
+                    rows = rows[-self.max_trades:]
+                tmp = self.trades_csv.with_suffix(".csv.tmp")
+                with tmp.open("w", newline="", encoding="utf-8") as fh:
+                    w = csv.writer(fh)
+                    w.writerow(header)
+                    w.writerows(rows)
+                tmp.replace(self.trades_csv)
+                return
+            except OSError:
+                pass
+
+        with self.trades_csv.open("a", newline="", encoding="utf-8") as fh:
             w = csv.writer(fh)
             if new:
                 w.writerow(["timestamp_utc", "asset", "side", "price_inr", "quantity",
                             "notional_inr", "fee_inr", "tds_inr", "realized_pnl_inr"])
-            realized = round(self.realized_pnl, 2) if side == "sell" else ""
-            w.writerow([datetime.now(timezone.utc).isoformat(timespec="seconds"),
-                        asset, side, f"{price:.6f}", f"{qty:.8f}",
-                        f"{notional:.2f}", f"{fee:.2f}", f"{tds:.2f}", realized])
+            w.writerow(new_row)
 
     # ------------------------------------------------------------------ trading
     def buy(self, asset: str, amount_inr: float, ask: float, step: float,
@@ -137,11 +255,12 @@ class PaperBroker:
         fee = notional * self.fee_rate
         total = notional + fee
         if total > self.cash:
-            return {"ok": False, "reason": f"insufficient cash (need â¹{total:.2f}, have â¹{self.cash:.2f})"}
+            return {"ok": False, "reason": f"insufficient cash (need ₹{total:.2f}, have ₹{self.cash:.2f})"}
         if notional < min_notional:
-            return {"ok": False, "reason": f"below exchange min notional â¹{min_notional:.0f}"}
+            return {"ok": False, "reason": f"below exchange min notional ₹{min_notional:.0f}"}
 
         self.cash -= total
+        self.total_trades += 1
         pos = self.positions.setdefault(asset, Position())
         new_qty = pos.qty + qty
         pos.avg_cost = (pos.avg_cost * pos.qty + notional + fee) / new_qty if new_qty else 0.0
@@ -165,9 +284,17 @@ class PaperBroker:
         tds = notional * self.tds_rate if self.simulate_tds else 0.0
         proceeds = notional - fee - tds
         cost_basis = qty * pos.avg_cost
+        trade_pnl = (notional - fee) - cost_basis
 
         self.cash += proceeds
-        self.realized_pnl += (notional - fee) - cost_basis
+        self.realized_pnl += trade_pnl
+        self.total_trades += 1
+        self.sell_count += 1
+        self.total_tds += tds
+        if trade_pnl > 0:
+            self.gross_gains += trade_pnl
+        else:
+            self.gross_losses += trade_pnl
         pos.qty -= qty
         pos.invested -= cost_basis
         if pos.qty <= 1e-12:
@@ -187,21 +314,32 @@ class PaperBroker:
     def read_trades(self) -> list[dict]:
         if not self.trades_csv.exists():
             return []
-        with self.trades_csv.open() as fh:
+        with self.trades_csv.open(encoding="utf-8") as fh:
             return list(csv.DictReader(fh))
 
     def tax_summary(self) -> dict:
-        """Aggregate the trades.csv log: realized gains/losses, a flat 30%
-        tax estimate on gross gains (India taxes VDA gains at 30% + cess,
-        no loss offset), and the TDS paid (creditable against that tax)."""
+        """Aggregate realized gains/losses, a flat 30% tax estimate on gross
+        gains (India taxes VDA gains at 30% + cess, no loss offset), and the
+        TDS paid (creditable against that tax)."""
+        if self.sell_count > 0 or self.total_trades > 0:
+            return {
+                "sell_count": self.sell_count,
+                "total_realized": self.realized_pnl,
+                "gross_gains": self.gross_gains,
+                "gross_losses": self.gross_losses,
+                "estimated_tax_30pct": self.gross_gains * 0.30,
+                "tds_credit": self.total_tds,
+            }
         trades = self.read_trades()
-        sells = [t for t in trades if t["side"] == "sell"]
-        gains = sum(float(t["realized_pnl_inr"]) for t in sells if float(t["realized_pnl_inr"]) > 0)
-        losses = sum(float(t["realized_pnl_inr"]) for t in sells if float(t["realized_pnl_inr"]) < 0)
-        tds = sum(float(t["tds_inr"]) for t in sells)
+        sells = [t for t in trades if str(t.get("side") or "").lower() == "sell"]
+        gains = sum(float(t.get("realized_pnl_inr") or 0.0) for t in sells
+                    if float(t.get("realized_pnl_inr") or 0.0) > 0)
+        losses = sum(float(t.get("realized_pnl_inr") or 0.0) for t in sells
+                     if float(t.get("realized_pnl_inr") or 0.0) < 0)
+        tds = sum(float(t.get("tds_inr") or 0.0) for t in sells)
         return {
             "sell_count": len(sells),
-            "total_realized": sum(float(t["realized_pnl_inr"]) for t in sells),
+            "total_realized": sum(float(t.get("realized_pnl_inr") or 0.0) for t in sells),
             "gross_gains": gains,
             "gross_losses": losses,
             "estimated_tax_30pct": gains * 0.30,

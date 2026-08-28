@@ -108,6 +108,7 @@ watchlist and scan every active INR market).
 | `sweep-status` | `sweep-live --rank-only`: rebuild the ranking without trading |
 | `bot <account> [--json]` | Full trade history of one tournament bot (all fills + current holdings), read straight from `data/sweep/accounts/` — offline, no CoinDCX call |
 | `coin <asset> [--json]` | Every tournament bot that bought/sold a given coin, with per-bot buy/sell counts, net qty, fees, TDS and realized P&L |
+| `prune [--max-trades N]` | Trim `trades.csv` audit logs across all accounts to the retention limit (`max_trades`, default 100) |
 
 `backtest` writes its CSVs into `data/backtest/`; `sweep` and `sweep-live`
 write into `data/sweep/` — see [data files](#repo-layout--data-files).
@@ -452,7 +453,7 @@ against each other, but not against your laptop).
 ## Tests & CI
 
 ```bash
-python3 tests/test_speed_fix.py     # 15 offline tests, no network, no secrets
+python3 tests/test_speed_fix.py     # 16 offline tests, no network, no secrets
 ```
 
 The suite stubs the CoinDCX client and covers the behaviour that is easy to
@@ -460,8 +461,8 @@ silently break: market-cache building, global rate limiting, parallel history
 fetching, discovery caps, the dipped-market safety net, adaptive backoff,
 dead-market skipping, progress lines, a full `run_cycle` smoke test (entry →
 take-profit → hold-timeout exits), `PaperBroker` buy/partial-sell/exit
-accounting + persistence, and the `bot`/`coin` drill-down reports (per-fill PnL
-attribution, offline).
+accounting + persistence, trade retention rules and pruning, and the `bot`/`coin`
+drill-down reports (per-fill PnL attribution, offline).
 
 `.github/workflows/tests.yml` runs it on every push and pull request, so a
 regression — a broken exit rule, a crashed simulator — fails before it reaches
@@ -491,7 +492,7 @@ src/cryptobot/          the actual bot, split into focused modules
 
 config/config.yaml      every knob; paper by default
 requirements.txt        requests + PyYAML (matplotlib optional)
-tests/test_speed_fix.py offline test suite (15 tests)
+tests/test_speed_fix.py offline test suite (16 tests)
 scripts/build_data_js.py regenerates ALL of web/data.js from CSVs + heartbeat
 
 web/                    the static dashboard: deployed as the Pages site root

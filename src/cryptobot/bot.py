@@ -16,11 +16,12 @@ from .backtest import run_backtest
 from .coindcx import CoinDCXError
 from .engine import (load_cfg, make_broker, make_coin, resolve_assets,
                       run_cycle, runtime_assets)
-from .sweep import live_sweep, load_account_rows, run_sweep
+from .sweep import (live_sweep, load_account_rows, prune_tournament_trades,
+                    run_sweep)
 
-# `bot` / `coin` are offline, read-only drill-downs into local tournament
-# state — not bot runs — so they never touch the "last bot run" heartbeat.
-NO_HEARTBEAT_COMMANDS = {"bot", "coin"}
+# `bot` / `coin` / `prune` are offline, read-only or maintenance commands —
+# not bot runs — so they never touch the "last bot run" heartbeat.
+NO_HEARTBEAT_COMMANDS = {"bot", "coin", "prune"}
 
 
 def record_last_run(command: str, status: str = "ok", note: str = "") -> None:
@@ -428,6 +429,27 @@ def cmd_sweep_status(cfg: dict, args) -> None:
     live_sweep(cfg, rank_only=True)
 
 
+def cmd_prune(cfg: dict, args) -> None:
+    max_trades = getattr(args, "max_trades", None)
+    if max_trades is None:
+        sweep_cfg = cfg.get("sweep") or {}
+        max_trades = sweep_cfg.get("max_trades", cfg.get("max_trades", 100))
+    try:
+        max_trades = int(max_trades)
+    except (TypeError, ValueError):
+        max_trades = 100
+
+    main_broker = make_broker(cfg)
+    pruned_main = main_broker.prune_trades(max_trades=max_trades)
+    pruned_sweep = prune_tournament_trades(cfg, max_trades=max_trades)
+    total_pruned = pruned_main + pruned_sweep
+    print(f"Pruned {total_pruned} excess trade log entries (retained last {max_trades} fills per account).")
+    if pruned_main:
+        print(f"  data/state/trades.csv: {pruned_main} pruned")
+    if pruned_sweep:
+        print(f"  data/sweep/accounts/*/trades.csv: {pruned_sweep} pruned across tournament accounts")
+
+
 # ------------------------------------------------------------------------ main
 def main():
     parser = argparse.ArgumentParser(description="CoinDCX signal trading bot (paper)")
@@ -498,6 +520,12 @@ def main():
     p.add_argument("--json", action="store_true", help="emit machine-readable JSON")
     p.set_defaults(func=cmd_coin)
 
+    p = sub.add_parser("prune", parents=[global_parser],
+                       help="trim trades.csv logs across all accounts to max-trades retention limit")
+    p.add_argument("--max-trades", type=int, default=None,
+                   help="max fills to keep per account (defaults to config max_trades, 100)")
+    p.set_defaults(func=cmd_prune)
+
     args = parser.parse_args()
     # The startup banner is for human logs; `--json` consumers want a pure
     # JSON stream on stdout, so route the banner to stderr for those commands.
@@ -516,7 +544,7 @@ def main():
         # "auto" (and --all-assets) is resolved HERE, once, before dispatch,
         # so cmd_* functions and the sims never see the raw "auto" string
 
-        if args.command not in {"bot", "coin"}:
+        if args.command not in {"bot", "coin", "prune"}:
             extra_state_dirs = []
             if args.command in {"sweep-live", "sweep-status"} and paths.ACCOUNTS_DIR.exists():
                 extra_state_dirs = [p for p in paths.ACCOUNTS_DIR.iterdir() if p.is_dir()]
@@ -527,7 +555,7 @@ def main():
             cfg["assets"] = resolve_assets(cfg, force_all=args.all_assets,
                                            extra_state_dirs=extra_state_dirs,
                                            include_dipped=include_dipped)
-        # `bot` / `coin` read the local tournament state only — no asset scan,
+        # `bot` / `coin` / `prune` read or maintain local state only — no asset scan,
         # no CoinDCX call needed, so they run offline (and in CI).
 
         args.func(cfg, args)

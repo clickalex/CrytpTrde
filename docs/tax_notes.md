@@ -59,7 +59,7 @@ python3 cryptobot.py coin BTCINR     # per-coin attribution across the bots
 
 | Path | Contents |
 |------|----------|
-| `data/state/portfolio.json` | Main paper account: cash, positions, realized P&L |
-| `data/state/trades.csv` | Append-only audit log of every fill |
-| `data/sweep/accounts/acc_XXX/trades.csv` | Per-tournament-bot audit log |
+| `data/state/portfolio.json` | Main paper account: cash, positions, realized P&L, lifetime tax metrics |
+| `data/state/trades.csv` | Recent audit log of fills (retained up to `max_trades`) |
+| `data/sweep/accounts/acc_XXX/trades.csv` | Per-tournament-bot audit log (retained up to `max_trades`) |
 | `data/backtest/backtest_trades.csv` | Backtest fills (historical replay) |

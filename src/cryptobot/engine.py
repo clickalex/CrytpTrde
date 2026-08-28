@@ -24,13 +24,28 @@ def load_cfg(path: Path) -> dict:
 
 
 def make_broker(cfg: dict, state_dir: Path | None = None) -> PaperBroker:
+    max_trades = cfg.get("max_trades", 100)
+    target_dir = Path(state_dir) if state_dir else paths.STATE_DIR
+    if paths.ACCOUNTS_DIR in target_dir.parents or target_dir == paths.ACCOUNTS_DIR:
+        sweep_cfg = cfg.get("sweep") or {}
+        if "max_trades" in sweep_cfg:
+            max_trades = sweep_cfg.get("max_trades")
+    elif "sweep" in cfg and isinstance(cfg["sweep"], dict) and "max_trades" in cfg["sweep"] and "max_trades" not in cfg:
+        max_trades = cfg["sweep"]["max_trades"]
+
+    try:
+        max_trades = int(max_trades) if max_trades is not None else 100
+    except (TypeError, ValueError):
+        max_trades = 100
+
     return PaperBroker(
-        state_dir=state_dir or paths.STATE_DIR,
-        cash=float(cfg["initial_cash_inr"]),
-        fee_rate=float(cfg["fee_rate"]),
-        slippage_bps=float(cfg["slippage_bps"]),
-        tds_rate=float(cfg["tds_rate"]),
-        simulate_tds=bool(cfg["simulate_tds"]),
+        state_dir=target_dir,
+        cash=float(cfg.get("initial_cash_inr", 50000)),
+        fee_rate=float(cfg.get("fee_rate", 0.001)),
+        slippage_bps=float(cfg.get("slippage_bps", 5)),
+        tds_rate=float(cfg.get("tds_rate", 0.01)),
+        simulate_tds=bool(cfg.get("simulate_tds", True)),
+        max_trades=max_trades,
     )
 
 

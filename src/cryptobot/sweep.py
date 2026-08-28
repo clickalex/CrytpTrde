@@ -453,13 +453,47 @@ def _make_chart(path: str, cfg: dict, rows: list[dict], results: list[dict],
     print(f"Chart saved: {path}")
 
 
+def prune_tournament_trades(cfg: dict | None = None, max_trades: int | None = None) -> int:
+    """Trim trades.csv across all tournament accounts to keep at most `max_trades` rows per account."""
+    if max_trades is None and cfg:
+        sweep_cfg = cfg.get("sweep") or {}
+        max_trades = sweep_cfg.get("max_trades", cfg.get("max_trades", 100))
+    limit = max_trades if max_trades is not None else 100
+    if limit <= 0 or not paths.ACCOUNTS_DIR.exists():
+        return 0
+    total_pruned = 0
+    for account_dir in sorted(paths.ACCOUNTS_DIR.iterdir()):
+        if account_dir.is_dir():
+            trades_file = account_dir / "trades.csv"
+            if trades_file.exists():
+                try:
+                    with trades_file.open("r", newline="", encoding="utf-8") as fh:
+                        r = csv.reader(fh)
+                        header = next(r, None)
+                        if not header:
+                            continue
+                        rows = list(r)
+                    if len(rows) > limit:
+                        total_pruned += len(rows) - limit
+                        kept = rows[-limit:]
+                        tmp = trades_file.with_suffix(".csv.tmp")
+                        with tmp.open("w", newline="", encoding="utf-8") as fh:
+                            w = csv.writer(fh)
+                            w.writerow(header)
+                            w.writerows(kept)
+                        tmp.replace(trades_file)
+                except OSError:
+                    pass
+    return total_pruned
+
+
 # ----------------------------------------------------------- LIVE tournament
 def live_sweep(cfg: dict, top_n: int | None = None, rank_only: bool = False,
                reset: bool = False) -> None:
     """Run one live cycle for every demo account (paper, real prices).
 
     reset=True wipes all account states and starts everyone again at
-    start_cash_inr (default â¹10,000) with the (possibly new) strategy grid.
+    start_cash_inr (default ₹10,000) with the (possibly new) strategy grid.
     """
     desired = int((cfg.get("sweep") or {}).get("accounts", 200))
     sig = grid_signature(cfg)
@@ -470,7 +504,7 @@ def live_sweep(cfg: dict, top_n: int | None = None, rank_only: bool = False,
         if len(rows) != desired or old_sig != sig:
             needs_wipe = True
             print(f"Strategy grid changed (accounts {len(rows)} -> {desired} or "
-                  f"different parameters) â restarting ALL demo accounts.")
+                  f"different parameters) — restarting ALL demo accounts.")
     if needs_wipe:
         shutil.rmtree(paths.ACCOUNTS_DIR, ignore_errors=True)
         for leftover in ("live_summary.csv",):
@@ -478,7 +512,7 @@ def live_sweep(cfg: dict, top_n: int | None = None, rank_only: bool = False,
             if p.exists():
                 p.unlink()
         print("All demo accounts wiped & will restart at "
-              f"â¹{sweep_start_cash(cfg):,.0f} each with their new unique strategy.")
+              f"₹{sweep_start_cash(cfg):,.0f} each with their new unique strategy.")
 
     if not paths.ACCOUNT_CSV.exists() or needs_wipe:
         rows = account_grid(cfg, desired)
@@ -520,9 +554,10 @@ def _live_summary(cfg: dict, rows: list[dict]) -> None:
     for row in rows:
         broker = make_broker(cfg, state_dir=paths.ACCOUNTS_DIR / row["account"])
         mv = broker.market_value(prices)
+        trades_count = broker.total_trades if broker.total_trades > 0 else len(broker.read_trades())
         out.append({**row, "value": broker.cash + mv, "cash": broker.cash,
                     "holdings": mv, "realized": broker.realized_pnl,
-                    "trades": len(broker.read_trades())})
+                    "trades": trades_count})
     out.sort(key=lambda r: r["value"], reverse=True)
     paths.SWEEP_DIR.mkdir(parents=True, exist_ok=True)
     with open(paths.SWEEP_DIR / "live_summary.csv", "w", newline="") as fh:
@@ -535,7 +570,7 @@ def _live_summary(cfg: dict, rows: list[dict]) -> None:
                         round(r["holdings"], 2), round(r["realized"], 2), r["trades"]])
     print(f"\nLive accounts ranked by current value ({datetime.now(IST):%Y-%m-%d %H:%M IST}):")
     for i, r in enumerate(out[:15], 1):
-        print(f"  {i:>2}. {r['account']} ({r['name']:<26}) â¹{r['value']:>12,.2f} "
-              f"| trades {r['trades']:>2} | realized â¹{r['realized']:+,.2f}")
+        print(f"  {i:>2}. {r['account']} ({r['name']:<26}) ₹{r['value']:>12,.2f} "
+              f"| trades {r['trades']:>2} | realized ₹{r['realized']:+,.2f}")
     if len(out) > 15:
         print(f"  ... {len(out) - 15} more (see data/sweep/live_summary.csv)")
