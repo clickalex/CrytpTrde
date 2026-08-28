@@ -2006,6 +2006,38 @@ def _live_summary(cfg: dict, rows: list[dict]) -> None:
 # =============================================================================
 HERE = Path(__file__).resolve().parent
 STATE_DIR = HERE / "state"
+LAST_RUN_FILE = STATE_DIR / "last_run.json"
+
+# `bot` / `coin` are offline, read-only drill-downs into local tournament
+# state — not bot runs — so they never touch the "last bot run" heartbeat.
+NO_HEARTBEAT_COMMANDS = {"bot", "coin"}
+
+
+def record_last_run(command: str, status: str = "ok", note: str = "") -> None:
+    """Write state/last_run.json — WHEN the bot last ran, and how it went.
+
+    The static dashboard can't ask the bot anything, so this file is the
+    source of truth: build_data_js.py embeds it into data.js as `bot_status`,
+    and every dashboard page renders it as the "Last bot run" badge in the
+    header. `status` is "ok" (cycle completed), "skipped" (e.g. CoinDCX
+    unreachable this hour) or "error" (daemon cycle crashed). Best-effort:
+    a failure here must never break the bot itself.
+    """
+    try:
+        data = {
+            "timestamp_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "command": command,
+            "status": status,
+            "runner": "github-actions" if os.environ.get("GITHUB_ACTIONS") == "true" else "local",
+        }
+        if note:
+            data["note"] = note
+        STATE_DIR.mkdir(parents=True, exist_ok=True)
+        tmp = LAST_RUN_FILE.with_suffix(".json.tmp")   # atomic save, like portfolio.json
+        tmp.write_text(json.dumps(data, indent=2))
+        tmp.replace(LAST_RUN_FILE)
+    except OSError as exc:
+        print(f"  ! could not write last-run heartbeat: {exc}", file=sys.stderr)
 
 
 # --------------------------------------------------------------------- commands
@@ -2350,10 +2382,12 @@ def cmd_run(cfg: dict, args) -> None:
     while True:
         try:
             run_cycle(cfg, make_broker(cfg), make_coin(cfg))
+            record_last_run("run", "ok")
         except (KeyboardInterrupt, SystemExit):
             raise
         except Exception as exc:  # noqa: BLE001 â daemon must not die
             print(f"  ! cycle error: {exc}")
+            record_last_run("run", "error", note=str(exc))
         time.sleep(interval * 60)
 
 
@@ -2486,6 +2520,8 @@ def main():
         # no CoinDCX call needed, so they run offline (and in CI).
 
         args.func(cfg, args)
+        if args.command not in NO_HEARTBEAT_COMMANDS:
+            record_last_run(args.command, "ok")
     except CoinDCXError as exc:
         # Hourly GitHub Actions should not go red when CoinDCX/Cloudflare
         # blocks datacenter IPs — skip this hour and try again next cron.
@@ -2493,6 +2529,7 @@ def main():
         print(msg, flush=True)
         print(msg, file=sys.stderr, flush=True)
         if args.command in {"sweep-live", "sweep-status", "check", "status", "assets"}:
+            record_last_run(args.command, "skipped", note=msg)
             raise SystemExit(0) from exc
         raise SystemExit(1) from exc
     except (OSError, ValueError, yaml.YAMLError, KeyError, TypeError) as exc:

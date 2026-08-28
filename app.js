@@ -12,6 +12,7 @@
     'sweep': 'sweep_results',
     'trades': 'trades',
     'live': 'live_summary',
+    'bot': null,
     'configs': 'accounts',
     'compare': 'sweep_results',
     'importer': 'custom',
@@ -61,6 +62,9 @@
     chartsExpanded: true,
     autoRefreshInterval: null,
     autoRefreshRateSec: 0,
+
+    // Bot Details page
+    currentBotAccount: null,
   };
 
   // Chart References
@@ -73,6 +77,7 @@
     playgroundChart: null,
     ensembleChart: null,
     underwaterChart: null,
+    botPageChart: null,
   };
 
   // Dataset Schema Configs
@@ -204,11 +209,96 @@
   };
 
   // ==========================================================================
+  // "Last bot run" badge — answers "when did the bot last run?" on EVERY page.
+  // Source: `bot_status` in data.js (embedded by build_data_js.py from the
+  // heartbeat file state/last_run.json that cryptobot.py rewrites each run).
+  // The relative age is computed client-side and refreshed every 30s, so the
+  // badge keeps counting up even while the page stays open.
+  // ==========================================================================
+  function parseUtc(ts) {
+    if (!ts) return null;
+    const d = new Date(ts);
+    return Number.isNaN(d.getTime()) ? null : d;
+  }
+
+  function formatAge(ms) {
+    if (ms < 45 * 1000) return 'just now';
+    const mins = Math.floor(ms / 60000);
+    if (mins < 60) return `${mins}m ago`;
+    const hours = Math.floor(mins / 60);
+    if (hours < 24) return `${hours}h ${mins % 60}m ago`;
+    const days = Math.floor(hours / 24);
+    return `${days}d ${hours % 24}h ago`;
+  }
+
+  function formatAbsolute(d) {
+    const utc = d.toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+    let local;
+    try {
+      local = d.toLocaleString(undefined, {
+        day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit',
+      });
+    } catch (e) {
+      local = '';
+    }
+    return local ? `${utc} (${local})` : utc;
+  }
+
+  function renderBotRunBadge() {
+    const controls = document.querySelector('.header-controls');
+    const botStatus = window.DATA_SETS ? window.DATA_SETS.bot_status : null;
+    if (!controls || !botStatus) return;
+
+    const ranAt = parseUtc(botStatus.timestamp_utc);
+    if (!ranAt) return;
+
+    const badge = document.createElement('div');
+    badge.className = 'bot-run-badge';
+    badge.innerHTML = '<span class="bot-run-dot"></span><span class="bot-run-text"></span>';
+    controls.insertBefore(badge, controls.firstChild);
+    const textEl = badge.querySelector('.bot-run-text');
+
+    // The bot runs hourly (:30 UTC). Green = ran this cycle; amber = one or
+    // two cycles missed (or the run was skipped, e.g. CoinDCX unreachable);
+    // red = silent for 6h+ or the last run errored.
+    function update() {
+      const ageMs = Date.now() - ranAt.getTime();
+      const runStatus = botStatus.status || 'ok';
+      let cls = 'is-fresh';
+      if (runStatus === 'error') cls = 'is-dead';
+      else if (runStatus === 'skipped') cls = 'is-late';
+      else if (ageMs > 6 * 3600 * 1000) cls = 'is-dead';
+      else if (ageMs > 2 * 3600 * 1000) cls = 'is-late';
+      badge.classList.remove('is-fresh', 'is-late', 'is-dead');
+      badge.classList.add(cls);
+
+      const verb = runStatus === 'error' ? 'Bot errored'
+        : runStatus === 'skipped' ? 'Bot skipped'
+        : 'Bot ran';
+      textEl.textContent = `${verb} ${formatAge(ageMs)}`;
+
+      const lines = [
+        `Last bot run: ${formatAbsolute(ranAt)}`,
+        `Command: ${botStatus.command || '?'} · status: ${runStatus}`
+        + (botStatus.runner ? ` · runner: ${botStatus.runner}` : ''),
+      ];
+      if (botStatus.note) lines.push(botStatus.note);
+      const generated = parseUtc(botStatus.data_generated_utc);
+      if (generated) lines.push(`Dashboard data built: ${formatAbsolute(generated)}`);
+      badge.title = lines.join('\n');
+    }
+
+    update();
+    setInterval(update, 30 * 1000);
+  }
+
+  // ==========================================================================
   // Initialization & Device-Friendly Navigation Setup
   // ==========================================================================
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initNavigation();
+    renderBotRunBadge();
     readStateFromUrl();
     initEventListeners();
 
@@ -216,6 +306,8 @@
       initAnalyticsPage();
     } else if (state.pageId === 'compare') {
       openStrategyComparator();
+    } else if (state.pageId === 'bot') {
+      initBotPage();
     } else {
       loadDataset(state.currentDatasetKey);
       applyInitialTradesView();
@@ -308,6 +400,7 @@
     localStorage.setItem('crytptrde_theme', state.theme);
     updateThemeIcon();
     renderCharts(filterData(getRawDataset(state.currentDatasetKey)));
+    if (state.pageId === 'bot' && state.currentBotAccount) renderBotPageChart(state.currentBotAccount);
   }
 
   function updateThemeIcon() {
@@ -2789,10 +2882,19 @@ strategy:
       `;
     }).join('');
 
+    // Deep link to the dedicated Bot Details page for bot-related rows.
+    const linkable = ['live_summary', 'live_trades', 'last_trades', 'accounts'];
+    const botPageLink = (row && row.account && linkable.includes(state.currentDatasetKey))
+      ? `<div style="margin-top:0.9rem;">
+           <a class="btn btn-sm btn-primary" href="bot.html?account=${encodeURIComponent(row.account)}">🤖 Open ${escapeHtml(row.account)} detail page →</a>
+         </div>`
+      : '';
+
     content.innerHTML = `
       <div class="detail-grid">
         ${itemsHtml}
       </div>
+      ${botPageLink}
       <div>
         <div class="detail-item-label" style="margin-bottom:0.4rem">Raw JSON Record</div>
         <pre class="json-preview">${escapeHtml(JSON.stringify(row, null, 2))}</pre>
@@ -3025,6 +3127,8 @@ strategy:
       <div class="drill-select-row">
         <label for="bot-select">🤖 Choose a bot to inspect</label>
         <select id="bot-select" class="filter-select">${accounts.map(a => `<option value="${escapeHtml(a)}">${escapeHtml(a)}</option>`).join('')}</select>
+        <a id="bot-modal-open-page" class="btn btn-sm" href="bot.html?account=${encodeURIComponent(accounts[0])}"
+           title="Open this bot's dedicated full page">↗ Full page</a>
       </div>
       <div id="bot-detail-container"></div>
     `;
@@ -3033,7 +3137,11 @@ strategy:
     const select = document.getElementById('bot-select');
     if (select) {
       renderBotDetailsBody(select.value);
-      select.addEventListener('change', () => renderBotDetailsBody(select.value));
+      select.addEventListener('change', () => {
+        renderBotDetailsBody(select.value);
+        const pageLink = document.getElementById('bot-modal-open-page');
+        if (pageLink) pageLink.href = `bot.html?account=${encodeURIComponent(select.value)}`;
+      });
     }
   }
 
@@ -3150,6 +3258,177 @@ strategy:
       renderCoinDetailsBody(select.value);
       select.addEventListener('change', () => renderCoinDetailsBody(select.value));
     }
+  }
+
+  // ==========================================================================
+  // Bot Details PAGE (bot.html) — a dedicated full-page deep-dive into ONE
+  // tournament bot. Reuses the drill-down renderer (renderBotDetailsBody) and
+  // adds an account picker, shareable deep links (?account=acc_XXX), a
+  // rank banner and a cash / realized-P&L chart. Same embedded data, no server.
+  // ==========================================================================
+  const BOT_START_CASH = 10000;   // every demo account starts at ₹10,000
+
+  function botAccountFromUrl(validAccounts) {
+    const wanted = new URLSearchParams(window.location.search).get('account')
+      || new URLSearchParams(window.location.hash.replace(/^#/, '')).get('account');
+    if (wanted && validAccounts.includes(wanted)) return wanted;
+    // Default: the current tournament leader, else the first bot.
+    const live = window.DATA_SETS?.live_summary || [];
+    const leader = [...live].sort((a, b) => (Number(a.rank) || 1e9) - (Number(b.rank) || 1e9))[0];
+    return (leader && leader.account) || validAccounts[0] || null;
+  }
+
+  function updateBotPageUrl(account, push) {
+    const url = `bot.html?account=${encodeURIComponent(account)}`;
+    try {
+      if (push) history.pushState({ account }, '', url);
+      else history.replaceState({ account }, '', url);
+    } catch (e) { /* file:// or sandboxed iframe — deep links just won't persist */ }
+  }
+
+  function botPageFillSeries(account) {
+    // Exact cash replay of the bot's audit log: buys cost notional+fee, sells
+    // return notional-fee-TDS; realized P&L uses the broker's moving-average
+    // cost attribution (analyzeFills), same as `cryptobot.py bot acc_XXX`.
+    const sorted = (window.DATA_SETS?.live_trades || [])
+      .filter(f => f.account === account)
+      .sort((a, b) =>
+        String(a.timestamp_utc).localeCompare(String(b.timestamp_utc)) ||
+        String(a.asset).localeCompare(String(b.asset)) || String(a.side).localeCompare(String(b.side)));
+    const a = analyzeFills(sorted);
+    let cash = BOT_START_CASH, realized = 0;
+    const labels = ['start'], cashSeries = [cash], pnlSeries = [0];
+    a.fills.forEach(f => {
+      const notional = Number(f.notional_inr) || 0;
+      const fee = Number(f.fee_inr) || 0;
+      const tds = Number(f.tds_inr) || 0;
+      const side = (f.side || '').toLowerCase();
+      if (side === 'buy') cash -= notional + fee;
+      else if (side === 'sell') {
+        cash += notional - fee - tds;
+        realized += Number(f.attributed_pnl) || 0;
+      }
+      const t = String(f.timestamp_utc || '');
+      labels.push(t.length >= 16 ? t.slice(5, 16).replace('T', ' ') : t);
+      cashSeries.push(Math.round(cash * 100) / 100);
+      pnlSeries.push(Math.round(realized * 100) / 100);
+    });
+    return { labels, cashSeries, pnlSeries, fillCount: a.fills.length, finalCash: cash };
+  }
+
+  function renderBotPageChart(account) {
+    const canvas = document.getElementById('bot-page-chart');
+    const empty = document.getElementById('bot-page-chart-empty');
+    if (!canvas || !window.Chart) return;
+
+    if (charts.botPageChart) { charts.botPageChart.destroy(); charts.botPageChart = null; }
+
+    const s = botPageFillSeries(account);
+    if (!s.fillCount) {
+      canvas.style.display = 'none';
+      if (empty) empty.style.display = 'flex';
+      return;
+    }
+    canvas.style.display = '';
+    if (empty) empty.style.display = 'none';
+
+    const isDark = state.theme === 'dark';
+    const gridColor = isDark ? '#273549' : '#e2e8f0';
+    const textColor = isDark ? '#94a3b8' : '#64748b';
+    const inr = v => '₹' + Number(v).toLocaleString('en-IN', { maximumFractionDigits: 2 });
+
+    charts.botPageChart = new Chart(canvas.getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: s.labels,
+        datasets: [
+          {
+            label: 'Cash Balance (₹)',
+            data: s.cashSeries,
+            borderColor: 'rgba(14, 165, 233, 0.95)',
+            backgroundColor: 'rgba(14, 165, 233, 0.12)',
+            fill: true, tension: 0.15, borderWidth: 2,
+            pointRadius: s.fillCount > 120 ? 0 : 2.5,
+            yAxisID: 'y'
+          },
+          {
+            label: 'Realized P&L (₹)',
+            data: s.pnlSeries,
+            borderColor: 'rgba(168, 85, 247, 0.95)',
+            backgroundColor: 'rgba(168, 85, 247, 0.12)',
+            fill: false, tension: 0.15, borderWidth: 2,
+            pointRadius: s.fillCount > 120 ? 0 : 2.5,
+            yAxisID: 'y1'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { labels: { color: textColor } },
+          tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${inr(ctx.parsed.y)}` } }
+        },
+        scales: {
+          x: { grid: { color: gridColor }, ticks: { color: textColor, maxTicksLimit: 12, font: { size: 10 } } },
+          y: { position: 'left', grid: { color: gridColor }, ticks: { color: textColor, callback: v => inr(v) } },
+          y1: { position: 'right', grid: { drawOnChartArea: false }, ticks: { color: textColor, callback: v => inr(v) } }
+        }
+      }
+    });
+  }
+
+  function renderBotPageRankInfo(account) {
+    const el = document.getElementById('bot-page-rank-info');
+    if (!el) return;
+    const live = window.DATA_SETS?.live_summary || [];
+    const row = live.find(r => r.account === account);
+    if (row && row.rank) {
+      const pct = Math.max(1, Math.round(row.rank / live.length * 100));
+      el.textContent = `Rank ${row.rank} of ${live.length} · top ${pct}% · ${row.trades ?? 0} trades`;
+    } else {
+      el.textContent = `${getBotAccounts().length} bots in the tournament`;
+    }
+  }
+
+  function initBotPage() {
+    const select = document.getElementById('bot-page-select');
+    const container = document.getElementById('bot-detail-container');
+    if (!select || !container) return;
+
+    const accounts = getBotAccounts();
+    if (!accounts.length) {
+      container.innerHTML = '<p style="color:var(--text-muted);">No live bot data available. Run <code>cryptobot.py sweep-live</code> then <code>build_data_js.py</code> to populate it.</p>';
+      return;
+    }
+
+    select.innerHTML = accounts.map(a => `<option value="${escapeHtml(a)}">${escapeHtml(a)}</option>`).join('');
+
+    function selectAccount(account, push) {
+      if (!account || !accounts.includes(account)) account = accounts[0];
+      state.currentBotAccount = account;
+      select.value = account;
+      updateBotPageUrl(account, push);
+      renderBotDetailsBody(account);   // strategy, KPIs, positions, full trade history
+      renderBotPageChart(account);
+      renderBotPageRankInfo(account);
+    }
+
+    function stepAccount(dir) {
+      const idx = accounts.indexOf(state.currentBotAccount);
+      selectAccount(accounts[(idx + dir + accounts.length) % accounts.length], true);
+    }
+
+    select.addEventListener('change', () => selectAccount(select.value, true));
+    document.getElementById('bot-page-prev')?.addEventListener('click', () => stepAccount(-1));
+    document.getElementById('bot-page-next')?.addEventListener('click', () => stepAccount(1));
+    window.addEventListener('popstate', (e) => {
+      const acct = e.state && accounts.includes(e.state.account) ? e.state.account : select.value;
+      selectAccount(acct, false);
+    });
+
+    selectAccount(botAccountFromUrl(accounts), false);
   }
 
   function openRunBotModal() {

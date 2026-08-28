@@ -338,6 +338,7 @@ by `.github/workflows/static.yml`:
 | `index.html` | 🏆 Sweep tournament leaderboard — 500 strategies, P&L / win-rate / drawdown charts |
 | `trades.html` | ⚡ Trades log: backtest trades, plus the **last trade** and **every fill** of the 500 live bots (with a streak analyzer, a 1% TDS calculator, and **🤖 Bot Details** / **🪙 Coin Details** drill-downs — pick a bot or a coin and see every buy/sell in detail) |
 | `live.html` | 🟢 The 500 live demo accounts, ranked on current balances |
+| `bot.html` | 🤖 **Bot Details** — a dedicated page for ONE bot (`bot.html?account=acc_001`): its strategy, rank, KPIs, open positions, full buy/sell history, and a cash & realized-P&L chart. Reachable from the nav, the Bot Details modal (↗ Full page), or any account row's inspector |
 | `configs.html` | ⚙️ Every bot's parameter spec, with one-click `config.yaml` download |
 | `compare.html` | ⚖️ Side-by-side strategy diffs + multi-line equity curves vs HODL |
 | `analytics.html` | 📈 Monte Carlo risk & ruin runs, VaR, underwater drawdown curves, correlation heatmaps, strategy playground |
@@ -360,8 +361,10 @@ comparison, subtotals, CSV/JSON export, theme persistence, and a print-friendly
 report.
 
 **How the site gets its data:** `data.js` embeds snapshots of the CSVs and is
-what every page renders — and nothing in CI regenerates it, so the Pages site
-shows the datasets as of the last time `data.js` was refreshed by hand.
+what every page renders. `build_data_js.py` regenerates ALL of `data.js` from
+the bot's CSV outputs + heartbeat, and the hourly bot workflow (`dca.yml`)
+re-runs it after every bot run and commits the result — so every grid, the
+**"Last bot run" badge**, and the per-bot detail page refresh automatically.
 
 | Dataset in `data.js` | Source of truth |
 |---|---|
@@ -372,18 +375,18 @@ shows the datasets as of the last time `data.js` was refreshed by hand.
 | `backtest_results` | `backtest_results.csv` |
 | `backtest_equity` | `backtest_equity.csv` |
 | `top10_equity` | `sweep/equity_top10.csv` |
-| `live_trades` | every `sweep/accounts/acc_XXX/trades.csv` (via `build_data_js.py`) |
-| `last_trades` | same — the single latest fill per bot (via `build_data_js.py`) |
+| `live_trades` | every `sweep/accounts/acc_XXX/trades.csv`, flattened |
+| `last_trades` | same — the single latest fill per bot |
+| `bot_status` | `state/last_run.json` — WHEN the bot last ran + how it went; shown as the header badge on every page |
 
-Two things follow from that. The **bot state** in the repo (`state/portfolio.json`)
-is committed after every Actions run, so `live.html` can poll it directly — its
-optional live polling (off / 5s / 10s / 30s) refetches that file and never touches
-`data.js`. And to refresh the tournament views on the site, regenerate `data.js`
-from the CSVs above and push to `main`. The two live-trade datasets aren't
-produced by any single CSV, so rebuild them with:
+All of the above are rebuilt by `build_data_js.py` (nothing is hand-edited in
+`data.js` anymore). The **bot state** in the repo (`state/portfolio.json`) is
+committed after every Actions run, so `live.html` can also poll it directly —
+its optional live polling (off / 5s / 10s / 30s) refetches that file and never
+touches `data.js`. To refresh everything locally:
 
 ```bash
-python3 build_data_js.py            # flatten all 500 bots' trades.csv into data.js
+python3 build_data_js.py            # rebuild ALL of data.js from CSVs + heartbeat
 python3 build_data_js.py --check    # dry-run: just print counts
 ```
 
@@ -460,6 +463,9 @@ requirements.txt        requests + PyYAML (matplotlib optional)
 test_speed_fix.py       offline test suite (12 tests)
 
 state/                  the LIVE bot's state: portfolio.json + trades.csv
+                          + last_run.json (heartbeat: when the bot last ran,
+                            which command, ok/skipped/error — feeds the
+                            "Last bot run" badge on the dashboard)
 backtest_{results,equity,trades}.csv   outputs of the last `backtest`
 
 sweep/                  tournament outputs
@@ -472,9 +478,10 @@ sweep/                  tournament outputs
   accounts/acc_001…500/   each demo account's own portfolio.json + trades.csv
 
 index.html live.html trades.html configs.html
-compare.html analytics.html importer.html   the 7-page static dashboard
+compare.html analytics.html importer.html
+bot.html                                  the 8-page static dashboard
 app.js styles.css data.js   dashboard logic, styling, embedded datasets
-build_data_js.py           regenerates the live_trades / last_trades datasets
+build_data_js.py           regenerates ALL of data.js from the CSVs + heartbeat
 
 .github/workflows/      dca.yml (hourly bot) · tests.yml · static.yml · jekyll…
 docs/ci/                workflow drop-ins + notes
