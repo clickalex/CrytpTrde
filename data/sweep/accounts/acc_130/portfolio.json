@@ -1,12 +1,23 @@
 {
-  "cash_inr": 5000.011836769138,
-  "realized_pnl": 0.0,
+  "cash_inr": 5969.9424767667015,
+  "realized_pnl": -241.25130284281022,
+  "total_trades": 4,
+  "sell_count": 1,
+  "gross_gains": 0.0,
+  "gross_losses": -241.25,
+  "total_tds": 47.64,
   "holdings": {
-    "GASINR": {
-      "qty": 38.0288,
-      "avg_cost": 131.47898864100003,
-      "invested": 4999.988163230862,
-      "last_buy_at": "2026-08-28T17:58:12+00:00"
+    "BNBINR": {
+      "qty": 0.036,
+      "avg_cost": 68961.02097884999,
+      "invested": 2482.5967552385996,
+      "last_buy_at": "2026-08-28T18:53:42+00:00"
+    },
+    "ADAINR": {
+      "qty": 62.2,
+      "avg_cost": 20.234316102000005,
+      "invested": 1258.5744615444003,
+      "last_buy_at": "2026-08-28T18:53:42+00:00"
     }
   }
 }
