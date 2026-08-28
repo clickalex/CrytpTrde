@@ -1,6 +1,6 @@
 name: Tests
 
-# Runs the offline test suite (test_speed_fix.py - stubbed CoinDCX, no
+# Runs the offline test suite (tests/test_speed_fix.py - stubbed CoinDCX, no
 # network) on every push and pull request, so a regression - e.g. a broken
 # exit rule or a crashed simulator - is caught before it reaches main.
 # The hourly bot workflow (dca.yml) is separate and unaffected.
@@ -30,5 +30,5 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run offline test suite (11 tests)
-        run: python3 test_speed_fix.py
+      - name: Run offline test suite (12 tests)
+        run: python3 tests/test_speed_fix.py
