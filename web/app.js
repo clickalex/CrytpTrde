@@ -84,7 +84,7 @@
   const DATASET_CONFIGS = {
     sweep_results: {
       title: 'Sweep Tournament Results',
-      subtitle: '500 bot strategies backtested across CoinDCX markets (30 days)',
+      subtitle: '{count} bot strategies backtested across CoinDCX markets (30 days)',
       defaultSort: 'rank',
       defaultSortDir: 'asc',
       rowKey: 'account',
@@ -111,7 +111,7 @@
     },
     trades: {
       title: 'Backtest Trades Log',
-      subtitle: '92 simulated trade entries & exits with timing, RSI, and PnL',
+      subtitle: '{count} simulated trade entries & exits with timing, RSI, and PnL',
       defaultSort: 'entry_time',
       defaultSortDir: 'desc',
       rowKey: 'entry_time',
@@ -129,7 +129,7 @@
     },
     live_trades: {
       title: 'Live Bot Trades',
-      subtitle: 'Every paper fill from the 500 live tournament bots, newest first',
+      subtitle: 'Every paper fill from the {count} tournament bots, newest first',
       defaultSort: 'timestamp_utc',
       defaultSortDir: 'desc',
       rowKey: ['account', 'timestamp_utc', 'asset', 'side', 'quantity'],
@@ -148,7 +148,7 @@
     },
     last_trades: {
       title: 'Last Trade per Bot',
-      subtitle: 'The single most recent fill for each of the 500 live bots',
+      subtitle: 'The single most recent fill for each of {count} live bots',
       defaultSort: 'timestamp_utc',
       defaultSortDir: 'desc',
       rowKey: 'account',
@@ -167,7 +167,7 @@
     },
     live_summary: {
       title: 'Live Tournament Accounts',
-      subtitle: '500 tournament demo accounts tracked with cash, holdings, and PnL',
+      subtitle: '{count} tournament demo accounts tracked with cash, holdings, and PnL',
       defaultSort: 'rank',
       defaultSortDir: 'asc',
       rowKey: 'account',
@@ -190,7 +190,7 @@
     },
     accounts: {
       title: 'Bot Config Grid',
-      subtitle: '500 parameterized trading strategy accounts specifications',
+      subtitle: '{count} parameterized trading strategy account specifications',
       defaultSort: 'account',
       defaultSortDir: 'asc',
       rowKey: 'account',
@@ -293,16 +293,374 @@
   }
 
   // ==========================================================================
+  // Navigation count badges — kept honest by the data, not by hand.
+  //
+  // These badges used to be hardcoded ("500", "8.1K") in all eight pages, so
+  // they drifted the moment the data changed: the trades badge still said
+  // 8.1K while live_trades had passed 10.3K rows. They are now derived from
+  // window.DATA_SETS on load, so they cannot go stale.
+  // ==========================================================================
+  const NAV_BADGE_DATASETS = {
+    'index.html': 'sweep_results',
+    'trades.html': 'live_trades',
+    'live.html': 'live_summary',
+    'bot.html': 'live_summary',
+  };
+
+  function formatBadgeCount(n) {
+    if (!n) return '0';
+    if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+    return String(n);
+  }
+
+  function updateNavBadges() {
+    document.querySelectorAll('.nav-badge').forEach(badge => {
+      const link = badge.closest('a[href]');
+      if (!link) return;
+      const href = link.getAttribute('href') || '';
+      const file = href.split('#')[0].split('/').pop();
+      let key = NAV_BADGE_DATASETS[file];
+      if (file === 'trades.html' && href.includes('last_trades')) key = 'last_trades';
+      if (!key) return;
+      const rows = window.DATA_SETS ? window.DATA_SETS[key] : null;
+      if (!Array.isArray(rows)) return;
+      badge.textContent = formatBadgeCount(rows.length);
+      badge.title = `${rows.length.toLocaleString()} rows in ${key}`;
+    });
+  }
+
+  const PAGE_INTRO_SUBTITLES = {
+    sweep: n => `${n} bot strategies backtested across CoinDCX INR markets`,
+    live: n => `${n} demo accounts trading live spot prices with real-time portfolio tracking`,
+    trades: n => `Backtest trades, plus the last trade & every fill of ${n} live bots`,
+  };
+
+  function updatePageIntro() {
+    // The same drift as the nav badges, one level up: index/live/trades each
+    // hardcoded the tournament size into their intro paragraph.
+    const el = document.getElementById('page-intro-subtitle');
+    const build = PAGE_INTRO_SUBTITLES[state.pageId];
+    if (!el || !build) return;
+    // NB: the trades page talks about "every fill of the N live BOTS", so it
+    // counts accounts (live_summary), not fills (live_trades) — the nav badge
+    // for the same page counts fills, which is a different number.
+    const rows = window.DATA_SETS ? window.DATA_SETS[{
+      sweep: 'sweep_results', live: 'live_summary', trades: 'live_summary',
+    }[state.pageId]] : null;
+    if (!Array.isArray(rows)) return;
+    el.textContent = build(rows.length.toLocaleString());
+  }
+
+  function renderMissingDataBanner() {
+    // Every page is built from the generated web/data.js. If it 404s (first
+    // Pages deploy, blocked path, failed build) the tables just render empty
+    // with no explanation at all — say so instead.
+    if (window.DATA_SETS) return;
+    const host = document.querySelector('.app-container');
+    if (!host) return;
+    const banner = document.createElement('div');
+    banner.className = 'health-warning health-warning-danger';
+    banner.style.marginBottom = '1rem';
+    banner.innerHTML = '<span class="health-warning-icon">🔴</span><span>'
+      + '<strong>data.js did not load.</strong> Every page here is built from '
+      + 'the generated dataset <code>web/data.js</code>, so there is nothing to '
+      + 'show without it. Run <code>python3 scripts/build_data_js.py</code> and '
+      + 'redeploy, or check the Pages deploy picked the file up.</span>';
+    host.insertBefore(banner, host.firstChild);
+  }
+
+  // ==========================================================================
+  // Data Health page (health.html) — "is my bot actually running?"
+  //
+  // Every other page renders a snapshot baked into data.js by
+  // scripts/build_data_js.py. If the hourly workflow stops, or the data stops
+  // being rebuilt, those pages still render happily and quietly show a stale
+  // tournament. This is the one page that says whether the snapshot is fresh,
+  // what is in it, and when the next hourly run is due.
+  // ==========================================================================
+  const HEALTH_DATASETS = [
+    { key: 'sweep_results', label: 'Sweep leaderboard', source: 'data/sweep/results.csv' },
+    { key: 'live_summary', label: 'Live tournament accounts', source: 'data/sweep/live_summary.csv' },
+    { key: 'accounts', label: 'Strategy grid', source: 'data/sweep/accounts.csv' },
+    { key: 'live_trades', label: 'Live fills (every bot)', source: 'data/sweep/accounts/*/trades.csv', dateKey: 'timestamp_utc' },
+    { key: 'last_trades', label: 'Last fill per bot', source: 'derived from the fills above', dateKey: 'timestamp_utc' },
+    { key: 'trades', label: 'Backtest trades', source: 'data/backtest/backtest_trades.csv' },
+    { key: 'backtest_results', label: 'Backtest summary', source: 'data/backtest/backtest_results.csv' },
+    { key: 'top10_equity', label: 'Top-10 equity curves', source: 'data/sweep/equity_top10.csv', dateKey: 'date' },
+    { key: 'backtest_equity', label: 'Backtest equity curve', source: 'data/backtest/backtest_equity.csv', dateKey: 'date' },
+  ];
+
+  function healthRows(key) {
+    const rows = window.DATA_SETS ? window.DATA_SETS[key] : null;
+    return Array.isArray(rows) ? rows : null;
+  }
+
+  function newestTimestamp(rows, dateKey) {
+    if (!dateKey || !rows || !rows.length) return null;
+    let best = null;
+    for (const row of rows) {
+      const raw = row[dateKey];
+      if (!raw) continue;
+      // equity CSVs use a plain YYYY-MM-DD date; the fills use full ISO stamps.
+      const d = parseUtc(String(raw).length === 10 ? `${raw}T00:00:00Z` : raw);
+      if (d && (!best || d > best)) best = d;
+    }
+    return best;
+  }
+
+  function approxBytes(value) {
+    try {
+      return JSON.stringify(value).length;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function formatBytes(n) {
+    if (n >= 1024 * 1024) return `${(n / 1048576).toFixed(2)} MB`;
+    if (n >= 1024) return `${(n / 1024).toFixed(1)} KB`;
+    return `${n} B`;
+  }
+
+  function nextHourlyRun() {
+    // dca.yml cron is "30 * * * *" — every hour at minute :30 UTC.
+    const now = new Date();
+    const next = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(),
+      now.getUTCDate(), now.getUTCHours(), 30, 0, 0));
+    if (next.getTime() <= now.getTime()) next.setUTCHours(next.getUTCHours() + 1);
+    return next;
+  }
+
+  function renderMainPortfolio(portfolio, errorMessage) {
+    // data/state/portfolio.json is the MAIN paper portfolio driven by
+    // `cryptobot.py check|status` — it is NOT one of the 500 tournament demo
+    // accounts. It used to be merged into live_summary[0] on every poll,
+    // which silently overwrote the rank-1 tournament bot with a different
+    // account's numbers. It now gets its own card.
+    const host = document.getElementById('main-portfolio-card');
+    if (!host) return;
+
+    if (errorMessage || !portfolio) {
+      host.innerHTML = `
+        <div class="detail-item">
+          <div class="detail-item-label">Main paper portfolio</div>
+          <div class="detail-item-value text-muted">${escapeHtml(errorMessage || 'No snapshot published yet.')}</div>
+        </div>`;
+      return;
+    }
+
+    const holdings = portfolio.holdings || {};
+    const heldAssets = Object.keys(holdings).filter(k => (holdings[k]?.qty || 0) > 0);
+    host.innerHTML = `
+      <div class="detail-item">
+        <div class="detail-item-label">Cash (INR)</div>
+        <div class="detail-item-value">₹${formatNumber(portfolio.cash_inr, 2)}</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-item-label">Realized P&amp;L</div>
+        <div class="detail-item-value">${formatPnl(portfolio.realized_pnl, '₹')}</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-item-label">Open positions</div>
+        <div class="detail-item-value">${heldAssets.length}</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-item-label">Assets held</div>
+        <div class="detail-item-value">${heldAssets.length ? heldAssets.map(escapeHtml).join(', ') : '—'}</div>
+      </div>`;
+  }
+
+  function renderHealthPage() {
+    const metrics = document.getElementById('health-metrics');
+    const tableHost = document.getElementById('health-dataset-table');
+    const warningsHost = document.getElementById('health-warnings');
+    const scheduleHost = document.getElementById('health-schedule');
+
+    const botStatus = window.DATA_SETS ? window.DATA_SETS.bot_status : null;
+    const ranAt = parseUtc(botStatus && botStatus.timestamp_utc);
+    const runAgeMs = ranAt ? Date.now() - ranAt.getTime() : null;
+    const runState = botStatus && botStatus.status === 'error' ? 'error'
+      : botStatus && botStatus.status === 'skipped' ? 'skipped'
+        : (runAgeMs !== null && runAgeMs > 6 * 3600 * 1000) ? 'dead'
+          : (runAgeMs !== null && runAgeMs > 2 * 3600 * 1000) ? 'late' : 'fresh';
+
+    const inventory = HEALTH_DATASETS.map(d => {
+      const rows = healthRows(d.key);
+      const bytes = rows ? approxBytes(rows) : 0;
+      return {
+        ...d,
+        rows: rows ? rows.length : null,
+        bytes,
+        newest: rows ? newestTimestamp(rows, d.dateKey) : null,
+      };
+    });
+
+    const totalRows = inventory.reduce((a, d) => a + (d.rows || 0), 0);
+    const totalBytes = inventory.reduce((a, d) => a + d.bytes, 0);
+    const newestFill = newestTimestamp(healthRows('live_trades') || [], 'timestamp_utc');
+
+    if (metrics) {
+      const cards = [
+        {
+          title: 'Last bot run', icon: '🕐',
+          value: ranAt ? formatAge(runAgeMs) : 'unknown',
+          sub: ranAt ? `${botStatus.command || '?'} · ${botStatus.status || 'ok'}` : 'no heartbeat in data.js',
+          highlight: runState === 'fresh' ? 'success' : runState === 'late' || runState === 'skipped' ? 'warning' : 'danger',
+        },
+        {
+          title: 'Embedded rows', icon: '📦',
+          value: totalRows.toLocaleString(),
+          sub: `${inventory.filter(d => d.rows).length} of ${inventory.length} datasets present`,
+          highlight: 'purple',
+        },
+        {
+          title: 'data.js payload', icon: '💾',
+          value: formatBytes(totalBytes),
+          sub: 'Downloaded with every page load',
+          highlight: 'info',
+        },
+        {
+          title: 'Newest fill', icon: '⚡',
+          value: newestFill ? formatAge(Date.now() - newestFill.getTime()) : '—',
+          sub: newestFill ? formatAbsolute(newestFill) : 'no fills recorded',
+          highlight: newestFill && (Date.now() - newestFill.getTime()) < 24 * 3600 * 1000 ? 'success' : 'warning',
+        },
+      ];
+      metrics.innerHTML = cards.map(c => `
+        <div class="metric-card highlight-${c.highlight}">
+          <div class="metric-header">
+            <span>${escapeHtml(c.title)}</span>
+            <span class="metric-icon">${c.icon}</span>
+          </div>
+          <div class="metric-value-row"><span class="metric-value">${escapeHtml(c.value)}</span></div>
+          <div class="metric-sub">${escapeHtml(c.sub)}</div>
+        </div>`).join('');
+    }
+
+    if (warningsHost) {
+      const warnings = [];
+      if (!ranAt) {
+        warnings.push(['danger', 'No bot heartbeat in data.js — the bot may never have run, or data.js is stale.']);
+      } else if (runState === 'dead') {
+        warnings.push(['danger', `The bot last reported ${formatAge(runAgeMs)} — expected hourly. Check the Actions tab.`]);
+      } else if (runState === 'error') {
+        warnings.push(['danger', `The last run errored: ${botStatus.note || 'no detail recorded.'}`]);
+      } else if (runState === 'late') {
+        warnings.push(['warning', `The bot last reported ${formatAge(runAgeMs)} — one or two hourly cycles are missing.`]);
+      } else if (runState === 'skipped') {
+        warnings.push(['warning', `The last run was skipped: ${botStatus.note || 'CoinDCX may have been unreachable.'}`]);
+      }
+      if (newestFill && Date.now() - newestFill.getTime() > 48 * 3600 * 1000) {
+        warnings.push(['warning', `Newest tournament fill is ${formatAge(Date.now() - newestFill.getTime())} old — bots may not be trading.`]);
+      }
+      inventory.filter(d => !d.rows).forEach(d => {
+        warnings.push(['info', `${d.label} is empty — ${d.source} has not been generated yet.`]);
+      });
+      if (!warnings.length) {
+        warnings.push(['success', 'Everything looks healthy: the bot reported recently and every dataset has rows.']);
+      }
+      warningsHost.innerHTML = warnings.map(([level, text]) => `
+        <div class="health-warning health-warning-${level}">
+          <span class="health-warning-icon">${{ danger: '🔴', warning: '🟡', info: 'ℹ️', success: '🟢' }[level]}</span>
+          <span>${escapeHtml(text)}</span>
+        </div>`).join('');
+    }
+
+    if (scheduleHost) {
+      const next = nextHourlyRun();
+      scheduleHost.innerHTML = `
+        <div class="detail-item">
+          <div class="detail-item-label">Schedule (UTC)</div>
+          <div class="detail-item-value">Hourly at minute :30 (cron <code>30 * * * *</code>)</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-item-label">Next expected run</div>
+          <div class="detail-item-value" id="health-next-run">${escapeHtml(formatAbsolute(next))}</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-item-label">Countdown</div>
+          <div class="detail-item-value" id="health-countdown">—</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-item-label">Dashboard built</div>
+          <div class="detail-item-value">${escapeHtml((botStatus && parseUtc(botStatus.data_generated_utc)) ? formatAbsolute(parseUtc(botStatus.data_generated_utc)) : 'unknown')}</div>
+        </div>`;
+    }
+
+    if (tableHost) {
+      const body = inventory.map(d => {
+        const status = d.rows === null ? '<span class="badge">missing</span>'
+          : d.rows === 0 ? '<span class="badge badge-sell">empty</span>'
+            : '<span class="badge badge-buy">ok</span>';
+        return `
+          <tr>
+            <td>${escapeHtml(d.label)}</td>
+            <td style="font-family:var(--font-mono);font-size:0.78rem;">${escapeHtml(d.key)}</td>
+            <td style="font-family:var(--font-mono);font-size:0.78rem;color:var(--text-secondary);">${escapeHtml(d.source)}</td>
+            <td class="numeric">${d.rows === null ? '—' : d.rows.toLocaleString()}</td>
+            <td class="numeric">${d.rows ? formatBytes(d.bytes) : '—'}</td>
+            <td>${d.newest ? escapeHtml(formatAbsolute(d.newest)) : '<span class="text-muted">n/a</span>'}</td>
+            <td>${status}</td>
+          </tr>`;
+      }).join('');
+      tableHost.innerHTML = `
+        <div class="table-scroll-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Dataset</th><th>Key</th><th>Source</th>
+                <th class="numeric">Rows</th><th class="numeric">Size</th>
+                <th>Newest record</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody>${body}</tbody>
+          </table>
+        </div>`;
+    }
+  }
+
+  function updateHealthCountdown() {
+    const el = document.getElementById('health-countdown');
+    if (!el) return;
+    const ms = nextHourlyRun().getTime() - Date.now();
+    if (ms <= 0) {
+      el.textContent = 'due now';
+      return;
+    }
+    const mins = Math.floor(ms / 60000);
+    const secs = Math.floor((ms % 60000) / 1000);
+    el.textContent = `${mins}m ${String(secs).padStart(2, '0')}s`;
+  }
+
+  function initHealthPage() {
+    renderHealthPage();
+    updateHealthCountdown();
+    setInterval(updateHealthCountdown, 1000);
+    // The main paper portfolio is the only thing that can change between
+    // data.js rebuilds, so poll it like the Live page does.
+    renderMainPortfolio(null, 'Polling state/portfolio.json …');
+    fetch('state/portfolio.json?t=' + Date.now())
+      .then(res => res.json())
+      .then(p => renderMainPortfolio(p))
+      .catch(() => renderMainPortfolio(null, 'state/portfolio.json not published yet (run the bot once).'));
+  }
+
+  // ==========================================================================
   // Initialization & Device-Friendly Navigation Setup
   // ==========================================================================
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initNavigation();
     renderBotRunBadge();
+    updateNavBadges();
+    updatePageIntro();
+    renderMissingDataBanner();
     readStateFromUrl();
     initEventListeners();
 
-    if (state.pageId === 'analytics') {
+    if (state.pageId === 'health') {
+      initHealthPage();
+    } else if (state.pageId === 'analytics') {
       initAnalyticsPage();
     } else if (state.pageId === 'compare') {
       openStrategyComparator();
@@ -414,10 +772,18 @@
   // Dataset Management & Custom Configs
   // ==========================================================================
   function getActiveConfig() {
-    if (state.currentDatasetKey === 'custom' && state.customData) {
-      return getCustomConfig(state.customData);
-    }
-    return DATASET_CONFIGS[state.currentDatasetKey] || DATASET_CONFIGS.sweep_results;
+    const config = state.currentDatasetKey === 'custom' && state.customData
+      ? getCustomConfig(state.customData)
+      : (DATASET_CONFIGS[state.currentDatasetKey] || DATASET_CONFIGS.sweep_results);
+    // Subtitles carry a {count} placeholder instead of a literal number so
+    // they cannot drift from the data — the same bug as the nav badges. The
+    // backtest one still claimed "92 simulated trade entries" after the
+    // dataset had shrunk to 56 rows.
+    const rows = getRawDataset(state.currentDatasetKey);
+    return {
+      ...config,
+      subtitle: String(config.subtitle || '').replace('{count}', rows.length.toLocaleString()),
+    };
   }
 
   function getRawDataset(key) {
@@ -2392,17 +2758,19 @@ strategy:
   }
 
   function pollLiveState() {
+    // state/portfolio.json is the MAIN paper portfolio (`cryptobot.py check`),
+    // not one of the 500 tournament demo accounts. It used to be merged into
+    // live_summary[0] on every poll, which overwrote the rank-1 tournament bot
+    // with a different account's cash and P&L. It now goes to its own card
+    // (health.html), and the tournament table is left alone.
     fetch('state/portfolio.json?t=' + Date.now())
       .then(res => res.json())
       .then(portfolio => {
-        const liveData = window.DATA_SETS?.live_summary;
-        if (liveData && liveData[0]) {
-          liveData[0].cash_inr = portfolio.cash_inr || liveData[0].cash_inr;
-          liveData[0].realized_pnl_inr = portfolio.realized_pnl || liveData[0].realized_pnl_inr;
-        }
+        renderMainPortfolio(portfolio);
         updateUI();
       })
       .catch(() => {
+        renderMainPortfolio(null, 'state/portfolio.json not published yet.');
         updateUI();
       });
   }
@@ -3668,6 +4036,13 @@ strategy:
         updateUI();
       });
     }
+
+    // Escape closes any open modal. Clicking the backdrop already worked, but
+    // there was no keyboard equivalent, which left keyboard-only and
+    // screen-reader users with no way to dismiss one.
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeAllModals();
+    });
 
     const resetFiltersBtn = document.getElementById('btn-reset-filters');
     if (resetFiltersBtn) resetFiltersBtn.addEventListener('click', clearAllFilters);

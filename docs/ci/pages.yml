@@ -1,0 +1,76 @@
+# Drop-in: publish ONLY the dashboard to GitHub Pages.
+#
+# WHY: the dashboard in web/ is not currently published at all.
+#
+# Pages is configured as "Deploy from a branch -> main / /docs", so
+# https://clickalex.github.io/CrytpTrde/ serves the docs/ folder (these CI
+# notes) instead of the dashboard: the root URL 404s, and so does
+# /web/index.html.
+#
+# This workflow is one of TWO ways to fix that. The other needs no file
+# change at all: Settings -> Pages -> Source -> "Deploy from a branch" ->
+# main / /web. Pick one, not both.
+#
+# A) SETTINGS FIX (30 seconds, no workflow permission needed)
+#      Settings -> Pages -> Source -> Deploy from a branch
+#      Branch: main   Folder: /web   -> Save
+#    Then delete the two legacy workflows below whenever convenient.
+#
+# B) ACTIONS FIX (this file — needs `workflows` permission, which the sandbox
+#    App token does not have):
+#
+#      git rm .github/workflows/static.yml
+#      git rm .github/workflows/jekyll-gh-pages.yml
+#      cp docs/ci/pages.yml .github/workflows/pages.yml
+#      git add .github/workflows/pages.yml && git commit -m "ci: publish web/ only"
+#
+#    Then: Settings -> Pages -> Source -> "GitHub Actions".
+#
+# Either way the two legacy workflows should go. They both fire on every push
+# to main and share the "pages" concurrency group, so they race each other and
+# bill minutes twice. `static.yml` also uploads the ENTIRE repository
+# (`path: '.'`), which would publish src/, config/config.yaml and data/ as
+# public web content and still 404 at the root, since the repo root has no
+# index.html. The Jekyll build is pointless too: the dashboard is plain static
+# HTML with no Jekyll config.
+
+name: Deploy dashboard to Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; never cancel an in-flight one.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # web/ is the dashboard: index.html + the other pages, styles.css,
+          # app.js and the generated data.js. Nothing else needs to be public.
+          path: 'web/'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

@@ -2173,3 +2173,68 @@ mark.search-highlight {
     justify-content: space-between;
   }
 }
+
+/* ==========================================================================
+   Data Health page (health.html) — freshness warnings + dataset inventory
+   ========================================================================== */
+.health-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.health-warning + .health-warning {
+  margin-top: 0.55rem;
+}
+
+.health-warning-icon {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.health-warning-success {
+  border-color: var(--success-border);
+  background: var(--success-bg);
+  color: var(--text-primary);
+}
+
+.health-warning-info {
+  border-color: var(--info-border);
+  background: var(--info-bg);
+  color: var(--text-primary);
+}
+
+.health-warning-warning {
+  border-color: var(--warning-border);
+  background: var(--warning-bg);
+  color: var(--text-primary);
+}
+
+.health-warning-danger {
+  border-color: var(--danger-border);
+  background: var(--danger-bg);
+  color: var(--text-primary);
+}
+
+.health-section-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 0.7rem;
+}
+
+/* Utility: app.js uses class="text-muted" in ~15 places but the class was
+   never defined, so those spans silently fell back to the inherited colour. */
+.text-muted {
+  color: var(--text-muted);
+}

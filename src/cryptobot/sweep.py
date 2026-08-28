@@ -13,7 +13,9 @@ from zoneinfo import ZoneInfo
 import yaml
 
 from . import paths
-from .engine import (build_market_cache, make_broker, make_coin, run_cycle)
+from .coindcx import qty_from_inr
+from .engine import (build_market_cache, fetch_history, hodl_benchmark,
+                     make_broker, make_coin, run_cycle)
 from .indicators import rsi_series
 from .strategy import entry_signal, exit_reason, position_amount
 
@@ -175,7 +177,6 @@ def _sim_account(cfg: dict, row: dict, assets: list[dict],
     start_cash = sweep_start_cash(cfg)
     period = int(strat.get("rsi_period", 14))
     min_buy = float(strat.get("min_buy_inr", 500))
-    min_notional_all = float(meta[assets[0]["name"]].get("min_notional", 100)) if assets else 100.0
 
     # precompute per-asset arrays for O(1) signal lookup
     times: dict[str, list[int]] = {}

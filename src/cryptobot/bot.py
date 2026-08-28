@@ -61,8 +61,8 @@ def cmd_init(cfg: dict, args) -> None:
     broker.save()
     print(f"Paper portfolio created: â¹{broker.cash:,.2f} cash, "
           f"assets: {', '.join(a['name'] for a in cfg['assets'])}")
-    print(f"  The bot will buy only when conditions are met (hourly RSI check), "
-          f"and sell on take-profit / stop-loss / overbought.")
+    print("  The bot will buy only when conditions are met (hourly RSI check), "
+          "and sell on take-profit / stop-loss / overbought.")
 
 
 def _print_price_header():
@@ -125,7 +125,7 @@ def cmd_status(cfg: dict, args) -> None:
               f"Gross losses (NOT offsettable in India): Rs.{tax['gross_losses']:,.2f}\n"
               f"Estimated tax on gains: Rs.{tax['estimated_tax_30pct']:,.2f}\n"
               f"1% TDS withheld (claim as credit): Rs.{tax['tds_credit']:,.2f}")
-    print("(See tax_notes.md - this is an estimate, not tax advice.)")
+    print("(See docs/tax_notes.md - this is an estimate, not tax advice.)")
 
 
 def cmd_assets(cfg: dict, args) -> None:
@@ -467,7 +467,8 @@ def main():
     p.set_defaults(func=cmd_backtest)
 
     p = sub.add_parser("sweep", parents=[global_parser],
-                       help="100-account strategy tournament (history)")
+                       help="offline strategy tournament over historical "
+                            "candles (sweep.accounts bots, from config)")
     p.add_argument("--days", type=int, default=None)
     p.add_argument("--count", type=int, default=None)
     p.add_argument("--chart", default=None)

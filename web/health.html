@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bot Configs Grid — CrytpTrde Analytics</title>
+  <title>Data Health — CrytpTrde Analytics</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>%E2%9A%A1</text></svg>">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
-<body data-page="configs">
+<body data-page="health">
 
   <div class="app-container">
     
@@ -50,7 +50,7 @@
           <span>🤖 Bot Details</span>
           <span class="nav-badge">1</span>
         </a>
-        <a href="configs.html" class="nav-link-item active">
+        <a href="configs.html" class="nav-link-item">
           <span>⚙️ Configs Grid</span>
         </a>
         <a href="analytics.html" class="nav-link-item">
@@ -62,7 +62,7 @@
         <a href="importer.html" class="nav-link-item">
           <span>📁 Import File</span>
         </a>
-        <a href="health.html" class="nav-link-item">
+        <a href="health.html" class="nav-link-item active">
           <span>🩺 Data Health</span>
         </a>
       </nav>
@@ -81,81 +81,90 @@
     <!-- Page Intro Header -->
     <div class="page-intro-header">
       <div class="page-title-group">
-        <h2>⚙️ Bot Strategy Configurations Grid</h2>
-        <p>500 parameterized bots specifications with 1-click config.yaml export</p>
+        <h2>🩺 Data Health &amp; Freshness</h2>
+        <p>Is the bot still running, how old is this snapshot, and what is embedded in data.js</p>
       </div>
       <div class="header-actions">
-        <button class="btn btn-sm btn-ghost" id="btn-tool-playground">🎛️ Strategy Playground</button>
-        <button class="btn btn-sm btn-ghost" id="btn-tool-print">🖨️ Print Specs</button>
+        <button class="btn btn-sm btn-ghost" id="btn-tool-print" title="Print this report">🖨️ Print Report</button>
       </div>
     </div>
 
     <!-- KPI Summary Metrics Grid -->
-    <section class="metrics-grid" id="metrics-cards-grid">
+    <section class="metrics-grid" id="health-metrics">
       <!-- Injected by app.js -->
     </section>
 
-    <!-- Filters, Search & Query Controls -->
+    <!-- Health Checks -->
     <section class="filter-section">
-      <div class="filter-main-bar">
-        <div class="search-box-wrapper">
-          <span class="search-icon">🔍</span>
-          <input type="text" id="global-search" class="search-input" placeholder="Search config names, modes, triggers (press '/' to focus)..." autocomplete="off" spellcheck="false">
-          <button class="search-clear-btn" id="search-clear-btn" title="Clear search">✕</button>
-          <span class="search-shortcut-badge">/</span>
-        </div>
-        <div class="quick-chips-wrapper" id="quick-chips-list">
-          <!-- Injected by app.js -->
-        </div>
+      <div class="health-section-title">Health checks</div>
+      <div id="health-warnings">
+        <!-- Injected by app.js -->
       </div>
+    </section>
 
-      <div class="advanced-filters-grid" id="advanced-filters-grid">
+    <!-- Schedule & Main Paper Portfolio -->
+    <section class="filter-section">
+      <div class="health-section-title">Schedule</div>
+      <div class="detail-grid" id="health-schedule">
         <!-- Injected by app.js -->
       </div>
 
-      <div class="active-filters-strip">
-        <div class="active-badges-list" id="active-filters-badges">
-          <!-- Injected by app.js -->
+      <div class="health-section-title" style="margin-top: 1.25rem;">
+        Main paper portfolio
+        <span style="text-transform:none; letter-spacing:0; font-weight:500; color:var(--text-muted);">
+          — the <code>cryptobot.py check</code> / <code>status</code> account, polled live from
+          <code>state/portfolio.json</code>. This is separate from the 500 tournament demo accounts.
+        </span>
+      </div>
+      <div class="detail-grid" id="main-portfolio-card">
+        <!-- Injected by app.js -->
+      </div>
+    </section>
+
+    <!-- Dataset Inventory -->
+    <div class="table-toolbar">
+      <div class="toolbar-left">
+        <h3 style="font-size: 1.05rem; font-weight: 700;">Embedded dataset inventory</h3>
+      </div>
+      <div class="toolbar-right">
+        <div style="font-size: 0.78rem; color: var(--text-secondary);">
+          Every page downloads all of these — keep an eye on the total payload.
         </div>
-        <div style="display: flex; align-items: center; gap: 0.85rem;">
-          <div class="filter-results-count" id="filter-results-counter">Showing all entries</div>
-          <button class="btn btn-sm btn-ghost" id="btn-reset-filters" title="Reset all applied filters">↺ Reset Filters</button>
+      </div>
+    </div>
+
+    <main class="table-container">
+      <div id="health-dataset-table">
+        <!-- Injected by app.js -->
+      </div>
+    </main>
+
+    <!-- How To Refresh -->
+    <section class="filter-section">
+      <div class="health-section-title">How to refresh this page</div>
+      <div class="detail-item">
+        <div class="detail-item-label">Automatically</div>
+        <div class="detail-item-value" style="font-family:var(--font-sans); font-weight:500; color:var(--text-secondary);">
+          The GitHub Actions workflow <strong>Crypto Bot</strong> runs hourly at minute :30 UTC, commits the new
+          state, and rebuilds <code>web/data.js</code>. Nothing to do — this page goes green on its own.
+        </div>
+      </div>
+      <div class="detail-item" style="margin-top: 0.6rem;">
+        <div class="detail-item-label">Manually</div>
+        <div class="detail-item-value" style="font-family:var(--font-mono); font-size:0.82rem;">
+          python3 cryptobot.py sweep-live<br>
+          python3 scripts/build_data_js.py
+        </div>
+      </div>
+      <div class="detail-item" style="margin-top: 0.6rem;">
+        <div class="detail-item-label">Never run a backtest yet?</div>
+        <div class="detail-item-value" style="font-family:var(--font-sans); font-weight:500; color:var(--text-secondary);">
+          The three backtest datasets stay <em>empty</em> until you run <code>cryptobot.py backtest</code>.
+          That is expected — it is reported as info, not an error.
         </div>
       </div>
     </section>
 
-    <!-- Table Toolbar -->
-    <div class="table-toolbar">
-      <div class="toolbar-left">
-        <h3 style="font-size: 1.05rem; font-weight: 700;">Strategy Grid Specifications</h3>
-      </div>
-      <div class="toolbar-right">
-        <button class="btn btn-sm" id="btn-column-manager" title="Customize visible columns">⚙️ Columns</button>
-        <button class="btn btn-sm" id="btn-copy-data" title="Copy table data">📋 Copy</button>
-        <button class="btn btn-sm" id="btn-export-csv" title="Download CSV">📥 Export CSV</button>
-        <button class="btn btn-sm" id="btn-export-json" title="Download JSON">📥 Export JSON</button>
-      </div>
-    </div>
-
-    <!-- Data Table Container -->
-    <main class="table-container">
-      <div class="table-scroll-wrapper" id="table-scroll-container">
-        <!-- Injected by app.js -->
-      </div>
-      <footer class="pagination-footer" id="pagination-footer-container">
-        <!-- Injected by app.js -->
-      </footer>
-    </main>
-
-  </div>
-
-  <!-- Floating Bulk Actions Bar -->
-  <div class="floating-bulk-bar" id="floating-bulk-bar">
-    <span class="bulk-count-badge" id="bulk-selected-count">0 selected</span>
-    <button class="btn btn-sm btn-primary" id="bulk-compare-btn">⚖️ Compare Selected</button>
-    <button class="btn btn-sm" id="bulk-export-csv-btn">📥 Export CSV</button>
-    <button class="btn btn-sm" id="bulk-export-json-btn">📥 Export JSON</button>
-    <button class="btn btn-sm btn-ghost" id="bulk-deselect-btn">✕ Deselect</button>
   </div>
 
   <!-- Mobile Slide-Out Drawer Menu -->
@@ -189,7 +198,7 @@
           <span>🤖 Bot Details</span>
           <span class="nav-badge">1</span>
         </a>
-        <a href="configs.html" class="drawer-nav-item active">
+        <a href="configs.html" class="drawer-nav-item">
           <span>⚙️ Bot Configs Grid</span>
         </a>
         <a href="analytics.html" class="drawer-nav-item">
@@ -201,7 +210,7 @@
         <a href="importer.html" class="drawer-nav-item">
           <span>📁 Import Custom File</span>
         </a>
-        <a href="health.html" class="drawer-nav-item">
+        <a href="health.html" class="drawer-nav-item active">
           <span>🩺 Data Health &amp; Freshness</span>
         </a>
       </div>
@@ -233,60 +242,6 @@
       </button>
     </div>
   </nav>
-
-  <!-- Modals -->
-  <div class="modal-backdrop" id="strategy-comparator-modal">
-    <div class="modal-container modal-wide">
-      <div class="modal-header">
-        <div class="modal-title"><span>⚖️ Multi-Strategy Performance Comparator</span></div>
-        <button class="modal-close-btn">&times;</button>
-      </div>
-      <div class="modal-body" id="comparator-content"></div>
-      <div class="modal-footer"><button class="btn btn-sm modal-close-btn">Close</button></div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop" id="yaml-generator-modal">
-    <div class="modal-container">
-      <div class="modal-header">
-        <div class="modal-title"><span>🛠️ Strategy Configuration Generator</span></div>
-        <button class="modal-close-btn">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p style="font-size:0.85rem; color:var(--text-secondary);">Auto-generated production-ready <code>config.yaml</code> for this strategy:</p>
-        <pre class="json-preview" id="yaml-code-content"></pre>
-        <div style="display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 0.5rem;">
-          <button class="btn btn-sm" id="btn-copy-cli">📋 Copy CLI Command</button>
-          <button class="btn btn-primary btn-sm" id="btn-download-yaml">📥 Download config.yaml</button>
-        </div>
-      </div>
-      <div class="modal-footer"><button class="btn btn-sm modal-close-btn">Close</button></div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop" id="row-inspector-modal">
-    <div class="modal-container">
-      <div class="modal-header">
-        <div class="modal-title"><span>🔍 Config Details</span></div>
-        <button class="modal-close-btn">&times;</button>
-      </div>
-      <div class="modal-body" id="row-inspector-content"></div>
-      <div class="modal-footer"><button class="btn btn-sm modal-close-btn">Close</button></div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop" id="column-manager-modal">
-    <div class="modal-container">
-      <div class="modal-header">
-        <div class="modal-title"><span>⚙️ Column Visibility</span></div>
-        <button class="modal-close-btn">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="column-select-grid" id="column-select-grid"></div>
-      </div>
-      <div class="modal-footer"><button class="btn btn-primary btn-sm modal-close-btn">Done</button></div>
-    </div>
-  </div>
 
   <div class="toast-container" id="toast-container"></div>
 
