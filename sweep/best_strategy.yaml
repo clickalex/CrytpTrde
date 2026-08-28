@@ -1,5 +1,5 @@
-# Winner of the 500-account tournament (2026-08-27 18:33 UTC)
-# account acc_418 | mom_e33_x76_tp15_sl5.0_p60_h0 | return +22.70% | maxDD 12.3%
+# Winner of the 500-account tournament (2026-08-28 08:49 UTC)
+# account acc_124 | dip_e28_x85_tp6_sl2.0_p80_h72 | return +21.21% | maxDD 6.7%
 # Use:  python3 bot.py --config sweep/best_strategy.yaml check
 mode: paper
 initial_cash_inr: 50000
@@ -22,54 +22,52 @@ assets:
   pair: I-BNB_INR
 - name: USDTINR
   pair: I-USDT_INR
+- name: TRUMPINR
+  pair: I-TRUMP_INR
 - name: XRPINR
   pair: I-XRP_INR
 - name: LINKINR
   pair: I-LINK_INR
-- name: TRUMPINR
-  pair: I-TRUMP_INR
 - name: SUIINR
   pair: I-SUI_INR
-- name: TRBINR
-  pair: I-TRB_INR
-- name: ICPINR
-  pair: I-ICP_INR
 - name: NEARINR
   pair: I-NEAR_INR
+- name: TRBINR
+  pair: I-TRB_INR
 - name: DOTINR
   pair: I-DOT_INR
-- name: ONDOINR
-  pair: I-ONDO_INR
-- name: RENDERINR
-  pair: I-RENDER_INR
+- name: ICPINR
+  pair: I-ICP_INR
 - name: ADAINR
   pair: I-ADA_INR
-- name: FARTCOININR
-  pair: I-FARTCOIN_INR
+- name: RENDERINR
+  pair: I-RENDER_INR
+- name: ONDOINR
+  pair: I-ONDO_INR
 - name: TRXINR
   pair: I-TRX_INR
 - name: DOGEINR
   pair: I-DOGE_INR
+- name: FARTCOININR
+  pair: I-FARTCOIN_INR
 - name: APTINR
   pair: I-APT_INR
-- name: GASINR
-  pair: I-GAS_INR
 - name: CAKEINR
   pair: I-CAKE_INR
 - name: FILINR
   pair: I-FIL_INR
-- name: ARBINR
-  pair: I-ARB_INR
-- name: POPCATINR
-  pair: I-POPCAT_INR
 - name: JUPINR
   pair: I-JUP_INR
-- name: ORCAINR
-  pair: I-ORCA_INR
-- name: APEINR
-  pair: I-APE_INR
-- name: SUSHIINR
-  pair: I-SUSHI_INR
+- name: ARBINR
+  pair: I-ARB_INR
+- name: GASINR
+  pair: I-GAS_INR
+- name: POPCATINR
+  pair: I-POPCAT_INR
+- name: CHILLGUYINR
+  pair: I-CHILLGUY_INR
+- name: RIFINR
+  pair: I-RIF_INR
 asset_discovery:
   enabled: false
   min_volume_inr: 1000000
@@ -77,13 +75,13 @@ asset_discovery:
   dipped_scan_pct: 8
   dipped_scan_max: 150
 strategy:
-  entry_mode: momentum
-  entry_rsi: 33
-  exit_rsi: 76
-  take_profit_pct: 15
-  stop_loss_pct: 5
-  position_size_pct: 60
-  max_hold_hours: 0
+  entry_mode: dip
+  entry_rsi: 28
+  exit_rsi: 85
+  take_profit_pct: 6
+  stop_loss_pct: 2
+  position_size_pct: 80
+  max_hold_hours: 72
 backtest:
   days: 30
   start_cash_inr: 100000
