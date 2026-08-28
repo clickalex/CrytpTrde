@@ -210,8 +210,8 @@
 
   // ==========================================================================
   // "Last bot run" badge — answers "when did the bot last run?" on EVERY page.
-  // Source: `bot_status` in data.js (embedded by build_data_js.py from the
-  // heartbeat file state/last_run.json that cryptobot.py rewrites each run).
+  // Source: `bot_status` in data.js (embedded by scripts/build_data_js.py from the
+  // heartbeat file data/state/last_run.json that cryptobot.py rewrites each run).
   // The relative age is computed client-side and refreshed every 30s, so the
   // badge keeps counting up even while the page stays open.
   // ==========================================================================
@@ -3118,7 +3118,7 @@ strategy:
 
     const accounts = getBotAccounts();
     if (!accounts.length) {
-      content.innerHTML = '<p style="color:var(--text-muted);">No live bot data available. Run <code>cryptobot.py sweep-live</code> then <code>build_data_js.py</code> to populate it.</p>';
+      content.innerHTML = '<p style="color:var(--text-muted);">No live bot data available. Run <code>cryptobot.py sweep-live</code> then <code>scripts/build_data_js.py</code> to populate it.</p>';
       modal.classList.add('open');
       return;
     }
@@ -3239,7 +3239,7 @@ strategy:
 
     const coins = getCoins();
     if (!coins.length) {
-      content.innerHTML = '<p style="color:var(--text-muted);">No live trade data available. Run <code>cryptobot.py sweep-live</code> then <code>build_data_js.py</code> to populate it.</p>';
+      content.innerHTML = '<p style="color:var(--text-muted);">No live trade data available. Run <code>cryptobot.py sweep-live</code> then <code>scripts/build_data_js.py</code> to populate it.</p>';
       modal.classList.add('open');
       return;
     }
@@ -3399,7 +3399,7 @@ strategy:
 
     const accounts = getBotAccounts();
     if (!accounts.length) {
-      container.innerHTML = '<p style="color:var(--text-muted);">No live bot data available. Run <code>cryptobot.py sweep-live</code> then <code>build_data_js.py</code> to populate it.</p>';
+      container.innerHTML = '<p style="color:var(--text-muted);">No live bot data available. Run <code>cryptobot.py sweep-live</code> then <code>scripts/build_data_js.py</code> to populate it.</p>';
       return;
     }
 
@@ -3446,15 +3446,15 @@ strategy:
       { cmd: 'python3 cryptobot.py backtest', desc: 'Backtest RSI swing vs the HODL benchmark' },
       { cmd: 'python3 cryptobot.py bot acc_001', desc: 'Full trade history of one tournament bot (try any acc_XXX)' },
       { cmd: 'python3 cryptobot.py coin BTCINR', desc: 'Which tournament bots bought/sold a given coin' },
-      { cmd: 'python3 build_data_js.py', desc: 'Refresh the live-trade datasets embedded in data.js' },
-      { cmd: 'python3 -m http.server 8000', desc: 'Serve the static dashboard locally at localhost:8000' },
+      { cmd: 'python3 scripts/build_data_js.py', desc: 'Refresh the live-trade datasets embedded in data.js' },
+      { cmd: 'cd web && python3 -m http.server 8000', desc: 'Serve the static dashboard locally at localhost:8000' },
     ];
 
     content.innerHTML = `
       <p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:0.5rem;">
         The bot is paper-trading and normally runs on a schedule (GitHub Actions, hourly). To run it
         <strong>manually</strong> from a terminal, copy the command you need — these run the real
-        <code>cryptobot.py</code> / <code>build_data_js.py</code> on your machine or in CI.
+        <code>cryptobot.py</code> / <code>scripts/build_data_js.py</code> on your machine or in CI.
       </p>
       <div class="cmd-list">${commands.map((c, i) => `
         <div class="cmd-item">

@@ -8,7 +8,7 @@ and publishes every result to a **static analytics dashboard on GitHub Pages**.
 
 | | |
 |---|---|
-| **Bot** | `cryptobot.py` — single file, no build step, no database |
+| **Bot** | `cryptobot.py` — thin CLI launcher over the `src/cryptobot` package; no build step, no database |
 | **Mode** | paper only. **No real orders are ever placed** — see [Going live](#going-live-read-before-touching-live) |
 | **Runtime** | Python 3.10+ · `requests` + `PyYAML` |
 | **Scheduling** | GitHub Actions cron (hourly) — free, no server |
@@ -48,9 +48,9 @@ and publishes every result to a **static analytics dashboard on GitHub Pages**.
    8 workers at a time, globally paced so the exchange is never hammered.
 3. **Applies the RSI swing rules** to each asset and buys/sells in a simulated
    portfolio that accounts for taker fees, slippage and the 1% Indian TDS.
-4. **Persists state to plain files** (`state/portfolio.json`, `state/trades.csv`)
-   so the repo *is* the database — which is exactly how it runs for free on
-   GitHub Actions.
+4. **Persists state to plain files** (`data/state/portfolio.json`,
+   `data/state/trades.csv`) so the repo *is* the database — which is exactly
+   how it runs for free on GitHub Actions.
 5. **Competes 500 strategy variants against each other** on real prices, ranked
    hourly, with the leaderboard surfaced in the dashboard.
 
@@ -101,16 +101,16 @@ watchlist and scan every active INR market).
 | `assets` | List the assets this config resolves to (discovery included) |
 | `check` | One signal-check cycle: fetch, evaluate, place simulated fills |
 | `run` | Daemon — repeats `check` every `check_interval_min` minutes |
-| `reset [--yes]` | Delete `state/portfolio.json` + `state/trades.csv` |
+| `reset [--yes]` | Delete `data/state/portfolio.json` + `data/state/trades.csv` |
 | `backtest [--days N] [--chart FILE.png]` | Replay the strategy on real 1h history vs a HODL benchmark |
 | `sweep [--days N] [--count N] [--chart FILE.png]` | Historical tournament across the strategy grid |
 | `sweep-live [--top N] [--rank-only] [--reset]` | Run every demo account on live prices (paper); `--reset` restarts all at ₹10,000 |
 | `sweep-status` | `sweep-live --rank-only`: rebuild the ranking without trading |
-| `bot <account> [--json]` | Full trade history of one tournament bot (all fills + current holdings), read straight from `sweep/accounts/` — offline, no CoinDCX call |
+| `bot <account> [--json]` | Full trade history of one tournament bot (all fills + current holdings), read straight from `data/sweep/accounts/` — offline, no CoinDCX call |
 | `coin <asset> [--json]` | Every tournament bot that bought/sold a given coin, with per-bot buy/sell counts, net qty, fees, TDS and realized P&L |
 
-`backtest` writes its CSVs at the repo root; `sweep` and `sweep-live` write into
-`sweep/` — see [data files](#repo-layout--data-files).
+`backtest` writes its CSVs into `data/backtest/`; `sweep` and `sweep-live`
+write into `data/sweep/` — see [data files](#repo-layout--data-files).
 
 ---
 
@@ -151,7 +151,8 @@ precision — so simulated fills are sizes you could actually submit.
 
 ## Configuration reference
 
-Everything tunable lives in `config.yaml`. The knobs that change behaviour most:
+Everything tunable lives in `config/config.yaml` (the default `--config`
+path). The knobs that change behaviour most:
 
 | Key | Default | Notes |
 |---|---|---|
@@ -187,7 +188,7 @@ leaderboard's bottom line is "did my tuned config beat its own grid?".
 
 ## Scan more than BTC / ETH / SOL
 
-`config.yaml` supports automatic asset discovery:
+`config/config.yaml` supports automatic asset discovery:
 
 ```yaml
 assets: auto
@@ -249,7 +250,7 @@ fetch 30 days of candles per asset, so they take a bit longer either way.
 | Higher request pace (20/s) could annoy CoinDCX | **Adaptive backoff**: after any failed/429/5xx request the global pace auto-slows to 1/3 for ~10s (longer if the server sends `Retry-After`). Connections are pooled (keep-alive), not re-handshaked per request. |
 | Long scans look frozen | Progress lines every 25 assets (`market data: 25/500 fetched ...`). |
 | Dead/zero-liquidity books waste calls | Markets with no bid/ask/last price are skipped without orderbook/candle calls. |
-| Two bot processes on the same `state/` can clobber each other's portfolio | Run ONE bot process per state dir (the GitHub Actions workflow already serialises runs via `concurrency:`). `save()` itself is atomic (temp file + rename), so a crash never corrupts the file. |
+| Two bot processes on the same `data/state/` can clobber each other's portfolio | Run ONE bot process per state dir (the GitHub Actions workflow already serialises runs via `concurrency:`). `save()` itself is atomic (temp file + rename), so a crash never corrupts the file. |
 
 ---
 
@@ -283,7 +284,7 @@ legend for the two families. Because the strategy grid changed, the first
 `sweep-live` run after this change restarts all demo accounts at Rs.10,000 —
 that is the normal grid-change wipe, not a bug. The wipe also triggers if
 `sweep.accounts` changes; the grid fingerprint is stored in
-`sweep/grid_signature.txt`.
+`data/sweep/grid_signature.txt`.
 
 `backtest` and `sweep` deliberately keep a **stable** universe (no dipped
 extras, which flap hour to hour) so strategy comparisons stay comparable
@@ -305,15 +306,15 @@ the account count). It writes:
 
 | File | Contents |
 |---|---|
-| `backtest_results.csv` | metric × strategy vs HODL |
-| `backtest_equity.csv` | daily portfolio value of the strategy |
-| `backtest_trades.csv` | every simulated entry/exit with RSI, price, exit reason, P&L |
-| `sweep/results.csv` | 500-row leaderboard: parameters + win rate, profit factor, max drawdown, fees, TDS |
-| `sweep/equity_top10.csv` | daily equity of the top 10 accounts vs HODL |
-| `sweep/best_strategy.yaml` | a ready-to-use config from the winner |
-| `sweep/accounts.csv` | the generated strategy grid (stable across runs) |
-| `sweep/accounts/acc_XXX/` | per-account `portfolio.json` + `trades.csv` (live tournament) |
-| `sweep/live_summary.csv` | the current live ranking, rewritten every `sweep-live` run |
+| `data/backtest/backtest_results.csv` | metric × strategy vs HODL |
+| `data/backtest/backtest_equity.csv` | daily portfolio value of the strategy |
+| `data/backtest/backtest_trades.csv` | every simulated entry/exit with RSI, price, exit reason, P&L |
+| `data/sweep/results.csv` | 500-row leaderboard: parameters + win rate, profit factor, max drawdown, fees, TDS |
+| `data/sweep/equity_top10.csv` | daily equity of the top 10 accounts vs HODL |
+| `data/sweep/best_strategy.yaml` | a ready-to-use config from the winner |
+| `data/sweep/accounts.csv` | the generated strategy grid (stable across runs) |
+| `data/sweep/accounts/acc_XXX/` | per-account `portfolio.json` + `trades.csv` (live tournament) |
+| `data/sweep/live_summary.csv` | the current live ranking, rewritten every `sweep-live` run |
 
 `sweep-live` is the interesting one: the same 500 accounts, each with a unique
 strategy, trading **live prices** in paper money on every cycle. `sweep-status`
@@ -321,19 +322,19 @@ just re-ranks them.
 
 A caveat worth stating plainly: a 500-account grid is a machine for finding
 overfitting. The winner of one 30-day window is a hypothesis, not an alpha —
-`sweep/best_strategy.yaml` is a starting point for forward testing, not
+`data/sweep/best_strategy.yaml` is a starting point for forward testing, not
 something to size up on.
 
 ---
 
 ## Web dashboard (GitHub Pages)
 
-The repo root doubles as a **zero-build static site**, deployed to GitHub Pages
-by `.github/workflows/static.yml`:
+The static site lives in **`web/`** and is deployed to GitHub Pages by
+`.github/workflows/static.yml` (which uploads `web/` as the site root):
 
 **→ https://clickalex.github.io/CrytpTrde/**
 
-| Page | What's on it |
+| Page (under `web/`) | What's on it |
 |---|---|
 | `index.html` | 🏆 Sweep tournament leaderboard — 500 strategies, P&L / win-rate / drawdown charts |
 | `trades.html` | ⚡ Trades log: backtest trades, plus the **last trade** and **every fill** of the 500 live bots (with a streak analyzer, a 1% TDS calculator, and **🤖 Bot Details** / **🪙 Coin Details** drill-downs — pick a bot or a coin and see every buy/sell in detail) |
@@ -351,49 +352,52 @@ single most recent fill per bot). The site navigation mirrors this: the ⚡
 Trade** entry deep-links to `trades.html#view=last_trades`
 (`#view=live_trades` and `#view=trades` work the same way).
 
-Shared assets: `app.js` (filter/sort/paginate/export logic), `styles.css`
-(dark + light theme, print styles), `data.js` (the datasets). Chart.js loads from
-a CDN, so the site needs internet on first paint; everything else is client-side
-with no server, no cookies, no account.
+Shared assets: `web/app.js` (filter/sort/paginate/export logic),
+`web/styles.css` (dark + light theme, print styles), `web/data.js` (the
+datasets). Chart.js loads from a CDN, so the site needs internet on first paint;
+everything else is client-side with no server, no cookies, no account.
 
 The grid views all support full-text search, column show/hide, row selection for
 comparison, subtotals, CSV/JSON export, theme persistence, and a print-friendly
 report.
 
-**How the site gets its data:** `data.js` embeds snapshots of the CSVs and is
-what every page renders. `build_data_js.py` regenerates ALL of `data.js` from
-the bot's CSV outputs + heartbeat, and the hourly bot workflow (`dca.yml`)
-re-runs it after every bot run and commits the result — so every grid, the
-**"Last bot run" badge**, and the per-bot detail page refresh automatically.
+**How the site gets its data:** `web/data.js` embeds snapshots of the CSVs and is
+what every page renders. `scripts/build_data_js.py` regenerates ALL of
+`web/data.js` from the bot's CSV outputs + heartbeat, and the hourly bot
+workflow (`dca.yml`) re-runs it after every bot run and commits the result — so
+every grid, the **"Last bot run" badge**, and the per-bot detail page refresh
+automatically.
 
 | Dataset in `data.js` | Source of truth |
 |---|---|
-| `sweep_results` | `sweep/results.csv` |
-| `live_summary` | `sweep/live_summary.csv` |
-| `accounts` | `sweep/accounts.csv` |
-| `trades` | `backtest_trades.csv` |
-| `backtest_results` | `backtest_results.csv` |
-| `backtest_equity` | `backtest_equity.csv` |
-| `top10_equity` | `sweep/equity_top10.csv` |
-| `live_trades` | every `sweep/accounts/acc_XXX/trades.csv`, flattened |
+| `sweep_results` | `data/sweep/results.csv` |
+| `live_summary` | `data/sweep/live_summary.csv` |
+| `accounts` | `data/sweep/accounts.csv` |
+| `trades` | `data/backtest/backtest_trades.csv` |
+| `backtest_results` | `data/backtest/backtest_results.csv` |
+| `backtest_equity` | `data/backtest/backtest_equity.csv` |
+| `top10_equity` | `data/sweep/equity_top10.csv` |
+| `live_trades` | every `data/sweep/accounts/acc_XXX/trades.csv`, flattened |
 | `last_trades` | same — the single latest fill per bot |
-| `bot_status` | `state/last_run.json` — WHEN the bot last ran + how it went; shown as the header badge on every page |
+| `bot_status` | `data/state/last_run.json` — WHEN the bot last ran + how it went; shown as the header badge on every page |
 
-All of the above are rebuilt by `build_data_js.py` (nothing is hand-edited in
-`data.js` anymore). The **bot state** in the repo (`state/portfolio.json`) is
-committed after every Actions run, so `live.html` can also poll it directly —
-its optional live polling (off / 5s / 10s / 30s) refetches that file and never
-touches `data.js`. To refresh everything locally:
+All of the above are rebuilt by `scripts/build_data_js.py` (nothing is
+hand-edited in `web/data.js` anymore). The **bot state** in the repo
+(`data/state/portfolio.json`) is committed after every Actions run, and the
+build script also copies it to `web/state/portfolio.json` so the deployed site
+can poll it. `live.html`'s optional live polling (off / 5s / 10s / 30s)
+refetches `state/portfolio.json` and never touches `web/data.js`. To refresh
+everything locally:
 
 ```bash
-python3 build_data_js.py            # rebuild ALL of data.js from CSVs + heartbeat
-python3 build_data_js.py --check    # dry-run: just print counts
+python3 scripts/build_data_js.py            # rebuild ALL of web/data.js
+python3 scripts/build_data_js.py --check    # dry-run: just print counts
 ```
 
 To browse against your local run before pushing:
 
 ```bash
-python3 -m http.server 8000   # then open http://localhost:8000
+cd web && python3 -m http.server 8000   # then open http://localhost:8000
 ```
 
 Note that `.github/workflows/jekyll-gh-pages.yml` is a second, redundant Pages
@@ -422,16 +426,16 @@ server, no cron, no secrets required in paper mode.
   than failing every hour.
 
 Because it commits state back to the repo: **run exactly one bot process per
-`state/` directory.** Don't leave a local `run` daemon going while Actions is also
-writing (the workflow's `concurrency:` group serialises cloud runs against each
-other, but not against your laptop).
+`data/state/` directory.** Don't leave a local `run` daemon going while Actions
+is also writing (the workflow's `concurrency:` group serialises cloud runs
+against each other, but not against your laptop).
 
 ---
 
 ## Tests & CI
 
 ```bash
-python3 test_speed_fix.py     # 12 offline tests, no network, no secrets
+python3 tests/test_speed_fix.py     # 12 offline tests, no network, no secrets
 ```
 
 The suite stubs the CoinDCX client and covers the behaviour that is easy to
@@ -455,33 +459,52 @@ in place under `.github/workflows/`).
 ## Repo layout & data files
 
 ```
-cryptobot.py            the whole bot: indicators · API client · PaperBroker ·
-                        engine · backtest · sweep · CLI (section markers inside
-                        the file name the original modules)
-config.yaml             every knob; paper by default
-requirements.txt        requests + PyYAML (matplotlib optional)
-test_speed_fix.py       offline test suite (12 tests)
+cryptobot.py            thin CLI launcher — keeps the familiar command working
+src/cryptobot/          the actual bot, split into focused modules
+  __init__.py           package exports + convenience aliases
+  paths.py              repo / config / data / web path constants
+  indicators.py         RSI / SMA math
+  strategy.py           entry/exit signal rules
+  coindcx.py            CoinDCX REST client
+  broker.py             PaperBroker: fills, fees, 1% TDS, persistence
+  engine.py             load_cfg, market-data cache, run_cycle
+  backtest.py           historical replay + HODL benchmark
+  sweep.py              strategy grid, tournament sim, live tournament
+  bot.py                CLI commands + main()
 
-state/                  the LIVE bot's state: portfolio.json + trades.csv
+config/config.yaml      every knob; paper by default
+requirements.txt        requests + PyYAML (matplotlib optional)
+tests/test_speed_fix.py offline test suite (12 tests)
+scripts/build_data_js.py regenerates ALL of web/data.js from CSVs + heartbeat
+
+# Compatibility shims for GitHub Actions workflows that have not been updated
+# to the new layout yet (see docs/ci/). Remove them once the drop-ins in
+# docs/ci/ are copied into .github/workflows/.
+build_data_js.py        root shim -> scripts/build_data_js.py
+test_speed_fix.py       root shim -> tests/test_speed_fix.py
+index.html              root shim -> redirects to web/index.html
+
+web/                    the static dashboard: deployed as the Pages site root
+  index.html live.html trades.html configs.html
+  compare.html analytics.html importer.html bot.html
+  app.js styles.css data.js     dashboard logic, styling, embedded datasets
+  state/portfolio.json          live-poller copy (generated by build_data_js.py)
+
+data/
+  state/                the LIVE bot's state: portfolio.json + trades.csv
                           + last_run.json (heartbeat: when the bot last ran,
                             which command, ok/skipped/error — feeds the
                             "Last bot run" badge on the dashboard)
-backtest_{results,equity,trades}.csv   outputs of the last `backtest`
-
-sweep/                  tournament outputs
-  accounts.csv            the generated 500-strategy grid
-  results.csv             leaderboard from the last offline `sweep`
-  equity_top10.csv        top-10 equity curves vs HODL
-  live_summary.csv        current live ranking (rewritten every `sweep-live`)
-  best_strategy.yaml      the winner, as a ready-to-use --config file
-  grid_signature.txt      grid fingerprint; a change wipes & rebuilds accounts
-  accounts/acc_001…500/   each demo account's own portfolio.json + trades.csv
-
-index.html live.html trades.html configs.html
-compare.html analytics.html importer.html
-bot.html                                  the 8-page static dashboard
-app.js styles.css data.js   dashboard logic, styling, embedded datasets
-build_data_js.py           regenerates ALL of data.js from the CSVs + heartbeat
+  backtest/             backtest_results.csv, backtest_equity.csv,
+                          backtest_trades.csv   outputs of the last `backtest`
+  sweep/                tournament outputs
+    accounts.csv          the generated 500-strategy grid
+    results.csv           leaderboard from the last offline `sweep`
+    equity_top10.csv      top-10 equity curves vs HODL
+    live_summary.csv      current live ranking (rewritten every `sweep-live`)
+    best_strategy.yaml    the winner, as a ready-to-use --config file
+    grid_signature.txt    grid fingerprint; a change wipes & rebuilds accounts
+    accounts/acc_001…500/ each demo account's portfolio.json + trades.csv
 
 .github/workflows/      dca.yml (hourly bot) · tests.yml · static.yml · jekyll…
 docs/ci/                workflow drop-ins + notes
@@ -525,8 +548,8 @@ bought outside this bot) and a professional's read of the current rules.
 **Today this bot is paper-only.** Setting `live.enabled: true` (plus API-key
 secrets) only switches the API client to authenticated endpoints — **no real
 orders are placed by `check`/`run`**; the PaperBroker still simulates every
-fill. The low-level `create_market_order` helper exists in `cryptobot.py`
-but is intentionally not wired into any command. Treat the `live:` config
+fill. The low-level `create_market_order` helper exists in
+`src/cryptobot/coindcx.py` but is intentionally not wired into any command. Treat the `live:` config
 block as scaffolding for a future, carefully-reviewed feature: if you want
 real trading, verify order placement with a tiny manual order first and
 never let a bot you haven't watched trade size.

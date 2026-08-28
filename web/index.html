@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweep Tournament — CrytpTrde Analytics</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body data-page="sweep">
+
+  <div class="app-container">
+    
+    <!-- Device-Friendly Top Navigation Header -->
+    <header class="app-header">
+      <a href="index.html" class="brand-section">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-title">
+          <h1>
+            CrytpTrde
+            <span class="brand-badge">Paper & Live</span>
+            <span class="github-free-badge">✓ Free</span>
+          </h1>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-links-desktop">
+        <a href="index.html" class="nav-link-item active">
+          <span>🏆 Sweep Results</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="trades.html" class="nav-link-item">
+          <span>⚡ Trades Log</span>
+          <span class="nav-badge">8.1K</span>
+        </a>
+        <a href="trades.html#view=last_trades" class="nav-link-item">
+          <span>🕐 Last Trade</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="live.html" class="nav-link-item">
+          <span>🟢 Live Accounts</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="bot.html" class="nav-link-item">
+          <span>🤖 Bot Details</span>
+          <span class="nav-badge">1</span>
+        </a>
+        <a href="configs.html" class="nav-link-item">
+          <span>⚙️ Configs Grid</span>
+        </a>
+        <a href="analytics.html" class="nav-link-item">
+          <span>📈 Quant Analytics</span>
+        </a>
+        <a href="compare.html" class="nav-link-item">
+          <span>⚖️ Comparator</span>
+        </a>
+        <a href="importer.html" class="nav-link-item">
+          <span>📁 Import File</span>
+        </a>
+      </nav>
+
+      <!-- Right Controls -->
+      <div class="header-controls">
+        <button class="btn btn-sm" id="theme-toggle-btn" title="Toggle Dark/Light Mode">
+          <span>☀️ Light</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" title="Open Navigation Menu">
+          <span>☰</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Page Intro Header -->
+    <div class="page-intro-header">
+      <div class="page-title-group">
+        <h2>🏆 Sweep Tournament Results</h2>
+        <p>500 bot strategies backtested across CoinDCX INR markets (30-day horizon)</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-sm btn-ghost" id="btn-tool-compare">⚖️ Compare Top Bots</button>
+        <button class="btn btn-sm btn-ghost" id="btn-tool-underwater">📉 Drawdown</button>
+        <button class="btn btn-sm btn-ghost" id="btn-tool-print">🖨️ Print Report</button>
+      </div>
+    </div>
+
+    <!-- KPI Summary Metrics Grid -->
+    <section class="metrics-grid" id="metrics-cards-grid">
+      <!-- Injected by app.js -->
+    </section>
+
+    <!-- Visualizations Panel (Collapsible) -->
+    <section class="charts-panel">
+      <div class="charts-panel-header" id="charts-panel-header">
+        <div class="charts-panel-title">
+          <span>📈 Strategy Performance Distribution Charts</span>
+        </div>
+        <span id="charts-toggle-chevron" style="font-size: 0.8rem; color: var(--text-muted);">▼</span>
+      </div>
+      <div class="charts-body" id="charts-body">
+        <div class="chart-wrapper">
+          <div class="chart-header"><span id="chart-title-1">Strategy PnL Distribution (%)</span></div>
+          <div class="chart-canvas-container"><canvas id="analytics-chart-1"></canvas></div>
+        </div>
+        <div class="chart-wrapper">
+          <div class="chart-header"><span id="chart-title-2">Win Rate vs Max Drawdown (%)</span></div>
+          <div class="chart-canvas-container"><canvas id="analytics-chart-2"></canvas></div>
+        </div>
+        <div class="chart-wrapper">
+          <div class="chart-header"><span id="chart-title-3">Strategy Mode Breakdown</span></div>
+          <div class="chart-canvas-container"><canvas id="analytics-chart-3"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters, Search & Query Controls -->
+    <section class="filter-section">
+      <div class="filter-main-bar">
+        <div class="search-box-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="global-search" class="search-input" placeholder="Search strategies (press '/' to focus)..." autocomplete="off" spellcheck="false">
+          <button class="search-clear-btn" id="search-clear-btn" title="Clear search">✕</button>
+          <span class="search-shortcut-badge">/</span>
+        </div>
+        <div class="quick-chips-wrapper" id="quick-chips-list">
+          <!-- Injected by app.js -->
+        </div>
+      </div>
+
+      <div class="advanced-filters-grid" id="advanced-filters-grid">
+        <!-- Injected by app.js -->
+      </div>
+
+      <div class="active-filters-strip">
+        <div class="active-badges-list" id="active-filters-badges">
+          <!-- Injected by app.js -->
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.85rem;">
+          <div class="filter-results-count" id="filter-results-counter">Showing all entries</div>
+          <button class="btn btn-sm btn-ghost" id="btn-reset-filters" title="Reset all applied filters">↺ Reset Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Table Toolbar -->
+    <div class="table-toolbar">
+      <div class="toolbar-left">
+        <h3 style="font-size: 1.05rem; font-weight: 700;">Strategy Leaderboard</h3>
+      </div>
+      <div class="toolbar-right">
+        <button class="btn btn-sm" id="btn-column-manager" title="Customize visible columns">⚙️ Columns</button>
+        <button class="btn btn-sm" id="btn-copy-data" title="Copy table data">📋 Copy</button>
+        <button class="btn btn-sm" id="btn-export-csv" title="Download CSV">📥 Export CSV</button>
+        <button class="btn btn-sm" id="btn-export-json" title="Download JSON">📥 Export JSON</button>
+      </div>
+    </div>
+
+    <!-- Data Table Container -->
+    <main class="table-container">
+      <div class="table-scroll-wrapper" id="table-scroll-container">
+        <!-- Injected by app.js -->
+      </div>
+      <footer class="pagination-footer" id="pagination-footer-container">
+        <!-- Injected by app.js -->
+      </footer>
+    </main>
+
+  </div>
+
+  <!-- Floating Bulk Actions Bar -->
+  <div class="floating-bulk-bar" id="floating-bulk-bar">
+    <span class="bulk-count-badge" id="bulk-selected-count">0 selected</span>
+    <button class="btn btn-sm btn-primary" id="bulk-compare-btn">⚖️ Compare Selected</button>
+    <button class="btn btn-sm" id="bulk-subtotals-btn">📊 Subtotals</button>
+    <button class="btn btn-sm" id="bulk-export-csv-btn">📥 Export CSV</button>
+    <button class="btn btn-sm" id="bulk-export-json-btn">📥 Export JSON</button>
+    <button class="btn btn-sm btn-ghost" id="bulk-deselect-btn">✕ Deselect</button>
+  </div>
+
+  <!-- Mobile Slide-Out Drawer Menu -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop">
+    <div class="mobile-drawer">
+      <div class="drawer-header">
+        <div class="brand-section">
+          <div class="brand-icon">⚡</div>
+          <span style="font-weight: 700; font-size: 1.1rem;">CrytpTrde</span>
+        </div>
+        <button class="modal-close-btn" id="mobile-drawer-close">&times;</button>
+      </div>
+      <div class="drawer-nav-list">
+        <a href="index.html" class="drawer-nav-item active">
+          <span>🏆 Sweep Results</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="trades.html" class="drawer-nav-item">
+          <span>⚡ Trades Log</span>
+          <span class="nav-badge">8.1K</span>
+        </a>
+        <a href="trades.html#view=last_trades" class="drawer-nav-item">
+          <span>🕐 Last Trade</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="live.html" class="drawer-nav-item">
+          <span>🟢 Live Accounts</span>
+          <span class="nav-badge">500</span>
+        </a>
+        <a href="bot.html" class="drawer-nav-item">
+          <span>🤖 Bot Details</span>
+          <span class="nav-badge">1</span>
+        </a>
+        <a href="configs.html" class="drawer-nav-item">
+          <span>⚙️ Bot Configs Grid</span>
+        </a>
+        <a href="analytics.html" class="drawer-nav-item">
+          <span>📈 Quant Analytics</span>
+        </a>
+        <a href="compare.html" class="drawer-nav-item">
+          <span>⚖️ Strategy Comparator</span>
+        </a>
+        <a href="importer.html" class="drawer-nav-item">
+          <span>📁 Import Custom File</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom App Bar -->
+  <nav class="mobile-bottom-bar">
+    <div class="mobile-bottom-bar-grid">
+      <a href="index.html" class="bottom-tab-btn active">
+        <span class="tab-icon">🏆</span>
+        <span>Sweep</span>
+      </a>
+      <a href="trades.html" class="bottom-tab-btn">
+        <span class="tab-icon">⚡</span>
+        <span>Trades</span>
+      </a>
+      <a href="live.html" class="bottom-tab-btn">
+        <span class="tab-icon">🟢</span>
+        <span>Live</span>
+      </a>
+      <a href="analytics.html" class="bottom-tab-btn">
+        <span class="tab-icon">📈</span>
+        <span>Quant</span>
+      </a>
+      <button class="bottom-tab-btn" id="bottom-tab-more">
+        <span class="tab-icon">☰</span>
+        <span>More</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Modals -->
+  <div class="modal-backdrop" id="strategy-comparator-modal">
+    <div class="modal-container modal-wide">
+      <div class="modal-header">
+        <div class="modal-title"><span>⚖️ Multi-Strategy Performance Comparator</span></div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="comparator-content"></div>
+      <div class="modal-footer"><button class="btn btn-sm modal-close-btn">Close</button></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="underwater-modal">
+    <div class="modal-container modal-wide">
+      <div class="modal-header">
+        <div class="modal-title"><span>📉 Underwater Drawdown & Recovery Timeline</span></div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="metrics-grid">
+          <div class="metric-card highlight-danger">
+            <div class="metric-header"><span>Max Drop</span><span>📉</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="dd-max-peak" style="color:var(--danger)">-9.67%</span></div>
+          </div>
+          <div class="metric-card highlight-warning">
+            <div class="metric-header"><span>Underwater Duration</span><span>⏱️</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="dd-longest-time">72 Hours</span></div>
+          </div>
+          <div class="metric-card highlight-success">
+            <div class="metric-header"><span>Current State</span><span>🛡️</span></div>
+            <div class="metric-value-row"><span class="metric-value" id="dd-current-status" style="color:var(--success)">ATH Peak</span></div>
+          </div>
+        </div>
+        <div style="height: 280px; background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-top: 1rem;">
+          <div style="height: 100%; position: relative;"><canvas id="underwater-chart"></canvas></div>
+        </div>
+      </div>
+      <div class="modal-footer"><button class="btn btn-sm modal-close-btn">Close</button></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="row-inspector-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title"><span>🔍 Record Details</span></div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="row-inspector-content"></div>
+      <div class="modal-footer"><button class="btn btn-sm modal-close-btn">Close</button></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="column-manager-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title"><span>⚙️ Column Visibility</span></div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="column-select-grid" id="column-select-grid"></div>
+      </div>
+      <div class="modal-footer"><button class="btn btn-primary btn-sm modal-close-btn">Done</button></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="yaml-generator-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title"><span>🛠️ Strategy Configuration Generator</span></div>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <pre class="json-preview" id="yaml-code-content"></pre>
+        <div style="display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 0.5rem;">
+          <button class="btn btn-sm" id="btn-copy-cli">📋 Copy CLI Command</button>
+          <button class="btn btn-primary btn-sm" id="btn-download-yaml">📥 Download config.yaml</button>
+        </div>
+      </div>
+      <div class="modal-footer"><button class="btn btn-sm modal-close-btn">Close</button></div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

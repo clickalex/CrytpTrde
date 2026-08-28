@@ -1,20 +1,27 @@
 # CI workflow drop-ins
 
 The sandbox's GitHub App token cannot create or update files under
-`.github/workflows/` (it lacks the `workflows` permission), so the new test
-workflow ships here instead.
+`.github/workflows/` (it lacks the `workflows` permission), so workflow
+changes are shipped as drop-ins in this directory instead. The reorg branch
+therefore keeps the existing `.github/workflows/*` files untouched and adds
+root compatibility shims (`build_data_js.py`, `test_speed_fix.py`,
+`index.html`) so the unmodified workflows still work against the new layout.
 
-To enable CI testing, move the file into place:
+After merging the structure change, apply these updated workflows:
 
 ```bash
-mv docs/ci/tests.yml .github/workflows/tests.yml
+cp docs/ci/dca.yml.suggested .github/workflows/dca.yml
+cp docs/ci/tests.yml .github/workflows/tests.yml
 ```
 
-- `tests.yml` — runs the offline suite (`python3 test_speed_fix.py`, 11 tests)
+The drop-ins update the paths for the new layout:
+
+- `dca.yml.suggested` — hourly bot workflow updated for the new layout
+  (data lives under `data/`, the dashboard generator is
+  `scripts/build_data_js.py`, the generated dataset is `web/data.js`, and
+  the Pages deploy should publish `web/`).
+- `tests.yml` — offline suite (`python3 tests/test_speed_fix.py`, 12 tests)
   on every push and pull request. No network or secrets needed.
 
-- `dca.yml.suggested` — the hourly bot workflow with refreshed comments
-  (500-bot tournament, quota wording, pointer to tests.yml). The only
-  differences from the live `.github/workflows/dca.yml` are comments, so
-  updating it is optional:
-  `cp docs/ci/dca.yml.suggested .github/workflows/dca.yml`
+Once the drop-ins are in place, the root compatibility shims
+(`build_data_js.py`, `test_speed_fix.py`, and `index.html`) can be deleted.
