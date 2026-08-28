@@ -13,9 +13,14 @@ Stubs CoinDCX endpoints with realistic latency and checks:
   9. progress lines appear on long scans
   10. run_cycle smoke: oversold candles -> BUY, rally -> take-profit SELL
   11. PaperBroker round-trip: fee/TDS/PnL accounting, persistence, rejections
+  12. bot/coin drill-down: per-fill PnL attribution + offline report commands
+  13. every module imports what it calls (no runtime NameError after the split)
 """
 import argparse
+import builtins
 import csv
+import dis
+import importlib
 import io
 import json
 import shutil
@@ -678,12 +683,70 @@ def test_bot_and_coin_drilldown():
           "commands (incl. clean --json)")
 
 
+def _missing_globals(mod) -> set:
+    """Global names this module's bytecode looks up but never binds.
+
+    Walks every code object (module body + all nested functions) and reports
+    LOAD_GLOBAL/STORE_GLOBAL names that are neither an attribute of the
+    imported module nor a builtin — i.e. exactly the lookups CPython would
+    raise ``NameError`` on when that line runs.
+    """
+    with open(mod.__file__, encoding="utf-8") as fh:
+        code = compile(fh.read(), mod.__file__, "exec")
+    missing, seen = set(), set()
+
+    def walk(co):
+        if co in seen:
+            return
+        seen.add(co)
+        for ins in dis.get_instructions(co):
+            if ins.opname in ("LOAD_GLOBAL", "STORE_GLOBAL", "DELETE_GLOBAL"):
+                name = ins.argval
+                if not (hasattr(mod, name) or hasattr(builtins, name)):
+                    missing.add(name)
+        for const in co.co_consts:
+            if hasattr(const, "co_code"):
+                walk(const)
+
+    walk(code)
+    return missing
+
+
+def test_no_undefined_names():
+    """Every module must import the helpers it calls.
+
+    Before the package split cryptobot.py was one file, so every helper was a
+    module global and nothing had to be imported. After the split, sweep.py
+    kept calling ``fetch_history`` / ``hodl_benchmark`` / ``qty_from_inr``
+    without importing them. The offline suite still passed — it reaches those
+    helpers through the package's star imports — but the hourly Actions run
+    died the moment ``run_sweep`` executed:
+    ``NameError: name 'fetch_history' is not defined``.
+
+    A syntax check cannot catch this (the name is only resolved at call time),
+    so check the compiled bytecode instead.
+    """
+    pkg_dir = Path(__file__).resolve().parent.parent / "src" / "cryptobot"
+    bad = []
+    for path in sorted(pkg_dir.glob("*.py")):
+        name = path.stem
+        mod = cb if name == "__init__" else importlib.import_module(
+            f"cryptobot.{name}")
+        missing = _missing_globals(mod)
+        if missing:
+            bad.append(f"  cryptobot/{name}.py: {', '.join(sorted(missing))}")
+    assert not bad, ("undefined names — add the missing import:\n"
+                     + "\n".join(bad))
+    print("  imports: all 10 modules resolve their own globals "
+          "(no runtime NameError)")
+
+
 if __name__ == "__main__":
     tests = [test_build_market_cache, test_rate_limiter_global_pacing,
              test_fetch_history, test_discovery_caps, test_config_caps_flow,
              test_dipped_scan, test_adaptive_backoff, test_dead_market_skipped,
              test_progress_lines, test_run_cycle_smoke, test_paper_broker_roundtrip,
-             test_bot_and_coin_drilldown]
+             test_bot_and_coin_drilldown, test_no_undefined_names]
     for t in tests:
         print(f"* {t.__name__}")
         t()

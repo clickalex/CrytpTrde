@@ -20,8 +20,10 @@ The drop-ins update the paths for the new layout:
   (data lives under `data/`, the dashboard generator is
   `scripts/build_data_js.py`, the generated dataset is `web/data.js`, and
   the Pages deploy should publish `web/`).
-- `tests.yml` — offline suite (`python3 tests/test_speed_fix.py`, 12 tests)
-  on every push and pull request. No network or secrets needed.
+- `tests.yml` — offline suite (`python3 tests/test_speed_fix.py`, 13 tests)
+  on every push and pull request. No network or secrets needed. Test 13
+  asserts every module imports the helpers it calls, so a missing import
+  after the package split cannot reach the hourly bot run again.
 
 Once the drop-ins are in place, the root compatibility shims
 (`build_data_js.py`, `test_speed_fix.py`, and `index.html`) can be deleted.
