@@ -1,11 +1,11 @@
 {
-  "cash_inr": 797.809653976289,
-  "realized_pnl": -33.82899322544972,
-  "total_trades": 8,
-  "sell_count": 1,
-  "gross_gains": 0.0,
+  "cash_inr": 1092.071534238404,
+  "realized_pnl": 104.29008688435522,
+  "total_trades": 10,
+  "sell_count": 2,
+  "gross_gains": 138.12,
   "gross_losses": -33.83,
-  "total_tds": 14.11,
+  "total_tds": 24.31,
   "holdings": {
     "BTCINR": {
       "qty": 0.00051,
@@ -31,17 +31,17 @@
       "invested": 537.0189897072,
       "last_buy_at": "2026-08-28T18:09:38+00:00"
     },
-    "TRUMPINR": {
-      "qty": 3.383,
-      "avg_cost": 260.43019002,
-      "invested": 881.03533283766,
-      "last_buy_at": "2026-08-28T18:56:59+00:00"
-    },
     "XRPINR": {
       "qty": 3.8,
       "avg_cost": 137.950684872,
       "invested": 524.2126025136,
       "last_buy_at": "2026-08-28T18:56:59+00:00"
+    },
+    "LINKINR": {
+      "qty": 0.62,
+      "avg_cost": 1152.7270755,
+      "invested": 714.69078681,
+      "last_buy_at": "2026-08-29T05:35:39+00:00"
     }
   }
 }

@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1145.6878770105227,
-  "realized_pnl": -301.6119085804228,
-  "total_trades": 20,
-  "sell_count": 6,
-  "gross_gains": 15.92,
-  "gross_losses": -317.53,
-  "total_tds": 114.85,
+  "cash_inr": 1120.4149881827316,
+  "realized_pnl": -311.4476387830297,
+  "total_trades": 25,
+  "sell_count": 8,
+  "gross_gains": 25.89,
+  "gross_losses": -337.33,
+  "total_tds": 142.44,
   "holdings": {
     "TRXINR": {
       "qty": 42.1,
       "avg_cost": 34.141152045,
       "invested": 1437.3425010945,
       "last_buy_at": "2026-08-28T18:12:58+00:00"
-    },
-    "ORCAINR": {
-      "qty": 15.83,
-      "avg_cost": 126.50954315999999,
-      "invested": 2002.6460682227998,
-      "last_buy_at": "2026-08-28T18:57:56+00:00"
     },
     "ETHINR": {
       "qty": 0.0037,
@@ -49,11 +43,23 @@
       "invested": 510.64928124209996,
       "last_buy_at": "2026-08-29T02:29:22+00:00"
     },
-    "XDBINR": {
-      "qty": 83521.5,
-      "avg_cost": 0.0091447010655,
-      "invested": 763.7791500421582,
-      "last_buy_at": "2026-08-29T02:29:22+00:00"
+    "ARBINR": {
+      "qty": 140.7,
+      "avg_cost": 8.915357450999997,
+      "invested": 1254.3907933556995,
+      "last_buy_at": "2026-08-29T05:36:57+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 552.0,
+      "avg_cost": 1.36414383105,
+      "invested": 753.0073947396,
+      "last_buy_at": "2026-08-29T05:36:57+00:00"
+    },
+    "BOMEINR": {
+      "qty": 7170.0,
+      "avg_cost": 0.104166067005,
+      "invested": 746.87070042585,
+      "last_buy_at": "2026-08-29T05:36:57+00:00"
     }
   }
 }
