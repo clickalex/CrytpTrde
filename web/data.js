@@ -3,12 +3,11 @@
 // Do not edit by hand — run `python3 build_data_js.py` to regenerate.
 window.DATA_SETS = {
   "bot_status": {
-    "timestamp_utc": "2026-08-29T06:58:27+00:00",
-    "command": "wipe",
+    "timestamp_utc": "2026-08-29T07:00:33+00:00",
+    "command": "check",
     "status": "ok",
     "runner": "github-actions",
-    "note": "site wiped & reset to a clean slate",
-    "data_generated_utc": "2026-08-29T06:58:27+00:00"
+    "data_generated_utc": "2026-08-29T07:00:33+00:00"
   },
   "live_trades": [],
   "last_trades": []
