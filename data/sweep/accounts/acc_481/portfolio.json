@@ -1,11 +1,11 @@
 {
-  "cash_inr": 4796.062991629901,
-  "realized_pnl": 0.0,
-  "total_trades": 7,
-  "sell_count": 0,
-  "gross_gains": 0.0,
-  "gross_losses": 0.0,
-  "total_tds": 0.0,
+  "cash_inr": 4839.85166607819,
+  "realized_pnl": -56.3511912748495,
+  "total_trades": 15,
+  "sell_count": 4,
+  "gross_gains": 0.27,
+  "gross_losses": -56.63,
+  "total_tds": 26.08,
   "holdings": {
     "ETHINR": {
       "qty": 0.004,
@@ -19,35 +19,35 @@
       "invested": 901.6698285094501,
       "last_buy_at": "2026-08-29T07:03:20+00:00"
     },
-    "TRUMPINR": {
-      "qty": 2.9,
-      "avg_cost": 279.80922469499995,
-      "invested": 811.4467516154998,
-      "last_buy_at": "2026-08-29T07:03:20+00:00"
-    },
-    "SUIINR": {
-      "qty": 9.7,
-      "avg_cost": 74.93827641299998,
-      "invested": 726.9012812060998,
-      "last_buy_at": "2026-08-29T07:03:20+00:00"
-    },
     "TRXINR": {
       "qty": 19.3,
       "avg_cost": 34.04000049449999,
       "invested": 656.9720095438499,
       "last_buy_at": "2026-08-29T07:03:20+00:00"
     },
-    "ICPINR": {
-      "qty": 2.41,
-      "avg_cost": 245.36762249999998,
-      "invested": 591.335970225,
-      "last_buy_at": "2026-08-29T07:03:20+00:00"
+    "FILINR": {
+      "qty": 10.7,
+      "avg_cost": 68.88320439000002,
+      "invested": 737.0502869730001,
+      "last_buy_at": "2026-08-29T09:15:48+00:00"
     },
-    "TRBINR": {
-      "qty": 0.305,
-      "avg_cost": 1745.4150713999998,
-      "invested": 532.3515967769999,
-      "last_buy_at": "2026-08-29T07:03:20+00:00"
+    "POPCATINR": {
+      "qty": 121.28,
+      "avg_cost": 5.4734005325999995,
+      "invested": 663.814016593728,
+      "last_buy_at": "2026-08-29T09:15:48+00:00"
+    },
+    "SEIINR": {
+      "qty": 129.0,
+      "avg_cost": 4.6295362113000005,
+      "invested": 597.2101712577,
+      "last_buy_at": "2026-08-29T09:15:48+00:00"
+    },
+    "GASINR": {
+      "qty": 3.9967,
+      "avg_cost": 134.545583172,
+      "invested": 537.7383322635324,
+      "last_buy_at": "2026-08-29T09:15:48+00:00"
     }
   }
 }

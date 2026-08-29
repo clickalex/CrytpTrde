@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1197.3114794360633,
-  "realized_pnl": 0.0,
-  "total_trades": 6,
-  "sell_count": 0,
+  "cash_inr": 1426.4073753018633,
+  "realized_pnl": -32.34163725509973,
+  "total_trades": 10,
+  "sell_count": 2,
   "gross_gains": 0.0,
-  "gross_losses": 0.0,
-  "total_tds": 0.0,
+  "gross_losses": -32.34,
+  "total_tds": 17.29,
   "holdings": {
     "BTCINR": {
       "qty": 0.00038,
@@ -25,23 +25,23 @@
       "invested": 1478.6978618411997,
       "last_buy_at": "2026-08-29T07:03:18+00:00"
     },
-    "NEARINR": {
-      "qty": 5.7,
-      "avg_cost": 181.041245385,
-      "invested": 1031.9350986945,
-      "last_buy_at": "2026-08-29T07:03:18+00:00"
-    },
-    "ONDOINR": {
-      "qty": 20.6,
-      "avg_cost": 35.34295264499999,
-      "invested": 728.0648244869999,
-      "last_buy_at": "2026-08-29T07:03:18+00:00"
-    },
     "DOTINR": {
       "qty": 6.0995,
       "avg_cost": 84.12604200000001,
       "invested": 513.1267931790001,
       "last_buy_at": "2026-08-29T07:03:18+00:00"
+    },
+    "RENDERINR": {
+      "qty": 6.06,
+      "avg_cost": 143.87556183,
+      "invested": 871.8859046898,
+      "last_buy_at": "2026-08-29T09:14:28+00:00"
+    },
+    "ADAINR": {
+      "qty": 30.2,
+      "avg_cost": 20.178232073999997,
+      "invested": 609.3826086347999,
+      "last_buy_at": "2026-08-29T09:14:28+00:00"
     }
   }
 }

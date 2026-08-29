@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2108.1915732427456,
-  "realized_pnl": 0.0,
-  "total_trades": 7,
-  "sell_count": 0,
+  "cash_inr": 2494.04696506037,
+  "realized_pnl": -36.79893486089986,
+  "total_trades": 11,
+  "sell_count": 2,
   "gross_gains": 0.0,
-  "gross_losses": 0.0,
-  "total_tds": 0.0,
+  "gross_losses": -36.8,
+  "total_tds": 16.42,
   "holdings": {
     "ETHINR": {
       "qty": 0.0081,
@@ -25,22 +25,10 @@
       "invested": 1281.63771610875,
       "last_buy_at": "2026-08-29T07:03:20+00:00"
     },
-    "TRUMPINR": {
-      "qty": 3.665,
-      "avg_cost": 279.809224695,
-      "invested": 1025.500808507175,
-      "last_buy_at": "2026-08-29T07:03:20+00:00"
-    },
     "XRPINR": {
       "qty": 5.9,
       "avg_cost": 138.69780424500001,
       "invested": 818.3170450455001,
-      "last_buy_at": "2026-08-29T07:03:20+00:00"
-    },
-    "SUIINR": {
-      "qty": 8.7,
-      "avg_cost": 74.93827641299998,
-      "invested": 651.9630047930998,
       "last_buy_at": "2026-08-29T07:03:20+00:00"
     },
     "TRXINR": {
@@ -48,6 +36,18 @@
       "avg_cost": 34.04000049449999,
       "invested": 524.2160076152999,
       "last_buy_at": "2026-08-29T07:03:20+00:00"
+    },
+    "LINKINR": {
+      "qty": 0.54,
+      "avg_cost": 1140.6089194500003,
+      "invested": 615.9288165030001,
+      "last_buy_at": "2026-08-29T09:15:44+00:00"
+    },
+    "ICPINR": {
+      "qty": 2.5,
+      "avg_cost": 248.983039305,
+      "invested": 622.4575982625,
+      "last_buy_at": "2026-08-29T09:15:44+00:00"
     }
   }
 }
