@@ -1,0 +1,80 @@
+# Drop-in: Tournament bot commands
+# Commands: sweep-live, sweep-status, sweep
+
+name: Tournament Commands
+
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "Tournament command"
+        type: choice
+        options:
+          - sweep-live
+          - sweep-status
+          - sweep
+        default: sweep-live
+      reset:
+        description: "Reset all accounts to Rs 10,000 (sweep-live only)"
+        type: boolean
+        default: false
+      sweep_days:
+        description: "Days of history for sweep (default: 30)"
+        type: number
+        required: false
+      sweep_count:
+        description: "Number of bots for sweep (default: 500)"
+        type: number
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: crypto-bot
+  cancel-in-progress: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run tournament command
+        env:
+          COINDCX_API_KEY: ${{ secrets.COINDCX_API_KEY }}
+          COINDCX_API_SECRET: ${{ secrets.COINDCX_API_SECRET }}
+        run: |
+          CMD="${{ github.event.inputs.command }}"
+          ARGS=""
+          if [ "${CMD}" = "sweep-live" ]; then
+            if [ "${{ github.event.inputs.reset }}" = "true" ]; then
+              ARGS="--reset"
+            fi
+          elif [ "${CMD}" = "sweep" ]; then
+            DAYS="${{ github.event.inputs.sweep_days }}"
+            COUNT="${{ github.event.inputs.sweep_count }}"
+            if [ -n "${DAYS}" ]; then ARGS="--days ${DAYS}"; fi
+            if [ -n "${COUNT}" ]; then ARGS="${ARGS} --count ${COUNT}"; fi
+          fi
+          echo "Running: python cryptobot.py ${CMD} ${ARGS}"
+          python cryptobot.py ${CMD} ${ARGS}
+      - name: Rebuild dashboard data
+        run: python3 scripts/build_data_js.py
+      - name: Save state
+        run: |
+          git config user.name "crypto-bot"
+          git config user.email "crypto-bot@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No state changes."
+          else
+            git commit -qm "bot state: $(date -u +%FT%TZ)"
+            git push
+            echo "State saved."
+          fi
