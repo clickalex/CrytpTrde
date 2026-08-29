@@ -1,0 +1,90 @@
+# Drop-in: Analysis bot commands
+# Commands: backtest, bot, coin
+
+name: Analysis Commands
+
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "Analysis command"
+        type: choice
+        options:
+          - backtest
+          - bot
+          - coin
+        default: backtest
+      account_id:
+        description: "Account ID (e.g. acc_001) - for 'bot' command"
+        type: string
+        required: false
+      coin_asset:
+        description: "Coin asset (e.g. BTCINR) - for 'coin' command"
+        type: string
+        required: false
+      backtest_days:
+        description: "Days of history for backtest (default: 30)"
+        type: number
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: crypto-bot
+  cancel-in-progress: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run analysis command
+        env:
+          COINDCX_API_KEY: ${{ secrets.COINDCX_API_KEY }}
+          COINDCX_API_SECRET: ${{ secrets.COINDCX_API_SECRET }}
+        run: |
+          CMD="${{ github.event.inputs.command }}"
+          ARGS=""
+          if [ "${CMD}" = "bot" ]; then
+            ACCOUNT="${{ github.event.inputs.account_id }}"
+            if [ -z "${ACCOUNT}" ]; then
+              echo "Error: 'account_id' is required for 'bot' command"
+              exit 1
+            fi
+            ARGS="${ACCOUNT}"
+          elif [ "${CMD}" = "coin" ]; then
+            COIN="${{ github.event.inputs.coin_asset }}"
+            if [ -z "${COIN}" ]; then
+              echo "Error: 'coin_asset' is required for 'coin' command"
+              exit 1
+            fi
+            ARGS="${COIN}"
+          elif [ "${CMD}" = "backtest" ]; then
+            DAYS="${{ github.event.inputs.backtest_days }}"
+            if [ -n "${DAYS}" ]; then
+              ARGS="--days ${DAYS}"
+            fi
+          fi
+          echo "Running: python cryptobot.py ${CMD} ${ARGS}"
+          python cryptobot.py ${CMD} ${ARGS}
+      - name: Rebuild dashboard data
+        run: python3 scripts/build_data_js.py
+      - name: Save state
+        run: |
+          git config user.name "crypto-bot"
+          git config user.email "crypto-bot@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No state changes."
+          else
+            git commit -qm "bot state: $(date -u +%FT%TZ)"
+            git push
+            echo "State saved."
+          fi
