@@ -1,11 +1,11 @@
 {
-  "cash_inr": 4839.85166607819,
-  "realized_pnl": -56.3511912748495,
-  "total_trades": 15,
-  "sell_count": 4,
+  "cash_inr": 4582.503653537929,
+  "realized_pnl": -103.09905068072919,
+  "total_trades": 22,
+  "sell_count": 7,
   "gross_gains": 0.27,
-  "gross_losses": -56.63,
-  "total_tds": 26.08,
+  "gross_losses": -103.38,
+  "total_tds": 44.35,
   "holdings": {
     "ETHINR": {
       "qty": 0.004,
@@ -25,29 +25,35 @@
       "invested": 656.9720095438499,
       "last_buy_at": "2026-08-29T07:03:20+00:00"
     },
-    "FILINR": {
-      "qty": 10.7,
-      "avg_cost": 68.88320439000002,
-      "invested": 737.0502869730001,
-      "last_buy_at": "2026-08-29T09:15:48+00:00"
-    },
     "POPCATINR": {
       "qty": 121.28,
       "avg_cost": 5.4734005325999995,
       "invested": 663.814016593728,
       "last_buy_at": "2026-08-29T09:15:48+00:00"
     },
-    "SEIINR": {
-      "qty": 129.0,
-      "avg_cost": 4.6295362113000005,
-      "invested": 597.2101712577,
-      "last_buy_at": "2026-08-29T09:15:48+00:00"
+    "ORCAINR": {
+      "qty": 4.31,
+      "avg_cost": 128.74288927499998,
+      "invested": 554.8818527752499,
+      "last_buy_at": "2026-08-29T14:41:33+00:00"
     },
-    "GASINR": {
-      "qty": 3.9967,
-      "avg_cost": 134.545583172,
-      "invested": 537.7383322635324,
-      "last_buy_at": "2026-08-29T09:15:48+00:00"
+    "CHILLGUYINR": {
+      "qty": 363.0,
+      "avg_cost": 1.3774637876999998,
+      "invested": 500.0193549350999,
+      "last_buy_at": "2026-08-29T14:41:33+00:00"
+    },
+    "BRETTINR": {
+      "qty": 978.0,
+      "avg_cost": 0.5118769205549999,
+      "invested": 500.6156283027899,
+      "last_buy_at": "2026-08-29T14:41:33+00:00"
+    },
+    "ALTINR": {
+      "qty": 790.0,
+      "avg_cost": 0.64406497155,
+      "invested": 508.8113275245,
+      "last_buy_at": "2026-08-29T14:41:33+00:00"
     }
   }
 }
