@@ -1,0 +1,79 @@
+# Drop-in: Maintenance bot commands
+# Commands: prune, wipe
+
+name: Maintenance Commands
+
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "Maintenance command"
+        type: choice
+        options:
+          - prune
+          - wipe
+        default: prune
+      max_trades:
+        description: "Max trades to retain (default: 100) - for 'prune'"
+        type: number
+        required: false
+      confirm_wipe:
+        description: "Type 'YES' to confirm wipe (deletes ALL data)"
+        type: string
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: crypto-bot
+  cancel-in-progress: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run maintenance command
+        env:
+          COINDCX_API_KEY: ${{ secrets.COINDCX_API_KEY }}
+          COINDCX_API_SECRET: ${{ secrets.COINDCX_API_SECRET }}
+        run: |
+          CMD="${{ github.event.inputs.command }}"
+          ARGS=""
+          if [ "${CMD}" = "prune" ]; then
+            MAX_TRADES="${{ github.event.inputs.max_trades }}"
+            if [ -n "${MAX_TRADES}" ]; then
+              ARGS="--max-trades ${MAX_TRADES}"
+            fi
+          elif [ "${CMD}" = "wipe" ]; then
+            CONFIRM="${{ github.event.inputs.confirm_wipe }}"
+            if [ "${CONFIRM}" != "YES" ]; then
+              echo "Error: wipe command requires confirm_wipe='YES'"
+              echo "This deletes ALL bot data and cannot be undone."
+              exit 1
+            fi
+            ARGS="--yes"
+          fi
+          echo "Running: python cryptobot.py ${CMD} ${ARGS}"
+          python cryptobot.py ${CMD} ${ARGS}
+      - name: Rebuild dashboard data
+        run: python3 scripts/build_data_js.py
+      - name: Save state
+        run: |
+          git config user.name "crypto-bot"
+          git config user.email "crypto-bot@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No state changes."
+          else
+            git commit -qm "bot state: $(date -u +%FT%TZ)"
+            git push
+            echo "State saved."
+          fi
