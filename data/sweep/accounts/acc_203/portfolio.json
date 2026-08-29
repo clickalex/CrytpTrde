@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1493.1664995032138,
-  "realized_pnl": -55.51243958984935,
-  "total_trades": 12,
-  "sell_count": 3,
-  "gross_gains": 0.0,
+  "cash_inr": 1380.7468662664587,
+  "realized_pnl": -26.307241210049256,
+  "total_trades": 15,
+  "sell_count": 4,
+  "gross_gains": 29.21,
   "gross_losses": -55.51,
-  "total_tds": 31.86,
+  "total_tds": 45.2,
   "holdings": {
     "BTCINR": {
       "qty": 0.00038,
@@ -25,12 +25,6 @@
       "invested": 513.1267931790001,
       "last_buy_at": "2026-08-29T07:03:18+00:00"
     },
-    "RENDERINR": {
-      "qty": 9.06,
-      "avg_cost": 143.87556183,
-      "invested": 1303.5125901798,
-      "last_buy_at": "2026-08-29T09:14:25+00:00"
-    },
     "ADAINR": {
       "qty": 45.2,
       "avg_cost": 20.178232074,
@@ -42,6 +36,18 @@
       "avg_cost": 19.30892964,
       "invested": 639.8979282696,
       "last_buy_at": "2026-08-29T09:14:25+00:00"
+    },
+    "RIFINR": {
+      "qty": 115.0,
+      "avg_cost": 7.304944646999999,
+      "invested": 840.0686344049999,
+      "last_buy_at": "2026-08-29T21:56:55+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 47637.0,
+      "avg_cost": 0.0124216107015,
+      "invested": 591.7282689873555,
+      "last_buy_at": "2026-08-29T21:56:55+00:00"
     }
   }
 }
