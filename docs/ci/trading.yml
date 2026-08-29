@@ -1,0 +1,59 @@
+# Drop-in: Trading bot commands
+# Commands: check, status, assets, init, reset
+
+name: Trading Commands
+
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "Trading command"
+        type: choice
+        options:
+          - check
+          - status
+          - assets
+          - init
+          - reset
+        default: status
+
+permissions:
+  contents: write
+
+concurrency:
+  group: crypto-bot
+  cancel-in-progress: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run trading command
+        env:
+          COINDCX_API_KEY: ${{ secrets.COINDCX_API_KEY }}
+          COINDCX_API_SECRET: ${{ secrets.COINDCX_API_SECRET }}
+        run: |
+          CMD="${{ github.event.inputs.command }}"
+          echo "Running: python cryptobot.py ${CMD}"
+          python cryptobot.py ${CMD}
+      - name: Rebuild dashboard data
+        run: python3 scripts/build_data_js.py
+      - name: Save state
+        run: |
+          git config user.name "crypto-bot"
+          git config user.email "crypto-bot@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No state changes."
+          else
+            git commit -qm "bot state: $(date -u +%FT%TZ)"
+            git push
+            echo "State saved."
+          fi
