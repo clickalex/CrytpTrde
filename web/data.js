@@ -3,12 +3,3544 @@
 // Do not edit by hand — run `python3 build_data_js.py` to regenerate.
 window.DATA_SETS = {
   "bot_status": {
-    "timestamp_utc": "2026-08-29T07:02:04+00:00",
-    "command": "reset",
+    "timestamp_utc": "2026-08-29T07:03:01+00:00",
+    "command": "backtest",
     "status": "ok",
     "runner": "github-actions",
-    "data_generated_utc": "2026-08-29T07:02:04+00:00"
+    "data_generated_utc": "2026-08-29T07:03:01+00:00"
   },
+  "trades": [
+    {
+      "asset": "ARBINR",
+      "entry_time": "2026-07-31T10:00+00:00",
+      "entry_price": 7.6,
+      "rsi_at_entry": 26.6,
+      "exit_time": "2026-08-01T01:00+00:00",
+      "exit_price": 7.93,
+      "reason": "take_profit",
+      "pnl_inr": 1622.29,
+      "pnl_pct": 4.16
+    },
+    {
+      "asset": "DOTINR",
+      "entry_time": "2026-07-31T15:00+00:00",
+      "entry_price": 74.49,
+      "rsi_at_entry": 28.8,
+      "exit_time": "2026-08-01T13:00+00:00",
+      "exit_price": 77.55,
+      "reason": "take_profit",
+      "pnl_inr": 337.24,
+      "pnl_pct": 4.0
+    },
+    {
+      "asset": "LINKINR",
+      "entry_time": "2026-08-01T19:00+00:00",
+      "entry_price": 793.23,
+      "rsi_at_entry": 27.5,
+      "exit_time": "2026-08-02T03:00+00:00",
+      "exit_price": 830.67,
+      "reason": "take_profit",
+      "pnl_inr": 448.52,
+      "pnl_pct": 4.62
+    },
+    {
+      "asset": "ORCAINR",
+      "entry_time": "2026-08-01T12:00+00:00",
+      "entry_price": 110.62,
+      "rsi_at_entry": 23.4,
+      "exit_time": "2026-08-03T07:00+00:00",
+      "exit_price": 106.98,
+      "reason": "stop_loss",
+      "pnl_inr": -754.85,
+      "pnl_pct": -3.39
+    },
+    {
+      "asset": "RIFINR",
+      "entry_time": "2026-08-03T10:00+00:00",
+      "entry_price": 7.99,
+      "rsi_at_entry": 23.2,
+      "exit_time": "2026-08-03T13:00+00:00",
+      "exit_price": 7.83,
+      "reason": "stop_loss",
+      "pnl_inr": -114.46,
+      "pnl_pct": -2.12
+    },
+    {
+      "asset": "RIFINR",
+      "entry_time": "2026-08-03T14:00+00:00",
+      "entry_price": 7.89,
+      "rsi_at_entry": 23.7,
+      "exit_time": "2026-08-03T17:00+00:00",
+      "exit_price": 7.73,
+      "reason": "stop_loss",
+      "pnl_inr": -85.6,
+      "pnl_pct": -2.12
+    },
+    {
+      "asset": "RIFINR",
+      "entry_time": "2026-08-04T00:00+00:00",
+      "entry_price": 7.56,
+      "rsi_at_entry": 29.2,
+      "exit_time": "2026-08-04T05:00+00:00",
+      "exit_price": 7.32,
+      "reason": "stop_loss",
+      "pnl_inr": -130.18,
+      "pnl_pct": -3.33
+    },
+    {
+      "asset": "TRBINR",
+      "entry_time": "2026-08-03T10:00+00:00",
+      "entry_price": 1316.46,
+      "rsi_at_entry": 29.8,
+      "exit_time": "2026-08-05T03:00+00:00",
+      "exit_price": 1359.22,
+      "reason": "rsi_overbought",
+      "pnl_inr": 261.56,
+      "pnl_pct": 3.15
+    },
+    {
+      "asset": "ETHINR",
+      "entry_time": "2026-07-31T15:00+00:00",
+      "entry_price": 186181.54,
+      "rsi_at_entry": 28.5,
+      "exit_time": "2026-08-05T20:00+00:00",
+      "exit_price": 191046.53,
+      "reason": "rsi_overbought",
+      "pnl_inr": 346.9,
+      "pnl_pct": 2.51
+    },
+    {
+      "asset": "RIFINR",
+      "entry_time": "2026-08-06T03:00+00:00",
+      "entry_price": 6.66,
+      "rsi_at_entry": 29.7,
+      "exit_time": "2026-08-06T05:00+00:00",
+      "exit_price": 6.4,
+      "reason": "stop_loss",
+      "pnl_inr": -381.12,
+      "pnl_pct": -4.01
+    },
+    {
+      "asset": "RIFINR",
+      "entry_time": "2026-08-06T06:00+00:00",
+      "entry_price": 6.48,
+      "rsi_at_entry": 28.3,
+      "exit_time": "2026-08-06T07:00+00:00",
+      "exit_price": 6.16,
+      "reason": "stop_loss",
+      "pnl_inr": -353.67,
+      "pnl_pct": -5.05
+    },
+    {
+      "asset": "FILINR",
+      "entry_time": "2026-08-06T10:00+00:00",
+      "entry_price": 69.47,
+      "rsi_at_entry": 28.8,
+      "exit_time": "2026-08-06T13:00+00:00",
+      "exit_price": 67.98,
+      "reason": "stop_loss",
+      "pnl_inr": -157.81,
+      "pnl_pct": -2.25
+    },
+    {
+      "asset": "JUPINR",
+      "entry_time": "2026-08-05T08:00+00:00",
+      "entry_price": 18.54,
+      "rsi_at_entry": 25.0,
+      "exit_time": "2026-08-06T15:00+00:00",
+      "exit_price": 18.07,
+      "reason": "stop_loss",
+      "pnl_inr": -155.9,
+      "pnl_pct": -2.61
+    },
+    {
+      "asset": "ONDOINR",
+      "entry_time": "2026-08-03T06:00+00:00",
+      "entry_price": 37.1,
+      "rsi_at_entry": 29.0,
+      "exit_time": "2026-08-06T21:00+00:00",
+      "exit_price": 36.28,
+      "reason": "stop_loss",
+      "pnl_inr": -241.84,
+      "pnl_pct": -2.3
+    },
+    {
+      "asset": "ONDOINR",
+      "entry_time": "2026-08-07T00:00+00:00",
+      "entry_price": 35.86,
+      "rsi_at_entry": 29.9,
+      "exit_time": "2026-08-07T04:00+00:00",
+      "exit_price": 35.03,
+      "reason": "stop_loss",
+      "pnl_inr": -231.34,
+      "pnl_pct": -2.42
+    },
+    {
+      "asset": "XRPINR",
+      "entry_time": "2026-08-06T04:00+00:00",
+      "entry_price": 104.12,
+      "rsi_at_entry": 29.4,
+      "exit_time": "2026-08-07T06:00+00:00",
+      "exit_price": 101.99,
+      "reason": "stop_loss",
+      "pnl_inr": -124.66,
+      "pnl_pct": -2.14
+    },
+    {
+      "asset": "CAKEINR",
+      "entry_time": "2026-08-04T16:00+00:00",
+      "entry_price": 140.08,
+      "rsi_at_entry": 27.8,
+      "exit_time": "2026-08-07T09:00+00:00",
+      "exit_price": 137.29,
+      "reason": "stop_loss",
+      "pnl_inr": -81.77,
+      "pnl_pct": -2.09
+    },
+    {
+      "asset": "JUPINR",
+      "entry_time": "2026-08-06T16:00+00:00",
+      "entry_price": 18.01,
+      "rsi_at_entry": 28.8,
+      "exit_time": "2026-08-07T09:00+00:00",
+      "exit_price": 18.9,
+      "reason": "take_profit",
+      "pnl_inr": 414.77,
+      "pnl_pct": 4.8
+    },
+    {
+      "asset": "ORCAINR",
+      "entry_time": "2026-08-03T08:00+00:00",
+      "entry_price": 107.08,
+      "rsi_at_entry": 23.3,
+      "exit_time": "2026-08-07T18:00+00:00",
+      "exit_price": 104.96,
+      "reason": "stop_loss",
+      "pnl_inr": -312.6,
+      "pnl_pct": -2.08
+    },
+    {
+      "asset": "ONDOINR",
+      "entry_time": "2026-08-07T05:00+00:00",
+      "entry_price": 35.17,
+      "rsi_at_entry": 25.1,
+      "exit_time": "2026-08-08T01:00+00:00",
+      "exit_price": 34.46,
+      "reason": "stop_loss",
+      "pnl_inr": -200.45,
+      "pnl_pct": -2.11
+    },
+    {
+      "asset": "SOLINR",
+      "entry_time": "2026-08-01T19:00+00:00",
+      "entry_price": 7145.27,
+      "rsi_at_entry": 24.0,
+      "exit_time": "2026-08-08T05:00+00:00",
+      "exit_price": 7445.48,
+      "reason": "take_profit",
+      "pnl_inr": 661.2,
+      "pnl_pct": 4.1
+    },
+    {
+      "asset": "ORCAINR",
+      "entry_time": "2026-08-07T19:00+00:00",
+      "entry_price": 105.06,
+      "rsi_at_entry": 23.8,
+      "exit_time": "2026-08-08T15:00+00:00",
+      "exit_price": 111.11,
+      "reason": "take_profit",
+      "pnl_inr": 608.08,
+      "pnl_pct": 5.65
+    },
+    {
+      "asset": "LINKINR",
+      "entry_time": "2026-08-03T13:00+00:00",
+      "entry_price": 811.37,
+      "rsi_at_entry": 29.9,
+      "exit_time": "2026-08-11T10:00+00:00",
+      "exit_price": 863.57,
+      "reason": "take_profit",
+      "pnl_inr": 192.51,
+      "pnl_pct": 6.33
+    },
+    {
+      "asset": "XRPINR",
+      "entry_time": "2026-08-10T23:00+00:00",
+      "entry_price": 100.55,
+      "rsi_at_entry": 29.7,
+      "exit_time": "2026-08-11T15:00+00:00",
+      "exit_price": 98.06,
+      "reason": "stop_loss",
+      "pnl_inr": -279.65,
+      "pnl_pct": -2.57
+    },
+    {
+      "asset": "NEARINR",
+      "entry_time": "2026-08-07T19:00+00:00",
+      "entry_price": 159.33,
+      "rsi_at_entry": 29.1,
+      "exit_time": "2026-08-11T15:00+00:00",
+      "exit_price": 151.98,
+      "reason": "stop_loss",
+      "pnl_inr": -876.72,
+      "pnl_pct": -4.71
+    },
+    {
+      "asset": "TRBINR",
+      "entry_time": "2026-08-08T02:00+00:00",
+      "entry_price": 1359.08,
+      "rsi_at_entry": 30.0,
+      "exit_time": "2026-08-11T15:00+00:00",
+      "exit_price": 1327.14,
+      "reason": "stop_loss",
+      "pnl_inr": -256.71,
+      "pnl_pct": -2.45
+    },
+    {
+      "asset": "NEARINR",
+      "entry_time": "2026-08-11T16:00+00:00",
+      "entry_price": 153.6,
+      "rsi_at_entry": 28.5,
+      "exit_time": "2026-08-12T00:00+00:00",
+      "exit_price": 161.28,
+      "reason": "take_profit",
+      "pnl_inr": 571.0,
+      "pnl_pct": 4.9
+    },
+    {
+      "asset": "TRBINR",
+      "entry_time": "2026-08-11T20:00+00:00",
+      "entry_price": 1307.45,
+      "rsi_at_entry": 27.5,
+      "exit_time": "2026-08-12T03:00+00:00",
+      "exit_price": 1420.29,
+      "reason": "take_profit",
+      "pnl_inr": 361.6,
+      "pnl_pct": 8.52
+    },
+    {
+      "asset": "ORCAINR",
+      "entry_time": "2026-08-11T08:00+00:00",
+      "entry_price": 105.46,
+      "rsi_at_entry": 18.9,
+      "exit_time": "2026-08-12T04:00+00:00",
+      "exit_price": 103.33,
+      "reason": "stop_loss",
+      "pnl_inr": -139.49,
+      "pnl_pct": -2.12
+    },
+    {
+      "asset": "JUPINR",
+      "entry_time": "2026-08-12T03:00+00:00",
+      "entry_price": 17.46,
+      "rsi_at_entry": 28.8,
+      "exit_time": "2026-08-12T10:00+00:00",
+      "exit_price": 17.04,
+      "reason": "stop_loss",
+      "pnl_inr": -247.99,
+      "pnl_pct": -2.55
+    },
+    {
+      "asset": "ORCAINR",
+      "entry_time": "2026-08-12T05:00+00:00",
+      "entry_price": 103.43,
+      "rsi_at_entry": 25.6,
+      "exit_time": "2026-08-14T07:00+00:00",
+      "exit_price": 101.18,
+      "reason": "stop_loss",
+      "pnl_inr": -191.15,
+      "pnl_pct": -2.28
+    },
+    {
+      "asset": "ADAINR",
+      "entry_time": "2026-08-11T15:00+00:00",
+      "entry_price": 18.23,
+      "rsi_at_entry": 28.9,
+      "exit_time": "2026-08-14T12:00+00:00",
+      "exit_price": 17.86,
+      "reason": "stop_loss",
+      "pnl_inr": -440.35,
+      "pnl_pct": -2.12
+    },
+    {
+      "asset": "FILINR",
+      "entry_time": "2026-08-13T00:00+00:00",
+      "entry_price": 67.07,
+      "rsi_at_entry": 29.2,
+      "exit_time": "2026-08-14T13:00+00:00",
+      "exit_price": 65.47,
+      "reason": "stop_loss",
+      "pnl_inr": -78.73,
+      "pnl_pct": -2.49
+    },
+    {
+      "asset": "ONDOINR",
+      "entry_time": "2026-08-11T16:00+00:00",
+      "entry_price": 32.92,
+      "rsi_at_entry": 29.5,
+      "exit_time": "2026-08-14T18:00+00:00",
+      "exit_price": 32.1,
+      "reason": "stop_loss",
+      "pnl_inr": -190.56,
+      "pnl_pct": -2.56
+    },
+    {
+      "asset": "TRUMPINR",
+      "entry_time": "2026-08-12T22:00+00:00",
+      "entry_price": 137.97,
+      "rsi_at_entry": 28.1,
+      "exit_time": "2026-08-14T21:00+00:00",
+      "exit_price": 144.55,
+      "reason": "take_profit",
+      "pnl_inr": 385.01,
+      "pnl_pct": 4.66
+    },
+    {
+      "asset": "CHILLGUYINR",
+      "entry_time": "2026-08-14T15:00+00:00",
+      "entry_price": 1.02,
+      "rsi_at_entry": 28.5,
+      "exit_time": "2026-08-14T21:00+00:00",
+      "exit_price": 1.06,
+      "reason": "take_profit",
+      "pnl_inr": 425.0,
+      "pnl_pct": 4.09
+    },
+    {
+      "asset": "ARBINR",
+      "entry_time": "2026-08-12T23:00+00:00",
+      "entry_price": 7.41,
+      "rsi_at_entry": 28.8,
+      "exit_time": "2026-08-14T23:00+00:00",
+      "exit_price": 7.25,
+      "reason": "stop_loss",
+      "pnl_inr": -122.91,
+      "pnl_pct": -2.33
+    },
+    {
+      "asset": "ORCAINR",
+      "entry_time": "2026-08-14T08:00+00:00",
+      "entry_price": 101.28,
+      "rsi_at_entry": 19.4,
+      "exit_time": "2026-08-16T04:00+00:00",
+      "exit_price": 103.63,
+      "reason": "rsi_overbought",
+      "pnl_inr": 104.37,
+      "pnl_pct": 2.22
+    },
+    {
+      "asset": "CAKEINR",
+      "entry_time": "2026-08-14T11:00+00:00",
+      "entry_price": 138.26,
+      "rsi_at_entry": 29.0,
+      "exit_time": "2026-08-16T15:00+00:00",
+      "exit_price": 144.4,
+      "reason": "take_profit",
+      "pnl_inr": 125.38,
+      "pnl_pct": 4.34
+    },
+    {
+      "asset": "DOTINR",
+      "entry_time": "2026-08-18T04:00+00:00",
+      "entry_price": 72.3,
+      "rsi_at_entry": 29.7,
+      "exit_time": "2026-08-19T07:00+00:00",
+      "exit_price": 75.84,
+      "reason": "take_profit",
+      "pnl_inr": 374.55,
+      "pnl_pct": 4.79
+    },
+    {
+      "asset": "ETHINR",
+      "entry_time": "2026-08-10T16:00+00:00",
+      "entry_price": 187006.16,
+      "rsi_at_entry": 28.3,
+      "exit_time": "2026-08-19T15:00+00:00",
+      "exit_price": 194039.43,
+      "reason": "rsi_overbought",
+      "pnl_inr": 619.99,
+      "pnl_pct": 3.66
+    },
+    {
+      "asset": "SUIINR",
+      "entry_time": "2026-08-18T03:00+00:00",
+      "entry_price": 63.92,
+      "rsi_at_entry": 25.8,
+      "exit_time": "2026-08-19T15:00+00:00",
+      "exit_price": 66.67,
+      "reason": "take_profit",
+      "pnl_inr": 909.1,
+      "pnl_pct": 4.2
+    },
+    {
+      "asset": "BTCINR",
+      "entry_time": "2026-07-31T15:00+00:00",
+      "entry_price": 6282673.27,
+      "rsi_at_entry": 25.9,
+      "exit_time": "2026-08-19T16:00+00:00",
+      "exit_price": 6722553.94,
+      "reason": "take_profit",
+      "pnl_inr": 1626.4,
+      "pnl_pct": 6.89
+    },
+    {
+      "asset": "FILINR",
+      "entry_time": "2026-08-18T03:00+00:00",
+      "entry_price": 61.27,
+      "rsi_at_entry": 16.7,
+      "exit_time": "2026-08-19T16:00+00:00",
+      "exit_price": 64.92,
+      "reason": "take_profit",
+      "pnl_inr": 765.05,
+      "pnl_pct": 5.85
+    },
+    {
+      "asset": "TRBINR",
+      "entry_time": "2026-08-18T19:00+00:00",
+      "entry_price": 1272.64,
+      "rsi_at_entry": 28.3,
+      "exit_time": "2026-08-19T21:00+00:00",
+      "exit_price": 1326.44,
+      "reason": "take_profit",
+      "pnl_inr": 192.82,
+      "pnl_pct": 4.12
+    },
+    {
+      "asset": "SUIINR",
+      "entry_time": "2026-08-25T20:00+00:00",
+      "entry_price": 77.04,
+      "rsi_at_entry": 27.3,
+      "exit_time": "2026-08-25T21:00+00:00",
+      "exit_price": 74.96,
+      "reason": "stop_loss",
+      "pnl_inr": -696.7,
+      "pnl_pct": -2.79
+    },
+    {
+      "asset": "FILINR",
+      "entry_time": "2026-08-25T21:00+00:00",
+      "entry_price": 70.24,
+      "rsi_at_entry": 30.0,
+      "exit_time": "2026-08-26T02:00+00:00",
+      "exit_price": 73.26,
+      "reason": "take_profit",
+      "pnl_inr": 974.18,
+      "pnl_pct": 4.21
+    },
+    {
+      "asset": "SUIINR",
+      "entry_time": "2026-08-25T22:00+00:00",
+      "entry_price": 75.88,
+      "rsi_at_entry": 28.5,
+      "exit_time": "2026-08-26T15:00+00:00",
+      "exit_price": 73.26,
+      "reason": "stop_loss",
+      "pnl_inr": -519.32,
+      "pnl_pct": -3.55
+    },
+    {
+      "asset": "TRUMPINR",
+      "entry_time": "2026-08-25T23:00+00:00",
+      "entry_price": 219.5,
+      "rsi_at_entry": 28.6,
+      "exit_time": "2026-08-27T00:00+00:00",
+      "exit_price": 233.38,
+      "reason": "take_profit",
+      "pnl_inr": 522.55,
+      "pnl_pct": 6.22
+    },
+    {
+      "asset": "XRPINR",
+      "entry_time": "2026-08-26T15:00+00:00",
+      "entry_price": 136.94,
+      "rsi_at_entry": 28.5,
+      "exit_time": "2026-08-27T09:00+00:00",
+      "exit_price": 143.37,
+      "reason": "take_profit",
+      "pnl_inr": 669.72,
+      "pnl_pct": 4.6
+    },
+    {
+      "asset": "SUIINR",
+      "entry_time": "2026-08-26T17:00+00:00",
+      "entry_price": 73.01,
+      "rsi_at_entry": 28.4,
+      "exit_time": "2026-08-27T09:00+00:00",
+      "exit_price": 77.18,
+      "reason": "take_profit",
+      "pnl_inr": 285.09,
+      "pnl_pct": 5.62
+    },
+    {
+      "asset": "ADAINR",
+      "entry_time": "2026-08-26T16:00+00:00",
+      "entry_price": 20.41,
+      "rsi_at_entry": 27.8,
+      "exit_time": "2026-08-27T09:00+00:00",
+      "exit_price": 21.33,
+      "reason": "take_profit",
+      "pnl_inr": 617.77,
+      "pnl_pct": 4.4
+    },
+    {
+      "asset": "ARBINR",
+      "entry_time": "2026-08-26T16:00+00:00",
+      "entry_price": 8.89,
+      "rsi_at_entry": 29.5,
+      "exit_time": "2026-08-27T09:00+00:00",
+      "exit_price": 9.29,
+      "reason": "take_profit",
+      "pnl_inr": 368.42,
+      "pnl_pct": 4.37
+    },
+    {
+      "asset": "RIFINR",
+      "entry_time": "2026-08-29T03:00+00:00",
+      "entry_price": 7.48,
+      "rsi_at_entry": 26.1,
+      "exit_time": "2026-08-29T07:00+00:00",
+      "exit_price": 7.33,
+      "reason": "stop_loss",
+      "pnl_inr": -190.23,
+      "pnl_pct": -2.06
+    }
+  ],
+  "backtest_results": [
+    {
+      "metric": "round_trips",
+      "signal_strategy": 54,
+      "hodl_benchmark": ""
+    },
+    {
+      "metric": "win_rate",
+      "signal_strategy": 50.0,
+      "hodl_benchmark": ""
+    },
+    {
+      "metric": "invested",
+      "signal_strategy": 668778.0731,
+      "hodl_benchmark": 99948.2047
+    },
+    {
+      "metric": "final_value",
+      "signal_strategy": 102747.2313,
+      "hodl_benchmark": 119985.9794
+    },
+    {
+      "metric": "pnl",
+      "signal_strategy": 2747.2313,
+      "hodl_benchmark": 19985.9794
+    },
+    {
+      "metric": "pnl_pct",
+      "signal_strategy": 2.7472,
+      "hodl_benchmark": 19.986
+    },
+    {
+      "metric": "max_drawdown_pct",
+      "signal_strategy": 6.7028,
+      "hodl_benchmark": 0
+    },
+    {
+      "metric": "days",
+      "signal_strategy": 30,
+      "hodl_benchmark": 30
+    }
+  ],
+  "backtest_equity": [
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-30",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100000.0
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 99976.86
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100171.3
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100139.77
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100134.51
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100612.74
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100712.94
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100521.48
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 101442.98
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 101339.01
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 101032.21
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 101052.91
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 100775.22
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 101124.52
+    },
+    {
+      "date": "2026-07-31",
+      "signal_value": 101456.86
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 102029.3
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101638.89
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101606.44
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101624.57
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101612.88
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101591.52
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101666.13
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101698.12
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101625.32
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101625.12
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101728.49
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101803.53
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101748.09
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101907.04
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101912.87
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101904.81
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101812.35
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101747.36
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 100926.68
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101291.26
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101407.24
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101639.92
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101690.02
+    },
+    {
+      "date": "2026-08-01",
+      "signal_value": 101701.76
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 101831.36
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102016.5
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102623.43
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102582.96
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102650.14
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102623.72
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102586.87
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102582.17
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102335.33
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102887.92
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102828.05
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102238.39
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102234.91
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102209.6
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102359.11
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102632.07
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102306.0
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102266.31
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102592.14
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102737.55
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102814.66
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102928.38
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102874.17
+    },
+    {
+      "date": "2026-08-02",
+      "signal_value": 102615.89
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 102697.09
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 102537.69
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 102165.77
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 101937.82
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 101838.05
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 101933.61
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 101123.39
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 100987.93
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 100872.47
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 101233.36
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 101233.36
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 101201.19
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 101068.69
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 100924.1
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 101709.05
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 102319.68
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 102042.38
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 102110.54
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 102348.14
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 102285.52
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 102087.59
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 101847.07
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 101739.47
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 101693.03
+    },
+    {
+      "date": "2026-08-03",
+      "signal_value": 101501.64
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101663.37
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101737.76
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 102045.92
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101741.31
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 102035.99
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101888.55
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101354.12
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101516.74
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101440.31
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101261.78
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101027.34
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101413.71
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101215.48
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101053.63
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101229.06
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101354.1
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101177.41
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101295.41
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101376.89
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101399.83
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101716.95
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101477.63
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101560.1
+    },
+    {
+      "date": "2026-08-04",
+      "signal_value": 101328.48
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 101194.27
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 101949.24
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 102132.59
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 101718.77
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 101773.23
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 101844.06
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 101793.53
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 101852.39
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 102070.59
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 102262.53
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 101654.94
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 101772.6
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 101731.41
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 101848.05
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 101737.58
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 101609.79
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 102141.16
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 102271.38
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 102413.81
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 102346.35
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 102204.32
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 102007.09
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 101844.72
+    },
+    {
+      "date": "2026-08-05",
+      "signal_value": 101740.91
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 102009.95
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 101940.71
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 101805.2
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 101771.31
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 101596.67
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 101667.23
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 101446.78
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 100911.23
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 100922.93
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 100890.85
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 100725.04
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 100660.65
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 100311.43
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 100064.47
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 100310.11
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 100305.8
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 100474.67
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 100423.59
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 100124.46
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 99968.85
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 100020.5
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 100125.83
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 99920.28
+    },
+    {
+      "date": "2026-08-06",
+      "signal_value": 99843.79
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99929.15
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99942.21
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99811.28
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99695.03
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99587.87
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99434.33
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99310.35
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99339.44
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99730.5
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99751.19
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99803.71
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99931.21
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99952.58
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 100061.62
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99879.05
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99979.66
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99553.33
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99261.78
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99253.88
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99412.45
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99433.68
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99227.36
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99071.88
+    },
+    {
+      "date": "2026-08-07",
+      "signal_value": 99234.29
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 99300.67
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 99368.95
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 99208.7
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 99695.05
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 99832.04
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 99489.5
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 99426.74
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 99343.31
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 99368.47
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 99181.48
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 99440.31
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 99545.19
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 99467.22
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 99384.53
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 100166.34
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 100106.83
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 100109.79
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 100521.97
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 100243.78
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 100317.85
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 100253.16
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 100150.1
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 100173.34
+    },
+    {
+      "date": "2026-08-08",
+      "signal_value": 100183.13
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 100257.69
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 100219.81
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 100127.93
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 99728.0
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 99948.65
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 99714.46
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 99822.88
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 99756.97
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 99698.4
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 99649.78
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 99691.46
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 99826.33
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 99772.5
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 99919.44
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 100051.58
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 100423.76
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 100450.35
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 100375.82
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 100469.53
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 100401.17
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 100360.3
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 100265.44
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 100114.77
+    },
+    {
+      "date": "2026-08-09",
+      "signal_value": 99997.65
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 100212.35
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 99610.65
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 99865.28
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 99783.93
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 100211.87
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 100382.06
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 100512.05
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 100444.01
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 100339.52
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 100275.14
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 100321.77
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 100201.85
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 100199.25
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 100018.0
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 100060.82
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 99832.53
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 99594.23
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 99657.98
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 99388.53
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 99655.87
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 99718.39
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 99570.56
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 99451.72
+    },
+    {
+      "date": "2026-08-10",
+      "signal_value": 99433.09
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 99607.32
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 99798.1
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 99727.42
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 99652.13
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 99543.89
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 99421.52
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 99490.44
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 99222.98
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 98909.04
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 99086.56
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 99025.07
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 99019.11
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 98926.59
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 98988.7
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 97582.34
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 97357.07
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 97396.5
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 97614.36
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 97471.74
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 97771.13
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 98001.55
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 97918.02
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 98119.61
+    },
+    {
+      "date": "2026-08-11",
+      "signal_value": 98349.19
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 98339.78
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 98513.78
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 98875.64
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 98860.33
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 98973.4
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 98846.94
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 98545.48
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 98422.54
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 98433.57
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 98460.66
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 98495.37
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 98617.69
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 98252.6
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 98095.01
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 97604.44
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 97665.44
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 97592.0
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 97773.95
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 97668.41
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 97398.49
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 97479.14
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 97360.05
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 97317.52
+    },
+    {
+      "date": "2026-08-12",
+      "signal_value": 97243.21
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97441.68
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97572.23
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97701.65
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 98047.15
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 98016.94
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 98212.79
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 98203.8
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 98051.75
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 98322.27
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 98204.59
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97795.39
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97609.0
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97803.0
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97935.41
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 98250.21
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97619.42
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97214.55
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97406.96
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97653.75
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97432.07
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97506.86
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97485.27
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97632.3
+    },
+    {
+      "date": "2026-08-13",
+      "signal_value": 97484.82
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 97482.95
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 97610.42
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 97602.19
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96811.57
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96919.41
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 97262.24
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96979.42
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96762.7
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96890.16
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96786.49
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96568.23
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96558.5
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96231.64
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96029.31
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96074.44
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96284.26
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96598.01
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96551.25
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96445.52
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96641.64
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96870.23
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96763.78
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96557.9
+    },
+    {
+      "date": "2026-08-14",
+      "signal_value": 96549.66
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96683.01
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96744.26
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96728.21
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96703.87
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96719.25
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96732.02
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96725.24
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96713.78
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96629.69
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96800.93
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96820.23
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96818.3
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96617.01
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96723.88
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96628.61
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96612.37
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96794.96
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96721.15
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96759.01
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96626.99
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96761.62
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96794.49
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96681.7
+    },
+    {
+      "date": "2026-08-15",
+      "signal_value": 96745.21
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96750.43
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96725.43
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96625.35
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96692.29
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96670.33
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96670.36
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96579.21
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96559.04
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96589.11
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96635.24
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96628.95
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96706.28
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96640.91
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96605.42
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96669.96
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96668.91
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96750.34
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96643.37
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96686.03
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96742.91
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96634.53
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96565.31
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96495.09
+    },
+    {
+      "date": "2026-08-16",
+      "signal_value": 96554.9
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 96539.84
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 96699.6
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 96930.08
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 96999.12
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 96971.71
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 96979.04
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 97049.19
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 96985.96
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 96725.01
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 96803.97
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 97062.74
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 97025.12
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 96922.68
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 96988.6
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 97049.9
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 97224.52
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 97118.75
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 97179.5
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 97162.33
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 97236.46
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 97274.1
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 97109.31
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 97097.95
+    },
+    {
+      "date": "2026-08-17",
+      "signal_value": 97346.67
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 97304.72
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 97209.19
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 97046.39
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 97502.53
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 97514.33
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 97686.39
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 97755.13
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 97744.62
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 97428.99
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 97657.2
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 97961.33
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 97896.71
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 97774.38
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 97704.29
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 98688.03
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 98480.65
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 98702.73
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 98506.56
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 98586.45
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 98630.5
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 98400.81
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 98337.36
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 98217.21
+    },
+    {
+      "date": "2026-08-18",
+      "signal_value": 98563.75
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 98450.76
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 98624.11
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 98404.73
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 98440.7
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 98679.3
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 98553.41
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 98645.99
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 98647.9
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 98592.94
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 98786.79
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 98834.13
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 98922.69
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 98874.7
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 98853.48
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 99871.31
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 100943.9
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 100487.12
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 100487.12
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 100487.12
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 100487.12
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 100536.08
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-19",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-20",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-21",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-22",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100478.63
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100784.74
+    },
+    {
+      "date": "2026-08-23",
+      "signal_value": 100723.0
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 100805.32
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 100990.54
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 100990.54
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 100817.66
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 100867.06
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 100871.17
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 100920.56
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 100994.65
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 100986.42
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 100899.98
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 101031.7
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 101093.44
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 101093.44
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 101122.25
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 101060.51
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 101118.13
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 101175.76
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 101130.48
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 101151.06
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 101340.4
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 101340.4
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 101340.4
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 101076.97
+    },
+    {
+      "date": "2026-08-24",
+      "signal_value": 101085.2
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101085.2
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101081.09
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101303.35
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101200.45
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101282.77
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101241.61
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101212.8
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101323.93
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101426.83
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101414.48
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101537.96
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101455.64
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101546.2
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101443.3
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101216.92
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101439.18
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101282.77
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101426.83
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101245.73
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101435.06
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 100773.54
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101008.71
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 100680.95
+    },
+    {
+      "date": "2026-08-25",
+      "signal_value": 101004.69
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101085.46
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101569.78
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101379.11
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101098.88
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101210.56
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101579.9
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101669.43
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101472.15
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101174.5
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101041.14
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101338.98
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101207.74
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101141.53
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101087.67
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 100619.69
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 100237.35
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 100332.36
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 100756.59
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 100426.15
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 100500.87
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 100577.72
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101224.6
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 101468.8
+    },
+    {
+      "date": "2026-08-26",
+      "signal_value": 102288.38
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 101936.39
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102203.15
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 101820.82
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 101780.1
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 101635.12
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 101806.75
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 101988.5
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 101886.97
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102804.52
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102462.96
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102462.96
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102417.69
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102434.15
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102462.96
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102487.66
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102491.77
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102582.33
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102586.44
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102442.38
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102442.38
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102434.15
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102434.15
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102425.92
+    },
+    {
+      "date": "2026-08-27",
+      "signal_value": 102425.92
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102425.92
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102495.89
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102454.73
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102582.33
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102574.09
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102434.15
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102343.6
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102450.61
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102446.5
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102302.44
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102302.44
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102364.18
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102327.13
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102421.8
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102413.57
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102504.12
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102483.54
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 103325.27
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 103380.05
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 103601.66
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 103446.08
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 102871.85
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 103231.44
+    },
+    {
+      "date": "2026-08-28",
+      "signal_value": 103107.56
+    },
+    {
+      "date": "2026-08-29",
+      "signal_value": 103321.79
+    },
+    {
+      "date": "2026-08-29",
+      "signal_value": 103066.63
+    },
+    {
+      "date": "2026-08-29",
+      "signal_value": 102909.77
+    },
+    {
+      "date": "2026-08-29",
+      "signal_value": 102853.76
+    },
+    {
+      "date": "2026-08-29",
+      "signal_value": 103239.5
+    },
+    {
+      "date": "2026-08-29",
+      "signal_value": 103502.56
+    },
+    {
+      "date": "2026-08-29",
+      "signal_value": 102882.45
+    },
+    {
+      "date": "2026-08-29",
+      "signal_value": 102747.23
+    }
+  ],
   "live_trades": [],
   "last_trades": []
 };
