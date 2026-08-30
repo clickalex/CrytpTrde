@@ -1,18 +1,12 @@
 {
-  "cash_inr": 361.60998330606424,
-  "realized_pnl": -54.839403045509926,
-  "total_trades": 9,
-  "sell_count": 2,
-  "gross_gains": 18.42,
+  "cash_inr": 407.44605177022447,
+  "realized_pnl": 17.32845958301482,
+  "total_trades": 13,
+  "sell_count": 3,
+  "gross_gains": 90.59,
   "gross_losses": -73.26,
-  "total_tds": 42.19,
+  "total_tds": 102.43,
   "holdings": {
-    "BTCINR": {
-      "qty": 0.00076,
-      "avg_cost": 7823151.2510151,
-      "invested": 5945.594950771476,
-      "last_buy_at": "2026-08-29T07:03:19+00:00"
-    },
     "SOLINR": {
       "qty": 0.093,
       "avg_cost": 10451.4589179,
@@ -36,6 +30,24 @@
       "avg_cost": 20.321446645500004,
       "invested": 538.5183361057501,
       "last_buy_at": "2026-08-30T12:10:04+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 195.26,
+      "avg_cost": 19.417091694000003,
+      "invested": 3791.38132417044,
+      "last_buy_at": "2026-08-30T17:02:25+00:00"
+    },
+    "RIFINR": {
+      "qty": 211.0,
+      "avg_cost": 7.158725573999999,
+      "invested": 1510.491096114,
+      "last_buy_at": "2026-08-30T17:02:25+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 489.0,
+      "avg_cost": 1.2470684226,
+      "invested": 609.8164586514,
+      "last_buy_at": "2026-08-30T17:02:25+00:00"
     }
   }
 }

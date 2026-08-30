@@ -1,24 +1,12 @@
 {
-  "cash_inr": 627.7840989423657,
-  "realized_pnl": -66.23213868882044,
-  "total_trades": 12,
-  "sell_count": 3,
-  "gross_gains": 18.95,
-  "gross_losses": -85.18,
-  "total_tds": 54.44,
+  "cash_inr": 928.9214086150967,
+  "realized_pnl": -25.419539112484017,
+  "total_trades": 18,
+  "sell_count": 6,
+  "gross_gains": 91.22,
+  "gross_losses": -116.64,
+  "total_tds": 123.11,
   "holdings": {
-    "BTCINR": {
-      "qty": 0.00063,
-      "avg_cost": 7823151.251015102,
-      "invested": 4928.585288139514,
-      "last_buy_at": "2026-08-29T07:03:18+00:00"
-    },
-    "XRPINR": {
-      "qty": 4.6,
-      "avg_cost": 138.69780424500001,
-      "invested": 638.009899527,
-      "last_buy_at": "2026-08-29T07:03:18+00:00"
-    },
     "LINKINR": {
       "qty": 0.83,
       "avg_cost": 1140.60891945,
@@ -31,17 +19,29 @@
       "invested": 860.0197261655999,
       "last_buy_at": "2026-08-30T05:46:08+00:00"
     },
-    "TRBINR": {
-      "qty": 0.717,
-      "avg_cost": 1746.6168719999998,
-      "invested": 1252.3242972239998,
-      "last_buy_at": "2026-08-30T12:09:55+00:00"
-    },
     "ADAINR": {
       "qty": 30.8,
       "avg_cost": 20.321446645500004,
       "invested": 625.9005566814001,
       "last_buy_at": "2026-08-30T12:09:55+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 191.03,
+      "avg_cost": 19.417091694000003,
+      "invested": 3709.2470263048203,
+      "last_buy_at": "2026-08-30T17:02:10+00:00"
+    },
+    "RIFINR": {
+      "qty": 259.0,
+      "avg_cost": 7.158725573999999,
+      "invested": 1854.1099236659998,
+      "last_buy_at": "2026-08-30T17:02:10+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 743.0,
+      "avg_cost": 1.2470684226000002,
+      "invested": 926.5718379918001,
+      "last_buy_at": "2026-08-30T17:02:10+00:00"
     }
   }
 }

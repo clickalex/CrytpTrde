@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1546.004686285903,
-  "realized_pnl": -101.16128531801644,
-  "total_trades": 18,
-  "sell_count": 6,
-  "gross_gains": 17.89,
-  "gross_losses": -119.05,
-  "total_tds": 71.11,
+  "cash_inr": 1526.4620063637617,
+  "realized_pnl": -66.55833271351707,
+  "total_trades": 23,
+  "sell_count": 8,
+  "gross_gains": 66.32,
+  "gross_losses": -132.88,
+  "total_tds": 120.71,
   "holdings": {
-    "BTCINR": {
-      "qty": 0.00051,
-      "avg_cost": 7823151.2510151,
-      "invested": 3989.807138017701,
-      "last_buy_at": "2026-08-29T07:03:18+00:00"
-    },
     "DOTINR": {
       "qty": 16.9628,
       "avg_cost": 84.38042312699999,
@@ -31,17 +25,29 @@
       "invested": 514.544917887,
       "last_buy_at": "2026-08-29T09:14:26+00:00"
     },
-    "CHILLGUYINR": {
-      "qty": 747.0,
-      "avg_cost": 1.2452657216999998,
-      "invested": 930.2134941098999,
-      "last_buy_at": "2026-08-30T12:09:20+00:00"
-    },
     "XDBINR": {
       "qty": 69185.0,
       "avg_cost": 0.008070091028999998,
       "invested": 558.3292478413649,
       "last_buy_at": "2026-08-30T12:09:20+00:00"
+    },
+    "RIFINR": {
+      "qty": 309.0,
+      "avg_cost": 7.158725573999999,
+      "invested": 2212.0462023659998,
+      "last_buy_at": "2026-08-30T17:01:16+00:00"
+    },
+    "GASINR": {
+      "qty": 12.7013,
+      "avg_cost": 133.49701214849998,
+      "invested": 1695.5856004017428,
+      "last_buy_at": "2026-08-30T17:01:16+00:00"
+    },
+    "ALTINR": {
+      "qty": 1555.0,
+      "avg_cost": 0.6539798265,
+      "invested": 1016.9386302075,
+      "last_buy_at": "2026-08-30T17:01:16+00:00"
     }
   }
 }
