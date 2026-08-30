@@ -1,47 +1,35 @@
 {
-  "cash_inr": 675.3472063087106,
-  "realized_pnl": 171.99814289740527,
-  "total_trades": 12,
-  "sell_count": 3,
-  "gross_gains": 186.07,
-  "gross_losses": -14.08,
-  "total_tds": 82.97,
+  "cash_inr": 660.7698208911696,
+  "realized_pnl": 0.0,
+  "total_trades": 4,
+  "sell_count": 0,
+  "gross_gains": 0.0,
+  "gross_losses": 0.0,
+  "total_tds": 0.0,
   "holdings": {
-    "USDTINR": {
-      "qty": 12.49,
-      "avg_cost": 100.52060518500001,
-      "invested": 1255.5023587606502,
-      "last_buy_at": "2026-08-29T07:03:20+00:00"
+    "BTCINR": {
+      "qty": 0.00063,
+      "avg_cost": 7935889.962,
+      "invested": 4999.6106760600005,
+      "last_buy_at": "2026-08-30T20:03:43+00:00"
     },
-    "XRPINR": {
-      "qty": 4.4,
-      "avg_cost": 139.3958500935,
-      "invested": 613.3417404114001,
-      "last_buy_at": "2026-08-29T09:15:41+00:00"
+    "ETHINR": {
+      "qty": 0.0099,
+      "avg_cost": 251664.4567437,
+      "invested": 2491.47812176263,
+      "last_buy_at": "2026-08-30T20:03:43+00:00"
     },
     "BNBINR": {
-      "qty": 0.04,
-      "avg_cost": 71012.49460305,
-      "invested": 2840.499784122,
-      "last_buy_at": "2026-08-30T17:14:15+00:00"
+      "qty": 0.017,
+      "avg_cost": 70445.7454701,
+      "invested": 1197.5776729917,
+      "last_buy_at": "2026-08-30T20:03:43+00:00"
     },
-    "LINKINR": {
-      "qty": 2.28,
-      "avg_cost": 1177.193732715,
-      "invested": 2684.0017105901998,
-      "last_buy_at": "2026-08-30T17:14:15+00:00"
-    },
-    "TRUMPINR": {
-      "qty": 5.183,
-      "avg_cost": 260.019574815,
-      "invested": 1347.681456266145,
-      "last_buy_at": "2026-08-30T17:14:15+00:00"
-    },
-    "ICPINR": {
-      "qty": 2.7,
-      "avg_cost": 249.13326437999993,
-      "invested": 672.6598138259999,
-      "last_buy_at": "2026-08-30T17:14:15+00:00"
+    "SOLINR": {
+      "qty": 0.061,
+      "avg_cost": 10664.978824499998,
+      "invested": 650.5637082944999,
+      "last_buy_at": "2026-08-30T20:03:43+00:00"
     }
   }
 }

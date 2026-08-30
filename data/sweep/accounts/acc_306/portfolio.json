@@ -1,47 +1,35 @@
 {
-  "cash_inr": 912.5410324542037,
-  "realized_pnl": 29.950916887752214,
-  "total_trades": 20,
-  "sell_count": 7,
-  "gross_gains": 139.65,
-  "gross_losses": -109.7,
-  "total_tds": 162.49,
+  "cash_inr": 660.7698208911696,
+  "realized_pnl": 0.0,
+  "total_trades": 4,
+  "sell_count": 0,
+  "gross_gains": 0.0,
+  "gross_losses": 0.0,
+  "total_tds": 0.0,
   "holdings": {
-    "USDTINR": {
-      "qty": 6.37,
-      "avg_cost": 100.31029007999997,
-      "invested": 638.9765478095999,
-      "last_buy_at": "2026-08-29T09:14:57+00:00"
+    "BTCINR": {
+      "qty": 0.00063,
+      "avg_cost": 7935889.962,
+      "invested": 4999.6106760600005,
+      "last_buy_at": "2026-08-30T20:00:36+00:00"
+    },
+    "ETHINR": {
+      "qty": 0.0099,
+      "avg_cost": 251664.4567437,
+      "invested": 2491.47812176263,
+      "last_buy_at": "2026-08-30T20:00:36+00:00"
+    },
+    "BNBINR": {
+      "qty": 0.017,
+      "avg_cost": 70445.7454701,
+      "invested": 1197.5776729917,
+      "last_buy_at": "2026-08-30T20:00:36+00:00"
     },
     "SOLINR": {
-      "qty": 0.088,
-      "avg_cost": 10593.872288999999,
-      "invested": 932.2607614319999,
-      "last_buy_at": "2026-08-30T05:48:38+00:00"
-    },
-    "XRPINR": {
-      "qty": 7.5,
-      "avg_cost": 142.65773722199998,
-      "invested": 1069.9330291649999,
-      "last_buy_at": "2026-08-30T17:05:55+00:00"
-    },
-    "ICPINR": {
-      "qty": 14.54,
-      "avg_cost": 248.39215401000004,
-      "invested": 3611.6219193054003,
-      "last_buy_at": "2026-08-30T18:07:08+00:00"
-    },
-    "SUIINR": {
-      "qty": 23.5,
-      "avg_cost": 76.636821261,
-      "invested": 1800.9652996334999,
-      "last_buy_at": "2026-08-30T18:07:08+00:00"
-    },
-    "NEARINR": {
-      "qty": 4.7,
-      "avg_cost": 191.73727072499997,
-      "invested": 901.1651724074999,
-      "last_buy_at": "2026-08-30T18:07:08+00:00"
+      "qty": 0.061,
+      "avg_cost": 10664.978824499998,
+      "invested": 650.5637082944999,
+      "last_buy_at": "2026-08-30T20:00:36+00:00"
     }
   }
 }
