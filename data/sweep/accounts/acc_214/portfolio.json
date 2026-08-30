@@ -1,11 +1,11 @@
 {
-  "cash_inr": 3277.5237554750097,
-  "realized_pnl": 0.0,
-  "total_trades": 5,
-  "sell_count": 0,
+  "cash_inr": 2861.200865705311,
+  "realized_pnl": -55.65708839961462,
+  "total_trades": 8,
+  "sell_count": 1,
   "gross_gains": 0.0,
-  "gross_losses": 0.0,
-  "total_tds": 0.0,
+  "gross_losses": -55.66,
+  "total_tds": 7.64,
   "holdings": {
     "TRUMPINR": {
       "qty": 7.815,
@@ -31,11 +31,17 @@
       "invested": 1024.215971297419,
       "last_buy_at": "2026-08-30T19:58:40+00:00"
     },
-    "POLYXINR": {
-      "qty": 230.6603,
-      "avg_cost": 3.5523222734999997,
-      "invested": 819.379721302192,
-      "last_buy_at": "2026-08-30T19:58:40+00:00"
+    "DOGEINR": {
+      "qty": 77.0,
+      "avg_cost": 8.460976674149999,
+      "invested": 651.4952039095499,
+      "last_buy_at": "2026-08-30T22:52:40+00:00"
+    },
+    "RIFINR": {
+      "qty": 75.0,
+      "avg_cost": 6.945405967499999,
+      "invested": 520.9054475625,
+      "last_buy_at": "2026-08-30T22:52:40+00:00"
     }
   }
 }

@@ -1,35 +1,53 @@
 {
-  "cash_inr": 625.2048840579448,
-  "realized_pnl": 0.0,
-  "total_trades": 4,
-  "sell_count": 0,
+  "cash_inr": 638.1429063201026,
+  "realized_pnl": -397.7160522753504,
+  "total_trades": 15,
+  "sell_count": 4,
   "gross_gains": 0.0,
-  "gross_losses": 0.0,
-  "total_tds": 0.0,
+  "gross_losses": -397.72,
+  "total_tds": 89.86,
   "holdings": {
-    "TRUMPINR": {
-      "qty": 19.538,
-      "avg_cost": 255.90340775999996,
-      "invested": 4999.8407808148795,
-      "last_buy_at": "2026-08-30T19:58:54+00:00"
+    "ICPINR": {
+      "qty": 10.99,
+      "avg_cost": 242.63352613499998,
+      "invested": 2666.54245222365,
+      "last_buy_at": "2026-08-30T22:52:47+00:00"
     },
-    "FARTCOININR": {
-      "qty": 135.93,
-      "avg_cost": 18.391555182,
-      "invested": 2499.96409588926,
-      "last_buy_at": "2026-08-30T19:58:54+00:00"
+    "SUIINR": {
+      "qty": 17.9,
+      "avg_cost": 74.523655206,
+      "invested": 1333.9734281873998,
+      "last_buy_at": "2026-08-30T22:52:47+00:00"
     },
-    "CHILLGUYINR": {
-      "qty": 1024.0,
-      "avg_cost": 1.2205286593499998,
-      "invested": 1249.8213471743998,
-      "last_buy_at": "2026-08-30T19:58:54+00:00"
+    "ADAINR": {
+      "qty": 33.2,
+      "avg_cost": 20.088097029,
+      "invested": 666.9248213628,
+      "last_buy_at": "2026-08-30T22:52:47+00:00"
     },
-    "GASINR": {
-      "qty": 4.7114,
-      "avg_cost": 132.692807247,
-      "invested": 625.1688920635158,
-      "last_buy_at": "2026-08-30T19:58:54+00:00"
+    "SUSHIINR": {
+      "qty": 76.0,
+      "avg_cost": 20.111131540499997,
+      "invested": 1528.445997078,
+      "last_buy_at": "2026-08-30T22:52:47+00:00"
+    },
+    "RIFINR": {
+      "qty": 110.0,
+      "avg_cost": 6.945405967499998,
+      "invested": 763.9946564249998,
+      "last_buy_at": "2026-08-30T22:52:47+00:00"
+    },
+    "XDBINR": {
+      "qty": 151871.9,
+      "avg_cost": 0.0084035906955,
+      "invested": 1276.2692857479065,
+      "last_buy_at": "2026-08-30T22:52:47+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1369.0,
+      "avg_cost": 0.46612837771500004,
+      "invested": 638.129749091835,
+      "last_buy_at": "2026-08-30T22:52:47+00:00"
     }
   }
 }

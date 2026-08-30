@@ -1,29 +1,23 @@
 {
-  "cash_inr": 1250.219129221453,
-  "realized_pnl": 0.0,
-  "total_trades": 3,
-  "sell_count": 0,
+  "cash_inr": 6243.359962600665,
+  "realized_pnl": -345.81178153206383,
+  "total_trades": 8,
+  "sell_count": 3,
   "gross_gains": 0.0,
-  "gross_losses": 0.0,
-  "total_tds": 0.0,
+  "gross_losses": -345.81,
+  "total_tds": 84.12,
   "holdings": {
-    "FARTCOININR": {
-      "qty": 271.86,
-      "avg_cost": 18.391555182,
-      "invested": 4999.92819177852,
-      "last_buy_at": "2026-08-30T19:58:06+00:00"
+    "TRUMPINR": {
+      "qty": 2.548,
+      "avg_cost": 245.26747244999999,
+      "invested": 624.9415198025999,
+      "last_buy_at": "2026-08-30T22:52:27+00:00"
     },
-    "CHILLGUYINR": {
-      "qty": 2048.0,
-      "avg_cost": 1.2205286593499998,
-      "invested": 2499.6426943487995,
-      "last_buy_at": "2026-08-30T19:58:06+00:00"
-    },
-    "POLYXINR": {
-      "qty": 351.9416,
-      "avg_cost": 3.5523222734999993,
-      "invested": 1250.2099846512274,
-      "last_buy_at": "2026-08-30T19:58:06+00:00"
+    "RIFINR": {
+      "qty": 389.0,
+      "avg_cost": 6.9454059674999975,
+      "invested": 2701.762921357499,
+      "last_buy_at": "2026-08-30T22:52:27+00:00"
     }
   }
 }

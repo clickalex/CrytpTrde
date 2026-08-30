@@ -1,41 +1,53 @@
 {
-  "cash_inr": 778.1786044210073,
-  "realized_pnl": 0.0,
-  "total_trades": 5,
-  "sell_count": 0,
+  "cash_inr": 1711.6334379787052,
+  "realized_pnl": -381.0416197010259,
+  "total_trades": 17,
+  "sell_count": 5,
   "gross_gains": 0.0,
-  "gross_losses": 0.0,
-  "total_tds": 0.0,
+  "gross_losses": -381.04,
+  "total_tds": 88.5,
   "holdings": {
-    "TRUMPINR": {
-      "qty": 15.63,
-      "avg_cost": 255.90340776000002,
-      "invested": 3999.7702632888004,
-      "last_buy_at": "2026-08-30T19:59:10+00:00"
+    "ICPINR": {
+      "qty": 7.49,
+      "avg_cost": 242.633526135,
+      "invested": 1817.32511075115,
+      "last_buy_at": "2026-08-30T22:52:53+00:00"
     },
-    "FARTCOININR": {
-      "qty": 130.49,
-      "avg_cost": 18.391555182,
-      "invested": 2399.91403569918,
-      "last_buy_at": "2026-08-30T19:59:10+00:00"
+    "SUIINR": {
+      "qty": 14.6,
+      "avg_cost": 74.523655206,
+      "invested": 1088.0453660076,
+      "last_buy_at": "2026-08-30T22:52:53+00:00"
     },
-    "CHILLGUYINR": {
-      "qty": 1179.0,
-      "avg_cost": 1.22052865935,
-      "invested": 1439.00328937365,
-      "last_buy_at": "2026-08-30T19:59:10+00:00"
+    "ADAINR": {
+      "qty": 32.7,
+      "avg_cost": 20.088097029,
+      "invested": 656.8807728483,
+      "last_buy_at": "2026-08-30T22:52:53+00:00"
     },
-    "GASINR": {
-      "qty": 6.5151,
-      "avg_cost": 132.69280724700002,
-      "invested": 864.5069084949298,
-      "last_buy_at": "2026-08-30T19:59:10+00:00"
+    "SUSHIINR": {
+      "qty": 65.2,
+      "avg_cost": 20.111131540499997,
+      "invested": 1311.2457764406,
+      "last_buy_at": "2026-08-30T22:52:53+00:00"
     },
-    "BOMEINR": {
-      "qty": 5395.0,
-      "avg_cost": 0.09613102849350001,
-      "invested": 518.6268987224325,
-      "last_buy_at": "2026-08-30T19:59:10+00:00"
+    "RIFINR": {
+      "qty": 113.0,
+      "avg_cost": 6.945405967499998,
+      "invested": 784.8308743274998,
+      "last_buy_at": "2026-08-30T22:52:53+00:00"
+    },
+    "XDBINR": {
+      "qty": 160689.6,
+      "avg_cost": 0.008403590695499999,
+      "invested": 1350.3696274236167,
+      "last_buy_at": "2026-08-30T22:52:53+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1738.0,
+      "avg_cost": 0.466128377715,
+      "invested": 810.13112046867,
+      "last_buy_at": "2026-08-30T22:52:53+00:00"
     }
   }
 }

@@ -1,29 +1,47 @@
 {
-  "cash_inr": 640.8391397107595,
-  "realized_pnl": 0.0,
-  "total_trades": 3,
-  "sell_count": 0,
+  "cash_inr": 540.7086347514424,
+  "realized_pnl": -404.3010078803252,
+  "total_trades": 12,
+  "sell_count": 3,
   "gross_gains": 0.0,
-  "gross_losses": 0.0,
-  "total_tds": 0.0,
+  "gross_losses": -404.3,
+  "total_tds": 89.64,
   "holdings": {
-    "TRUMPINR": {
-      "qty": 23.446,
-      "avg_cost": 255.90340776,
-      "invested": 5999.9112983409605,
-      "last_buy_at": "2026-08-30T19:59:00+00:00"
+    "ICPINR": {
+      "qty": 15.56,
+      "avg_cost": 242.63352613499998,
+      "invested": 3775.3776666606,
+      "last_buy_at": "2026-08-30T22:52:49+00:00"
     },
-    "FARTCOININR": {
-      "qty": 130.49,
-      "avg_cost": 18.391555182,
-      "invested": 2399.91403569918,
-      "last_buy_at": "2026-08-30T19:59:00+00:00"
+    "SUIINR": {
+      "qty": 20.2,
+      "avg_cost": 74.523655206,
+      "invested": 1505.3778351612,
+      "last_buy_at": "2026-08-30T22:52:49+00:00"
     },
-    "CHILLGUYINR": {
-      "qty": 786.0,
-      "avg_cost": 1.2205286593499998,
-      "invested": 959.3355262490999,
-      "last_buy_at": "2026-08-30T19:59:00+00:00"
+    "ADAINR": {
+      "qty": 30.3,
+      "avg_cost": 20.088097029,
+      "invested": 608.6693399787,
+      "last_buy_at": "2026-08-30T22:52:49+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 80.5,
+      "avg_cost": 20.1111315405,
+      "invested": 1618.94608901025,
+      "last_buy_at": "2026-08-30T22:52:49+00:00"
+    },
+    "RIFINR": {
+      "qty": 93.0,
+      "avg_cost": 6.945405967499999,
+      "invested": 645.9227549775,
+      "last_buy_at": "2026-08-30T22:52:49+00:00"
+    },
+    "GASINR": {
+      "qty": 6.237,
+      "avg_cost": 130.03983242249998,
+      "invested": 811.0584348191325,
+      "last_buy_at": "2026-08-30T22:52:49+00:00"
     }
   }
 }

@@ -1,23 +1,29 @@
 {
-  "cash_inr": 400.1382691806407,
-  "realized_pnl": 0.0,
-  "total_trades": 2,
-  "sell_count": 0,
+  "cash_inr": 371.0155610323409,
+  "realized_pnl": -438.4668727428582,
+  "total_trades": 7,
+  "sell_count": 2,
   "gross_gains": 0.0,
-  "gross_losses": 0.0,
-  "total_tds": 0.0,
+  "gross_losses": -438.47,
+  "total_tds": 91.71,
   "holdings": {
-    "TRUMPINR": {
-      "qty": 31.261,
-      "avg_cost": 255.90340776,
-      "invested": 7999.796429985359,
-      "last_buy_at": "2026-08-30T19:58:56+00:00"
+    "ICPINR": {
+      "qty": 26.17,
+      "avg_cost": 242.63352613499998,
+      "invested": 6349.71937895295,
+      "last_buy_at": "2026-08-30T22:52:48+00:00"
     },
-    "FARTCOININR": {
-      "qty": 87.0,
-      "avg_cost": 18.391555182,
-      "invested": 1600.065300834,
-      "last_buy_at": "2026-08-30T19:58:56+00:00"
+    "SUIINR": {
+      "qty": 17.0,
+      "avg_cost": 74.523655206,
+      "invested": 1266.902138502,
+      "last_buy_at": "2026-08-30T22:52:48+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 73.7,
+      "avg_cost": 20.111131540499997,
+      "invested": 1482.19039453485,
+      "last_buy_at": "2026-08-30T22:52:48+00:00"
     }
   }
 }
