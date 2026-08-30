@@ -1,0 +1,156 @@
+# Winner of the 1000-account tournament (2026-08-30 18:18 UTC)
+# account acc_102 | dip_e22_x60_tp3_sl1.5_p80_h336 | return +399.22% | maxDD 14.1%
+# Use:  python3 cryptobot.py --config data/sweep/best_strategy.yaml check
+mode: paper
+initial_cash_inr: 50000
+fee_rate: 0.001
+slippage_bps: 5
+simulate_tds: true
+tds_rate: 0.01
+max_trades: 100
+check_interval_min: 60
+public_request_interval_sec: 0.05
+network:
+  fetch_workers: 8
+assets:
+- name: BTCINR
+  pair: I-BTC_INR
+- name: ETHINR
+  pair: I-ETH_INR
+- name: BNBINR
+  pair: I-BNB_INR
+- name: SOLINR
+  pair: I-SOL_INR
+- name: USDTINR
+  pair: I-USDT_INR
+- name: LINKINR
+  pair: I-LINK_INR
+- name: XRPINR
+  pair: I-XRP_INR
+- name: TRUMPINR
+  pair: I-TRUMP_INR
+- name: ICPINR
+  pair: I-ICP_INR
+- name: SUIINR
+  pair: I-SUI_INR
+- name: NEARINR
+  pair: I-NEAR_INR
+- name: DOTINR
+  pair: I-DOT_INR
+- name: TRBINR
+  pair: I-TRB_INR
+- name: RENDERINR
+  pair: I-RENDER_INR
+- name: ONDOINR
+  pair: I-ONDO_INR
+- name: CAKEINR
+  pair: I-CAKE_INR
+- name: ADAINR
+  pair: I-ADA_INR
+- name: TRXINR
+  pair: I-TRX_INR
+- name: FILINR
+  pair: I-FIL_INR
+- name: APTINR
+  pair: I-APT_INR
+- name: ORCAINR
+  pair: I-ORCA_INR
+- name: DOGEINR
+  pair: I-DOGE_INR
+- name: FARTCOININR
+  pair: I-FARTCOIN_INR
+- name: SUSHIINR
+  pair: I-SUSHI_INR
+- name: RIFINR
+  pair: I-RIF_INR
+- name: ARBINR
+  pair: I-ARB_INR
+- name: SEIINR
+  pair: I-SEI_INR
+- name: CHILLGUYINR
+  pair: I-CHILLGUY_INR
+- name: JUPINR
+  pair: I-JUP_INR
+- name: GASINR
+  pair: I-GAS_INR
+asset_discovery:
+  enabled: false
+  min_volume_inr: 1000000
+  max_assets: 50
+  dipped_scan_pct: 8
+  dipped_scan_max: 150
+strategy:
+  entry_mode: dip
+  entry_rsi: 22
+  exit_rsi: 60
+  take_profit_pct: 3
+  stop_loss_pct: 1.5
+  position_size_pct: 80
+  max_hold_hours: 336
+backtest:
+  days: 30
+  start_cash_inr: 100000
+  fee_rate: 0.001
+  slippage_bps: 5
+  tds_rate: 0.01
+sweep:
+  accounts: 500
+  start_cash_inr: 10000
+  days: 30
+  max_trades: 100
+  entry_mode:
+  - dip
+  - momentum
+  entry_rsi:
+  - 15
+  - 18
+  - 22
+  - 25
+  - 28
+  - 30
+  - 33
+  - 36
+  - 40
+  - 45
+  exit_rsi:
+  - 60
+  - 64
+  - 68
+  - 72
+  - 76
+  - 80
+  - 85
+  take_profit_pct:
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 8
+  - 10
+  - 12
+  - 15
+  stop_loss_pct:
+  - 1
+  - 1.5
+  - 2
+  - 3
+  - 5
+  position_size_pct:
+  - 10
+  - 20
+  - 30
+  - 40
+  - 50
+  - 60
+  - 80
+  max_hold_hours:
+  - 0
+  - 72
+  - 168
+  - 336
+  - 720
+live:
+  enabled: false
+  api_key_env: COINDCX_API_KEY
+  api_secret_env: COINDCX_API_SECRET
