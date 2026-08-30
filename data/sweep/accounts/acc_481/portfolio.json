@@ -1,11 +1,11 @@
 {
-  "cash_inr": 5090.733706713238,
-  "realized_pnl": -180.0086283734322,
-  "total_trades": 35,
-  "sell_count": 14,
+  "cash_inr": 4622.970432293003,
+  "realized_pnl": -220.77180566273216,
+  "total_trades": 40,
+  "sell_count": 16,
   "gross_gains": 4.59,
-  "gross_losses": -184.61,
-  "total_tds": 81.33,
+  "gross_losses": -225.37,
+  "total_tds": 91.75,
   "holdings": {
     "ETHINR": {
       "qty": 0.004,
@@ -37,17 +37,23 @@
       "invested": 524.0799978383969,
       "last_buy_at": "2026-08-29T18:58:15+00:00"
     },
-    "ARBINR": {
-      "qty": 57.8,
-      "avg_cost": 8.943399465,
-      "invested": 516.928489077,
-      "last_buy_at": "2026-08-29T22:05:54+00:00"
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 7884495.460091249,
+      "invested": 473.06972760547495,
+      "last_buy_at": "2026-08-30T00:45:40+00:00"
     },
-    "ALTINR": {
-      "qty": 869.0,
-      "avg_cost": 0.6501741245999999,
-      "invested": 565.0013142774,
-      "last_buy_at": "2026-08-29T22:05:55+00:00"
+    "APEINR": {
+      "qty": 36.24,
+      "avg_cost": 14.124161551499999,
+      "invested": 511.85961462636,
+      "last_buy_at": "2026-08-30T00:45:40+00:00"
+    },
+    "SEIINR": {
+      "qty": 110.0,
+      "avg_cost": 4.66889518095,
+      "invested": 513.5784699045,
+      "last_buy_at": "2026-08-30T00:45:42+00:00"
     }
   }
 }
