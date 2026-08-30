@@ -1,11 +1,11 @@
 {
-  "cash_inr": 6529.741884389473,
-  "realized_pnl": -104.66492746558845,
-  "total_trades": 11,
-  "sell_count": 3,
-  "gross_gains": 0.0,
+  "cash_inr": 5312.049514437402,
+  "realized_pnl": -103.78385639758858,
+  "total_trades": 15,
+  "sell_count": 4,
+  "gross_gains": 0.88,
   "gross_losses": -104.66,
-  "total_tds": 23.5,
+  "total_tds": 29.03,
   "holdings": {
     "BTCINR": {
       "qty": 0.00012,
@@ -31,11 +31,23 @@
       "invested": 613.0885747054067,
       "last_buy_at": "2026-08-29T09:14:20+00:00"
     },
-    "CAKEINR": {
-      "qty": 3.17,
-      "avg_cost": 173.88051681,
-      "invested": 551.2012382877,
-      "last_buy_at": "2026-08-29T14:37:55+00:00"
+    "RIFINR": {
+      "qty": 90.0,
+      "avg_cost": 7.182761586,
+      "invested": 646.44854274,
+      "last_buy_at": "2026-08-30T05:44:51+00:00"
+    },
+    "POLYXINR": {
+      "qty": 165.8025,
+      "avg_cost": 3.5483162715,
+      "invested": 588.3197086053788,
+      "last_buy_at": "2026-08-30T05:44:51+00:00"
+    },
+    "GASINR": {
+      "qty": 3.996,
+      "avg_cost": 132.502522152,
+      "invested": 529.480078519392,
+      "last_buy_at": "2026-08-30T05:44:51+00:00"
     }
   }
 }

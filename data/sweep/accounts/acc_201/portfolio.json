@@ -1,22 +1,16 @@
 {
-  "cash_inr": 4886.875676429678,
-  "realized_pnl": -71.39071197404905,
-  "total_trades": 19,
-  "sell_count": 6,
-  "gross_gains": 0.0,
-  "gross_losses": -71.39,
-  "total_tds": 38.16,
+  "cash_inr": 4642.639235859203,
+  "realized_pnl": -82.87883692199898,
+  "total_trades": 24,
+  "sell_count": 8,
+  "gross_gains": 6.84,
+  "gross_losses": -89.72,
+  "total_tds": 53.09,
   "holdings": {
     "BTCINR": {
       "qty": 0.00012,
       "avg_cost": 7823151.2510151,
       "invested": 938.778150121812,
-      "last_buy_at": "2026-08-29T07:03:18+00:00"
-    },
-    "BNBINR": {
-      "qty": 0.013,
-      "avg_cost": 69268.88223255,
-      "invested": 900.4954690231499,
       "last_buy_at": "2026-08-29T07:03:18+00:00"
     },
     "DOTINR": {
@@ -37,17 +31,29 @@
       "invested": 673.8816444359999,
       "last_buy_at": "2026-08-29T09:14:25+00:00"
     },
-    "JUPINR": {
-      "qty": 27.4,
-      "avg_cost": 21.994953981,
-      "invested": 602.6617390793999,
-      "last_buy_at": "2026-08-29T14:38:07+00:00"
-    },
     "PEPEINR": {
       "qty": 1480115.0,
       "avg_cost": 0.00036684963314999997,
       "invested": 542.9796447698122,
       "last_buy_at": "2026-08-29T14:38:07+00:00"
+    },
+    "RIFINR": {
+      "qty": 88.0,
+      "avg_cost": 7.182761585999999,
+      "invested": 632.0830195679999,
+      "last_buy_at": "2026-08-30T05:45:21+00:00"
+    },
+    "POLYXINR": {
+      "qty": 161.5273,
+      "avg_cost": 3.5483162715,
+      "invested": 573.1499468814619,
+      "last_buy_at": "2026-08-30T05:45:21+00:00"
+    },
+    "BOMEINR": {
+      "qty": 5133.0,
+      "avg_cost": 0.1004755376625,
+      "invested": 515.7409348216125,
+      "last_buy_at": "2026-08-30T05:45:21+00:00"
     }
   }
 }

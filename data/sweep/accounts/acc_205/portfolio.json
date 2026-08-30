@@ -1,22 +1,16 @@
 {
-  "cash_inr": 774.9552343208737,
-  "realized_pnl": -48.63321942074913,
-  "total_trades": 11,
-  "sell_count": 3,
-  "gross_gains": 0.0,
+  "cash_inr": 1128.9798999257205,
+  "realized_pnl": -30.738927027449108,
+  "total_trades": 14,
+  "sell_count": 4,
+  "gross_gains": 17.89,
   "gross_losses": -48.63,
-  "total_tds": 28.09,
+  "total_tds": 51.84,
   "holdings": {
     "BTCINR": {
       "qty": 0.00051,
       "avg_cost": 7823151.2510151,
       "invested": 3989.807138017701,
-      "last_buy_at": "2026-08-29T07:03:18+00:00"
-    },
-    "BNBINR": {
-      "qty": 0.034,
-      "avg_cost": 69268.88223255001,
-      "invested": 2355.1419959067002,
       "last_buy_at": "2026-08-29T07:03:18+00:00"
     },
     "DOTINR": {
@@ -36,6 +30,18 @@
       "avg_cost": 20.178232074,
       "invested": 514.544917887,
       "last_buy_at": "2026-08-29T09:14:26+00:00"
+    },
+    "RIFINR": {
+      "qty": 173.0,
+      "avg_cost": 7.182761586,
+      "invested": 1242.617754378,
+      "last_buy_at": "2026-08-30T05:45:29+00:00"
+    },
+    "POLYXINR": {
+      "qty": 212.1118,
+      "avg_cost": 3.5483162715,
+      "invested": 752.6397513171537,
+      "last_buy_at": "2026-08-30T05:45:29+00:00"
     }
   }
 }
