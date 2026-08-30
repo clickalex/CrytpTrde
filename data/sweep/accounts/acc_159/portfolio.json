@@ -1,18 +1,12 @@
 {
-  "cash_inr": 641.1218432719007,
-  "realized_pnl": 0.0,
-  "total_trades": 3,
-  "sell_count": 0,
+  "cash_inr": 2498.943471676601,
+  "realized_pnl": -334.19522335499914,
+  "total_trades": 5,
+  "sell_count": 1,
   "gross_gains": 0.0,
-  "gross_losses": 0.0,
-  "total_tds": 0.0,
+  "gross_losses": -334.2,
+  "total_tds": 56.67,
   "holdings": {
-    "RIFINR": {
-      "qty": 810.0,
-      "avg_cost": 7.402090195499999,
-      "invested": 5995.693058354999,
-      "last_buy_at": "2026-08-29T07:03:18+00:00"
-    },
     "ONDOINR": {
       "qty": 68.4,
       "avg_cost": 35.116613531999995,
@@ -24,6 +18,12 @@
       "avg_cost": 0.6416613703499999,
       "invested": 961.2087327843,
       "last_buy_at": "2026-08-29T09:14:12+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 3009.0,
+      "avg_cost": 1.2452657216999998,
+      "invested": 3747.0045565952996,
+      "last_buy_at": "2026-08-30T12:08:01+00:00"
     }
   }
 }

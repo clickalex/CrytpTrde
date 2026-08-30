@@ -1,11 +1,11 @@
 {
-  "cash_inr": 624.787338455494,
-  "realized_pnl": -55.35299865479999,
-  "total_trades": 5,
-  "sell_count": 1,
+  "cash_inr": 463.4146291134366,
+  "realized_pnl": -190.68143477879983,
+  "total_trades": 8,
+  "sell_count": 2,
   "gross_gains": 0.0,
-  "gross_losses": -55.35,
-  "total_tds": 9.21,
+  "gross_losses": -190.68,
+  "total_tds": 32.16,
   "holdings": {
     "BTCINR": {
       "qty": 0.00076,
@@ -13,17 +13,23 @@
       "invested": 5945.594950771476,
       "last_buy_at": "2026-08-29T07:03:18+00:00"
     },
-    "RIFINR": {
-      "qty": 328.0,
-      "avg_cost": 7.402090195499999,
-      "invested": 2427.8855841239997,
-      "last_buy_at": "2026-08-29T07:03:18+00:00"
-    },
     "GALAINR": {
       "qty": 5341.73,
       "avg_cost": 0.17544285759,
       "invested": 937.1683756742306,
       "last_buy_at": "2026-08-29T09:14:24+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 1394.0,
+      "avg_cost": 1.2452657217,
+      "invested": 1735.9004160498,
+      "last_buy_at": "2026-08-30T12:09:10+00:00"
+    },
+    "BOMEINR": {
+      "qty": 7085.0,
+      "avg_cost": 0.0981059874795,
+      "invested": 695.0809212922575,
+      "last_buy_at": "2026-08-30T12:09:10+00:00"
     }
   }
 }
