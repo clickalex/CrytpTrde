@@ -1,18 +1,12 @@
 {
-  "cash_inr": 934.0432524576158,
-  "realized_pnl": 60.92442542247932,
-  "total_trades": 18,
-  "sell_count": 5,
-  "gross_gains": 110.94,
-  "gross_losses": -50.02,
-  "total_tds": 100.02,
+  "cash_inr": 1517.30915456833,
+  "realized_pnl": -60.60300851327497,
+  "total_trades": 24,
+  "sell_count": 8,
+  "gross_gains": 118.04,
+  "gross_losses": -178.65,
+  "total_tds": 139.09,
   "holdings": {
-    "LINKINR": {
-      "qty": 0.46,
-      "avg_cost": 1146.27741228,
-      "invested": 527.2876096488,
-      "last_buy_at": "2026-08-29T07:03:18+00:00"
-    },
     "ONDOINR": {
       "qty": 21.1,
       "avg_cost": 35.685465816,
@@ -31,12 +25,6 @@
       "invested": 560.8719274158,
       "last_buy_at": "2026-08-30T12:10:00+00:00"
     },
-    "FARTCOININR": {
-      "qty": 148.05,
-      "avg_cost": 19.417091694000003,
-      "invested": 2874.700425296701,
-      "last_buy_at": "2026-08-30T17:02:21+00:00"
-    },
     "RIFINR": {
       "qty": 240.0,
       "avg_cost": 7.158725573999999,
@@ -49,11 +37,23 @@
       "invested": 1037.5609276032,
       "last_buy_at": "2026-08-30T17:02:21+00:00"
     },
-    "GASINR": {
-      "qty": 4.6644,
-      "avg_cost": 133.4970121485,
-      "invested": 622.6834634654633,
-      "last_buy_at": "2026-08-30T17:02:21+00:00"
+    "TRUMPINR": {
+      "qty": 2.274,
+      "avg_cost": 257.24541843,
+      "invested": 584.97608150982,
+      "last_buy_at": "2026-08-30T18:05:19+00:00"
+    },
+    "BOMEINR": {
+      "qty": 17395.0,
+      "avg_cost": 0.0968781478665,
+      "invested": 1685.1953821377674,
+      "last_buy_at": "2026-08-30T18:05:19+00:00"
+    },
+    "ALTINR": {
+      "qty": 1543.0,
+      "avg_cost": 0.654981327,
+      "invested": 1010.636187561,
+      "last_buy_at": "2026-08-30T18:05:19+00:00"
     }
   }
 }

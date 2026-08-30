@@ -1,11 +1,11 @@
 {
-  "cash_inr": 407.44605177022447,
-  "realized_pnl": 17.32845958301482,
-  "total_trades": 13,
-  "sell_count": 3,
+  "cash_inr": 645.3834256478405,
+  "realized_pnl": -111.39890205024562,
+  "total_trades": 16,
+  "sell_count": 4,
   "gross_gains": 90.59,
-  "gross_losses": -73.26,
-  "total_tds": 102.43,
+  "gross_losses": -201.99,
+  "total_tds": 139.09,
   "holdings": {
     "SOLINR": {
       "qty": 0.093,
@@ -31,12 +31,6 @@
       "invested": 538.5183361057501,
       "last_buy_at": "2026-08-30T12:10:04+00:00"
     },
-    "FARTCOININR": {
-      "qty": 195.26,
-      "avg_cost": 19.417091694000003,
-      "invested": 3791.38132417044,
-      "last_buy_at": "2026-08-30T17:02:25+00:00"
-    },
     "RIFINR": {
       "qty": 211.0,
       "avg_cost": 7.158725573999999,
@@ -48,6 +42,18 @@
       "avg_cost": 1.2470684226,
       "invested": 609.8164586514,
       "last_buy_at": "2026-08-30T17:02:25+00:00"
+    },
+    "GASINR": {
+      "qty": 18.2337,
+      "avg_cost": 132.7238537625,
+      "invested": 2420.046932349296,
+      "last_buy_at": "2026-08-30T18:05:21+00:00"
+    },
+    "BOMEINR": {
+      "qty": 9992.0,
+      "avg_cost": 0.0968781478665,
+      "invested": 968.006453482068,
+      "last_buy_at": "2026-08-30T18:05:21+00:00"
     }
   }
 }

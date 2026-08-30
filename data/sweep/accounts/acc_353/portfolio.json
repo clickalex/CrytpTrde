@@ -1,11 +1,11 @@
 {
-  "cash_inr": 4634.55842859819,
-  "realized_pnl": 22.805112497943355,
-  "total_trades": 21,
-  "sell_count": 6,
-  "gross_gains": 66.21,
-  "gross_losses": -43.41,
-  "total_tds": 44.87,
+  "cash_inr": 4698.816030324291,
+  "realized_pnl": 30.92003968794353,
+  "total_trades": 27,
+  "sell_count": 9,
+  "gross_gains": 78.61,
+  "gross_losses": -47.7,
+  "total_tds": 61.81,
   "holdings": {
     "USDTINR": {
       "qty": 6.64,
@@ -13,22 +13,10 @@
       "invested": 667.4568184284,
       "last_buy_at": "2026-08-29T07:03:19+00:00"
     },
-    "LINKINR": {
-      "qty": 0.48,
-      "avg_cost": 1151.775650025,
-      "invested": 552.852312012,
-      "last_buy_at": "2026-08-30T05:50:09+00:00"
-    },
     "ICPINR": {
       "qty": 2.25,
       "avg_cost": 249.59395461,
       "invested": 561.5863978725,
-      "last_buy_at": "2026-08-30T05:50:09+00:00"
-    },
-    "SUIINR": {
-      "qty": 6.7,
-      "avg_cost": 74.996363442,
-      "invested": 502.4756350614,
       "last_buy_at": "2026-08-30T05:50:09+00:00"
     },
     "BNBINR": {
@@ -43,12 +31,6 @@
       "invested": 705.433106473095,
       "last_buy_at": "2026-08-30T17:08:57+00:00"
     },
-    "NEARINR": {
-      "qty": 3.3,
-      "avg_cost": 190.595560155,
-      "invested": 628.9653485114999,
-      "last_buy_at": "2026-08-30T17:08:57+00:00"
-    },
     "DOTINR": {
       "qty": 6.5733,
       "avg_cost": 87.0173739435,
@@ -60,6 +42,24 @@
       "avg_cost": 1746.616872,
       "invested": 513.505360368,
       "last_buy_at": "2026-08-30T17:08:57+00:00"
+    },
+    "XRPINR": {
+      "qty": 3.6,
+      "avg_cost": 142.59664569150002,
+      "invested": 513.3479244894,
+      "last_buy_at": "2026-08-30T18:08:11+00:00"
+    },
+    "ONDOINR": {
+      "qty": 15.8,
+      "avg_cost": 36.486666215999996,
+      "invested": 576.4893262127999,
+      "last_buy_at": "2026-08-30T18:08:11+00:00"
+    },
+    "CAKEINR": {
+      "qty": 2.76,
+      "avg_cost": 188.90302430999998,
+      "invested": 521.3723470955999,
+      "last_buy_at": "2026-08-30T18:08:11+00:00"
     }
   }
 }

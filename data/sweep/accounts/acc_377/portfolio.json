@@ -1,35 +1,17 @@
 {
-  "cash_inr": 4633.242948057893,
-  "realized_pnl": 16.090070125818443,
-  "total_trades": 25,
-  "sell_count": 8,
-  "gross_gains": 66.21,
-  "gross_losses": -50.12,
-  "total_tds": 55.58,
+  "cash_inr": 4528.509076487893,
+  "realized_pnl": 17.524103505318692,
+  "total_trades": 33,
+  "sell_count": 12,
+  "gross_gains": 84.27,
+  "gross_losses": -66.75,
+  "total_tds": 76.69,
   "holdings": {
     "USDTINR": {
       "qty": 6.64,
       "avg_cost": 100.520605185,
       "invested": 667.4568184284,
       "last_buy_at": "2026-08-29T07:03:19+00:00"
-    },
-    "LINKINR": {
-      "qty": 0.47,
-      "avg_cost": 1140.60891945,
-      "invested": 536.0861921415,
-      "last_buy_at": "2026-08-29T09:15:18+00:00"
-    },
-    "SUIINR": {
-      "qty": 7.5,
-      "avg_cost": 75.05044446900001,
-      "invested": 562.8783335175001,
-      "last_buy_at": "2026-08-30T12:14:08+00:00"
-    },
-    "NEARINR": {
-      "qty": 2.6,
-      "avg_cost": 190.43532007499996,
-      "invested": 495.13183219499996,
-      "last_buy_at": "2026-08-30T12:14:08+00:00"
     },
     "BNBINR": {
       "qty": 0.009,
@@ -55,11 +37,29 @@
       "invested": 571.852076344499,
       "last_buy_at": "2026-08-30T17:10:10+00:00"
     },
-    "TRBINR": {
-      "qty": 0.294,
-      "avg_cost": 1746.616872,
-      "invested": 513.505360368,
-      "last_buy_at": "2026-08-30T17:10:10+00:00"
+    "XRPINR": {
+      "qty": 3.6,
+      "avg_cost": 142.59664569150002,
+      "invested": 513.3479244894,
+      "last_buy_at": "2026-08-30T18:08:44+00:00"
+    },
+    "ONDOINR": {
+      "qty": 17.0,
+      "avg_cost": 36.486666215999996,
+      "invested": 620.2733256719999,
+      "last_buy_at": "2026-08-30T18:08:44+00:00"
+    },
+    "CAKEINR": {
+      "qty": 2.95,
+      "avg_cost": 188.90302430999998,
+      "invested": 557.2639217144999,
+      "last_buy_at": "2026-08-30T18:08:44+00:00"
+    },
+    "RENDERINR": {
+      "qty": 3.32,
+      "avg_cost": 151.136440455,
+      "invested": 501.7729823106,
+      "last_buy_at": "2026-08-30T18:08:44+00:00"
     }
   }
 }
