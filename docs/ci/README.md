@@ -19,11 +19,47 @@ cp docs/ci/pages.yml  .github/workflows/pages.yml   # publish web/ only
 |------|--------|
 | `tests.yml` | **Out of date.** The live workflow still says "12 tests"; the suite now runs 13 (the extra one asserts every module imports the helpers it calls). Copy this drop-in to pick up the label. |
 | `dca.yml.suggested` | **Already applied.** `.github/workflows/dca.yml` is byte-identical to this file — kept here only as a reference. |
-| `pages.yml` | **New.** One of two ways to publish `web/` — the dashboard is currently not published at all. Not yet applied. |
+| `pages.yml` | **Partially applied — needs an update.** The live `.github/workflows/pages.yml` publishes `web/` (that part is done: Pages source is "GitHub Actions" and the root URL serves the dashboard), but it only redeploys on a **human** push. This drop-in adds the `workflow_run` + hourly `schedule` triggers needed so the live site actually reflects the bot's hourly commits — see "Pages goes stale" below. **Not yet applied.** |
 | `tournament.yml` | **New.** Cloud control: `sweep-live`, `sweep-status`, `sweep` from the Actions tab. Not yet applied. |
 | `trading.yml` | **New.** Cloud control: `check`, `status`, `assets`, `init`, `reset` from the Actions tab. Not yet applied. |
 | `analysis.yml` | **New.** Cloud control: `backtest`, `bot`, `coin` from the Actions tab. Not yet applied. |
 | `maintenance.yml` | **New.** Cloud control: `prune`, `wipe` from the Actions tab. Not yet applied. |
+
+## ⚠️ "The bot ran, the CSVs/JSON updated, but the website didn't change"
+
+This is a real, confirmed issue with the *current* `pages.yml`, not a caching
+or browser problem. Diagnosis:
+
+1. Every hourly run (`dca.yml`) really does update `data/**` and regenerate
+   `web/data.js`, then commits and pushes to `main` — verified, this always
+   works (`data/state/last_run.json` advances every hour on schedule).
+2. That push is made with the Actions-provided default `GITHUB_TOKEN`
+   (`git remote set-url ... x-access-token:${GITHUB_TOKEN} ...`).
+3. GitHub has a hard, documented rule: **commits pushed with the default
+   `GITHUB_TOKEN` do not trigger other `on: push` workflows** (anti-recursion
+   protection — see
+   [Triggering a workflow from a workflow](https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow)).
+4. `.github/workflows/pages.yml` only has `on: push` (+ `workflow_dispatch`).
+   So the bot's own commits never re-run "Deploy dashboard to Pages" — the
+   live site only advances when a **human** pushes directly (merging a PR,
+   editing a file in the web UI, etc.), which can be many hours or days after
+   the data itself changed.
+
+Confirmed on this repo: the live site's embedded `bot_status.timestamp_utc`
+was stuck at a value ~35 hours older than `data/state/last_run.json` in the
+repo, matching exactly the last time a human (not the bot) pushed to `main`.
+
+**Fix:** apply `docs/ci/pages.yml` (see above) — it adds `workflow_run`
+triggers on the data-changing workflows (`Crypto Bot` and the four cloud
+control workflows), which *is* exempt from the `GITHUB_TOKEN` guard, plus an
+hourly `schedule` trigger as a safety net so the site can't lag by more than
+about an hour under any circumstances.
+
+**One-off manual fix** (no file change, works today): Actions tab →
+"Deploy dashboard to Pages" → "Run workflow" → Run workflow. That's a
+`workflow_dispatch` event, which (like `workflow_run`) is exempt from the
+`GITHUB_TOKEN` restriction, so it will pick up whatever is currently in
+`main` immediately.
 
 ## `tests.yml` — offline suite
 

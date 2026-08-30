@@ -240,8 +240,25 @@ The bot runs automatically every hour at minute :30 UTC (minute 00 IST). You don
 
 ### Viewing Results
 - **Logs:** Click on the workflow run in Actions tab to see command output
-- **Dashboard:** Results are reflected in the GitHub Pages site after the run completes
-- **Data files:** Raw CSV/JSON data is committed back to the repository
+- **Data files:** Raw CSV/JSON data is committed back to the repository at the
+  end of every run (`data/**`, `web/data.js`) — this part always works.
+- **Dashboard:** Whether the GitHub Pages site (the live HTML) picks up that
+  fresh data depends on `.github/workflows/pages.yml`:
+  - **With the `docs/ci/pages.yml` drop-in applied** (recommended —
+    see `docs/ci/README.md`): the dashboard redeploys automatically right
+    after each bot run finishes, plus an hourly safety-net redeploy, so it
+    tracks the data within a few minutes.
+  - **Without it** (older/default `pages.yml`, `on: push` only): the bot's
+    commits use the Actions default `GITHUB_TOKEN`, and GitHub's
+    anti-recursion rule means a `GITHUB_TOKEN` push never triggers another
+    `on: push` workflow. So every hourly run updates the CSV/JSON files and
+    `web/data.js` correctly, but the *published* Pages site keeps serving
+    whatever it last built from a **human** push (e.g. merging a PR) — it can
+    silently drift tens of hours stale even though the repo itself is
+    current. If your dashboard looks frozen while `data/state/last_run.json`
+    keeps advancing, this is almost always why — apply the `pages.yml`
+    drop-in, or manually re-run "Deploy dashboard to Pages" from the Actions
+    tab to force a one-off refresh.
 
 ### Cost & Quotas
 - **Public repos:** Unlimited GitHub Actions minutes (free)
