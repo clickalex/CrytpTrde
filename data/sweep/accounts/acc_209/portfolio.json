@@ -1,11 +1,11 @@
 {
-  "cash_inr": 5989.0848392787775,
-  "realized_pnl": -426.95173837479024,
-  "total_trades": 38,
-  "sell_count": 16,
+  "cash_inr": 5263.380283006854,
+  "realized_pnl": -459.43456997744954,
+  "total_trades": 43,
+  "sell_count": 18,
   "gross_gains": 0.0,
-  "gross_losses": -426.94,
-  "total_tds": 105.0,
+  "gross_losses": -459.42,
+  "total_tds": 116.18,
   "holdings": {
     "RIFINR": {
       "qty": 101.0,
@@ -31,17 +31,23 @@
       "invested": 538.0466093402399,
       "last_buy_at": "2026-08-31T14:45:54+00:00"
     },
-    "SEIINR": {
-      "qty": 135.1,
-      "avg_cost": 4.477408285349999,
-      "invested": 604.8978593507849,
-      "last_buy_at": "2026-08-31T15:20:46+00:00"
+    "ORCAINR": {
+      "qty": 4.66,
+      "avg_cost": 128.25215402999999,
+      "invested": 597.6550377798,
+      "last_buy_at": "2026-08-31T21:04:46+00:00"
     },
-    "GASINR": {
-      "qty": 4.3639,
-      "avg_cost": 124.8039878085,
-      "invested": 544.6321223975132,
-      "last_buy_at": "2026-08-31T15:20:46+00:00"
+    "CHILLGUYINR": {
+      "qty": 552.0,
+      "avg_cost": 1.1761621872,
+      "invested": 649.2415273344001,
+      "last_buy_at": "2026-08-31T21:04:49+00:00"
+    },
+    "ALTINR": {
+      "qty": 923.0,
+      "avg_cost": 0.6334490662500001,
+      "invested": 584.67348814875,
+      "last_buy_at": "2026-08-31T21:04:52+00:00"
     }
   }
 }

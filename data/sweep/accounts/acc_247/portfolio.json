@@ -1,18 +1,12 @@
 {
-  "cash_inr": 531.5882273221023,
-  "realized_pnl": -785.5378324322761,
-  "total_trades": 31,
-  "sell_count": 12,
-  "gross_gains": 0.0,
+  "cash_inr": 476.7830846945375,
+  "realized_pnl": -764.443281900276,
+  "total_trades": 33,
+  "sell_count": 13,
+  "gross_gains": 21.09,
   "gross_losses": -785.53,
-  "total_tds": 210.03,
+  "total_tds": 216.71,
   "holdings": {
-    "RIFINR": {
-      "qty": 93.0,
-      "avg_cost": 6.945405967499999,
-      "invested": 645.9227549775,
-      "last_buy_at": "2026-08-30T22:52:57+00:00"
-    },
     "NEARINR": {
       "qty": 6.3,
       "avg_cost": 185.65816268999998,
@@ -48,6 +42,12 @@
       "avg_cost": 34.813158880500005,
       "invested": 793.7400224754001,
       "last_buy_at": "2026-08-31T15:22:04+00:00"
+    },
+    "GASINR": {
+      "qty": 5.7245,
+      "avg_cost": 124.92717236999997,
+      "invested": 715.1455982320648,
+      "last_buy_at": "2026-08-31T21:06:41+00:00"
     }
   }
 }

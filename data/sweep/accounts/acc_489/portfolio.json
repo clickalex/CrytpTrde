@@ -1,11 +1,11 @@
 {
-  "cash_inr": 4665.405104245633,
-  "realized_pnl": -265.5723080075045,
-  "total_trades": 40,
-  "sell_count": 16,
-  "gross_gains": 0.0,
+  "cash_inr": 4858.362500232408,
+  "realized_pnl": -170.15076245810428,
+  "total_trades": 42,
+  "sell_count": 17,
+  "gross_gains": 95.42,
   "gross_losses": -265.57,
-  "total_tds": 97.88,
+  "total_tds": 105.29,
   "holdings": {
     "BTCINR": {
       "qty": 0.00012,
@@ -37,12 +37,6 @@
       "invested": 532.5595082808,
       "last_buy_at": "2026-08-31T14:54:25+00:00"
     },
-    "ARBINR": {
-      "qty": 74.2,
-      "avg_cost": 8.6880168375,
-      "invested": 644.6508493425,
-      "last_buy_at": "2026-08-31T14:54:25+00:00"
-    },
     "POPCATINR": {
       "qty": 108.61,
       "avg_cost": 5.302844997449999,
@@ -54,6 +48,12 @@
       "avg_cost": 0.008037041512499999,
       "invested": 518.3698886566199,
       "last_buy_at": "2026-08-31T15:30:22+00:00"
+    },
+    "APEINR": {
+      "qty": 39.35,
+      "avg_cost": 13.7155493475,
+      "invested": 539.706866824125,
+      "last_buy_at": "2026-08-31T21:17:32+00:00"
     }
   }
 }

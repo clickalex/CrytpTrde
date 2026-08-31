@@ -1,18 +1,12 @@
 {
-  "cash_inr": 423.01051197131596,
-  "realized_pnl": -582.2071268559748,
-  "total_trades": 10,
-  "sell_count": 2,
+  "cash_inr": 529.7358215926157,
+  "realized_pnl": -632.6409978717749,
+  "total_trades": 12,
+  "sell_count": 3,
   "gross_gains": 0.0,
-  "gross_losses": -582.21,
-  "total_tds": 78.25,
+  "gross_losses": -632.64,
+  "total_tds": 87.35,
   "holdings": {
-    "CHILLGUYINR": {
-      "qty": 786.0,
-      "avg_cost": 1.2205286593499998,
-      "invested": 959.3355262490999,
-      "last_buy_at": "2026-08-30T19:59:08+00:00"
-    },
     "SUIINR": {
       "qty": 50.5,
       "avg_cost": 72.80908635,
@@ -42,6 +36,12 @@
       "avg_cost": 4.47740828535,
       "invested": 634.00101320556,
       "last_buy_at": "2026-08-31T15:21:46+00:00"
+    },
+    "ALTINR": {
+      "qty": 1252.0,
+      "avg_cost": 0.63344906625,
+      "invested": 793.078230945,
+      "last_buy_at": "2026-08-31T21:06:26+00:00"
     }
   }
 }

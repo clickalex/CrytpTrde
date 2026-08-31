@@ -1,18 +1,12 @@
 {
-  "cash_inr": 817.3713310872282,
-  "realized_pnl": -571.3250107677221,
-  "total_trades": 12,
-  "sell_count": 3,
+  "cash_inr": 995.1194338939282,
+  "realized_pnl": -637.0302065949221,
+  "total_trades": 14,
+  "sell_count": 4,
   "gross_gains": 0.0,
-  "gross_losses": -571.32,
-  "total_tds": 75.62,
+  "gross_losses": -637.03,
+  "total_tds": 87.47,
   "holdings": {
-    "CHILLGUYINR": {
-      "qty": 1024.0,
-      "avg_cost": 1.2205286593499998,
-      "invested": 1249.8213471743998,
-      "last_buy_at": "2026-08-30T19:58:45+00:00"
-    },
     "DOGEINR": {
       "qty": 311.0,
       "avg_cost": 8.34600441675,
@@ -42,6 +36,12 @@
       "avg_cost": 124.8039878085,
       "invested": 817.3413161578666,
       "last_buy_at": "2026-08-31T15:21:04+00:00"
+    },
+    "ALTINR": {
+      "qty": 1570.0,
+      "avg_cost": 0.63344906625,
+      "invested": 994.5150340125,
+      "last_buy_at": "2026-08-31T21:05:30+00:00"
     }
   }
 }
