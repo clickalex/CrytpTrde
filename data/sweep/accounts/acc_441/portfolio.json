@@ -1,23 +1,17 @@
 {
-  "cash_inr": 4738.023619045622,
-  "realized_pnl": -177.50607084215562,
-  "total_trades": 28,
-  "sell_count": 10,
+  "cash_inr": 4902.876544102182,
+  "realized_pnl": -243.74243240690498,
+  "total_trades": 38,
+  "sell_count": 15,
   "gross_gains": 0.0,
-  "gross_losses": -177.51,
-  "total_tds": 68.43,
+  "gross_losses": -243.75,
+  "total_tds": 100.82,
   "holdings": {
     "USDTINR": {
       "qty": 6.6,
       "avg_cost": 100.70087527499999,
       "invested": 664.6257768149999,
       "last_buy_at": "2026-08-30T20:03:20+00:00"
-    },
-    "ICPINR": {
-      "qty": 3.41,
-      "avg_cost": 242.63352613499998,
-      "invested": 827.38032412035,
-      "last_buy_at": "2026-08-30T22:54:34+00:00"
     },
     "ETHINR": {
       "qty": 0.0023,
@@ -31,29 +25,35 @@
       "invested": 484.33675845555,
       "last_buy_at": "2026-08-31T07:18:24+00:00"
     },
-    "ADAINR": {
-      "qty": 36.5,
-      "avg_cost": 19.7265553485,
-      "invested": 720.01927022025,
-      "last_buy_at": "2026-08-31T07:18:24+00:00"
+    "NEARINR": {
+      "qty": 2.9,
+      "avg_cost": 186.429318075,
+      "invested": 540.6450224175,
+      "last_buy_at": "2026-08-31T14:52:54+00:00"
     },
-    "TRXINR": {
-      "qty": 19.1,
-      "avg_cost": 33.843706396500004,
-      "invested": 646.4147921731501,
-      "last_buy_at": "2026-08-31T07:18:24+00:00"
+    "DOGEINR": {
+      "qty": 82.0,
+      "avg_cost": 8.282409135,
+      "invested": 679.15754907,
+      "last_buy_at": "2026-08-31T14:52:54+00:00"
     },
-    "RENDERINR": {
-      "qty": 4.02,
-      "avg_cost": 145.19754248999996,
-      "invested": 583.6941208097998,
-      "last_buy_at": "2026-08-31T07:18:24+00:00"
+    "ONDOINR": {
+      "qty": 19.2,
+      "avg_cost": 34.852217399999994,
+      "invested": 669.1625740799998,
+      "last_buy_at": "2026-08-31T14:52:54+00:00"
     },
-    "CAKEINR": {
-      "qty": 2.81,
-      "avg_cost": 186.689708205,
-      "invested": 524.59808005605,
-      "last_buy_at": "2026-08-31T07:18:24+00:00"
+    "APTINR": {
+      "qty": 11.38,
+      "avg_cost": 53.15964653999999,
+      "invested": 604.9567776252,
+      "last_buy_at": "2026-08-31T14:52:54+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 30.69,
+      "avg_cost": 17.748591861,
+      "invested": 544.7042842140901,
+      "last_buy_at": "2026-08-31T14:52:54+00:00"
     }
   }
 }

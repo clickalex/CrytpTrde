@@ -1,29 +1,35 @@
 {
-  "cash_inr": 341.7586326798912,
-  "realized_pnl": -561.076032115858,
-  "total_trades": 11,
-  "sell_count": 4,
+  "cash_inr": 308.53764296332633,
+  "realized_pnl": -769.8073775132068,
+  "total_trades": 16,
+  "sell_count": 6,
   "gross_gains": 0.0,
-  "gross_losses": -561.08,
-  "total_tds": 118.0,
+  "gross_losses": -769.81,
+  "total_tds": 193.15,
   "holdings": {
-    "ICPINR": {
-      "qty": 26.17,
-      "avg_cost": 242.63352613499998,
-      "invested": 6349.71937895295,
-      "last_buy_at": "2026-08-30T22:52:48+00:00"
-    },
     "NEARINR": {
       "qty": 6.8,
       "avg_cost": 185.65816268999998,
       "invested": 1262.4755062919999,
       "last_buy_at": "2026-08-31T07:14:05+00:00"
     },
-    "GASINR": {
-      "qty": 10.8,
-      "avg_cost": 126.57163619099998,
-      "invested": 1366.9736708628,
-      "last_buy_at": "2026-08-31T07:14:05+00:00"
+    "TRXINR": {
+      "qty": 155.4,
+      "avg_cost": 33.428083689,
+      "invested": 5194.7242052706,
+      "last_buy_at": "2026-08-31T14:46:27+00:00"
+    },
+    "ADAINR": {
+      "qty": 52.6,
+      "avg_cost": 19.721547846,
+      "invested": 1037.3534166996,
+      "last_buy_at": "2026-08-31T14:46:27+00:00"
+    },
+    "POPCATINR": {
+      "qty": 232.63,
+      "avg_cost": 5.3043472482,
+      "invested": 1233.950300348766,
+      "last_buy_at": "2026-08-31T14:46:27+00:00"
     }
   }
 }

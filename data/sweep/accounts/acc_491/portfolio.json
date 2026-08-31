@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1643.1759405762657,
-  "realized_pnl": -202.0391640470761,
-  "total_trades": 21,
-  "sell_count": 7,
+  "cash_inr": 1286.6893435532556,
+  "realized_pnl": -287.8243193606758,
+  "total_trades": 30,
+  "sell_count": 11,
   "gross_gains": 0.0,
-  "gross_losses": -202.04,
-  "total_tds": 80.35,
+  "gross_losses": -287.83,
+  "total_tds": 114.48,
   "holdings": {
     "BTCINR": {
       "qty": 0.00037,
@@ -25,29 +25,35 @@
       "invested": 912.4839307583999,
       "last_buy_at": "2026-08-31T07:19:24+00:00"
     },
-    "LINKINR": {
-      "qty": 0.92,
-      "avg_cost": 1140.5388144149997,
-      "invested": 1049.2957092617999,
-      "last_buy_at": "2026-08-31T07:19:24+00:00"
+    "TRUMPINR": {
+      "qty": 3.313,
+      "avg_cost": 240.90093026999998,
+      "invested": 798.1047819845099,
+      "last_buy_at": "2026-08-31T14:54:30+00:00"
     },
-    "ICPINR": {
-      "qty": 3.03,
-      "avg_cost": 244.80678222,
-      "invested": 741.7645501265999,
-      "last_buy_at": "2026-08-31T07:19:24+00:00"
+    "NEARINR": {
+      "qty": 4.1,
+      "avg_cost": 186.429318075,
+      "invested": 764.3602041075,
+      "last_buy_at": "2026-08-31T14:54:30+00:00"
     },
-    "TRXINR": {
-      "qty": 29.6,
-      "avg_cost": 33.843706396500004,
-      "invested": 1001.7737093364001,
-      "last_buy_at": "2026-08-31T07:19:24+00:00"
+    "CAKEINR": {
+      "qty": 4.44,
+      "avg_cost": 187.52095362,
+      "invested": 832.5930340728,
+      "last_buy_at": "2026-08-31T14:54:30+00:00"
     },
-    "RENDERINR": {
-      "qty": 4.84,
-      "avg_cost": 145.19754249,
-      "invested": 702.7561056515999,
-      "last_buy_at": "2026-08-31T07:19:24+00:00"
+    "ARBINR": {
+      "qty": 90.5,
+      "avg_cost": 8.688016837500001,
+      "invested": 786.26552379375,
+      "last_buy_at": "2026-08-31T14:54:30+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 28.3,
+      "avg_cost": 19.464162217499997,
+      "invested": 550.83579075525,
+      "last_buy_at": "2026-08-31T14:54:30+00:00"
     }
   }
 }
