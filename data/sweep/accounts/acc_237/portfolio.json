@@ -1,18 +1,12 @@
 {
-  "cash_inr": 778.1786044210073,
-  "realized_pnl": 0.0,
-  "total_trades": 5,
-  "sell_count": 0,
+  "cash_inr": 1530.8974229564742,
+  "realized_pnl": -406.1057863705124,
+  "total_trades": 12,
+  "sell_count": 3,
   "gross_gains": 0.0,
-  "gross_losses": 0.0,
-  "total_tds": 0.0,
+  "gross_losses": -406.11,
+  "total_tds": 49.82,
   "holdings": {
-    "TRUMPINR": {
-      "qty": 15.63,
-      "avg_cost": 255.90340776000002,
-      "invested": 3999.7702632888004,
-      "last_buy_at": "2026-08-30T19:59:06+00:00"
-    },
     "FARTCOININR": {
       "qty": 130.49,
       "avg_cost": 18.391555182,
@@ -25,17 +19,29 @@
       "invested": 1439.00328937365,
       "last_buy_at": "2026-08-30T19:59:06+00:00"
     },
-    "GASINR": {
-      "qty": 6.5151,
-      "avg_cost": 132.69280724700002,
-      "invested": 864.5069084949298,
-      "last_buy_at": "2026-08-30T19:59:06+00:00"
+    "SUIINR": {
+      "qty": 24.4,
+      "avg_cost": 72.80908635,
+      "invested": 1776.54170694,
+      "last_buy_at": "2026-08-31T07:14:16+00:00"
     },
-    "BOMEINR": {
-      "qty": 5395.0,
-      "avg_cost": 0.09613102849350001,
-      "invested": 518.6268987224325,
-      "last_buy_at": "2026-08-30T19:59:06+00:00"
+    "NEARINR": {
+      "qty": 5.7,
+      "avg_cost": 185.65816268999998,
+      "invested": 1058.251527333,
+      "last_buy_at": "2026-08-31T07:14:16+00:00"
+    },
+    "TRBINR": {
+      "qty": 0.37,
+      "avg_cost": 1735.70051655,
+      "invested": 642.2091911235,
+      "last_buy_at": "2026-08-31T07:14:16+00:00"
+    },
+    "XDBINR": {
+      "qty": 86464.8,
+      "avg_cost": 0.008064082026,
+      "invested": 697.2592395616848,
+      "last_buy_at": "2026-08-31T07:14:16+00:00"
     }
   }
 }

@@ -1,23 +1,47 @@
 {
-  "cash_inr": 8373.581278919903,
-  "realized_pnl": -121.47349315221027,
-  "total_trades": 8,
-  "sell_count": 3,
+  "cash_inr": 5360.776542541307,
+  "realized_pnl": -146.41808008983026,
+  "total_trades": 14,
+  "sell_count": 4,
   "gross_gains": 0.0,
-  "gross_losses": -121.47,
-  "total_tds": 25.91,
+  "gross_losses": -146.41,
+  "total_tds": 32.96,
   "holdings": {
-    "TRUMPINR": {
-      "qty": 2.972,
-      "avg_cost": 245.26747245,
-      "invested": 728.9349281214,
-      "last_buy_at": "2026-08-30T22:52:22+00:00"
-    },
     "RIFINR": {
       "qty": 108.0,
       "avg_cost": 6.945405967499998,
       "invested": 750.1038444899998,
       "last_buy_at": "2026-08-30T22:52:22+00:00"
+    },
+    "DOGEINR": {
+      "qty": 108.0,
+      "avg_cost": 8.34600441675,
+      "invested": 901.368477009,
+      "last_buy_at": "2026-08-31T07:13:05+00:00"
+    },
+    "ORCAINR": {
+      "qty": 6.32,
+      "avg_cost": 129.10342945499997,
+      "invested": 815.9336741555999,
+      "last_buy_at": "2026-08-31T07:13:05+00:00"
+    },
+    "GASINR": {
+      "qty": 5.8095,
+      "avg_cost": 126.571636191,
+      "invested": 735.3179204516144,
+      "last_buy_at": "2026-08-31T07:13:05+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1518.0,
+      "avg_cost": 0.43576288255499995,
+      "invested": 661.4880557184899,
+      "last_buy_at": "2026-08-31T07:13:05+00:00"
+    },
+    "TOKENINR": {
+      "qty": 2663.4464,
+      "avg_cost": 0.22363506165,
+      "invested": 595.6399998654705,
+      "last_buy_at": "2026-08-31T07:13:05+00:00"
     }
   }
 }
