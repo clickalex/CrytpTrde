@@ -1,23 +1,29 @@
 {
-  "cash_inr": 401.1487831851407,
-  "realized_pnl": 0.0,
-  "total_trades": 2,
-  "sell_count": 0,
+  "cash_inr": 314.9195270166458,
+  "realized_pnl": -453.51406042760937,
+  "total_trades": 5,
+  "sell_count": 1,
   "gross_gains": 0.0,
-  "gross_losses": 0.0,
-  "total_tds": 0.0,
+  "gross_losses": -453.51,
+  "total_tds": 75.54,
   "holdings": {
-    "FARTCOININR": {
-      "qty": 434.98,
-      "avg_cost": 18.391555181999998,
-      "invested": 7999.95867306636,
-      "last_buy_at": "2026-08-30T19:57:59+00:00"
-    },
     "CHILLGUYINR": {
       "qty": 1310.0,
       "avg_cost": 1.2205286593499998,
       "invested": 1598.8925437484997,
       "last_buy_at": "2026-08-30T19:57:59+00:00"
+    },
+    "SEIINR": {
+      "qty": 1406.5,
+      "avg_cost": 4.477408285349999,
+      "invested": 6297.474753344774,
+      "last_buy_at": "2026-08-31T15:19:46+00:00"
+    },
+    "GASINR": {
+      "qty": 10.0931,
+      "avg_cost": 124.80398780849998,
+      "invested": 1259.6591293499712,
+      "last_buy_at": "2026-08-31T15:19:46+00:00"
     }
   }
 }

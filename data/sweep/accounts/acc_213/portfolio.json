@@ -1,23 +1,17 @@
 {
-  "cash_inr": 2442.3434434680257,
-  "realized_pnl": -716.581642537309,
-  "total_trades": 28,
-  "sell_count": 11,
+  "cash_inr": 1283.2085610284205,
+  "realized_pnl": -794.1033774989912,
+  "total_trades": 34,
+  "sell_count": 14,
   "gross_gains": 0.0,
-  "gross_losses": -716.58,
-  "total_tds": 169.54,
+  "gross_losses": -794.1,
+  "total_tds": 195.99,
   "holdings": {
     "RIFINR": {
       "qty": 289.0,
       "avg_cost": 6.945405967499998,
       "invested": 2007.2223246074996,
       "last_buy_at": "2026-08-30T22:52:40+00:00"
-    },
-    "FARTCOININR": {
-      "qty": 75.51,
-      "avg_cost": 17.794660883999995,
-      "invested": 1343.6748433508399,
-      "last_buy_at": "2026-08-31T07:13:48+00:00"
     },
     "BOMEINR": {
       "qty": 11208.0,
@@ -31,17 +25,23 @@
       "invested": 909.2438763407999,
       "last_buy_at": "2026-08-31T14:46:01+00:00"
     },
-    "GASINR": {
-      "qty": 6.896,
-      "avg_cost": 124.76292628799999,
-      "invested": 860.3651396820479,
-      "last_buy_at": "2026-08-31T14:46:01+00:00"
+    "SEIINR": {
+      "qty": 334.0,
+      "avg_cost": 4.477408285349999,
+      "invested": 1495.4543673068997,
+      "last_buy_at": "2026-08-31T15:20:54+00:00"
     },
-    "POPCATINR": {
-      "qty": 97.32,
-      "avg_cost": 5.304347248199999,
-      "invested": 516.2190741948239,
-      "last_buy_at": "2026-08-31T14:46:01+00:00"
+    "BIOINR": {
+      "qty": 538.5,
+      "avg_cost": 2.64646507125,
+      "invested": 1425.121440868125,
+      "last_buy_at": "2026-08-31T15:20:54+00:00"
+    },
+    "ALTINR": {
+      "qty": 1351.0,
+      "avg_cost": 0.6327480159,
+      "invested": 854.8425694809,
+      "last_buy_at": "2026-08-31T15:20:54+00:00"
     }
   }
 }

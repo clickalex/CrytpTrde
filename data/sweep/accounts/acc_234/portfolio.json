@@ -1,11 +1,11 @@
 {
-  "cash_inr": 3145.8066483873436,
-  "realized_pnl": -844.0782049687675,
-  "total_trades": 34,
-  "sell_count": 14,
+  "cash_inr": 841.55034787148,
+  "realized_pnl": -861.5528710766154,
+  "total_trades": 38,
+  "sell_count": 15,
   "gross_gains": 0.0,
-  "gross_losses": -844.09,
-  "total_tds": 200.98,
+  "gross_losses": -861.56,
+  "total_tds": 210.03,
   "holdings": {
     "RIFINR": {
       "qty": 110.0,
@@ -37,11 +37,23 @@
       "invested": 790.8340686246,
       "last_buy_at": "2026-08-31T14:46:37+00:00"
     },
-    "POPCATINR": {
-      "qty": 173.77,
-      "avg_cost": 5.304347248199999,
-      "invested": 921.7364213197139,
-      "last_buy_at": "2026-08-31T14:46:37+00:00"
+    "USDTINR": {
+      "qty": 15.69,
+      "avg_cost": 100.20012502499999,
+      "invested": 1572.1399616422498,
+      "last_buy_at": "2026-08-31T15:21:36+00:00"
+    },
+    "XRPINR": {
+      "qty": 5.7,
+      "avg_cost": 137.87156633249998,
+      "invested": 785.8679280952499,
+      "last_buy_at": "2026-08-31T15:21:36+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1933.0,
+      "avg_cost": 0.43531220733,
+      "invested": 841.45849676889,
+      "last_buy_at": "2026-08-31T15:21:36+00:00"
     }
   }
 }
