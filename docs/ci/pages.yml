@@ -1,38 +1,49 @@
-# Drop-in: publish ONLY the dashboard to GitHub Pages.
+# Drop-in: publish ONLY the dashboard to GitHub Pages, and keep it fresh.
 #
-# WHY: the dashboard in web/ is not currently published at all.
+# HISTORY
+#   v1 (superseded): Pages was "Deploy from a branch -> main / /docs", so the
+#   site served docs/ (CI notes) instead of web/ (the dashboard). Fixed by
+#   switching Pages source to "GitHub Actions" and adding this workflow with
+#   `on: push` — that part is done and confirmed working (build_type=workflow
+#   per `gh api repos/OWNER/REPO/pages`).
 #
-# Pages is configured as "Deploy from a branch -> main / /docs", so
-# https://clickalex.github.io/CrytpTrde/ serves the docs/ folder (these CI
-# notes) instead of the dashboard: the root URL 404s, and so does
-# /web/index.html.
+#   v2 (this version) — THE ACTUAL BUG THIS TICKET IS ABOUT:
+#   Even after v1, the LIVE site kept showing data up to ~35 hours stale,
+#   while data/*.csv and web/data.js *in the repo* were completely current —
+#   every hourly run really was updating the numbers, just not the published
+#   site. Root cause:
 #
-# This workflow is one of TWO ways to fix that. The other needs no file
-# change at all: Settings -> Pages -> Source -> "Deploy from a branch" ->
-# main / /web. Pick one, not both.
+#     The hourly bot workflow (dca.yml, and the four cloud-control command
+#     workflows below) commits the fresh CSVs + a regenerated web/data.js and
+#     pushes with the Actions-provided default GITHUB_TOKEN. GitHub
+#     explicitly does NOT let commits/pushes made with that token trigger
+#     *other* `on: push` workflows — an intentional anti-recursion guard, not
+#     a bug in this repo:
+#       https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow
+#     So every hourly run updated the repo perfectly, but never re-ran
+#     "Deploy dashboard to Pages" — the live site only advanced on the rare
+#     push a human made directly (opening/merging a PR), not on the bot's own
+#     commits.
 #
-# A) SETTINGS FIX (30 seconds, no workflow permission needed)
-#      Settings -> Pages -> Source -> Deploy from a branch
-#      Branch: main   Folder: /web   -> Save
-#    Then delete the two legacy workflows below whenever convenient.
+#   Fix (two layers, both exempt from the GITHUB_TOKEN guard):
+#     1. `workflow_run`: redeploy the instant one of the data-changing
+#        workflows finishes successfully — near-real-time updates.
+#     2. `schedule` (cron, 15 min after the bot's own hourly `:30` run):
+#        a safety net that redeploys every hour NO MATTER what triggered the
+#        bot (schedule, manual dispatch, a future workflow not yet in the
+#        `workflow_run.workflows` list, etc.) — this is what actually
+#        guarantees the site can never again lag by more than ~1 run.
 #
-# B) ACTIONS FIX (this file — needs `workflows` permission, which the sandbox
-#    App token does not have):
+# APPLYING THIS DROP-IN (needs `workflows` permission the sandbox App token
+# lacks — apply via the GitHub web UI, or from a machine/PAT that has it):
 #
-#      git rm .github/workflows/static.yml
-#      git rm .github/workflows/jekyll-gh-pages.yml
-#      cp docs/ci/pages.yml .github/workflows/pages.yml
-#      git add .github/workflows/pages.yml && git commit -m "ci: publish web/ only"
+#   cp docs/ci/pages.yml .github/workflows/pages.yml
+#   git add .github/workflows/pages.yml
+#   git commit -m "ci: redeploy Pages after every bot run (workflow_run + hourly schedule)"
+#   git push
 #
-#    Then: Settings -> Pages -> Source -> "GitHub Actions".
-#
-# Either way the two legacy workflows should go. They both fire on every push
-# to main and share the "pages" concurrency group, so they race each other and
-# bill minutes twice. `static.yml` also uploads the ENTIRE repository
-# (`path: '.'`), which would publish src/, config/config.yaml and data/ as
-# public web content and still 404 at the root, since the repo root has no
-# index.html. The Jekyll build is pointless too: the dashboard is plain static
-# HTML with no Jekyll config.
+# Pages source must already be "GitHub Actions" (Settings -> Pages -> Source)
+# — it already is, confirmed via the Pages API.
 
 name: Deploy dashboard to Pages
 
@@ -40,6 +51,24 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  # Layer 1 — near-instant: redeploy as soon as one of these finishes. They
+  # all commit fresh data with the default GITHUB_TOKEN, which (per GitHub's
+  # anti-recursion design) cannot trigger `on: push`, so we listen for
+  # `workflow_run` instead (that path IS exempt from the guard).
+  workflow_run:
+    workflows:
+      - "Crypto Bot"
+      - "Trading Commands"
+      - "Analysis Commands"
+      - "Tournament Commands"
+      - "Maintenance Commands"
+    types:
+      - completed
+  # Layer 2 — safety net: the hourly bot runs at :30 UTC (dca.yml). Redeploy
+  # 15 minutes later regardless of what triggered it or whether workflow_run
+  # fired, so a renamed/forgotten workflow can never leave Pages stale again.
+  schedule:
+    - cron: "45 * * * *"
 
 permissions:
   contents: read
@@ -53,6 +82,11 @@ concurrency:
 
 jobs:
   deploy:
+    # workflow_run fires even when the triggering run failed or was
+    # cancelled; only redeploy Pages when it actually succeeded (ordinary
+    # push / workflow_dispatch / schedule triggers have no conclusion field
+    # and always pass this check).
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -60,6 +94,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # workflow_run/schedule don't automatically check out the commit
+          # that triggered them; pin explicitly to main so the deployed
+          # dashboard always matches the latest bot commit there.
+          ref: main
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

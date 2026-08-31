@@ -146,10 +146,23 @@
     <section class="filter-section">
       <div class="health-section-title">How to refresh this page</div>
       <div class="detail-item">
-        <div class="detail-item-label">Automatically</div>
+        <div class="detail-item-label">Automatically (data)</div>
         <div class="detail-item-value" style="font-family:var(--font-sans); font-weight:500; color:var(--text-secondary);">
           The GitHub Actions workflow <strong>Crypto Bot</strong> runs hourly at minute :30 UTC, commits the new
-          state, and rebuilds <code>web/data.js</code>. Nothing to do — this page goes green on its own.
+          state, and rebuilds <code>web/data.js</code> in the repo — that part always happens on schedule.
+        </div>
+      </div>
+      <div class="detail-item" style="margin-top: 0.6rem;">
+        <div class="detail-item-label">Automatically (this published page)</div>
+        <div class="detail-item-value" style="font-family:var(--font-sans); font-weight:500; color:var(--text-secondary);">
+          Whether <em>this live site</em> shows that fresh data depends on the GitHub Pages workflow also
+          redeploying. The bot commits with the default <code>GITHUB_TOKEN</code>, and GitHub does not let
+          <code>GITHUB_TOKEN</code> pushes trigger other <code>on: push</code> workflows (anti-recursion
+          protection) — so a plain <code>on: push</code> Pages workflow can silently go stale for hours even
+          though the repo data is current. If the "Last bot run" badge is far older than expected, apply the
+          <code>docs/ci/pages.yml</code> drop-in (adds a <code>workflow_run</code> + hourly redeploy trigger),
+          or in the meantime, manually go to Actions → <strong>Deploy dashboard to Pages</strong> →
+          "Run workflow" to force an immediate refresh.
         </div>
       </div>
       <div class="detail-item" style="margin-top: 0.6rem;">

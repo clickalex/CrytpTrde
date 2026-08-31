@@ -542,7 +542,7 @@
       if (!ranAt) {
         warnings.push(['danger', 'No bot heartbeat in data.js — the bot may never have run, or data.js is stale.']);
       } else if (runState === 'dead') {
-        warnings.push(['danger', `The bot last reported ${formatAge(runAgeMs)} — expected hourly. Check the Actions tab.`]);
+        warnings.push(['danger', `The bot last reported ${formatAge(runAgeMs)} — expected hourly. Two likely causes: (1) the Crypto Bot workflow itself stopped/failed — check the Actions tab, or (2) the bot is fine but this published page is stale because "Deploy dashboard to Pages" hasn't redeployed since its last real run (GITHUB_TOKEN pushes don't auto-trigger it — see docs/ci/README.md). Try Actions → Deploy dashboard to Pages → Run workflow to rule out #2.`]);
       } else if (runState === 'error') {
         warnings.push(['danger', `The last run errored: ${botStatus.note || 'no detail recorded.'}`]);
       } else if (runState === 'late') {
