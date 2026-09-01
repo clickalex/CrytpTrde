@@ -1,22 +1,16 @@
 {
-  "cash_inr": 2813.349406515108,
-  "realized_pnl": -308.0413507182611,
-  "total_trades": 22,
-  "sell_count": 8,
+  "cash_inr": 3099.4878491841982,
+  "realized_pnl": -367.214984614561,
+  "total_trades": 24,
+  "sell_count": 9,
   "gross_gains": 102.64,
-  "gross_losses": -410.68,
-  "total_tds": 117.36,
+  "gross_losses": -469.85,
+  "total_tds": 133.68,
   "holdings": {
     "DOGEINR": {
       "qty": 288.0,
       "avg_cost": 8.346004416749999,
       "invested": 2403.649272024,
-      "last_buy_at": "2026-08-31T07:13:17+00:00"
-    },
-    "ORCAINR": {
-      "qty": 13.09,
-      "avg_cost": 129.103429455,
-      "invested": 1689.9638915659498,
       "last_buy_at": "2026-08-31T07:13:17+00:00"
     },
     "TOKENINR": {
@@ -42,6 +36,12 @@
       "avg_cost": 0.089888675877,
       "invested": 832.638804648651,
       "last_buy_at": "2026-09-01T00:49:06+00:00"
+    },
+    "GASINR": {
+      "qty": 10.5869,
+      "avg_cost": 125.4689841405,
+      "invested": 1328.3275881970594,
+      "last_buy_at": "2026-09-01T06:29:56+00:00"
     }
   }
 }
