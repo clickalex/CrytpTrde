@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2385.3194156801806,
-  "realized_pnl": -146.2904435728576,
-  "total_trades": 26,
-  "sell_count": 9,
+  "cash_inr": 2221.7295643909856,
+  "realized_pnl": -236.70454385258245,
+  "total_trades": 34,
+  "sell_count": 12,
   "gross_gains": 39.26,
-  "gross_losses": -185.55,
-  "total_tds": 75.42,
+  "gross_losses": -275.96,
+  "total_tds": 106.01,
   "holdings": {
-    "BTCINR": {
-      "qty": 0.00025,
-      "avg_cost": 7935889.962,
-      "invested": 1983.9724905,
-      "last_buy_at": "2026-08-30T20:00:01+00:00"
-    },
     "USDTINR": {
       "qty": 8.21,
       "avg_cost": 100.70087527499999,
@@ -37,23 +31,41 @@
       "invested": 880.989944835,
       "last_buy_at": "2026-08-31T07:15:08+00:00"
     },
-    "TRXINR": {
-      "qty": 17.0,
-      "avg_cost": 33.40104317549999,
-      "invested": 567.8177339834999,
-      "last_buy_at": "2026-08-31T15:23:06+00:00"
-    },
     "ICPINR": {
       "qty": 2.46,
       "avg_cost": 243.675086655,
       "invested": 599.4407131713,
       "last_buy_at": "2026-09-01T00:52:46+00:00"
     },
-    "TRBINR": {
-      "qty": 0.341,
-      "avg_cost": 1744.91432115,
-      "invested": 595.01578351215,
-      "last_buy_at": "2026-09-01T06:33:52+00:00"
+    "ETHINR": {
+      "qty": 0.0034,
+      "avg_cost": 246544.48573755,
+      "invested": 838.25125150767,
+      "last_buy_at": "2026-09-01T11:59:20+00:00"
+    },
+    "BNBINR": {
+      "qty": 0.01,
+      "avg_cost": 68948.90282280001,
+      "invested": 689.489028228,
+      "last_buy_at": "2026-09-01T11:59:20+00:00"
+    },
+    "XRPINR": {
+      "qty": 4.0,
+      "avg_cost": 138.7608987765,
+      "invested": 555.043595106,
+      "last_buy_at": "2026-09-01T11:59:20+00:00"
+    },
+    "ONDOINR": {
+      "qty": 15.7,
+      "avg_cost": 35.203744075500005,
+      "invested": 552.69878198535,
+      "last_buy_at": "2026-09-01T11:59:20+00:00"
+    },
+    "RENDERINR": {
+      "qty": 3.79,
+      "avg_cost": 146.148967965,
+      "invested": 553.90458858735,
+      "last_buy_at": "2026-09-01T11:59:20+00:00"
     }
   }
 }

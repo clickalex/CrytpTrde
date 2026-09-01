@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1178.7336254562551,
-  "realized_pnl": -159.64639133407354,
-  "total_trades": 18,
-  "sell_count": 6,
-  "gross_gains": 35.91,
-  "gross_losses": -195.55,
-  "total_tds": 75.71,
+  "cash_inr": 1056.2469917534095,
+  "realized_pnl": -233.6388290055031,
+  "total_trades": 26,
+  "sell_count": 9,
+  "gross_gains": 66.96,
+  "gross_losses": -300.59,
+  "total_tds": 129.11,
   "holdings": {
-    "BTCINR": {
-      "qty": 0.0005,
-      "avg_cost": 7935889.962,
-      "invested": 3967.944981,
-      "last_buy_at": "2026-08-30T20:04:07+00:00"
-    },
     "USDTINR": {
       "qty": 5.35,
       "avg_cost": 100.70087527499999,
@@ -25,23 +19,41 @@
       "invested": 1856.0752682472,
       "last_buy_at": "2026-08-31T07:19:10+00:00"
     },
-    "DOTINR": {
-      "qty": 9.8315,
-      "avg_cost": 83.81257234350001,
-      "invested": 824.0033049951203,
-      "last_buy_at": "2026-08-31T07:19:10+00:00"
-    },
-    "CAKEINR": {
-      "qty": 3.29,
-      "avg_cost": 187.52095362,
-      "invested": 616.9439374098,
-      "last_buy_at": "2026-08-31T14:54:07+00:00"
-    },
     "ICPINR": {
       "qty": 3.21,
       "avg_cost": 243.67508665499994,
       "invested": 782.1970281625498,
       "last_buy_at": "2026-09-01T01:00:51+00:00"
+    },
+    "ETHINR": {
+      "qty": 0.0081,
+      "avg_cost": 246544.48573754999,
+      "invested": 1997.010334474155,
+      "last_buy_at": "2026-09-01T12:05:47+00:00"
+    },
+    "XRPINR": {
+      "qty": 8.7,
+      "avg_cost": 138.7608987765,
+      "invested": 1207.2198193555498,
+      "last_buy_at": "2026-09-01T12:05:47+00:00"
+    },
+    "LINKINR": {
+      "qty": 0.62,
+      "avg_cost": 1159.126663695,
+      "invested": 718.6585314908999,
+      "last_buy_at": "2026-09-01T12:05:47+00:00"
+    },
+    "ARBINR": {
+      "qty": 68.1,
+      "avg_cost": 11.411096697,
+      "invested": 777.0956850657,
+      "last_buy_at": "2026-09-01T12:05:47+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 38.94,
+      "avg_cost": 18.079087025999996,
+      "invested": 703.9996487924399,
+      "last_buy_at": "2026-09-01T12:05:47+00:00"
     }
   }
 }

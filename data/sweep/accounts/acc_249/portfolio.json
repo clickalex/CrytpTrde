@@ -1,11 +1,11 @@
 {
-  "cash_inr": 5195.944368593067,
-  "realized_pnl": -476.98313612779384,
-  "total_trades": 48,
-  "sell_count": 20,
+  "cash_inr": 4719.257166940463,
+  "realized_pnl": -490.2637419757938,
+  "total_trades": 51,
+  "sell_count": 21,
   "gross_gains": 0.0,
-  "gross_losses": -477.0,
-  "total_tds": 119.06,
+  "gross_losses": -490.28,
+  "total_tds": 124.28,
   "holdings": {
     "BRETTINR": {
       "qty": 1018.0,
@@ -37,12 +37,6 @@
       "invested": 535.0099147068175,
       "last_buy_at": "2026-08-31T07:14:32+00:00"
     },
-    "TRXINR": {
-      "qty": 16.0,
-      "avg_cost": 33.428083689,
-      "invested": 534.849339024,
-      "last_buy_at": "2026-08-31T14:47:03+00:00"
-    },
     "BIOINR": {
       "qty": 200.1,
       "avg_cost": 2.6478671719499998,
@@ -54,6 +48,18 @@
       "avg_cost": 0.4353122073299999,
       "invested": 525.4218342473099,
       "last_buy_at": "2026-08-31T15:22:08+00:00"
+    },
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 7822333.3255567495,
+      "invested": 469.339999533405,
+      "last_buy_at": "2026-09-01T11:58:27+00:00"
+    },
+    "TRBINR": {
+      "qty": 0.304,
+      "avg_cost": 1722.68101005,
+      "invested": 523.6950270552,
+      "last_buy_at": "2026-09-01T11:58:27+00:00"
     }
   }
 }
