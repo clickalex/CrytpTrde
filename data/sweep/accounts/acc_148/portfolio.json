@@ -1,10 +1,17 @@
 {
-  "cash_inr": 9606.21144254165,
+  "cash_inr": 1921.2689871134107,
   "realized_pnl": -316.88046952295826,
-  "total_trades": 2,
+  "total_trades": 3,
   "sell_count": 1,
   "gross_gains": 0.0,
   "gross_losses": -316.88,
   "total_tds": 76.91,
-  "holdings": {}
+  "holdings": {
+    "BOMEINR": {
+      "qty": 85494.0,
+      "avg_cost": 0.089888675877,
+      "invested": 7684.942455428239,
+      "last_buy_at": "2026-09-01T00:47:33+00:00"
+    }
+  }
 }

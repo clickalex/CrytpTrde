@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2047.6333565221705,
-  "realized_pnl": -273.9508514082862,
-  "total_trades": 31,
-  "sell_count": 11,
-  "gross_gains": 0.0,
+  "cash_inr": 2327.7682168501706,
+  "realized_pnl": -244.02259516328616,
+  "total_trades": 33,
+  "sell_count": 12,
+  "gross_gains": 29.93,
   "gross_losses": -273.95,
-  "total_tds": 96.77,
+  "total_tds": 105.47,
   "holdings": {
     "BTCINR": {
       "qty": 0.00025,
@@ -37,12 +37,6 @@
       "invested": 716.0739591505499,
       "last_buy_at": "2026-08-31T07:18:11+00:00"
     },
-    "NEARINR": {
-      "qty": 4.5,
-      "avg_cost": 186.429318075,
-      "invested": 838.9319313375,
-      "last_buy_at": "2026-08-31T14:52:33+00:00"
-    },
     "CAKEINR": {
       "qty": 4.24,
       "avg_cost": 187.52095362,
@@ -60,6 +54,12 @@
       "avg_cost": 143.13445145999998,
       "invested": 510.9899917121999,
       "last_buy_at": "2026-08-31T14:52:33+00:00"
+    },
+    "TRXINR": {
+      "qty": 17.4,
+      "avg_cost": 33.33494414249999,
+      "invested": 580.0280280794998,
+      "last_buy_at": "2026-09-01T00:58:51+00:00"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
-  "cash_inr": 7432.203955651867,
-  "realized_pnl": -99.90789975216035,
-  "total_trades": 7,
-  "sell_count": 2,
-  "gross_gains": 0.0,
+  "cash_inr": 7455.328187781901,
+  "realized_pnl": -54.86692675930533,
+  "total_trades": 9,
+  "sell_count": 3,
+  "gross_gains": 45.04,
   "gross_losses": -99.91,
-  "total_tds": 17.12,
+  "total_tds": 24.87,
   "holdings": {
     "RIFINR": {
       "qty": 129.0,
@@ -13,17 +13,17 @@
       "invested": 895.9573698074998,
       "last_buy_at": "2026-08-30T22:52:10+00:00"
     },
-    "PUMPINR": {
-      "qty": 1673.0,
-      "avg_cost": 0.435762882555,
-      "invested": 729.031302514515,
-      "last_buy_at": "2026-08-31T07:12:37+00:00"
-    },
     "GASINR": {
       "qty": 6.6166,
       "avg_cost": 124.8039878085,
       "invested": 825.7780657337211,
       "last_buy_at": "2026-08-31T15:18:49+00:00"
+    },
+    "BOMEINR": {
+      "qty": 8268.0,
+      "avg_cost": 0.089888675877,
+      "invested": 743.199572151036,
+      "last_buy_at": "2026-09-01T00:47:44+00:00"
     }
   }
 }

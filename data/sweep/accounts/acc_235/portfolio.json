@@ -1,22 +1,16 @@
 {
-  "cash_inr": 2087.832504274782,
-  "realized_pnl": -588.7207490397772,
-  "total_trades": 21,
-  "sell_count": 6,
-  "gross_gains": 0.0,
+  "cash_inr": 1482.4256331337144,
+  "realized_pnl": -552.3535419642768,
+  "total_trades": 24,
+  "sell_count": 7,
+  "gross_gains": 36.37,
   "gross_losses": -588.73,
-  "total_tds": 82.44,
+  "total_tds": 91.91,
   "holdings": {
     "SUIINR": {
       "qty": 18.0,
       "avg_cost": 72.80908635,
       "invested": 1310.5635543,
-      "last_buy_at": "2026-08-31T07:14:14+00:00"
-    },
-    "NEARINR": {
-      "qty": 4.9,
-      "avg_cost": 185.65816268999998,
-      "invested": 909.7249971809999,
       "last_buy_at": "2026-08-31T07:14:14+00:00"
     },
     "TRBINR": {
@@ -60,6 +54,18 @@
       "avg_cost": 0.63344906625,
       "invested": 894.4300815449999,
       "last_buy_at": "2026-08-31T21:06:17+00:00"
+    },
+    "TRXINR": {
+      "qty": 27.2,
+      "avg_cost": 33.33494414249999,
+      "invested": 906.7104806759997,
+      "last_buy_at": "2026-09-01T00:51:03+00:00"
+    },
+    "GASINR": {
+      "qty": 5.0742,
+      "avg_cost": 125.205589509,
+      "invested": 635.3182022865678,
+      "last_buy_at": "2026-09-01T00:51:03+00:00"
     }
   }
 }

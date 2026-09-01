@@ -1,23 +1,17 @@
 {
-  "cash_inr": 841.55034787148,
-  "realized_pnl": -861.5528710766154,
-  "total_trades": 38,
-  "sell_count": 15,
-  "gross_gains": 0.0,
+  "cash_inr": 897.4299522714498,
+  "realized_pnl": -770.7893674242351,
+  "total_trades": 42,
+  "sell_count": 17,
+  "gross_gains": 90.76,
   "gross_losses": -861.56,
-  "total_tds": 210.03,
+  "total_tds": 228.84,
   "holdings": {
     "RIFINR": {
       "qty": 110.0,
       "avg_cost": 6.945405967499998,
       "invested": 763.9946564249998,
       "last_buy_at": "2026-08-30T22:52:50+00:00"
-    },
-    "NEARINR": {
-      "qty": 5.1,
-      "avg_cost": 185.65816268999998,
-      "invested": 946.8566297189998,
-      "last_buy_at": "2026-08-31T07:14:12+00:00"
     },
     "DOGEINR": {
       "qty": 96.0,
@@ -49,11 +43,17 @@
       "invested": 785.8679280952499,
       "last_buy_at": "2026-08-31T15:21:36+00:00"
     },
-    "PUMPINR": {
-      "qty": 1933.0,
-      "avg_cost": 0.43531220733,
-      "invested": 841.45849676889,
-      "last_buy_at": "2026-08-31T15:21:36+00:00"
+    "ORCAINR": {
+      "qty": 7.06,
+      "avg_cost": 128.49251415,
+      "invested": 907.1571498989999,
+      "last_buy_at": "2026-09-01T00:51:01+00:00"
+    },
+    "BIOINR": {
+      "qty": 336.8,
+      "avg_cost": 2.66399133,
+      "invested": 897.2322799440001,
+      "last_buy_at": "2026-09-01T00:51:02+00:00"
     }
   }
 }

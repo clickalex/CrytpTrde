@@ -1,18 +1,12 @@
 {
-  "cash_inr": 260.3343068835943,
-  "realized_pnl": -772.6817609025563,
-  "total_trades": 16,
-  "sell_count": 6,
-  "gross_gains": 0.0,
+  "cash_inr": 312.4736925250943,
+  "realized_pnl": -722.2129837365562,
+  "total_trades": 18,
+  "sell_count": 7,
+  "gross_gains": 50.47,
   "gross_losses": -772.69,
-  "total_tds": 193.12,
+  "total_tds": 206.26,
   "holdings": {
-    "NEARINR": {
-      "qty": 6.8,
-      "avg_cost": 185.65816268999998,
-      "invested": 1262.4755062919999,
-      "last_buy_at": "2026-08-31T07:14:24+00:00"
-    },
     "POPCATINR": {
       "qty": 244.75,
       "avg_cost": 5.3043472482,
@@ -30,6 +24,12 @@
       "avg_cost": 8.354717471099999,
       "invested": 1035.9849664163999,
       "last_buy_at": "2026-08-31T15:21:56+00:00"
+    },
+    "ORCAINR": {
+      "qty": 9.71,
+      "avg_cost": 128.49251415,
+      "invested": 1247.6623123965,
+      "last_buy_at": "2026-09-01T00:51:25+00:00"
     }
   }
 }
