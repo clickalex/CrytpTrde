@@ -1,23 +1,17 @@
 {
-  "cash_inr": 2201.2365354548288,
-  "realized_pnl": -243.02778918590877,
-  "total_trades": 28,
-  "sell_count": 9,
+  "cash_inr": 2269.6672303827086,
+  "realized_pnl": -338.2120818368087,
+  "total_trades": 36,
+  "sell_count": 13,
   "gross_gains": 0.0,
-  "gross_losses": -243.03,
-  "total_tds": 87.26,
+  "gross_losses": -338.21,
+  "total_tds": 115.89,
   "holdings": {
     "USDTINR": {
       "qty": 8.21,
       "avg_cost": 100.70087527499999,
       "invested": 826.75418600775,
       "last_buy_at": "2026-08-30T20:00:51+00:00"
-    },
-    "SOLINR": {
-      "qty": 0.099,
-      "avg_cost": 10369.1355768,
-      "invested": 1026.5444221032,
-      "last_buy_at": "2026-08-31T07:15:58+00:00"
     },
     "LINKINR": {
       "qty": 0.8,
@@ -43,29 +37,35 @@
       "invested": 567.1177707622927,
       "last_buy_at": "2026-08-31T07:15:58+00:00"
     },
-    "ETHINR": {
-      "qty": 0.0034,
-      "avg_cost": 246544.48573755,
-      "invested": 838.25125150767,
-      "last_buy_at": "2026-09-01T12:00:40+00:00"
-    },
     "BNBINR": {
       "qty": 0.009,
       "avg_cost": 68948.90282280001,
       "invested": 620.5401254052,
       "last_buy_at": "2026-09-01T12:00:40+00:00"
     },
-    "XRPINR": {
-      "qty": 3.9,
-      "avg_cost": 138.7608987765,
-      "invested": 541.16750522835,
-      "last_buy_at": "2026-09-01T12:00:40+00:00"
+    "TRUMPINR": {
+      "qty": 3.927,
+      "avg_cost": 229.38367452,
+      "invested": 900.78968984004,
+      "last_buy_at": "2026-09-02T06:18:53+00:00"
     },
-    "ONDOINR": {
-      "qty": 15.6,
-      "avg_cost": 35.203744075500005,
-      "invested": 549.1784075778,
-      "last_buy_at": "2026-09-01T12:00:40+00:00"
+    "ICPINR": {
+      "qty": 2.76,
+      "avg_cost": 260.380114995,
+      "invested": 718.6491173861999,
+      "last_buy_at": "2026-09-02T06:18:53+00:00"
+    },
+    "FILINR": {
+      "qty": 7.22,
+      "avg_cost": 79.83961986,
+      "invested": 576.4420553891999,
+      "last_buy_at": "2026-09-02T06:18:53+00:00"
+    },
+    "RENDERINR": {
+      "qty": 3.91,
+      "avg_cost": 145.01727240000002,
+      "invested": 567.0175350840001,
+      "last_buy_at": "2026-09-02T06:18:53+00:00"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
-  "cash_inr": 4874.913611163242,
-  "realized_pnl": -297.7039466407824,
-  "total_trades": 46,
-  "sell_count": 19,
-  "gross_gains": 0.0,
-  "gross_losses": -297.7,
-  "total_tds": 123.74,
+  "cash_inr": 4999.669517548334,
+  "realized_pnl": -294.4787712456771,
+  "total_trades": 56,
+  "sell_count": 24,
+  "gross_gains": 84.2,
+  "gross_losses": -378.67,
+  "total_tds": 152.5,
   "holdings": {
     "USDTINR": {
       "qty": 6.6,
@@ -13,22 +13,10 @@
       "invested": 664.6257768149999,
       "last_buy_at": "2026-08-30T20:00:55+00:00"
     },
-    "ETHINR": {
-      "qty": 0.0023,
-      "avg_cost": 245636.72568435,
-      "invested": 564.964469074005,
-      "last_buy_at": "2026-08-31T07:16:01+00:00"
-    },
     "NEARINR": {
       "qty": 3.3,
       "avg_cost": 186.42931807500003,
       "invested": 615.2167496475,
-      "last_buy_at": "2026-08-31T14:49:13+00:00"
-    },
-    "DOGEINR": {
-      "qty": 73.0,
-      "avg_cost": 8.282409134999998,
-      "invested": 604.6158668549999,
       "last_buy_at": "2026-08-31T14:49:13+00:00"
     },
     "RENDERINR": {
@@ -37,23 +25,35 @@
       "invested": 553.7360360532,
       "last_buy_at": "2026-08-31T15:24:34+00:00"
     },
-    "FARTCOININR": {
-      "qty": 34.72,
-      "avg_cost": 17.574330773999996,
-      "invested": 610.1807644732799,
-      "last_buy_at": "2026-08-31T15:24:34+00:00"
+    "SOLINR": {
+      "qty": 0.053,
+      "avg_cost": 10047.35346615,
+      "invested": 532.50973370595,
+      "last_buy_at": "2026-09-02T06:19:02+00:00"
     },
-    "FILINR": {
-      "qty": 8.08,
-      "avg_cost": 67.96182393,
-      "invested": 549.1315373543999,
-      "last_buy_at": "2026-08-31T15:24:34+00:00"
+    "LINKINR": {
+      "qty": 0.47,
+      "avg_cost": 1136.0020171499998,
+      "invested": 533.9209480604999,
+      "last_buy_at": "2026-09-02T06:19:02+00:00"
     },
-    "XRPINR": {
-      "qty": 3.9,
-      "avg_cost": 138.7608987765,
-      "invested": 541.16750522835,
-      "last_buy_at": "2026-09-01T12:00:45+00:00"
+    "SUIINR": {
+      "qty": 7.5,
+      "avg_cost": 72.52466020800001,
+      "invested": 543.9349515600001,
+      "last_buy_at": "2026-09-02T06:19:02+00:00"
+    },
+    "APTINR": {
+      "qty": 9.85,
+      "avg_cost": 56.284328099999996,
+      "invested": 554.400631785,
+      "last_buy_at": "2026-09-02T06:19:02+00:00"
+    },
+    "CAKEINR": {
+      "qty": 3.02,
+      "avg_cost": 183.77534175,
+      "invested": 555.001532085,
+      "last_buy_at": "2026-09-02T06:19:02+00:00"
     }
   }
 }
