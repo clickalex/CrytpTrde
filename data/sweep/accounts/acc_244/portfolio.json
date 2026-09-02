@@ -1,23 +1,35 @@
 {
-  "cash_inr": 2794.1494082144104,
-  "realized_pnl": -1211.877194087679,
-  "total_trades": 30,
-  "sell_count": 14,
+  "cash_inr": 181.5369122609602,
+  "realized_pnl": -1387.9640665675283,
+  "total_trades": 34,
+  "sell_count": 15,
   "gross_gains": 50.47,
-  "gross_losses": -1262.35,
-  "total_tds": 352.1,
+  "gross_losses": -1438.44,
+  "total_tds": 392.02,
   "holdings": {
-    "FARTCOININR": {
-      "qty": 250.55,
-      "avg_cost": 16.618899297,
-      "invested": 4163.86521886335,
-      "last_buy_at": "2026-09-02T06:14:47+00:00"
-    },
     "RIFINR": {
       "qty": 205.0,
       "avg_cost": 7.2098020995,
       "invested": 1478.0094303975,
       "last_buy_at": "2026-09-02T06:14:47+00:00"
+    },
+    "ETHINR": {
+      "qty": 0.0094,
+      "avg_cost": 237493.32481875003,
+      "invested": 2232.43725329625,
+      "last_buy_at": "2026-09-02T16:55:02+00:00"
+    },
+    "ORCAINR": {
+      "qty": 29.78,
+      "avg_cost": 121.111455465,
+      "invested": 3606.6991437477004,
+      "last_buy_at": "2026-09-02T16:55:02+00:00"
+    },
+    "JUPINR": {
+      "qty": 34.0,
+      "avg_cost": 21.215786592,
+      "invested": 721.336744128,
+      "last_buy_at": "2026-09-02T16:55:02+00:00"
     }
   }
 }

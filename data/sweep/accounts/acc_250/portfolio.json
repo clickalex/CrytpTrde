@@ -1,22 +1,16 @@
 {
-  "cash_inr": 1743.0102787770475,
-  "realized_pnl": -856.34987011373,
-  "total_trades": 33,
-  "sell_count": 13,
+  "cash_inr": 741.3856244285978,
+  "realized_pnl": -950.7106391292649,
+  "total_trades": 40,
+  "sell_count": 16,
   "gross_gains": 0.0,
-  "gross_losses": -856.35,
-  "total_tds": 175.36,
+  "gross_losses": -950.71,
+  "total_tds": 195.84,
   "holdings": {
     "ICPINR": {
       "qty": 10.99,
       "avg_cost": 242.63352613499998,
       "invested": 2666.54245222365,
-      "last_buy_at": "2026-08-30T22:52:59+00:00"
-    },
-    "ADAINR": {
-      "qty": 33.2,
-      "avg_cost": 20.088097029,
-      "invested": 666.9248213628,
       "last_buy_at": "2026-08-30T22:52:59+00:00"
     },
     "RIFINR": {
@@ -31,23 +25,35 @@
       "invested": 946.8566297189998,
       "last_buy_at": "2026-08-31T07:14:32+00:00"
     },
-    "POPCATINR": {
-      "qty": 162.15,
-      "avg_cost": 5.304347248199999,
-      "invested": 860.0999062956299,
-      "last_buy_at": "2026-08-31T14:47:05+00:00"
-    },
     "USDTINR": {
       "qty": 7.06,
       "avg_cost": 100.20012502499999,
       "invested": 707.4128826764999,
       "last_buy_at": "2026-08-31T15:22:10+00:00"
     },
-    "CHILLGUYINR": {
-      "qty": 540.0,
-      "avg_cost": 1.13600201715,
-      "invested": 613.441089261,
-      "last_buy_at": "2026-09-01T11:58:29+00:00"
+    "ETHINR": {
+      "qty": 0.0036,
+      "avg_cost": 237493.32481875,
+      "invested": 854.9759693474999,
+      "last_buy_at": "2026-09-02T16:55:19+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 47.56,
+      "avg_cost": 16.024008,
+      "invested": 762.1018204799999,
+      "last_buy_at": "2026-09-02T16:55:19+00:00"
+    },
+    "BIOINR": {
+      "qty": 264.5,
+      "avg_cost": 2.53249431435,
+      "invested": 669.8447461455751,
+      "last_buy_at": "2026-09-02T16:55:19+00:00"
+    },
+    "PENGUINR": {
+      "qty": 901.0,
+      "avg_cost": 0.8216710702199997,
+      "invested": 740.3256342682198,
+      "last_buy_at": "2026-09-02T16:55:19+00:00"
     }
   }
 }

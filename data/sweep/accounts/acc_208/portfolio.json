@@ -1,23 +1,35 @@
 {
-  "cash_inr": 5608.680324185424,
-  "realized_pnl": -1071.5568432494922,
-  "total_trades": 42,
-  "sell_count": 20,
+  "cash_inr": 1938.3595206252378,
+  "realized_pnl": -1097.6141231395964,
+  "total_trades": 46,
+  "sell_count": 21,
   "gross_gains": 65.55,
-  "gross_losses": -1137.1,
-  "total_tds": 256.56,
+  "gross_losses": -1163.16,
+  "total_tds": 263.87,
   "holdings": {
-    "BOMEINR": {
-      "qty": 8504.0,
-      "avg_cost": 0.088907205387,
-      "invested": 756.0668746110481,
-      "last_buy_at": "2026-09-01T06:30:50+00:00"
-    },
     "RIFINR": {
       "qty": 320.0,
       "avg_cost": 7.2098020995,
       "invested": 2307.13667184,
       "last_buy_at": "2026-09-02T06:12:43+00:00"
+    },
+    "ETHINR": {
+      "qty": 0.0094,
+      "avg_cost": 237493.32481875003,
+      "invested": 2232.43725329625,
+      "last_buy_at": "2026-09-02T16:53:25+00:00"
+    },
+    "TRUMPINR": {
+      "qty": 6.183,
+      "avg_cost": 218.40722904,
+      "invested": 1350.41189715432,
+      "last_buy_at": "2026-09-02T16:53:25+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 50.56,
+      "avg_cost": 16.024008,
+      "invested": 810.17384448,
+      "last_buy_at": "2026-09-02T16:53:25+00:00"
     }
   }
 }
