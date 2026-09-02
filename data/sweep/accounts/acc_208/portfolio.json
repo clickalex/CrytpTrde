@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1938.3595206252378,
-  "realized_pnl": -1097.6141231395964,
-  "total_trades": 46,
-  "sell_count": 21,
+  "cash_inr": 1165.810637504263,
+  "realized_pnl": -1129.069409675596,
+  "total_trades": 49,
+  "sell_count": 22,
   "gross_gains": 65.55,
-  "gross_losses": -1163.16,
-  "total_tds": 263.87,
+  "gross_losses": -1194.62,
+  "total_tds": 271.66,
   "holdings": {
     "RIFINR": {
       "qty": 320.0,
@@ -25,11 +25,17 @@
       "invested": 1350.41189715432,
       "last_buy_at": "2026-09-02T16:53:25+00:00"
     },
-    "FARTCOININR": {
-      "qty": 50.56,
-      "avg_cost": 16.024008,
-      "invested": 810.17384448,
-      "last_buy_at": "2026-09-02T16:53:25+00:00"
+    "BTCINR": {
+      "qty": 0.0001,
+      "avg_cost": 7665255.98413575,
+      "invested": 766.525598413575,
+      "last_buy_at": "2026-09-02T20:01:25+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1930.0,
+      "avg_cost": 0.40256314097999996,
+      "invested": 776.9468620913999,
+      "last_buy_at": "2026-09-02T20:01:25+00:00"
     }
   }
 }

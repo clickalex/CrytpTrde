@@ -1,29 +1,17 @@
 {
-  "cash_inr": 2004.1836485812894,
-  "realized_pnl": -777.764130161859,
-  "total_trades": 29,
-  "sell_count": 11,
+  "cash_inr": 2747.0136016931,
+  "realized_pnl": -871.777041848559,
+  "total_trades": 32,
+  "sell_count": 13,
   "gross_gains": 93.6,
-  "gross_losses": -871.36,
-  "total_tds": 140.13,
+  "gross_losses": -965.37,
+  "total_tds": 155.39,
   "holdings": {
     "DOGEINR": {
       "qty": 235.0,
       "avg_cost": 8.34600441675,
       "invested": 1961.3110379362502,
       "last_buy_at": "2026-08-31T07:13:51+00:00"
-    },
-    "XDBINR": {
-      "qty": 126661.6,
-      "avg_cost": 0.008064082026,
-      "invested": 1021.4095319444016,
-      "last_buy_at": "2026-08-31T07:13:51+00:00"
-    },
-    "BOMEINR": {
-      "qty": 6644.0,
-      "avg_cost": 0.089888675877,
-      "invested": 597.220362526788,
-      "last_buy_at": "2026-09-01T00:50:17+00:00"
     },
     "TRXINR": {
       "qty": 18.7,
@@ -48,6 +36,12 @@
       "avg_cost": 0.41217754577999993,
       "invested": 1335.4552483271998,
       "last_buy_at": "2026-09-02T16:53:48+00:00"
+    },
+    "BTCINR": {
+      "qty": 0.0001,
+      "avg_cost": 7665255.98413575,
+      "invested": 766.525598413575,
+      "last_buy_at": "2026-09-02T20:01:40+00:00"
     }
   }
 }

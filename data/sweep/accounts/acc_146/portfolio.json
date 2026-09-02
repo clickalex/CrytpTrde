@@ -1,10 +1,17 @@
 {
-  "cash_inr": 9241.648316888351,
+  "cash_inr": 4620.853582522542,
   "realized_pnl": -617.7652611028407,
-  "total_trades": 6,
+  "total_trades": 7,
   "sell_count": 3,
   "gross_gains": 0.0,
   "gross_losses": -617.76,
   "total_tds": 140.59,
-  "holdings": {}
+  "holdings": {
+    "FARTCOININR": {
+      "qty": 298.42,
+      "avg_cost": 15.484199230499998,
+      "invested": 4620.79473436581,
+      "last_buy_at": "2026-09-02T19:59:24+00:00"
+    }
+  }
 }
