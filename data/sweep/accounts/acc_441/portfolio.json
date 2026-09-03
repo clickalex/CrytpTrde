@@ -1,11 +1,11 @@
 {
-  "cash_inr": 4651.680268239314,
-  "realized_pnl": -416.8247714355173,
-  "total_trades": 89,
-  "sell_count": 40,
+  "cash_inr": 4618.715342635889,
+  "realized_pnl": -443.8432490724705,
+  "total_trades": 93,
+  "sell_count": 42,
   "gross_gains": 144.24,
-  "gross_losses": -561.08,
-  "total_tds": 238.75,
+  "gross_losses": -588.1,
+  "total_tds": 248.82,
   "holdings": {
     "SUIINR": {
       "qty": 7.7,
@@ -37,12 +37,6 @@
       "invested": 519.0467347425359,
       "last_buy_at": "2026-09-02T20:09:26+00:00"
     },
-    "ORCAINR": {
-      "qty": 4.13,
-      "avg_cost": 124.94720238000001,
-      "invested": 516.0319458294,
-      "last_buy_at": "2026-09-02T20:09:26+00:00"
-    },
     "RIFINR": {
       "qty": 70.0,
       "avg_cost": 7.322971655999999,
@@ -55,11 +49,17 @@
       "invested": 504.27853626150005,
       "last_buy_at": "2026-09-03T01:35:55+00:00"
     },
-    "GASINR": {
-      "qty": 4.2685,
-      "avg_cost": 121.08441495150001,
-      "invested": 516.8488252204778,
-      "last_buy_at": "2026-09-03T06:30:07+00:00"
+    "PYTHINR": {
+      "qty": 88.9,
+      "avg_cost": 5.799789545549999,
+      "invested": 515.6012905993949,
+      "last_buy_at": "2026-09-03T11:52:28+00:00"
+    },
+    "BOMEINR": {
+      "qty": 5822.0,
+      "avg_cost": 0.0881410575045,
+      "invested": 513.157236791199,
+      "last_buy_at": "2026-09-03T11:52:30+00:00"
     }
   }
 }

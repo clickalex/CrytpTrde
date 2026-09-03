@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1158.6699564361652,
-  "realized_pnl": -787.2353895400149,
-  "total_trades": 71,
-  "sell_count": 31,
-  "gross_gains": 0.0,
+  "cash_inr": 1226.5343828929153,
+  "realized_pnl": -653.6988275350149,
+  "total_trades": 73,
+  "sell_count": 32,
+  "gross_gains": 133.54,
   "gross_losses": -787.23,
-  "total_tds": 340.33,
+  "total_tds": 349.25,
   "holdings": {
     "DOTINR": {
       "qty": 9.8227,
       "avg_cost": 83.563198719,
       "invested": 820.8162320571213,
       "last_buy_at": "2026-08-31T14:53:37+00:00"
-    },
-    "ARBINR": {
-      "qty": 67.0,
-      "avg_cost": 11.3079421455,
-      "invested": 757.6321237485,
-      "last_buy_at": "2026-09-02T06:27:02+00:00"
     },
     "XRPINR": {
       "qty": 10.0,
@@ -60,6 +54,12 @@
       "avg_cost": 186.769828245,
       "invested": 747.07931298,
       "last_buy_at": "2026-09-03T01:36:58+00:00"
+    },
+    "CAKEINR": {
+      "qty": 4.11,
+      "avg_cost": 198.14687392499997,
+      "invested": 814.38365183175,
+      "last_buy_at": "2026-09-03T11:53:44+00:00"
     }
   }
 }

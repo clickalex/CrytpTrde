@@ -1,22 +1,16 @@
 {
-  "cash_inr": 4626.276312521507,
-  "realized_pnl": -409.2893180438036,
-  "total_trades": 101,
-  "sell_count": 46,
-  "gross_gains": 185.59,
-  "gross_losses": -594.86,
-  "total_tds": 271.04,
+  "cash_inr": 4635.519957996672,
+  "realized_pnl": -394.3933292312484,
+  "total_trades": 109,
+  "sell_count": 50,
+  "gross_gains": 230.04,
+  "gross_losses": -624.41,
+  "total_tds": 292.47,
   "holdings": {
     "USDTINR": {
       "qty": 5.2,
       "avg_cost": 99.52911969,
       "invested": 517.551422388,
-      "last_buy_at": "2026-09-02T20:08:08+00:00"
-    },
-    "TRUMPINR": {
-      "qty": 2.373,
-      "avg_cost": 216.834873255,
-      "invested": 514.549154234115,
       "last_buy_at": "2026-09-02T20:08:08+00:00"
     },
     "DOTINR": {
@@ -37,29 +31,35 @@
       "invested": 518.21641872,
       "last_buy_at": "2026-09-03T01:34:06+00:00"
     },
-    "SUIINR": {
-      "qty": 6.8,
-      "avg_cost": 76.91423689950001,
-      "invested": 523.0168109166001,
-      "last_buy_at": "2026-09-03T06:27:40+00:00"
-    },
-    "FARTCOININR": {
-      "qty": 35.46,
-      "avg_cost": 16.160212067999996,
-      "invested": 573.0411199312799,
-      "last_buy_at": "2026-09-03T06:27:40+00:00"
-    },
-    "ORCAINR": {
-      "qty": 4.08,
-      "avg_cost": 126.21910801499999,
-      "invested": 514.9739607012,
-      "last_buy_at": "2026-09-03T06:27:40+00:00"
-    },
     "RIFINR": {
       "qty": 68.0,
       "avg_cost": 7.501238745,
       "invested": 510.08423466,
       "last_buy_at": "2026-09-03T06:27:40+00:00"
+    },
+    "TRBINR": {
+      "qty": 0.338,
+      "avg_cost": 1681.3190393999996,
+      "invested": 568.2858353171999,
+      "last_buy_at": "2026-09-03T11:50:16+00:00"
+    },
+    "ARBINR": {
+      "qty": 38.0,
+      "avg_cost": 13.468178723999998,
+      "invested": 511.79079151199994,
+      "last_buy_at": "2026-09-03T11:50:16+00:00"
+    },
+    "JUPINR": {
+      "qty": 22.9,
+      "avg_cost": 22.501713233999993,
+      "invested": 515.2892330585998,
+      "last_buy_at": "2026-09-03T11:50:16+00:00"
+    },
+    "PYTHINR": {
+      "qty": 88.7,
+      "avg_cost": 5.7997895455499995,
+      "invested": 514.441332690285,
+      "last_buy_at": "2026-09-03T11:50:16+00:00"
     }
   }
 }

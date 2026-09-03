@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1615.0528741211665,
-  "realized_pnl": -540.8518015857442,
-  "total_trades": 77,
-  "sell_count": 33,
-  "gross_gains": 182.37,
-  "gross_losses": -723.23,
-  "total_tds": 309.52,
+  "cash_inr": 1421.3728863483664,
+  "realized_pnl": -520.211649898844,
+  "total_trades": 86,
+  "sell_count": 37,
+  "gross_gains": 234.75,
+  "gross_losses": -754.97,
+  "total_tds": 338.76,
   "holdings": {
-    "BNBINR": {
-      "qty": 0.013,
-      "avg_cost": 68948.90282280001,
-      "invested": 896.3357366964001,
-      "last_buy_at": "2026-09-01T12:01:05+00:00"
-    },
     "XRPINR": {
       "qty": 5.0,
       "avg_cost": 132.95019287550002,
@@ -49,29 +43,41 @@
       "invested": 788.7932301345096,
       "last_buy_at": "2026-09-02T20:05:54+00:00"
     },
-    "FILINR": {
-      "qty": 7.52,
-      "avg_cost": 80.61077524499999,
-      "invested": 606.1930298423998,
-      "last_buy_at": "2026-09-03T01:30:48+00:00"
-    },
     "RENDERINR": {
       "qty": 4.13,
       "avg_cost": 141.4118706,
       "invested": 584.0310255779999,
       "last_buy_at": "2026-09-03T01:30:48+00:00"
     },
-    "ICPINR": {
-      "qty": 2.82,
-      "avg_cost": 250.54538008499995,
-      "invested": 706.5379718396998,
-      "last_buy_at": "2026-09-03T06:23:11+00:00"
+    "SOLINR": {
+      "qty": 0.075,
+      "avg_cost": 10047.2533161,
+      "invested": 753.5439987074999,
+      "last_buy_at": "2026-09-03T11:46:23+00:00"
     },
-    "CAKEINR": {
-      "qty": 3.77,
-      "avg_cost": 183.504936615,
-      "invested": 691.81361103855,
-      "last_buy_at": "2026-09-03T06:23:11+00:00"
+    "USDTINR": {
+      "qty": 5.33,
+      "avg_cost": 99.16857951,
+      "invested": 528.5685287883,
+      "last_buy_at": "2026-09-03T11:46:23+00:00"
+    },
+    "TRBINR": {
+      "qty": 0.342,
+      "avg_cost": 1681.3190394,
+      "invested": 575.0111114748,
+      "last_buy_at": "2026-09-03T11:46:23+00:00"
+    },
+    "ADAINR": {
+      "qty": 30.0,
+      "avg_cost": 20.657950813499998,
+      "invested": 619.7385244049999,
+      "last_buy_at": "2026-09-03T11:46:23+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 37.9,
+      "avg_cost": 16.071078523500002,
+      "invested": 609.09387604065,
+      "last_buy_at": "2026-09-03T11:46:23+00:00"
     }
   }
 }
