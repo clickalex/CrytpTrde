@@ -1,18 +1,12 @@
 {
-  "cash_inr": 814.6413962219805,
-  "realized_pnl": -1454.4576945868425,
-  "total_trades": 70,
-  "sell_count": 32,
-  "gross_gains": 0.0,
+  "cash_inr": 1754.463965276255,
+  "realized_pnl": -1330.9039162063418,
+  "total_trades": 72,
+  "sell_count": 33,
+  "gross_gains": 123.55,
   "gross_losses": -1454.47,
-  "total_tds": 384.56,
+  "total_tds": 405.89,
   "holdings": {
-    "RIFINR": {
-      "qty": 289.0,
-      "avg_cost": 6.945405967499998,
-      "invested": 2007.2223246074996,
-      "last_buy_at": "2026-08-30T22:52:36+00:00"
-    },
     "ETHINR": {
       "qty": 0.0076,
       "avg_cost": 237493.32481874997,
@@ -42,6 +36,12 @@
       "avg_cost": 0.011506239244499998,
       "invested": 543.0714798619109,
       "last_buy_at": "2026-09-02T20:01:19+00:00"
+    },
+    "GASINR": {
+      "qty": 9.6587,
+      "avg_cost": 121.09543145699999,
+      "invested": 1169.6244438137257,
+      "last_buy_at": "2026-09-03T01:24:59+00:00"
     }
   }
 }
