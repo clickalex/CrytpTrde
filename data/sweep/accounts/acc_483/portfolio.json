@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1354.0998757194197,
-  "realized_pnl": -637.1086397341882,
-  "total_trades": 143,
-  "sell_count": 66,
-  "gross_gains": 560.49,
-  "gross_losses": -1197.58,
-  "total_tds": 554.09,
+  "cash_inr": 1452.2768455160199,
+  "realized_pnl": -595.4808439236378,
+  "total_trades": 151,
+  "sell_count": 70,
+  "gross_gains": 611.04,
+  "gross_losses": -1206.5,
+  "total_tds": 580.64,
   "holdings": {
     "TRXINR": {
       "qty": 21.9,
@@ -18,12 +18,6 @@
       "avg_cost": 85.764496818,
       "invested": 785.0195922745175,
       "last_buy_at": "2026-09-02T20:10:49+00:00"
-    },
-    "NEARINR": {
-      "qty": 3.5,
-      "avg_cost": 186.769828245,
-      "invested": 653.6943988575,
-      "last_buy_at": "2026-09-03T01:37:50+00:00"
     },
     "GALAINR": {
       "qty": 3686.05,
@@ -49,29 +43,35 @@
       "invested": 610.4612246733001,
       "last_buy_at": "2026-09-03T15:38:08+00:00"
     },
-    "APTINR": {
-      "qty": 9.89,
-      "avg_cost": 61.0915305,
-      "invested": 604.195236645,
-      "last_buy_at": "2026-09-03T15:38:08+00:00"
-    },
-    "ADAINR": {
-      "qty": 35.7,
-      "avg_cost": 21.632410800000002,
-      "invested": 772.2770655600001,
-      "last_buy_at": "2026-09-03T15:38:08+00:00"
-    },
     "FILINR": {
       "qty": 6.79,
       "avg_cost": 79.88969488499998,
       "invested": 542.4510282691499,
       "last_buy_at": "2026-09-03T15:38:08+00:00"
     },
-    "FARTCOININR": {
-      "qty": 34.3,
-      "avg_cost": 16.912338943499996,
-      "invested": 580.0932257620499,
-      "last_buy_at": "2026-09-03T15:38:08+00:00"
+    "TRBINR": {
+      "qty": 0.33,
+      "avg_cost": 1846.7669219999998,
+      "invested": 609.43308426,
+      "last_buy_at": "2026-09-03T19:21:12+00:00"
+    },
+    "ONDOINR": {
+      "qty": 17.9,
+      "avg_cost": 36.753065349,
+      "invested": 657.8798697471,
+      "last_buy_at": "2026-09-03T19:21:12+00:00"
+    },
+    "RENDERINR": {
+      "qty": 4.28,
+      "avg_cost": 149.133439455,
+      "invested": 638.2911208674001,
+      "last_buy_at": "2026-09-03T19:21:12+00:00"
+    },
+    "JUPINR": {
+      "qty": 26.5,
+      "avg_cost": 23.455141709999996,
+      "invested": 621.5612553149999,
+      "last_buy_at": "2026-09-03T19:21:12+00:00"
     }
   }
 }
