@@ -1,41 +1,47 @@
 {
-  "cash_inr": 963.3289894766903,
-  "realized_pnl": -205.82080300550956,
-  "total_trades": 11,
-  "sell_count": 3,
-  "gross_gains": 0.0,
+  "cash_inr": 610.0807459653095,
+  "realized_pnl": -14.777791070020385,
+  "total_trades": 20,
+  "sell_count": 7,
+  "gross_gains": 191.04,
   "gross_losses": -205.82,
-  "total_tds": 41.38,
+  "total_tds": 124.97,
   "holdings": {
-    "BTCINR": {
-      "qty": 0.00063,
-      "avg_cost": 7935889.962,
-      "invested": 4999.6106760600005,
-      "last_buy_at": "2026-08-30T20:01:39+00:00"
-    },
     "USDTINR": {
       "qty": 6.3,
       "avg_cost": 100.019854935,
       "invested": 630.1250860905,
       "last_buy_at": "2026-09-02T06:21:04+00:00"
     },
-    "SOLINR": {
-      "qty": 0.149,
-      "avg_cost": 9850.658767949999,
-      "invested": 1467.7481564245497,
-      "last_buy_at": "2026-09-02T17:00:17+00:00"
+    "ETHINR": {
+      "qty": 0.0119,
+      "avg_cost": 247681.18880505,
+      "invested": 2947.4061467800952,
+      "last_buy_at": "2026-09-03T15:29:38+00:00"
     },
-    "XRPINR": {
-      "qty": 5.5,
-      "avg_cost": 132.9501928755,
-      "invested": 731.22606081525,
-      "last_buy_at": "2026-09-02T17:00:17+00:00"
+    "BNBINR": {
+      "qty": 0.02,
+      "avg_cost": 72029.11776059998,
+      "invested": 1440.5823552119998,
+      "last_buy_at": "2026-09-03T15:29:38+00:00"
     },
-    "LINKINR": {
-      "qty": 0.86,
-      "avg_cost": 1117.163792745,
-      "invested": 960.7608617606999,
-      "last_buy_at": "2026-09-03T11:47:48+00:00"
+    "TRUMPINR": {
+      "qty": 10.184,
+      "avg_cost": 237.71615868,
+      "invested": 2420.90135999712,
+      "last_buy_at": "2026-09-03T15:29:38+00:00"
+    },
+    "SUIINR": {
+      "qty": 15.4,
+      "avg_cost": 78.26425957350001,
+      "invested": 1205.2695974319001,
+      "last_buy_at": "2026-09-03T15:29:38+00:00"
+    },
+    "ICPINR": {
+      "qty": 2.41,
+      "avg_cost": 251.40667051499994,
+      "invested": 605.8900759411499,
+      "last_buy_at": "2026-09-03T15:29:38+00:00"
     }
   }
 }

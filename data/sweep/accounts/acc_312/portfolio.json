@@ -1,24 +1,12 @@
 {
-  "cash_inr": 869.5919962837859,
-  "realized_pnl": -631.9642553860465,
-  "total_trades": 64,
-  "sell_count": 27,
-  "gross_gains": 140.73,
-  "gross_losses": -772.71,
-  "total_tds": 305.54,
+  "cash_inr": 867.570846743936,
+  "realized_pnl": -511.1550918875961,
+  "total_trades": 72,
+  "sell_count": 31,
+  "gross_gains": 274.37,
+  "gross_losses": -785.54,
+  "total_tds": 337.13,
   "holdings": {
-    "BNBINR": {
-      "qty": 0.017,
-      "avg_cost": 68948.9028228,
-      "invested": 1172.1313479876,
-      "last_buy_at": "2026-09-01T12:00:27+00:00"
-    },
-    "XRPINR": {
-      "qty": 4.7,
-      "avg_cost": 132.9501928755,
-      "invested": 624.86590651485,
-      "last_buy_at": "2026-09-02T16:58:09+00:00"
-    },
     "DOTINR": {
       "qty": 16.4038,
       "avg_cost": 85.1105169915,
@@ -30,12 +18,6 @@
       "avg_cost": 32.242307097,
       "invested": 499.7557600035,
       "last_buy_at": "2026-09-02T16:58:09+00:00"
-    },
-    "ONDOINR": {
-      "qty": 19.3,
-      "avg_cost": 34.16418655649999,
-      "invested": 659.3688005404499,
-      "last_buy_at": "2026-09-02T20:05:20+00:00"
     },
     "NEARINR": {
       "qty": 5.1,
@@ -61,11 +43,29 @@
       "invested": 965.0771286155998,
       "last_buy_at": "2026-09-03T11:45:21+00:00"
     },
-    "APTINR": {
-      "qty": 9.42,
-      "avg_cost": 61.472100690000005,
-      "invested": 579.0671884998001,
-      "last_buy_at": "2026-09-03T11:45:21+00:00"
+    "SOLINR": {
+      "qty": 0.079,
+      "avg_cost": 10435.635209999999,
+      "invested": 824.4151815899999,
+      "last_buy_at": "2026-09-03T15:26:35+00:00"
+    },
+    "LINKINR": {
+      "qty": 0.65,
+      "avg_cost": 1177.06353765,
+      "invested": 765.0912994725,
+      "last_buy_at": "2026-09-03T15:26:35+00:00"
+    },
+    "CAKEINR": {
+      "qty": 4.85,
+      "avg_cost": 198.297099,
+      "invested": 961.7409301499999,
+      "last_buy_at": "2026-09-03T15:26:35+00:00"
+    },
+    "ADAINR": {
+      "qty": 26.6,
+      "avg_cost": 21.6324108,
+      "invested": 575.42212728,
+      "last_buy_at": "2026-09-03T15:26:35+00:00"
     }
   }
 }
