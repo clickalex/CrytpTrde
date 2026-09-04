@@ -1,23 +1,17 @@
 {
-  "cash_inr": 4709.915675318764,
-  "realized_pnl": -592.9482324517508,
-  "total_trades": 178,
-  "sell_count": 85,
-  "gross_gains": 393.17,
-  "gross_losses": -986.09,
-  "total_tds": 471.3,
+  "cash_inr": 4685.884002283484,
+  "realized_pnl": -599.4808796878503,
+  "total_trades": 184,
+  "sell_count": 88,
+  "gross_gains": 420.22,
+  "gross_losses": -1019.67,
+  "total_tds": 486.82,
   "holdings": {
     "USDTINR": {
       "qty": 5.2,
       "avg_cost": 99.52911969,
       "invested": 517.551422388,
       "last_buy_at": "2026-09-02T20:04:19+00:00"
-    },
-    "NEARINR": {
-      "qty": 2.5,
-      "avg_cost": 197.926543815,
-      "invested": 494.8163595375,
-      "last_buy_at": "2026-09-04T17:55:33+00:00"
     },
     "ADAINR": {
       "qty": 23.7,
@@ -31,22 +25,10 @@
       "invested": 595.442122275,
       "last_buy_at": "2026-09-04T17:55:33+00:00"
     },
-    "ORCAINR": {
-      "qty": 4.24,
-      "avg_cost": 126.27919804499997,
-      "invested": 535.4237997107999,
-      "last_buy_at": "2026-09-04T17:55:33+00:00"
-    },
     "PYTHINR": {
       "qty": 98.5,
       "avg_cost": 5.400190846050001,
       "invested": 531.9187983359251,
-      "last_buy_at": "2026-09-04T17:55:33+00:00"
-    },
-    "SUSHIINR": {
-      "qty": 27.2,
-      "avg_cost": 19.357001663999995,
-      "invested": 526.5104452607999,
       "last_buy_at": "2026-09-04T17:55:33+00:00"
     },
     "SHIBINR": {
@@ -54,6 +36,24 @@
       "avg_cost": 0.0005192780092499999,
       "invested": 523.3195499959927,
       "last_buy_at": "2026-09-04T17:55:33+00:00"
+    },
+    "SUIINR": {
+      "qty": 6.8,
+      "avg_cost": 75.87868538249998,
+      "invested": 515.9750606009999,
+      "last_buy_at": "2026-09-04T21:16:45+00:00"
+    },
+    "APEINR": {
+      "qty": 37.34,
+      "avg_cost": 13.9899604845,
+      "invested": 522.38512449123,
+      "last_buy_at": "2026-09-04T21:16:45+00:00"
+    },
+    "SEIINR": {
+      "qty": 109.0,
+      "avg_cost": 4.77405273345,
+      "invested": 520.3717479460499,
+      "last_buy_at": "2026-09-04T21:16:45+00:00"
     }
   }
 }

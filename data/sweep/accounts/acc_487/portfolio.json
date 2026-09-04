@@ -1,29 +1,35 @@
 {
-  "cash_inr": 146.17233053573318,
-  "realized_pnl": -734.8225203600019,
-  "total_trades": 59,
-  "sell_count": 28,
-  "gross_gains": 512.51,
-  "gross_losses": -1247.35,
-  "total_tds": 664.44,
+  "cash_inr": 147.47351085018408,
+  "realized_pnl": -398.361861645152,
+  "total_trades": 66,
+  "sell_count": 31,
+  "gross_gains": 906.92,
+  "gross_losses": -1305.3,
+  "total_tds": 752.44,
   "holdings": {
-    "NEARINR": {
-      "qty": 25.7,
-      "avg_cost": 193.39976155500003,
-      "invested": 4970.3738719635,
-      "last_buy_at": "2026-09-04T00:47:29+00:00"
+    "SUIINR": {
+      "qty": 57.5,
+      "avg_cost": 75.8786853825,
+      "invested": 4363.02440949375,
+      "last_buy_at": "2026-09-04T21:28:16+00:00"
     },
-    "CAKEINR": {
-      "qty": 14.72,
-      "avg_cost": 197.285583495,
-      "invested": 2904.0437890464,
-      "last_buy_at": "2026-09-04T18:05:41+00:00"
+    "ICPINR": {
+      "qty": 3.52,
+      "avg_cost": 248.34207898499997,
+      "invested": 874.1641180272,
+      "last_buy_at": "2026-09-04T21:28:16+00:00"
     },
-    "ARBINR": {
-      "qty": 43.5,
-      "avg_cost": 13.3369821585,
-      "invested": 580.15872389475,
-      "last_buy_at": "2026-09-04T18:05:41+00:00"
+    "FARTCOININR": {
+      "qty": 175.71,
+      "avg_cost": 16.44463821,
+      "invested": 2889.4873798791,
+      "last_buy_at": "2026-09-04T21:28:16+00:00"
+    },
+    "TRXINR": {
+      "qty": 17.4,
+      "avg_cost": 33.0495165,
+      "invested": 575.0615871,
+      "last_buy_at": "2026-09-04T21:28:16+00:00"
     }
   }
 }

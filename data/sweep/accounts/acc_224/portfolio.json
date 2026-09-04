@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1193.0829136056,
-  "realized_pnl": -1262.0329257484746,
-  "total_trades": 78,
-  "sell_count": 36,
-  "gross_gains": 235.63,
-  "gross_losses": -1497.68,
-  "total_tds": 431.79,
+  "cash_inr": 3171.914985641114,
+  "realized_pnl": -1163.8284147607667,
+  "total_trades": 81,
+  "sell_count": 38,
+  "gross_gains": 377.58,
+  "gross_losses": -1541.43,
+  "total_tds": 461.54,
   "holdings": {
     "ETHINR": {
       "qty": 0.0076,
@@ -19,18 +19,6 @@
       "invested": 996.4832779376474,
       "last_buy_at": "2026-09-02T20:01:57+00:00"
     },
-    "NEARINR": {
-      "qty": 5.9,
-      "avg_cost": 184.68670720499995,
-      "invested": 1089.6515725094998,
-      "last_buy_at": "2026-09-02T20:01:57+00:00"
-    },
-    "XDBINR": {
-      "qty": 230305.9,
-      "avg_cost": 0.007747607867999999,
-      "invested": 1784.319802886821,
-      "last_buy_at": "2026-09-03T11:40:34+00:00"
-    },
     "TRUMPINR": {
       "qty": 2.853,
       "avg_cost": 225.1373124,
@@ -42,6 +30,12 @@
       "avg_cost": 0.0822942975855,
       "invested": 795.3743861638575,
       "last_buy_at": "2026-09-04T17:52:32+00:00"
+    },
+    "DOGEINR": {
+      "qty": 114.0,
+      "avg_cost": 8.45256406995,
+      "invested": 963.5923039743,
+      "last_buy_at": "2026-09-04T21:11:57+00:00"
     }
   }
 }
