@@ -1,10 +1,23 @@
 {
-  "cash_inr": 9826.582219435002,
+  "cash_inr": 394.32121672045173,
   "realized_pnl": 104.12718761495921,
-  "total_trades": 16,
+  "total_trades": 18,
   "sell_count": 8,
   "gross_gains": 811.14,
   "gross_losses": -707.02,
   "total_tds": 277.54,
-  "holdings": {}
+  "holdings": {
+    "DOGEINR": {
+      "qty": 934.0,
+      "avg_cost": 8.415508551450001,
+      "invested": 7860.084987054301,
+      "last_buy_at": "2026-09-04T17:50:31+00:00"
+    },
+    "ORCAINR": {
+      "qty": 12.45,
+      "avg_cost": 126.27919804499999,
+      "invested": 1572.1760156602497,
+      "last_buy_at": "2026-09-04T17:50:31+00:00"
+    }
+  }
 }
