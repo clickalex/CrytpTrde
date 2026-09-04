@@ -1,17 +1,29 @@
 {
-  "cash_inr": 6183.349034988083,
-  "realized_pnl": -1063.1741781357355,
-  "total_trades": 43,
-  "sell_count": 21,
+  "cash_inr": 480.05075032907985,
+  "realized_pnl": -1113.2343582675348,
+  "total_trades": 47,
+  "sell_count": 22,
   "gross_gains": 450.85,
-  "gross_losses": -1514.04,
-  "total_tds": 529.57,
+  "gross_losses": -1564.1,
+  "total_tds": 551.33,
   "holdings": {
-    "SUSHIINR": {
-      "qty": 112.6,
-      "avg_cost": 19.750591360499996,
-      "invested": 2223.9165871922996,
-      "last_buy_at": "2026-09-03T15:22:03+00:00"
+    "TRBINR": {
+      "qty": 2.768,
+      "avg_cost": 1786.97734215,
+      "invested": 4946.353283071199,
+      "last_buy_at": "2026-09-04T05:02:53+00:00"
+    },
+    "FILINR": {
+      "qty": 12.81,
+      "avg_cost": 77.205673545,
+      "invested": 989.0046781114501,
+      "last_buy_at": "2026-09-04T05:02:53+00:00"
+    },
+    "BOMEINR": {
+      "qty": 21842.0,
+      "avg_cost": 0.08790570488699999,
+      "invested": 1920.0364061418538,
+      "last_buy_at": "2026-09-04T05:02:56+00:00"
     }
   }
 }
