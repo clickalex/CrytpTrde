@@ -1,11 +1,11 @@
 {
-  "cash_inr": 4772.701233714564,
-  "realized_pnl": -170.48555579740372,
-  "total_trades": 81,
-  "sell_count": 36,
-  "gross_gains": 233.2,
-  "gross_losses": -403.69,
-  "total_tds": 206.54,
+  "cash_inr": 4679.760847020565,
+  "realized_pnl": -146.46170655715395,
+  "total_trades": 87,
+  "sell_count": 39,
+  "gross_gains": 258.4,
+  "gross_losses": -404.87,
+  "total_tds": 222.53,
   "holdings": {
     "USDTINR": {
       "qty": 6.6,
@@ -19,23 +19,11 @@
       "invested": 523.1532152846999,
       "last_buy_at": "2026-09-03T22:10:04+00:00"
     },
-    "SUIINR": {
-      "qty": 6.8,
-      "avg_cost": 77.52214770300002,
-      "invested": 527.1506043804001,
-      "last_buy_at": "2026-09-04T00:40:29+00:00"
-    },
     "DOTINR": {
       "qty": 5.864,
       "avg_cost": 88.46053616399999,
       "invested": 518.732584065696,
       "last_buy_at": "2026-09-04T00:40:29+00:00"
-    },
-    "CAKEINR": {
-      "qty": 2.61,
-      "avg_cost": 200.7007002,
-      "invested": 523.828827522,
-      "last_buy_at": "2026-09-04T05:09:22+00:00"
     },
     "ARBINR": {
       "qty": 39.2,
@@ -49,17 +37,29 @@
       "invested": 521.23890716898,
       "last_buy_at": "2026-09-04T17:59:03+00:00"
     },
-    "TRBINR": {
-      "qty": 0.3,
-      "avg_cost": 1741.8096696000002,
-      "invested": 522.54290088,
-      "last_buy_at": "2026-09-04T21:21:09+00:00"
-    },
     "ONDOINR": {
       "qty": 14.2,
       "avg_cost": 37.0555185,
       "invested": 526.1883627,
       "last_buy_at": "2026-09-05T06:21:04+00:00"
+    },
+    "APTINR": {
+      "qty": 9.53,
+      "avg_cost": 60.971350439999995,
+      "invested": 581.0569696931999,
+      "last_buy_at": "2026-09-05T11:16:03+00:00"
+    },
+    "ADAINR": {
+      "qty": 27.1,
+      "avg_cost": 21.295906631999998,
+      "invested": 577.1190697272,
+      "last_buy_at": "2026-09-05T11:16:04+00:00"
+    },
+    "TRXINR": {
+      "qty": 15.5,
+      "avg_cost": 33.310908130499996,
+      "invested": 516.31907602275,
+      "last_buy_at": "2026-09-05T11:16:04+00:00"
     }
   }
 }
