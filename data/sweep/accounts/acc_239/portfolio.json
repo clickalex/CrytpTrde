@@ -1,11 +1,11 @@
 {
-  "cash_inr": 556.9193270137669,
-  "realized_pnl": -469.509761716874,
-  "total_trades": 27,
-  "sell_count": 10,
-  "gross_gains": 406.57,
+  "cash_inr": 483.00679425980593,
+  "realized_pnl": -332.2796542188738,
+  "total_trades": 29,
+  "sell_count": 11,
+  "gross_gains": 543.8,
   "gross_losses": -876.07,
-  "total_tds": 155.5,
+  "total_tds": 162.08,
   "holdings": {
     "SUIINR": {
       "qty": 50.5,
@@ -31,12 +31,6 @@
       "invested": 1299.7296223411497,
       "last_buy_at": "2026-09-04T21:13:19+00:00"
     },
-    "ARBINR": {
-      "qty": 39.6,
-      "avg_cost": 13.129671555,
-      "invested": 519.934993578,
-      "last_buy_at": "2026-09-04T21:13:19+00:00"
-    },
     "RIFINR": {
       "qty": 96.0,
       "avg_cost": 7.581358785,
@@ -48,6 +42,12 @@
       "avg_cost": 129.30372955500002,
       "invested": 835.3020929253,
       "last_buy_at": "2026-09-05T17:11:17+00:00"
+    },
+    "XDBINR": {
+      "qty": 95161.0,
+      "avg_cost": 0.0076134068009999995,
+      "invested": 724.4994045899609,
+      "last_buy_at": "2026-09-05T21:49:18+00:00"
     }
   }
 }
