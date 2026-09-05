@@ -1,11 +1,11 @@
 {
-  "cash_inr": 740.6632322686287,
-  "realized_pnl": -523.8120122351463,
-  "total_trades": 79,
-  "sell_count": 34,
-  "gross_gains": 565.32,
-  "gross_losses": -1089.12,
-  "total_tds": 436.64,
+  "cash_inr": 692.0444285270424,
+  "realized_pnl": -523.3480065632461,
+  "total_trades": 85,
+  "sell_count": 37,
+  "gross_gains": 612.39,
+  "gross_losses": -1135.73,
+  "total_tds": 459.6,
   "holdings": {
     "USDTINR": {
       "qty": 6.41,
@@ -24,12 +24,6 @@
       "avg_cost": 21.652440809999998,
       "invested": 755.670184269,
       "last_buy_at": "2026-09-04T17:58:29+00:00"
-    },
-    "SUIINR": {
-      "qty": 12.2,
-      "avg_cost": 75.8786853825,
-      "invested": 925.7199616664999,
-      "last_buy_at": "2026-09-04T21:20:27+00:00"
     },
     "ADAINR": {
       "qty": 33.8,
@@ -61,17 +55,23 @@
       "invested": 574.58837811375,
       "last_buy_at": "2026-09-05T14:22:48+00:00"
     },
-    "RIFINR": {
-      "qty": 83.0,
-      "avg_cost": 7.581358785,
-      "invested": 629.252779155,
-      "last_buy_at": "2026-09-05T14:22:48+00:00"
+    "CAKEINR": {
+      "qty": 3.78,
+      "avg_cost": 225.327597495,
+      "invested": 851.7383185310999,
+      "last_buy_at": "2026-09-05T19:40:52+00:00"
     },
-    "TRBINR": {
-      "qty": 0.397,
-      "avg_cost": 1859.08537815,
-      "invested": 738.05689512555,
-      "last_buy_at": "2026-09-05T17:19:18+00:00"
+    "DOTINR": {
+      "qty": 8.5174,
+      "avg_cost": 91.0774569705,
+      "invested": 775.7431320005367,
+      "last_buy_at": "2026-09-05T19:40:52+00:00"
+    },
+    "SEIINR": {
+      "qty": 143.5,
+      "avg_cost": 4.8200216064,
+      "invested": 691.6731005184,
+      "last_buy_at": "2026-09-05T19:40:52+00:00"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1375.5584322004138,
-  "realized_pnl": -1466.3171287620187,
-  "total_trades": 298,
-  "sell_count": 144,
-  "gross_gains": 649.67,
-  "gross_losses": -2115.99,
-  "total_tds": 1053.52,
+  "cash_inr": 1439.9071820804588,
+  "realized_pnl": -1458.6014137637553,
+  "total_trades": 302,
+  "sell_count": 146,
+  "gross_gains": 667.47,
+  "gross_losses": -2126.08,
+  "total_tds": 1066.38,
   "holdings": {
     "JUPINR": {
       "qty": 28.4,
@@ -31,18 +31,6 @@
       "invested": 614.77638987765,
       "last_buy_at": "2026-09-05T17:27:13+00:00"
     },
-    "APEINR": {
-      "qty": 43.46,
-      "avg_cost": 14.151202065000001,
-      "invested": 615.0112417449001,
-      "last_buy_at": "2026-09-05T17:27:13+00:00"
-    },
-    "BOMEINR": {
-      "qty": 7774.0,
-      "avg_cost": 0.08516359651799998,
-      "invested": 662.0617993309319,
-      "last_buy_at": "2026-09-05T17:27:13+00:00"
-    },
     "TOKENINR": {
       "qty": 2863.7765,
       "avg_cost": 0.22303416134999998,
@@ -66,6 +54,18 @@
       "avg_cost": 0.00035623372785,
       "invested": 589.5197967396738,
       "last_buy_at": "2026-09-05T17:27:17+00:00"
+    },
+    "CHRINR": {
+      "qty": 371.0,
+      "avg_cost": 1.592385795,
+      "invested": 590.775129945,
+      "last_buy_at": "2026-09-05T19:49:42+00:00"
+    },
+    "PENGUINR": {
+      "qty": 712.0,
+      "avg_cost": 0.8662979324999999,
+      "invested": 616.80412794,
+      "last_buy_at": "2026-09-05T19:49:43+00:00"
     }
   }
 }
