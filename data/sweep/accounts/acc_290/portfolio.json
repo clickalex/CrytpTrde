@@ -1,11 +1,11 @@
 {
-  "cash_inr": 646.8812767924497,
-  "realized_pnl": -0.6821970672895077,
-  "total_trades": 53,
-  "sell_count": 22,
-  "gross_gains": 647.67,
+  "cash_inr": 926.8176112375751,
+  "realized_pnl": 36.34548802083066,
+  "total_trades": 57,
+  "sell_count": 24,
+  "gross_gains": 684.7,
   "gross_losses": -648.34,
-  "total_tds": 331.03,
+  "total_tds": 353.0,
   "holdings": {
     "USDTINR": {
       "qty": 6.36,
@@ -25,12 +25,6 @@
       "invested": 593.9178385139999,
       "last_buy_at": "2026-09-04T17:55:59+00:00"
     },
-    "FARTCOININR": {
-      "qty": 52.93,
-      "avg_cost": 16.3514986635,
-      "invested": 865.484824259055,
-      "last_buy_at": "2026-09-04T23:23:46+00:00"
-    },
     "SOLINR": {
       "qty": 0.115,
       "avg_cost": 10240.9435128,
@@ -49,17 +43,23 @@
       "invested": 844.4614158981001,
       "last_buy_at": "2026-09-05T11:10:51+00:00"
     },
-    "CAKEINR": {
-      "qty": 5.87,
-      "avg_cost": 220.1298099,
-      "invested": 1292.161984113,
-      "last_buy_at": "2026-09-05T14:18:37+00:00"
-    },
     "DOTINR": {
       "qty": 7.0483,
       "avg_cost": 91.77650431949999,
       "invested": 646.8683353951318,
       "last_buy_at": "2026-09-05T14:18:37+00:00"
+    },
+    "TRBINR": {
+      "qty": 0.521,
+      "avg_cost": 1859.08537815,
+      "invested": 968.58348201615,
+      "last_buy_at": "2026-09-05T17:15:22+00:00"
+    },
+    "ARBINR": {
+      "qty": 68.3,
+      "avg_cost": 13.531273255499997,
+      "invested": 924.1859633506498,
+      "last_buy_at": "2026-09-05T17:15:22+00:00"
     }
   }
 }
