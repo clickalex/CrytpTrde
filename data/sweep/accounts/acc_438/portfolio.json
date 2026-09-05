@@ -1,29 +1,17 @@
 {
-  "cash_inr": 2106.444857624352,
-  "realized_pnl": -606.324882671279,
-  "total_trades": 112,
-  "sell_count": 50,
-  "gross_gains": 324.42,
-  "gross_losses": -930.74,
-  "total_tds": 339.67,
+  "cash_inr": 2208.746781575695,
+  "realized_pnl": -526.0107306651885,
+  "total_trades": 120,
+  "sell_count": 54,
+  "gross_gains": 430.62,
+  "gross_losses": -956.62,
+  "total_tds": 363.37,
   "holdings": {
     "USDTINR": {
       "qty": 8.21,
       "avg_cost": 100.70087527499999,
       "invested": 826.75418600775,
       "last_buy_at": "2026-08-30T20:03:16+00:00"
-    },
-    "DOTINR": {
-      "qty": 6.7346,
-      "avg_cost": 83.8125723435,
-      "invested": 564.4441497045351,
-      "last_buy_at": "2026-08-31T07:18:20+00:00"
-    },
-    "SUIINR": {
-      "qty": 9.2,
-      "avg_cost": 72.524660208,
-      "invested": 667.2268739136,
-      "last_buy_at": "2026-09-02T06:25:34+00:00"
     },
     "TRXINR": {
       "qty": 16.7,
@@ -67,17 +55,29 @@
       "invested": 537.89980939695,
       "last_buy_at": "2026-09-05T01:42:26+00:00"
     },
-    "CHRINR": {
-      "qty": 335.0,
-      "avg_cost": 1.5796667386499998,
-      "invested": 529.1883574477499,
-      "last_buy_at": "2026-09-05T06:27:16+00:00"
+    "TRBINR": {
+      "qty": 0.305,
+      "avg_cost": 1846.7669219999998,
+      "invested": 563.26391121,
+      "last_buy_at": "2026-09-05T14:30:37+00:00"
     },
-    "SEIINR": {
-      "qty": 108.2,
-      "avg_cost": 4.86639107955,
-      "invested": 526.54351480731,
-      "last_buy_at": "2026-09-05T11:23:04+00:00"
+    "APTINR": {
+      "qty": 9.45,
+      "avg_cost": 60.65087027999999,
+      "invested": 573.1507241459999,
+      "last_buy_at": "2026-09-05T14:30:37+00:00"
+    },
+    "RIFINR": {
+      "qty": 73.0,
+      "avg_cost": 7.581358785,
+      "invested": 553.439191305,
+      "last_buy_at": "2026-09-05T14:30:37+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 416.0,
+      "avg_cost": 1.3265875622999999,
+      "invested": 551.8604259168,
+      "last_buy_at": "2026-09-05T14:30:42+00:00"
     }
   }
 }

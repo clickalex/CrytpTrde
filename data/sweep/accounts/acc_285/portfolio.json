@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1142.6174006253361,
-  "realized_pnl": -836.0875910547513,
-  "total_trades": 157,
-  "sell_count": 74,
-  "gross_gains": 628.01,
+  "cash_inr": 1078.5483338391364,
+  "realized_pnl": -786.2209021701512,
+  "total_trades": 159,
+  "sell_count": 75,
+  "gross_gains": 677.88,
   "gross_losses": -1464.08,
-  "total_tds": 663.03,
+  "total_tds": 669.63,
   "holdings": {
     "DOTINR": {
       "qty": 14.9939,
       "avg_cost": 83.563198719,
       "invested": 1252.9382452728141,
       "last_buy_at": "2026-08-31T14:48:10+00:00"
-    },
-    "SUIINR": {
-      "qty": 8.4,
-      "avg_cost": 72.524660208,
-      "invested": 609.2071457472,
-      "last_buy_at": "2026-09-02T06:17:03+00:00"
     },
     "TRXINR": {
       "qty": 24.5,
@@ -60,6 +54,12 @@
       "avg_cost": 5.20229434725,
       "invested": 761.7199383243449,
       "last_buy_at": "2026-09-05T06:16:14+00:00"
+    },
+    "TRBINR": {
+      "qty": 0.388,
+      "avg_cost": 1846.7669219999998,
+      "invested": 716.545565736,
+      "last_buy_at": "2026-09-05T14:18:13+00:00"
     }
   }
 }

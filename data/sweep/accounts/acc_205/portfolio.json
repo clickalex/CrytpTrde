@@ -1,22 +1,16 @@
 {
-  "cash_inr": 3013.691636654568,
-  "realized_pnl": -1134.0095362192878,
-  "total_trades": 89,
-  "sell_count": 42,
-  "gross_gains": 493.26,
+  "cash_inr": 1348.5361002620157,
+  "realized_pnl": -1118.135978284988,
+  "total_trades": 92,
+  "sell_count": 43,
+  "gross_gains": 509.13,
   "gross_losses": -1627.28,
-  "total_tds": 544.21,
+  "total_tds": 551.61,
   "holdings": {
     "FILINR": {
       "qty": 16.21,
       "avg_cost": 74.60177224499999,
       "invested": 1209.29472809145,
-      "last_buy_at": "2026-09-04T17:51:38+00:00"
-    },
-    "DOGEINR": {
-      "qty": 86.0,
-      "avg_cost": 8.415508551450001,
-      "invested": 723.7337354247001,
       "last_buy_at": "2026-09-04T17:51:38+00:00"
     },
     "BOMEINR": {
@@ -36,6 +30,18 @@
       "avg_cost": 21.0565480125,
       "invested": 619.0625115674999,
       "last_buy_at": "2026-09-05T06:10:32+00:00"
+    },
+    "XDBINR": {
+      "qty": 195594.8,
+      "avg_cost": 0.0076604773245,
+      "invested": 1498.3495301901125,
+      "last_buy_at": "2026-09-05T14:11:50+00:00"
+    },
+    "POLYXINR": {
+      "qty": 249.3508,
+      "avg_cost": 3.6054018,
+      "invested": 899.00982315144,
+      "last_buy_at": "2026-09-05T14:11:50+00:00"
     }
   }
 }
