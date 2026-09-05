@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1301.6979580589693,
-  "realized_pnl": -2099.6384146677833,
-  "total_trades": 190,
-  "sell_count": 92,
+  "cash_inr": 451.81448742474595,
+  "realized_pnl": -2133.172552227752,
+  "total_trades": 195,
+  "sell_count": 94,
   "gross_gains": 590.24,
-  "gross_losses": -2689.86,
-  "total_tds": 1298.49,
+  "gross_losses": -2723.39,
+  "total_tds": 1311.62,
   "holdings": {
     "PENGUINR": {
       "qty": 1803.0,
@@ -31,17 +31,23 @@
       "invested": 715.302437216367,
       "last_buy_at": "2026-09-05T19:39:42+00:00"
     },
-    "TOSHIINR": {
-      "qty": 52921.0,
-      "avg_cost": 0.012129172555499999,
-      "invested": 641.8879408096154,
-      "last_buy_at": "2026-09-05T21:57:27+00:00"
+    "BTCINR": {
+      "qty": 9e-05,
+      "avg_cost": 7926233.19372885,
+      "invested": 713.3609874355966,
+      "last_buy_at": "2026-09-05T23:30:29+00:00"
     },
-    "ORCAINR": {
-      "qty": 5.44,
-      "avg_cost": 129.343789575,
-      "invested": 703.6302152879999,
-      "last_buy_at": "2026-09-05T21:57:27+00:00"
+    "BOMEINR": {
+      "qty": 8676.0,
+      "avg_cost": 0.0873298420995,
+      "invested": 757.673710055262,
+      "last_buy_at": "2026-09-05T23:30:29+00:00"
+    },
+    "SHIBINR": {
+      "qty": 1242763.0,
+      "avg_cost": 0.0005453170222499998,
+      "invested": 677.6998185224766,
+      "last_buy_at": "2026-09-05T23:30:32+00:00"
     }
   }
 }
