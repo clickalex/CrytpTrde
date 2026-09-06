@@ -1,18 +1,12 @@
 {
-  "cash_inr": 872.6533917000007,
-  "realized_pnl": -599.7998285497114,
-  "total_trades": 158,
-  "sell_count": 73,
-  "gross_gains": 727.79,
-  "gross_losses": -1327.58,
-  "total_tds": 639.67,
+  "cash_inr": 872.8570939333557,
+  "realized_pnl": -569.054839424841,
+  "total_trades": 164,
+  "sell_count": 76,
+  "gross_gains": 806.43,
+  "gross_losses": -1375.48,
+  "total_tds": 661.46,
   "holdings": {
-    "ICPINR": {
-      "qty": 2.56,
-      "avg_cost": 241.48180055999998,
-      "invested": 618.1934094336,
-      "last_buy_at": "2026-08-31T15:22:38+00:00"
-    },
     "SUIINR": {
       "qty": 10.2,
       "avg_cost": 72.524660208,
@@ -61,23 +55,29 @@
       "invested": 562.0399199628213,
       "last_buy_at": "2026-09-06T01:31:53+00:00"
     },
-    "TRBINR": {
-      "qty": 0.514,
-      "avg_cost": 1841.3588192999996,
-      "invested": 946.4584331201999,
-      "last_buy_at": "2026-09-06T11:26:34+00:00"
-    },
     "ONDOINR": {
       "qty": 15.1,
       "avg_cost": 37.546253745,
       "invested": 566.9484315495,
       "last_buy_at": "2026-09-06T11:26:34+00:00"
     },
-    "BIOINR": {
-      "qty": 209.9,
-      "avg_cost": 2.7705509831999997,
-      "invested": 581.53865137368,
-      "last_buy_at": "2026-09-06T11:26:36+00:00"
+    "SUSHIINR": {
+      "qty": 39.4,
+      "avg_cost": 24.940366951499996,
+      "invested": 982.6504578890998,
+      "last_buy_at": "2026-09-06T14:36:25+00:00"
+    },
+    "JUPINR": {
+      "qty": 21.7,
+      "avg_cost": 27.2077640835,
+      "invested": 590.4084806119499,
+      "last_buy_at": "2026-09-06T14:36:25+00:00"
+    },
+    "HMSTRINR": {
+      "qty": 32417.0,
+      "avg_cost": 0.0179498934615,
+      "invested": 581.8816963414455,
+      "last_buy_at": "2026-09-06T14:36:28+00:00"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2248.0604299798806,
-  "realized_pnl": -399.7121073678659,
-  "total_trades": 138,
-  "sell_count": 63,
-  "gross_gains": 639.48,
-  "gross_losses": -1039.18,
-  "total_tds": 413.9,
+  "cash_inr": 2226.339658884168,
+  "realized_pnl": -395.69561260737555,
+  "total_trades": 146,
+  "sell_count": 67,
+  "gross_gains": 695.31,
+  "gross_losses": -1090.99,
+  "total_tds": 436.49,
   "holdings": {
     "USDTINR": {
       "qty": 8.21,
@@ -24,12 +24,6 @@
       "avg_cost": 1161.90082008,
       "invested": 522.855369036,
       "last_buy_at": "2026-09-04T18:03:11+00:00"
-    },
-    "ICPINR": {
-      "qty": 2.34,
-      "avg_cost": 248.342078985,
-      "invested": 581.1204648249,
-      "last_buy_at": "2026-09-04T21:25:37+00:00"
     },
     "ADAINR": {
       "qty": 26.8,
@@ -55,29 +49,35 @@
       "invested": 546.8596729292697,
       "last_buy_at": "2026-09-05T17:26:54+00:00"
     },
-    "TRBINR": {
-      "qty": 0.296,
-      "avg_cost": 1841.3588192999998,
-      "invested": 545.0422105127999,
-      "last_buy_at": "2026-09-06T11:38:18+00:00"
-    },
-    "FILINR": {
-      "qty": 7.07,
-      "avg_cost": 79.91973989999998,
-      "invested": 565.0325610929999,
-      "last_buy_at": "2026-09-06T11:38:18+00:00"
-    },
     "RIFINR": {
       "qty": 77.0,
       "avg_cost": 7.413106701,
       "invested": 570.809215977,
       "last_buy_at": "2026-09-06T11:38:18+00:00"
     },
-    "PUMPINR": {
-      "qty": 1394.0,
-      "avg_cost": 0.40288362114,
-      "invested": 561.61976786916,
-      "last_buy_at": "2026-09-06T11:38:19+00:00"
+    "RENDERINR": {
+      "qty": 3.8,
+      "avg_cost": 151.40684559000002,
+      "invested": 575.346013242,
+      "last_buy_at": "2026-09-06T14:49:53+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 22.6,
+      "avg_cost": 24.940366951499993,
+      "invested": 563.6522931038999,
+      "last_buy_at": "2026-09-06T14:49:53+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 30.67,
+      "avg_cost": 18.271375122,
+      "invested": 560.3830749917399,
+      "last_buy_at": "2026-09-06T14:49:53+00:00"
+    },
+    "TOKENINR": {
+      "qty": 2498.8583,
+      "avg_cost": 0.2227337112,
+      "invested": 556.5799829219229,
+      "last_buy_at": "2026-09-06T14:49:53+00:00"
     }
   }
 }
