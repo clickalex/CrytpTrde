@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1311.947406743368,
-  "realized_pnl": -2314.879642370094,
-  "total_trades": 238,
-  "sell_count": 116,
+  "cash_inr": 561.3441115301403,
+  "realized_pnl": -2350.437755067444,
+  "total_trades": 241,
+  "sell_count": 117,
   "gross_gains": 763.46,
-  "gross_losses": -3078.32,
-  "total_tds": 1515.85,
+  "gross_losses": -3113.88,
+  "total_tds": 1524.56,
   "holdings": {
     "BRISEINR": {
       "qty": 480942172.0,
@@ -31,17 +31,23 @@
       "invested": 882.9795703952223,
       "last_buy_at": "2026-09-06T19:33:57+00:00"
     },
-    "CHRINR": {
-      "qty": 551.0,
-      "avg_cost": 1.6435624705499998,
-      "invested": 905.6029212730499,
-      "last_buy_at": "2026-09-06T19:33:59+00:00"
-    },
     "BOMEINR": {
       "qty": 8536.0,
       "avg_cost": 0.0903884246265,
       "invested": 771.555592611804,
       "last_buy_at": "2026-09-06T19:33:59+00:00"
+    },
+    "ETHINR": {
+      "qty": 0.0031,
+      "avg_cost": 248372.12399999998,
+      "invested": 769.9535844,
+      "last_buy_at": "2026-09-06T21:49:12+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 65132.0,
+      "avg_cost": 0.012927368453999997,
+      "invested": 841.9853621459279,
+      "last_buy_at": "2026-09-06T21:49:15+00:00"
     }
   }
 }
