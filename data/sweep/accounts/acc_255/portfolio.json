@@ -1,11 +1,11 @@
 {
-  "cash_inr": 353.5301988247443,
-  "realized_pnl": -1381.4774096630122,
-  "total_trades": 187,
-  "sell_count": 89,
+  "cash_inr": 633.2794357597736,
+  "realized_pnl": -1471.172496179237,
+  "total_trades": 193,
+  "sell_count": 92,
   "gross_gains": 815.71,
-  "gross_losses": -2197.17,
-  "total_tds": 999.02,
+  "gross_losses": -2286.87,
+  "total_tds": 1021.7,
   "holdings": {
     "TRXINR": {
       "qty": 22.4,
@@ -31,12 +31,6 @@
       "invested": 787.9805933999999,
       "last_buy_at": "2026-09-06T01:31:02+00:00"
     },
-    "RIFINR": {
-      "qty": 68.0,
-      "avg_cost": 7.39107369,
-      "invested": 502.59301092,
-      "last_buy_at": "2026-09-06T06:30:14+00:00"
-    },
     "RENDERINR": {
       "qty": 5.26,
       "avg_cost": 151.40684559000002,
@@ -49,17 +43,23 @@
       "invested": 831.20050771758,
       "last_buy_at": "2026-09-06T17:26:18+00:00"
     },
-    "CHRINR": {
-      "qty": 797.0,
-      "avg_cost": 1.6598869287,
-      "invested": 1322.9298821739,
-      "last_buy_at": "2026-09-06T17:26:20+00:00"
+    "POPCATINR": {
+      "qty": 94.6,
+      "avg_cost": 5.3410021665,
+      "invested": 505.25880495089996,
+      "last_buy_at": "2026-09-06T19:30:59+00:00"
     },
-    "HMSTRINR": {
-      "qty": 29630.0,
-      "avg_cost": 0.0178958124345,
-      "invested": 530.252922434235,
-      "last_buy_at": "2026-09-06T17:26:20+00:00"
+    "PEPEINR": {
+      "qty": 1416680.0,
+      "avg_cost": 0.00035893777919999997,
+      "invested": 508.49997303705595,
+      "last_buy_at": "2026-09-06T19:30:59+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 75025.0,
+      "avg_cost": 0.012660969321,
+      "invested": 949.8892233080251,
+      "last_buy_at": "2026-09-06T19:31:01+00:00"
     }
   }
 }
