@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2230.687020375965,
-  "realized_pnl": -1098.4592158782698,
-  "total_trades": 97,
-  "sell_count": 43,
-  "gross_gains": 99.81,
+  "cash_inr": 2306.990451305105,
+  "realized_pnl": -1047.6653693305898,
+  "total_trades": 99,
+  "sell_count": 44,
+  "gross_gains": 150.6,
   "gross_losses": -1198.27,
-  "total_tds": 311.4,
+  "total_tds": 318.0,
   "holdings": {
-    "FARTCOININR": {
-      "qty": 38.52,
-      "avg_cost": 15.794664385500003,
-      "invested": 608.4104721294601,
-      "last_buy_at": "2026-09-03T01:26:55+00:00"
-    },
     "HMSTRINR": {
       "qty": 30818.0,
       "avg_cost": 0.017550294762000002,
@@ -72,6 +66,12 @@
       "avg_cost": 1.5923857949999998,
       "invested": 557.3350282499999,
       "last_buy_at": "2026-09-05T19:32:36+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1480.0,
+      "avg_cost": 0.3893934094049999,
+      "invested": 576.3022459193999,
+      "last_buy_at": "2026-09-06T01:30:12+00:00"
     }
   }
 }
