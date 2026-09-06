@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1049.0427393995099,
-  "realized_pnl": -1723.8196537250851,
-  "total_trades": 308,
-  "sell_count": 150,
-  "gross_gains": 762.44,
-  "gross_losses": -2486.3,
-  "total_tds": 1270.0,
+  "cash_inr": 1118.1626123307842,
+  "realized_pnl": -1714.8289707813901,
+  "total_trades": 314,
+  "sell_count": 153,
+  "gross_gains": 797.35,
+  "gross_losses": -2512.22,
+  "total_tds": 1292.56,
   "holdings": {
     "BTCINR": {
       "qty": 9e-05,
@@ -18,12 +18,6 @@
       "avg_cost": 0.00035623372785,
       "invested": 786.8697196312953,
       "last_buy_at": "2026-09-05T17:16:32+00:00"
-    },
-    "FARTCOININR": {
-      "qty": 41.6,
-      "avg_cost": 17.179739577,
-      "invested": 714.6771664032,
-      "last_buy_at": "2026-09-05T23:28:28+00:00"
     },
     "SEIINR": {
       "qty": 184.1,
@@ -43,17 +37,23 @@
       "invested": 775.4725331753399,
       "last_buy_at": "2026-09-06T06:34:23+00:00"
     },
-    "PENGUINR": {
-      "qty": 944.0,
-      "avg_cost": 0.88033896951,
-      "invested": 831.0399872174401,
-      "last_buy_at": "2026-09-06T06:34:24+00:00"
+    "GASINR": {
+      "qty": 5.7275,
+      "avg_cost": 125.08841395049998,
+      "invested": 716.4438909014887,
+      "last_buy_at": "2026-09-06T11:29:15+00:00"
     },
-    "PYTHINR": {
-      "qty": 125.7,
-      "avg_cost": 5.5583277749999995,
-      "invested": 698.6818013175,
-      "last_buy_at": "2026-09-06T06:34:26+00:00"
+    "CHILLGUYINR": {
+      "qty": 489.0,
+      "avg_cost": 1.4311442145,
+      "invested": 699.8295208905,
+      "last_buy_at": "2026-09-06T11:29:15+00:00"
+    },
+    "BONKINR": {
+      "qty": 2239239.0,
+      "avg_cost": 0.0003328987662,
+      "invested": 745.4399003269218,
+      "last_buy_at": "2026-09-06T11:29:16+00:00"
     }
   }
 }

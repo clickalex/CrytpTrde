@@ -1,23 +1,17 @@
 {
-  "cash_inr": 4542.792454033133,
-  "realized_pnl": -1125.356218605634,
-  "total_trades": 249,
-  "sell_count": 121,
-  "gross_gains": 359.44,
-  "gross_losses": -1484.78,
-  "total_tds": 664.76,
+  "cash_inr": 4556.633284425723,
+  "realized_pnl": -1104.4183021579856,
+  "total_trades": 253,
+  "sell_count": 123,
+  "gross_gains": 391.73,
+  "gross_losses": -1496.13,
+  "total_tds": 675.12,
   "holdings": {
     "HMSTRINR": {
       "qty": 32558.0,
       "avg_cost": 0.017492207732999997,
       "invested": 569.5112993710139,
       "last_buy_at": "2026-09-04T18:05:24+00:00"
-    },
-    "DOTINR": {
-      "qty": 5.6076,
-      "avg_cost": 90.89117787749998,
-      "invested": 509.6813690658689,
-      "last_buy_at": "2026-09-05T17:30:10+00:00"
     },
     "SHIBINR": {
       "qty": 937584.0,
@@ -43,11 +37,17 @@
       "invested": 505.30999990183113,
       "last_buy_at": "2026-09-06T06:49:10+00:00"
     },
-    "PYTHINR": {
-      "qty": 90.8,
-      "avg_cost": 5.558327775,
-      "invested": 504.69616197,
-      "last_buy_at": "2026-09-06T06:49:13+00:00"
+    "ICPINR": {
+      "qty": 1.89,
+      "avg_cost": 267.6810536399999,
+      "invested": 505.91719137959984,
+      "last_buy_at": "2026-09-06T11:41:11+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 353.0,
+      "avg_cost": 1.4311442145,
+      "invested": 505.1939077185,
+      "last_buy_at": "2026-09-06T11:41:11+00:00"
     }
   }
 }

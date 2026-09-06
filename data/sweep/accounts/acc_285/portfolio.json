@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1018.7484551225523,
-  "realized_pnl": -497.43450100799294,
-  "total_trades": 170,
-  "sell_count": 80,
-  "gross_gains": 998.34,
-  "gross_losses": -1495.76,
-  "total_tds": 714.32,
+  "cash_inr": 867.8960239170723,
+  "realized_pnl": -321.72846790305744,
+  "total_trades": 179,
+  "sell_count": 84,
+  "gross_gains": 1236.88,
+  "gross_losses": -1558.59,
+  "total_tds": 749.28,
   "holdings": {
     "TRXINR": {
       "qty": 24.5,
       "avg_cost": 32.242307096999994,
       "invested": 789.9365238764999,
       "last_buy_at": "2026-09-02T16:56:52+00:00"
-    },
-    "JUPINR": {
-      "qty": 48.3,
-      "avg_cost": 21.65244081,
-      "invested": 1045.812891123,
-      "last_buy_at": "2026-09-04T17:55:44+00:00"
     },
     "APEINR": {
       "qty": 62.5,
@@ -49,23 +43,35 @@
       "invested": 747.6377496588001,
       "last_buy_at": "2026-09-06T01:33:51+00:00"
     },
-    "TRBINR": {
-      "qty": 0.544,
-      "avg_cost": 1833.84756555,
-      "invested": 997.6130756592,
-      "last_buy_at": "2026-09-06T06:32:46+00:00"
+    "RENDERINR": {
+      "qty": 6.81,
+      "avg_cost": 149.49397963500002,
+      "invested": 1018.0540013143501,
+      "last_buy_at": "2026-09-06T11:27:59+00:00"
     },
-    "DOGEINR": {
-      "qty": 65.0,
-      "avg_cost": 9.139693562999998,
-      "invested": 594.0800815949999,
-      "last_buy_at": "2026-09-06T06:32:46+00:00"
+    "SUSHIINR": {
+      "qty": 25.0,
+      "avg_cost": 24.4366122,
+      "invested": 610.915305,
+      "last_buy_at": "2026-09-06T11:27:59+00:00"
     },
-    "HMSTRINR": {
-      "qty": 37445.0,
-      "avg_cost": 0.018137174054999997,
-      "invested": 679.1464824894749,
-      "last_buy_at": "2026-09-06T06:32:48+00:00"
+    "FILINR": {
+      "qty": 10.96,
+      "avg_cost": 79.91973989999998,
+      "invested": 875.9203493039998,
+      "last_buy_at": "2026-09-06T11:27:59+00:00"
+    },
+    "ORCAINR": {
+      "qty": 3.8,
+      "avg_cost": 138.19705399500003,
+      "invested": 525.1488051810001,
+      "last_buy_at": "2026-09-06T11:27:59+00:00"
+    },
+    "BIOINR": {
+      "qty": 208.7,
+      "avg_cost": 2.7705509832,
+      "invested": 578.21399019384,
+      "last_buy_at": "2026-09-06T11:28:01+00:00"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1415.7127487571843,
-  "realized_pnl": -99.02329752757828,
-  "total_trades": 93,
-  "sell_count": 40,
-  "gross_gains": 655.39,
+  "cash_inr": 1505.4928878943579,
+  "realized_pnl": -24.96928008689406,
+  "total_trades": 97,
+  "sell_count": 42,
+  "gross_gains": 729.44,
   "gross_losses": -754.43,
-  "total_tds": 339.32,
+  "total_tds": 353.38,
   "holdings": {
     "USDTINR": {
       "qty": 8.66,
@@ -49,12 +49,6 @@
       "invested": 583.7337802296,
       "last_buy_at": "2026-09-05T11:18:51+00:00"
     },
-    "DOTINR": {
-      "qty": 8.0711,
-      "avg_cost": 91.0774569705,
-      "invested": 735.0952629546025,
-      "last_buy_at": "2026-09-05T19:44:43+00:00"
-    },
     "DOGEINR": {
       "qty": 56.0,
       "avg_cost": 9.121065653699999,
@@ -73,17 +67,23 @@
       "invested": 587.0090874648,
       "last_buy_at": "2026-09-05T23:35:23+00:00"
     },
-    "FARTCOININR": {
-      "qty": 34.66,
-      "avg_cost": 17.179739577,
-      "invested": 595.4497737388199,
-      "last_buy_at": "2026-09-06T01:43:14+00:00"
-    },
     "APEINR": {
       "qty": 42.65,
       "avg_cost": 14.225313102,
       "invested": 606.7096038003,
       "last_buy_at": "2026-09-06T06:41:20+00:00"
+    },
+    "ICPINR": {
+      "qty": 2.45,
+      "avg_cost": 267.68105363999996,
+      "invested": 655.8185814179999,
+      "last_buy_at": "2026-09-06T11:34:53+00:00"
+    },
+    "RIFINR": {
+      "qty": 87.0,
+      "avg_cost": 7.413106700999999,
+      "invested": 644.9402829869999,
+      "last_buy_at": "2026-09-06T11:34:53+00:00"
     }
   }
 }
