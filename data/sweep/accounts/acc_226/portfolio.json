@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1997.1526662763395,
-  "realized_pnl": -2143.144969732233,
-  "total_trades": 199,
-  "sell_count": 97,
+  "cash_inr": 691.2850360710988,
+  "realized_pnl": -2180.3939375479817,
+  "total_trades": 205,
+  "sell_count": 99,
   "gross_gains": 681.37,
-  "gross_losses": -2824.5,
-  "total_tds": 1126.64,
+  "gross_losses": -2861.75,
+  "total_tds": 1142.15,
   "holdings": {
     "USDTINR": {
       "qty": 10.32,
@@ -25,17 +25,29 @@
       "invested": 1623.3922504799998,
       "last_buy_at": "2026-09-07T13:01:04+00:00"
     },
-    "TRUMPINR": {
-      "qty": 3.805,
-      "avg_cost": 227.991588825,
-      "invested": 867.507995479125,
-      "last_buy_at": "2026-09-07T13:01:04+00:00"
+    "BTCINR": {
+      "qty": 0.00012,
+      "avg_cost": 7871853.6194298,
+      "invested": 944.622434331576,
+      "last_buy_at": "2026-09-07T18:32:32+00:00"
     },
-    "BONKINR": {
-      "qty": 2255365.0,
-      "avg_cost": 0.00031877760915,
-      "invested": 718.9598624605898,
-      "last_buy_at": "2026-09-07T13:01:04+00:00"
+    "SOLINR": {
+      "qty": 0.05,
+      "avg_cost": 10333.081558799999,
+      "invested": 516.65407794,
+      "last_buy_at": "2026-09-07T18:32:32+00:00"
+    },
+    "ARBINR": {
+      "qty": 41.3,
+      "avg_cost": 16.634923305,
+      "invested": 687.0223324965,
+      "last_buy_at": "2026-09-07T18:32:32+00:00"
+    },
+    "TOKENINR": {
+      "qty": 3160.4591,
+      "avg_cost": 0.21872770919999995,
+      "invested": 691.2799789632936,
+      "last_buy_at": "2026-09-07T18:32:32+00:00"
     }
   }
 }

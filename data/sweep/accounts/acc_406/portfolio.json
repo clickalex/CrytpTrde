@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2207.72534108373,
-  "realized_pnl": -230.22878012400952,
-  "total_trades": 150,
-  "sell_count": 69,
-  "gross_gains": 706.12,
-  "gross_losses": -936.37,
-  "total_tds": 462.81,
+  "cash_inr": 2179.5265133136563,
+  "realized_pnl": -230.90915406958743,
+  "total_trades": 156,
+  "sell_count": 72,
+  "gross_gains": 750.12,
+  "gross_losses": -981.05,
+  "total_tds": 479.11,
   "holdings": {
     "TRXINR": {
       "qty": 24.2,
@@ -43,12 +43,6 @@
       "invested": 588.9820434498,
       "last_buy_at": "2026-09-06T14:47:30+00:00"
     },
-    "POPCATINR": {
-      "qty": 103.87,
-      "avg_cost": 5.325779358900001,
-      "invested": 553.1887020089431,
-      "last_buy_at": "2026-09-07T01:29:31+00:00"
-    },
     "BIOINR": {
       "qty": 203.9,
       "avg_cost": 2.7519230738999996,
@@ -67,17 +61,23 @@
       "invested": 654.2158801678498,
       "last_buy_at": "2026-09-07T13:09:52+00:00"
     },
-    "DOTINR": {
-      "qty": 5.2569,
-      "avg_cost": 99.89967487499999,
-      "invested": 525.1626008503874,
-      "last_buy_at": "2026-09-07T13:09:52+00:00"
+    "NEARINR": {
+      "qty": 2.4,
+      "avg_cost": 228.091738875,
+      "invested": 547.4201733,
+      "last_buy_at": "2026-09-07T18:44:24+00:00"
     },
-    "JUPINR": {
-      "qty": 21.5,
-      "avg_cost": 25.621387291499993,
-      "invested": 550.8598267672498,
-      "last_buy_at": "2026-09-07T13:09:52+00:00"
+    "FARTCOININR": {
+      "qty": 32.04,
+      "avg_cost": 17.1326690535,
+      "invested": 548.9307164741399,
+      "last_buy_at": "2026-09-07T18:44:24+00:00"
+    },
+    "PENGUINR": {
+      "qty": 634.0,
+      "avg_cost": 0.8581657484399999,
+      "invested": 544.0770845109599,
+      "last_buy_at": "2026-09-07T18:44:24+00:00"
     }
   }
 }

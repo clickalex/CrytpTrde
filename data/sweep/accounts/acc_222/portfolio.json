@@ -1,29 +1,35 @@
 {
-  "cash_inr": 4478.964726328834,
-  "realized_pnl": -1392.4779032129395,
-  "total_trades": 149,
-  "sell_count": 73,
+  "cash_inr": 4394.260201402228,
+  "realized_pnl": -1434.066832338486,
+  "total_trades": 154,
+  "sell_count": 75,
   "gross_gains": 468.31,
-  "gross_losses": -1860.76,
-  "total_tds": 714.53,
+  "gross_losses": -1902.35,
+  "total_tds": 738.09,
   "holdings": {
-    "BONKINR": {
-      "qty": 4043789.0,
-      "avg_cost": 0.00031537250745,
-      "invested": 1275.299876528728,
-      "last_buy_at": "2026-09-07T06:27:39+00:00"
-    },
     "ARBINR": {
       "qty": 62.2,
       "avg_cost": 16.382545179,
       "invested": 1018.9943101338,
       "last_buy_at": "2026-09-07T13:00:52+00:00"
     },
-    "ONEINR": {
-      "qty": 15296.9,
-      "avg_cost": 0.073199671545,
-      "invested": 1119.7280556567105,
-      "last_buy_at": "2026-09-07T13:00:52+00:00"
+    "BTCINR": {
+      "qty": 0.00011,
+      "avg_cost": 7871853.619429799,
+      "invested": 865.9038981372779,
+      "last_buy_at": "2026-09-07T18:32:16+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 547.0,
+      "avg_cost": 1.32047840925,
+      "invested": 722.30168985975,
+      "last_buy_at": "2026-09-07T18:32:16+00:00"
+    },
+    "TOKENINR": {
+      "qty": 3778.1221,
+      "avg_cost": 0.2187277092,
+      "invested": 826.3799920108934,
+      "last_buy_at": "2026-09-07T18:32:16+00:00"
     }
   }
 }

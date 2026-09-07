@@ -1,18 +1,12 @@
 {
-  "cash_inr": 4582.245784404263,
-  "realized_pnl": -470.16001388668735,
-  "total_trades": 95,
-  "sell_count": 45,
+  "cash_inr": 3243.630832511923,
+  "realized_pnl": -480.86775020554717,
+  "total_trades": 99,
+  "sell_count": 46,
   "gross_gains": 714.78,
-  "gross_losses": -1184.91,
-  "total_tds": 391.64,
+  "gross_losses": -1195.62,
+  "total_tds": 405.3,
   "holdings": {
-    "TRUMPINR": {
-      "qty": 6.109,
-      "avg_cost": 225.13731239999998,
-      "invested": 1375.3638414516,
-      "last_buy_at": "2026-09-04T17:51:41+00:00"
-    },
     "POPCATINR": {
       "qty": 114.3,
       "avg_cost": 5.2022943472500005,
@@ -36,6 +30,24 @@
       "avg_cost": 0.00031537250744999995,
       "invested": 514.8998624834063,
       "last_buy_at": "2026-09-07T06:26:48+00:00"
+    },
+    "BTCINR": {
+      "qty": 0.00011,
+      "avg_cost": 7871853.619429799,
+      "invested": 865.9038981372779,
+      "last_buy_at": "2026-09-07T18:31:11+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 767.0,
+      "avg_cost": 1.32047840925,
+      "invested": 1012.8069398947499,
+      "last_buy_at": "2026-09-07T18:31:11+00:00"
+    },
+    "TOKENINR": {
+      "qty": 3707.3492,
+      "avg_cost": 0.21872770919999998,
+      "invested": 810.8999977204526,
+      "last_buy_at": "2026-09-07T18:31:11+00:00"
     }
   }
 }

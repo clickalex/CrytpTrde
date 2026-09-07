@@ -1,11 +1,11 @@
 {
-  "cash_inr": 580.7261969917837,
-  "realized_pnl": -234.08933317275404,
-  "total_trades": 120,
-  "sell_count": 55,
+  "cash_inr": 682.5477806950853,
+  "realized_pnl": -310.3806579376988,
+  "total_trades": 128,
+  "sell_count": 59,
   "gross_gains": 1031.14,
-  "gross_losses": -1265.25,
-  "total_tds": 635.38,
+  "gross_losses": -1341.54,
+  "total_tds": 665.8,
   "holdings": {
     "USDTINR": {
       "qty": 6.36,
@@ -31,12 +31,6 @@
       "invested": 784.0132493193,
       "last_buy_at": "2026-09-05T21:57:41+00:00"
     },
-    "PENGUINR": {
-      "qty": 957.0,
-      "avg_cost": 0.8815908451350001,
-      "invested": 843.682438794195,
-      "last_buy_at": "2026-09-06T11:31:03+00:00"
-    },
     "DOGEINR": {
       "qty": 97.0,
       "avg_cost": 8.9239703553,
@@ -49,23 +43,29 @@
       "invested": 914.4029058664499,
       "last_buy_at": "2026-09-07T01:25:42+00:00"
     },
-    "ORCAINR": {
-      "qty": 3.4,
-      "avg_cost": 156.804933285,
-      "invested": 533.136773169,
-      "last_buy_at": "2026-09-07T06:33:22+00:00"
+    "ARBINR": {
+      "qty": 32.7,
+      "avg_cost": 16.634923305,
+      "invested": 543.9619920735,
+      "last_buy_at": "2026-09-07T18:39:19+00:00"
     },
-    "FILINR": {
-      "qty": 13.89,
-      "avg_cost": 83.47506667499998,
-      "invested": 1159.4686761157498,
-      "last_buy_at": "2026-09-07T13:06:11+00:00"
+    "FARTCOININR": {
+      "qty": 65.4,
+      "avg_cost": 17.132669053499995,
+      "invested": 1120.4765560989,
+      "last_buy_at": "2026-09-07T18:39:19+00:00"
     },
-    "JUPINR": {
-      "qty": 22.6,
-      "avg_cost": 25.6213872915,
-      "invested": 579.0433527879001,
-      "last_buy_at": "2026-09-07T13:06:11+00:00"
+    "SUSHIINR": {
+      "qty": 23.3,
+      "avg_cost": 24.0269984955,
+      "invested": 559.82906494515,
+      "last_buy_at": "2026-09-07T18:39:19+00:00"
+    },
+    "POLYXINR": {
+      "qty": 186.0009,
+      "avg_cost": 3.669497832,
+      "invested": 682.5298993000488,
+      "last_buy_at": "2026-09-07T18:39:19+00:00"
     }
   }
 }
