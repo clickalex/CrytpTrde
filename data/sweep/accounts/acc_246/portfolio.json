@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2304.540956511883,
-  "realized_pnl": -1094.9375866326873,
-  "total_trades": 103,
-  "sell_count": 46,
-  "gross_gains": 150.6,
+  "cash_inr": 2001.0924519687164,
+  "realized_pnl": -967.8754419510873,
+  "total_trades": 106,
+  "sell_count": 47,
+  "gross_gains": 277.66,
   "gross_losses": -1245.54,
-  "total_tds": 329.69,
+  "total_tds": 338.0,
   "holdings": {
     "HMSTRINR": {
       "qty": 30818.0,
@@ -43,12 +43,6 @@
       "invested": 554.2521092608499,
       "last_buy_at": "2026-09-05T06:13:29+00:00"
     },
-    "ORCAINR": {
-      "qty": 5.44,
-      "avg_cost": 129.303729555,
-      "invested": 703.4122887792,
-      "last_buy_at": "2026-09-05T17:11:50+00:00"
-    },
     "BTCINR": {
       "qty": 7e-05,
       "avg_cost": 7953126.68695545,
@@ -72,6 +66,18 @@
       "avg_cost": 0.007312956650999999,
       "invested": 576.1293508790819,
       "last_buy_at": "2026-09-06T14:35:03+00:00"
+    },
+    "TOKENINR": {
+      "qty": 2801.27,
+      "avg_cost": 0.22323446144999998,
+      "invested": 625.3399998260414,
+      "last_buy_at": "2026-09-07T01:21:28+00:00"
+    },
+    "BONKINR": {
+      "qty": 1526185.0,
+      "avg_cost": 0.00032779111364999997,
+      "invested": 500.2698807859252,
+      "last_buy_at": "2026-09-07T01:21:28+00:00"
     }
   }
 }
