@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1984.9130819178467,
-  "realized_pnl": -1291.7780359390463,
-  "total_trades": 155,
-  "sell_count": 73,
+  "cash_inr": 1345.4475613923469,
+  "realized_pnl": -1301.7183220444072,
+  "total_trades": 158,
+  "sell_count": 74,
   "gross_gains": 479.08,
-  "gross_losses": -1770.85,
-  "total_tds": 551.95,
+  "gross_losses": -1780.79,
+  "total_tds": 557.22,
   "holdings": {
     "RIFINR": {
       "qty": 102.0,
@@ -49,17 +49,23 @@
       "invested": 565.82845354035,
       "last_buy_at": "2026-09-04T23:21:04+00:00"
     },
-    "TOKENINR": {
-      "qty": 2454.33,
-      "avg_cost": 0.21872770919999995,
-      "invested": 536.8299785208359,
-      "last_buy_at": "2026-09-07T18:33:38+00:00"
-    },
     "SHIBINR": {
       "qty": 975901.0,
       "avg_cost": 0.00054511672215,
       "invested": 531.9799542629071,
       "last_buy_at": "2026-09-07T18:33:40+00:00"
+    },
+    "LINKINR": {
+      "qty": 0.46,
+      "avg_cost": 1270.64374437,
+      "invested": 584.4961224102,
+      "last_buy_at": "2026-09-07T21:48:56+00:00"
+    },
+    "HMSTRINR": {
+      "qty": 32545.0,
+      "avg_cost": 0.017716543845000002,
+      "invested": 576.5849194355251,
+      "last_buy_at": "2026-09-07T21:48:56+00:00"
     }
   }
 }

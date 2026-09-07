@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2230.1592074900736,
-  "realized_pnl": -467.38163078713035,
-  "total_trades": 154,
-  "sell_count": 71,
-  "gross_gains": 653.76,
-  "gross_losses": -1121.15,
-  "total_tds": 496.48,
+  "cash_inr": 2131.465488067999,
+  "realized_pnl": -443.6325627465702,
+  "total_trades": 158,
+  "sell_count": 73,
+  "gross_gains": 692.13,
+  "gross_losses": -1135.77,
+  "total_tds": 507.58,
   "holdings": {
-    "SEIINR": {
-      "qty": 117.4,
-      "avg_cost": 4.4977387454999995,
-      "invested": 528.0345287217,
-      "last_buy_at": "2026-08-31T21:10:16+00:00"
-    },
     "TRXINR": {
       "qty": 21.5,
       "avg_cost": 32.242307096999994,
@@ -73,11 +67,17 @@
       "invested": 545.7092098457999,
       "last_buy_at": "2026-09-07T18:40:08+00:00"
     },
-    "SUSHIINR": {
-      "qty": 23.2,
-      "avg_cost": 24.0269984955,
-      "invested": 557.4263650956,
-      "last_buy_at": "2026-09-07T18:40:08+00:00"
+    "GASINR": {
+      "qty": 5.3177,
+      "avg_cost": 125.17454299349997,
+      "invested": 665.6406672765348,
+      "last_buy_at": "2026-09-07T21:53:21+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 386.0,
+      "avg_cost": 1.376061687,
+      "invested": 531.159811182,
+      "last_buy_at": "2026-09-07T21:53:21+00:00"
     }
   }
 }
