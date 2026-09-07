@@ -1,11 +1,11 @@
 {
-  "cash_inr": 926.6591216956905,
-  "realized_pnl": -957.7409696779691,
-  "total_trades": 223,
-  "sell_count": 106,
-  "gross_gains": 923.36,
-  "gross_losses": -1881.13,
-  "total_tds": 873.63,
+  "cash_inr": 823.5043739127004,
+  "realized_pnl": -972.8005711690953,
+  "total_trades": 229,
+  "sell_count": 109,
+  "gross_gains": 946.31,
+  "gross_losses": -1919.14,
+  "total_tds": 892.27,
   "holdings": {
     "APEINR": {
       "qty": 46.59,
@@ -43,18 +43,6 @@
       "invested": 613.2708341759999,
       "last_buy_at": "2026-09-07T01:32:47+00:00"
     },
-    "NEARINR": {
-      "qty": 2.5,
-      "avg_cost": 239.108244375,
-      "invested": 597.7706109375,
-      "last_buy_at": "2026-09-07T06:40:47+00:00"
-    },
-    "SUIINR": {
-      "qty": 8.3,
-      "avg_cost": 79.67737677900001,
-      "invested": 661.3222272657001,
-      "last_buy_at": "2026-09-07T06:40:47+00:00"
-    },
     "FARTCOININR": {
       "qty": 39.49,
       "avg_cost": 17.473179223499997,
@@ -67,11 +55,23 @@
       "invested": 642.1581706820281,
       "last_buy_at": "2026-09-07T06:40:47+00:00"
     },
-    "POLYXINR": {
-      "qty": 164.7087,
-      "avg_cost": 3.750619372499999,
-      "invested": 617.7596410392906,
-      "last_buy_at": "2026-09-07T06:40:47+00:00"
+    "TRUMPINR": {
+      "qty": 3.83,
+      "avg_cost": 227.99158882499998,
+      "invested": 873.20778519975,
+      "last_buy_at": "2026-09-07T13:13:06+00:00"
+    },
+    "DOTINR": {
+      "qty": 5.2464,
+      "avg_cost": 99.899674875,
+      "invested": 524.1136542642,
+      "last_buy_at": "2026-09-07T13:13:06+00:00"
+    },
+    "XDBINR": {
+      "qty": 75422.0,
+      "avg_cost": 0.007278905634000001,
+      "invested": 548.9896207275481,
+      "last_buy_at": "2026-09-07T13:13:06+00:00"
     }
   }
 }

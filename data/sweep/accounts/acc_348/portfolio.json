@@ -1,18 +1,12 @@
 {
-  "cash_inr": 245.18126596917773,
-  "realized_pnl": -651.2407700240237,
-  "total_trades": 118,
-  "sell_count": 56,
-  "gross_gains": 1291.82,
-  "gross_losses": -1943.05,
-  "total_tds": 1119.71,
+  "cash_inr": 180.83583259566126,
+  "realized_pnl": -640.7248987844937,
+  "total_trades": 124,
+  "sell_count": 59,
+  "gross_gains": 1335.96,
+  "gross_losses": -1976.68,
+  "total_tds": 1145.2,
   "holdings": {
-    "ONDOINR": {
-      "qty": 23.7,
-      "avg_cost": 36.569790757499995,
-      "invested": 866.7040409527499,
-      "last_buy_at": "2026-09-05T01:35:40+00:00"
-    },
     "ADAINR": {
       "qty": 169.8,
       "avg_cost": 21.295906631999998,
@@ -25,23 +19,29 @@
       "invested": 1038.0452532450001,
       "last_buy_at": "2026-09-05T17:19:51+00:00"
     },
-    "BRISEINR": {
-      "qty": 425371443.0,
-      "avg_cost": 1.62914086335e-06,
-      "invested": 692.9899998934553,
-      "last_buy_at": "2026-09-06T17:32:02+00:00"
-    },
     "TRXINR": {
       "qty": 23.8,
       "avg_cost": 33.33494414249999,
       "invested": 793.3716705914999,
       "last_buy_at": "2026-09-06T23:14:14+00:00"
     },
-    "RENDERINR": {
-      "qty": 6.3,
-      "avg_cost": 155.0322774,
-      "invested": 976.7033476199999,
-      "last_buy_at": "2026-09-07T06:34:20+00:00"
+    "DOTINR": {
+      "qty": 9.1844,
+      "avg_cost": 99.89967487499999,
+      "invested": 917.51857392195,
+      "last_buy_at": "2026-09-07T13:07:04+00:00"
+    },
+    "ORCAINR": {
+      "qty": 6.01,
+      "avg_cost": 157.22556349500002,
+      "invested": 944.92563660495,
+      "last_buy_at": "2026-09-07T13:07:04+00:00"
+    },
+    "POLYXINR": {
+      "qty": 194.1495,
+      "avg_cost": 3.7255818599999997,
+      "invested": 723.3198553280699,
+      "last_buy_at": "2026-09-07T13:07:04+00:00"
     }
   }
 }

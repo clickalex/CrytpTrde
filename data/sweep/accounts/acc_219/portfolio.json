@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1774.710110651345,
-  "realized_pnl": -986.954836097507,
-  "total_trades": 122,
-  "sell_count": 58,
+  "cash_inr": 1594.2823357372001,
+  "realized_pnl": -1029.4370580090963,
+  "total_trades": 125,
+  "sell_count": 59,
   "gross_gains": 846.21,
-  "gross_losses": -1833.16,
-  "total_tds": 645.19,
+  "gross_losses": -1875.64,
+  "total_tds": 655.64,
   "holdings": {
     "RIFINR": {
       "qty": 130.0,
@@ -31,17 +31,23 @@
       "invested": 623.0712977388899,
       "last_buy_at": "2026-09-07T01:20:07+00:00"
     },
-    "GASINR": {
-      "qty": 8.6936,
-      "avg_cost": 124.9822548975,
-      "invested": 1086.545731176906,
-      "last_buy_at": "2026-09-07T06:27:28+00:00"
-    },
     "BONKINR": {
       "qty": 2411687.0,
       "avg_cost": 0.00031537250744999995,
       "invested": 760.579776374568,
       "last_buy_at": "2026-09-07T06:27:29+00:00"
+    },
+    "ARBINR": {
+      "qty": 32.4,
+      "avg_cost": 16.382545179,
+      "invested": 530.7944637996,
+      "last_buy_at": "2026-09-07T13:00:42+00:00"
+    },
+    "ONEINR": {
+      "qty": 9334.0,
+      "avg_cost": 0.073199671545,
+      "invested": 683.24573420103,
+      "last_buy_at": "2026-09-07T13:00:42+00:00"
     }
   }
 }

@@ -1,22 +1,16 @@
 {
-  "cash_inr": 3104.6897379954653,
-  "realized_pnl": -364.7895659534355,
-  "total_trades": 60,
-  "sell_count": 26,
-  "gross_gains": 559.54,
-  "gross_losses": -924.35,
-  "total_tds": 223.64,
+  "cash_inr": 4142.936505706563,
+  "realized_pnl": -288.9388604310195,
+  "total_trades": 63,
+  "sell_count": 28,
+  "gross_gains": 675.66,
+  "gross_losses": -964.62,
+  "total_tds": 240.42,
   "holdings": {
     "TRUMPINR": {
       "qty": 5.683,
       "avg_cost": 225.1373124,
       "invested": 1279.4553463692,
-      "last_buy_at": "2026-09-04T17:52:04+00:00"
-    },
-    "FILINR": {
-      "qty": 13.72,
-      "avg_cost": 74.60177224499999,
-      "invested": 1023.5363152013999,
       "last_buy_at": "2026-09-04T17:52:04+00:00"
     },
     "DOGEINR": {
@@ -43,17 +37,17 @@
       "invested": 720.6794459297432,
       "last_buy_at": "2026-09-06T14:32:40+00:00"
     },
-    "ONEINR": {
-      "qty": 7538.9,
-      "avg_cost": 0.07647457818,
-      "invested": 576.534197441202,
-      "last_buy_at": "2026-09-06T14:32:41+00:00"
-    },
     "BONKINR": {
       "qty": 2461121.0,
       "avg_cost": 0.00031537250744999995,
       "invested": 776.1699009078513,
       "last_buy_at": "2026-09-07T06:27:13+00:00"
+    },
+    "ARBINR": {
+      "qty": 37.9,
+      "avg_cost": 16.382545179,
+      "invested": 620.8984622841,
+      "last_buy_at": "2026-09-07T13:00:28+00:00"
     }
   }
 }
