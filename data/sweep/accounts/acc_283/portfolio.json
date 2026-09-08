@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1286.3604985633797,
-  "realized_pnl": -2033.3166736738474,
-  "total_trades": 429,
-  "sell_count": 210,
-  "gross_gains": 881.26,
+  "cash_inr": 1351.3819230548643,
+  "realized_pnl": -1995.4812890803473,
+  "total_trades": 433,
+  "sell_count": 212,
+  "gross_gains": 919.1,
   "gross_losses": -2914.57,
-  "total_tds": 1439.78,
+  "total_tds": 1451.82,
   "holdings": {
-    "RIFINR": {
-      "qty": 86.0,
-      "avg_cost": 7.401088694999999,
-      "invested": 636.49362777,
-      "last_buy_at": "2026-09-06T19:32:09+00:00"
-    },
     "GALAINR": {
       "qty": 2835.55,
       "avg_cost": 0.18800167385999997,
@@ -37,12 +31,6 @@
       "invested": 755.8923170799001,
       "last_buy_at": "2026-09-08T06:20:43+00:00"
     },
-    "XRPINR": {
-      "qty": 3.8,
-      "avg_cost": 139.062350427,
-      "invested": 528.4369316226,
-      "last_buy_at": "2026-09-08T11:46:10+00:00"
-    },
     "SEIINR": {
       "qty": 109.8,
       "avg_cost": 4.9398010662,
@@ -60,6 +48,18 @@
       "avg_cost": 0.017590354782,
       "invested": 551.2817188678799,
       "last_buy_at": "2026-09-08T11:46:13+00:00"
+    },
+    "DOTINR": {
+      "qty": 4.5634,
+      "avg_cost": 119.8946323575,
+      "invested": 547.1271653002154,
+      "last_buy_at": "2026-09-08T17:07:35+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 23.9,
+      "avg_cost": 24.208270086000002,
+      "invested": 578.5776550554,
+      "last_buy_at": "2026-09-08T17:07:35+00:00"
     }
   }
 }

@@ -1,23 +1,17 @@
 {
-  "cash_inr": 779.4545138813941,
-  "realized_pnl": -934.601461731235,
-  "total_trades": 226,
-  "sell_count": 107,
-  "gross_gains": 987.72,
-  "gross_losses": -1922.33,
-  "total_tds": 856.43,
+  "cash_inr": 791.346149398419,
+  "realized_pnl": -887.6812048416847,
+  "total_trades": 232,
+  "sell_count": 110,
+  "gross_gains": 1061.33,
+  "gross_losses": -1949.02,
+  "total_tds": 876.55,
   "holdings": {
     "TRXINR": {
       "qty": 23.1,
       "avg_cost": 32.242307097,
       "invested": 744.7972939407,
       "last_buy_at": "2026-09-02T16:55:56+00:00"
-    },
-    "APTINR": {
-      "qty": 10.09,
-      "avg_cost": 57.93680392499999,
-      "invested": 584.5823516032499,
-      "last_buy_at": "2026-09-02T20:03:29+00:00"
     },
     "DOGEINR": {
       "qty": 77.0,
@@ -67,17 +61,23 @@
       "invested": 553.6498788680359,
       "last_buy_at": "2026-09-08T06:19:42+00:00"
     },
-    "JUPINR": {
-      "qty": 35.2,
-      "avg_cost": 24.465655714499995,
-      "invested": 861.1910811503999,
-      "last_buy_at": "2026-09-08T11:45:09+00:00"
+    "CAKEINR": {
+      "qty": 2.49,
+      "avg_cost": 229.40370452999997,
+      "invested": 571.2152242797,
+      "last_buy_at": "2026-09-08T17:06:03+00:00"
     },
-    "SUSHIINR": {
-      "qty": 21.7,
-      "avg_cost": 23.825696895,
-      "invested": 517.0176226215,
-      "last_buy_at": "2026-09-08T11:45:09+00:00"
+    "SEIINR": {
+      "qty": 172.1,
+      "avg_cost": 5.10735209985,
+      "invested": 878.975296384185,
+      "last_buy_at": "2026-09-08T17:06:03+00:00"
+    },
+    "BIOINR": {
+      "qty": 186.9,
+      "avg_cost": 2.8224287091,
+      "invested": 527.51192573079,
+      "last_buy_at": "2026-09-08T17:06:03+00:00"
     }
   }
 }
