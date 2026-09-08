@@ -1,18 +1,12 @@
 {
-  "cash_inr": 542.3993330648545,
-  "realized_pnl": -916.8101994858555,
-  "total_trades": 154,
-  "sell_count": 73,
+  "cash_inr": 537.548904701739,
+  "realized_pnl": -975.3459400817421,
+  "total_trades": 160,
+  "sell_count": 76,
   "gross_gains": 701.95,
-  "gross_losses": -1618.78,
-  "total_tds": 865.18,
+  "gross_losses": -1677.32,
+  "total_tds": 890.41,
   "holdings": {
-    "USDTINR": {
-      "qty": 9.37,
-      "avg_cost": 100.64078524499999,
-      "invested": 943.0041577456499,
-      "last_buy_at": "2026-08-31T07:17:37+00:00"
-    },
     "TRXINR": {
       "qty": 19.4,
       "avg_cost": 32.819171385000004,
@@ -43,17 +37,23 @@
       "invested": 807.8053458725249,
       "last_buy_at": "2026-09-07T18:44:08+00:00"
     },
-    "TOKENINR": {
-      "qty": 3775.4247,
-      "avg_cost": 0.21872770919999998,
-      "invested": 825.7899958880972,
-      "last_buy_at": "2026-09-07T18:44:08+00:00"
+    "LINKINR": {
+      "qty": 0.69,
+      "avg_cost": 1268.6307283649999,
+      "invested": 875.3552025718499,
+      "last_buy_at": "2026-09-08T00:50:18+00:00"
     },
-    "CHILLGUYINR": {
-      "qty": 589.0,
-      "avg_cost": 1.376061687,
-      "invested": 810.500333643,
-      "last_buy_at": "2026-09-07T21:56:10+00:00"
+    "APEINR": {
+      "qty": 56.71,
+      "avg_cost": 14.436629707499998,
+      "invested": 818.7012707123249,
+      "last_buy_at": "2026-09-08T00:50:18+00:00"
+    },
+    "POLYXINR": {
+      "qty": 217.3628,
+      "avg_cost": 3.7095578520000005,
+      "invested": 806.3198814727057,
+      "last_buy_at": "2026-09-08T00:50:18+00:00"
     }
   }
 }
