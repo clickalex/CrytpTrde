@@ -1,24 +1,12 @@
 {
-  "cash_inr": 5421.024469015288,
-  "realized_pnl": -473.47343004357396,
-  "total_trades": 101,
-  "sell_count": 47,
-  "gross_gains": 396.41,
-  "gross_losses": -869.87,
-  "total_tds": 286.86,
+  "cash_inr": 5469.157776728889,
+  "realized_pnl": -470.59176283380066,
+  "total_trades": 105,
+  "sell_count": 49,
+  "gross_gains": 407.71,
+  "gross_losses": -878.29,
+  "total_tds": 297.67,
   "holdings": {
-    "ADAINR": {
-      "qty": 26.9,
-      "avg_cost": 21.056548012499995,
-      "invested": 566.4211415362498,
-      "last_buy_at": "2026-09-05T06:11:23+00:00"
-    },
-    "POPCATINR": {
-      "qty": 98.18,
-      "avg_cost": 5.20229434725,
-      "invested": 510.76125901300503,
-      "last_buy_at": "2026-09-05T06:11:23+00:00"
-    },
     "RIFINR": {
       "qty": 70.0,
       "avg_cost": 7.391073689999999,
@@ -48,6 +36,18 @@
       "avg_cost": 5.3918783919,
       "invested": 543.5013419035199,
       "last_buy_at": "2026-09-08T00:42:24+00:00"
+    },
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 7811664.6411804,
+      "invested": 468.699878470824,
+      "last_buy_at": "2026-09-08T06:17:08+00:00"
+    },
+    "BOMEINR": {
+      "qty": 6087.0,
+      "avg_cost": 0.090753972309,
+      "invested": 552.419429444883,
+      "last_buy_at": "2026-09-08T06:17:08+00:00"
     }
   }
 }
