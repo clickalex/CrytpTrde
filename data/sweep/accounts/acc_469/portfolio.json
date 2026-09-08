@@ -1,23 +1,17 @@
 {
-  "cash_inr": 561.7079218802596,
-  "realized_pnl": -21.237563967853816,
-  "total_trades": 108,
-  "sell_count": 48,
-  "gross_gains": 1148.0,
-  "gross_losses": -1169.22,
-  "total_tds": 523.71,
+  "cash_inr": 741.4601416450048,
+  "realized_pnl": -35.3619450098538,
+  "total_trades": 114,
+  "sell_count": 51,
+  "gross_gains": 1184.1,
+  "gross_losses": -1219.44,
+  "total_tds": 544.46,
   "holdings": {
     "SEIINR": {
       "qty": 121.6,
       "avg_cost": 4.885018988849999,
       "invested": 594.0183090441599,
       "last_buy_at": "2026-09-06T01:50:41+00:00"
-    },
-    "RIFINR": {
-      "qty": 121.0,
-      "avg_cost": 7.413106700999999,
-      "invested": 896.985910821,
-      "last_buy_at": "2026-09-06T11:40:22+00:00"
     },
     "SUIINR": {
       "qty": 8.5,
@@ -67,17 +61,23 @@
       "invested": 1028.3296968944999,
       "last_buy_at": "2026-09-08T11:56:00+00:00"
     },
-    "ICPINR": {
-      "qty": 2.1,
-      "avg_cost": 299.85926470500004,
-      "invested": 629.7044558805001,
-      "last_buy_at": "2026-09-08T17:22:39+00:00"
+    "DOTINR": {
+      "qty": 4.6479,
+      "avg_cost": 124.186062,
+      "invested": 577.2043975698,
+      "last_buy_at": "2026-09-08T20:25:38+00:00"
     },
-    "FILINR": {
-      "qty": 6.51,
-      "avg_cost": 86.098997985,
-      "invested": 560.50447688235,
-      "last_buy_at": "2026-09-08T17:22:39+00:00"
+    "FARTCOININR": {
+      "qty": 33.29,
+      "avg_cost": 16.714041844499995,
+      "invested": 556.4104530034049,
+      "last_buy_at": "2026-09-08T20:25:38+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 30.8,
+      "avg_cost": 23.991945977999997,
+      "invested": 738.9519361224,
+      "last_buy_at": "2026-09-08T20:25:38+00:00"
     }
   }
 }
