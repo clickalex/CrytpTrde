@@ -1,18 +1,12 @@
 {
-  "cash_inr": 3402.352664925758,
-  "realized_pnl": -1603.948396292837,
-  "total_trades": 131,
-  "sell_count": 64,
-  "gross_gains": 786.13,
+  "cash_inr": 1173.8412902387645,
+  "realized_pnl": -1544.518221989987,
+  "total_trades": 135,
+  "sell_count": 65,
+  "gross_gains": 845.56,
   "gross_losses": -2390.09,
-  "total_tds": 914.14,
+  "total_tds": 926.03,
   "holdings": {
-    "ARBINR": {
-      "qty": 68.9,
-      "avg_cost": 16.382545179,
-      "invested": 1128.7573628331002,
-      "last_buy_at": "2026-09-07T13:00:01+00:00"
-    },
     "CHILLGUYINR": {
       "qty": 517.0,
       "avg_cost": 1.3204784092500002,
@@ -24,6 +18,24 @@
       "avg_cost": 0.090753972309,
       "invested": 2268.123275946528,
       "last_buy_at": "2026-09-08T06:16:29+00:00"
+    },
+    "BTCINR": {
+      "qty": 0.00017,
+      "avg_cost": 7777433.65454055,
+      "invested": 1322.1637212718936,
+      "last_buy_at": "2026-09-08T11:42:05+00:00"
+    },
+    "ORCAINR": {
+      "qty": 9.2,
+      "avg_cost": 141.54206566500002,
+      "invested": 1302.187004118,
+      "last_buy_at": "2026-09-08T11:42:05+00:00"
+    },
+    "JUPINR": {
+      "qty": 31.9,
+      "avg_cost": 24.4656557145,
+      "invested": 780.4544172925499,
+      "last_buy_at": "2026-09-08T11:42:05+00:00"
     }
   }
 }
