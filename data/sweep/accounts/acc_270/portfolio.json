@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2157.144027345673,
-  "realized_pnl": -977.1248683877787,
-  "total_trades": 243,
-  "sell_count": 116,
-  "gross_gains": 930.76,
-  "gross_losses": -1907.87,
-  "total_tds": 730.95,
+  "cash_inr": 2142.6561843106547,
+  "realized_pnl": -984.1319553407786,
+  "total_trades": 247,
+  "sell_count": 118,
+  "gross_gains": 933.11,
+  "gross_losses": -1917.22,
+  "total_tds": 741.66,
   "holdings": {
-    "APEINR": {
-      "qty": 38.16,
-      "avg_cost": 14.145193062,
-      "invested": 539.78056724592,
-      "last_buy_at": "2026-09-05T21:52:43+00:00"
-    },
     "TRXINR": {
       "qty": 17.1,
       "avg_cost": 33.337948643999994,
@@ -61,17 +55,23 @@
       "invested": 547.7097844103887,
       "last_buy_at": "2026-09-08T20:14:20+00:00"
     },
-    "PUMPINR": {
-      "qty": 1227.0,
-      "avg_cost": 0.43799622867,
-      "invested": 537.42137257809,
-      "last_buy_at": "2026-09-08T20:14:21+00:00"
-    },
     "PEPEINR": {
       "qty": 1478506.0,
       "avg_cost": 0.00036474648210000005,
       "invested": 539.2798622637426,
       "last_buy_at": "2026-09-08T20:14:23+00:00"
+    },
+    "SEIINR": {
+      "qty": 107.6,
+      "avg_cost": 5.002895597700001,
+      "invested": 538.3115663125201,
+      "last_buy_at": "2026-09-08T23:01:13+00:00"
+    },
+    "GALAINR": {
+      "qty": 2807.79,
+      "avg_cost": 0.19077583024499997,
+      "invested": 535.6584684036085,
+      "last_buy_at": "2026-09-08T23:01:15+00:00"
     }
   }
 }
