@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1364.2788180258067,
-  "realized_pnl": -1073.2461196953222,
-  "total_trades": 217,
-  "sell_count": 104,
+  "cash_inr": 691.9452967928011,
+  "realized_pnl": -1115.9914314941166,
+  "total_trades": 222,
+  "sell_count": 106,
   "gross_gains": 1015.35,
-  "gross_losses": -2088.58,
-  "total_tds": 984.24,
+  "gross_losses": -2131.33,
+  "total_tds": 998.25,
   "holdings": {
     "DOGEINR": {
       "qty": 88.0,
@@ -43,23 +43,29 @@
       "invested": 701.822617050555,
       "last_buy_at": "2026-09-08T20:25:11+00:00"
     },
-    "ORCAINR": {
-      "qty": 5.34,
-      "avg_cost": 144.49649214,
-      "invested": 771.6112680275999,
-      "last_buy_at": "2026-09-09T01:38:01+00:00"
-    },
     "HMSTRINR": {
       "qty": 39304.0,
       "avg_cost": 0.017472177723,
       "invested": 686.7264732247919,
       "last_buy_at": "2026-09-09T01:38:01+00:00"
     },
-    "TOSHIINR": {
-      "qty": 54659.0,
-      "avg_cost": 0.012264375122999997,
-      "invested": 670.3584798480568,
-      "last_buy_at": "2026-09-09T06:38:54+00:00"
+    "BTCINR": {
+      "qty": 8e-05,
+      "avg_cost": 7890768.5587730985,
+      "invested": 631.261484701848,
+      "last_buy_at": "2026-09-09T11:56:29+00:00"
+    },
+    "RIFINR": {
+      "qty": 94.0,
+      "avg_cost": 7.815709902,
+      "invested": 734.676730788,
+      "last_buy_at": "2026-09-09T11:56:29+00:00"
+    },
+    "PENGUINR": {
+      "qty": 848.0,
+      "avg_cost": 0.8155819471799999,
+      "invested": 691.6134912086399,
+      "last_buy_at": "2026-09-09T11:56:29+00:00"
     }
   }
 }
