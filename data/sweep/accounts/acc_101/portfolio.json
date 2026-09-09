@@ -1,10 +1,35 @@
 {
-  "cash_inr": 9163.421962458986,
+  "cash_inr": 1190.6422903817665,
   "realized_pnl": -627.3491699641845,
-  "total_trades": 12,
+  "total_trades": 16,
   "sell_count": 6,
   "gross_gains": 112.02,
   "gross_losses": -739.37,
   "total_tds": 209.22,
-  "holdings": {}
+  "holdings": {
+    "TRUMPINR": {
+      "qty": 17.847,
+      "avg_cost": 205.36769253,
+      "invested": 3665.19720858291,
+      "last_buy_at": "2026-09-09T22:41:15+00:00"
+    },
+    "DOGEINR": {
+      "qty": 255.0,
+      "avg_cost": 8.601387044249996,
+      "invested": 2193.3536962837493,
+      "last_buy_at": "2026-09-09T22:41:15+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 89.96,
+      "avg_cost": 14.694015336000001,
+      "invested": 1321.87361962656,
+      "last_buy_at": "2026-09-09T22:41:15+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 640.0,
+      "avg_cost": 1.2380549180999998,
+      "invested": 792.3551475839998,
+      "last_buy_at": "2026-09-09T22:41:15+00:00"
+    }
+  }
 }

@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2088.5236389244415,
-  "realized_pnl": -51.9796243785575,
-  "total_trades": 127,
-  "sell_count": 57,
+  "cash_inr": 2041.2840148938712,
+  "realized_pnl": -209.0523160224123,
+  "total_trades": 135,
+  "sell_count": 61,
   "gross_gains": 869.85,
-  "gross_losses": -921.78,
-  "total_tds": 384.25,
+  "gross_losses": -1078.85,
+  "total_tds": 405.94,
   "holdings": {
     "ONDOINR": {
       "qty": 16.9,
@@ -31,22 +31,10 @@
       "invested": 575.6029982703,
       "last_buy_at": "2026-09-06T01:38:26+00:00"
     },
-    "RENDERINR": {
-      "qty": 3.92,
-      "avg_cost": 155.03227740000003,
-      "invested": 607.726527408,
-      "last_buy_at": "2026-09-07T06:33:35+00:00"
-    },
     "CAKEINR": {
       "qty": 2.49,
       "avg_cost": 222.71368119,
       "invested": 554.5570661631,
-      "last_buy_at": "2026-09-07T18:39:36+00:00"
-    },
-    "PYTHINR": {
-      "qty": 98.8,
-      "avg_cost": 5.48251418715,
-      "invested": 541.67240169042,
       "last_buy_at": "2026-09-07T18:39:36+00:00"
     },
     "APEINR": {
@@ -73,17 +61,29 @@
       "invested": 564.4136337839999,
       "last_buy_at": "2026-09-09T17:03:12+00:00"
     },
-    "FILINR": {
-      "qty": 7.72,
-      "avg_cost": 84.48658218,
-      "invested": 652.2364144296,
-      "last_buy_at": "2026-09-09T17:03:12+00:00"
+    "JUPINR": {
+      "qty": 22.7,
+      "avg_cost": 23.389042677,
+      "invested": 530.9312687679,
+      "last_buy_at": "2026-09-09T22:46:02+00:00"
     },
-    "FARTCOININR": {
-      "qty": 32.07,
-      "avg_cost": 16.276386126000002,
-      "invested": 521.9837030608201,
-      "last_buy_at": "2026-09-09T17:03:12+00:00"
+    "ORCAINR": {
+      "qty": 4.42,
+      "avg_cost": 144.546567165,
+      "invested": 638.8958268693,
+      "last_buy_at": "2026-09-09T22:46:02+00:00"
+    },
+    "GASINR": {
+      "qty": 4.1003,
+      "avg_cost": 124.89412285349998,
+      "invested": 512.1033719362059,
+      "last_buy_at": "2026-09-09T22:46:02+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 23.0,
+      "avg_cost": 22.181233073999998,
+      "invested": 510.168360702,
+      "last_buy_at": "2026-09-09T22:46:02+00:00"
     }
   }
 }

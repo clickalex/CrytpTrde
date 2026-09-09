@@ -1,24 +1,12 @@
 {
-  "cash_inr": 4733.41657291484,
-  "realized_pnl": 192.7245853043056,
-  "total_trades": 82,
-  "sell_count": 36,
+  "cash_inr": 4537.27664448984,
+  "realized_pnl": 109.59945814580578,
+  "total_trades": 90,
+  "sell_count": 40,
   "gross_gains": 648.41,
-  "gross_losses": -455.69,
-  "total_tds": 209.63,
+  "gross_losses": -538.82,
+  "total_tds": 229.93,
   "holdings": {
-    "ONDOINR": {
-      "qty": 14.6,
-      "avg_cost": 36.825173385,
-      "invested": 537.6475314209999,
-      "last_buy_at": "2026-09-05T14:23:07+00:00"
-    },
-    "DOGEINR": {
-      "qty": 60.0,
-      "avg_cost": 8.97344448,
-      "invested": 538.4066687999999,
-      "last_buy_at": "2026-09-06T01:39:27+00:00"
-    },
     "USDTINR": {
       "qty": 5.57,
       "avg_cost": 99.39892462499999,
@@ -36,12 +24,6 @@
       "avg_cost": 34.08506801699999,
       "invested": 518.0930338583998,
       "last_buy_at": "2026-09-08T17:12:34+00:00"
-    },
-    "CAKEINR": {
-      "qty": 2.26,
-      "avg_cost": 228.732699195,
-      "invested": 516.9359001807,
-      "last_buy_at": "2026-09-09T01:33:18+00:00"
     },
     "XRPINR": {
       "qty": 3.6,
@@ -61,11 +43,29 @@
       "invested": 521.869892544,
       "last_buy_at": "2026-09-09T17:03:43+00:00"
     },
-    "SUIINR": {
-      "qty": 6.5,
-      "avg_cost": 79.691397786,
-      "invested": 517.994085609,
-      "last_buy_at": "2026-09-09T17:03:43+00:00"
+    "TRBINR": {
+      "qty": 0.295,
+      "avg_cost": 1766.646882,
+      "invested": 521.16083019,
+      "last_buy_at": "2026-09-09T22:46:16+00:00"
+    },
+    "JUPINR": {
+      "qty": 26.5,
+      "avg_cost": 23.389042676999996,
+      "invested": 619.8096309404999,
+      "last_buy_at": "2026-09-09T22:46:16+00:00"
+    },
+    "ARBINR": {
+      "qty": 36.7,
+      "avg_cost": 15.220804599,
+      "invested": 558.6035287833,
+      "last_buy_at": "2026-09-09T22:46:16+00:00"
+    },
+    "FILINR": {
+      "qty": 6.19,
+      "avg_cost": 81.44202066,
+      "invested": 504.1261078854,
+      "last_buy_at": "2026-09-09T22:46:16+00:00"
     }
   }
 }

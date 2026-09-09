@@ -1,10 +1,35 @@
 {
-  "cash_inr": 9408.520240989787,
+  "cash_inr": 588.2237652740612,
   "realized_pnl": -521.6261779968522,
-  "total_trades": 4,
+  "total_trades": 8,
   "sell_count": 2,
   "gross_gains": 0.0,
   "gross_losses": -521.63,
   "total_tds": 69.85,
-  "holdings": {}
+  "holdings": {
+    "TRUMPINR": {
+      "qty": 22.906,
+      "avg_cost": 205.36769253,
+      "invested": 4704.15236509218,
+      "last_buy_at": "2026-09-09T22:41:11+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 160.07,
+      "avg_cost": 14.694015336000001,
+      "invested": 2352.07103483352,
+      "last_buy_at": "2026-09-09T22:41:11+00:00"
+    },
+    "ALTINR": {
+      "qty": 1815.0,
+      "avg_cost": 0.6478706734500002,
+      "invested": 1175.8852723117502,
+      "last_buy_at": "2026-09-09T22:41:11+00:00"
+    },
+    "HMSTRINR": {
+      "qty": 36490.0,
+      "avg_cost": 0.016119150547500002,
+      "invested": 588.1878034782751,
+      "last_buy_at": "2026-09-09T22:41:12+00:00"
+    }
+  }
 }
