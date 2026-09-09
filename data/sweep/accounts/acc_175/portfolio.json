@@ -1,10 +1,29 @@
 {
-  "cash_inr": 9885.164810746204,
+  "cash_inr": 634.1359397124052,
   "realized_pnl": 273.74543958303263,
-  "total_trades": 28,
+  "total_trades": 31,
   "sell_count": 14,
   "gross_gains": 1331.21,
   "gross_losses": -1057.47,
   "total_tds": 388.59,
-  "holdings": {}
+  "holdings": {
+    "XDBINR": {
+      "qty": 856924.2,
+      "avg_cost": 0.0069213699555,
+      "invested": 5931.089412020872,
+      "last_buy_at": "2026-09-09T06:20:46+00:00"
+    },
+    "POLYXINR": {
+      "qty": 626.5235,
+      "avg_cost": 3.7866733905,
+      "invested": 2372.439865972927,
+      "last_buy_at": "2026-09-09T06:20:46+00:00"
+    },
+    "CHRINR": {
+      "qty": 584.0,
+      "avg_cost": 1.62243081,
+      "invested": 947.49959304,
+      "last_buy_at": "2026-09-09T06:20:49+00:00"
+    }
+  }
 }
