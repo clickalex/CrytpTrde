@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2451.8122084519573,
-  "realized_pnl": -564.3534922940526,
-  "total_trades": 111,
-  "sell_count": 51,
+  "cash_inr": 3456.6174991571256,
+  "realized_pnl": -718.6937609585472,
+  "total_trades": 118,
+  "sell_count": 55,
   "gross_gains": 756.18,
-  "gross_losses": -1320.5,
-  "total_tds": 444.42,
+  "gross_losses": -1474.84,
+  "total_tds": 471.59,
   "holdings": {
     "BTCINR": {
       "qty": 0.00011,
@@ -25,41 +25,35 @@
       "invested": 648.6429705455699,
       "last_buy_at": "2026-09-08T00:41:56+00:00"
     },
-    "BOMEINR": {
-      "qty": 5718.0,
-      "avg_cost": 0.09075397230900002,
-      "invested": 518.9312136628621,
-      "last_buy_at": "2026-09-08T06:16:32+00:00"
-    },
     "ORCAINR": {
       "qty": 3.75,
       "avg_cost": 141.542065665,
       "invested": 530.78274624375,
       "last_buy_at": "2026-09-08T11:42:08+00:00"
     },
-    "ARBINR": {
-      "qty": 53.5,
-      "avg_cost": 16.426611201,
-      "invested": 878.8236992535,
-      "last_buy_at": "2026-09-09T01:27:34+00:00"
-    },
-    "ONEINR": {
-      "qty": 9990.9,
-      "avg_cost": 0.0705056352,
-      "invested": 704.41475071968,
-      "last_buy_at": "2026-09-09T01:27:36+00:00"
-    },
-    "POLYXINR": {
-      "qty": 202.3359,
-      "avg_cost": 3.7866733905,
-      "invested": 766.179968472869,
-      "last_buy_at": "2026-09-09T06:22:41+00:00"
-    },
     "HMSTRINR": {
       "qty": 34992.0,
       "avg_cost": 0.017516243744999997,
       "invested": 612.9284011250398,
       "last_buy_at": "2026-09-09T06:22:44+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 39.87,
+      "avg_cost": 16.276386126000002,
+      "invested": 648.93951484362,
+      "last_buy_at": "2026-09-09T16:57:13+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 22.3,
+      "avg_cost": 23.2738701195,
+      "invested": 519.00730366485,
+      "last_buy_at": "2026-09-09T16:57:13+00:00"
+    },
+    "TOKENINR": {
+      "qty": 2299.8197,
+      "avg_cost": 0.2235349116,
+      "invested": 514.0899933354385,
+      "last_buy_at": "2026-09-09T16:57:13+00:00"
     }
   }
 }

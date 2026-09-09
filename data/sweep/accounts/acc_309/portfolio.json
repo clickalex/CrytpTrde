@@ -1,11 +1,11 @@
 {
-  "cash_inr": 678.4163981247513,
-  "realized_pnl": 8.597949223934563,
-  "total_trades": 129,
-  "sell_count": 58,
+  "cash_inr": 766.5751525539467,
+  "realized_pnl": -115.3725703589169,
+  "total_trades": 136,
+  "sell_count": 62,
   "gross_gains": 1294.6,
-  "gross_losses": -1285.98,
-  "total_tds": 610.19,
+  "gross_losses": -1409.95,
+  "total_tds": 634.53,
   "holdings": {
     "USDTINR": {
       "qty": 6.36,
@@ -49,29 +49,11 @@
       "invested": 730.2611150834999,
       "last_buy_at": "2026-09-07T13:05:09+00:00"
     },
-    "CAKEINR": {
-      "qty": 2.76,
-      "avg_cost": 229.593989625,
-      "invested": 633.679411365,
-      "last_buy_at": "2026-09-08T23:03:07+00:00"
-    },
     "ADAINR": {
       "qty": 47.5,
       "avg_cost": 21.9378684525,
       "invested": 1042.04875149375,
       "last_buy_at": "2026-09-09T01:31:50+00:00"
-    },
-    "ARBINR": {
-      "qty": 31.7,
-      "avg_cost": 16.426611201,
-      "invested": 520.7235750717,
-      "last_buy_at": "2026-09-09T01:31:51+00:00"
-    },
-    "DOTINR": {
-      "qty": 6.169,
-      "avg_cost": 117.15552849000001,
-      "invested": 722.73245525481,
-      "last_buy_at": "2026-09-09T11:49:52+00:00"
     },
     "RENDERINR": {
       "qty": 4.34,
@@ -79,11 +61,23 @@
       "invested": 663.7993386024,
       "last_buy_at": "2026-09-09T11:49:53+00:00"
     },
-    "GASINR": {
-      "qty": 5.3438,
-      "avg_cost": 126.9492018795,
-      "invested": 678.391145003672,
-      "last_buy_at": "2026-09-09T11:49:53+00:00"
+    "ICPINR": {
+      "qty": 2.39,
+      "avg_cost": 283.62494159999994,
+      "invested": 677.863610424,
+      "last_buy_at": "2026-09-09T17:02:02+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 53.94,
+      "avg_cost": 16.276386126000002,
+      "invested": 877.94826763644,
+      "last_buy_at": "2026-09-09T17:02:02+00:00"
+    },
+    "RIFINR": {
+      "qty": 99.0,
+      "avg_cost": 7.709550849,
+      "invested": 763.245534051,
+      "last_buy_at": "2026-09-09T17:02:02+00:00"
     }
   }
 }

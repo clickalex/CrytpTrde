@@ -1,23 +1,17 @@
 {
-  "cash_inr": 599.6230194058428,
-  "realized_pnl": -1433.4068875675061,
-  "total_trades": 103,
-  "sell_count": 47,
+  "cash_inr": 534.2026027293733,
+  "realized_pnl": -1511.5076325122711,
+  "total_trades": 109,
+  "sell_count": 50,
   "gross_gains": 843.86,
-  "gross_losses": -2277.26,
-  "total_tds": 683.45,
+  "gross_losses": -2355.36,
+  "total_tds": 705.1,
   "holdings": {
     "USDTINR": {
       "qty": 7.11,
       "avg_cost": 100.20012502499998,
       "invested": 712.4228889277499,
       "last_buy_at": "2026-08-31T15:21:30+00:00"
-    },
-    "HMSTRINR": {
-      "qty": 43994.0,
-      "avg_cost": 0.017552297763,
-      "invested": 772.195787785422,
-      "last_buy_at": "2026-09-04T09:57:06+00:00"
     },
     "BTCINR": {
       "qty": 0.00013,
@@ -49,17 +43,23 @@
       "invested": 565.720001051205,
       "last_buy_at": "2026-09-08T06:17:52+00:00"
     },
-    "BIOINR": {
-      "qty": 208.2,
-      "avg_cost": 2.7371008665,
-      "invested": 569.8644004053,
-      "last_buy_at": "2026-09-09T06:24:13+00:00"
+    "POPCATINR": {
+      "qty": 133.0,
+      "avg_cost": 5.16423732825,
+      "invested": 686.84356465725,
+      "last_buy_at": "2026-09-09T16:58:24+00:00"
     },
-    "PENGUINR": {
-      "qty": 1102.0,
-      "avg_cost": 0.81558194718,
-      "invested": 898.77130579236,
-      "last_buy_at": "2026-09-09T11:46:27+00:00"
+    "PEPEINR": {
+      "qty": 1994698.0,
+      "avg_cost": 0.00036013957980000005,
+      "invested": 718.3696995479005,
+      "last_buy_at": "2026-09-09T16:58:24+00:00"
+    },
+    "GALAINR": {
+      "qty": 4274.89,
+      "avg_cost": 0.18744083358,
+      "invested": 801.2889450628062,
+      "last_buy_at": "2026-09-09T16:58:26+00:00"
     }
   }
 }
