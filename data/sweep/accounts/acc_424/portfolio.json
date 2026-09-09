@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1099.6077016241225,
-  "realized_pnl": -1027.1873519894882,
-  "total_trades": 232,
-  "sell_count": 111,
-  "gross_gains": 856.57,
-  "gross_losses": -1883.78,
-  "total_tds": 911.63,
+  "cash_inr": 1127.1857968740776,
+  "realized_pnl": -1040.1181226153446,
+  "total_trades": 238,
+  "sell_count": 114,
+  "gross_gains": 863.62,
+  "gross_losses": -1903.76,
+  "total_tds": 934.49,
   "holdings": {
-    "TRXINR": {
-      "qty": 22.4,
-      "avg_cost": 33.2227760865,
-      "invested": 744.1901843375999,
-      "last_buy_at": "2026-09-05T23:38:21+00:00"
-    },
     "RENDERINR": {
       "qty": 3.59,
       "avg_cost": 149.49397963500002,
@@ -49,23 +43,29 @@
       "invested": 752.73998426135,
       "last_buy_at": "2026-09-08T11:53:34+00:00"
     },
-    "FARTCOININR": {
-      "qty": 46.63,
-      "avg_cost": 16.7140418445,
-      "invested": 779.3757712090351,
-      "last_buy_at": "2026-09-08T20:23:05+00:00"
-    },
-    "BONKINR": {
-      "qty": 2535105.0,
-      "avg_cost": 0.00030475660215000005,
-      "invested": 772.5899858934758,
-      "last_buy_at": "2026-09-08T20:23:05+00:00"
-    },
     "ADAINR": {
       "qty": 33.2,
       "avg_cost": 22.063056015000004,
       "invested": 732.4934596980002,
       "last_buy_at": "2026-09-08T23:08:54+00:00"
+    },
+    "ONDOINR": {
+      "qty": 19.7,
+      "avg_cost": 37.358973151499995,
+      "invested": 735.9717710845499,
+      "last_buy_at": "2026-09-09T01:36:32+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 31.0,
+      "avg_cost": 24.048030006,
+      "invested": 745.4889301860001,
+      "last_buy_at": "2026-09-09T01:36:32+00:00"
+    },
+    "BOMEINR": {
+      "qty": 8298.0,
+      "avg_cost": 0.09054365720399998,
+      "invested": 751.3312674787919,
+      "last_buy_at": "2026-09-09T01:36:32+00:00"
     }
   }
 }

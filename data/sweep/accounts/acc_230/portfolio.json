@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2814.150149501495,
-  "realized_pnl": -1370.0473791167979,
-  "total_trades": 252,
-  "sell_count": 122,
+  "cash_inr": 2193.088121510942,
+  "realized_pnl": -1399.9725779287478,
+  "total_trades": 257,
+  "sell_count": 124,
   "gross_gains": 737.58,
-  "gross_losses": -2107.63,
-  "total_tds": 823.11,
+  "gross_losses": -2137.56,
+  "total_tds": 834.98,
   "holdings": {
     "SHIBINR": {
       "qty": 1382374.0,
@@ -25,12 +25,6 @@
       "invested": 811.6961252399999,
       "last_buy_at": "2026-09-07T13:01:15+00:00"
     },
-    "ARBINR": {
-      "qty": 40.4,
-      "avg_cost": 16.634923305,
-      "invested": 672.050901522,
-      "last_buy_at": "2026-09-07T18:32:48+00:00"
-    },
     "SOLINR": {
       "qty": 0.056,
       "avg_cost": 10320.4626525,
@@ -49,11 +43,23 @@
       "invested": 542.440712814,
       "last_buy_at": "2026-09-08T20:12:01+00:00"
     },
-    "RENDERINR": {
-      "qty": 3.55,
-      "avg_cost": 153.059321415,
-      "invested": 543.36059102325,
-      "last_buy_at": "2026-09-08T20:12:01+00:00"
+    "TRBINR": {
+      "qty": 0.304,
+      "avg_cost": 1845.9657215999998,
+      "invested": 561.1735793664,
+      "last_buy_at": "2026-09-09T01:28:34+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 41.04,
+      "avg_cost": 16.697016336,
+      "invested": 685.24555042944,
+      "last_buy_at": "2026-09-09T01:28:34+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 44569.0,
+      "avg_cost": 0.012301430641500001,
+      "invested": 548.2624622610135,
+      "last_buy_at": "2026-09-09T01:28:34+00:00"
     }
   }
 }
