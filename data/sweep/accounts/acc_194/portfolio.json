@@ -1,41 +1,35 @@
 {
-  "cash_inr": 610.8125836592376,
-  "realized_pnl": -346.8246189251911,
-  "total_trades": 73,
-  "sell_count": 34,
-  "gross_gains": 1250.4,
-  "gross_losses": -1597.25,
-  "total_tds": 756.35,
+  "cash_inr": 6646.2230361572865,
+  "realized_pnl": 1106.897198900055,
+  "total_trades": 80,
+  "sell_count": 38,
+  "gross_gains": 2770.89,
+  "gross_losses": -1664.02,
+  "total_tds": 842.72,
   "holdings": {
-    "XDBINR": {
-      "qty": 661431.1,
-      "avg_cost": 0.0069213699555,
-      "invested": 4578.009343173316,
-      "last_buy_at": "2026-09-09T06:21:57+00:00"
-    },
     "USDTINR": {
       "qty": 11.22,
       "avg_cost": 99.04839944999999,
       "invested": 1111.323041829,
       "last_buy_at": "2026-09-09T16:56:39+00:00"
     },
-    "BNBINR": {
-      "qty": 0.018,
-      "avg_cost": 72426.61330905002,
-      "invested": 1303.6790395629002,
-      "last_buy_at": "2026-09-09T22:43:07+00:00"
+    "SUIINR": {
+      "qty": 17.1,
+      "avg_cost": 73.914742902,
+      "invested": 1263.9421036242002,
+      "last_buy_at": "2026-09-10T22:52:15+00:00"
     },
-    "LINKINR": {
-      "qty": 0.58,
-      "avg_cost": 1176.6028474199998,
-      "invested": 682.4296515035999,
-      "last_buy_at": "2026-09-09T22:43:07+00:00"
+    "ONDOINR": {
+      "qty": 18.3,
+      "avg_cost": 34.728031338,
+      "invested": 635.5229734854,
+      "last_buy_at": "2026-09-10T22:52:15+00:00"
     },
-    "FARTCOININR": {
-      "qty": 42.05,
-      "avg_cost": 14.519754249,
-      "invested": 610.55566617045,
-      "last_buy_at": "2026-09-10T01:20:43+00:00"
+    "ARBINR": {
+      "qty": 42.1,
+      "avg_cost": 14.4216072,
+      "invested": 607.14966312,
+      "last_buy_at": "2026-09-10T22:52:15+00:00"
     }
   }
 }

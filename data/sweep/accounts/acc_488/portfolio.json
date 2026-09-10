@@ -1,29 +1,17 @@
 {
-  "cash_inr": 1021.7249960480572,
-  "realized_pnl": -446.55352625306193,
-  "total_trades": 116,
-  "sell_count": 55,
+  "cash_inr": 1141.583460314109,
+  "realized_pnl": -686.6249092035338,
+  "total_trades": 121,
+  "sell_count": 57,
   "gross_gains": 846.37,
-  "gross_losses": -1292.92,
-  "total_tds": 501.12,
+  "gross_losses": -1532.99,
+  "total_tds": 544.12,
   "holdings": {
     "TRXINR": {
       "qty": 26.6,
       "avg_cost": 33.838698894,
       "invested": 900.1093905804,
       "last_buy_at": "2026-09-08T20:26:42+00:00"
-    },
-    "ORCAINR": {
-      "qty": 17.35,
-      "avg_cost": 144.54656716499997,
-      "invested": 2507.8829403127497,
-      "last_buy_at": "2026-09-09T22:49:12+00:00"
-    },
-    "POLYXINR": {
-      "qty": 547.7171,
-      "avg_cost": 3.701545848,
-      "invested": 2027.3999573836006,
-      "last_buy_at": "2026-09-09T22:49:13+00:00"
     },
     "BTCINR": {
       "qty": 0.00015,
@@ -42,6 +30,24 @@
       "avg_cost": 22.095104031,
       "invested": 680.5292041548,
       "last_buy_at": "2026-09-10T06:24:24+00:00"
+    },
+    "BRISEINR": {
+      "qty": 1328126943.0,
+      "avg_cost": 1.588379793e-06,
+      "invested": 2109.569998800063,
+      "last_buy_at": "2026-09-10T23:07:01+00:00"
+    },
+    "RIFINR": {
+      "qty": 164.0,
+      "avg_cost": 7.693526841000001,
+      "invested": 1261.738401924,
+      "last_buy_at": "2026-09-10T23:07:02+00:00"
+    },
+    "XDBINR": {
+      "qty": 79965.2,
+      "avg_cost": 0.009517259251499998,
+      "invested": 761.0495394980476,
+      "last_buy_at": "2026-09-10T23:07:02+00:00"
     }
   }
 }
