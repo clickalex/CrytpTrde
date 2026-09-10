@@ -1,11 +1,11 @@
 {
-  "cash_inr": 7254.374566174219,
-  "realized_pnl": -39.61005869036978,
-  "total_trades": 5,
-  "sell_count": 1,
+  "cash_inr": 7389.7333877853025,
+  "realized_pnl": -65.47489129916983,
+  "total_trades": 7,
+  "sell_count": 2,
   "gross_gains": 0.0,
-  "gross_losses": -39.61,
-  "total_tds": 9.61,
+  "gross_losses": -65.47,
+  "total_tds": 18.31,
   "holdings": {
     "TRUMPINR": {
       "qty": 4.845,
@@ -13,17 +13,17 @@
       "invested": 995.0064703078499,
       "last_buy_at": "2026-09-09T22:40:23+00:00"
     },
-    "ALTINR": {
-      "qty": 1382.0,
-      "avg_cost": 0.64787067345,
-      "invested": 895.3572707079,
-      "last_buy_at": "2026-09-09T22:40:23+00:00"
-    },
     "HMSTRINR": {
       "qty": 50005.0,
       "avg_cost": 0.016119150547500002,
       "invested": 806.0381231277375,
       "last_buy_at": "2026-09-09T22:40:24+00:00"
+    },
+    "TOKENINR": {
+      "qty": 3298.4659,
+      "avg_cost": 0.2199295098,
+      "invested": 725.4299884790158,
+      "last_buy_at": "2026-09-10T01:15:07+00:00"
     }
   }
 }
