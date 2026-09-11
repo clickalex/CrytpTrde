@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1690.325814778613,
-  "realized_pnl": -1408.1991281094602,
-  "total_trades": 125,
-  "sell_count": 59,
+  "cash_inr": 1192.6387746685014,
+  "realized_pnl": -1464.2692434687601,
+  "total_trades": 130,
+  "sell_count": 61,
   "gross_gains": 739.13,
-  "gross_losses": -2147.3,
-  "total_tds": 577.74,
+  "gross_losses": -2203.37,
+  "total_tds": 594.65,
   "holdings": {
     "ETHINR": {
       "qty": 0.0062,
@@ -31,23 +31,29 @@
       "invested": 668.719079613585,
       "last_buy_at": "2026-09-09T22:43:40+00:00"
     },
-    "ARBINR": {
-      "qty": 67.4,
-      "avg_cost": 14.421607199999999,
-      "invested": 972.01632528,
-      "last_buy_at": "2026-09-10T22:53:35+00:00"
-    },
     "BONKINR": {
       "qty": 3248233.0,
       "avg_cost": 0.00026910318435000003,
       "invested": 874.1098438107537,
       "last_buy_at": "2026-09-10T22:53:37+00:00"
     },
-    "TRBINR": {
-      "qty": 0.438,
-      "avg_cost": 1765.34493135,
-      "invested": 773.2210799313,
-      "last_buy_at": "2026-09-11T06:27:37+00:00"
+    "DOTINR": {
+      "qty": 6.4288,
+      "avg_cost": 105.17157350699999,
+      "invested": 676.1270117618016,
+      "last_buy_at": "2026-09-11T20:05:08+00:00"
+    },
+    "TRXINR": {
+      "qty": 20.8,
+      "avg_cost": 33.61536428249999,
+      "invested": 699.1995770759999,
+      "last_buy_at": "2026-09-11T20:05:08+00:00"
+    },
+    "PUMPINR": {
+      "qty": 2209.0,
+      "avg_cost": 0.35971894959,
+      "invested": 794.61915964431,
+      "last_buy_at": "2026-09-11T20:05:08+00:00"
     }
   }
 }
