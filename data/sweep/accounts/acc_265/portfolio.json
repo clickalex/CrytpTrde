@@ -1,23 +1,17 @@
 {
-  "cash_inr": 4835.123388230815,
-  "realized_pnl": -458.1786543100738,
-  "total_trades": 184,
-  "sell_count": 88,
-  "gross_gains": 815.44,
-  "gross_losses": -1273.62,
-  "total_tds": 486.07,
+  "cash_inr": 4838.788195903019,
+  "realized_pnl": -442.723899000275,
+  "total_trades": 190,
+  "sell_count": 91,
+  "gross_gains": 848.23,
+  "gross_losses": -1290.96,
+  "total_tds": 502.4,
   "holdings": {
     "TRXINR": {
       "qty": 15.7,
       "avg_cost": 33.849715399500006,
       "invested": 531.44053177215,
       "last_buy_at": "2026-09-09T01:30:00+00:00"
-    },
-    "DOTINR": {
-      "qty": 4.7341,
-      "avg_cost": 109.976772906,
-      "invested": 520.6410406142945,
-      "last_buy_at": "2026-09-09T22:44:34+00:00"
     },
     "ADAINR": {
       "qty": 24.4,
@@ -37,23 +31,29 @@
       "invested": 502.74924499799994,
       "last_buy_at": "2026-09-09T22:44:34+00:00"
     },
-    "JUPINR": {
-      "qty": 24.1,
-      "avg_cost": 22.8512369085,
-      "invested": 550.71480949485,
-      "last_buy_at": "2026-09-10T22:55:48+00:00"
-    },
-    "APEINR": {
-      "qty": 39.92,
-      "avg_cost": 13.639435309499998,
-      "invested": 544.48625755524,
-      "last_buy_at": "2026-09-10T22:55:48+00:00"
-    },
     "CHRINR": {
       "qty": 341.0,
       "avg_cost": 1.5745590861,
       "invested": 536.9246483601,
       "last_buy_at": "2026-09-10T22:55:48+00:00"
+    },
+    "RENDERINR": {
+      "qty": 3.74,
+      "avg_cost": 143.32473655500002,
+      "invested": 536.0345147157001,
+      "last_buy_at": "2026-09-11T06:30:33+00:00"
+    },
+    "ORCAINR": {
+      "qty": 3.67,
+      "avg_cost": 146.54956816499998,
+      "invested": 537.83691516555,
+      "last_buy_at": "2026-09-11T06:30:33+00:00"
+    },
+    "SEIINR": {
+      "qty": 117.8,
+      "avg_cost": 4.562235377699999,
+      "invested": 537.4313274930598,
+      "last_buy_at": "2026-09-11T06:30:33+00:00"
     }
   }
 }
