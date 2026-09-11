@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2019.4119224762567,
-  "realized_pnl": -801.4423276023066,
-  "total_trades": 99,
-  "sell_count": 44,
-  "gross_gains": 731.4,
+  "cash_inr": 2050.9178393296115,
+  "realized_pnl": -788.2147274739066,
+  "total_trades": 101,
+  "sell_count": 45,
+  "gross_gains": 744.63,
   "gross_losses": -1532.86,
-  "total_tds": 354.04,
+  "total_tds": 359.54,
   "holdings": {
-    "ORCAINR": {
-      "qty": 3.79,
-      "avg_cost": 141.542065665,
-      "invested": 536.44442887035,
-      "last_buy_at": "2026-09-08T11:42:33+00:00"
-    },
     "ETHINR": {
       "qty": 0.0024,
       "avg_cost": 245309.93607119998,
@@ -72,6 +66,12 @@
       "avg_cost": 0.08315558801549998,
       "invested": 504.83757484210037,
       "last_buy_at": "2026-09-11T06:27:06+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1423.0,
+      "avg_cost": 0.360269774865,
+      "invested": 512.663889632895,
+      "last_buy_at": "2026-09-11T16:57:18+00:00"
     }
   }
 }

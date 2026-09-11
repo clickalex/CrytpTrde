@@ -1,11 +1,11 @@
 {
-  "cash_inr": 562.7705874186498,
-  "realized_pnl": -1530.6601728847531,
-  "total_trades": 259,
-  "sell_count": 124,
+  "cash_inr": 559.3887315208,
+  "realized_pnl": -1574.9543736973528,
+  "total_trades": 263,
+  "sell_count": 126,
   "gross_gains": 1157.56,
-  "gross_losses": -2688.23,
-  "total_tds": 1071.2,
+  "gross_losses": -2732.52,
+  "total_tds": 1082.55,
   "holdings": {
     "TRXINR": {
       "qty": 25.6,
@@ -37,12 +37,6 @@
       "invested": 662.7149138609999,
       "last_buy_at": "2026-09-09T22:46:17+00:00"
     },
-    "APTINR": {
-      "qty": 9.51,
-      "avg_cost": 64.03594197,
-      "invested": 608.9818081346999,
-      "last_buy_at": "2026-09-10T06:19:58+00:00"
-    },
     "ETHINR": {
       "qty": 0.0022,
       "avg_cost": 245578.7388054,
@@ -61,17 +55,23 @@
       "invested": 557.0499801761896,
       "last_buy_at": "2026-09-10T22:59:53+00:00"
     },
-    "PENGUINR": {
-      "qty": 760.0,
-      "avg_cost": 0.749372749125,
-      "invested": 569.523289335,
-      "last_buy_at": "2026-09-10T22:59:53+00:00"
-    },
     "BRISEINR": {
       "qty": 355936431.0,
       "avg_cost": 1.5810688393499999e-06,
       "invested": 562.7599998435513,
       "last_buy_at": "2026-09-11T06:36:02+00:00"
+    },
+    "CAKEINR": {
+      "qty": 2.57,
+      "avg_cost": 221.121295395,
+      "invested": 568.28172916515,
+      "last_buy_at": "2026-09-11T17:08:51+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 25.2,
+      "avg_cost": 22.141173054,
+      "invested": 557.9575609607999,
+      "last_buy_at": "2026-09-11T17:08:54+00:00"
     }
   }
 }
