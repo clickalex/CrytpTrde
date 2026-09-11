@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2569.9103788038174,
-  "realized_pnl": -1945.1087255791447,
-  "total_trades": 352,
-  "sell_count": 172,
+  "cash_inr": 2068.6925745312356,
+  "realized_pnl": -1973.6349867097445,
+  "total_trades": 357,
+  "sell_count": 174,
   "gross_gains": 975.14,
-  "gross_losses": -2920.2,
-  "total_tds": 1032.71,
+  "gross_losses": -2948.73,
+  "total_tds": 1042.79,
   "holdings": {
     "HMSTRINR": {
       "qty": 36013.0,
@@ -37,23 +37,29 @@
       "invested": 525.9271713695999,
       "last_buy_at": "2026-09-11T06:30:54+00:00"
     },
-    "TRBINR": {
-      "qty": 0.294,
-      "avg_cost": 1764.94433115,
-      "invested": 518.8936333580999,
-      "last_buy_at": "2026-09-11T20:07:57+00:00"
-    },
-    "CAKEINR": {
-      "qty": 2.36,
-      "avg_cost": 219.098264385,
-      "invested": 517.0719039485999,
-      "last_buy_at": "2026-09-11T20:07:57+00:00"
-    },
     "BOMEINR": {
       "qty": 6035.0,
       "avg_cost": 0.08512153349699998,
       "invested": 513.7084546543949,
       "last_buy_at": "2026-09-11T20:07:58+00:00"
+    },
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 7728999.3878097,
+      "invested": 463.739963268582,
+      "last_buy_at": "2026-09-11T22:54:18+00:00"
+    },
+    "ONDOINR": {
+      "qty": 14.9,
+      "avg_cost": 34.8391978935,
+      "invested": 519.10404861315,
+      "last_buy_at": "2026-09-11T22:54:18+00:00"
+    },
+    "DOGEINR": {
+      "qty": 61.0,
+      "avg_cost": 8.454567070949999,
+      "invested": 515.72859132795,
+      "last_buy_at": "2026-09-11T22:54:18+00:00"
     }
   }
 }
