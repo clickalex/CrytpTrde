@@ -1,18 +1,12 @@
 {
-  "cash_inr": 916.677085881014,
-  "realized_pnl": -758.3189109125867,
-  "total_trades": 175,
-  "sell_count": 82,
+  "cash_inr": 874.7532207670134,
+  "realized_pnl": -786.8041658990865,
+  "total_trades": 179,
+  "sell_count": 84,
   "gross_gains": 1027.3,
-  "gross_losses": -1785.64,
-  "total_tds": 674.23,
+  "gross_losses": -1814.13,
+  "total_tds": 685.81,
   "holdings": {
-    "ICPINR": {
-      "qty": 2.21,
-      "avg_cost": 283.62494159999994,
-      "invested": 626.8111209359998,
-      "last_buy_at": "2026-09-09T17:08:58+00:00"
-    },
     "ORCAINR": {
       "qty": 5.95,
       "avg_cost": 144.546567165,
@@ -43,12 +37,6 @@
       "invested": 930.5261625659999,
       "last_buy_at": "2026-09-11T17:18:25+00:00"
     },
-    "ALTINR": {
-      "qty": 884.0,
-      "avg_cost": 0.6314460652499999,
-      "invested": 558.1983216809999,
-      "last_buy_at": "2026-09-11T17:18:25+00:00"
-    },
     "CAKEINR": {
       "qty": 3.41,
       "avg_cost": 219.098264385,
@@ -72,6 +60,18 @@
       "avg_cost": 140.200054995,
       "invested": 609.8702392282499,
       "last_buy_at": "2026-09-12T06:35:51+00:00"
+    },
+    "ONDOINR": {
+      "qty": 17.2,
+      "avg_cost": 35.0995880235,
+      "invested": 603.7129140041999,
+      "last_buy_at": "2026-09-12T17:50:19+00:00"
+    },
+    "ONEINR": {
+      "qty": 8465.9,
+      "avg_cost": 0.06888320439,
+      "invested": 583.1583200453009,
+      "last_buy_at": "2026-09-12T17:50:21+00:00"
     }
   }
 }

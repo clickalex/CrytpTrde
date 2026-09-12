@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1000.567122943378,
-  "realized_pnl": -801.4370972846167,
-  "total_trades": 106,
-  "sell_count": 48,
+  "cash_inr": 945.9505464774421,
+  "realized_pnl": -810.0180267563935,
+  "total_trades": 108,
+  "sell_count": 49,
   "gross_gains": 898.19,
-  "gross_losses": -1699.67,
-  "total_tds": 460.51,
+  "gross_losses": -1708.25,
+  "total_tds": 466.33,
   "holdings": {
-    "BRISEINR": {
-      "qty": 362906579.0,
-      "avg_cost": 1.6268374122e-06,
-      "invested": 590.3899998507148,
-      "last_buy_at": "2026-09-09T17:10:50+00:00"
-    },
     "BTCINR": {
       "qty": 0.00013,
       "avg_cost": 7818533.3322096,
@@ -66,6 +60,12 @@
       "avg_cost": 72.8541538725,
       "invested": 662.97280023975,
       "last_buy_at": "2026-09-12T11:33:40+00:00"
+    },
+    "POPCATINR": {
+      "qty": 128.78,
+      "avg_cost": 4.8967365446999995,
+      "invested": 630.601732226466,
+      "last_buy_at": "2026-09-12T17:53:23+00:00"
     }
   }
 }
