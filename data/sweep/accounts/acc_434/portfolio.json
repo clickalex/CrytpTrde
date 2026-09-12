@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1148.4027236359,
-  "realized_pnl": -1618.3534796857398,
-  "total_trades": 230,
-  "sell_count": 111,
+  "cash_inr": 538.2796429626579,
+  "realized_pnl": -1633.6353148970716,
+  "total_trades": 233,
+  "sell_count": 112,
   "gross_gains": 1151.06,
-  "gross_losses": -2769.41,
-  "total_tds": 1165.39,
+  "gross_losses": -2784.69,
+  "total_tds": 1173.65,
   "holdings": {
     "TRXINR": {
       "qty": 23.1,
@@ -43,17 +43,23 @@
       "invested": 623.6216422936499,
       "last_buy_at": "2026-09-11T23:02:09+00:00"
     },
-    "HMSTRINR": {
-      "qty": 51336.0,
-      "avg_cost": 0.016376536175999996,
-      "invested": 840.7058611311359,
-      "last_buy_at": "2026-09-11T23:02:09+00:00"
-    },
     "BIOINR": {
       "qty": 275.2,
       "avg_cost": 2.5701507331499998,
       "invested": 707.3054817628799,
       "last_buy_at": "2026-09-12T11:29:23+00:00"
+    },
+    "BTCINR": {
+      "qty": 8e-05,
+      "avg_cost": 7748609.1681999,
+      "invested": 619.888733455992,
+      "last_buy_at": "2026-09-12T14:52:52+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 70262.0,
+      "avg_cost": 0.011491216737,
+      "invested": 807.395870375094,
+      "last_buy_at": "2026-09-12T14:52:52+00:00"
     }
   }
 }
