@@ -1,18 +1,12 @@
 {
-  "cash_inr": 595.0613138158316,
-  "realized_pnl": -2398.3204702677954,
-  "total_trades": 324,
-  "sell_count": 158,
-  "gross_gains": 1037.36,
+  "cash_inr": 690.8313567405751,
+  "realized_pnl": -2367.726929410612,
+  "total_trades": 326,
+  "sell_count": 159,
+  "gross_gains": 1067.95,
   "gross_losses": -3435.69,
-  "total_tds": 1391.25,
+  "total_tds": 1399.2,
   "holdings": {
-    "BONKINR": {
-      "qty": 2838911.0,
-      "avg_cost": 0.00026910318435000003,
-      "invested": 763.9599901862429,
-      "last_buy_at": "2026-09-10T22:59:12+00:00"
-    },
     "SOLINR": {
       "qty": 0.066,
       "avg_cost": 10211.4993981,
@@ -54,6 +48,12 @@
       "avg_cost": 2.5464151713,
       "invested": 594.84258401568,
       "last_buy_at": "2026-09-12T06:25:58+00:00"
+    },
+    "BRISEINR": {
+      "qty": 427726770.0,
+      "avg_cost": 1.6151198563500002e-06,
+      "invested": 690.8299993194496,
+      "last_buy_at": "2026-09-12T11:22:29+00:00"
     }
   }
 }
