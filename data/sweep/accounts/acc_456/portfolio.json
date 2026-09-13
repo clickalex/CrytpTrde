@@ -1,18 +1,12 @@
 {
-  "cash_inr": 987.7681265094855,
-  "realized_pnl": -845.6798679419717,
-  "total_trades": 185,
-  "sell_count": 87,
+  "cash_inr": 1015.3784570259558,
+  "realized_pnl": -859.1927695550655,
+  "total_trades": 187,
+  "sell_count": 88,
   "gross_gains": 1027.3,
-  "gross_losses": -1873.0,
-  "total_tds": 704.53,
+  "gross_losses": -1886.51,
+  "total_tds": 711.44,
   "holdings": {
-    "BTCINR": {
-      "qty": 9e-05,
-      "avg_cost": 7818533.332209599,
-      "invested": 703.667999898864,
-      "last_buy_at": "2026-09-10T01:31:31+00:00"
-    },
     "JUPINR": {
       "qty": 32.5,
       "avg_cost": 22.8512369085,
@@ -72,6 +66,12 @@
       "avg_cost": 7.883811935999999,
       "invested": 646.4725787519999,
       "last_buy_at": "2026-09-13T00:29:54+00:00"
+    },
+    "ETHINR": {
+      "qty": 0.0026,
+      "avg_cost": 252167.81089499997,
+      "invested": 655.6363083269999,
+      "last_buy_at": "2026-09-13T05:26:18+00:00"
     }
   }
 }

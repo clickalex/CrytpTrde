@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1485.6230893307982,
-  "realized_pnl": -636.1975781041356,
-  "total_trades": 212,
-  "sell_count": 100,
+  "cash_inr": 1402.4421711866785,
+  "realized_pnl": -668.5537311132815,
+  "total_trades": 216,
+  "sell_count": 102,
   "gross_gains": 1108.84,
-  "gross_losses": -1745.05,
-  "total_tds": 712.59,
+  "gross_losses": -1777.41,
+  "total_tds": 723.69,
   "holdings": {
-    "BTCINR": {
-      "qty": 6e-05,
-      "avg_cost": 7818533.332209601,
-      "invested": 469.11199993257605,
-      "last_buy_at": "2026-09-10T01:28:39+00:00"
-    },
     "BOMEINR": {
       "qty": 6550.0,
       "avg_cost": 0.084440513157,
@@ -67,17 +61,23 @@
       "invested": 606.2020433468999,
       "last_buy_at": "2026-09-11T22:59:54+00:00"
     },
-    "JUPINR": {
-      "qty": 27.5,
-      "avg_cost": 24.425595694499997,
-      "invested": 671.70388159875,
-      "last_buy_at": "2026-09-12T06:30:19+00:00"
-    },
     "PENGUINR": {
       "qty": 860.0,
       "avg_cost": 0.7395079692,
       "invested": 635.9768535119999,
       "last_buy_at": "2026-09-12T11:26:11+00:00"
+    },
+    "ETHINR": {
+      "qty": 0.0023,
+      "avg_cost": 252167.81089499997,
+      "invested": 579.9859650584999,
+      "last_buy_at": "2026-09-13T05:22:41+00:00"
+    },
+    "PYTHINR": {
+      "qty": 108.0,
+      "avg_cost": 5.560731376199999,
+      "invested": 600.5589886295999,
+      "last_buy_at": "2026-09-13T05:22:41+00:00"
     }
   }
 }
