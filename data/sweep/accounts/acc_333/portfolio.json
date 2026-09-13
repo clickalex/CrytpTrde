@@ -1,28 +1,16 @@
 {
-  "cash_inr": 868.7618178495101,
-  "realized_pnl": -2366.42890932126,
-  "total_trades": 334,
-  "sell_count": 163,
-  "gross_gains": 1117.25,
-  "gross_losses": -3483.69,
-  "total_tds": 1430.09,
+  "cash_inr": 687.0761711618615,
+  "realized_pnl": -2267.231440196565,
+  "total_trades": 342,
+  "sell_count": 167,
+  "gross_gains": 1320.57,
+  "gross_losses": -3587.82,
+  "total_tds": 1459.44,
   "holdings": {
-    "SOLINR": {
-      "qty": 0.066,
-      "avg_cost": 10211.4993981,
-      "invested": 673.9589602746,
-      "last_buy_at": "2026-09-11T20:11:33+00:00"
-    },
     "DOGEINR": {
       "qty": 79.0,
       "avg_cost": 8.45456707095,
       "invested": 667.91079860505,
-      "last_buy_at": "2026-09-11T22:57:20+00:00"
-    },
-    "FILINR": {
-      "qty": 9.04,
-      "avg_cost": 78.25724907,
-      "invested": 707.4455315928,
       "last_buy_at": "2026-09-11T22:57:20+00:00"
     },
     "PENGUINR": {
@@ -30,12 +18,6 @@
       "avg_cost": 0.728982198945,
       "invested": 582.456776957055,
       "last_buy_at": "2026-09-11T22:57:20+00:00"
-    },
-    "BOMEINR": {
-      "qty": 6820.0,
-      "avg_cost": 0.08540796263999999,
-      "invested": 582.4823052047999,
-      "last_buy_at": "2026-09-11T22:57:21+00:00"
     },
     "BIOINR": {
       "qty": 233.6,
@@ -49,11 +31,29 @@
       "invested": 656.8499580800157,
       "last_buy_at": "2026-09-13T00:23:04+00:00"
     },
-    "POLYXINR": {
-      "qty": 211.3175,
-      "avg_cost": 4.1111595525,
-      "invested": 868.7599587354188,
-      "last_buy_at": "2026-09-13T05:19:55+00:00"
+    "USDTINR": {
+      "qty": 7.62,
+      "avg_cost": 99.739434795,
+      "invested": 760.0144931379,
+      "last_buy_at": "2026-09-13T18:01:47+00:00"
+    },
+    "SUIINR": {
+      "qty": 11.5,
+      "avg_cost": 72.0489474705,
+      "invested": 828.56289591075,
+      "last_buy_at": "2026-09-13T18:01:47+00:00"
+    },
+    "ORCAINR": {
+      "qty": 5.91,
+      "avg_cost": 137.19555349499998,
+      "invested": 810.82572115545,
+      "last_buy_at": "2026-09-13T18:01:47+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 530.0,
+      "avg_cost": 1.2920357950499999,
+      "invested": 684.7789713765,
+      "last_buy_at": "2026-09-13T18:01:47+00:00"
     }
   }
 }

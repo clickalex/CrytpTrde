@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2083.0200915700734,
-  "realized_pnl": -1972.8158688874482,
-  "total_trades": 401,
-  "sell_count": 196,
-  "gross_gains": 824.64,
-  "gross_losses": -2797.45,
-  "total_tds": 1136.13,
+  "cash_inr": 2087.820102200271,
+  "realized_pnl": -1983.7861067547733,
+  "total_trades": 407,
+  "sell_count": 199,
+  "gross_gains": 840.9,
+  "gross_losses": -2824.68,
+  "total_tds": 1152.04,
   "holdings": {
-    "RIFINR": {
-      "qty": 72.0,
-      "avg_cost": 7.617412803,
-      "invested": 548.453721816,
-      "last_buy_at": "2026-09-09T22:47:11+00:00"
-    },
     "XRPINR": {
       "qty": 3.8,
       "avg_cost": 135.72735376199998,
@@ -29,12 +23,6 @@
       "qty": 0.0021,
       "avg_cost": 252560.39909100003,
       "invested": 530.3768380911,
-      "last_buy_at": "2026-09-11T23:00:02+00:00"
-    },
-    "SUIINR": {
-      "qty": 7.3,
-      "avg_cost": 72.80908635,
-      "invested": 531.506330355,
       "last_buy_at": "2026-09-11T23:00:02+00:00"
     },
     "DOGEINR": {
@@ -55,11 +43,23 @@
       "invested": 523.5087515676017,
       "last_buy_at": "2026-09-13T05:22:50+00:00"
     },
-    "POPCATINR": {
-      "qty": 107.5,
-      "avg_cost": 4.84395746835,
-      "invested": 520.725427847625,
-      "last_buy_at": "2026-09-13T05:22:51+00:00"
+    "GASINR": {
+      "qty": 3.9291,
+      "avg_cost": 132.25415002799997,
+      "invested": 519.6397808750147,
+      "last_buy_at": "2026-09-13T18:06:39+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 36.84,
+      "avg_cost": 14.316449647499997,
+      "invested": 527.4180050138999,
+      "last_buy_at": "2026-09-13T18:06:39+00:00"
+    },
+    "HMSTRINR": {
+      "qty": 31981.0,
+      "avg_cost": 0.016320452148,
+      "invested": 521.944380145188,
+      "last_buy_at": "2026-09-13T18:06:40+00:00"
     }
   }
 }

@@ -1,23 +1,17 @@
 {
-  "cash_inr": 4602.250000637293,
-  "realized_pnl": -659.0440156808854,
-  "total_trades": 202,
-  "sell_count": 97,
+  "cash_inr": 4598.375165775697,
+  "realized_pnl": -675.9932328475503,
+  "total_trades": 204,
+  "sell_count": 98,
   "gross_gains": 656.21,
-  "gross_losses": -1315.23,
-  "total_tds": 523.29,
+  "gross_losses": -1332.18,
+  "total_tds": 528.42,
   "holdings": {
     "SEIINR": {
       "qty": 130.4,
       "avg_cost": 4.5363966648,
       "invested": 591.54612508992,
       "last_buy_at": "2026-09-10T22:57:46+00:00"
-    },
-    "POPCATINR": {
-      "qty": 109.13,
-      "avg_cost": 4.8484642205999995,
-      "invested": 529.1129003940779,
-      "last_buy_at": "2026-09-11T06:33:18+00:00"
     },
     "DOGEINR": {
       "qty": 60.0,
@@ -54,6 +48,12 @@
       "avg_cost": 141.35178057,
       "invested": 510.2799278577,
       "last_buy_at": "2026-09-12T11:20:31+00:00"
+    },
+    "HMSTRINR": {
+      "qty": 31305.0,
+      "avg_cost": 0.016320452148,
+      "invested": 510.91175449314005,
+      "last_buy_at": "2026-09-13T17:59:26+00:00"
     }
   }
 }
