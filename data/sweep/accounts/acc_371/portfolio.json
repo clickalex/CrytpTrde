@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1806.0726083828536,
-  "realized_pnl": -1188.557861505105,
-  "total_trades": 282,
-  "sell_count": 136,
+  "cash_inr": 1438.5013875671348,
+  "realized_pnl": -1208.2291168337165,
+  "total_trades": 285,
+  "sell_count": 137,
   "gross_gains": 1296.24,
-  "gross_losses": -2484.78,
-  "total_tds": 947.01,
+  "gross_losses": -2504.45,
+  "total_tds": 954.64,
   "holdings": {
     "FARTCOININR": {
       "qty": 44.86,
@@ -55,17 +55,23 @@
       "invested": 559.8217539915,
       "last_buy_at": "2026-09-13T05:21:50+00:00"
     },
-    "GASINR": {
-      "qty": 5.9148,
-      "avg_cost": 132.254150028,
-      "invested": 782.2568465856143,
-      "last_buy_at": "2026-09-13T18:05:02+00:00"
-    },
     "DOTINR": {
       "qty": 5.3624,
       "avg_cost": 102.114993981,
       "invested": 547.5814437237144,
       "last_buy_at": "2026-09-13T18:05:02+00:00"
+    },
+    "BNBINR": {
+      "qty": 0.007,
+      "avg_cost": 72300.12379590001,
+      "invested": 506.10086657130006,
+      "last_buy_at": "2026-09-13T21:20:42+00:00"
+    },
+    "CAKEINR": {
+      "qty": 2.69,
+      "avg_cost": 229.15332940499994,
+      "invested": 616.4224560994498,
+      "last_buy_at": "2026-09-13T21:20:42+00:00"
     }
   }
 }
