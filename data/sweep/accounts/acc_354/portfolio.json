@@ -1,23 +1,17 @@
 {
-  "cash_inr": 710.1786542852435,
-  "realized_pnl": -2944.091170793207,
-  "total_trades": 457,
-  "sell_count": 225,
-  "gross_gains": 1082.13,
+  "cash_inr": 512.4546128321442,
+  "realized_pnl": -2925.732461090567,
+  "total_trades": 461,
+  "sell_count": 227,
+  "gross_gains": 1100.49,
   "gross_losses": -4026.2,
-  "total_tds": 1808.83,
+  "total_tds": 1822.35,
   "holdings": {
     "USDTINR": {
       "qty": 6.12,
       "avg_cost": 99.94974989999999,
       "invested": 611.692469388,
       "last_buy_at": "2026-09-09T22:46:27+00:00"
-    },
-    "GALAINR": {
-      "qty": 3690.82,
-      "avg_cost": 0.168482429115,
-      "invested": 621.8383190262243,
-      "last_buy_at": "2026-09-11T20:12:35+00:00"
     },
     "BIOINR": {
       "qty": 286.3,
@@ -43,11 +37,17 @@
       "invested": 709.6674606021,
       "last_buy_at": "2026-09-14T07:00:55+00:00"
     },
-    "PEPEINR": {
-      "qty": 2048226.0,
-      "avg_cost": 0.0003467194731,
-      "invested": 710.1598395097205,
-      "last_buy_at": "2026-09-14T14:37:19+00:00"
+    "CHRINR": {
+      "qty": 615.0,
+      "avg_cost": 1.6619900797499998,
+      "invested": 1022.1238990462499,
+      "last_buy_at": "2026-09-14T19:51:31+00:00"
+    },
+    "BONKINR": {
+      "qty": 1835266.0,
+      "avg_cost": 0.0002792183394,
+      "invested": 512.4399248772804,
+      "last_buy_at": "2026-09-14T19:51:31+00:00"
     }
   }
 }

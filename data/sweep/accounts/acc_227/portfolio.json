@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1676.8926711883578,
-  "realized_pnl": -2112.713702828911,
-  "total_trades": 251,
-  "sell_count": 121,
-  "gross_gains": 706.33,
-  "gross_losses": -2819.07,
-  "total_tds": 904.32,
+  "cash_inr": 1554.7782899984063,
+  "realized_pnl": -2086.438225100311,
+  "total_trades": 258,
+  "sell_count": 125,
+  "gross_gains": 740.88,
+  "gross_losses": -2827.34,
+  "total_tds": 927.75,
   "holdings": {
     "LINKINR": {
       "qty": 0.44,
@@ -13,22 +13,10 @@
       "invested": 511.0380637362,
       "last_buy_at": "2026-09-10T22:53:53+00:00"
     },
-    "SUIINR": {
-      "qty": 7.5,
-      "avg_cost": 73.10152449600001,
-      "invested": 548.2614337200001,
-      "last_buy_at": "2026-09-11T20:05:29+00:00"
-    },
     "RENDERINR": {
       "qty": 5.23,
       "avg_cost": 140.43040011000002,
       "invested": 734.4509925753001,
-      "last_buy_at": "2026-09-11T22:52:13+00:00"
-    },
-    "ONDOINR": {
-      "qty": 14.7,
-      "avg_cost": 34.8391978935,
-      "invested": 512.13620903445,
       "last_buy_at": "2026-09-11T22:52:13+00:00"
     },
     "SOLINR": {
@@ -49,17 +37,23 @@
       "invested": 515.74848112788,
       "last_buy_at": "2026-09-13T17:52:49+00:00"
     },
-    "TRBINR": {
-      "qty": 0.436,
-      "avg_cost": 1702.55085,
-      "invested": 742.3121706000001,
-      "last_buy_at": "2026-09-14T06:51:10+00:00"
+    "TRXINR": {
+      "qty": 24.2,
+      "avg_cost": 33.9218234355,
+      "invested": 820.9081271391,
+      "last_buy_at": "2026-09-14T19:44:08+00:00"
     },
-    "ARBINR": {
-      "qty": 37.7,
-      "avg_cost": 13.564322772,
-      "invested": 511.37496850440004,
-      "last_buy_at": "2026-09-14T14:30:01+00:00"
+    "APEINR": {
+      "qty": 72.07,
+      "avg_cost": 13.2067870935,
+      "invested": 951.8131458285449,
+      "last_buy_at": "2026-09-14T19:44:08+00:00"
+    },
+    "GASINR": {
+      "qty": 5.0515,
+      "avg_cost": 131.90662935449998,
+      "invested": 666.3263381842567,
+      "last_buy_at": "2026-09-14T19:44:08+00:00"
     }
   }
 }
