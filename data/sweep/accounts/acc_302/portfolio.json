@@ -1,29 +1,17 @@
 {
-  "cash_inr": 2139.9506369172186,
-  "realized_pnl": -2909.0120833623414,
-  "total_trades": 614,
-  "sell_count": 304,
-  "gross_gains": 883.83,
-  "gross_losses": -3792.87,
-  "total_tds": 1757.21,
+  "cash_inr": 2131.2856121013233,
+  "realized_pnl": -2923.1766620100934,
+  "total_trades": 622,
+  "sell_count": 308,
+  "gross_gains": 905.98,
+  "gross_losses": -3829.19,
+  "total_tds": 1778.53,
   "holdings": {
-    "ONEINR": {
-      "qty": 8100.2,
-      "avg_cost": 0.067110548505,
-      "invested": 543.608865000201,
-      "last_buy_at": "2026-09-11T22:55:54+00:00"
-    },
     "FARTCOININR": {
       "qty": 35.13,
       "avg_cost": 14.234326606499998,
       "invested": 500.05189368634495,
       "last_buy_at": "2026-09-13T21:16:29+00:00"
-    },
-    "TRUMPINR": {
-      "qty": 2.602,
-      "avg_cost": 204.08577188999996,
-      "invested": 531.0311784577799,
-      "last_buy_at": "2026-09-14T14:34:18+00:00"
     },
     "CHILLGUYINR": {
       "qty": 445.0,
@@ -31,17 +19,29 @@
       "invested": 549.6865689314999,
       "last_buy_at": "2026-09-14T14:34:18+00:00"
     },
-    "DOGEINR": {
-      "qty": 63.0,
-      "avg_cost": 8.484011185650001,
-      "invested": 534.49270469595,
-      "last_buy_at": "2026-09-14T19:48:27+00:00"
+    "NEARINR": {
+      "qty": 2.1,
+      "avg_cost": 247.99155381,
+      "invested": 520.782263001,
+      "last_buy_at": "2026-09-14T23:34:01+00:00"
     },
-    "PEPEINR": {
-      "qty": 1515399.0,
-      "avg_cost": 0.00035302892625,
-      "invested": 534.9796818103238,
-      "last_buy_at": "2026-09-14T19:48:28+00:00"
+    "APTINR": {
+      "qty": 8.88,
+      "avg_cost": 59.629339769999994,
+      "invested": 529.5085371576,
+      "last_buy_at": "2026-09-14T23:34:01+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 24.4,
+      "avg_cost": 21.9038174355,
+      "invested": 534.4531454262,
+      "last_buy_at": "2026-09-14T23:34:02+00:00"
+    },
+    "PENGUINR": {
+      "qty": 743.0,
+      "avg_cost": 0.71675387784,
+      "invested": 532.54813123512,
+      "last_buy_at": "2026-09-14T23:34:04+00:00"
     }
   }
 }
