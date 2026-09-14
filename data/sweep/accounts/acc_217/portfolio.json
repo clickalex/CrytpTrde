@@ -1,18 +1,12 @@
 {
-  "cash_inr": 5222.475475435249,
-  "realized_pnl": -1047.455194791381,
-  "total_trades": 168,
-  "sell_count": 81,
-  "gross_gains": 437.85,
-  "gross_losses": -1485.29,
-  "total_tds": 465.02,
+  "cash_inr": 5303.989148203983,
+  "realized_pnl": -1054.48058261108,
+  "total_trades": 172,
+  "sell_count": 83,
+  "gross_gains": 445.62,
+  "gross_losses": -1500.09,
+  "total_tds": 476.42,
   "holdings": {
-    "BONKINR": {
-      "qty": 2107667.0,
-      "avg_cost": 0.00026910318435000003,
-      "invested": 567.1799012494115,
-      "last_buy_at": "2026-09-10T22:53:25+00:00"
-    },
     "TRXINR": {
       "qty": 16.2,
       "avg_cost": 33.615364282499996,
@@ -37,11 +31,17 @@
       "invested": 520.5596727046716,
       "last_buy_at": "2026-09-13T05:13:45+00:00"
     },
-    "ORCAINR": {
-      "qty": 4.22,
-      "avg_cost": 137.19555349499998,
-      "invested": 578.9652357488999,
-      "last_buy_at": "2026-09-13T17:51:52+00:00"
+    "TRBINR": {
+      "qty": 0.306,
+      "avg_cost": 1702.55085,
+      "invested": 520.9805601,
+      "last_buy_at": "2026-09-14T06:50:25+00:00"
+    },
+    "RIFINR": {
+      "qty": 66.0,
+      "avg_cost": 7.957922972999999,
+      "invested": 525.2229162179999,
+      "last_buy_at": "2026-09-14T06:50:25+00:00"
     }
   }
 }
