@@ -1,18 +1,12 @@
 {
-  "cash_inr": 5463.628104122285,
-  "realized_pnl": 2.2799017546244613,
-  "total_trades": 87,
-  "sell_count": 40,
+  "cash_inr": 4777.742770275412,
+  "realized_pnl": -134.76975894685057,
+  "total_trades": 94,
+  "sell_count": 43,
   "gross_gains": 982.48,
-  "gross_losses": -980.17,
-  "total_tds": 262.78,
+  "gross_losses": -1117.22,
+  "total_tds": 279.2,
   "holdings": {
-    "DOTINR": {
-      "qty": 6.4254,
-      "avg_cost": 102.727912287,
-      "invested": 660.0679276088897,
-      "last_buy_at": "2026-09-12T21:48:21+00:00"
-    },
     "ONDOINR": {
       "qty": 16.9,
       "avg_cost": 34.95336895049999,
@@ -37,17 +31,29 @@
       "invested": 653.4882900545999,
       "last_buy_at": "2026-09-14T14:28:06+00:00"
     },
-    "GASINR": {
-      "qty": 4.4898,
-      "avg_cost": 131.0353239195,
-      "invested": 588.322397333771,
-      "last_buy_at": "2026-09-14T23:26:55+00:00"
+    "ETHINR": {
+      "qty": 0.0022,
+      "avg_cost": 242863.87125,
+      "invested": 534.30051675,
+      "last_buy_at": "2026-09-15T18:24:57+00:00"
     },
-    "FILINR": {
-      "qty": 5.79,
-      "avg_cost": 91.32683059499999,
-      "invested": 528.7823491450499,
-      "last_buy_at": "2026-09-15T01:46:27+00:00"
+    "CHILLGUYINR": {
+      "qty": 550.0,
+      "avg_cost": 1.1901831941999998,
+      "invested": 654.6007568099999,
+      "last_buy_at": "2026-09-15T18:24:57+00:00"
+    },
+    "TOKENINR": {
+      "qty": 2878.5741,
+      "avg_cost": 0.20490700230000003,
+      "invested": 589.8399897294205,
+      "last_buy_at": "2026-09-15T18:24:57+00:00"
+    },
+    "XDBINR": {
+      "qty": 71148.2,
+      "avg_cost": 0.007461178725,
+      "invested": 530.849436162045,
+      "last_buy_at": "2026-09-15T18:24:57+00:00"
     }
   }
 }

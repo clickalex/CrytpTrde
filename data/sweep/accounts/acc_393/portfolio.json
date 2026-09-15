@@ -1,11 +1,11 @@
 {
-  "cash_inr": 4680.913129791605,
-  "realized_pnl": 0.6883931378019952,
-  "total_trades": 50,
-  "sell_count": 20,
+  "cash_inr": 4643.695812250905,
+  "realized_pnl": -28.393002656197893,
+  "total_trades": 52,
+  "sell_count": 21,
   "gross_gains": 449.87,
-  "gross_losses": -449.18,
-  "total_tds": 120.62,
+  "gross_losses": -478.26,
+  "total_tds": 125.46,
   "holdings": {
     "SOLINR": {
       "qty": 0.058,
@@ -49,12 +49,6 @@
       "invested": 510.35944699739997,
       "last_buy_at": "2026-09-09T17:05:58+00:00"
     },
-    "ADAINR": {
-      "qty": 24.2,
-      "avg_cost": 21.171720569999998,
-      "invested": 512.3556377939999,
-      "last_buy_at": "2026-09-09T22:47:15+00:00"
-    },
     "ONDOINR": {
       "qty": 14.5,
       "avg_cost": 34.728031337999994,
@@ -66,6 +60,12 @@
       "avg_cost": 1144.63495146,
       "invested": 515.085728157,
       "last_buy_at": "2026-09-13T21:22:02+00:00"
+    },
+    "CAKEINR": {
+      "qty": 2.27,
+      "avg_cost": 227.16034341,
+      "invested": 515.6539795407,
+      "last_buy_at": "2026-09-15T18:30:47+00:00"
     }
   }
 }

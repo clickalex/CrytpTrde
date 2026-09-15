@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1112.1497295327988,
-  "realized_pnl": -2279.433805593939,
-  "total_trades": 236,
-  "sell_count": 115,
+  "cash_inr": 1135.1439225980241,
+  "realized_pnl": -2442.1871267746587,
+  "total_trades": 243,
+  "sell_count": 118,
   "gross_gains": 815.33,
-  "gross_losses": -3094.76,
-  "total_tds": 1020.48,
+  "gross_losses": -3257.51,
+  "total_tds": 1050.74,
   "holdings": {
     "GALAINR": {
       "qty": 3799.91,
       "avg_cost": 0.17074582024499999,
       "invested": 648.8187498071778,
       "last_buy_at": "2026-09-10T22:53:59+00:00"
-    },
-    "RENDERINR": {
-      "qty": 8.29,
-      "avg_cost": 140.43040011,
-      "invested": 1164.1680169118997,
-      "last_buy_at": "2026-09-11T22:52:19+00:00"
     },
     "PUMPINR": {
       "qty": 1755.0,
@@ -31,17 +25,29 @@
       "invested": 1119.4201733715,
       "last_buy_at": "2026-09-14T19:44:15+00:00"
     },
-    "APEINR": {
-      "qty": 97.02,
-      "avg_cost": 13.206787093499997,
-      "invested": 1281.3224838113697,
-      "last_buy_at": "2026-09-14T19:44:15+00:00"
+    "FILINR": {
+      "qty": 10.56,
+      "avg_cost": 83.68538177999999,
+      "invested": 883.7176315968,
+      "last_buy_at": "2026-09-15T18:25:59+00:00"
     },
-    "CHILLGUYINR": {
-      "qty": 598.0,
-      "avg_cost": 1.23735386775,
-      "invested": 739.9376129145,
-      "last_buy_at": "2026-09-15T01:48:15+00:00"
+    "ONDOINR": {
+      "qty": 15.4,
+      "avg_cost": 34.26133210500001,
+      "invested": 527.6245144170001,
+      "last_buy_at": "2026-09-15T18:25:59+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 37.4,
+      "avg_cost": 21.430107698999997,
+      "invested": 801.4860279425999,
+      "last_buy_at": "2026-09-15T18:25:59+00:00"
+    },
+    "PENGUINR": {
+      "qty": 1079.0,
+      "avg_cost": 0.701200575075,
+      "invested": 756.595420505925,
+      "last_buy_at": "2026-09-15T18:25:59+00:00"
     }
   }
 }

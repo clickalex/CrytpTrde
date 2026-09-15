@@ -1,10 +1,17 @@
 {
-  "cash_inr": 8996.95576438344,
+  "cash_inr": 7199.76311713344,
   "realized_pnl": -693.9065226455366,
-  "total_trades": 44,
+  "total_trades": 45,
   "sell_count": 22,
   "gross_gains": 157.24,
   "gross_losses": -851.15,
   "total_tds": 309.14,
-  "holdings": {}
+  "holdings": {
+    "ETHINR": {
+      "qty": 0.0074,
+      "avg_cost": 242863.87124999997,
+      "invested": 1797.19264725,
+      "last_buy_at": "2026-09-15T18:22:16+00:00"
+    }
+  }
 }

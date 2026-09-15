@@ -1,17 +1,35 @@
 {
-  "cash_inr": 8402.571877331011,
-  "realized_pnl": 188.20905495736713,
-  "total_trades": 71,
-  "sell_count": 35,
+  "cash_inr": 940.5558341944485,
+  "realized_pnl": 157.66881275956746,
+  "total_trades": 76,
+  "sell_count": 36,
   "gross_gains": 2464.81,
-  "gross_losses": -2276.61,
-  "total_tds": 922.13,
+  "gross_losses": -2307.15,
+  "total_tds": 930.47,
   "holdings": {
-    "CHILLGUYINR": {
-      "qty": 716.0,
-      "avg_cost": 1.2060069020999997,
-      "invested": 863.5009419035998,
-      "last_buy_at": "2026-09-10T22:50:10+00:00"
+    "ETHINR": {
+      "qty": 0.0172,
+      "avg_cost": 242863.87125,
+      "invested": 4177.2585855,
+      "last_buy_at": "2026-09-15T18:23:46+00:00"
+    },
+    "ICPINR": {
+      "qty": 8.34,
+      "avg_cost": 253.27947645,
+      "invested": 2112.350833593,
+      "last_buy_at": "2026-09-15T18:23:46+00:00"
+    },
+    "DOTINR": {
+      "qty": 10.7592,
+      "avg_cost": 98.19311802299998,
+      "invested": 1056.4793954330614,
+      "last_buy_at": "2026-09-15T18:23:46+00:00"
+    },
+    "TOKENINR": {
+      "qty": 4590.131,
+      "avg_cost": 0.2049070023,
+      "invested": 940.5499833743014,
+      "last_buy_at": "2026-09-15T18:23:46+00:00"
     }
   }
 }
