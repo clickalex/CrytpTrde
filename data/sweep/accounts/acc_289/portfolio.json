@@ -1,11 +1,11 @@
 {
-  "cash_inr": 5273.553845887274,
-  "realized_pnl": -1007.6363515668604,
-  "total_trades": 244,
-  "sell_count": 119,
+  "cash_inr": 4796.247397062024,
+  "realized_pnl": -1025.6467054927652,
+  "total_trades": 247,
+  "sell_count": 120,
   "gross_gains": 747.01,
-  "gross_losses": -1754.65,
-  "total_tds": 634.87,
+  "gross_losses": -1772.66,
+  "total_tds": 640.01,
   "holdings": {
     "ARBINR": {
       "qty": 35.4,
@@ -31,17 +31,23 @@
       "invested": 500.06422215749996,
       "last_buy_at": "2026-09-16T12:04:01+00:00"
     },
-    "PUMPINR": {
-      "qty": 1441.0,
-      "avg_cost": 0.36909299427,
-      "invested": 531.86300474307,
-      "last_buy_at": "2026-09-16T20:42:04+00:00"
-    },
     "GALAINR": {
       "qty": 3306.68,
       "avg_cost": 0.15993962985000001,
       "invested": 528.869175232398,
       "last_buy_at": "2026-09-16T20:42:05+00:00"
+    },
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 7561931.17755075,
+      "invested": 453.715870653045,
+      "last_buy_at": "2026-09-16T23:28:28+00:00"
+    },
+    "PENGUINR": {
+      "qty": 769.0,
+      "avg_cost": 0.69219708558,
+      "invested": 532.29955881102,
+      "last_buy_at": "2026-09-16T23:28:32+00:00"
     }
   }
 }
