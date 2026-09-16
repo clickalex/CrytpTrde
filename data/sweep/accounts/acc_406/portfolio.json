@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2183.4317144634724,
-  "realized_pnl": -1365.66284465233,
-  "total_trades": 277,
-  "sell_count": 134,
+  "cash_inr": 2219.552790955502,
+  "realized_pnl": -1404.5471788376049,
+  "total_trades": 281,
+  "sell_count": 136,
   "gross_gains": 929.47,
-  "gross_losses": -2295.14,
-  "total_tds": 828.04,
+  "gross_losses": -2334.02,
+  "total_tds": 839.6,
   "holdings": {
-    "FARTCOININR": {
-      "qty": 43.06,
-      "avg_cost": 14.0780925285,
-      "invested": 606.20266427721,
-      "last_buy_at": "2026-09-10T23:02:51+00:00"
-    },
     "BIOINR": {
       "qty": 210.4,
       "avg_cost": 2.5202760082499998,
@@ -37,12 +31,6 @@
       "invested": 762.0858966220497,
       "last_buy_at": "2026-09-16T00:54:52+00:00"
     },
-    "HMSTRINR": {
-      "qty": 37155.0,
-      "avg_cost": 0.015821704899,
-      "invested": 587.8554455223449,
-      "last_buy_at": "2026-09-16T00:54:52+00:00"
-    },
     "PYTHINR": {
       "qty": 126.4,
       "avg_cost": 5.2977373449,
@@ -60,6 +48,18 @@
       "avg_cost": 219.57898462499995,
       "invested": 544.5558818699999,
       "last_buy_at": "2026-09-16T12:08:49+00:00"
+    },
+    "APEINR": {
+      "qty": 44.09,
+      "avg_cost": 12.5337787575,
+      "invested": 552.614305418175,
+      "last_buy_at": "2026-09-16T20:51:51+00:00"
+    },
+    "ONEINR": {
+      "qty": 8125.0,
+      "avg_cost": 0.068292319095,
+      "invested": 554.875092646875,
+      "last_buy_at": "2026-09-16T20:51:53+00:00"
     }
   }
 }

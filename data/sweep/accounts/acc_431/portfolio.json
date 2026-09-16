@@ -1,23 +1,17 @@
 {
-  "cash_inr": 606.2780210618132,
-  "realized_pnl": -1116.8225681261831,
-  "total_trades": 159,
-  "sell_count": 76,
+  "cash_inr": 592.5709370164586,
+  "realized_pnl": -1180.3679817978732,
+  "total_trades": 163,
+  "sell_count": 78,
   "gross_gains": 1439.84,
-  "gross_losses": -2556.68,
-  "total_tds": 966.06,
+  "gross_losses": -2620.23,
+  "total_tds": 983.83,
   "holdings": {
     "USDTINR": {
       "qty": 7.2,
       "avg_cost": 100.019854935,
       "invested": 720.142955532,
       "last_buy_at": "2026-09-02T06:25:11+00:00"
-    },
-    "FARTCOININR": {
-      "qty": 66.18,
-      "avg_cost": 14.078092528500001,
-      "invested": 931.6881635361301,
-      "last_buy_at": "2026-09-10T23:04:08+00:00"
     },
     "PUMPINR": {
       "qty": 2235.0,
@@ -43,11 +37,17 @@
       "invested": 723.10581464121,
       "last_buy_at": "2026-09-16T00:56:12+00:00"
     },
-    "FILINR": {
-      "qty": 11.21,
-      "avg_cost": 80.951285415,
-      "invested": 907.46390950215,
-      "last_buy_at": "2026-09-16T12:09:51+00:00"
+    "TRXINR": {
+      "qty": 26.3,
+      "avg_cost": 33.569295259499995,
+      "invested": 882.8724653248499,
+      "last_buy_at": "2026-09-16T20:53:54+00:00"
+    },
+    "BIOINR": {
+      "qty": 358.1,
+      "avg_cost": 2.48161808895,
+      "invested": 888.667437652995,
+      "last_buy_at": "2026-09-16T20:53:54+00:00"
     }
   }
 }

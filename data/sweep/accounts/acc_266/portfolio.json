@@ -1,23 +1,17 @@
 {
-  "cash_inr": 586.3801836114194,
-  "realized_pnl": -2397.5616158826715,
-  "total_trades": 404,
-  "sell_count": 198,
+  "cash_inr": 603.1576334857916,
+  "realized_pnl": -2438.7093919148365,
+  "total_trades": 408,
+  "sell_count": 200,
   "gross_gains": 1262.55,
-  "gross_losses": -3660.12,
-  "total_tds": 1651.54,
+  "gross_losses": -3701.27,
+  "total_tds": 1664.74,
   "holdings": {
     "USDTINR": {
       "qty": 6.06,
       "avg_cost": 99.94974989999999,
       "invested": 605.6954843939999,
       "last_buy_at": "2026-09-09T22:44:35+00:00"
-    },
-    "ONEINR": {
-      "qty": 12011.9,
-      "avg_cost": 0.067110548505,
-      "invested": 806.1251975872095,
-      "last_buy_at": "2026-09-11T22:54:08+00:00"
     },
     "RIFINR": {
       "qty": 96.0,
@@ -43,17 +37,23 @@
       "invested": 529.89369421989,
       "last_buy_at": "2026-09-16T12:03:06+00:00"
     },
-    "POLYXINR": {
-      "qty": 142.435,
-      "avg_cost": 3.8868234404999997,
-      "invested": 553.6196967476175,
-      "last_buy_at": "2026-09-16T12:03:06+00:00"
-    },
     "PEPEINR": {
       "qty": 1748749.0,
       "avg_cost": 0.0003353023674,
       "invested": 586.3596796883826,
       "last_buy_at": "2026-09-16T12:03:08+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 32.8,
+      "avg_cost": 20.911330439999997,
+      "invested": 685.8916384319998,
+      "last_buy_at": "2026-09-16T20:40:10+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1633.0,
+      "avg_cost": 0.36909299427000003,
+      "invested": 602.72885964291,
+      "last_buy_at": "2026-09-16T20:40:11+00:00"
     }
   }
 }

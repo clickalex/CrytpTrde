@@ -1,11 +1,11 @@
 {
-  "cash_inr": 4312.073459490011,
-  "realized_pnl": -1859.2751518771238,
-  "total_trades": 209,
-  "sell_count": 102,
+  "cash_inr": 2770.5252909207443,
+  "realized_pnl": -1877.973040589887,
+  "total_trades": 213,
+  "sell_count": 103,
   "gross_gains": 864.43,
-  "gross_losses": -2723.69,
-  "total_tds": 767.62,
+  "gross_losses": -2742.39,
+  "total_tds": 773.3,
   "holdings": {
     "XDBINR": {
       "qty": 79235.4,
@@ -25,17 +25,29 @@
       "invested": 732.6899291587374,
       "last_buy_at": "2026-09-16T00:45:01+00:00"
     },
-    "HMSTRINR": {
-      "qty": 37047.0,
-      "avg_cost": 0.015821704899000002,
-      "invested": 586.146701393253,
-      "last_buy_at": "2026-09-16T00:45:01+00:00"
-    },
     "BONKINR": {
       "qty": 2312819.0,
       "avg_cost": 0.00025267857615,
       "invested": 584.3998118126668,
       "last_buy_at": "2026-09-16T12:00:41+00:00"
+    },
+    "TRBINR": {
+      "qty": 0.516,
+      "avg_cost": 1669.1007333,
+      "invested": 861.2559783828,
+      "last_buy_at": "2026-09-16T20:35:10+00:00"
+    },
+    "GASINR": {
+      "qty": 5.5966,
+      "avg_cost": 123.31575806549999,
+      "invested": 690.1489715893772,
+      "last_buy_at": "2026-09-16T20:35:10+00:00"
+    },
+    "BIOINR": {
+      "qty": 222.4,
+      "avg_cost": 2.4816180889499995,
+      "invested": 551.9118629824799,
+      "last_buy_at": "2026-09-16T20:35:10+00:00"
     }
   }
 }
