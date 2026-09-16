@@ -1,23 +1,17 @@
 {
-  "cash_inr": 2519.002666795056,
-  "realized_pnl": -2781.7705308622035,
-  "total_trades": 539,
-  "sell_count": 267,
+  "cash_inr": 1263.3781912401207,
+  "realized_pnl": -2790.5418957001034,
+  "total_trades": 543,
+  "sell_count": 268,
   "gross_gains": 971.82,
-  "gross_losses": -3753.62,
-  "total_tds": 1745.47,
+  "gross_losses": -3762.39,
+  "total_tds": 1750.42,
   "holdings": {
     "USDTINR": {
       "qty": 5.76,
       "avg_cost": 100.05991495499998,
       "invested": 576.3451101407999,
       "last_buy_at": "2026-09-10T23:05:09+00:00"
-    },
-    "BNBINR": {
-      "qty": 0.007,
-      "avg_cost": 71844.54121844999,
-      "invested": 502.91178852914993,
-      "last_buy_at": "2026-09-15T01:59:23+00:00"
     },
     "SUIINR": {
       "qty": 7.7,
@@ -36,6 +30,24 @@
       "avg_cost": 13.94088696,
       "invested": 647.4147904224,
       "last_buy_at": "2026-09-16T00:57:08+00:00"
+    },
+    "BTCINR": {
+      "qty": 9e-05,
+      "avg_cost": 7611303.54979995,
+      "invested": 685.0173194819955,
+      "last_buy_at": "2026-09-16T12:10:41+00:00"
+    },
+    "ETHINR": {
+      "qty": 0.0022,
+      "avg_cost": 240860.77009995,
+      "invested": 529.89369421989,
+      "last_buy_at": "2026-09-16T12:10:41+00:00"
+    },
+    "SOLINR": {
+      "qty": 0.054,
+      "avg_cost": 9813.1024992,
+      "invested": 529.9075349568,
+      "last_buy_at": "2026-09-16T12:10:41+00:00"
     }
   }
 }

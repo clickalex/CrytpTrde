@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1521.253124169864,
-  "realized_pnl": -3060.850502812554,
-  "total_trades": 480,
-  "sell_count": 237,
+  "cash_inr": 892.3404626424148,
+  "realized_pnl": -3082.4069971763415,
+  "total_trades": 483,
+  "sell_count": 238,
   "gross_gains": 1163.91,
-  "gross_losses": -4224.79,
-  "total_tds": 1743.85,
+  "gross_losses": -4246.35,
+  "total_tds": 1749.59,
   "holdings": {
     "BTCINR": {
       "qty": 8e-05,
@@ -31,17 +31,23 @@
       "invested": 613.6778439792,
       "last_buy_at": "2026-09-16T00:56:12+00:00"
     },
-    "BONKINR": {
-      "qty": 2302625.0,
-      "avg_cost": 0.0002585874291,
-      "invested": 595.4298789313875,
-      "last_buy_at": "2026-09-16T00:56:12+00:00"
-    },
     "PENGUINR": {
       "qty": 852.0,
       "avg_cost": 0.691305750135,
       "invested": 588.99249911502,
       "last_buy_at": "2026-09-16T00:56:15+00:00"
+    },
+    "ETHINR": {
+      "qty": 0.0025,
+      "avg_cost": 240860.77009995002,
+      "invested": 602.151925249875,
+      "last_buy_at": "2026-09-16T12:09:54+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 55597.0,
+      "avg_cost": 0.010700031342000002,
+      "invested": 594.8896425211741,
+      "last_buy_at": "2026-09-16T12:09:54+00:00"
     }
   }
 }

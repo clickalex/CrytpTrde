@@ -1,22 +1,16 @@
 {
-  "cash_inr": 789.7581066924007,
-  "realized_pnl": -3469.244784344325,
-  "total_trades": 100,
-  "sell_count": 48,
+  "cash_inr": 154.7737478088767,
+  "realized_pnl": -3517.5329007959244,
+  "total_trades": 104,
+  "sell_count": 50,
   "gross_gains": 1023.51,
-  "gross_losses": -4492.75,
-  "total_tds": 1356.33,
+  "gross_losses": -4541.04,
+  "total_tds": 1387.4,
   "holdings": {
     "SOLINR": {
       "qty": 0.074,
       "avg_cost": 9722.26640385,
       "invested": 719.4477138849,
-      "last_buy_at": "2026-09-16T00:44:07+00:00"
-    },
-    "RENDERINR": {
-      "qty": 19.43,
-      "avg_cost": 132.11794596,
-      "invested": 2567.0516900027997,
       "last_buy_at": "2026-09-16T00:44:07+00:00"
     },
     "ONDOINR": {
@@ -25,11 +19,17 @@
       "invested": 512.7446205882001,
       "last_buy_at": "2026-09-16T00:44:07+00:00"
     },
-    "APTINR": {
-      "qty": 10.58,
-      "avg_cost": 55.332902624999996,
-      "invested": 585.4221097725,
-      "last_buy_at": "2026-09-16T00:44:07+00:00"
+    "ORCAINR": {
+      "qty": 23.31,
+      "avg_cost": 132.51854616,
+      "invested": 3089.0073109896,
+      "last_buy_at": "2026-09-16T11:59:56+00:00"
+    },
+    "SHIBINR": {
+      "qty": 1269327.0,
+      "avg_cost": 0.00048773074350000003,
+      "invested": 619.0898014546245,
+      "last_buy_at": "2026-09-16T11:59:56+00:00"
     }
   }
 }

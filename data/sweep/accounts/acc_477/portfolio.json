@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1255.4413211375395,
-  "realized_pnl": -1177.4044627728833,
-  "total_trades": 222,
-  "sell_count": 107,
-  "gross_gains": 1146.46,
-  "gross_losses": -2323.84,
-  "total_tds": 1077.95,
+  "cash_inr": 736.2523291581648,
+  "realized_pnl": -1176.7327709535161,
+  "total_trades": 227,
+  "sell_count": 109,
+  "gross_gains": 1194.31,
+  "gross_losses": -2371.02,
+  "total_tds": 1093.05,
   "holdings": {
-    "BRISEINR": {
-      "qty": 541290084.0,
-      "avg_cost": 1.5958910467499998e-06,
-      "invested": 863.8399987501554,
-      "last_buy_at": "2026-09-14T14:44:22+00:00"
-    },
     "BNBINR": {
       "qty": 0.01,
       "avg_cost": 72304.83084825,
@@ -43,17 +37,29 @@
       "invested": 683.6828290792499,
       "last_buy_at": "2026-09-16T00:58:27+00:00"
     },
-    "ARBINR": {
-      "qty": 42.5,
-      "avg_cost": 15.1517010645,
-      "invested": 643.94729524125,
-      "last_buy_at": "2026-09-16T00:58:27+00:00"
-    },
     "FARTCOININR": {
       "qty": 49.42,
       "avg_cost": 13.94088696,
       "invested": 688.9586335632,
       "last_buy_at": "2026-09-16T00:58:27+00:00"
+    },
+    "ETHINR": {
+      "qty": 0.0026,
+      "avg_cost": 240860.77009994996,
+      "invested": 626.2380022598699,
+      "last_buy_at": "2026-09-16T12:11:42+00:00"
+    },
+    "DOGEINR": {
+      "qty": 81.0,
+      "avg_cost": 8.025824706900002,
+      "invested": 650.0918012589001,
+      "last_buy_at": "2026-09-16T12:11:42+00:00"
+    },
+    "BOMEINR": {
+      "qty": 8428.0,
+      "avg_cost": 0.08735387811149999,
+      "invested": 736.2184847237219,
+      "last_buy_at": "2026-09-16T12:11:43+00:00"
     }
   }
 }

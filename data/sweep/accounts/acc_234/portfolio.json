@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2903.9836700176465,
-  "realized_pnl": -2046.8623079190352,
-  "total_trades": 229,
-  "sell_count": 112,
+  "cash_inr": 815.17975624878,
+  "realized_pnl": -2096.997506193479,
+  "total_trades": 235,
+  "sell_count": 114,
   "gross_gains": 954.31,
-  "gross_losses": -3001.17,
-  "total_tds": 1054.69,
+  "gross_losses": -3051.31,
+  "total_tds": 1072.08,
   "holdings": {
     "SOLINR": {
       "qty": 0.108,
@@ -25,17 +25,29 @@
       "invested": 641.9922661152,
       "last_buy_at": "2026-09-16T00:46:22+00:00"
     },
-    "FILINR": {
-      "qty": 11.47,
-      "avg_cost": 81.56220071999998,
-      "invested": 935.5184422583999,
-      "last_buy_at": "2026-09-16T00:46:22+00:00"
+    "LINKINR": {
+      "qty": 1.33,
+      "avg_cost": 1090.744209555,
+      "invested": 1450.68979870815,
+      "last_buy_at": "2026-09-16T12:01:49+00:00"
     },
-    "BONKINR": {
-      "qty": 3294359.0,
-      "avg_cost": 0.0002585874291,
-      "invested": 851.8798243424469,
-      "last_buy_at": "2026-09-16T00:46:22+00:00"
+    "TRUMPINR": {
+      "qty": 3.884,
+      "avg_cost": 187.05024838499997,
+      "invested": 726.5031647273399,
+      "last_buy_at": "2026-09-16T12:01:49+00:00"
+    },
+    "ORCAINR": {
+      "qty": 6.16,
+      "avg_cost": 132.51854616,
+      "invested": 816.3142443456001,
+      "last_buy_at": "2026-09-16T12:01:49+00:00"
+    },
+    "SHIBINR": {
+      "qty": 1671352.0,
+      "avg_cost": 0.0004877307435,
+      "invested": 815.169753610212,
+      "last_buy_at": "2026-09-16T12:01:49+00:00"
     }
   }
 }
