@@ -1,11 +1,11 @@
 {
-  "cash_inr": 5473.41601095032,
-  "realized_pnl": -1204.9105073234407,
-  "total_trades": 291,
-  "sell_count": 143,
+  "cash_inr": 4789.815176106242,
+  "realized_pnl": -1258.782762225331,
+  "total_trades": 298,
+  "sell_count": 146,
   "gross_gains": 688.2,
-  "gross_losses": -1893.13,
-  "total_tds": 764.13,
+  "gross_losses": -1947.0,
+  "total_tds": 778.83,
   "holdings": {
     "TRXINR": {
       "qty": 16.0,
@@ -19,23 +19,29 @@
       "invested": 519.0706986465001,
       "last_buy_at": "2026-09-03T15:33:08+00:00"
     },
-    "FARTCOININR": {
-      "qty": 36.19,
-      "avg_cost": 14.0780925285,
-      "invested": 509.48616860641494,
-      "last_buy_at": "2026-09-10T23:03:00+00:00"
+    "BTCINR": {
+      "qty": 7e-05,
+      "avg_cost": 7571263.960410149,
+      "invested": 529.9884772287104,
+      "last_buy_at": "2026-09-16T00:55:02+00:00"
     },
-    "SHIBINR": {
-      "qty": 1000278.0,
-      "avg_cost": 0.0005122675057499999,
-      "invested": 512.4099161165984,
-      "last_buy_at": "2026-09-10T23:03:00+00:00"
+    "RIFINR": {
+      "qty": 64.0,
+      "avg_cost": 8.407596697499999,
+      "invested": 538.0861886399999,
+      "last_buy_at": "2026-09-16T00:55:02+00:00"
     },
-    "ORCAINR": {
-      "qty": 3.7,
-      "avg_cost": 135.32274755999998,
-      "invested": 500.69416597199995,
-      "last_buy_at": "2026-09-15T18:31:16+00:00"
+    "GASINR": {
+      "qty": 4.2936,
+      "avg_cost": 125.1545129835,
+      "invested": 537.3634169459556,
+      "last_buy_at": "2026-09-16T00:55:02+00:00"
+    },
+    "HMSTRINR": {
+      "qty": 33636.0,
+      "avg_cost": 0.015821704899,
+      "invested": 532.1788659827639,
+      "last_buy_at": "2026-09-16T00:55:02+00:00"
     }
   }
 }
