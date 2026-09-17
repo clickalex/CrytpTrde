@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1380.0029561188765,
-  "realized_pnl": -3181.064212956377,
-  "total_trades": 632,
-  "sell_count": 313,
-  "gross_gains": 1176.74,
-  "gross_losses": -4357.79,
-  "total_tds": 1999.98,
+  "cash_inr": 1352.7797761186237,
+  "realized_pnl": -3184.438351879997,
+  "total_trades": 638,
+  "sell_count": 316,
+  "gross_gains": 1201.16,
+  "gross_losses": -4385.59,
+  "total_tds": 2017.6,
   "holdings": {
     "TRXINR": {
       "qty": 15.6,
       "avg_cost": 33.27886011449999,
       "invested": 519.1502177861998,
       "last_buy_at": "2026-09-16T00:48:48+00:00"
-    },
-    "TRUMPINR": {
-      "qty": 3.365,
-      "avg_cost": 187.050248385,
-      "invested": 629.424085815525,
-      "last_buy_at": "2026-09-16T12:03:47+00:00"
     },
     "SHIBINR": {
       "qty": 1208843.0,
@@ -31,17 +25,23 @@
       "invested": 566.21943933555,
       "last_buy_at": "2026-09-16T23:27:56+00:00"
     },
-    "CAKEINR": {
-      "qty": 2.33,
-      "avg_cost": 233.34961649999997,
-      "invested": 543.704606445,
-      "last_buy_at": "2026-09-17T01:56:24+00:00"
+    "DOTINR": {
+      "qty": 6.0329,
+      "avg_cost": 100.8120418305,
+      "invested": 608.1889671592234,
+      "last_buy_at": "2026-09-17T08:19:30+00:00"
     },
-    "SEIINR": {
-      "qty": 134.7,
-      "avg_cost": 4.38647203995,
-      "invested": 590.857783781265,
-      "last_buy_at": "2026-09-17T01:56:25+00:00"
+    "FARTCOININR": {
+      "qty": 40.32,
+      "avg_cost": 14.471682224999999,
+      "invested": 583.4982273119999,
+      "last_buy_at": "2026-09-17T08:19:30+00:00"
+    },
+    "CHRINR": {
+      "qty": 366.0,
+      "avg_cost": 1.58066823915,
+      "invested": 578.5245755289,
+      "last_buy_at": "2026-09-17T08:19:31+00:00"
     }
   }
 }

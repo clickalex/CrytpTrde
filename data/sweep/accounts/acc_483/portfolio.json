@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1765.9589036698023,
-  "realized_pnl": -2351.25086675065,
-  "total_trades": 538,
-  "sell_count": 266,
+  "cash_inr": 1275.5008714824571,
+  "realized_pnl": -2363.2030309376496,
+  "total_trades": 541,
+  "sell_count": 267,
   "gross_gains": 1473.64,
-  "gross_losses": -3824.85,
-  "total_tds": 1771.16,
+  "gross_losses": -3836.8,
+  "total_tds": 1776.37,
   "holdings": {
     "USDTINR": {
       "qty": 5.92,
@@ -37,11 +37,17 @@
       "invested": 536.3899400323464,
       "last_buy_at": "2026-09-16T20:58:14+00:00"
     },
-    "CAKEINR": {
-      "qty": 2.28,
-      "avg_cost": 233.34961649999997,
-      "invested": 532.0371256199999,
-      "last_buy_at": "2026-09-17T02:13:15+00:00"
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 7645691.67186825,
+      "invested": 458.741500312095,
+      "last_buy_at": "2026-09-17T08:39:42+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 37.77,
+      "avg_cost": 14.471682224999999,
+      "invested": 546.59543763825,
+      "last_buy_at": "2026-09-17T08:39:42+00:00"
     }
   }
 }

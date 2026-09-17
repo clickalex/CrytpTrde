@@ -1,18 +1,12 @@
 {
-  "cash_inr": 5825.447442581645,
-  "realized_pnl": -1285.5429353215372,
-  "total_trades": 242,
-  "sell_count": 119,
+  "cash_inr": 5748.491995919392,
+  "realized_pnl": -1291.0695492295372,
+  "total_trades": 244,
+  "sell_count": 120,
   "gross_gains": 707.25,
-  "gross_losses": -1992.74,
-  "total_tds": 692.84,
+  "gross_losses": -1998.27,
+  "total_tds": 698.52,
   "holdings": {
-    "RIFINR": {
-      "qty": 72.0,
-      "avg_cost": 7.957922972999999,
-      "invested": 572.9704540559999,
-      "last_buy_at": "2026-09-14T06:49:43+00:00"
-    },
     "SOLINR": {
       "qty": 0.056,
       "avg_cost": 9722.26640385,
@@ -30,6 +24,12 @@
       "avg_cost": 54.06099699,
       "invested": 535.7444801709,
       "last_buy_at": "2026-09-16T12:00:48+00:00"
+    },
+    "GASINR": {
+      "qty": 5.1223,
+      "avg_cost": 124.69382275350002,
+      "invested": 638.7191682902532,
+      "last_buy_at": "2026-09-17T08:12:11+00:00"
     }
   }
 }
