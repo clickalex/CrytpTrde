@@ -1,23 +1,17 @@
 {
-  "cash_inr": 689.8175889648289,
-  "realized_pnl": -1890.3507662794264,
-  "total_trades": 260,
-  "sell_count": 126,
+  "cash_inr": 596.1689558785404,
+  "realized_pnl": -1937.5057489041596,
+  "total_trades": 264,
+  "sell_count": 128,
   "gross_gains": 1366.79,
-  "gross_losses": -3257.16,
-  "total_tds": 1288.84,
+  "gross_losses": -3304.31,
+  "total_tds": 1304.49,
   "holdings": {
     "USDTINR": {
       "qty": 9.37,
       "avg_cost": 100.64078524499999,
       "invested": 943.0041577456499,
       "last_buy_at": "2026-08-31T07:17:15+00:00"
-    },
-    "BNBINR": {
-      "qty": 0.008,
-      "avg_cost": 71965.22202869998,
-      "invested": 575.7217762295999,
-      "last_buy_at": "2026-09-15T18:30:29+00:00"
     },
     "PENGUINR": {
       "qty": 853.0,
@@ -49,11 +43,17 @@
       "invested": 1132.6599098314498,
       "last_buy_at": "2026-09-16T23:36:29+00:00"
     },
-    "POLYXINR": {
-      "qty": 267.8687,
-      "avg_cost": 3.8627874285,
-      "invested": 1034.7198468486379,
-      "last_buy_at": "2026-09-16T23:36:31+00:00"
+    "SOLINR": {
+      "qty": 0.075,
+      "avg_cost": 9960.62352285,
+      "invested": 747.0467642137501,
+      "last_buy_at": "2026-09-17T02:04:53+00:00"
+    },
+    "TOKENINR": {
+      "qty": 4471.2078,
+      "avg_cost": 0.19999964984999996,
+      "invested": 894.2399944065887,
+      "last_buy_at": "2026-09-17T02:04:58+00:00"
     }
   }
 }
