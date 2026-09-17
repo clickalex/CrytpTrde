@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2241.28658404411,
-  "realized_pnl": -1332.6408444231697,
-  "total_trades": 300,
-  "sell_count": 145,
-  "gross_gains": 1041.99,
-  "gross_losses": -2374.6,
-  "total_tds": 874.69,
+  "cash_inr": 2149.674219691857,
+  "realized_pnl": -1294.3708432901465,
+  "total_trades": 306,
+  "sell_count": 148,
+  "gross_gains": 1099.71,
+  "gross_losses": -2394.05,
+  "total_tds": 891.66,
   "holdings": {
     "BIOINR": {
       "qty": 231.8,
@@ -31,12 +31,6 @@
       "invested": 558.5750461090801,
       "last_buy_at": "2026-09-16T00:54:30+00:00"
     },
-    "APTINR": {
-      "qty": 10.35,
-      "avg_cost": 54.06099699,
-      "invested": 559.5313188465,
-      "last_buy_at": "2026-09-16T12:08:28+00:00"
-    },
     "RIFINR": {
       "qty": 68.0,
       "avg_cost": 8.0049934965,
@@ -49,23 +43,29 @@
       "invested": 532.579536287799,
       "last_buy_at": "2026-09-16T12:08:28+00:00"
     },
-    "GALAINR": {
-      "qty": 3353.14,
-      "avg_cost": 0.160330215045,
-      "invested": 537.6096572759913,
-      "last_buy_at": "2026-09-16T23:37:44+00:00"
-    },
     "ADAINR": {
       "qty": 27.4,
       "avg_cost": 19.60937979,
       "invested": 537.2970062459999,
       "last_buy_at": "2026-09-17T02:06:06+00:00"
     },
-    "ORCAINR": {
-      "qty": 4.13,
-      "avg_cost": 135.65324272499998,
-      "invested": 560.24789245425,
-      "last_buy_at": "2026-09-17T08:31:07+00:00"
+    "ONDOINR": {
+      "qty": 15.4,
+      "avg_cost": 36.554768249999995,
+      "invested": 562.94343105,
+      "last_buy_at": "2026-09-17T14:21:36+00:00"
+    },
+    "CHRINR": {
+      "qty": 425.0,
+      "avg_cost": 1.576361787,
+      "invested": 669.953759475,
+      "last_buy_at": "2026-09-17T14:21:40+00:00"
+    },
+    "HMSTRINR": {
+      "qty": 33655.0,
+      "avg_cost": 0.015967923971999996,
+      "invested": 537.4004812776599,
+      "last_buy_at": "2026-09-17T14:21:40+00:00"
     }
   }
 }

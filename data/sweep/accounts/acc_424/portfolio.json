@@ -1,18 +1,12 @@
 {
-  "cash_inr": 785.4187285235281,
-  "realized_pnl": -2512.587522431555,
-  "total_trades": 428,
-  "sell_count": 210,
-  "gross_gains": 1027.75,
-  "gross_losses": -3540.39,
-  "total_tds": 1560.72,
+  "cash_inr": 883.8886455577656,
+  "realized_pnl": -2457.5562805394707,
+  "total_trades": 432,
+  "sell_count": 212,
+  "gross_gains": 1093.78,
+  "gross_losses": -3551.39,
+  "total_tds": 1572.9,
   "holdings": {
-    "BOMEINR": {
-      "qty": 7511.0,
-      "avg_cost": 0.084965299419,
-      "invested": 638.174363936109,
-      "last_buy_at": "2026-09-14T14:41:19+00:00"
-    },
     "BTCINR": {
       "qty": 8e-05,
       "avg_cost": 7571263.960410149,
@@ -49,11 +43,17 @@
       "invested": 522.12034778904,
       "last_buy_at": "2026-09-16T23:39:53+00:00"
     },
-    "FARTCOININR": {
-      "qty": 36.18,
-      "avg_cost": 14.471682224999999,
-      "invested": 523.5854629004999,
-      "last_buy_at": "2026-09-17T08:33:41+00:00"
+    "GASINR": {
+      "qty": 4.1889,
+      "avg_cost": 123.45496663499996,
+      "invested": 517.1405097373514,
+      "last_buy_at": "2026-09-17T14:24:13+00:00"
+    },
+    "SEIINR": {
+      "qty": 134.2,
+      "avg_cost": 4.388975791199999,
+      "invested": 589.0005511790398,
+      "last_buy_at": "2026-09-17T14:24:14+00:00"
     }
   }
 }
