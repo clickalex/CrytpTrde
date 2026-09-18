@@ -1,11 +1,11 @@
 {
-  "cash_inr": 698.1509668563674,
-  "realized_pnl": -746.5436953179709,
-  "total_trades": 176,
-  "sell_count": 84,
+  "cash_inr": 641.3567409601676,
+  "realized_pnl": -758.9282151669709,
+  "total_trades": 178,
+  "sell_count": 85,
   "gross_gains": 1431.28,
-  "gross_losses": -2177.82,
-  "total_tds": 1019.38,
+  "gross_losses": -2190.2,
+  "total_tds": 1028.28,
   "holdings": {
     "USDTINR": {
       "qty": 11.66,
@@ -31,12 +31,6 @@
       "invested": 926.163996943185,
       "last_buy_at": "2026-09-18T01:11:41+00:00"
     },
-    "NEARINR": {
-      "qty": 2.6,
-      "avg_cost": 346.809608145,
-      "invested": 901.704981177,
-      "last_buy_at": "2026-09-18T06:45:35+00:00"
-    },
     "FARTCOININR": {
       "qty": 57.47,
       "avg_cost": 15.152702565,
@@ -54,6 +48,12 @@
       "avg_cost": 0.011193771088499999,
       "invested": 1047.1996728713518,
       "last_buy_at": "2026-09-18T06:45:36+00:00"
+    },
+    "XRPINR": {
+      "qty": 7.1,
+      "avg_cost": 132.001771902,
+      "invested": 937.2125805041999,
+      "last_buy_at": "2026-09-18T12:10:47+00:00"
     }
   }
 }

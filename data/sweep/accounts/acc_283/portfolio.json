@@ -1,29 +1,17 @@
 {
-  "cash_inr": 1328.3573828807278,
-  "realized_pnl": -3206.4575295036907,
-  "total_trades": 668,
-  "sell_count": 331,
-  "gross_gains": 1300.43,
-  "gross_losses": -4506.88,
-  "total_tds": 2105.3,
+  "cash_inr": 1341.8621063200103,
+  "realized_pnl": -3192.417542559236,
+  "total_trades": 672,
+  "sell_count": 333,
+  "gross_gains": 1319.15,
+  "gross_losses": -4511.56,
+  "total_tds": 2116.97,
   "holdings": {
     "TRXINR": {
       "qty": 15.6,
       "avg_cost": 33.27886011449999,
       "invested": 519.1502177861998,
       "last_buy_at": "2026-09-16T00:48:48+00:00"
-    },
-    "SHIBINR": {
-      "qty": 1138670.0,
-      "avg_cost": 0.0005121673557000001,
-      "invested": 583.1896029149191,
-      "last_buy_at": "2026-09-17T22:00:16+00:00"
-    },
-    "GASINR": {
-      "qty": 4.5621,
-      "avg_cost": 124.67679724499999,
-      "invested": 568.7880167114145,
-      "last_buy_at": "2026-09-18T00:54:51+00:00"
     },
     "TOSHIINR": {
       "qty": 52455.0,
@@ -42,6 +30,18 @@
       "avg_cost": 1745.9158216499998,
       "invested": 567.42264203625,
       "last_buy_at": "2026-09-18T06:29:42+00:00"
+    },
+    "PYTHINR": {
+      "qty": 96.3,
+      "avg_cost": 5.875202533199999,
+      "invested": 565.7820039471599,
+      "last_buy_at": "2026-09-18T11:54:40+00:00"
+    },
+    "HMSTRINR": {
+      "qty": 34859.0,
+      "avg_cost": 0.016496716236,
+      "invested": 575.059031270724,
+      "last_buy_at": "2026-09-18T11:54:43+00:00"
     }
   }
 }
