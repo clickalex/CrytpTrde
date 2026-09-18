@@ -1,34 +1,16 @@
 {
-  "cash_inr": 1243.4194807248773,
-  "realized_pnl": -48.07440506588728,
-  "total_trades": 189,
-  "sell_count": 88,
-  "gross_gains": 1940.42,
-  "gross_losses": -1988.48,
-  "total_tds": 627.57,
+  "cash_inr": 1355.2865713117772,
+  "realized_pnl": 50.17405555311325,
+  "total_trades": 197,
+  "sell_count": 92,
+  "gross_gains": 2046.75,
+  "gross_losses": -1996.56,
+  "total_tds": 652.05,
   "holdings": {
-    "TRXINR": {
-      "qty": 21.5,
-      "avg_cost": 33.32993664,
-      "invested": 716.59363776,
-      "last_buy_at": "2026-09-15T18:27:19+00:00"
-    },
-    "APEINR": {
-      "qty": 44.34,
-      "avg_cost": 12.75911637,
-      "invested": 565.7392198458,
-      "last_buy_at": "2026-09-15T18:27:19+00:00"
-    },
     "TRBINR": {
       "qty": 0.323,
       "avg_cost": 1689.9319437,
       "invested": 545.8480178151,
-      "last_buy_at": "2026-09-16T00:48:25+00:00"
-    },
-    "ADAINR": {
-      "qty": 27.3,
-      "avg_cost": 19.519244744999998,
-      "invested": 532.8753815384999,
       "last_buy_at": "2026-09-16T00:48:25+00:00"
     },
     "GASINR": {
@@ -79,11 +61,29 @@
       "invested": 759.09281222775,
       "last_buy_at": "2026-09-18T16:56:37+00:00"
     },
-    "ORCAINR": {
-      "qty": 3.63,
-      "avg_cost": 146.58962818499998,
-      "invested": 532.1203503115499,
-      "last_buy_at": "2026-09-18T16:56:37+00:00"
+    "FILINR": {
+      "qty": 5.97,
+      "avg_cost": 92.3383461,
+      "invested": 551.2599262169999,
+      "last_buy_at": "2026-09-18T20:08:53+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 36.7,
+      "avg_cost": 16.374533175,
+      "invested": 600.9453675225001,
+      "last_buy_at": "2026-09-18T20:08:53+00:00"
+    },
+    "ONEINR": {
+      "qty": 3260.1,
+      "avg_cost": 0.176774853255,
+      "invested": 576.3036990966255,
+      "last_buy_at": "2026-09-18T20:08:53+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1305.0,
+      "avg_cost": 0.444996717165,
+      "invested": 580.720715900325,
+      "last_buy_at": "2026-09-18T20:08:53+00:00"
     }
   }
 }

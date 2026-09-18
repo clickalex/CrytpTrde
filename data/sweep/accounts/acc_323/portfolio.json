@@ -1,35 +1,17 @@
 {
-  "cash_inr": 1334.1619823868818,
-  "realized_pnl": -2873.2361572148816,
-  "total_trades": 603,
-  "sell_count": 298,
-  "gross_gains": 1345.53,
-  "gross_losses": -4218.74,
-  "total_tds": 1848.99,
+  "cash_inr": 1310.0441621570023,
+  "realized_pnl": -2851.6396771185864,
+  "total_trades": 611,
+  "sell_count": 302,
+  "gross_gains": 1381.07,
+  "gross_losses": -4232.68,
+  "total_tds": 1871.54,
   "holdings": {
-    "USDTINR": {
-      "qty": 5.35,
-      "avg_cost": 99.84959984999999,
-      "invested": 534.1953591974999,
-      "last_buy_at": "2026-09-15T18:28:45+00:00"
-    },
-    "TRXINR": {
-      "qty": 16.2,
-      "avg_cost": 33.32993663999999,
-      "invested": 539.9449735679999,
-      "last_buy_at": "2026-09-15T18:28:45+00:00"
-    },
     "DOGEINR": {
       "qty": 71.0,
       "avg_cost": 8.412604199999999,
       "invested": 597.2948981999999,
       "last_buy_at": "2026-09-18T06:32:55+00:00"
-    },
-    "XRPINR": {
-      "qty": 4.4,
-      "avg_cost": 132.001771902,
-      "invested": 580.8077963688,
-      "last_buy_at": "2026-09-18T11:57:57+00:00"
     },
     "ETHINR": {
       "qty": 0.0021,
@@ -37,17 +19,35 @@
       "invested": 543.45423132,
       "last_buy_at": "2026-09-18T17:00:22+00:00"
     },
-    "TOSHIINR": {
-      "qty": 49290.0,
-      "avg_cost": 0.011691516837000001,
-      "invested": 576.27486489573,
-      "last_buy_at": "2026-09-18T17:00:22+00:00"
-    },
     "PUMPINR": {
       "qty": 1325.0,
       "avg_cost": 0.43142638538999994,
       "invested": 571.6399606417499,
       "last_buy_at": "2026-09-18T17:00:26+00:00"
+    },
+    "NEARINR": {
+      "qty": 1.5,
+      "avg_cost": 371.84712064499996,
+      "invested": 557.7706809675,
+      "last_buy_at": "2026-09-18T20:12:37+00:00"
+    },
+    "SUIINR": {
+      "qty": 7.1,
+      "avg_cost": 80.62079025,
+      "invested": 572.407610775,
+      "last_buy_at": "2026-09-18T20:12:37+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 34.37,
+      "avg_cost": 16.374533175,
+      "invested": 562.79270522475,
+      "last_buy_at": "2026-09-18T20:12:37+00:00"
+    },
+    "POPCATINR": {
+      "qty": 113.3,
+      "avg_cost": 4.95512402385,
+      "invested": 561.4155519022049,
+      "last_buy_at": "2026-09-18T20:12:40+00:00"
     }
   }
 }
