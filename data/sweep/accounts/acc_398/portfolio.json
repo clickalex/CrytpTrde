@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2230.4158470937327,
-  "realized_pnl": -1245.861322284986,
-  "total_trades": 312,
-  "sell_count": 151,
+  "cash_inr": 2233.5999636480915,
+  "realized_pnl": -1262.2937314581256,
+  "total_trades": 316,
+  "sell_count": 153,
   "gross_gains": 1169.63,
-  "gross_losses": -2415.46,
-  "total_tds": 909.51,
+  "gross_losses": -2431.89,
+  "total_tds": 920.79,
   "holdings": {
-    "BIOINR": {
-      "qty": 231.8,
-      "avg_cost": 2.4989440475999998,
-      "invested": 579.25523023368,
-      "last_buy_at": "2026-09-10T23:02:27+00:00"
-    },
     "TRXINR": {
       "qty": 15.1,
       "avg_cost": 33.2788601145,
@@ -55,17 +49,23 @@
       "invested": 537.4004812776599,
       "last_buy_at": "2026-09-17T14:21:40+00:00"
     },
-    "CAKEINR": {
-      "qty": 2.3,
-      "avg_cost": 245.36762249999995,
-      "invested": 564.3455317499999,
-      "last_buy_at": "2026-09-17T19:07:20+00:00"
-    },
     "BRISEINR": {
       "qty": 367041053.0,
       "avg_cost": 1.51917610845e-06,
       "invested": 557.5999985379302,
       "last_buy_at": "2026-09-17T22:11:38+00:00"
+    },
+    "ARBINR": {
+      "qty": 30.9,
+      "avg_cost": 17.938876956,
+      "invested": 554.3112979404,
+      "last_buy_at": "2026-09-18T01:04:43+00:00"
+    },
+    "GASINR": {
+      "qty": 4.4787,
+      "avg_cost": 124.67679724499999,
+      "invested": 558.3899718211815,
+      "last_buy_at": "2026-09-18T01:04:43+00:00"
     }
   }
 }
