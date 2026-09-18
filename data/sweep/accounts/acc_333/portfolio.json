@@ -1,35 +1,17 @@
 {
-  "cash_inr": 997.2910987964059,
-  "realized_pnl": -2794.8866065549314,
-  "total_trades": 432,
-  "sell_count": 213,
-  "gross_gains": 1550.21,
-  "gross_losses": -4345.1,
-  "total_tds": 1776.06,
+  "cash_inr": 718.9399395931424,
+  "realized_pnl": -2771.370178561935,
+  "total_trades": 438,
+  "sell_count": 216,
+  "gross_gains": 1586.04,
+  "gross_losses": -4357.42,
+  "total_tds": 1796.52,
   "holdings": {
     "USDTINR": {
       "qty": 7.62,
       "avg_cost": 99.739434795,
       "invested": 760.0144931379,
       "last_buy_at": "2026-09-13T18:01:47+00:00"
-    },
-    "TOKENINR": {
-      "qty": 3460.7395,
-      "avg_cost": 0.19549289759999997,
-      "invested": 676.5499926937752,
-      "last_buy_at": "2026-09-16T23:32:17+00:00"
-    },
-    "RENDERINR": {
-      "qty": 4.56,
-      "avg_cost": 150.074849925,
-      "invested": 684.3413156579999,
-      "last_buy_at": "2026-09-18T06:33:43+00:00"
-    },
-    "SUSHIINR": {
-      "qty": 26.9,
-      "avg_cost": 24.53676225,
-      "invested": 660.0389045249999,
-      "last_buy_at": "2026-09-18T11:58:45+00:00"
     },
     "XDBINR": {
       "qty": 83647.0,
@@ -42,6 +24,24 @@
       "avg_cost": 0.016496716236,
       "invested": 997.275986614908,
       "last_buy_at": "2026-09-18T11:58:48+00:00"
+    },
+    "ARBINR": {
+      "qty": 38.2,
+      "avg_cost": 22.033011,
+      "invested": 841.6610202,
+      "last_buy_at": "2026-09-18T17:01:11+00:00"
+    },
+    "ORCAINR": {
+      "qty": 5.06,
+      "avg_cost": 146.589628185,
+      "invested": 741.7435186161,
+      "last_buy_at": "2026-09-18T17:01:11+00:00"
+    },
+    "GALAINR": {
+      "qty": 3758.58,
+      "avg_cost": 0.191276580495,
+      "invested": 718.928329916897,
+      "last_buy_at": "2026-09-18T17:01:13+00:00"
     }
   }
 }

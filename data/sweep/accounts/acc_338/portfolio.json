@@ -1,11 +1,11 @@
 {
-  "cash_inr": 716.4752064468408,
-  "realized_pnl": -281.51963733145465,
-  "total_trades": 85,
-  "sell_count": 38,
-  "gross_gains": 1070.68,
+  "cash_inr": 700.4741328376163,
+  "realized_pnl": -59.996985113204005,
+  "total_trades": 92,
+  "sell_count": 41,
+  "gross_gains": 1292.2,
   "gross_losses": -1352.19,
-  "total_tds": 399.88,
+  "total_tds": 442.07,
   "holdings": {
     "USDTINR": {
       "qty": 6.3,
@@ -13,29 +13,11 @@
       "invested": 630.1250860905,
       "last_buy_at": "2026-09-02T06:19:59+00:00"
     },
-    "ETHINR": {
-      "qty": 0.0115,
-      "avg_cost": 247681.18880504995,
-      "invested": 2848.3336712580744,
-      "last_buy_at": "2026-09-03T15:28:21+00:00"
-    },
     "TRXINR": {
       "qty": 33.2,
       "avg_cost": 33.5552742525,
       "invested": 1114.035105183,
       "last_buy_at": "2026-09-17T02:01:02+00:00"
-    },
-    "FILINR": {
-      "qty": 6.9,
-      "avg_cost": 80.74097031,
-      "invested": 557.112695139,
-      "last_buy_at": "2026-09-17T02:01:02+00:00"
-    },
-    "FARTCOININR": {
-      "qty": 40.65,
-      "avg_cost": 14.471682225,
-      "invested": 588.27388244625,
-      "last_buy_at": "2026-09-17T08:24:59+00:00"
     },
     "XRPINR": {
       "qty": 5.5,
@@ -60,6 +42,30 @@
       "avg_cost": 67.27078858499999,
       "invested": 716.43389843025,
       "last_buy_at": "2026-09-18T06:34:08+00:00"
+    },
+    "BNBINR": {
+      "qty": 0.024,
+      "avg_cost": 75813.58784999998,
+      "invested": 1819.5261083999997,
+      "last_buy_at": "2026-09-18T17:01:36+00:00"
+    },
+    "SOLINR": {
+      "qty": 0.082,
+      "avg_cost": 11166.730574999998,
+      "invested": 915.6719071499999,
+      "last_buy_at": "2026-09-18T17:01:36+00:00"
+    },
+    "DOGEINR": {
+      "qty": 86.0,
+      "avg_cost": 8.77314438,
+      "invested": 754.49041668,
+      "last_buy_at": "2026-09-18T17:01:36+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 28.1,
+      "avg_cost": 24.8882889255,
+      "invested": 699.36091880655,
+      "last_buy_at": "2026-09-18T17:01:36+00:00"
     }
   }
 }

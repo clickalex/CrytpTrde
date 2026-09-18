@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1456.8977730633344,
-  "realized_pnl": -2642.9993717333464,
-  "total_trades": 307,
-  "sell_count": 151,
-  "gross_gains": 1243.33,
-  "gross_losses": -3886.32,
-  "total_tds": 1528.61,
+  "cash_inr": 623.8698926174,
+  "realized_pnl": -2520.7396453253955,
+  "total_trades": 316,
+  "sell_count": 155,
+  "gross_gains": 1382.53,
+  "gross_losses": -3903.26,
+  "total_tds": 1566.73,
   "holdings": {
     "USDTINR": {
       "qty": 6.86,
@@ -13,29 +13,35 @@
       "invested": 685.6552843139999,
       "last_buy_at": "2026-09-09T22:47:16+00:00"
     },
-    "BRISEINR": {
-      "qty": 613115223.0,
-      "avg_cost": 1.5191761084499997e-06,
-      "invested": 931.4299985085938,
-      "last_buy_at": "2026-09-17T22:11:15+00:00"
+    "ETHINR": {
+      "qty": 0.0054,
+      "avg_cost": 258787.72919999997,
+      "invested": 1397.45373768,
+      "last_buy_at": "2026-09-18T17:06:02+00:00"
     },
-    "BTCINR": {
-      "qty": 0.00011,
-      "avg_cost": 7643589.2218686,
-      "invested": 840.794814405546,
-      "last_buy_at": "2026-09-18T01:04:23+00:00"
+    "BNBINR": {
+      "qty": 0.007,
+      "avg_cost": 75813.58785,
+      "invested": 530.69511495,
+      "last_buy_at": "2026-09-18T17:06:02+00:00"
     },
-    "NEARINR": {
-      "qty": 2.9,
-      "avg_cost": 346.809608145,
-      "invested": 1005.7478636205,
-      "last_buy_at": "2026-09-18T06:38:41+00:00"
+    "LINKINR": {
+      "qty": 0.7,
+      "avg_cost": 1225.81658199,
+      "invested": 858.0716073929999,
+      "last_buy_at": "2026-09-18T17:06:02+00:00"
     },
-    "SUSHIINR": {
-      "qty": 37.0,
-      "avg_cost": 24.53676225,
-      "invested": 907.8602032499999,
-      "last_buy_at": "2026-09-18T12:03:48+00:00"
+    "ORCAINR": {
+      "qty": 6.01,
+      "avg_cost": 146.589628185,
+      "invested": 881.00366539185,
+      "last_buy_at": "2026-09-18T17:06:02+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 80039.0,
+      "avg_cost": 0.011691516837000001,
+      "invested": 935.7773161166431,
+      "last_buy_at": "2026-09-18T17:06:02+00:00"
     }
   }
 }

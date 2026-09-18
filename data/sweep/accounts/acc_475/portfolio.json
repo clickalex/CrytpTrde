@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1553.2320122599294,
-  "realized_pnl": -55.972931234925795,
-  "total_trades": 94,
-  "sell_count": 41,
-  "gross_gains": 1204.84,
+  "cash_inr": 1543.5875704719297,
+  "realized_pnl": 234.63918873307443,
+  "total_trades": 100,
+  "sell_count": 44,
+  "gross_gains": 1495.45,
   "gross_losses": -1260.8,
-  "total_tds": 343.12,
+  "total_tds": 363.67,
   "holdings": {
     "BOMEINR": {
       "qty": 7353.0,
@@ -43,18 +43,6 @@
       "invested": 729.47329473018,
       "last_buy_at": "2026-09-16T12:11:38+00:00"
     },
-    "SUSHIINR": {
-      "qty": 24.5,
-      "avg_cost": 20.8181908935,
-      "invested": 510.04567689075,
-      "last_buy_at": "2026-09-16T12:11:38+00:00"
-    },
-    "ONDOINR": {
-      "qty": 17.7,
-      "avg_cost": 33.9979374735,
-      "invested": 601.76349328095,
-      "last_buy_at": "2026-09-16T20:57:34+00:00"
-    },
     "XRPINR": {
       "qty": 4.9,
       "avg_cost": 129.3608150835,
@@ -73,11 +61,23 @@
       "invested": 649.721446374,
       "last_buy_at": "2026-09-17T19:15:56+00:00"
     },
-    "NEARINR": {
-      "qty": 2.1,
-      "avg_cost": 309.84422469,
-      "invested": 650.672871849,
-      "last_buy_at": "2026-09-18T01:11:16+00:00"
+    "USDTINR": {
+      "qty": 6.94,
+      "avg_cost": 99.69937477499998,
+      "invested": 691.9136609384999,
+      "last_buy_at": "2026-09-18T17:12:33+00:00"
+    },
+    "ICPINR": {
+      "qty": 2.43,
+      "avg_cost": 284.20581188999995,
+      "invested": 690.6201228926999,
+      "last_buy_at": "2026-09-18T17:12:33+00:00"
+    },
+    "ORCAINR": {
+      "qty": 4.5,
+      "avg_cost": 146.589628185,
+      "invested": 659.6533268325,
+      "last_buy_at": "2026-09-18T17:12:33+00:00"
     }
   }
 }
