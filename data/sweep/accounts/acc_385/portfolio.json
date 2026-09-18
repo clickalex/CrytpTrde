@@ -1,18 +1,12 @@
 {
-  "cash_inr": 5106.95160773829,
-  "realized_pnl": -37.10198136249261,
-  "total_trades": 224,
-  "sell_count": 108,
-  "gross_gains": 1400.95,
-  "gross_losses": -1438.05,
-  "total_tds": 594.91,
+  "cash_inr": 4587.298096160264,
+  "realized_pnl": -34.356284609330544,
+  "total_trades": 229,
+  "sell_count": 110,
+  "gross_gains": 1407.6,
+  "gross_losses": -1441.95,
+  "total_tds": 604.96,
   "holdings": {
-    "TRXINR": {
-      "qty": 15.6,
-      "avg_cost": 33.0495165,
-      "invested": 515.5724574000001,
-      "last_buy_at": "2026-09-04T21:22:53+00:00"
-    },
     "CHILLGUYINR": {
       "qty": 438.0,
       "avg_cost": 1.2454660218,
@@ -43,17 +37,29 @@
       "invested": 553.8697563999599,
       "last_buy_at": "2026-09-18T17:05:19+00:00"
     },
-    "BTCINR": {
-      "qty": 6e-05,
-      "avg_cost": 8098793.131979549,
-      "invested": 485.927587918773,
-      "last_buy_at": "2026-09-18T20:17:27+00:00"
-    },
     "DOTINR": {
       "qty": 4.4346,
       "avg_cost": 114.6067097175,
       "invested": 508.23491491322545,
       "last_buy_at": "2026-09-18T20:17:27+00:00"
+    },
+    "ETHINR": {
+      "qty": 0.0021,
+      "avg_cost": 261740.9538744,
+      "invested": 549.65600313624,
+      "last_buy_at": "2026-09-18T23:09:24+00:00"
+    },
+    "BNBINR": {
+      "qty": 0.006,
+      "avg_cost": 75763.1122248,
+      "invested": 454.57867334880007,
+      "last_buy_at": "2026-09-18T23:09:24+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 31.58,
+      "avg_cost": 16.1371775565,
+      "invested": 509.61206723426994,
+      "last_buy_at": "2026-09-18T23:09:24+00:00"
     }
   }
 }

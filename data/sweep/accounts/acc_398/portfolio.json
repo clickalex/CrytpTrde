@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2351.6742842538115,
-  "realized_pnl": -977.4262705522957,
-  "total_trades": 336,
-  "sell_count": 163,
-  "gross_gains": 1484.46,
-  "gross_losses": -2461.86,
-  "total_tds": 980.76,
+  "cash_inr": 2349.6627806035135,
+  "realized_pnl": -959.8722072774597,
+  "total_trades": 340,
+  "sell_count": 165,
+  "gross_gains": 1515.24,
+  "gross_losses": -2475.09,
+  "total_tds": 992.62,
   "holdings": {
     "TRXINR": {
       "qty": 15.1,
@@ -31,12 +31,6 @@
       "invested": 574.0082088740999,
       "last_buy_at": "2026-09-18T06:39:01+00:00"
     },
-    "APTINR": {
-      "qty": 8.52,
-      "avg_cost": 67.270788585,
-      "invested": 573.1471187442,
-      "last_buy_at": "2026-09-18T06:39:01+00:00"
-    },
     "ICPINR": {
       "qty": 2.04,
       "avg_cost": 284.2058118899999,
@@ -55,17 +49,23 @@
       "invested": 577.2648882000001,
       "last_buy_at": "2026-09-18T20:18:26+00:00"
     },
-    "BRISEINR": {
-      "qty": 361626787.0,
-      "avg_cost": 1.6434623205e-06,
-      "invested": 594.3199985179792,
-      "last_buy_at": "2026-09-18T20:18:26+00:00"
-    },
     "POPCATINR": {
       "qty": 118.64,
       "avg_cost": 4.95512402385,
       "invested": 587.875914189564,
       "last_buy_at": "2026-09-18T20:18:30+00:00"
+    },
+    "ADAINR": {
+      "qty": 26.2,
+      "avg_cost": 22.433611199999998,
+      "invested": 587.7606134399999,
+      "last_buy_at": "2026-09-18T23:10:21+00:00"
+    },
+    "TOKENINR": {
+      "qty": 2807.7066,
+      "avg_cost": 0.20921345445,
+      "invested": 587.4099968680644,
+      "last_buy_at": "2026-09-18T23:10:22+00:00"
     }
   }
 }

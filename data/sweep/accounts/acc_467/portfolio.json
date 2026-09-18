@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2313.819964976271,
-  "realized_pnl": -766.0302494395457,
-  "total_trades": 195,
-  "sell_count": 93,
-  "gross_gains": 1403.1,
+  "cash_inr": 1652.559686599494,
+  "realized_pnl": -751.0269223140807,
+  "total_trades": 198,
+  "sell_count": 94,
+  "gross_gains": 1418.1,
   "gross_losses": -2169.16,
-  "total_tds": 676.82,
+  "total_tds": 683.84,
   "holdings": {
     "BIOINR": {
       "qty": 233.6,
@@ -49,17 +49,23 @@
       "invested": 682.6503822138,
       "last_buy_at": "2026-09-18T17:11:55+00:00"
     },
-    "BONKINR": {
-      "qty": 2340374.0,
-      "avg_cost": 0.00029323934640000004,
-      "invested": 686.2897420915536,
-      "last_buy_at": "2026-09-18T17:11:57+00:00"
-    },
     "SUSHIINR": {
       "qty": 28.2,
       "avg_cost": 25.0375125,
       "invested": 706.0578525,
       "last_buy_at": "2026-09-18T20:23:46+00:00"
+    },
+    "BTCINR": {
+      "qty": 8e-05,
+      "avg_cost": 8091314.827595999,
+      "invested": 647.30518620768,
+      "last_buy_at": "2026-09-18T23:15:28+00:00"
+    },
+    "GALAINR": {
+      "qty": 3668.45,
+      "avg_cost": 0.19305925138499996,
+      "invested": 708.2282107433031,
+      "last_buy_at": "2026-09-18T23:15:31+00:00"
     }
   }
 }
