@@ -1,18 +1,12 @@
 {
-  "cash_inr": 4656.459551829235,
-  "realized_pnl": -1407.8209832326486,
-  "total_trades": 320,
-  "sell_count": 157,
-  "gross_gains": 704.23,
+  "cash_inr": 4784.810116251231,
+  "realized_pnl": -1317.9092454051674,
+  "total_trades": 326,
+  "sell_count": 160,
+  "gross_gains": 794.14,
   "gross_losses": -2112.07,
-  "total_tds": 835.26,
+  "total_tds": 851.84,
   "holdings": {
-    "BTCINR": {
-      "qty": 7e-05,
-      "avg_cost": 7571263.960410149,
-      "invested": 529.9884772287104,
-      "last_buy_at": "2026-09-16T00:55:02+00:00"
-    },
     "BIOINR": {
       "qty": 211.4,
       "avg_cost": 2.48161808895,
@@ -25,23 +19,29 @@
       "invested": 502.36560020146493,
       "last_buy_at": "2026-09-16T23:38:35+00:00"
     },
-    "ADAINR": {
-      "qty": 26.9,
-      "avg_cost": 19.292905632,
-      "invested": 518.9791615007999,
-      "last_buy_at": "2026-09-16T23:38:35+00:00"
-    },
-    "PENGUINR": {
-      "qty": 748.0,
-      "avg_cost": 0.69219708558,
-      "invested": 517.76342001384,
-      "last_buy_at": "2026-09-16T23:38:38+00:00"
-    },
     "XRPINR": {
       "qty": 3.9,
       "avg_cost": 129.932671869,
       "invested": 506.73742028909993,
       "last_buy_at": "2026-09-17T22:12:43+00:00"
+    },
+    "BNBINR": {
+      "qty": 0.006,
+      "avg_cost": 75112.23704984998,
+      "invested": 450.6734222990999,
+      "last_buy_at": "2026-09-18T06:39:53+00:00"
+    },
+    "APTINR": {
+      "qty": 7.87,
+      "avg_cost": 67.270788585,
+      "invested": 529.4211061639501,
+      "last_buy_at": "2026-09-18T06:39:53+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 418.0,
+      "avg_cost": 1.27180548495,
+      "invested": 531.6146927091,
+      "last_buy_at": "2026-09-18T06:39:58+00:00"
     }
   }
 }

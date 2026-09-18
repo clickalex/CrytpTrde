@@ -1,23 +1,17 @@
 {
-  "cash_inr": 581.108636743407,
-  "realized_pnl": -2371.426498302237,
-  "total_trades": 358,
-  "sell_count": 176,
-  "gross_gains": 1366.18,
-  "gross_losses": -3737.6,
-  "total_tds": 1688.04,
+  "cash_inr": 580.2244213333717,
+  "realized_pnl": -2345.745974805569,
+  "total_trades": 364,
+  "sell_count": 179,
+  "gross_gains": 1405.63,
+  "gross_losses": -3751.37,
+  "total_tds": 1715.2,
   "holdings": {
     "USDTINR": {
       "qty": 8.84,
       "avg_cost": 100.09997497499998,
       "invested": 884.8837787789998,
       "last_buy_at": "2026-09-16T00:57:20+00:00"
-    },
-    "DOGEINR": {
-      "qty": 114.0,
-      "avg_cost": 8.0258247069,
-      "invested": 914.9440165866,
-      "last_buy_at": "2026-09-16T12:10:50+00:00"
     },
     "BIOINR": {
       "qty": 363.7,
@@ -31,17 +25,23 @@
       "invested": 884.2082967367649,
       "last_buy_at": "2026-09-18T01:09:34+00:00"
     },
-    "GALAINR": {
-      "qty": 4903.1,
-      "avg_cost": 0.184005686865,
-      "invested": 902.1982832677816,
-      "last_buy_at": "2026-09-18T01:09:36+00:00"
+    "FARTCOININR": {
+      "qty": 60.28,
+      "avg_cost": 15.152702565000002,
+      "invested": 913.4049106182001,
+      "last_buy_at": "2026-09-18T06:43:39+00:00"
     },
-    "CHILLGUYINR": {
-      "qty": 686.0,
-      "avg_cost": 1.2691014336000002,
-      "invested": 870.6035834496001,
-      "last_buy_at": "2026-09-18T01:09:39+00:00"
+    "POPCATINR": {
+      "qty": 192.21,
+      "avg_cost": 4.70014199655,
+      "invested": 903.4142931568756,
+      "last_buy_at": "2026-09-18T06:43:41+00:00"
+    },
+    "POLYXINR": {
+      "qty": 222.4849,
+      "avg_cost": 3.9118609529999997,
+      "invested": 870.3299929421097,
+      "last_buy_at": "2026-09-18T06:43:44+00:00"
     }
   }
 }
