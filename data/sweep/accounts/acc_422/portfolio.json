@@ -1,29 +1,17 @@
 {
-  "cash_inr": 2171.9346777722494,
-  "realized_pnl": -2787.875906936441,
-  "total_trades": 664,
-  "sell_count": 329,
-  "gross_gains": 1368.0,
-  "gross_losses": -4155.88,
-  "total_tds": 1870.22,
+  "cash_inr": 2037.2046058555165,
+  "realized_pnl": -2823.999551697527,
+  "total_trades": 672,
+  "sell_count": 333,
+  "gross_gains": 1384.04,
+  "gross_losses": -4208.05,
+  "total_tds": 1891.0,
   "holdings": {
-    "APEINR": {
-      "qty": 40.46,
-      "avg_cost": 13.2829011315,
-      "invested": 537.42617978049,
-      "last_buy_at": "2026-09-18T12:06:06+00:00"
-    },
     "SUIINR": {
       "qty": 6.7,
       "avg_cost": 80.22019004999999,
       "invested": 537.4752733349999,
       "last_buy_at": "2026-09-18T17:08:17+00:00"
-    },
-    "BTCINR": {
-      "qty": 6e-05,
-      "avg_cost": 8098793.131979549,
-      "invested": 485.927587918773,
-      "last_buy_at": "2026-09-18T20:20:19+00:00"
     },
     "ETHINR": {
       "qty": 0.002,
@@ -31,17 +19,29 @@
       "invested": 520.6292337246,
       "last_buy_at": "2026-09-19T01:45:02+00:00"
     },
-    "APTINR": {
-      "qty": 7.3,
-      "avg_cost": 74.79205734,
-      "invested": 545.982018582,
-      "last_buy_at": "2026-09-19T01:45:02+00:00"
+    "SOLINR": {
+      "qty": 0.047,
+      "avg_cost": 11151.507767399999,
+      "invested": 524.1208650678,
+      "last_buy_at": "2026-09-19T06:37:31+00:00"
     },
-    "SEIINR": {
-      "qty": 112.8,
-      "avg_cost": 4.8100066014,
-      "invested": 542.56874463792,
-      "last_buy_at": "2026-09-19T01:45:02+00:00"
+    "ARBINR": {
+      "qty": 25.1,
+      "avg_cost": 20.891300429999998,
+      "invested": 524.371640793,
+      "last_buy_at": "2026-09-19T06:37:31+00:00"
+    },
+    "RIFINR": {
+      "qty": 74.0,
+      "avg_cost": 8.546805266999998,
+      "invested": 632.4635897579999,
+      "last_buy_at": "2026-09-19T06:37:31+00:00"
+    },
+    "PYTHINR": {
+      "qty": 84.5,
+      "avg_cost": 6.021021006,
+      "invested": 508.776275007,
+      "last_buy_at": "2026-09-19T06:37:31+00:00"
     }
   }
 }

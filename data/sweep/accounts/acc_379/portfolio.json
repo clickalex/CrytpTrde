@@ -1,29 +1,17 @@
 {
-  "cash_inr": 1344.1332735496208,
-  "realized_pnl": -2743.3368514129547,
-  "total_trades": 521,
-  "sell_count": 257,
-  "gross_gains": 1257.89,
-  "gross_losses": -4001.21,
-  "total_tds": 1703.72,
+  "cash_inr": 1993.021632984397,
+  "realized_pnl": -2774.5118280291945,
+  "total_trades": 526,
+  "sell_count": 260,
+  "gross_gains": 1257.93,
+  "gross_losses": -4032.43,
+  "total_tds": 1721.99,
   "holdings": {
     "USDTINR": {
       "qty": 5.75,
       "avg_cost": 100.08995997,
       "invested": 575.5172698275,
       "last_buy_at": "2026-09-18T23:08:57+00:00"
-    },
-    "BIOINR": {
-      "qty": 232.5,
-      "avg_cost": 2.7293893126499995,
-      "invested": 634.5830151911249,
-      "last_buy_at": "2026-09-18T23:09:01+00:00"
-    },
-    "CHILLGUYINR": {
-      "qty": 486.0,
-      "avg_cost": 1.3047548514,
-      "invested": 634.1108577804,
-      "last_buy_at": "2026-09-18T23:09:02+00:00"
     },
     "BNBINR": {
       "qty": 0.008,
@@ -37,17 +25,23 @@
       "invested": 596.537763822,
       "last_buy_at": "2026-09-19T01:42:27+00:00"
     },
-    "FARTCOININR": {
-      "qty": 36.56,
-      "avg_cost": 16.076086025999995,
-      "invested": 587.7417051105599,
-      "last_buy_at": "2026-09-19T01:42:27+00:00"
-    },
     "PEPEINR": {
       "qty": 1519247.0,
       "avg_cost": 0.00037916808929999994,
       "invested": 576.049982164757,
       "last_buy_at": "2026-09-19T01:42:27+00:00"
+    },
+    "ORCAINR": {
+      "qty": 3.92,
+      "avg_cost": 146.17901298000004,
+      "invested": 573.0217308816001,
+      "last_buy_at": "2026-09-19T06:34:13+00:00"
+    },
+    "SHIBINR": {
+      "qty": 1088104.0,
+      "avg_cost": 0.0005377056184499998,
+      "invested": 585.0796342579187,
+      "last_buy_at": "2026-09-19T06:34:16+00:00"
     }
   }
 }
