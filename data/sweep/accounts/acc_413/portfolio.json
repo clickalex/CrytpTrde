@@ -1,23 +1,17 @@
 {
-  "cash_inr": 654.9723609137135,
-  "realized_pnl": -2609.4608862695404,
-  "total_trades": 315,
-  "sell_count": 153,
-  "gross_gains": 1199.58,
-  "gross_losses": -3809.04,
-  "total_tds": 1305.17,
+  "cash_inr": 630.2667312653608,
+  "realized_pnl": -2552.9720457136123,
+  "total_trades": 319,
+  "sell_count": 155,
+  "gross_gains": 1286.99,
+  "gross_losses": -3839.96,
+  "total_tds": 1317.49,
   "holdings": {
     "TRXINR": {
       "qty": 18.7,
       "avg_cost": 32.242307096999994,
       "invested": 602.9311427138999,
       "last_buy_at": "2026-09-02T17:02:55+00:00"
-    },
-    "PEPEINR": {
-      "qty": 1549282.0,
-      "avg_cost": 0.00036444603195,
-      "invested": 564.6296772715599,
-      "last_buy_at": "2026-09-17T22:13:11+00:00"
     },
     "BNBINR": {
       "qty": 0.007,
@@ -49,17 +43,23 @@
       "invested": 602.00419391112,
       "last_buy_at": "2026-09-18T23:11:29+00:00"
     },
-    "TOKENINR": {
-      "qty": 2914.2007,
-      "avg_cost": 0.20921345445,
-      "invested": 609.6899954076081,
-      "last_buy_at": "2026-09-19T06:36:49+00:00"
-    },
     "BTCINR": {
       "qty": 7e-05,
       "avg_cost": 8100517.6156905,
       "invested": 567.036233098335,
       "last_buy_at": "2026-09-19T11:40:44+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1476.0,
+      "avg_cost": 0.41569281253499996,
+      "invested": 613.56259130166,
+      "last_buy_at": "2026-09-19T18:43:24+00:00"
+    },
+    "ALTINR": {
+      "qty": 871.0,
+      "avg_cost": 0.7228830609,
+      "invested": 629.6311460439,
+      "last_buy_at": "2026-09-19T18:43:26+00:00"
     }
   }
 }
