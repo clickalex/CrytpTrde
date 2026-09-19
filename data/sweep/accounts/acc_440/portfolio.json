@@ -1,18 +1,12 @@
 {
-  "cash_inr": 825.2847446411602,
-  "realized_pnl": -2237.1723872855237,
-  "total_trades": 446,
-  "sell_count": 219,
-  "gross_gains": 1593.78,
-  "gross_losses": -3830.98,
-  "total_tds": 1562.94,
+  "cash_inr": 1150.6579739816161,
+  "realized_pnl": -2233.508958893017,
+  "total_trades": 450,
+  "sell_count": 221,
+  "gross_gains": 1620.47,
+  "gross_losses": -3854.0,
+  "total_tds": 1580.9,
   "holdings": {
-    "TOSHIINR": {
-      "qty": 78052.0,
-      "avg_cost": 0.011193771088499999,
-      "invested": 873.6962209996019,
-      "last_buy_at": "2026-09-18T06:42:28+00:00"
-    },
     "NEARINR": {
       "qty": 1.5,
       "avg_cost": 367.3503834,
@@ -43,17 +37,23 @@
       "invested": 774.0198558988895,
       "last_buy_at": "2026-09-19T06:38:55+00:00"
     },
-    "GASINR": {
-      "qty": 6.9259,
-      "avg_cost": 132.3913555965,
-      "invested": 916.9292897257994,
-      "last_buy_at": "2026-09-19T06:38:56+00:00"
-    },
     "POPCATINR": {
       "qty": 112.29,
       "avg_cost": 4.899240295949999,
       "invested": 550.1356928322255,
       "last_buy_at": "2026-09-19T06:38:56+00:00"
+    },
+    "BIOINR": {
+      "qty": 248.7,
+      "avg_cost": 2.7497197728,
+      "invested": 683.85530749536,
+      "last_buy_at": "2026-09-19T11:42:23+00:00"
+    },
+    "GALAINR": {
+      "qty": 4016.73,
+      "avg_cost": 0.190976130345,
+      "invested": 767.0995520406718,
+      "last_buy_at": "2026-09-19T11:42:24+00:00"
     }
   }
 }
