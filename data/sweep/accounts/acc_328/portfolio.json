@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1040.0296245839243,
-  "realized_pnl": -1470.0424525550686,
-  "total_trades": 488,
-  "sell_count": 240,
+  "cash_inr": 1018.1312251538492,
+  "realized_pnl": -1492.9270482538532,
+  "total_trades": 490,
+  "sell_count": 241,
   "gross_gains": 2180.1,
-  "gross_losses": -3650.12,
-  "total_tds": 1759.03,
+  "gross_losses": -3673.0,
+  "total_tds": 1765.66,
   "holdings": {
     "USDTINR": {
       "qty": 7.99,
       "avg_cost": 99.77949481499998,
       "invested": 797.2381635718499,
       "last_buy_at": "2026-09-17T18:59:37+00:00"
-    },
-    "DOTINR": {
-      "qty": 5.9781,
-      "avg_cost": 114.6067097175,
-      "invested": 685.1303713621868,
-      "last_buy_at": "2026-09-18T20:13:00+00:00"
     },
     "PYTHINR": {
       "qty": 110.0,
@@ -54,6 +48,12 @@
       "avg_cost": 0.41569281253499996,
       "invested": 692.9599184958449,
       "last_buy_at": "2026-09-19T18:36:08+00:00"
+    },
+    "ARBINR": {
+      "qty": 32.8,
+      "avg_cost": 20.655947812499996,
+      "invested": 677.5150882499998,
+      "last_buy_at": "2026-09-19T23:37:48+00:00"
     }
   }
 }

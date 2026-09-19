@@ -1,18 +1,12 @@
 {
-  "cash_inr": 582.0744353795335,
-  "realized_pnl": -972.3162118139463,
-  "total_trades": 318,
-  "sell_count": 155,
+  "cash_inr": 448.57078500675016,
+  "realized_pnl": -1008.1799829162798,
+  "total_trades": 320,
+  "sell_count": 156,
   "gross_gains": 1650.22,
-  "gross_losses": -2622.55,
-  "total_tds": 1547.74,
+  "gross_losses": -2658.41,
+  "total_tds": 1553.19,
   "holdings": {
-    "BOMEINR": {
-      "qty": 5839.0,
-      "avg_cost": 0.0994439921475,
-      "invested": 580.6534701492525,
-      "last_buy_at": "2026-09-18T16:57:00+00:00"
-    },
     "DOTINR": {
       "qty": 5.7069,
       "avg_cost": 114.6067097175,
@@ -54,6 +48,12 @@
       "avg_cost": 210.12481990500004,
       "invested": 873.0686267052752,
       "last_buy_at": "2026-09-19T21:09:44+00:00"
+    },
+    "TOKENINR": {
+      "qty": 3324.2549,
+      "avg_cost": 0.20240325104999998,
+      "invested": 672.8399990788926,
+      "last_buy_at": "2026-09-19T23:34:44+00:00"
     }
   }
 }
