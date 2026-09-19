@@ -1,18 +1,12 @@
 {
-  "cash_inr": 811.1688918428079,
-  "realized_pnl": -2398.8794103566547,
-  "total_trades": 410,
-  "sell_count": 202,
+  "cash_inr": 834.8420444859779,
+  "realized_pnl": -2472.8351636114076,
+  "total_trades": 418,
+  "sell_count": 206,
   "gross_gains": 1703.27,
-  "gross_losses": -4102.16,
-  "total_tds": 1756.23,
+  "gross_losses": -4176.12,
+  "total_tds": 1788.14,
   "holdings": {
-    "USDTINR": {
-      "qty": 6.86,
-      "avg_cost": 100.099974975,
-      "invested": 686.6858283285,
-      "last_buy_at": "2026-09-16T00:56:51+00:00"
-    },
     "TOSHIINR": {
       "qty": 79413.0,
       "avg_cost": 0.010854262419,
@@ -25,23 +19,29 @@
       "invested": 909.68343491025,
       "last_buy_at": "2026-09-18T12:08:00+00:00"
     },
-    "POPCATINR": {
-      "qty": 189.09,
-      "avg_cost": 4.919871206249999,
-      "invested": 930.2984463898124,
-      "last_buy_at": "2026-09-18T17:10:10+00:00"
+    "SOLINR": {
+      "qty": 0.072,
+      "avg_cost": 11307.3412452,
+      "invested": 814.1285696543998,
+      "last_buy_at": "2026-09-19T01:46:28+00:00"
     },
-    "BNBINR": {
-      "qty": 0.011,
-      "avg_cost": 76264.26307500001,
-      "invested": 838.906893825,
-      "last_buy_at": "2026-09-18T20:22:04+00:00"
+    "NEARINR": {
+      "qty": 1.9,
+      "avg_cost": 377.115013275,
+      "invested": 716.5185252225,
+      "last_buy_at": "2026-09-19T01:46:28+00:00"
     },
-    "SUSHIINR": {
-      "qty": 32.2,
-      "avg_cost": 25.0375125,
-      "invested": 806.2079025,
-      "last_buy_at": "2026-09-18T23:13:48+00:00"
+    "ORCAINR": {
+      "qty": 5.22,
+      "avg_cost": 146.950168365,
+      "invested": 767.0798788653,
+      "last_buy_at": "2026-09-19T01:46:28+00:00"
+    },
+    "BONKINR": {
+      "qty": 2764773.0,
+      "avg_cost": 0.00030195240075,
+      "invested": 834.8298448787797,
+      "last_buy_at": "2026-09-19T01:46:29+00:00"
     }
   }
 }

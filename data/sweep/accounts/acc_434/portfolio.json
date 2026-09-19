@@ -1,11 +1,11 @@
 {
-  "cash_inr": 467.05073369923775,
-  "realized_pnl": -2081.7095417575374,
-  "total_trades": 332,
-  "sell_count": 162,
-  "gross_gains": 1465.63,
-  "gross_losses": -3547.34,
-  "total_tds": 1523.13,
+  "cash_inr": 463.9146644000185,
+  "realized_pnl": -2006.883799751081,
+  "total_trades": 338,
+  "sell_count": 165,
+  "gross_gains": 1565.25,
+  "gross_losses": -3572.13,
+  "total_tds": 1544.07,
   "holdings": {
     "TRXINR": {
       "qty": 23.1,
@@ -25,18 +25,6 @@
       "invested": 660.7802672731259,
       "last_buy_at": "2026-09-16T23:40:50+00:00"
     },
-    "ONEINR": {
-      "qty": 3784.8,
-      "avg_cost": 0.176774853255,
-      "invested": 669.057464599524,
-      "last_buy_at": "2026-09-18T20:21:15+00:00"
-    },
-    "BTCINR": {
-      "qty": 8e-05,
-      "avg_cost": 8091314.827595999,
-      "invested": 647.30518620768,
-      "last_buy_at": "2026-09-18T23:12:59+00:00"
-    },
     "NEARINR": {
       "qty": 1.7,
       "avg_cost": 373.07896626,
@@ -49,11 +37,23 @@
       "invested": 700.1915633212501,
       "last_buy_at": "2026-09-18T23:12:59+00:00"
     },
-    "TOSHIINR": {
-      "qty": 60184.0,
-      "avg_cost": 0.0116404403115,
-      "invested": 700.568259707316,
-      "last_buy_at": "2026-09-18T23:13:02+00:00"
+    "ETHINR": {
+      "qty": 0.0025,
+      "avg_cost": 260314.6168623,
+      "invested": 650.78654215575,
+      "last_buy_at": "2026-09-19T01:45:48+00:00"
+    },
+    "PYTHINR": {
+      "qty": 121.0,
+      "avg_cost": 6.01090585095,
+      "invested": 727.31960796495,
+      "last_buy_at": "2026-09-19T01:45:48+00:00"
+    },
+    "POPCATINR": {
+      "qty": 140.43,
+      "avg_cost": 4.955124023849999,
+      "invested": 695.8480666692554,
+      "last_buy_at": "2026-09-19T01:45:49+00:00"
     }
   }
 }
