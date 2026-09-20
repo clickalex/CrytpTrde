@@ -1,10 +1,23 @@
 {
-  "cash_inr": 9598.845586280198,
+  "cash_inr": 1536.1734927141079,
   "realized_pnl": 592.5200380544286,
-  "total_trades": 88,
+  "total_trades": 90,
   "sell_count": 44,
   "gross_gains": 3133.55,
   "gross_losses": -2541.04,
   "total_tds": 993.63,
-  "holdings": {}
+  "holdings": {
+    "ORCAINR": {
+      "qty": 40.82,
+      "avg_cost": 141.07136043000003,
+      "invested": 5758.532932752601,
+      "last_buy_at": "2026-09-20T12:38:50+00:00"
+    },
+    "BIOINR": {
+      "qty": 861.1,
+      "avg_cost": 2.6758090359,
+      "invested": 2304.13916081349,
+      "last_buy_at": "2026-09-20T12:38:50+00:00"
+    }
+  }
 }

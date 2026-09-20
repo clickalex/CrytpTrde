@@ -1,11 +1,11 @@
 {
-  "cash_inr": 5274.317800232587,
-  "realized_pnl": -1623.2644507264524,
-  "total_trades": 374,
-  "sell_count": 185,
+  "cash_inr": 4775.543020694427,
+  "realized_pnl": -1637.9696658569123,
+  "total_trades": 377,
+  "sell_count": 186,
   "gross_gains": 941.82,
-  "gross_losses": -2565.07,
-  "total_tds": 982.0,
+  "gross_losses": -2579.78,
+  "total_tds": 987.15,
   "holdings": {
     "SOLINR": {
       "qty": 0.049,
@@ -25,11 +25,17 @@
       "invested": 528.5995753038,
       "last_buy_at": "2026-09-20T06:48:56+00:00"
     },
-    "PENGUINR": {
-      "qty": 683.0,
-      "avg_cost": 0.77421997653,
-      "invested": 528.79224396999,
-      "last_buy_at": "2026-09-20T06:48:59+00:00"
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 7981160.7891015,
+      "invested": 478.86964734609,
+      "last_buy_at": "2026-09-20T12:46:37+00:00"
+    },
+    "CHRINR": {
+      "qty": 314.0,
+      "avg_cost": 1.68422339085,
+      "invested": 528.8461447269,
+      "last_buy_at": "2026-09-20T12:46:40+00:00"
     }
   }
 }

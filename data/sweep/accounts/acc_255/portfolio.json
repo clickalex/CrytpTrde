@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1373.890837638463,
-  "realized_pnl": -3065.8514027061588,
-  "total_trades": 498,
-  "sell_count": 247,
+  "cash_inr": 590.4385635976631,
+  "realized_pnl": -3094.556273673659,
+  "total_trades": 501,
+  "sell_count": 248,
   "gross_gains": 1923.98,
-  "gross_losses": -4989.86,
-  "total_tds": 2219.4,
+  "gross_losses": -5018.56,
+  "total_tds": 2228.5,
   "holdings": {
     "TRXINR": {
       "qty": 21.9,
@@ -19,17 +19,23 @@
       "invested": 780.82156737585,
       "last_buy_at": "2026-09-20T06:43:09+00:00"
     },
-    "ORCAINR": {
-      "qty": 6.65,
-      "avg_cost": 141.001255395,
-      "invested": 937.6583483767499,
-      "last_buy_at": "2026-09-20T06:43:09+00:00"
-    },
     "BONKINR": {
       "qty": 2970525.0,
       "avg_cost": 0.0002986474491,
       "invested": 887.1397137377775,
       "last_buy_at": "2026-09-20T06:43:11+00:00"
+    },
+    "BTCINR": {
+      "qty": 0.0001,
+      "avg_cost": 7981160.7891015,
+      "invested": 798.11607891015,
+      "last_buy_at": "2026-09-20T12:41:20+00:00"
+    },
+    "PYTHINR": {
+      "qty": 152.0,
+      "avg_cost": 5.823625257449999,
+      "invested": 885.1910391323999,
+      "last_buy_at": "2026-09-20T12:41:20+00:00"
     }
   }
 }

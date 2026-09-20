@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2400.8243197860015,
-  "realized_pnl": -1624.4575927911478,
-  "total_trades": 278,
-  "sell_count": 135,
+  "cash_inr": 2382.4146713619016,
+  "realized_pnl": -1643.9012817336477,
+  "total_trades": 280,
+  "sell_count": 136,
   "gross_gains": 1123.89,
-  "gross_losses": -2748.33,
-  "total_tds": 844.19,
+  "gross_losses": -2767.77,
+  "total_tds": 849.96,
   "holdings": {
     "TOKENINR": {
       "qty": 4158.9984,
@@ -31,12 +31,6 @@
       "invested": 610.5944532833145,
       "last_buy_at": "2026-09-19T06:24:24+00:00"
     },
-    "SOLINR": {
-      "qty": 0.054,
-      "avg_cost": 11036.335209899999,
-      "invested": 595.9621013345999,
-      "last_buy_at": "2026-09-19T23:32:33+00:00"
-    },
     "ETHINR": {
       "qty": 0.0024,
       "avg_cost": 257341.66262804996,
@@ -54,6 +48,12 @@
       "avg_cost": 0.00053810621865,
       "invested": 600.1999095386794,
       "last_buy_at": "2026-09-20T06:42:43+00:00"
+    },
+    "LINKINR": {
+      "qty": 0.49,
+      "avg_cost": 1202.36144028,
+      "invested": 589.1571057371999,
+      "last_buy_at": "2026-09-20T12:40:58+00:00"
     }
   }
 }

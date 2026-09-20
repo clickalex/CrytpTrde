@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1831.2395468664176,
-  "realized_pnl": -2606.9146230489414,
-  "total_trades": 658,
-  "sell_count": 326,
+  "cash_inr": 1327.0895894136581,
+  "realized_pnl": -2634.2507679389482,
+  "total_trades": 663,
+  "sell_count": 328,
   "gross_gains": 2177.05,
-  "gross_losses": -4784.0,
-  "total_tds": 2098.39,
+  "gross_losses": -4811.34,
+  "total_tds": 2109.8,
   "holdings": {
     "GALAINR": {
       "qty": 3353.69,
@@ -25,23 +25,29 @@
       "invested": 571.4693520270735,
       "last_buy_at": "2026-09-19T06:30:39+00:00"
     },
-    "HMSTRINR": {
-      "qty": 37503.0,
-      "avg_cost": 0.0165217537485,
-      "invested": 619.6153308299955,
-      "last_buy_at": "2026-09-19T06:30:39+00:00"
-    },
     "APTINR": {
       "qty": 7.71,
       "avg_cost": 72.09802099499998,
       "invested": 555.8757418714499,
       "last_buy_at": "2026-09-20T06:46:59+00:00"
     },
-    "RIFINR": {
-      "qty": 64.0,
-      "avg_cost": 8.5538157705,
-      "invested": 547.444209312,
-      "last_buy_at": "2026-09-20T06:46:59+00:00"
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 7981160.7891015,
+      "invested": 478.86964734609,
+      "last_buy_at": "2026-09-20T12:44:27+00:00"
+    },
+    "SHIBINR": {
+      "qty": 1095264.0,
+      "avg_cost": 0.0005345008168499999,
+      "invested": 585.4195026663983,
+      "last_buy_at": "2026-09-20T12:44:27+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1417.0,
+      "avg_cost": 0.4009707551849999,
+      "invested": 568.1755600971449,
+      "last_buy_at": "2026-09-20T12:44:27+00:00"
     }
   }
 }

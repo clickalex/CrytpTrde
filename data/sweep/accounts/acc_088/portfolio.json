@@ -1,10 +1,17 @@
 {
-  "cash_inr": 9320.597392263011,
+  "cash_inr": 6524.563028540411,
   "realized_pnl": -519.7845530783954,
-  "total_trades": 16,
+  "total_trades": 17,
   "sell_count": 8,
   "gross_gains": 126.76,
   "gross_losses": -646.55,
   "total_tds": 159.61,
-  "holdings": {}
+  "holdings": {
+    "ORCAINR": {
+      "qty": 19.82,
+      "avg_cost": 141.07136043,
+      "invested": 2796.0343637226,
+      "last_buy_at": "2026-09-20T12:34:48+00:00"
+    }
+  }
 }

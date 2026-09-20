@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2657.5906592415076,
-  "realized_pnl": -2109.2002691263115,
-  "total_trades": 515,
-  "sell_count": 254,
+  "cash_inr": 2134.4861486952914,
+  "realized_pnl": -2138.9279707502315,
+  "total_trades": 520,
+  "sell_count": 256,
   "gross_gains": 1529.69,
-  "gross_losses": -3638.9,
-  "total_tds": 1474.94,
+  "gross_losses": -3668.63,
+  "total_tds": 1485.33,
   "holdings": {
     "CHRINR": {
       "qty": 323.0,
@@ -37,17 +37,23 @@
       "invested": 535.8796351671261,
       "last_buy_at": "2026-09-20T06:48:21+00:00"
     },
-    "SEIINR": {
-      "qty": 111.3,
-      "avg_cost": 4.8043981985999995,
-      "invested": 534.72951950418,
-      "last_buy_at": "2026-09-20T06:48:21+00:00"
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 7981160.7891015,
+      "invested": 478.86964734609,
+      "last_buy_at": "2026-09-20T12:46:10+00:00"
     },
-    "PENGUINR": {
-      "qty": 689.0,
-      "avg_cost": 0.7742199765299999,
-      "invested": 533.4375638291699,
-      "last_buy_at": "2026-09-20T06:48:23+00:00"
+    "POPCATINR": {
+      "qty": 113.27,
+      "avg_cost": 4.75562512425,
+      "invested": 538.6696578237975,
+      "last_buy_at": "2026-09-20T12:46:10+00:00"
+    },
+    "POLYXINR": {
+      "qty": 132.0799,
+      "avg_cost": 4.040053017,
+      "invested": 533.6097984800583,
+      "last_buy_at": "2026-09-20T12:46:12+00:00"
     }
   }
 }

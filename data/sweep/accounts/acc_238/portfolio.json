@@ -1,24 +1,12 @@
 {
-  "cash_inr": 2172.083758344991,
-  "realized_pnl": -2453.011429405741,
-  "total_trades": 385,
-  "sell_count": 189,
+  "cash_inr": 2301.1114852761975,
+  "realized_pnl": -2504.983200302103,
+  "total_trades": 391,
+  "sell_count": 192,
   "gross_gains": 1148.14,
-  "gross_losses": -3601.14,
-  "total_tds": 1178.8,
+  "gross_losses": -3653.11,
+  "total_tds": 1196.89,
   "holdings": {
-    "HMSTRINR": {
-      "qty": 44268.0,
-      "avg_cost": 0.016521753748499998,
-      "invested": 731.384994938598,
-      "last_buy_at": "2026-09-19T06:23:48+00:00"
-    },
-    "TRUMPINR": {
-      "qty": 2.862,
-      "avg_cost": 204.41626705500002,
-      "invested": 585.0393563114101,
-      "last_buy_at": "2026-09-19T11:29:59+00:00"
-    },
     "ARBINR": {
       "qty": 25.3,
       "avg_cost": 20.409578689499998,
@@ -43,11 +31,23 @@
       "invested": 678.7499648061132,
       "last_buy_at": "2026-09-20T06:42:20+00:00"
     },
-    "BOMEINR": {
-      "qty": 5869.0,
-      "avg_cost": 0.09250960268549999,
-      "invested": 542.9388581611994,
-      "last_buy_at": "2026-09-20T06:42:21+00:00"
+    "DOGEINR": {
+      "qty": 64.0,
+      "avg_cost": 8.482709235,
+      "invested": 542.89339104,
+      "last_buy_at": "2026-09-20T12:40:39+00:00"
+    },
+    "BIOINR": {
+      "qty": 202.6,
+      "avg_cost": 2.6758090359,
+      "invested": 542.11891067334,
+      "last_buy_at": "2026-09-20T12:40:39+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 49740.0,
+      "avg_cost": 0.011565327774,
+      "invested": 575.25940347876,
+      "last_buy_at": "2026-09-20T12:40:39+00:00"
     }
   }
 }
