@@ -1,23 +1,17 @@
 {
-  "cash_inr": 631.737474272135,
-  "realized_pnl": -3454.0496422512206,
-  "total_trades": 550,
-  "sell_count": 272,
+  "cash_inr": 601.1055785110841,
+  "realized_pnl": -3510.8441417595477,
+  "total_trades": 556,
+  "sell_count": 275,
   "gross_gains": 1425.73,
-  "gross_losses": -4879.78,
-  "total_tds": 2090.19,
+  "gross_losses": -4936.57,
+  "total_tds": 2108.39,
   "holdings": {
     "USDTINR": {
       "qty": 6.46,
       "avg_cost": 100.09997497499998,
       "invested": 646.6458383384999,
       "last_buy_at": "2026-09-16T00:49:41+00:00"
-    },
-    "XDBINR": {
-      "qty": 81310.9,
-      "avg_cost": 0.007254869622,
-      "invested": 589.8999783474798,
-      "last_buy_at": "2026-09-20T12:43:12+00:00"
     },
     "LINKINR": {
       "qty": 0.51,
@@ -31,17 +25,23 @@
       "invested": 660.7942362020999,
       "last_buy_at": "2026-09-20T17:16:21+00:00"
     },
-    "GASINR": {
-      "qty": 4.8349,
-      "avg_cost": 135.290699544,
-      "invested": 654.1170032252857,
-      "last_buy_at": "2026-09-20T17:16:21+00:00"
+    "ONEINR": {
+      "qty": 1639.9,
+      "avg_cost": 0.3822727408499999,
+      "invested": 626.8890677199149,
+      "last_buy_at": "2026-09-20T19:55:32+00:00"
     },
-    "PYTHINR": {
-      "qty": 103.3,
-      "avg_cost": 6.105447498150001,
-      "invested": 630.6927265588951,
-      "last_buy_at": "2026-09-20T17:16:21+00:00"
+    "ORCAINR": {
+      "qty": 4.32,
+      "avg_cost": 143.19454149,
+      "invested": 618.6004192368,
+      "last_buy_at": "2026-09-20T19:55:32+00:00"
+    },
+    "RIFINR": {
+      "qty": 68.0,
+      "avg_cost": 8.600886294,
+      "invested": 584.860267992,
+      "last_buy_at": "2026-09-20T19:55:32+00:00"
     }
   }
 }
