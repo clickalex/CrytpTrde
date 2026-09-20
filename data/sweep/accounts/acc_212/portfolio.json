@@ -1,23 +1,29 @@
 {
-  "cash_inr": 243.83753487933598,
-  "realized_pnl": -2629.9958900131996,
-  "total_trades": 108,
-  "sell_count": 53,
+  "cash_inr": 192.98826878637908,
+  "realized_pnl": -2840.6373516386,
+  "total_trades": 111,
+  "sell_count": 54,
   "gross_gains": 1568.45,
-  "gross_losses": -4198.46,
-  "total_tds": 1325.14,
+  "gross_losses": -4409.1,
+  "total_tds": 1371.44,
   "holdings": {
-    "ORCAINR": {
-      "qty": 33.41,
-      "avg_cost": 144.73685226,
-      "invested": 4835.6582340066,
-      "last_buy_at": "2026-09-19T21:05:39+00:00"
-    },
     "ARBINR": {
       "qty": 47.3,
       "avg_cost": 20.4095786895,
       "invested": 965.37307201335,
       "last_buy_at": "2026-09-20T01:33:39+00:00"
+    },
+    "PUMPINR": {
+      "qty": 9673.0,
+      "avg_cost": 0.39881752911,
+      "invested": 3857.76195908103,
+      "last_buy_at": "2026-09-20T06:41:03+00:00"
+    },
+    "BOMEINR": {
+      "qty": 8343.0,
+      "avg_cost": 0.09250960268549999,
+      "invested": 771.8076152051264,
+      "last_buy_at": "2026-09-20T06:41:03+00:00"
     }
   }
 }

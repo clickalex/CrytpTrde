@@ -1,23 +1,35 @@
 {
-  "cash_inr": 1441.2101438525597,
-  "realized_pnl": -3927.0668716918,
-  "total_trades": 430,
-  "sell_count": 214,
+  "cash_inr": 601.9430432026682,
+  "realized_pnl": -4008.805235469865,
+  "total_trades": 436,
+  "sell_count": 216,
   "gross_gains": 1151.18,
-  "gross_losses": -5078.28,
-  "total_tds": 2113.42,
+  "gross_losses": -5160.02,
+  "total_tds": 2137.81,
   "holdings": {
-    "PUMPINR": {
-      "qty": 4271.0,
-      "avg_cost": 0.40875241407,
-      "invested": 1745.7815604929701,
-      "last_buy_at": "2026-09-19T06:22:55+00:00"
+    "ETHINR": {
+      "qty": 0.0028,
+      "avg_cost": 257341.66262805,
+      "invested": 720.55665535854,
+      "last_buy_at": "2026-09-20T06:41:44+00:00"
     },
-    "SOLINR": {
-      "qty": 0.07,
-      "avg_cost": 11036.335209899999,
-      "invested": 772.5434646929999,
-      "last_buy_at": "2026-09-19T23:31:16+00:00"
+    "NEARINR": {
+      "qty": 2.1,
+      "avg_cost": 345.34741741499994,
+      "invested": 725.2295765714999,
+      "last_buy_at": "2026-09-20T06:41:44+00:00"
+    },
+    "SHIBINR": {
+      "qty": 2237123.0,
+      "avg_cost": 0.00053810621865,
+      "invested": 1203.809798184944,
+      "last_buy_at": "2026-09-20T06:41:44+00:00"
+    },
+    "BOMEINR": {
+      "qty": 6506.0,
+      "avg_cost": 0.09250960268549997,
+      "invested": 601.8674750718628,
+      "last_buy_at": "2026-09-20T06:41:44+00:00"
     }
   }
 }

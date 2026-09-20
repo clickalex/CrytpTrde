@@ -1,11 +1,11 @@
 {
-  "cash_inr": 5239.010630515186,
-  "realized_pnl": -765.1212586039806,
-  "total_trades": 132,
-  "sell_count": 63,
+  "cash_inr": 4858.954069614955,
+  "realized_pnl": -796.3927835863807,
+  "total_trades": 135,
+  "sell_count": 64,
   "gross_gains": 620.3,
-  "gross_losses": -1385.41,
-  "total_tds": 357.66,
+  "gross_losses": -1416.68,
+  "total_tds": 364.53,
   "holdings": {
     "TRBINR": {
       "qty": 0.362,
@@ -25,12 +25,6 @@
       "invested": 544.3399997848614,
       "last_buy_at": "2026-09-16T23:23:08+00:00"
     },
-    "ORCAINR": {
-      "qty": 4.96,
-      "avg_cost": 144.73685226,
-      "invested": 717.8947872096,
-      "last_buy_at": "2026-09-19T21:06:26+00:00"
-    },
     "ARBINR": {
       "qty": 31.6,
       "avg_cost": 20.4095786895,
@@ -42,6 +36,18 @@
       "avg_cost": 0.094008848934,
       "invested": 582.008783750394,
       "last_buy_at": "2026-09-20T01:34:32+00:00"
+    },
+    "SOLINR": {
+      "qty": 0.048,
+      "avg_cost": 10837.637510699999,
+      "invested": 520.2066005135999,
+      "last_buy_at": "2026-09-20T06:41:41+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1353.0,
+      "avg_cost": 0.39881752910999996,
+      "invested": 539.60011688583,
+      "last_buy_at": "2026-09-20T06:41:41+00:00"
     }
   }
 }

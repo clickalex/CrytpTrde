@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1331.3813143035363,
-  "realized_pnl": -1597.9163384223925,
-  "total_trades": 171,
-  "sell_count": 83,
+  "cash_inr": 1300.075585056135,
+  "realized_pnl": -1698.801639504643,
+  "total_trades": 176,
+  "sell_count": 85,
   "gross_gains": 1288.44,
-  "gross_losses": -2886.31,
-  "total_tds": 836.11,
+  "gross_losses": -2987.2,
+  "total_tds": 858.78,
   "holdings": {
     "TRXINR": {
       "qty": 20.8,
@@ -25,17 +25,23 @@
       "invested": 2461.3951899536996,
       "last_buy_at": "2026-09-20T01:34:16+00:00"
     },
-    "ORCAINR": {
-      "qty": 10.15,
-      "avg_cost": 145.63820271,
-      "invested": 1478.2277575065,
-      "last_buy_at": "2026-09-20T01:34:16+00:00"
+    "SOLINR": {
+      "qty": 0.049,
+      "avg_cost": 10837.637510699999,
+      "invested": 531.0442380243,
+      "last_buy_at": "2026-09-20T06:41:29+00:00"
     },
-    "BOMEINR": {
-      "qty": 9441.0,
-      "avg_cost": 0.09400884893399998,
-      "invested": 887.5375427858938,
-      "last_buy_at": "2026-09-20T01:34:16+00:00"
+    "PUMPINR": {
+      "qty": 2197.0,
+      "avg_cost": 0.39881752911000007,
+      "invested": 876.2021114546701,
+      "last_buy_at": "2026-09-20T06:41:29+00:00"
+    },
+    "BIOINR": {
+      "qty": 317.7,
+      "avg_cost": 2.7266852612999997,
+      "invested": 866.2679075150098,
+      "last_buy_at": "2026-09-20T06:41:31+00:00"
     }
   }
 }

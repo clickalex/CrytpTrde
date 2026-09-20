@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1320.2622756625876,
-  "realized_pnl": -2915.5574215417137,
-  "total_trades": 660,
-  "sell_count": 327,
+  "cash_inr": 1309.9468831410186,
+  "realized_pnl": -2995.56075876784,
+  "total_trades": 666,
+  "sell_count": 330,
   "gross_gains": 1356.18,
-  "gross_losses": -4271.76,
-  "total_tds": 2115.59,
+  "gross_losses": -4351.76,
+  "total_tds": 2132.84,
   "holdings": {
     "USDTINR": {
       "qty": 6.3,
       "avg_cost": 100.14003499500001,
       "invested": 630.8822204685,
       "last_buy_at": "2026-09-18T06:43:20+00:00"
-    },
-    "DOTINR": {
-      "qty": 5.9305,
-      "avg_cost": 112.53160068149998,
-      "invested": 667.3686578416357,
-      "last_buy_at": "2026-09-19T01:46:49+00:00"
     },
     "TRXINR": {
       "qty": 19.2,
@@ -31,17 +25,23 @@
       "invested": 565.7245979384999,
       "last_buy_at": "2026-09-19T23:45:51+00:00"
     },
-    "FARTCOININR": {
-      "qty": 34.29,
-      "avg_cost": 16.619900797499994,
-      "invested": 569.8963983462749,
-      "last_buy_at": "2026-09-20T01:49:45+00:00"
+    "ADAINR": {
+      "qty": 26.4,
+      "avg_cost": 22.117137042,
+      "invested": 583.8924179088,
+      "last_buy_at": "2026-09-20T06:53:14+00:00"
     },
-    "POPCATINR": {
-      "qty": 111.34,
-      "avg_cost": 5.0818138371,
-      "invested": 565.809152622714,
-      "last_buy_at": "2026-09-20T01:49:45+00:00"
+    "JUPINR": {
+      "qty": 21.0,
+      "avg_cost": 27.187734073500003,
+      "invested": 570.9424155435,
+      "last_buy_at": "2026-09-20T06:53:14+00:00"
+    },
+    "CHRINR": {
+      "qty": 325.0,
+      "avg_cost": 1.7270876122499996,
+      "invested": 561.3034739812499,
+      "last_buy_at": "2026-09-20T06:53:14+00:00"
     }
   }
 }
