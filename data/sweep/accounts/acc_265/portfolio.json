@@ -1,23 +1,17 @@
 {
-  "cash_inr": 4564.24922498116,
-  "realized_pnl": -848.140311258928,
-  "total_trades": 333,
-  "sell_count": 163,
-  "gross_gains": 1388.78,
+  "cash_inr": 4576.438587837461,
+  "realized_pnl": -838.503379259128,
+  "total_trades": 335,
+  "sell_count": 164,
+  "gross_gains": 1398.42,
   "gross_losses": -2236.94,
-  "total_tds": 880.53,
+  "total_tds": 885.79,
   "holdings": {
     "TOKENINR": {
       "qty": 2612.6062,
       "avg_cost": 0.20240325104999998,
       "invested": 528.7999885933865,
       "last_buy_at": "2026-09-19T23:33:48+00:00"
-    },
-    "ORCAINR": {
-      "qty": 3.66,
-      "avg_cost": 141.001255395,
-      "invested": 516.0645947457,
-      "last_buy_at": "2026-09-20T06:43:39+00:00"
     },
     "RIFINR": {
       "qty": 60.0,
@@ -48,6 +42,12 @@
       "avg_cost": 1.62092855925e-06,
       "invested": 507.12999987069344,
       "last_buy_at": "2026-09-20T19:53:06+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1160.0,
+      "avg_cost": 0.43814645374499994,
+      "invested": 508.2498863441999,
+      "last_buy_at": "2026-09-21T07:04:11+00:00"
     }
   }
 }

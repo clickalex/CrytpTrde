@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1037.3945132754357,
-  "realized_pnl": -1543.7066966218338,
-  "total_trades": 514,
-  "sell_count": 253,
-  "gross_gains": 2324.23,
-  "gross_losses": -3867.92,
-  "total_tds": 1848.45,
+  "cash_inr": 1041.3338255270176,
+  "realized_pnl": -1496.1967782291736,
+  "total_trades": 520,
+  "sell_count": 256,
+  "gross_gains": 2372.48,
+  "gross_losses": -3868.66,
+  "total_tds": 1869.56,
   "holdings": {
     "USDTINR": {
       "qty": 7.99,
       "avg_cost": 99.77949481499998,
       "invested": 797.2381635718499,
       "last_buy_at": "2026-09-17T18:59:37+00:00"
-    },
-    "FARTCOININR": {
-      "qty": 41.53,
-      "avg_cost": 16.060062018,
-      "invested": 666.97437560754,
-      "last_buy_at": "2026-09-20T06:46:51+00:00"
     },
     "SHIBINR": {
       "qty": 1226412.0,
@@ -31,29 +25,35 @@
       "invested": 665.6743478385,
       "last_buy_at": "2026-09-20T17:18:21+00:00"
     },
-    "BIOINR": {
-      "qty": 248.9,
-      "avg_cost": 2.76724603155,
-      "invested": 688.767537252795,
-      "last_buy_at": "2026-09-20T19:57:23+00:00"
-    },
     "DOGEINR": {
       "qty": 80.0,
       "avg_cost": 8.69052058875,
       "invested": 695.2416470999999,
       "last_buy_at": "2026-09-20T23:01:51+00:00"
     },
-    "APEINR": {
-      "qty": 50.87,
-      "avg_cost": 13.870781925,
-      "invested": 705.6066765247499,
-      "last_buy_at": "2026-09-21T01:39:52+00:00"
-    },
     "CHRINR": {
       "qty": 402.0,
       "avg_cost": 1.7189754581999996,
       "invested": 691.0281341963998,
       "last_buy_at": "2026-09-21T01:39:56+00:00"
+    },
+    "GASINR": {
+      "qty": 5.0878,
+      "avg_cost": 136.64472822,
+      "invested": 695.2210482377159,
+      "last_buy_at": "2026-09-21T07:10:30+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 27.3,
+      "avg_cost": 25.4351081985,
+      "invested": 694.37845381905,
+      "last_buy_at": "2026-09-21T07:10:30+00:00"
+    },
+    "BRISEINR": {
+      "qty": 428676498.0,
+      "avg_cost": 1.6194263085e-06,
+      "invested": 694.2099986968476,
+      "last_buy_at": "2026-09-21T07:10:32+00:00"
     }
   }
 }

@@ -1,18 +1,12 @@
 {
-  "cash_inr": 610.8357236735519,
-  "realized_pnl": -1050.677493495367,
-  "total_trades": 282,
-  "sell_count": 137,
-  "gross_gains": 2656.32,
+  "cash_inr": 582.7697875268359,
+  "realized_pnl": -927.5869055436963,
+  "total_trades": 286,
+  "sell_count": 139,
+  "gross_gains": 2779.41,
   "gross_losses": -3706.98,
-  "total_tds": 1422.8,
+  "total_tds": 1441.81,
   "holdings": {
-    "FARTCOININR": {
-      "qty": 65.94,
-      "avg_cost": 16.024008,
-      "invested": 1056.62308752,
-      "last_buy_at": "2026-09-19T14:54:30+00:00"
-    },
     "ADAINR": {
       "qty": 37.3,
       "avg_cost": 22.117137042,
@@ -37,12 +31,6 @@
       "invested": 533.9496246252168,
       "last_buy_at": "2026-09-20T12:41:40+00:00"
     },
-    "PUMPINR": {
-      "qty": 1794.0,
-      "avg_cost": 0.40097075518499997,
-      "invested": 719.3415348018899,
-      "last_buy_at": "2026-09-20T12:41:40+00:00"
-    },
     "CHRINR": {
       "qty": 561.0,
       "avg_cost": 1.68422339085,
@@ -54,6 +42,18 @@
       "avg_cost": 165.85849780499998,
       "invested": 915.5389078835999,
       "last_buy_at": "2026-09-20T19:52:56+00:00"
+    },
+    "GASINR": {
+      "qty": 7.5671,
+      "avg_cost": 136.64472822,
+      "invested": 1034.004322913562,
+      "last_buy_at": "2026-09-21T07:03:57+00:00"
+    },
+    "HMSTRINR": {
+      "qty": 49997.0,
+      "avg_cost": 0.0174831942285,
+      "invested": 874.1072618423145,
+      "last_buy_at": "2026-09-21T07:04:00+00:00"
     }
   }
 }

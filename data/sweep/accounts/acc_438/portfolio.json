@@ -1,23 +1,17 @@
 {
-  "cash_inr": 2268.447891798266,
-  "realized_pnl": -1525.3571373807722,
-  "total_trades": 387,
-  "sell_count": 189,
-  "gross_gains": 1552.85,
-  "gross_losses": -3078.22,
-  "total_tds": 1119.38,
+  "cash_inr": 2310.0158078153936,
+  "realized_pnl": -1492.5342726124202,
+  "total_trades": 391,
+  "sell_count": 191,
+  "gross_gains": 1603.09,
+  "gross_losses": -3095.64,
+  "total_tds": 1131.27,
   "holdings": {
     "TRXINR": {
       "qty": 15.2,
       "avg_cost": 33.27886011449999,
       "invested": 505.8386737403999,
       "last_buy_at": "2026-09-16T00:56:30+00:00"
-    },
-    "TOSHIINR": {
-      "qty": 53446.0,
-      "avg_cost": 0.010854262419,
-      "invested": 580.116909245874,
-      "last_buy_at": "2026-09-17T14:25:38+00:00"
     },
     "ICPINR": {
       "qty": 2.11,
@@ -49,17 +43,23 @@
       "invested": 560.073130617,
       "last_buy_at": "2026-09-20T23:11:13+00:00"
     },
-    "PYTHINR": {
-      "qty": 91.5,
-      "avg_cost": 6.2812108359,
-      "invested": 574.73079148485,
-      "last_buy_at": "2026-09-21T01:47:32+00:00"
-    },
     "GALAINR": {
       "qty": 2889.08,
       "avg_cost": 0.19629409800000003,
       "invested": 567.10935264984,
       "last_buy_at": "2026-09-21T01:47:35+00:00"
+    },
+    "RIFINR": {
+      "qty": 65.0,
+      "avg_cost": 8.564832276,
+      "invested": 556.71409794,
+      "last_buy_at": "2026-09-21T07:21:36+00:00"
+    },
+    "BONKINR": {
+      "qty": 1878901.0,
+      "avg_cost": 0.00030736050344999996,
+      "invested": 577.4999572927084,
+      "last_buy_at": "2026-09-21T07:21:41+00:00"
     }
   }
 }
