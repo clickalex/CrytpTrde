@@ -1,23 +1,17 @@
 {
-  "cash_inr": 4824.590134596633,
-  "realized_pnl": -615.2520406204214,
-  "total_trades": 335,
-  "sell_count": 164,
-  "gross_gains": 1585.03,
+  "cash_inr": 4863.011448392842,
+  "realized_pnl": -549.3021278633023,
+  "total_trades": 339,
+  "sell_count": 166,
+  "gross_gains": 1650.98,
   "gross_losses": -2200.27,
-  "total_tds": 873.83,
+  "total_tds": 884.43,
   "holdings": {
     "TRXINR": {
       "qty": 15.2,
       "avg_cost": 33.80965537949999,
       "invested": 513.9067617683999,
       "last_buy_at": "2026-09-19T18:32:44+00:00"
-    },
-    "SOLINR": {
-      "qty": 0.047,
-      "avg_cost": 10837.637510699997,
-      "invested": 509.3689630028999,
-      "last_buy_at": "2026-09-20T06:44:48+00:00"
     },
     "APTINR": {
       "qty": 7.78,
@@ -37,17 +31,23 @@
       "invested": 543.72661942599,
       "last_buy_at": "2026-09-20T12:42:42+00:00"
     },
-    "BTCINR": {
-      "qty": 6e-05,
-      "avg_cost": 8062079.025,
-      "invested": 483.72474150000005,
-      "last_buy_at": "2026-09-20T17:15:27+00:00"
-    },
     "CAKEINR": {
       "qty": 2.14,
       "avg_cost": 250.37512500000003,
       "invested": 535.8027675000001,
       "last_buy_at": "2026-09-20T19:54:43+00:00"
+    },
+    "BNBINR": {
+      "qty": 0.006,
+      "avg_cost": 79118.5395,
+      "invested": 474.71123700000004,
+      "last_buy_at": "2026-09-21T14:53:14+00:00"
+    },
+    "NEARINR": {
+      "qty": 1.3,
+      "avg_cost": 411.77694558,
+      "invested": 535.310029254,
+      "last_buy_at": "2026-09-21T14:53:14+00:00"
     }
   }
 }
