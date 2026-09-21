@@ -1,18 +1,12 @@
 {
-  "cash_inr": 787.4091482058836,
-  "realized_pnl": -1477.6701261869298,
-  "total_trades": 332,
-  "sell_count": 162,
-  "gross_gains": 2367.47,
-  "gross_losses": -3845.12,
-  "total_tds": 1380.92,
+  "cash_inr": 760.6193230137728,
+  "realized_pnl": -1458.674373427418,
+  "total_trades": 336,
+  "sell_count": 164,
+  "gross_gains": 2419.14,
+  "gross_losses": -3877.79,
+  "total_tds": 1395.16,
   "holdings": {
-    "SHIBINR": {
-      "qty": 1467726.0,
-      "avg_cost": 0.00054752032335,
-      "invested": 803.609814109202,
-      "last_buy_at": "2026-09-19T23:47:04+00:00"
-    },
     "RIFINR": {
       "qty": 91.0,
       "avg_cost": 8.5538157705,
@@ -43,17 +37,23 @@
       "invested": 646.1997700158,
       "last_buy_at": "2026-09-21T07:24:47+00:00"
     },
-    "XDBINR": {
-      "qty": 78489.0,
-      "avg_cost": 0.007641448814999999,
-      "invested": 599.7696760405349,
-      "last_buy_at": "2026-09-21T15:08:51+00:00"
-    },
     "CHRINR": {
       "qty": 448.0,
       "avg_cost": 1.7521251247499998,
       "invested": 784.9520558879999,
       "last_buy_at": "2026-09-21T15:08:52+00:00"
+    },
+    "BOMEINR": {
+      "qty": 6383.0,
+      "avg_cost": 0.105644281743,
+      "invested": 674.327450365569,
+      "last_buy_at": "2026-09-21T20:11:49+00:00"
+    },
+    "POLYXINR": {
+      "qty": 178.4865,
+      "avg_cost": 4.261384627499999,
+      "invested": 760.5996273162787,
+      "last_buy_at": "2026-09-21T20:11:50+00:00"
     }
   }
 }

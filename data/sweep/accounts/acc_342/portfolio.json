@@ -1,29 +1,17 @@
 {
-  "cash_inr": 2292.2145027547963,
-  "realized_pnl": -1540.972468254135,
-  "total_trades": 481,
-  "sell_count": 236,
-  "gross_gains": 1745.98,
-  "gross_losses": -3287.0,
-  "total_tds": 1396.62,
+  "cash_inr": 2214.3077447921214,
+  "realized_pnl": -1488.0742831621978,
+  "total_trades": 489,
+  "sell_count": 240,
+  "gross_gains": 1832.52,
+  "gross_losses": -3320.64,
+  "total_tds": 1418.2,
   "holdings": {
     "USDTINR": {
       "qty": 5.28,
       "avg_cost": 99.84959985,
       "invested": 527.205887208,
       "last_buy_at": "2026-09-15T18:29:19+00:00"
-    },
-    "BNBINR": {
-      "qty": 0.007,
-      "avg_cost": 71881.89718709998,
-      "invested": 503.1732803096999,
-      "last_buy_at": "2026-09-16T23:33:00+00:00"
-    },
-    "BTCINR": {
-      "qty": 6e-05,
-      "avg_cost": 7981160.7891015,
-      "invested": 478.86964734609,
-      "last_buy_at": "2026-09-20T12:44:53+00:00"
     },
     "APTINR": {
       "qty": 7.22,
@@ -43,23 +31,35 @@
       "invested": 542.6499062384399,
       "last_buy_at": "2026-09-21T07:11:54+00:00"
     },
-    "SUSHIINR": {
-      "qty": 21.3,
-      "avg_cost": 25.79865288,
-      "invested": 549.511306344,
-      "last_buy_at": "2026-09-21T14:58:26+00:00"
-    },
     "BONKINR": {
       "qty": 1673777.0,
       "avg_cost": 0.00033029486489999995,
       "invested": 552.8399480877272,
       "last_buy_at": "2026-09-21T14:58:29+00:00"
     },
-    "CHRINR": {
-      "qty": 326.0,
-      "avg_cost": 1.75212512475,
-      "invested": 571.1927906685,
-      "last_buy_at": "2026-09-21T14:58:30+00:00"
+    "ETHINR": {
+      "qty": 0.002,
+      "avg_cost": 275402.622495,
+      "invested": 550.80524499,
+      "last_buy_at": "2026-09-21T20:02:34+00:00"
+    },
+    "SOLINR": {
+      "qty": 0.047,
+      "avg_cost": 11779.448580900002,
+      "invested": 553.6340833023,
+      "last_buy_at": "2026-09-21T20:02:34+00:00"
+    },
+    "POPCATINR": {
+      "qty": 100.57,
+      "avg_cost": 5.50825275,
+      "invested": 553.9649790674999,
+      "last_buy_at": "2026-09-21T20:02:34+00:00"
+    },
+    "POLYXINR": {
+      "qty": 129.9037,
+      "avg_cost": 4.261384627499998,
+      "invested": 553.5696302353715,
+      "last_buy_at": "2026-09-21T20:02:37+00:00"
     }
   }
 }
