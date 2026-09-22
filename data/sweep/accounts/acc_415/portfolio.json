@@ -1,18 +1,12 @@
 {
-  "cash_inr": 910.3677003455432,
-  "realized_pnl": -2722.400377754964,
-  "total_trades": 389,
-  "sell_count": 192,
-  "gross_gains": 1764.3,
+  "cash_inr": 428.1774511224572,
+  "realized_pnl": -2688.656207894964,
+  "total_trades": 392,
+  "sell_count": 193,
+  "gross_gains": 1798.04,
   "gross_losses": -4486.65,
-  "total_tds": 1952.06,
+  "total_tds": 1958.82,
   "holdings": {
-    "RIFINR": {
-      "qty": 76.0,
-      "avg_cost": 8.443650715499999,
-      "invested": 641.7174543779998,
-      "last_buy_at": "2026-09-19T23:43:29+00:00"
-    },
     "ETHINR": {
       "qty": 0.0025,
       "avg_cost": 269681.05013850005,
@@ -36,6 +30,18 @@
       "avg_cost": 0.00049584289755,
       "invested": 1365.5295227652077,
       "last_buy_at": "2026-09-22T02:02:08+00:00"
+    },
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 8479180.1475381,
+      "invested": 508.75080885228596,
+      "last_buy_at": "2026-09-22T08:13:06+00:00"
+    },
+    "BIOINR": {
+      "qty": 224.0,
+      "avg_cost": 2.8666950312,
+      "invested": 642.1396869888,
+      "last_buy_at": "2026-09-22T08:13:06+00:00"
     }
   }
 }

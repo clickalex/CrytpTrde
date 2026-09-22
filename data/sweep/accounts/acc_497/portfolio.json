@@ -1,24 +1,12 @@
 {
-  "cash_inr": 4795.16718884805,
-  "realized_pnl": -1169.7555988608237,
-  "total_trades": 336,
-  "sell_count": 165,
-  "gross_gains": 1008.04,
-  "gross_losses": -2177.81,
-  "total_tds": 875.83,
+  "cash_inr": 4783.612461710339,
+  "realized_pnl": -1147.9371058197712,
+  "total_trades": 342,
+  "sell_count": 168,
+  "gross_gains": 1046.05,
+  "gross_losses": -2194.0,
+  "total_tds": 891.79,
   "holdings": {
-    "TRXINR": {
-      "qty": 15.4,
-      "avg_cost": 33.2788601145,
-      "invested": 512.4944457633,
-      "last_buy_at": "2026-09-16T00:59:28+00:00"
-    },
-    "RIFINR": {
-      "qty": 62.0,
-      "avg_cost": 8.542799265,
-      "invested": 529.65355443,
-      "last_buy_at": "2026-09-20T12:51:40+00:00"
-    },
     "HMSTRINR": {
       "qty": 30096.0,
       "avg_cost": 0.017690504831999996,
@@ -31,17 +19,29 @@
       "invested": 521.104746162,
       "last_buy_at": "2026-09-22T02:06:32+00:00"
     },
-    "DOTINR": {
-      "qty": 4.468,
-      "avg_cost": 118.799992311,
-      "invested": 530.798365645548,
-      "last_buy_at": "2026-09-22T02:06:32+00:00"
-    },
     "SHIBINR": {
       "qty": 900002.0,
       "avg_cost": 0.0005919869455499999,
       "invested": 532.789434968891,
       "last_buy_at": "2026-09-22T02:06:34+00:00"
+    },
+    "RENDERINR": {
+      "qty": 2.95,
+      "avg_cost": 179.458874595,
+      "invested": 529.40368005525,
+      "last_buy_at": "2026-09-22T08:17:49+00:00"
+    },
+    "SEIINR": {
+      "qty": 87.0,
+      "avg_cost": 6.0891230400000005,
+      "invested": 529.75370448,
+      "last_buy_at": "2026-09-22T08:17:49+00:00"
+    },
+    "BIOINR": {
+      "qty": 185.3,
+      "avg_cost": 2.8666950312,
+      "invested": 531.19858928136,
+      "last_buy_at": "2026-09-22T08:17:49+00:00"
     }
   }
 }
