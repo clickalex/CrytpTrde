@@ -1,18 +1,12 @@
 {
-  "cash_inr": 649.3409415366845,
-  "realized_pnl": -568.0603484067677,
-  "total_trades": 146,
-  "sell_count": 69,
+  "cash_inr": 623.9582139119348,
+  "realized_pnl": -618.5544659313678,
+  "total_trades": 150,
+  "sell_count": 71,
   "gross_gains": 2045.37,
-  "gross_losses": -2613.43,
-  "total_tds": 864.07,
+  "gross_losses": -2663.92,
+  "total_tds": 882.65,
   "holdings": {
-    "USDTINR": {
-      "qty": 9.37,
-      "avg_cost": 100.64078524499999,
-      "invested": 943.0041577456499,
-      "last_buy_at": "2026-08-31T07:16:28+00:00"
-    },
     "TRXINR": {
       "qty": 17.6,
       "avg_cost": 32.819171385000004,
@@ -49,11 +43,17 @@
       "invested": 1020.5919037314,
       "last_buy_at": "2026-09-21T14:58:31+00:00"
     },
-    "ETHINR": {
-      "qty": 0.0035,
-      "avg_cost": 275402.622495,
-      "invested": 963.9091787325,
-      "last_buy_at": "2026-09-21T20:02:38+00:00"
+    "BNBINR": {
+      "qty": 0.012,
+      "avg_cost": 78343.27796294999,
+      "invested": 940.1193355553999,
+      "last_buy_at": "2026-09-22T01:58:16+00:00"
+    },
+    "XRPINR": {
+      "qty": 6.2,
+      "avg_cost": 148.88707033199998,
+      "invested": 923.0998360583999,
+      "last_buy_at": "2026-09-22T01:58:16+00:00"
     }
   }
 }

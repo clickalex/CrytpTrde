@@ -1,11 +1,11 @@
 {
-  "cash_inr": 4014.3736976310042,
-  "realized_pnl": -1541.7553604987947,
-  "total_trades": 288,
-  "sell_count": 141,
+  "cash_inr": 2551.410268692067,
+  "realized_pnl": -1563.997996588748,
+  "total_trades": 292,
+  "sell_count": 142,
   "gross_gains": 1256.2,
-  "gross_losses": -2797.94,
-  "total_tds": 887.66,
+  "gross_losses": -2820.18,
+  "total_tds": 893.91,
   "holdings": {
     "HMSTRINR": {
       "qty": 36957.0,
@@ -37,11 +37,23 @@
       "invested": 641.6206092796499,
       "last_buy_at": "2026-09-21T07:02:16+00:00"
     },
-    "POLYXINR": {
-      "qty": 151.7605,
-      "avg_cost": 4.261384627499999,
-      "invested": 646.7098617617137,
-      "last_buy_at": "2026-09-21T19:54:32+00:00"
+    "USDTINR": {
+      "qty": 8.18,
+      "avg_cost": 98.12701898999998,
+      "invested": 802.6790153381999,
+      "last_buy_at": "2026-09-22T01:53:11+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 25.2,
+      "avg_cost": 25.4371111995,
+      "invested": 641.0152022274,
+      "last_buy_at": "2026-09-22T01:53:11+00:00"
+    },
+    "ALTINR": {
+      "qty": 836.0,
+      "avg_cost": 0.7625424807,
+      "invested": 637.4855138652,
+      "last_buy_at": "2026-09-22T01:53:11+00:00"
     }
   }
 }

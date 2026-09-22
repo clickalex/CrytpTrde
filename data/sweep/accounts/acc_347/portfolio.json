@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1586.494647100624,
-  "realized_pnl": -1221.4309040691505,
-  "total_trades": 487,
-  "sell_count": 239,
+  "cash_inr": 1529.0323185717739,
+  "realized_pnl": -1249.7803503201505,
+  "total_trades": 489,
+  "sell_count": 240,
   "gross_gains": 2514.42,
-  "gross_losses": -3735.93,
-  "total_tds": 1571.97,
+  "gross_losses": -3764.28,
+  "total_tds": 1577.99,
   "holdings": {
     "RIFINR": {
       "qty": 63.0,
       "avg_cost": 8.5538157705,
       "invested": 538.8903935415,
       "last_buy_at": "2026-09-20T06:47:47+00:00"
-    },
-    "ONDOINR": {
-      "qty": 14.0,
-      "avg_cost": 45.00042196650001,
-      "invested": 630.005907531,
-      "last_buy_at": "2026-09-21T14:58:50+00:00"
     },
     "FILINR": {
       "qty": 6.41,
@@ -60,6 +54,12 @@
       "avg_cost": 1.6660962318e-06,
       "invested": 679.9199986142578,
       "last_buy_at": "2026-09-21T23:51:27+00:00"
+    },
+    "DOGEINR": {
+      "qty": 67.0,
+      "avg_cost": 9.74770451655,
+      "invested": 653.09620260885,
+      "last_buy_at": "2026-09-22T01:58:29+00:00"
     }
   }
 }

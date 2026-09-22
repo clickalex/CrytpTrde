@@ -1,23 +1,17 @@
 {
-  "cash_inr": 754.74040491265,
-  "realized_pnl": -1581.4178122438334,
-  "total_trades": 408,
-  "sell_count": 200,
+  "cash_inr": 720.5968398140678,
+  "realized_pnl": -1637.6224634082432,
+  "total_trades": 414,
+  "sell_count": 203,
   "gross_gains": 2328.13,
-  "gross_losses": -3909.57,
-  "total_tds": 1622.06,
+  "gross_losses": -3965.77,
+  "total_tds": 1642.92,
   "holdings": {
     "TRXINR": {
       "qty": 25.6,
       "avg_cost": 32.27235211199999,
       "invested": 826.1722140671999,
       "last_buy_at": "2026-09-02T06:20:26+00:00"
-    },
-    "USDTINR": {
-      "qty": 6.24,
-      "avg_cost": 99.94974989999999,
-      "invested": 623.686439376,
-      "last_buy_at": "2026-09-09T22:46:17+00:00"
     },
     "APEINR": {
       "qty": 59.06,
@@ -43,17 +37,23 @@
       "invested": 756.6899013620445,
       "last_buy_at": "2026-09-21T07:12:24+00:00"
     },
-    "FARTCOININR": {
-      "qty": 39.46,
-      "avg_cost": 19.376030173500002,
-      "invested": 764.5781506463101,
-      "last_buy_at": "2026-09-21T23:51:22+00:00"
+    "XRPINR": {
+      "qty": 4.5,
+      "avg_cost": 148.88707033199998,
+      "invested": 669.9918164939999,
+      "last_buy_at": "2026-09-22T01:58:26+00:00"
     },
-    "ORCAINR": {
-      "qty": 4.98,
-      "avg_cost": 150.96618537,
-      "invested": 751.8116031426001,
-      "last_buy_at": "2026-09-21T23:51:22+00:00"
+    "GASINR": {
+      "qty": 5.0899,
+      "avg_cost": 139.4599461255,
+      "invested": 709.8371797841825,
+      "last_buy_at": "2026-09-22T01:58:26+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 28.2,
+      "avg_cost": 25.437111199500002,
+      "invested": 717.3265358259,
+      "last_buy_at": "2026-09-22T01:58:26+00:00"
     }
   }
 }
