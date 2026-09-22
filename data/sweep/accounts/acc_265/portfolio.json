@@ -1,11 +1,11 @@
 {
-  "cash_inr": 5172.065913814806,
-  "realized_pnl": -644.2976296461444,
-  "total_trades": 350,
-  "sell_count": 172,
+  "cash_inr": 4676.437597106422,
+  "realized_pnl": -665.0598407474693,
+  "total_trades": 353,
+  "sell_count": 173,
   "gross_gains": 1611.93,
-  "gross_losses": -2256.24,
-  "total_tds": 930.1,
+  "gross_losses": -2277.0,
+  "total_tds": 935.56,
   "holdings": {
     "RIFINR": {
       "qty": 60.0,
@@ -31,17 +31,23 @@
       "invested": 628.9796815860558,
       "last_buy_at": "2026-09-21T19:55:57+00:00"
     },
-    "XDBINR": {
-      "qty": 75474.9,
-      "avg_cost": 0.007500237244500001,
-      "invested": 566.0796560049131,
-      "last_buy_at": "2026-09-21T19:55:57+00:00"
-    },
     "BOMEINR": {
       "qty": 4822.0,
       "avg_cost": 0.105644281743,
       "invested": 509.416726564746,
       "last_buy_at": "2026-09-21T19:55:57+00:00"
+    },
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 8611734.3471159,
+      "invested": 516.704060826954,
+      "last_buy_at": "2026-09-21T23:45:38+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 351.0,
+      "avg_cost": 1.4780144379,
+      "invested": 518.7830677029,
+      "last_buy_at": "2026-09-21T23:45:40+00:00"
     }
   }
 }
