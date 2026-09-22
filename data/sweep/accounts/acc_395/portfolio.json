@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1887.636759302297,
-  "realized_pnl": 481.0657507642002,
-  "total_trades": 258,
-  "sell_count": 123,
+  "cash_inr": 1418.4416313775077,
+  "realized_pnl": 422.53602333565016,
+  "total_trades": 261,
+  "sell_count": 124,
   "gross_gains": 2771.98,
-  "gross_losses": -2290.9,
-  "total_tds": 853.11,
+  "gross_losses": -2349.43,
+  "total_tds": 859.73,
   "holdings": {
     "TRUMPINR": {
       "qty": 3.128,
@@ -67,17 +67,23 @@
       "invested": 661.319833679505,
       "last_buy_at": "2026-09-22T08:11:58+00:00"
     },
-    "ONEINR": {
-      "qty": 2065.0,
-      "avg_cost": 0.34875251911499994,
-      "invested": 720.1739519724749,
-      "last_buy_at": "2026-09-22T18:31:26+00:00"
-    },
     "PYTHINR": {
       "qty": 75.1,
       "avg_cost": 6.7084509492,
       "invested": 503.80466628491996,
       "last_buy_at": "2026-09-22T18:31:26+00:00"
+    },
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 8607314.725409402,
+      "invested": 516.4388835245641,
+      "last_buy_at": "2026-09-22T21:57:02+00:00"
+    },
+    "BIOINR": {
+      "qty": 205.3,
+      "avg_cost": 2.9604354779999995,
+      "invested": 607.7774036333999,
+      "last_buy_at": "2026-09-22T21:57:02+00:00"
     }
   }
 }
