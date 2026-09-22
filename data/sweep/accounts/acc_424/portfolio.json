@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1575.6923406872465,
-  "realized_pnl": -2285.11844107634,
-  "total_trades": 539,
-  "sell_count": 266,
+  "cash_inr": 925.3209812099301,
+  "realized_pnl": -2316.763164318587,
+  "total_trades": 544,
+  "sell_count": 268,
   "gross_gains": 1946.53,
-  "gross_losses": -4231.71,
-  "total_tds": 1917.62,
+  "gross_losses": -4263.35,
+  "total_tds": 1929.98,
   "holdings": {
     "SOLINR": {
       "qty": 0.05,
@@ -37,17 +37,23 @@
       "invested": 673.7797249349165,
       "last_buy_at": "2026-09-21T15:05:06+00:00"
     },
-    "BRISEINR": {
-      "qty": 376841457.0,
-      "avg_cost": 1.6352500164e-06,
-      "invested": 616.2299987394499,
-      "last_buy_at": "2026-09-22T08:13:38+00:00"
+    "ETHINR": {
+      "qty": 0.0023,
+      "avg_cost": 273823.65680670005,
+      "invested": 629.79441065541,
+      "last_buy_at": "2026-09-22T13:57:12+00:00"
     },
-    "CHRINR": {
-      "qty": 363.0,
-      "avg_cost": 1.7922852947999999,
-      "invested": 650.5995620123999,
-      "last_buy_at": "2026-09-22T08:13:39+00:00"
+    "TOSHIINR": {
+      "qty": 47956.0,
+      "avg_cost": 0.013067578524000001,
+      "invested": 626.668795696944,
+      "last_buy_at": "2026-09-22T13:57:13+00:00"
+    },
+    "BOMEINR": {
+      "qty": 5719.0,
+      "avg_cost": 0.10783856933849999,
+      "invested": 616.7287780468814,
+      "last_buy_at": "2026-09-22T13:57:15+00:00"
     }
   }
 }

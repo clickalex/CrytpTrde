@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1659.7406939610955,
-  "realized_pnl": -1215.6569970759288,
-  "total_trades": 496,
-  "sell_count": 244,
-  "gross_gains": 2570.3,
-  "gross_losses": -3786.04,
-  "total_tds": 1603.07,
+  "cash_inr": 1600.285681204054,
+  "realized_pnl": -1224.4338058162787,
+  "total_trades": 500,
+  "sell_count": 246,
+  "gross_gains": 2587.18,
+  "gross_losses": -3811.69,
+  "total_tds": 1616.36,
   "holdings": {
-    "FILINR": {
-      "qty": 6.41,
-      "avg_cost": 97.76647881000001,
-      "invested": 626.6831291721,
-      "last_buy_at": "2026-09-21T14:58:50+00:00"
-    },
     "SOLINR": {
       "qty": 0.054,
       "avg_cost": 11779.4485809,
@@ -49,11 +43,17 @@
       "invested": 1015.4899581318491,
       "last_buy_at": "2026-09-22T08:09:08+00:00"
     },
-    "CHRINR": {
-      "qty": 396.0,
-      "avg_cost": 1.7922852948000003,
-      "invested": 709.7449767408001,
-      "last_buy_at": "2026-09-22T08:09:09+00:00"
+    "TRXINR": {
+      "qty": 20.0,
+      "avg_cost": 34.399539174,
+      "invested": 687.9907834799999,
+      "last_buy_at": "2026-09-22T13:52:25+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 52483.0,
+      "avg_cost": 0.013067578523999998,
+      "invested": 685.8257236750919,
+      "last_buy_at": "2026-09-22T13:52:26+00:00"
     }
   }
 }

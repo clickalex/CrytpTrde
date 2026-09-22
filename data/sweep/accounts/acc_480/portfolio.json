@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1001.1363889333779,
-  "realized_pnl": -1917.6874241066664,
-  "total_trades": 541,
-  "sell_count": 267,
-  "gross_gains": 2462.6,
+  "cash_inr": 1124.0241176406698,
+  "realized_pnl": -1895.6134387646662,
+  "total_trades": 543,
+  "sell_count": 268,
+  "gross_gains": 2484.67,
   "gross_losses": -4380.3,
-  "total_tds": 2031.87,
+  "total_tds": 2040.69,
   "holdings": {
-    "CHRINR": {
-      "qty": 510.0,
-      "avg_cost": 1.6842233908499997,
-      "invested": 858.9539293334999,
-      "last_buy_at": "2026-09-20T12:51:02+00:00"
-    },
     "PUMPINR": {
       "qty": 1510.0,
       "avg_cost": 0.42762068349,
@@ -48,6 +42,12 @@
       "avg_cost": 0.007447157718,
       "invested": 667.4194876975625,
       "last_buy_at": "2026-09-22T08:16:52+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 57342.0,
+      "avg_cost": 0.013067578524000001,
+      "invested": 749.321087723208,
+      "last_buy_at": "2026-09-22T14:00:46+00:00"
     }
   }
 }

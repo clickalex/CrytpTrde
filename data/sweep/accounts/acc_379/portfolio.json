@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1263.915216751676,
-  "realized_pnl": -2740.086323375782,
-  "total_trades": 605,
-  "sell_count": 299,
-  "gross_gains": 1725.86,
+  "cash_inr": 1303.5799100399759,
+  "realized_pnl": -2717.9906635862317,
+  "total_trades": 609,
+  "sell_count": 301,
+  "gross_gains": 1747.96,
   "gross_losses": -4465.94,
-  "total_tds": 1961.62,
+  "total_tds": 1973.02,
   "holdings": {
     "ICPINR": {
       "qty": 1.73,
       "avg_cost": 293.169241365,
       "invested": 507.18278756145,
       "last_buy_at": "2026-09-21T20:05:19+00:00"
-    },
-    "ADAINR": {
-      "qty": 24.7,
-      "avg_cost": 24.360498162,
-      "invested": 601.7043046013999,
-      "last_buy_at": "2026-09-21T23:53:53+00:00"
     },
     "SOLINR": {
       "qty": 0.05,
@@ -37,17 +31,23 @@
       "invested": 736.4921325170409,
       "last_buy_at": "2026-09-22T08:10:58+00:00"
     },
-    "RENDERINR": {
-      "qty": 2.87,
-      "avg_cost": 179.458874595,
-      "invested": 515.04697008765,
-      "last_buy_at": "2026-09-22T08:10:58+00:00"
-    },
     "SHIBINR": {
       "qty": 910536.0,
       "avg_cost": 0.0005948912970000001,
       "invested": 541.6699420051921,
       "last_buy_at": "2026-09-22T08:11:00+00:00"
+    },
+    "DOGEINR": {
+      "qty": 53.0,
+      "avg_cost": 10.00028294265,
+      "invested": 530.0149959604499,
+      "last_buy_at": "2026-09-22T13:54:23+00:00"
+    },
+    "ONDOINR": {
+      "qty": 12.9,
+      "avg_cost": 43.23778108650001,
+      "invested": 557.7673760158501,
+      "last_buy_at": "2026-09-22T13:54:23+00:00"
     }
   }
 }
