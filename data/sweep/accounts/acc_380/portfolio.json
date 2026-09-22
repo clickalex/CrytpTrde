@@ -1,11 +1,11 @@
 {
-  "cash_inr": 251.25829793647074,
-  "realized_pnl": -57.691773246339835,
-  "total_trades": 133,
-  "sell_count": 63,
-  "gross_gains": 1799.75,
-  "gross_losses": -1857.47,
-  "total_tds": 1150.3,
+  "cash_inr": 250.7534863138793,
+  "realized_pnl": 172.51997143553308,
+  "total_trades": 137,
+  "sell_count": 65,
+  "gross_gains": 2036.94,
+  "gross_losses": -1864.45,
+  "total_tds": 1171.81,
   "holdings": {
     "TRXINR": {
       "qty": 45.0,
@@ -19,23 +19,11 @@
       "invested": 2124.0647840412,
       "last_buy_at": "2026-09-20T06:49:31+00:00"
     },
-    "CHRINR": {
-      "qty": 407.0,
-      "avg_cost": 1.75212512475,
-      "invested": 713.11492577325,
-      "last_buy_at": "2026-09-21T15:01:32+00:00"
-    },
     "HMSTRINR": {
       "qty": 53192.0,
       "avg_cost": 0.017690504832,
       "invested": 940.993333023744,
       "last_buy_at": "2026-09-21T20:05:25+00:00"
-    },
-    "BTCINR": {
-      "qty": 0.00014,
-      "avg_cost": 8611734.3471159,
-      "invested": 1205.642808596226,
-      "last_buy_at": "2026-09-21T23:53:57+00:00"
     },
     "FILINR": {
       "qty": 10.6,
@@ -48,6 +36,18 @@
       "avg_cost": 6.3413008659,
       "invested": 1004.46205715856,
       "last_buy_at": "2026-09-22T08:11:01+00:00"
+    },
+    "ETHINR": {
+      "qty": 0.0041,
+      "avg_cost": 274455.90407235,
+      "invested": 1125.2692066966351,
+      "last_buy_at": "2026-09-22T18:30:25+00:00"
+    },
+    "POPCATINR": {
+      "qty": 170.1,
+      "avg_cost": 5.89473179295,
+      "invested": 1002.693877980795,
+      "last_buy_at": "2026-09-22T18:30:25+00:00"
     }
   }
 }

@@ -1,18 +1,12 @@
 {
-  "cash_inr": 562.0050689215611,
-  "realized_pnl": -2896.123602656284,
-  "total_trades": 495,
-  "sell_count": 245,
-  "gross_gains": 1855.61,
-  "gross_losses": -4751.72,
-  "total_tds": 2298.87,
+  "cash_inr": 591.6511204753052,
+  "realized_pnl": -2887.4730916229737,
+  "total_trades": 499,
+  "sell_count": 247,
+  "gross_gains": 1866.12,
+  "gross_losses": -4753.58,
+  "total_tds": 2316.57,
   "holdings": {
-    "HMSTRINR": {
-      "qty": 52124.0,
-      "avg_cost": 0.017690504832,
-      "invested": 922.099873863168,
-      "last_buy_at": "2026-09-21T20:07:01+00:00"
-    },
     "XDBINR": {
       "qty": 112213.2,
       "avg_cost": 0.007447157718,
@@ -31,11 +25,17 @@
       "invested": 827.0623477115998,
       "last_buy_at": "2026-09-22T13:55:48+00:00"
     },
-    "RIFINR": {
-      "qty": 93.0,
-      "avg_cost": 9.0064939965,
-      "invested": 837.6039416745,
-      "last_buy_at": "2026-09-22T13:55:48+00:00"
+    "BIOINR": {
+      "qty": 282.4,
+      "avg_cost": 2.9516222736,
+      "invested": 833.5381300646399,
+      "last_buy_at": "2026-09-22T18:31:48+00:00"
+    },
+    "GALAINR": {
+      "qty": 4163.21,
+      "avg_cost": 0.21316938142500003,
+      "invested": 887.4689004423743,
+      "last_buy_at": "2026-09-22T18:31:49+00:00"
     }
   }
 }
