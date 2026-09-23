@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1065.610356361829,
-  "realized_pnl": 222.18571068433016,
-  "total_trades": 318,
-  "sell_count": 153,
-  "gross_gains": 3236.79,
-  "gross_losses": -3014.62,
-  "total_tds": 1128.47,
+  "cash_inr": 991.6561070312513,
+  "realized_pnl": 192.60520927512437,
+  "total_trades": 322,
+  "sell_count": 155,
+  "gross_gains": 3245.93,
+  "gross_losses": -3053.34,
+  "total_tds": 1141.39,
   "holdings": {
-    "BRISEINR": {
-      "qty": 384378658.0,
-      "avg_cost": 1.5949896963e-06,
-      "invested": 613.0799989876216,
-      "last_buy_at": "2026-09-20T06:51:19+00:00"
-    },
     "POLYXINR": {
       "qty": 157.507,
       "avg_cost": 4.1762570850000005,
@@ -67,17 +61,23 @@
       "invested": 701.6520515003999,
       "last_buy_at": "2026-09-23T06:35:05+00:00"
     },
-    "CHRINR": {
-      "qty": 316.0,
-      "avg_cost": 2.239355118,
-      "invested": 707.636217288,
-      "last_buy_at": "2026-09-23T06:35:05+00:00"
-    },
     "PENGUINR": {
       "qty": 665.0,
       "avg_cost": 1.06715887278,
       "invested": 709.6606503987,
       "last_buy_at": "2026-09-23T06:35:05+00:00"
+    },
+    "POPCATINR": {
+      "qty": 113.9,
+      "avg_cost": 6.067590779250001,
+      "invested": 691.098589756575,
+      "last_buy_at": "2026-09-23T12:18:29+00:00"
+    },
+    "HMSTRINR": {
+      "qty": 35827.0,
+      "avg_cost": 0.018451645211999997,
+      "invested": 661.0670930103239,
+      "last_buy_at": "2026-09-23T12:18:30+00:00"
     }
   }
 }

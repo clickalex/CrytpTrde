@@ -1,11 +1,11 @@
 {
-  "cash_inr": 4851.966729741874,
-  "realized_pnl": -470.83363641948483,
-  "total_trades": 381,
-  "sell_count": 187,
-  "gross_gains": 1562.79,
-  "gross_losses": -2033.65,
-  "total_tds": 999.94,
+  "cash_inr": 4883.034213060314,
+  "realized_pnl": -363.10300053468455,
+  "total_trades": 387,
+  "sell_count": 190,
+  "gross_gains": 1695.85,
+  "gross_losses": -2058.98,
+  "total_tds": 1016.62,
   "holdings": {
     "TRXINR": {
       "qty": 15.5,
@@ -19,18 +19,6 @@
       "invested": 543.2531300196,
       "last_buy_at": "2026-09-19T23:46:15+00:00"
     },
-    "ICPINR": {
-      "qty": 1.9,
-      "avg_cost": 277.11518835,
-      "invested": 526.518857865,
-      "last_buy_at": "2026-09-20T12:50:06+00:00"
-    },
-    "NEARINR": {
-      "qty": 1.2,
-      "avg_cost": 411.77694558,
-      "invested": 494.132334696,
-      "last_buy_at": "2026-09-21T15:07:46+00:00"
-    },
     "SOLINR": {
       "qty": 0.045,
       "avg_cost": 11577.546080099999,
@@ -43,11 +31,23 @@
       "invested": 537.3282530616,
       "last_buy_at": "2026-09-23T01:24:17+00:00"
     },
-    "SUSHIINR": {
-      "qty": 19.2,
-      "avg_cost": 28.042013999999998,
-      "invested": 538.4066687999999,
-      "last_buy_at": "2026-09-23T06:37:34+00:00"
+    "XRPINR": {
+      "qty": 3.4,
+      "avg_cost": 158.01975339149996,
+      "invested": 537.2671615310999,
+      "last_buy_at": "2026-09-23T12:20:58+00:00"
+    },
+    "SUIINR": {
+      "qty": 5.3,
+      "avg_cost": 101.74544029649998,
+      "invested": 539.2508335714499,
+      "last_buy_at": "2026-09-23T12:20:58+00:00"
+    },
+    "APEINR": {
+      "qty": 33.26,
+      "avg_cost": 16.311438643499997,
+      "invested": 542.5184492828099,
+      "last_buy_at": "2026-09-23T12:20:58+00:00"
     }
   }
 }

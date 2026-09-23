@@ -1,29 +1,17 @@
 {
-  "cash_inr": 713.7106070134237,
-  "realized_pnl": -271.32003326683605,
-  "total_trades": 324,
-  "sell_count": 158,
-  "gross_gains": 3723.49,
-  "gross_losses": -3994.79,
-  "total_tds": 1623.48,
+  "cash_inr": 448.2271261841537,
+  "realized_pnl": -268.01449383897057,
+  "total_trades": 332,
+  "sell_count": 162,
+  "gross_gains": 3828.48,
+  "gross_losses": -4096.47,
+  "total_tds": 1657.13,
   "holdings": {
     "HMSTRINR": {
       "qty": 49997.0,
       "avg_cost": 0.0174831942285,
       "invested": 874.1072618423145,
       "last_buy_at": "2026-09-21T07:04:00+00:00"
-    },
-    "BOMEINR": {
-      "qty": 6530.0,
-      "avg_cost": 0.1059587529,
-      "invested": 691.910656437,
-      "last_buy_at": "2026-09-21T14:49:49+00:00"
-    },
-    "POPCATINR": {
-      "qty": 149.34,
-      "avg_cost": 5.50825275,
-      "invested": 822.602465685,
-      "last_buy_at": "2026-09-21T19:55:46+00:00"
     },
     "SEIINR": {
       "qty": 161.0,
@@ -37,23 +25,35 @@
       "invested": 1117.8604364927999,
       "last_buy_at": "2026-09-22T21:48:20+00:00"
     },
-    "FARTCOININR": {
-      "qty": 37.09,
-      "avg_cost": 20.8842899265,
-      "invested": 774.598313373885,
-      "last_buy_at": "2026-09-23T01:12:10+00:00"
-    },
     "JUPINR": {
       "qty": 34.5,
       "avg_cost": 30.639906296999996,
       "invested": 1057.0767672465,
       "last_buy_at": "2026-09-23T06:25:51+00:00"
     },
-    "PENGUINR": {
-      "qty": 1002.0,
-      "avg_cost": 1.0671588727799999,
-      "invested": 1069.2931905255598,
-      "last_buy_at": "2026-09-23T06:25:51+00:00"
+    "TRXINR": {
+      "qty": 25.1,
+      "avg_cost": 34.261332105,
+      "invested": 859.9594358355001,
+      "last_buy_at": "2026-09-23T12:09:14+00:00"
+    },
+    "GASINR": {
+      "qty": 9.9355,
+      "avg_cost": 148.1950334865,
+      "invested": 1472.3917552051205,
+      "last_buy_at": "2026-09-23T12:09:14+00:00"
+    },
+    "PYTHINR": {
+      "qty": 87.2,
+      "avg_cost": 6.7531178715,
+      "invested": 588.8718783948,
+      "last_buy_at": "2026-09-23T12:09:14+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 49960.0,
+      "avg_cost": 0.013457162218499998,
+      "invested": 672.3198244362599,
+      "last_buy_at": "2026-09-23T12:09:16+00:00"
     }
   }
 }

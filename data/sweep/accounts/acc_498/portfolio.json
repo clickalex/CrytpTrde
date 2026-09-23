@@ -1,11 +1,11 @@
 {
-  "cash_inr": 670.9139656266387,
-  "realized_pnl": 307.0827387094551,
-  "total_trades": 73,
-  "sell_count": 32,
-  "gross_gains": 1394.13,
-  "gross_losses": -1087.05,
-  "total_tds": 428.75,
+  "cash_inr": 464.9411167001142,
+  "realized_pnl": 352.22342591445573,
+  "total_trades": 78,
+  "sell_count": 34,
+  "gross_gains": 1485.59,
+  "gross_losses": -1133.37,
+  "total_tds": 453.23,
   "holdings": {
     "TRXINR": {
       "qty": 19.2,
@@ -31,12 +31,6 @@
       "invested": 909.1532405455499,
       "last_buy_at": "2026-09-21T20:13:41+00:00"
     },
-    "ICPINR": {
-      "qty": 5.26,
-      "avg_cost": 295.44264749999996,
-      "invested": 1554.0283258499999,
-      "last_buy_at": "2026-09-22T02:06:35+00:00"
-    },
     "TRUMPINR": {
       "qty": 2.869,
       "avg_cost": 217.395713535,
@@ -49,17 +43,29 @@
       "invested": 812.56821184539,
       "last_buy_at": "2026-09-22T02:06:35+00:00"
     },
-    "CHRINR": {
-      "qty": 378.0,
-      "avg_cost": 2.239355118,
-      "invested": 846.4762346040001,
-      "last_buy_at": "2026-09-23T06:40:10+00:00"
-    },
     "PENGUINR": {
       "qty": 941.0,
       "avg_cost": 1.0671588727799999,
       "invested": 1004.1964992859799,
       "last_buy_at": "2026-09-23T06:40:10+00:00"
+    },
+    "TRBINR": {
+      "qty": 0.681,
+      "avg_cost": 2024.33296065,
+      "invested": 1378.57074620265,
+      "last_buy_at": "2026-09-23T12:23:29+00:00"
+    },
+    "ADAINR": {
+      "qty": 21.9,
+      "avg_cost": 25.189740576,
+      "invested": 551.6553186143999,
+      "last_buy_at": "2026-09-23T12:23:29+00:00"
+    },
+    "BIOINR": {
+      "qty": 229.5,
+      "avg_cost": 3.0366496660499993,
+      "invested": 696.9110983584749,
+      "last_buy_at": "2026-09-23T12:23:29+00:00"
     }
   }
 }
