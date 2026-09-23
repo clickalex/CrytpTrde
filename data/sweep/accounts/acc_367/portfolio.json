@@ -1,23 +1,17 @@
 {
-  "cash_inr": 570.845015518367,
-  "realized_pnl": -2684.750826377184,
-  "total_trades": 399,
-  "sell_count": 196,
-  "gross_gains": 2112.63,
-  "gross_losses": -4797.34,
-  "total_tds": 1910.86,
+  "cash_inr": 503.81815595659566,
+  "realized_pnl": -2605.8274360227933,
+  "total_trades": 405,
+  "sell_count": 199,
+  "gross_gains": 2271.51,
+  "gross_losses": -4877.29,
+  "total_tds": 1933.12,
   "holdings": {
     "TRXINR": {
       "qty": 15.9,
       "avg_cost": 32.242307097,
       "invested": 512.6526828423,
       "last_buy_at": "2026-09-02T17:00:45+00:00"
-    },
-    "SUSHIINR": {
-      "qty": 25.4,
-      "avg_cost": 24.082081023,
-      "invested": 611.6848579842,
-      "last_buy_at": "2026-09-20T12:46:32+00:00"
     },
     "ETHINR": {
       "qty": 0.0035,
@@ -37,17 +31,23 @@
       "invested": 610.4369883611998,
       "last_buy_at": "2026-09-22T01:59:31+00:00"
     },
-    "BONKINR": {
-      "qty": 1993088.0,
-      "avg_cost": 0.0003397089696,
-      "invested": 677.0698708021248,
-      "last_buy_at": "2026-09-22T01:59:33+00:00"
+    "CHRINR": {
+      "qty": 336.0,
+      "avg_cost": 2.2393551179999998,
+      "invested": 752.423319648,
+      "last_buy_at": "2026-09-23T06:32:06+00:00"
     },
-    "ONEINR": {
-      "qty": 2634.4,
-      "avg_cost": 0.32500694225999993,
-      "invested": 856.1982886897439,
-      "last_buy_at": "2026-09-23T01:18:41+00:00"
+    "RIFINR": {
+      "qty": 80.0,
+      "avg_cost": 9.506242746000002,
+      "invested": 760.4994196800001,
+      "last_buy_at": "2026-09-23T06:32:06+00:00"
+    },
+    "GALAINR": {
+      "qty": 3501.24,
+      "avg_cost": 0.21584338775999998,
+      "invested": 755.7195029608223,
+      "last_buy_at": "2026-09-23T06:32:10+00:00"
     }
   }
 }

@@ -1,23 +1,17 @@
 {
-  "cash_inr": 484.5884123838754,
-  "realized_pnl": -412.5360766867607,
-  "total_trades": 239,
-  "sell_count": 115,
-  "gross_gains": 2590.91,
+  "cash_inr": 777.6178671906989,
+  "realized_pnl": -290.6224674880481,
+  "total_trades": 246,
+  "sell_count": 119,
+  "gross_gains": 2712.82,
   "gross_losses": -3003.41,
-  "total_tds": 1306.75,
+  "total_tds": 1337.98,
   "holdings": {
     "USDTINR": {
       "qty": 7.2,
       "avg_cost": 100.019854935,
       "invested": 720.142955532,
       "last_buy_at": "2026-09-02T06:28:30+00:00"
-    },
-    "ICPINR": {
-      "qty": 3.24,
-      "avg_cost": 290.435145,
-      "invested": 941.0098697999999,
-      "last_buy_at": "2026-09-20T17:30:48+00:00"
     },
     "GALAINR": {
       "qty": 4650.97,
@@ -37,29 +31,29 @@
       "invested": 1488.181670976,
       "last_buy_at": "2026-09-22T08:17:25+00:00"
     },
-    "SUSHIINR": {
-      "qty": 25.0,
-      "avg_cost": 25.901807431499996,
-      "invested": 647.5451857874999,
-      "last_buy_at": "2026-09-22T18:36:37+00:00"
-    },
-    "GASINR": {
-      "qty": 4.3809,
-      "avg_cost": 142.6136712,
-      "invested": 624.77623216008,
-      "last_buy_at": "2026-09-22T22:03:27+00:00"
-    },
-    "PENGUINR": {
-      "qty": 788.0,
-      "avg_cost": 0.99561167706,
-      "invested": 784.54200152328,
-      "last_buy_at": "2026-09-23T01:26:15+00:00"
-    },
     "POLYXINR": {
       "qty": 168.627,
       "avg_cost": 4.310458152,
       "invested": 726.859626797304,
       "last_buy_at": "2026-09-23T01:26:18+00:00"
+    },
+    "SUIINR": {
+      "qty": 8.5,
+      "avg_cost": 102.9292138875,
+      "invested": 874.89831804375,
+      "last_buy_at": "2026-09-23T06:39:40+00:00"
+    },
+    "CHRINR": {
+      "qty": 337.0,
+      "avg_cost": 2.239355118,
+      "invested": 754.662674766,
+      "last_buy_at": "2026-09-23T06:39:40+00:00"
+    },
+    "PYTHINR": {
+      "qty": 174.8,
+      "avg_cost": 6.67029378015,
+      "invested": 1165.96735277022,
+      "last_buy_at": "2026-09-23T06:39:40+00:00"
     }
   }
 }

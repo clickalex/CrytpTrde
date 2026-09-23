@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1030.985038894251,
-  "realized_pnl": -197.91364859062946,
-  "total_trades": 355,
-  "sell_count": 172,
-  "gross_gains": 2709.28,
+  "cash_inr": 1056.3300008940712,
+  "realized_pnl": -148.84685301495426,
+  "total_trades": 359,
+  "sell_count": 174,
+  "gross_gains": 2758.35,
   "gross_losses": -2907.21,
-  "total_tds": 1298.95,
+  "total_tds": 1313.44,
   "holdings": {
     "CAKEINR": {
       "qty": 2.7,
       "avg_cost": 246.60948312,
       "invested": 665.845604424,
       "last_buy_at": "2026-09-20T06:53:31+00:00"
-    },
-    "XDBINR": {
-      "qty": 90953.6,
-      "avg_cost": 0.0075703422794999985,
-      "invested": 688.5498835527311,
-      "last_buy_at": "2026-09-21T07:23:29+00:00"
     },
     "PUMPINR": {
       "qty": 1583.0,
@@ -61,17 +55,23 @@
       "invested": 655.3306503744,
       "last_buy_at": "2026-09-23T01:24:11+00:00"
     },
-    "PENGUINR": {
-      "qty": 713.0,
-      "avg_cost": 0.99561167706,
-      "invested": 709.87112574378,
-      "last_buy_at": "2026-09-23T01:24:11+00:00"
-    },
     "BOMEINR": {
       "qty": 6052.0,
       "avg_cost": 0.1135431161865,
       "invested": 687.162939160698,
       "last_buy_at": "2026-09-23T01:24:13+00:00"
+    },
+    "RIFINR": {
+      "qty": 74.0,
+      "avg_cost": 9.506242746,
+      "invested": 703.461963204,
+      "last_buy_at": "2026-09-23T06:37:29+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 50812.0,
+      "avg_cost": 0.013858763919,
+      "invested": 704.191512252228,
+      "last_buy_at": "2026-09-23T06:37:32+00:00"
     }
   }
 }
