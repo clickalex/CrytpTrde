@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2200.619126986483,
-  "realized_pnl": -2307.912044229175,
-  "total_trades": 611,
-  "sell_count": 302,
-  "gross_gains": 1599.79,
-  "gross_losses": -3907.7,
-  "total_tds": 1756.55,
+  "cash_inr": 2194.0792293752147,
+  "realized_pnl": -2277.659533081987,
+  "total_trades": 617,
+  "sell_count": 305,
+  "gross_gains": 1637.79,
+  "gross_losses": -3915.44,
+  "total_tds": 1773.14,
   "holdings": {
-    "TRXINR": {
-      "qty": 15.8,
-      "avg_cost": 33.2788601145,
-      "invested": 525.8059898091,
-      "last_buy_at": "2026-09-16T00:57:41+00:00"
-    },
     "ETHINR": {
       "qty": 0.0019,
       "avg_cost": 262372.9006899,
@@ -23,12 +17,6 @@
       "qty": 0.045,
       "avg_cost": 11577.546080099999,
       "invested": 520.9895736044999,
-      "last_buy_at": "2026-09-22T02:04:38+00:00"
-    },
-    "XRPINR": {
-      "qty": 3.7,
-      "avg_cost": 148.88707033199998,
-      "invested": 550.8821602283999,
       "last_buy_at": "2026-09-22T02:04:38+00:00"
     },
     "TRUMPINR": {
@@ -43,11 +31,23 @@
       "invested": 545.2569322199998,
       "last_buy_at": "2026-09-22T18:35:01+00:00"
     },
-    "POPCATINR": {
-      "qty": 93.62,
-      "avg_cost": 5.87610388365,
-      "invested": 550.120845587313,
-      "last_buy_at": "2026-09-22T22:01:32+00:00"
+    "LINKINR": {
+      "qty": 0.42,
+      "avg_cost": 1304.23407114,
+      "invested": 547.7783098788,
+      "last_buy_at": "2026-09-23T01:24:35+00:00"
+    },
+    "APTINR": {
+      "qty": 6.71,
+      "avg_cost": 82.123041,
+      "invested": 551.04560511,
+      "last_buy_at": "2026-09-23T01:24:35+00:00"
+    },
+    "BIOINR": {
+      "qty": 181.2,
+      "avg_cost": 3.0253327104,
+      "invested": 548.1902871244799,
+      "last_buy_at": "2026-09-23T01:24:35+00:00"
     }
   }
 }

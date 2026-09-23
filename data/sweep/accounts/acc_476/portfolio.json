@@ -1,23 +1,17 @@
 {
-  "cash_inr": 234.9472847209314,
-  "realized_pnl": -2480.4364747841632,
-  "total_trades": 366,
-  "sell_count": 181,
-  "gross_gains": 2560.57,
+  "cash_inr": 403.76199335154206,
+  "realized_pnl": -2480.263545916433,
+  "total_trades": 368,
+  "sell_count": 182,
+  "gross_gains": 2560.74,
   "gross_losses": -5041.05,
-  "total_tds": 2687.5,
+  "total_tds": 2705.54,
   "holdings": {
     "TRXINR": {
       "qty": 27.4,
       "avg_cost": 34.137146042999994,
       "invested": 935.3578015781999,
       "last_buy_at": "2026-09-20T17:29:42+00:00"
-    },
-    "GALAINR": {
-      "qty": 8451.91,
-      "avg_cost": 0.21316938142500003,
-      "invested": 1801.6884265597719,
-      "last_buy_at": "2026-09-22T18:35:53+00:00"
     },
     "SUIINR": {
       "qty": 9.2,
@@ -30,6 +24,12 @@
       "avg_cost": 254.34106698,
       "invested": 930.8883051468,
       "last_buy_at": "2026-09-22T22:02:28+00:00"
+    },
+    "TOKENINR": {
+      "qty": 6371.3564,
+      "avg_cost": 0.25347977655,
+      "invested": 1615.0099965924123,
+      "last_buy_at": "2026-09-23T01:25:28+00:00"
     }
   }
 }

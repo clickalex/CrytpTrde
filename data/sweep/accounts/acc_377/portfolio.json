@@ -1,23 +1,17 @@
 {
-  "cash_inr": 4540.917909416511,
-  "realized_pnl": -1596.3424568840312,
-  "total_trades": 511,
-  "sell_count": 253,
-  "gross_gains": 1167.15,
+  "cash_inr": 4555.036914165634,
+  "realized_pnl": -1575.5646994548902,
+  "total_trades": 515,
+  "sell_count": 255,
+  "gross_gains": 1187.93,
   "gross_losses": -2763.51,
-  "total_tds": 1335.85,
+  "total_tds": 1346.2,
   "holdings": {
     "TRXINR": {
       "qty": 15.3,
       "avg_cost": 33.746560847999994,
       "invested": 516.3223809744,
       "last_buy_at": "2026-09-19T06:34:04+00:00"
-    },
-    "GASINR": {
-      "qty": 3.7226,
-      "avg_cost": 136.64472822,
-      "invested": 508.673665271772,
-      "last_buy_at": "2026-09-21T07:15:28+00:00"
     },
     "RENDERINR": {
       "qty": 2.8,
@@ -31,11 +25,17 @@
       "invested": 494.94675490259993,
       "last_buy_at": "2026-09-22T13:54:16+00:00"
     },
-    "BIOINR": {
-      "qty": 170.9,
-      "avg_cost": 2.9516222735999995,
-      "invested": 504.43224655823997,
-      "last_buy_at": "2026-09-22T18:30:12+00:00"
+    "PENGUINR": {
+      "qty": 506.0,
+      "avg_cost": 0.99561167706,
+      "invested": 503.77950859236,
+      "last_buy_at": "2026-09-23T01:19:20+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 351.0,
+      "avg_cost": 1.4405583191999998,
+      "invested": 505.63597003919995,
+      "last_buy_at": "2026-09-23T01:19:22+00:00"
     }
   }
 }

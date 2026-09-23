@@ -1,18 +1,12 @@
 {
-  "cash_inr": 4801.566722216339,
-  "realized_pnl": -1123.8605789817711,
-  "total_trades": 344,
-  "sell_count": 169,
-  "gross_gains": 1070.13,
+  "cash_inr": 4823.497307832478,
+  "realized_pnl": -1083.9119399820352,
+  "total_trades": 348,
+  "sell_count": 171,
+  "gross_gains": 1110.08,
   "gross_losses": -2194.0,
-  "total_tds": 897.25,
+  "total_tds": 908.3,
   "holdings": {
-    "HMSTRINR": {
-      "qty": 30096.0,
-      "avg_cost": 0.017690504831999996,
-      "invested": 532.4134334238719,
-      "last_buy_at": "2026-09-21T20:13:38+00:00"
-    },
     "SHIBINR": {
       "qty": 900002.0,
       "avg_cost": 0.0005919869455499999,
@@ -31,17 +25,23 @@
       "invested": 529.75370448,
       "last_buy_at": "2026-09-22T08:17:49+00:00"
     },
-    "BIOINR": {
-      "qty": 185.3,
-      "avg_cost": 2.8666950312,
-      "invested": 531.19858928136,
-      "last_buy_at": "2026-09-22T08:17:49+00:00"
-    },
     "LINKINR": {
       "qty": 0.4,
       "avg_cost": 1304.4243562349998,
       "invested": 521.769742494,
       "last_buy_at": "2026-09-22T18:36:59+00:00"
+    },
+    "PENGUINR": {
+      "qty": 537.0,
+      "avg_cost": 0.9956116770599999,
+      "invested": 534.64347058122,
+      "last_buy_at": "2026-09-23T01:26:39+00:00"
+    },
+    "POLYXINR": {
+      "qty": 124.3348,
+      "avg_cost": 4.310458152,
+      "invested": 535.9399522372896,
+      "last_buy_at": "2026-09-23T01:26:42+00:00"
     }
   }
 }
