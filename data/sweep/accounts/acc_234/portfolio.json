@@ -1,11 +1,11 @@
 {
-  "cash_inr": 552.604955134519,
-  "realized_pnl": -2053.197592728294,
-  "total_trades": 314,
-  "sell_count": 155,
+  "cash_inr": 639.2475366097786,
+  "realized_pnl": -2227.7643444159976,
+  "total_trades": 319,
+  "sell_count": 157,
   "gross_gains": 2011.58,
-  "gross_losses": -4064.76,
-  "total_tds": 1517.01,
+  "gross_losses": -4239.33,
+  "total_tds": 1542.66,
   "holdings": {
     "USDTINR": {
       "qty": 20.9,
@@ -13,23 +13,29 @@
       "invested": 2050.8546968909995,
       "last_buy_at": "2026-09-22T01:52:32+00:00"
     },
-    "BRISEINR": {
-      "qty": 1331010750.0,
-      "avg_cost": 1.6414593195e-06,
-      "invested": 2184.7999999421845,
-      "last_buy_at": "2026-09-22T18:22:46+00:00"
-    },
     "TRXINR": {
       "qty": 31.9,
       "avg_cost": 34.145158047,
       "invested": 1089.2305416993,
       "last_buy_at": "2026-09-22T21:46:29+00:00"
     },
-    "PUMPINR": {
-      "qty": 1306.0,
-      "avg_cost": 0.42292364614500005,
-      "invested": 552.33828186537,
-      "last_buy_at": "2026-09-23T12:07:32+00:00"
+    "ONEINR": {
+      "qty": 2094.0,
+      "avg_cost": 0.254431202025,
+      "invested": 532.77893704035,
+      "last_buy_at": "2026-09-24T05:16:52+00:00"
+    },
+    "ALTINR": {
+      "qty": 1668.0,
+      "avg_cost": 0.7663481826,
+      "invested": 1278.2687685768,
+      "last_buy_at": "2026-09-24T05:16:52+00:00"
+    },
+    "POLYXINR": {
+      "qty": 146.0577,
+      "avg_cost": 4.376557185,
+      "invested": 639.2298763595746,
+      "last_buy_at": "2026-09-24T05:16:52+00:00"
     }
   }
 }
