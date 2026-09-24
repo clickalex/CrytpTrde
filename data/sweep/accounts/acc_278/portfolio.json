@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2237.169734530202,
-  "realized_pnl": -2805.981287407974,
-  "total_trades": 703,
-  "sell_count": 349,
+  "cash_inr": 2208.88222303834,
+  "realized_pnl": -2839.100038384472,
+  "total_trades": 709,
+  "sell_count": 352,
   "gross_gains": 1559.81,
-  "gross_losses": -4365.81,
-  "total_tds": 1999.97,
+  "gross_losses": -4398.93,
+  "total_tds": 2016.08,
   "holdings": {
-    "USDTINR": {
-      "qty": 5.31,
-      "avg_cost": 99.619254735,
-      "invested": 528.97824264285,
-      "last_buy_at": "2026-09-21T19:57:06+00:00"
-    },
     "TRXINR": {
       "qty": 22.2,
       "avg_cost": 34.199239074000005,
@@ -25,17 +19,23 @@
       "invested": 554.6526093108,
       "last_buy_at": "2026-09-24T15:40:20+00:00"
     },
-    "CAKEINR": {
-      "qty": 2.01,
-      "avg_cost": 275.983492785,
-      "invested": 554.72682049785,
-      "last_buy_at": "2026-09-24T19:43:05+00:00"
+    "NEARINR": {
+      "qty": 1.1,
+      "avg_cost": 466.388767845,
+      "invested": 513.0276446295001,
+      "last_buy_at": "2026-09-24T22:56:49+00:00"
     },
-    "POLYXINR": {
-      "qty": 124.4045,
-      "avg_cost": 4.495735744499999,
-      "invested": 559.2897574266501,
-      "last_buy_at": "2026-09-24T19:43:08+00:00"
+    "ARBINR": {
+      "qty": 25.3,
+      "avg_cost": 22.007973487500003,
+      "invested": 556.80172923375,
+      "last_buy_at": "2026-09-24T22:56:49+00:00"
+    },
+    "XDBINR": {
+      "qty": 69973.6,
+      "avg_cost": 0.007891823939999999,
+      "invested": 552.219331647984,
+      "last_buy_at": "2026-09-24T22:56:52+00:00"
     }
   }
 }
