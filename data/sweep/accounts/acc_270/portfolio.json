@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2271.970275147345,
-  "realized_pnl": -2101.4582842019095,
-  "total_trades": 553,
-  "sell_count": 273,
-  "gross_gains": 2081.7,
-  "gross_losses": -4183.09,
-  "total_tds": 1601.2,
+  "cash_inr": 2249.5391841061655,
+  "realized_pnl": -2117.942241896663,
+  "total_trades": 557,
+  "sell_count": 275,
+  "gross_gains": 2088.45,
+  "gross_losses": -4206.32,
+  "total_tds": 1612.4,
   "holdings": {
-    "GASINR": {
-      "qty": 4.1544,
-      "avg_cost": 136.64472822000002,
-      "invested": 567.676858917168,
-      "last_buy_at": "2026-09-21T07:04:39+00:00"
-    },
     "ICPINR": {
       "qty": 1.87,
       "avg_cost": 297.0951233249999,
@@ -43,11 +37,17 @@
       "invested": 573.12178078155,
       "last_buy_at": "2026-09-24T05:18:21+00:00"
     },
-    "TOKENINR": {
-      "qty": 2396.0245,
-      "avg_cost": 0.23705516834999998,
-      "invested": 567.9899912182245,
-      "last_buy_at": "2026-09-24T05:18:22+00:00"
+    "APEINR": {
+      "qty": 37.29,
+      "avg_cost": 15.232822604999999,
+      "invested": 568.03195494045,
+      "last_buy_at": "2026-09-24T15:39:42+00:00"
+    },
+    "GALAINR": {
+      "qty": 2809.93,
+      "avg_cost": 0.20013985991999994,
+      "invested": 562.3789965850054,
+      "last_buy_at": "2026-09-24T15:39:46+00:00"
     }
   }
 }

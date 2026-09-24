@@ -1,23 +1,17 @@
 {
-  "cash_inr": 978.9782109243401,
-  "realized_pnl": -2506.2505295007722,
-  "total_trades": 617,
-  "sell_count": 305,
+  "cash_inr": 939.6151698742782,
+  "realized_pnl": -2551.782434633274,
+  "total_trades": 621,
+  "sell_count": 307,
   "gross_gains": 2051.32,
-  "gross_losses": -4557.57,
-  "total_tds": 2149.89,
+  "gross_losses": -4603.1,
+  "total_tds": 2161.91,
   "holdings": {
     "USDTINR": {
       "qty": 5.2,
       "avg_cost": 99.24869954999997,
       "invested": 516.0932376599999,
       "last_buy_at": "2026-09-03T15:23:55+00:00"
-    },
-    "ETHINR": {
-      "qty": 0.0021,
-      "avg_cost": 271877.340735,
-      "invested": 570.9424155434999,
-      "last_buy_at": "2026-09-21T14:50:36+00:00"
     },
     "TRXINR": {
       "qty": 19.1,
@@ -37,17 +31,23 @@
       "invested": 651.3248486744999,
       "last_buy_at": "2026-09-24T05:18:26+00:00"
     },
-    "POPCATINR": {
-      "qty": 114.78,
-      "avg_cost": 5.8850172381,
-      "invested": 675.482278589118,
-      "last_buy_at": "2026-09-24T05:18:26+00:00"
-    },
     "SHIBINR": {
       "qty": 1125107.0,
       "avg_cost": 0.0005800690896,
       "invested": 652.6397931925871,
       "last_buy_at": "2026-09-24T05:18:27+00:00"
+    },
+    "SOLINR": {
+      "qty": 0.052,
+      "avg_cost": 11574.040828349998,
+      "invested": 601.8501230741999,
+      "last_buy_at": "2026-09-24T15:39:52+00:00"
+    },
+    "ONEINR": {
+      "qty": 2477.8,
+      "avg_cost": 0.25279875621,
+      "invested": 626.384758137138,
+      "last_buy_at": "2026-09-24T15:39:52+00:00"
     }
   }
 }

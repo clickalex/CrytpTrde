@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1418.2486179795162,
-  "realized_pnl": -1297.049791513316,
-  "total_trades": 487,
-  "sell_count": 239,
+  "cash_inr": 1373.1012289628948,
+  "realized_pnl": -1357.291937452811,
+  "total_trades": 493,
+  "sell_count": 242,
   "gross_gains": 2891.91,
-  "gross_losses": -4188.99,
-  "total_tds": 1569.77,
+  "gross_losses": -4249.23,
+  "total_tds": 1587.2,
   "holdings": {
-    "ETHINR": {
-      "qty": 0.0021,
-      "avg_cost": 271877.340735,
-      "invested": 570.9424155434999,
-      "last_buy_at": "2026-09-21T14:58:11+00:00"
-    },
     "ORCAINR": {
       "qty": 4.36,
       "avg_cost": 150.50549514,
@@ -43,23 +37,29 @@
       "invested": 624.4770238707,
       "last_buy_at": "2026-09-24T05:21:14+00:00"
     },
-    "PENGUINR": {
-      "qty": 610.0,
-      "avg_cost": 1.00768977309,
-      "invested": 614.6907615849001,
-      "last_buy_at": "2026-09-24T05:21:14+00:00"
-    },
-    "POPCATINR": {
-      "qty": 104.6,
-      "avg_cost": 5.8850172381,
-      "invested": 615.5728031052599,
-      "last_buy_at": "2026-09-24T05:21:14+00:00"
-    },
     "ONEINR": {
       "qty": 2388.8,
       "avg_cost": 0.254431202025,
       "invested": 607.78525539732,
       "last_buy_at": "2026-09-24T05:21:14+00:00"
+    },
+    "SOLINR": {
+      "qty": 0.051,
+      "avg_cost": 11574.04082835,
+      "invested": 590.2760822458499,
+      "last_buy_at": "2026-09-24T15:45:06+00:00"
+    },
+    "CHRINR": {
+      "qty": 278.0,
+      "avg_cost": 2.12207940945,
+      "invested": 589.9380758271,
+      "last_buy_at": "2026-09-24T15:45:06+00:00"
+    },
+    "BRISEINR": {
+      "qty": 379089241.0,
+      "avg_cost": 1.5523257749999997e-06,
+      "invested": 588.4699998294867,
+      "last_buy_at": "2026-09-24T15:45:06+00:00"
     }
   }
 }
