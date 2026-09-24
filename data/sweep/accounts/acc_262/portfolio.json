@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2115.221536592687,
-  "realized_pnl": -3179.7511602057275,
-  "total_trades": 739,
-  "sell_count": 367,
+  "cash_inr": 2090.0217043400366,
+  "realized_pnl": -3190.7424534928773,
+  "total_trades": 741,
+  "sell_count": 368,
   "gross_gains": 1729.85,
-  "gross_losses": -4909.61,
-  "total_tds": 2116.61,
+  "gross_losses": -4920.6,
+  "total_tds": 2121.62,
   "holdings": {
     "ICPINR": {
       "qty": 1.76,
@@ -19,12 +19,6 @@
       "invested": 505.34032709159993,
       "last_buy_at": "2026-09-24T15:39:06+00:00"
     },
-    "ORCAINR": {
-      "qty": 3.19,
-      "avg_cost": 160.24007999999998,
-      "invested": 511.1658551999999,
-      "last_buy_at": "2026-09-24T15:39:06+00:00"
-    },
     "BRISEINR": {
       "qty": 328346026.0,
       "avg_cost": 1.552325775e-06,
@@ -36,6 +30,12 @@
       "avg_cost": 0.017784645879,
       "invested": 528.773091274428,
       "last_buy_at": "2026-09-24T15:39:09+00:00"
+    },
+    "JUPINR": {
+      "qty": 17.0,
+      "avg_cost": 30.609861282000004,
+      "invested": 520.3676417940001,
+      "last_buy_at": "2026-09-24T19:41:46+00:00"
     }
   }
 }
