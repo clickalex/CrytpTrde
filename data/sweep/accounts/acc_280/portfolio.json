@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1075.805983697145,
-  "realized_pnl": -2448.291025282691,
-  "total_trades": 475,
-  "sell_count": 234,
-  "gross_gains": 1749.37,
-  "gross_losses": -4197.65,
-  "total_tds": 1754.11,
+  "cash_inr": 1006.1712180575065,
+  "realized_pnl": -2396.126697433632,
+  "total_trades": 481,
+  "sell_count": 237,
+  "gross_gains": 1821.22,
+  "gross_losses": -4217.34,
+  "total_tds": 1773.85,
   "holdings": {
     "TRXINR": {
       "qty": 27.9,
@@ -13,23 +13,11 @@
       "invested": 928.4801971945499,
       "last_buy_at": "2026-09-16T00:48:39+00:00"
     },
-    "SOLINR": {
-      "qty": 0.056,
-      "avg_cost": 11577.5460801,
-      "invested": 648.3425804856,
-      "last_buy_at": "2026-09-22T01:54:58+00:00"
-    },
     "TRUMPINR": {
       "qty": 2.603,
       "avg_cost": 202.32313101,
       "invested": 526.64711001903,
       "last_buy_at": "2026-09-24T05:18:45+00:00"
-    },
-    "CHILLGUYINR": {
-      "qty": 421.0,
-      "avg_cost": 1.3157713569,
-      "invested": 553.9397412549,
-      "last_buy_at": "2026-09-24T05:18:46+00:00"
     },
     "FILINR": {
       "qty": 6.18,
@@ -43,11 +31,23 @@
       "invested": 729.9320220192,
       "last_buy_at": "2026-09-25T14:15:48+00:00"
     },
-    "GASINR": {
-      "qty": 4.8285,
-      "avg_cost": 148.534542156,
-      "invested": 717.199036800246,
-      "last_buy_at": "2026-09-25T14:15:48+00:00"
+    "BNBINR": {
+      "qty": 0.008,
+      "avg_cost": 78192.45198765,
+      "invested": 625.5396159012,
+      "last_buy_at": "2026-09-25T19:01:33+00:00"
+    },
+    "PENGUINR": {
+      "qty": 717.0,
+      "avg_cost": 1.0114854599849998,
+      "invested": 725.2350748092449,
+      "last_buy_at": "2026-09-25T19:01:33+00:00"
+    },
+    "SHIBINR": {
+      "qty": 1134233.0,
+      "avg_cost": 0.00059138604525,
+      "invested": 670.7695682620432,
+      "last_buy_at": "2026-09-25T19:01:34+00:00"
     }
   }
 }

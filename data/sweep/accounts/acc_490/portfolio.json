@@ -1,23 +1,17 @@
 {
-  "cash_inr": 669.6964460913807,
-  "realized_pnl": -386.0027383606556,
-  "total_trades": 265,
-  "sell_count": 128,
-  "gross_gains": 2860.98,
+  "cash_inr": 519.4517527432641,
+  "realized_pnl": -331.8086584718095,
+  "total_trades": 269,
+  "sell_count": 130,
+  "gross_gains": 2915.17,
   "gross_losses": -3246.95,
-  "total_tds": 1424.3,
+  "total_tds": 1438.94,
   "holdings": {
     "USDTINR": {
       "qty": 7.2,
       "avg_cost": 100.019854935,
       "invested": 720.142955532,
       "last_buy_at": "2026-09-02T06:28:30+00:00"
-    },
-    "POLYXINR": {
-      "qty": 168.627,
-      "avg_cost": 4.310458152,
-      "invested": 726.859626797304,
-      "last_buy_at": "2026-09-23T01:26:18+00:00"
     },
     "BONKINR": {
       "qty": 2457368.0,
@@ -49,17 +43,23 @@
       "invested": 505.89075176639994,
       "last_buy_at": "2026-09-25T08:30:29+00:00"
     },
-    "CHILLGUYINR": {
-      "qty": 501.0,
-      "avg_cost": 1.3610391794999999,
-      "invested": 681.8806289295,
-      "last_buy_at": "2026-09-25T08:30:29+00:00"
-    },
     "BIOINR": {
       "qty": 307.0,
       "avg_cost": 3.270900633,
       "invested": 1004.166494331,
       "last_buy_at": "2026-09-25T14:28:52+00:00"
+    },
+    "SHIBINR": {
+      "qty": 1387807.0,
+      "avg_cost": 0.00059138604525,
+      "invested": 820.7296933002667,
+      "last_buy_at": "2026-09-25T19:13:13+00:00"
+    },
+    "ALTINR": {
+      "qty": 960.0,
+      "avg_cost": 0.8102139045,
+      "invested": 777.80534832,
+      "last_buy_at": "2026-09-25T19:13:15+00:00"
     }
   }
 }

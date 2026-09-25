@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1312.841212943158,
-  "realized_pnl": -1979.225667197629,
-  "total_trades": 461,
-  "sell_count": 226,
-  "gross_gains": 1937.41,
+  "cash_inr": 1390.0007137645866,
+  "realized_pnl": -1908.5107962305344,
+  "total_trades": 465,
+  "sell_count": 228,
+  "gross_gains": 2008.12,
   "gross_losses": -3916.66,
-  "total_tds": 1478.71,
+  "total_tds": 1491.05,
   "holdings": {
     "TRXINR": {
       "qty": 15.0,
       "avg_cost": 33.4491151995,
       "invested": 501.7367279925,
       "last_buy_at": "2026-09-16T12:02:49+00:00"
-    },
-    "SOLINR": {
-      "qty": 0.049,
-      "avg_cost": 11577.5460801,
-      "invested": 567.2997579249001,
-      "last_buy_at": "2026-09-22T01:53:51+00:00"
     },
     "ICPINR": {
       "qty": 2.5,
@@ -49,17 +43,23 @@
       "invested": 536.1953556960001,
       "last_buy_at": "2026-09-24T15:38:53+00:00"
     },
-    "GALAINR": {
-      "qty": 2970.62,
-      "avg_cost": 0.20013985991999997,
-      "invested": 594.5394706755503,
-      "last_buy_at": "2026-09-24T15:38:56+00:00"
-    },
     "TOKENINR": {
       "qty": 2453.2621,
       "avg_cost": 0.2293436145,
       "invested": 562.6399973298604,
       "last_buy_at": "2026-09-25T08:16:23+00:00"
+    },
+    "BNBINR": {
+      "qty": 0.007,
+      "avg_cost": 78192.45198765,
+      "invested": 547.34716391355,
+      "last_buy_at": "2026-09-25T18:59:38+00:00"
+    },
+    "POLYXINR": {
+      "qty": 130.1569,
+      "avg_cost": 4.576857285,
+      "invested": 595.7095559580165,
+      "last_buy_at": "2026-09-25T18:59:40+00:00"
     }
   }
 }
