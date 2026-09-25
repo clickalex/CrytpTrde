@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1341.509865245982,
-  "realized_pnl": -1297.4658689954422,
-  "total_trades": 480,
-  "sell_count": 235,
-  "gross_gains": 2805.18,
-  "gross_losses": -4102.64,
-  "total_tds": 1619.56,
+  "cash_inr": 1321.0150690141772,
+  "realized_pnl": -1285.1026828621266,
+  "total_trades": 486,
+  "sell_count": 238,
+  "gross_gains": 2839.77,
+  "gross_losses": -4124.87,
+  "total_tds": 1636.67,
   "holdings": {
     "BTCINR": {
       "qty": 6e-05,
@@ -31,22 +31,10 @@
       "invested": 467.9805527397,
       "last_buy_at": "2026-09-25T02:15:04+00:00"
     },
-    "JUPINR": {
-      "qty": 17.7,
-      "avg_cost": 31.547265749999998,
-      "invested": 558.3866037749999,
-      "last_buy_at": "2026-09-25T08:30:32+00:00"
-    },
     "SOLINR": {
       "qty": 0.046,
       "avg_cost": 11975.64252885,
       "invested": 550.8795563271,
-      "last_buy_at": "2026-09-25T14:28:56+00:00"
-    },
-    "SUSHIINR": {
-      "qty": 21.3,
-      "avg_cost": 26.477670219,
-      "invested": 563.9743756647,
       "last_buy_at": "2026-09-25T14:28:56+00:00"
     },
     "PENGUINR": {
@@ -61,11 +49,23 @@
       "invested": 590.3197762104143,
       "last_buy_at": "2026-09-25T19:13:16+00:00"
     },
-    "POLYXINR": {
-      "qty": 125.6167,
-      "avg_cost": 4.576857285,
-      "invested": 574.9297085126594,
-      "last_buy_at": "2026-09-25T19:13:18+00:00"
+    "FARTCOININR": {
+      "qty": 29.15,
+      "avg_cost": 19.843730907,
+      "invested": 578.44475593905,
+      "last_buy_at": "2026-09-25T23:19:26+00:00"
+    },
+    "GASINR": {
+      "qty": 3.8495,
+      "avg_cost": 147.82147379999998,
+      "invested": 569.0387633930999,
+      "last_buy_at": "2026-09-25T23:19:26+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1348.0,
+      "avg_cost": 0.41954858946000007,
+      "invested": 565.5514985920801,
+      "last_buy_at": "2026-09-25T23:19:30+00:00"
     }
   }
 }

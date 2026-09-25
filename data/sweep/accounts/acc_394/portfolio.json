@@ -1,23 +1,17 @@
 {
-  "cash_inr": 751.0219088397175,
-  "realized_pnl": -2750.0237363651954,
-  "total_trades": 409,
-  "sell_count": 202,
-  "gross_gains": 2059.42,
-  "gross_losses": -4809.43,
-  "total_tds": 1984.45,
+  "cash_inr": 695.1613177617728,
+  "realized_pnl": -2724.3042539912185,
+  "total_trades": 413,
+  "sell_count": 204,
+  "gross_gains": 2105.72,
+  "gross_losses": -4830.01,
+  "total_tds": 2004.16,
   "holdings": {
     "TRUMPINR": {
       "qty": 2.549,
       "avg_cost": 202.32313101000003,
       "invested": 515.72166094449,
       "last_buy_at": "2026-09-24T05:23:38+00:00"
-    },
-    "FARTCOININR": {
-      "qty": 44.06,
-      "avg_cost": 18.544784758499997,
-      "invested": 817.0832164595099,
-      "last_buy_at": "2026-09-25T08:24:35+00:00"
     },
     "RENDERINR": {
       "qty": 5.77,
@@ -31,11 +25,17 @@
       "invested": 935.0529448259999,
       "last_buy_at": "2026-09-25T19:07:52+00:00"
     },
-    "POLYXINR": {
-      "qty": 246.1361,
-      "avg_cost": 4.576857285,
-      "invested": 1126.5298023864884,
-      "last_buy_at": "2026-09-25T19:07:53+00:00"
+    "SEIINR": {
+      "qty": 128.7,
+      "avg_cost": 7.485014436899999,
+      "invested": 963.3213580290299,
+      "last_buy_at": "2026-09-25T23:08:20+00:00"
+    },
+    "PUMPINR": {
+      "qty": 2484.0,
+      "avg_cost": 0.41954858946,
+      "invested": 1042.15869621864,
+      "last_buy_at": "2026-09-25T23:08:24+00:00"
     }
   }
 }

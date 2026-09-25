@@ -1,22 +1,16 @@
 {
-  "cash_inr": 4871.212782372361,
-  "realized_pnl": -1433.8828152937335,
-  "total_trades": 419,
-  "sell_count": 207,
-  "gross_gains": 1298.86,
-  "gross_losses": -2732.74,
-  "total_tds": 1099.88,
+  "cash_inr": 4866.284971931121,
+  "realized_pnl": -1413.9062133070065,
+  "total_trades": 423,
+  "sell_count": 209,
+  "gross_gains": 1328.72,
+  "gross_losses": -2742.63,
+  "total_tds": 1110.77,
   "holdings": {
     "RENDERINR": {
       "qty": 2.83,
       "avg_cost": 186.71975322,
       "invested": 528.4169016126,
-      "last_buy_at": "2026-09-25T08:23:04+00:00"
-    },
-    "FARTCOININR": {
-      "qty": 28.42,
-      "avg_cost": 18.544784758499997,
-      "invested": 527.0427828365699,
       "last_buy_at": "2026-09-25T08:23:04+00:00"
     },
     "ARBINR": {
@@ -31,11 +25,17 @@
       "invested": 469.1547119259,
       "last_buy_at": "2026-09-25T19:06:29+00:00"
     },
-    "POLYXINR": {
-      "qty": 118.2558,
-      "avg_cost": 4.576857285,
-      "invested": 541.239919723503,
-      "last_buy_at": "2026-09-25T19:06:31+00:00"
+    "SEIINR": {
+      "qty": 72.4,
+      "avg_cost": 7.4850144369,
+      "invested": 541.91504523156,
+      "last_buy_at": "2026-09-25T23:05:11+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1288.0,
+      "avg_cost": 0.41954858946000007,
+      "invested": 540.37858322448,
+      "last_buy_at": "2026-09-25T23:05:15+00:00"
     }
   }
 }

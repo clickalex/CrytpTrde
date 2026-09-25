@@ -1,11 +1,11 @@
 {
-  "cash_inr": 3033.3729932424935,
-  "realized_pnl": -2849.1409539396623,
-  "total_trades": 536,
-  "sell_count": 266,
-  "gross_gains": 1534.34,
+  "cash_inr": 2494.1058211736363,
+  "realized_pnl": -2812.605070687082,
+  "total_trades": 539,
+  "sell_count": 267,
+  "gross_gains": 1570.88,
   "gross_losses": -4383.51,
-  "total_tds": 1702.36,
+  "total_tds": 1709.18,
   "holdings": {
     "BRISEINR": {
       "qty": 343993515.0,
@@ -19,17 +19,23 @@
       "invested": 620.7299942265171,
       "last_buy_at": "2026-09-25T01:56:08+00:00"
     },
-    "FARTCOININR": {
-      "qty": 34.77,
-      "avg_cost": 18.544784758499997,
-      "invested": 644.802166053045,
-      "last_buy_at": "2026-09-25T08:14:40+00:00"
-    },
     "BOMEINR": {
       "qty": 5968.0,
       "avg_cost": 0.10315254849900002,
       "invested": 615.6144094420321,
       "last_buy_at": "2026-09-25T08:14:40+00:00"
+    },
+    "BTCINR": {
+      "qty": 7e-05,
+      "avg_cost": 8432368.0111671,
+      "invested": 590.2657607816969,
+      "last_buy_at": "2026-09-25T22:52:16+00:00"
+    },
+    "ONEINR": {
+      "qty": 2574.9,
+      "avg_cost": 0.24215280589499996,
+      "invested": 623.5192598990354,
+      "last_buy_at": "2026-09-25T22:52:16+00:00"
     }
   }
 }
