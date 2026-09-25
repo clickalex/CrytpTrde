@@ -1,18 +1,12 @@
 {
-  "cash_inr": 679.5221199872057,
-  "realized_pnl": -2899.7287129277643,
-  "total_trades": 524,
-  "sell_count": 259,
-  "gross_gains": 2135.79,
-  "gross_losses": -5035.53,
-  "total_tds": 2185.37,
+  "cash_inr": 673.2705348910407,
+  "realized_pnl": -2916.988549288624,
+  "total_trades": 528,
+  "sell_count": 261,
+  "gross_gains": 2139.97,
+  "gross_losses": -5056.97,
+  "total_tds": 2199.14,
   "holdings": {
-    "GASINR": {
-      "qty": 5.1211,
-      "avg_cost": 139.4599461255,
-      "invested": 714.1883301032981,
-      "last_buy_at": "2026-09-22T08:14:51+00:00"
-    },
     "DOTINR": {
       "qty": 6.3956,
       "avg_cost": 114.1700554995,
@@ -37,11 +31,17 @@
       "invested": 695.2416471,
       "last_buy_at": "2026-09-25T02:11:49+00:00"
     },
-    "ALTINR": {
-      "qty": 860.0,
-      "avg_cost": 0.7894828441499999,
-      "invested": 678.955245969,
-      "last_buy_at": "2026-09-25T02:11:51+00:00"
+    "SEIINR": {
+      "qty": 109.1,
+      "avg_cost": 6.37124573085,
+      "invested": 695.102909235735,
+      "last_buy_at": "2026-09-25T08:27:45+00:00"
+    },
+    "POLYXINR": {
+      "qty": 150.8304,
+      "avg_cost": 4.4636877285,
+      "invested": 673.2598055647464,
+      "last_buy_at": "2026-09-25T08:27:48+00:00"
     }
   }
 }

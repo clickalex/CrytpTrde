@@ -1,18 +1,12 @@
 {
-  "cash_inr": 874.2153104603796,
-  "realized_pnl": -2611.5126609900653,
-  "total_trades": 618,
-  "sell_count": 306,
-  "gross_gains": 2481.27,
+  "cash_inr": 1062.1312492499392,
+  "realized_pnl": -2562.699077000915,
+  "total_trades": 622,
+  "sell_count": 308,
+  "gross_gains": 2530.08,
   "gross_losses": -5092.77,
-  "total_tds": 2164.91,
+  "total_tds": 2181.39,
   "holdings": {
-    "ICPINR": {
-      "qty": 3.12,
-      "avg_cost": 303.144186345,
-      "invested": 945.8098613964,
-      "last_buy_at": "2026-09-24T05:27:02+00:00"
-    },
     "RENDERINR": {
       "qty": 4.44,
       "avg_cost": 180.27009,
@@ -23,12 +17,6 @@
       "qty": 5.02,
       "avg_cost": 156.163972965,
       "invested": 783.9431442842999,
-      "last_buy_at": "2026-09-24T05:27:02+00:00"
-    },
-    "JUPINR": {
-      "qty": 21.7,
-      "avg_cost": 30.014969984999997,
-      "invested": 651.3248486744999,
       "last_buy_at": "2026-09-24T05:27:02+00:00"
     },
     "SHIBINR": {
@@ -42,6 +30,18 @@
       "avg_cost": 1.5523257750000002e-06,
       "invested": 582.8099996235768,
       "last_buy_at": "2026-09-24T19:59:10+00:00"
+    },
+    "TRBINR": {
+      "qty": 0.36,
+      "avg_cost": 2037.4526172,
+      "invested": 733.482942192,
+      "last_buy_at": "2026-09-25T08:29:25+00:00"
+    },
+    "GASINR": {
+      "qty": 4.8314,
+      "avg_cost": 146.55657866849998,
+      "invested": 708.0734541789908,
+      "last_buy_at": "2026-09-25T08:29:25+00:00"
     }
   }
 }

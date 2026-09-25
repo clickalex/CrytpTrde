@@ -1,18 +1,12 @@
 {
-  "cash_inr": 788.3655812127429,
-  "realized_pnl": -2903.267838674624,
-  "total_trades": 401,
-  "sell_count": 198,
+  "cash_inr": 544.9573799551331,
+  "realized_pnl": -2916.0801636519736,
+  "total_trades": 403,
+  "sell_count": 199,
   "gross_gains": 1893.37,
-  "gross_losses": -4796.62,
-  "total_tds": 1944.4,
+  "gross_losses": -4809.43,
+  "total_tds": 1950.2,
   "holdings": {
-    "TRXINR": {
-      "qty": 17.3,
-      "avg_cost": 34.2362945925,
-      "invested": 592.2878964502501,
-      "last_buy_at": "2026-09-20T20:01:53+00:00"
-    },
     "ICPINR": {
       "qty": 4.24,
       "avg_cost": 303.14418634500004,
@@ -36,6 +30,12 @@
       "avg_cost": 0.20013985991999997,
       "invested": 1182.5283637359191,
       "last_buy_at": "2026-09-24T15:49:14+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 44.06,
+      "avg_cost": 18.544784758499997,
+      "invested": 817.0832164595099,
+      "last_buy_at": "2026-09-25T08:24:35+00:00"
     }
   }
 }
