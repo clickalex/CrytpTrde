@@ -1,23 +1,17 @@
 {
-  "cash_inr": 378.65240570233937,
-  "realized_pnl": -840.2501208638761,
-  "total_trades": 360,
-  "sell_count": 176,
-  "gross_gains": 3828.48,
+  "cash_inr": 633.0181877269049,
+  "realized_pnl": -742.4405121288356,
+  "total_trades": 362,
+  "sell_count": 177,
+  "gross_gains": 3926.29,
   "gross_losses": -4668.7,
-  "total_tds": 1802.73,
+  "total_tds": 1814.9,
   "holdings": {
     "HMSTRINR": {
       "qty": 49997.0,
       "avg_cost": 0.0174831942285,
       "invested": 874.1072618423145,
       "last_buy_at": "2026-09-21T07:04:00+00:00"
-    },
-    "BIOINR": {
-      "qty": 377.6,
-      "avg_cost": 2.9604354779999995,
-      "invested": 1117.8604364927999,
-      "last_buy_at": "2026-09-22T21:48:20+00:00"
     },
     "BTCINR": {
       "qty": 7e-05,
@@ -54,6 +48,12 @@
       "avg_cost": 1.3610391794999999,
       "invested": 567.5533378514999,
       "last_buy_at": "2026-09-25T08:16:39+00:00"
+    },
+    "PENGUINR": {
+      "qty": 955.0,
+      "avg_cost": 0.9938590511849998,
+      "invested": 949.1353938816749,
+      "last_buy_at": "2026-09-25T14:14:44+00:00"
     }
   }
 }

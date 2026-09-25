@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1198.0552969731834,
-  "realized_pnl": -3116.3594294808513,
-  "total_trades": 675,
-  "sell_count": 335,
-  "gross_gains": 2248.57,
+  "cash_inr": 1066.8459386661839,
+  "realized_pnl": -3093.970005178101,
+  "total_trades": 677,
+  "sell_count": 336,
+  "gross_gains": 2270.96,
   "gross_losses": -5364.95,
-  "total_tds": 2382.96,
+  "total_tds": 2388.8,
   "holdings": {
     "TRXINR": {
       "qty": 18.4,
       "avg_cost": 33.33494414249999,
       "invested": 613.3629722219998,
       "last_buy_at": "2026-09-06T23:14:03+00:00"
-    },
-    "ICPINR": {
-      "qty": 1.85,
-      "avg_cost": 303.144186345,
-      "invested": 560.81674473825,
-      "last_buy_at": "2026-09-24T05:21:28+00:00"
     },
     "ETHINR": {
       "qty": 0.0021,
@@ -36,6 +30,12 @@
       "avg_cost": 1.5523257750000002e-06,
       "invested": 798.6999986189475,
       "last_buy_at": "2026-09-24T19:48:52+00:00"
+    },
+    "RENDERINR": {
+      "qty": 3.65,
+      "avg_cost": 194.13085691999999,
+      "invested": 708.577627758,
+      "last_buy_at": "2026-09-25T14:19:46+00:00"
     }
   }
 }

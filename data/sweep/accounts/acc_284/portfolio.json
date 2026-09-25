@@ -1,23 +1,17 @@
 {
-  "cash_inr": 194.44538472989382,
-  "realized_pnl": 213.20100492660566,
-  "total_trades": 191,
-  "sell_count": 92,
-  "gross_gains": 3288.1,
+  "cash_inr": 235.96180123917384,
+  "realized_pnl": 295.6162617334409,
+  "total_trades": 193,
+  "sell_count": 93,
+  "gross_gains": 3370.52,
   "gross_losses": -3074.87,
-  "total_tds": 1684.48,
+  "total_tds": 1694.4,
   "holdings": {
     "TRXINR": {
       "qty": 18.2,
       "avg_cost": 33.8096553795,
       "invested": 615.3357279068999,
       "last_buy_at": "2026-09-19T18:32:17+00:00"
-    },
-    "BIOINR": {
-      "qty": 307.7,
-      "avg_cost": 2.9516222735999995,
-      "invested": 908.2141735867199,
-      "last_buy_at": "2026-09-22T18:25:24+00:00"
     },
     "CAKEINR": {
       "qty": 7.77,
@@ -48,6 +42,12 @@
       "avg_cost": 6.90184069575,
       "invested": 775.7668942023,
       "last_buy_at": "2026-09-25T02:00:29+00:00"
+    },
+    "PENGUINR": {
+      "qty": 945.0,
+      "avg_cost": 0.993859051185,
+      "invested": 939.1968033698249,
+      "last_buy_at": "2026-09-25T14:16:03+00:00"
     }
   }
 }
