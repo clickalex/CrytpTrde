@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1263.4361965387893,
-  "realized_pnl": -3090.5068930428447,
-  "total_trades": 752,
-  "sell_count": 373,
-  "gross_gains": 2031.73,
-  "gross_losses": -5122.21,
-  "total_tds": 2255.95,
+  "cash_inr": 1273.2925547496168,
+  "realized_pnl": -3088.444568662872,
+  "total_trades": 758,
+  "sell_count": 376,
+  "gross_gains": 2062.64,
+  "gross_losses": -5151.06,
+  "total_tds": 2272.98,
   "holdings": {
-    "SUIINR": {
-      "qty": 6.3,
-      "avg_cost": 97.4089431315,
-      "invested": 613.67634172845,
-      "last_buy_at": "2026-09-24T05:20:31+00:00"
-    },
     "CAKEINR": {
       "qty": 2.21,
       "avg_cost": 263.93544177,
@@ -31,17 +25,23 @@
       "invested": 511.87337524323,
       "last_buy_at": "2026-09-24T23:00:02+00:00"
     },
-    "BRISEINR": {
-      "qty": 345257125.0,
-      "avg_cost": 1.5787653881999996e-06,
-      "invested": 545.0799989794408,
-      "last_buy_at": "2026-09-24T23:00:05+00:00"
+    "TRBINR": {
+      "qty": 0.28,
+      "avg_cost": 2033.6469152999994,
+      "invested": 569.4211362839999,
+      "last_buy_at": "2026-09-25T02:03:17+00:00"
     },
-    "CHRINR": {
-      "qty": 251.0,
-      "avg_cost": 2.1518239743000005,
-      "invested": 540.1078175493001,
-      "last_buy_at": "2026-09-24T23:00:06+00:00"
+    "ALTINR": {
+      "qty": 708.0,
+      "avg_cost": 0.78948284415,
+      "invested": 558.9538536582,
+      "last_buy_at": "2026-09-25T02:03:20+00:00"
+    },
+    "HMSTRINR": {
+      "qty": 30342.0,
+      "avg_cost": 0.017983944478500002,
+      "invested": 545.668843366647,
+      "last_buy_at": "2026-09-25T02:03:22+00:00"
     }
   }
 }

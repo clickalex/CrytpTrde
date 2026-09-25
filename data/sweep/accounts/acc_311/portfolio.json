@@ -1,18 +1,12 @@
 {
-  "cash_inr": 601.9346214572543,
-  "realized_pnl": -330.0682021231868,
-  "total_trades": 260,
-  "sell_count": 126,
-  "gross_gains": 3469.53,
-  "gross_losses": -3799.62,
-  "total_tds": 1419.33,
+  "cash_inr": 657.5384741123293,
+  "realized_pnl": -182.2422562941374,
+  "total_trades": 264,
+  "sell_count": 128,
+  "gross_gains": 3661.4,
+  "gross_losses": -3843.66,
+  "total_tds": 1441.9,
   "holdings": {
-    "PYTHINR": {
-      "qty": 205.3,
-      "avg_cost": 5.875202533199999,
-      "invested": 1206.1790800659599,
-      "last_buy_at": "2026-09-18T11:56:58+00:00"
-    },
     "CAKEINR": {
       "qty": 3.14,
       "avg_cost": 246.84984323999998,
@@ -43,17 +37,23 @@
       "invested": 942.6899995074812,
       "last_buy_at": "2026-09-24T05:20:01+00:00"
     },
-    "XDBINR": {
-      "qty": 113751.6,
-      "avg_cost": 0.007917862953,
-      "invested": 900.6695794844748,
-      "last_buy_at": "2026-09-24T19:46:08+00:00"
-    },
     "POPCATINR": {
       "qty": 159.34,
       "avg_cost": 5.665588478549999,
       "invested": 902.7548681721569,
       "last_buy_at": "2026-09-24T22:59:09+00:00"
+    },
+    "PENGUINR": {
+      "qty": 1219.0,
+      "avg_cost": 0.9771740528549999,
+      "invested": 1191.1751704302449,
+      "last_buy_at": "2026-09-25T02:02:26+00:00"
+    },
+    "RIFINR": {
+      "qty": 105.0,
+      "avg_cost": 9.384059684999999,
+      "invested": 985.3262669249999,
+      "last_buy_at": "2026-09-25T02:02:26+00:00"
     }
   }
 }

@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1305.560194525786,
-  "realized_pnl": -2062.931233118733,
-  "total_trades": 642,
-  "sell_count": 317,
-  "gross_gains": 2403.91,
-  "gross_losses": -4466.79,
-  "total_tds": 2042.26,
+  "cash_inr": 1322.3249970931365,
+  "realized_pnl": -2070.764255221833,
+  "total_trades": 646,
+  "sell_count": 319,
+  "gross_gains": 2408.21,
+  "gross_losses": -4478.92,
+  "total_tds": 2053.66,
   "holdings": {
-    "SOLINR": {
-      "qty": 0.05,
-      "avg_cost": 11577.5460801,
-      "invested": 578.877304005,
-      "last_buy_at": "2026-09-22T01:59:19+00:00"
-    },
     "SUIINR": {
       "qty": 7.6,
       "avg_cost": 97.40894313150001,
@@ -43,17 +37,23 @@
       "invested": 542.2920901397999,
       "last_buy_at": "2026-09-24T15:46:53+00:00"
     },
-    "FILINR": {
-      "qty": 5.68,
-      "avg_cost": 99.87964486499999,
-      "invested": 567.3163828331999,
-      "last_buy_at": "2026-09-24T15:46:53+00:00"
-    },
     "BONKINR": {
       "qty": 1537373.0,
       "avg_cost": 0.0003639452817,
       "invested": 559.5196495629741,
       "last_buy_at": "2026-09-24T15:46:55+00:00"
+    },
+    "NEARINR": {
+      "qty": 1.2,
+      "avg_cost": 456.353732835,
+      "invested": 547.624479402,
+      "last_buy_at": "2026-09-25T02:06:00+00:00"
+    },
+    "JUPINR": {
+      "qty": 18.1,
+      "avg_cost": 31.081568017499997,
+      "invested": 562.57638111675,
+      "last_buy_at": "2026-09-25T02:06:00+00:00"
     }
   }
 }
