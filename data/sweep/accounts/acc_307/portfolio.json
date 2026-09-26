@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1287.6357334654654,
-  "realized_pnl": -1320.3057185675252,
-  "total_trades": 539,
-  "sell_count": 265,
+  "cash_inr": 1287.8160313486137,
+  "realized_pnl": -1344.9168168931503,
+  "total_trades": 541,
+  "sell_count": 266,
   "gross_gains": 2859.42,
-  "gross_losses": -4179.72,
-  "total_tds": 1737.46,
+  "gross_losses": -4204.33,
+  "total_tds": 1743.04,
   "holdings": {
     "BRISEINR": {
       "qty": 353392315.0,
@@ -43,12 +43,6 @@
       "invested": 625.4530862579999,
       "last_buy_at": "2026-09-26T02:04:32+00:00"
     },
-    "FARTCOININR": {
-      "qty": 29.55,
-      "avg_cost": 19.704522337500002,
-      "invested": 582.2686350731251,
-      "last_buy_at": "2026-09-26T17:35:52+00:00"
-    },
     "PENGUINR": {
       "qty": 786.0,
       "avg_cost": 1.0010998998,
@@ -60,6 +54,12 @@
       "avg_cost": 0.44094064013999995,
       "invested": 551.6167408151399,
       "last_buy_at": "2026-09-26T20:09:09+00:00"
+    },
+    "GASINR": {
+      "qty": 3.5843,
+      "avg_cost": 153.9756943725,
+      "invested": 551.8950813393517,
+      "last_buy_at": "2026-09-26T23:11:46+00:00"
     }
   }
 }
