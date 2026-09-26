@@ -1,23 +1,17 @@
 {
-  "cash_inr": 4788.747409767268,
-  "realized_pnl": -197.0334111433932,
-  "total_trades": 332,
-  "sell_count": 162,
-  "gross_gains": 1827.96,
+  "cash_inr": 4810.219693444071,
+  "realized_pnl": -149.3711126588853,
+  "total_trades": 336,
+  "sell_count": 164,
+  "gross_gains": 1875.62,
   "gross_losses": -2025.0,
-  "total_tds": 883.49,
+  "total_tds": 894.52,
   "holdings": {
     "BTCINR": {
       "qty": 6e-05,
       "avg_cost": 8611734.3471159,
       "invested": 516.704060826954,
       "last_buy_at": "2026-09-21T23:59:48+00:00"
-    },
-    "BONKINR": {
-      "qty": 1441975.0,
-      "avg_cost": 0.00036054018000000005,
-      "invested": 519.8899260555,
-      "last_buy_at": "2026-09-24T05:26:46+00:00"
     },
     "PEPEINR": {
       "qty": 1160198.0,
@@ -43,17 +37,23 @@
       "invested": 469.1547119259,
       "last_buy_at": "2026-09-25T19:11:50+00:00"
     },
-    "GALAINR": {
-      "qty": 2436.02,
-      "avg_cost": 0.21932860949999997,
-      "invested": 534.2888793141899,
-      "last_buy_at": "2026-09-26T02:14:41+00:00"
-    },
     "CAKEINR": {
       "qty": 1.91,
       "avg_cost": 278.17677888,
       "invested": 531.3176476607999,
       "last_buy_at": "2026-09-26T08:19:12+00:00"
+    },
+    "POPCATINR": {
+      "qty": 90.68,
+      "avg_cost": 5.89853749485,
+      "invested": 534.879380032998,
+      "last_buy_at": "2026-09-26T17:44:58+00:00"
+    },
+    "BRISEINR": {
+      "qty": 334247303.0,
+      "avg_cost": 1.5989956983000001e-06,
+      "invested": 534.4599996653767,
+      "last_buy_at": "2026-09-26T17:44:59+00:00"
     }
   }
 }
