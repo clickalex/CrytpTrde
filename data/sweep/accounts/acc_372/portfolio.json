@@ -1,29 +1,17 @@
 {
-  "cash_inr": 169.13318286566164,
-  "realized_pnl": -341.273851777146,
-  "total_trades": 255,
-  "sell_count": 124,
+  "cash_inr": 227.08830656767407,
+  "realized_pnl": -442.65626474579324,
+  "total_trades": 261,
+  "sell_count": 127,
   "gross_gains": 3269.84,
-  "gross_losses": -3611.14,
-  "total_tds": 1862.26,
+  "gross_losses": -3712.52,
+  "total_tds": 1887.4,
   "holdings": {
-    "TRXINR": {
-      "qty": 26.8,
-      "avg_cost": 34.4846667165,
-      "invested": 924.1890680022,
-      "last_buy_at": "2026-09-24T05:22:42+00:00"
-    },
     "CAKEINR": {
       "qty": 2.93,
       "avg_cost": 275.98349278499995,
       "invested": 808.63163386005,
       "last_buy_at": "2026-09-24T19:50:53+00:00"
-    },
-    "PEPEINR": {
-      "qty": 2243903.0,
-      "avg_cost": 0.0004512761253,
-      "invested": 1012.6198513890458,
-      "last_buy_at": "2026-09-25T14:21:32+00:00"
     },
     "ALTINR": {
       "qty": 1291.0,
@@ -43,11 +31,23 @@
       "invested": 528.68848851819,
       "last_buy_at": "2026-09-26T02:08:40+00:00"
     },
-    "POPCATINR": {
-      "qty": 114.68,
-      "avg_cost": 5.898537494849999,
-      "invested": 676.444279909398,
-      "last_buy_at": "2026-09-26T17:39:38+00:00"
+    "ARBINR": {
+      "qty": 37.8,
+      "avg_cost": 22.302414634499996,
+      "invested": 843.0312731840997,
+      "last_buy_at": "2026-09-26T20:11:08+00:00"
+    },
+    "PENGUINR": {
+      "qty": 677.0,
+      "avg_cost": 1.0010998998,
+      "invested": 677.7446321646,
+      "last_buy_at": "2026-09-26T20:11:08+00:00"
+    },
+    "BOMEINR": {
+      "qty": 8701.0,
+      "avg_cost": 0.10435535059949999,
+      "invested": 907.9959055662495,
+      "last_buy_at": "2026-09-26T20:11:08+00:00"
     }
   }
 }
