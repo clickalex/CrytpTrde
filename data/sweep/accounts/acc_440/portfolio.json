@@ -1,23 +1,17 @@
 {
-  "cash_inr": 971.4241683713408,
-  "realized_pnl": -2505.8607683733344,
-  "total_trades": 587,
-  "sell_count": 290,
-  "gross_gains": 2348.23,
-  "gross_losses": -4854.15,
-  "total_tds": 2009.31,
+  "cash_inr": 1036.6108404116972,
+  "realized_pnl": -2513.651430835639,
+  "total_trades": 593,
+  "sell_count": 293,
+  "gross_gains": 2370.46,
+  "gross_losses": -4884.17,
+  "total_tds": 2029.75,
   "holdings": {
     "BRISEINR": {
       "qty": 382580776.0,
       "avg_cost": 1.552325775e-06,
       "invested": 593.8899996043014,
       "last_buy_at": "2026-09-24T19:56:28+00:00"
-    },
-    "TOSHIINR": {
-      "qty": 59917.0,
-      "avg_cost": 0.012790162885499997,
-      "invested": 766.3481896105034,
-      "last_buy_at": "2026-09-24T23:09:32+00:00"
     },
     "TOKENINR": {
       "qty": 2703.8468,
@@ -31,23 +25,29 @@
       "invested": 623.58540800556,
       "last_buy_at": "2026-09-25T19:10:25+00:00"
     },
-    "BIOINR": {
-      "qty": 192.7,
-      "avg_cost": 3.30024459765,
-      "invested": 635.957133967155,
-      "last_buy_at": "2026-09-25T23:13:36+00:00"
-    },
     "CAKEINR": {
       "qty": 2.25,
       "avg_cost": 278.17677888,
       "invested": 625.8977524799999,
       "last_buy_at": "2026-09-26T08:17:46+00:00"
     },
-    "POPCATINR": {
-      "qty": 110.16,
-      "avg_cost": 5.878807935,
-      "invested": 647.6094821196,
-      "last_buy_at": "2026-09-26T08:17:46+00:00"
+    "APEINR": {
+      "qty": 40.59,
+      "avg_cost": 15.639431807999998,
+      "invested": 634.80453708672,
+      "last_buy_at": "2026-09-26T13:38:46+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1428.0,
+      "avg_cost": 0.441611645475,
+      "invested": 630.6214297383,
+      "last_buy_at": "2026-09-26T13:38:46+00:00"
+    },
+    "XDBINR": {
+      "qty": 89930.2,
+      "avg_cost": 0.0076845133365,
+      "invested": 691.0698212541123,
+      "last_buy_at": "2026-09-26T13:38:48+00:00"
     }
   }
 }
