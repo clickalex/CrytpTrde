@@ -1,23 +1,17 @@
 {
-  "cash_inr": 968.5280731510907,
-  "realized_pnl": -2438.9169126108727,
-  "total_trades": 643,
-  "sell_count": 318,
-  "gross_gains": 2203.53,
+  "cash_inr": 984.1239174785464,
+  "realized_pnl": -2401.449076976119,
+  "total_trades": 647,
+  "sell_count": 320,
+  "gross_gains": 2241.0,
   "gross_losses": -4642.44,
-  "total_tds": 2232.7,
+  "total_tds": 2246.06,
   "holdings": {
     "USDTINR": {
       "qty": 5.2,
       "avg_cost": 99.24869954999997,
       "invested": 516.0932376599999,
       "last_buy_at": "2026-09-03T15:23:55+00:00"
-    },
-    "SHIBINR": {
-      "qty": 1125107.0,
-      "avg_cost": 0.0005800690896,
-      "invested": 652.6397931925871,
-      "last_buy_at": "2026-09-24T05:18:27+00:00"
     },
     "BNBINR": {
       "qty": 0.008,
@@ -43,11 +37,17 @@
       "invested": 644.0879059114499,
       "last_buy_at": "2026-09-25T19:00:22+00:00"
     },
-    "SEIINR": {
-      "qty": 86.1,
-      "avg_cost": 7.4850144369,
-      "invested": 644.45974301709,
-      "last_buy_at": "2026-09-25T22:55:46+00:00"
+    "GASINR": {
+      "qty": 4.1416,
+      "avg_cost": 156.8339767995,
+      "invested": 649.5435983128092,
+      "last_buy_at": "2026-09-26T02:02:17+00:00"
+    },
+    "GALAINR": {
+      "qty": 2991.26,
+      "avg_cost": 0.21932860949999997,
+      "invested": 656.06889645297,
+      "last_buy_at": "2026-09-26T02:02:19+00:00"
     }
   }
 }
