@@ -1,23 +1,17 @@
 {
-  "cash_inr": 682.8854935828406,
-  "realized_pnl": -2539.5067660155755,
-  "total_trades": 604,
-  "sell_count": 299,
+  "cash_inr": 665.2077021050487,
+  "realized_pnl": -2599.302940227375,
+  "total_trades": 610,
+  "sell_count": 302,
   "gross_gains": 2758.5,
-  "gross_losses": -5298.02,
-  "total_tds": 2549.01,
+  "gross_losses": -5357.82,
+  "total_tds": 2569.31,
   "holdings": {
     "SHIBINR": {
       "qty": 1191269.0,
       "avg_cost": 0.0005913860452499999,
       "invested": 704.4998627389222,
       "last_buy_at": "2026-09-25T19:13:23+00:00"
-    },
-    "JUPINR": {
-      "qty": 20.6,
-      "avg_cost": 34.14716104799999,
-      "invested": 703.4315175887998,
-      "last_buy_at": "2026-09-26T20:14:47+00:00"
     },
     "DOGEINR": {
       "qty": 76.0,
@@ -31,17 +25,23 @@
       "invested": 699.6935171225998,
       "last_buy_at": "2026-09-27T09:00:15+00:00"
     },
-    "SUSHIINR": {
-      "qty": 25.8,
-      "avg_cost": 27.54126375,
-      "invested": 710.56460475,
-      "last_buy_at": "2026-09-27T09:00:15+00:00"
+    "APEINR": {
+      "qty": 42.81,
+      "avg_cost": 15.9629164695,
+      "invested": 683.372454059295,
+      "last_buy_at": "2026-09-27T14:31:42+00:00"
     },
-    "RIFINR": {
-      "qty": 75.0,
-      "avg_cost": 8.979453482999997,
-      "invested": 673.4590112249998,
-      "last_buy_at": "2026-09-27T09:00:15+00:00"
+    "POPCATINR": {
+      "qty": 119.45,
+      "avg_cost": 5.66318487735,
+      "invested": 676.4674335994575,
+      "last_buy_at": "2026-09-27T14:31:42+00:00"
+    },
+    "TOKENINR": {
+      "qty": 2769.8221,
+      "avg_cost": 0.2401598199,
+      "invested": 665.1999766910398,
+      "last_buy_at": "2026-09-27T14:31:42+00:00"
     }
   }
 }
