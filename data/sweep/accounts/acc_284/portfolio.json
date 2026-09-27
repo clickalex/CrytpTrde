@@ -1,18 +1,12 @@
 {
-  "cash_inr": 239.38914081889345,
-  "realized_pnl": 426.4922619920886,
-  "total_trades": 219,
-  "sell_count": 106,
-  "gross_gains": 3717.89,
-  "gross_losses": -3291.36,
-  "total_tds": 1823.45,
+  "cash_inr": 245.77031102447802,
+  "realized_pnl": 461.86135990895394,
+  "total_trades": 223,
+  "sell_count": 108,
+  "gross_gains": 3783.42,
+  "gross_losses": -3321.52,
+  "total_tds": 1843.22,
   "holdings": {
-    "APEINR": {
-      "qty": 59.86,
-      "avg_cost": 15.232822604999999,
-      "invested": 911.8367611353,
-      "last_buy_at": "2026-09-24T15:40:48+00:00"
-    },
     "TOKENINR": {
       "qty": 8243.2358,
       "avg_cost": 0.22603866285,
@@ -37,17 +31,23 @@
       "invested": 1916.5158234221997,
       "last_buy_at": "2026-09-27T14:22:07+00:00"
     },
-    "POLYXINR": {
-      "qty": 224.1338,
-      "avg_cost": 4.5838677885,
-      "invested": 1027.3997061341013,
-      "last_buy_at": "2026-09-27T14:22:07+00:00"
-    },
     "RIFINR": {
       "qty": 103.0,
       "avg_cost": 8.999483493000001,
       "invested": 926.9467997790001,
       "last_buy_at": "2026-09-27T14:22:07+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 48.75,
+      "avg_cost": 19.803670887000003,
+      "invested": 965.4289557412501,
+      "last_buy_at": "2026-09-27T18:46:47+00:00"
+    },
+    "SHIBINR": {
+      "qty": 1648567.0,
+      "avg_cost": 0.0005962933977,
+      "invested": 983.0296177660958,
+      "last_buy_at": "2026-09-27T18:46:48+00:00"
     }
   }
 }

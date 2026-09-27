@@ -1,18 +1,12 @@
 {
-  "cash_inr": 960.1916561510853,
-  "realized_pnl": -1746.918078098285,
-  "total_trades": 411,
-  "sell_count": 201,
-  "gross_gains": 2470.83,
+  "cash_inr": 1023.5826943786357,
+  "realized_pnl": -1710.5224986835847,
+  "total_trades": 413,
+  "sell_count": 202,
+  "gross_gains": 2507.23,
   "gross_losses": -4217.71,
-  "total_tds": 1547.59,
+  "total_tds": 1554.56,
   "holdings": {
-    "SOLINR": {
-      "qty": 0.057,
-      "avg_cost": 11574.040828349998,
-      "invested": 659.72032721595,
-      "last_buy_at": "2026-09-24T15:49:36+00:00"
-    },
     "TOKENINR": {
       "qty": 2765.0579,
       "avg_cost": 0.22603866285000002,
@@ -60,6 +54,12 @@
       "avg_cost": 0.10335585310049998,
       "invested": 640.0827982513964,
       "last_buy_at": "2026-09-27T14:27:30+00:00"
+    },
+    "BNBINR": {
+      "qty": 0.008,
+      "avg_cost": 78219.59265119999,
+      "invested": 625.7567412095999,
+      "last_buy_at": "2026-09-27T18:52:38+00:00"
     }
   }
 }

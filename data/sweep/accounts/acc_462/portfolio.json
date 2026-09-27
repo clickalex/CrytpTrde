@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2111.1284792315078,
-  "realized_pnl": -2715.3350310258143,
-  "total_trades": 692,
-  "sell_count": 343,
-  "gross_gains": 1780.47,
-  "gross_losses": -4495.82,
-  "total_tds": 1979.25,
+  "cash_inr": 2090.6828505088197,
+  "realized_pnl": -2710.6664650285975,
+  "total_trades": 696,
+  "sell_count": 345,
+  "gross_gains": 1792.72,
+  "gross_losses": -4503.41,
+  "total_tds": 1989.57,
   "holdings": {
-    "ETHINR": {
-      "qty": 0.0019,
-      "avg_cost": 262372.9006899,
-      "invested": 498.5085113108099,
-      "last_buy_at": "2026-09-20T17:28:35+00:00"
-    },
     "SHIBINR": {
       "qty": 875675.0,
       "avg_cost": 0.0005788672889999999,
@@ -37,11 +31,17 @@
       "invested": 543.7922377387499,
       "last_buy_at": "2026-09-27T08:58:18+00:00"
     },
-    "HMSTRINR": {
-      "qty": 29191.0,
-      "avg_cost": 0.018080088526499997,
-      "invested": 527.7758641770614,
-      "last_buy_at": "2026-09-27T14:30:17+00:00"
+    "SOLINR": {
+      "qty": 0.042,
+      "avg_cost": 12343.093062299999,
+      "invested": 518.4099086166,
+      "last_buy_at": "2026-09-27T18:55:40+00:00"
+    },
+    "GALAINR": {
+      "qty": 2237.74,
+      "avg_cost": 0.23356994661,
+      "invested": 522.6688123270613,
+      "last_buy_at": "2026-09-27T18:55:43+00:00"
     }
   }
 }

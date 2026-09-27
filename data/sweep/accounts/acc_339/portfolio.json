@@ -1,24 +1,12 @@
 {
-  "cash_inr": 1480.3314816702118,
-  "realized_pnl": -1322.6314862479753,
-  "total_trades": 525,
-  "sell_count": 258,
-  "gross_gains": 3118.73,
+  "cash_inr": 1440.8995381141087,
+  "realized_pnl": -1285.5084881219173,
+  "total_trades": 529,
+  "sell_count": 260,
+  "gross_gains": 3155.85,
   "gross_losses": -4441.39,
-  "total_tds": 1690.62,
+  "total_tds": 1702.79,
   "holdings": {
-    "SOLINR": {
-      "qty": 0.051,
-      "avg_cost": 11574.04082835,
-      "invested": 590.2760822458499,
-      "last_buy_at": "2026-09-24T15:45:06+00:00"
-    },
-    "BRISEINR": {
-      "qty": 379089241.0,
-      "avg_cost": 1.5523257749999997e-06,
-      "invested": 588.4699998294867,
-      "last_buy_at": "2026-09-24T15:45:06+00:00"
-    },
     "TOKENINR": {
       "qty": 2597.7414,
       "avg_cost": 0.22603866285000002,
@@ -60,6 +48,18 @@
       "avg_cost": 55.2978501075,
       "invested": 630.3954912255,
       "last_buy_at": "2026-09-27T14:24:41+00:00"
+    },
+    "BNBINR": {
+      "qty": 0.008,
+      "avg_cost": 78219.59265119999,
+      "invested": 625.7567412095999,
+      "last_buy_at": "2026-09-27T18:49:33+00:00"
+    },
+    "PENGUINR": {
+      "qty": 604.0,
+      "avg_cost": 1.0221414253049999,
+      "invested": 617.37342088422,
+      "last_buy_at": "2026-09-27T18:49:34+00:00"
     }
   }
 }

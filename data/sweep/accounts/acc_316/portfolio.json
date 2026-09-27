@@ -1,23 +1,17 @@
 {
-  "cash_inr": 282.2333351883319,
-  "realized_pnl": -81.3679135590234,
-  "total_trades": 210,
-  "sell_count": 101,
+  "cash_inr": 267.03285350795704,
+  "realized_pnl": -131.64084240674657,
+  "total_trades": 214,
+  "sell_count": 103,
   "gross_gains": 2786.87,
-  "gross_losses": -2868.26,
-  "total_tds": 1462.77,
+  "gross_losses": -2918.53,
+  "total_tds": 1483.5,
   "holdings": {
     "TRXINR": {
       "qty": 25.9,
       "avg_cost": 33.4671422085,
       "invested": 866.79898320015,
       "last_buy_at": "2026-09-17T18:58:19+00:00"
-    },
-    "TRBINR": {
-      "qty": 0.503,
-      "avg_cost": 1973.05613505,
-      "invested": 992.44723593015,
-      "last_buy_at": "2026-09-24T05:20:13+00:00"
     },
     "BONKINR": {
       "qty": 2231429.0,
@@ -49,11 +43,17 @@
       "invested": 2036.2508165999998,
       "last_buy_at": "2026-09-27T14:23:37+00:00"
     },
-    "POLYXINR": {
-      "qty": 246.2789,
-      "avg_cost": 4.5838677885,
-      "invested": 1128.9099166972126,
-      "last_buy_at": "2026-09-27T14:23:37+00:00"
+    "APTINR": {
+      "qty": 11.48,
+      "avg_cost": 86.88617737799999,
+      "invested": 997.4533162994398,
+      "last_buy_at": "2026-09-27T18:48:22+00:00"
+    },
+    "SHIBINR": {
+      "qty": 1791232.0,
+      "avg_cost": 0.0005962933977,
+      "invested": 1068.0998153489663,
+      "last_buy_at": "2026-09-27T18:48:24+00:00"
     }
   }
 }
