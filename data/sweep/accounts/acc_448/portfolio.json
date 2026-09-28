@@ -1,18 +1,12 @@
 {
-  "cash_inr": 979.2308873899507,
-  "realized_pnl": -173.32178922130595,
-  "total_trades": 395,
-  "sell_count": 192,
-  "gross_gains": 3480.38,
-  "gross_losses": -3653.64,
-  "total_tds": 1443.15,
+  "cash_inr": 1015.4256747035708,
+  "realized_pnl": -111.07661489581585,
+  "total_trades": 399,
+  "sell_count": 194,
+  "gross_gains": 3543.84,
+  "gross_losses": -3654.85,
+  "total_tds": 1456.83,
   "holdings": {
-    "USDTINR": {
-      "qty": 6.4,
-      "avg_cost": 99.81955483499999,
-      "invested": 638.845150944,
-      "last_buy_at": "2026-09-24T23:10:04+00:00"
-    },
     "CAKEINR": {
       "qty": 2.66,
       "avg_cost": 273.60993659999997,
@@ -61,17 +55,23 @@
       "invested": 642.7079383724999,
       "last_buy_at": "2026-09-27T14:29:40+00:00"
     },
-    "SEIINR": {
-      "qty": 87.7,
-      "avg_cost": 7.58566523715,
-      "invested": 665.262841298055,
-      "last_buy_at": "2026-09-27T18:55:00+00:00"
-    },
     "POLYXINR": {
       "qty": 142.5414,
       "avg_cost": 4.5798617864999995,
       "invested": 652.8199108542111,
       "last_buy_at": "2026-09-27T22:48:36+00:00"
+    },
+    "SUIINR": {
+      "qty": 5.0,
+      "avg_cost": 127.9607173845,
+      "invested": 639.8035869225,
+      "last_buy_at": "2026-09-28T01:17:55+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1305.0,
+      "avg_cost": 0.518526883875,
+      "invested": 676.677583456875,
+      "last_buy_at": "2026-09-28T01:17:55+00:00"
     }
   }
 }

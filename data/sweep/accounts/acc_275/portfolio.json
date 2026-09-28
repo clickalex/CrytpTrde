@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1577.6038817728174,
-  "realized_pnl": 1131.1135939935184,
-  "total_trades": 299,
-  "sell_count": 143,
-  "gross_gains": 3882.48,
-  "gross_losses": -2751.35,
-  "total_tds": 984.44,
+  "cash_inr": 1393.9120573029954,
+  "realized_pnl": 1211.7532968401267,
+  "total_trades": 303,
+  "sell_count": 145,
+  "gross_gains": 3966.26,
+  "gross_losses": -2754.49,
+  "total_tds": 997.22,
   "holdings": {
-    "GASINR": {
-      "qty": 4.1774,
-      "avg_cost": 145.9156183485,
-      "invested": 609.5479040890239,
-      "last_buy_at": "2026-09-24T22:56:37+00:00"
-    },
     "DOTINR": {
       "qty": 5.3984,
       "avg_cost": 115.64827023749997,
@@ -73,17 +67,23 @@
       "invested": 838.4499957766432,
       "last_buy_at": "2026-09-27T08:45:49+00:00"
     },
-    "PUMPINR": {
-      "qty": 1308.0,
-      "avg_cost": 0.4484619088950001,
-      "invested": 586.5881768346601,
-      "last_buy_at": "2026-09-27T08:45:49+00:00"
-    },
     "SEIINR": {
       "qty": 89.1,
       "avg_cost": 7.585665237149999,
       "invested": 675.8827726300649,
       "last_buy_at": "2026-09-27T18:46:21+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 30.9,
+      "avg_cost": 27.5182292385,
+      "invested": 850.31328346965,
+      "last_buy_at": "2026-09-28T01:09:59+00:00"
+    },
+    "POPCATINR": {
+      "qty": 105.65,
+      "avg_cost": 5.6542715229,
+      "invested": 597.3737863943851,
+      "last_buy_at": "2026-09-28T01:09:59+00:00"
     }
   }
 }
