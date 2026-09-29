@@ -1,11 +1,11 @@
 {
-  "cash_inr": 3510.103500549743,
-  "realized_pnl": 237.12609873881945,
-  "total_trades": 91,
-  "sell_count": 44,
+  "cash_inr": 2531.1352104071934,
+  "realized_pnl": 83.84032821881976,
+  "total_trades": 95,
+  "sell_count": 45,
   "gross_gains": 2074.88,
-  "gross_losses": -1837.75,
-  "total_tds": 674.46,
+  "gross_losses": -1991.04,
+  "total_tds": 687.86,
   "holdings": {
     "USDTINR": {
       "qty": 24.63,
@@ -19,11 +19,23 @@
       "invested": 2143.739986910752,
       "last_buy_at": "2026-09-25T01:51:02+00:00"
     },
-    "RIFINR": {
-      "qty": 162.0,
-      "avg_cost": 9.209798597999999,
-      "invested": 1491.9873728759999,
-      "last_buy_at": "2026-09-25T08:10:10+00:00"
+    "ARBINR": {
+      "qty": 53.5,
+      "avg_cost": 19.6804863255,
+      "invested": 1052.90601841425,
+      "last_buy_at": "2026-09-29T02:14:24+00:00"
+    },
+    "CAKEINR": {
+      "qty": 2.86,
+      "avg_cost": 257.12523837,
+      "invested": 735.3781817381998,
+      "last_buy_at": "2026-09-29T02:14:24+00:00"
+    },
+    "ALTINR": {
+      "qty": 678.0,
+      "avg_cost": 0.7610402299499999,
+      "invested": 515.9852759060999,
+      "last_buy_at": "2026-09-29T02:14:24+00:00"
     }
   }
 }
