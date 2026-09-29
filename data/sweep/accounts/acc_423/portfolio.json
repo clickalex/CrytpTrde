@@ -1,23 +1,17 @@
 {
-  "cash_inr": 455.1859120496814,
-  "realized_pnl": -1507.845651639425,
-  "total_trades": 412,
-  "sell_count": 203,
-  "gross_gains": 3426.36,
-  "gross_losses": -4934.21,
-  "total_tds": 1886.22,
+  "cash_inr": 497.08292393912404,
+  "realized_pnl": -1496.7949226550486,
+  "total_trades": 418,
+  "sell_count": 206,
+  "gross_gains": 3495.85,
+  "gross_losses": -4992.65,
+  "total_tds": 1914.42,
   "holdings": {
     "TRXINR": {
       "qty": 24.2,
       "avg_cost": 32.819171385000004,
       "invested": 794.223947517,
       "last_buy_at": "2026-09-04T00:44:08+00:00"
-    },
-    "FARTCOININR": {
-      "qty": 78.81,
-      "avg_cost": 16.6519488135,
-      "invested": 1312.340085991935,
-      "last_buy_at": "2026-09-29T02:24:48+00:00"
     },
     "JUPINR": {
       "qty": 15.8,
@@ -31,17 +25,23 @@
       "invested": 2027.529696565573,
       "last_buy_at": "2026-09-29T02:24:48+00:00"
     },
-    "BRISEINR": {
-      "qty": 516220375.0,
-      "avg_cost": 1.5710538343499996e-06,
-      "invested": 811.0099995133447,
-      "last_buy_at": "2026-09-29T02:24:49+00:00"
+    "ORCAINR": {
+      "qty": 6.57,
+      "avg_cost": 166.279128015,
+      "invested": 1092.45387105855,
+      "last_buy_at": "2026-09-29T16:38:46+00:00"
     },
-    "XDBINR": {
-      "qty": 89714.0,
-      "avg_cost": 0.0076104022995,
-      "invested": 682.759631897343,
-      "last_buy_at": "2026-09-29T02:24:51+00:00"
+    "TOSHIINR": {
+      "qty": 73369.0,
+      "avg_cost": 0.012389562685499997,
+      "invested": 909.0098246724493,
+      "last_buy_at": "2026-09-29T16:38:46+00:00"
+    },
+    "BOMEINR": {
+      "qty": 7339.0,
+      "avg_cost": 0.101594213721,
+      "invested": 745.599934498419,
+      "last_buy_at": "2026-09-29T16:38:50+00:00"
     }
   }
 }

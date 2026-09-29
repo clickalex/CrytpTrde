@@ -1,18 +1,12 @@
 {
-  "cash_inr": 4772.6133691521945,
-  "realized_pnl": -2121.4652171435805,
-  "total_trades": 585,
-  "sell_count": 291,
+  "cash_inr": 4768.330114795295,
+  "realized_pnl": -2139.4672223783805,
+  "total_trades": 587,
+  "sell_count": 292,
   "gross_gains": 1195.75,
-  "gross_losses": -3317.22,
-  "total_tds": 1525.92,
+  "gross_losses": -3335.22,
+  "total_tds": 1530.94,
   "holdings": {
-    "LINKINR": {
-      "qty": 0.34,
-      "avg_cost": 1528.8606182849999,
-      "invested": 519.8126102169,
-      "last_buy_at": "2026-09-29T02:21:32+00:00"
-    },
     "FARTCOININR": {
       "qty": 30.57,
       "avg_cost": 17.332969153499995,
@@ -24,6 +18,12 @@
       "avg_cost": 0.00042984401460000006,
       "invested": 530.2796476753776,
       "last_buy_at": "2026-09-29T09:12:12+00:00"
+    },
+    "NEARINR": {
+      "qty": 1.0,
+      "avg_cost": 501.07073016,
+      "invested": 501.07073016,
+      "last_buy_at": "2026-09-29T16:30:25+00:00"
     }
   }
 }
