@@ -1,23 +1,17 @@
 {
-  "cash_inr": 666.8309578267119,
-  "realized_pnl": -1334.2108984139736,
-  "total_trades": 397,
-  "sell_count": 196,
+  "cash_inr": 523.8259569801327,
+  "realized_pnl": -1447.4426474660404,
+  "total_trades": 402,
+  "sell_count": 198,
   "gross_gains": 3230.86,
-  "gross_losses": -4565.12,
-  "total_tds": 2033.31,
+  "gross_losses": -4678.35,
+  "total_tds": 2058.04,
   "holdings": {
     "TRXINR": {
       "qty": 18.0,
       "avg_cost": 33.27886011449999,
       "invested": 599.0194820609998,
       "last_buy_at": "2026-09-16T00:58:42+00:00"
-    },
-    "APTINR": {
-      "qty": 19.08,
-      "avg_cost": 83.00436144,
-      "invested": 1583.7232162751998,
-      "last_buy_at": "2026-09-29T02:26:57+00:00"
     },
     "SUSHIINR": {
       "qty": 62.6,
@@ -31,11 +25,23 @@
       "invested": 1196.8184684120165,
       "last_buy_at": "2026-09-29T02:26:57+00:00"
     },
-    "POPCATINR": {
-      "qty": 186.61,
-      "avg_cost": 5.3596300758,
-      "invested": 1000.160568445038,
-      "last_buy_at": "2026-09-29T16:44:07+00:00"
+    "FARTCOININR": {
+      "qty": 71.41,
+      "avg_cost": 18.0400285065,
+      "invested": 1288.238435649165,
+      "last_buy_at": "2026-09-30T01:16:38+00:00"
+    },
+    "PUMPINR": {
+      "qty": 886.0,
+      "avg_cost": 0.5814812053049998,
+      "invested": 515.1923479002298,
+      "last_buy_at": "2026-09-30T01:16:38+00:00"
+    },
+    "BOMEINR": {
+      "qty": 7811.0,
+      "avg_cost": 0.10056266820599999,
+      "invested": 785.4950013570659,
+      "last_buy_at": "2026-09-30T01:16:42+00:00"
     }
   }
 }

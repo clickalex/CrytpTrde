@@ -1,18 +1,12 @@
 {
-  "cash_inr": 320.8971100669685,
-  "realized_pnl": 164.81141742550938,
-  "total_trades": 256,
-  "sell_count": 125,
-  "gross_gains": 4733.83,
+  "cash_inr": 258.7650117437588,
+  "realized_pnl": 165.1991523422597,
+  "total_trades": 258,
+  "sell_count": 126,
+  "gross_gains": 4734.22,
   "gross_losses": -4569.02,
-  "total_tds": 2043.63,
+  "total_tds": 2053.46,
   "holdings": {
-    "TRXINR": {
-      "qty": 29.5,
-      "avg_cost": 33.27886011449999,
-      "invested": 981.7263733777498,
-      "last_buy_at": "2026-09-16T00:51:14+00:00"
-    },
     "TOKENINR": {
       "qty": 6000.3333,
       "avg_cost": 0.22954391459999998,
@@ -42,6 +36,12 @@
       "avg_cost": 0.21510227738999999,
       "invested": 1283.5497055505123,
       "last_buy_at": "2026-09-29T02:21:40+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 57.34,
+      "avg_cost": 18.040028506499997,
+      "invested": 1034.4152345627099,
+      "last_buy_at": "2026-09-30T01:04:22+00:00"
     }
   }
 }
