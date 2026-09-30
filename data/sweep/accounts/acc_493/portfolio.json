@@ -1,35 +1,41 @@
 {
-  "cash_inr": 1486.8196290771068,
-  "realized_pnl": -2885.138124611964,
-  "total_trades": 652,
-  "sell_count": 324,
+  "cash_inr": 648.0250114939878,
+  "realized_pnl": -2941.105308920991,
+  "total_trades": 659,
+  "sell_count": 327,
   "gross_gains": 2958.53,
-  "gross_losses": -5843.68,
-  "total_tds": 2728.77,
+  "gross_losses": -5899.65,
+  "total_tds": 2748.5,
   "holdings": {
-    "POLYXINR": {
-      "qty": 138.9111,
-      "avg_cost": 4.356527174999999,
-      "invested": 605.1699820591424,
-      "last_buy_at": "2026-09-30T01:17:33+00:00"
-    },
     "GALAINR": {
       "qty": 3831.44,
       "avg_cost": 0.227731198695,
       "invested": 872.5384239279708,
       "last_buy_at": "2026-09-30T07:35:29+00:00"
     },
-    "ARBINR": {
-      "qty": 34.8,
-      "avg_cost": 20.910328939500005,
-      "invested": 727.6794470946,
-      "last_buy_at": "2026-09-30T14:40:02+00:00"
+    "BTCINR": {
+      "qty": 8e-05,
+      "avg_cost": 8411762.83942995,
+      "invested": 672.941027154396,
+      "last_buy_at": "2026-09-30T20:00:06+00:00"
     },
-    "PYTHINR": {
-      "qty": 88.0,
-      "avg_cost": 7.88531418675,
-      "invested": 693.907648434,
-      "last_buy_at": "2026-09-30T14:40:02+00:00"
+    "FARTCOININR": {
+      "qty": 42.05,
+      "avg_cost": 17.9779354755,
+      "invested": 755.972186744775,
+      "last_buy_at": "2026-09-30T20:00:06+00:00"
+    },
+    "CHRINR": {
+      "qty": 321.0,
+      "avg_cost": 2.2210276588499998,
+      "invested": 712.94987849085,
+      "last_buy_at": "2026-09-30T20:00:06+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 50458.0,
+      "avg_cost": 0.012842240911499998,
+      "invested": 647.9937919124669,
+      "last_buy_at": "2026-09-30T20:00:07+00:00"
     }
   }
 }
