@@ -1,22 +1,16 @@
 {
-  "cash_inr": 2039.2600925118968,
-  "realized_pnl": -2684.772501851899,
-  "total_trades": 471,
-  "sell_count": 232,
+  "cash_inr": 2015.6162680356533,
+  "realized_pnl": -2726.367244689649,
+  "total_trades": 475,
+  "sell_count": 234,
   "gross_gains": 1677.48,
-  "gross_losses": -4362.24,
-  "total_tds": 1448.57,
+  "gross_losses": -4403.83,
+  "total_tds": 1459.77,
   "holdings": {
     "SOLINR": {
       "qty": 0.045,
       "avg_cost": 11803.785043049998,
       "invested": 531.1703269372499,
-      "last_buy_at": "2026-09-29T02:17:41+00:00"
-    },
-    "JUPINR": {
-      "qty": 19.7,
-      "avg_cost": 33.0945840225,
-      "invested": 651.96330524325,
       "last_buy_at": "2026-09-29T02:17:41+00:00"
     },
     "GALAINR": {
@@ -43,11 +37,17 @@
       "invested": 506.1511418964,
       "last_buy_at": "2026-09-29T16:22:13+00:00"
     },
-    "ORCAINR": {
-      "qty": 3.13,
-      "avg_cost": 162.493456125,
-      "invested": 508.60451767124994,
-      "last_buy_at": "2026-09-30T00:56:47+00:00"
+    "CHRINR": {
+      "qty": 282.0,
+      "avg_cost": 2.22523396095,
+      "invested": 627.5159769879,
+      "last_buy_at": "2026-09-30T07:14:47+00:00"
+    },
+    "TOKENINR": {
+      "qty": 2191.3982,
+      "avg_cost": 0.2299445148,
+      "invested": 503.8999958325934,
+      "last_buy_at": "2026-09-30T07:14:48+00:00"
     }
   }
 }
