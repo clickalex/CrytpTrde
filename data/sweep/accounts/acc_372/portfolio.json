@@ -1,23 +1,17 @@
 {
-  "cash_inr": 213.0198912244697,
-  "realized_pnl": -1073.7519312450436,
-  "total_trades": 298,
-  "sell_count": 146,
-  "gross_gains": 3640.88,
+  "cash_inr": 210.53284542290487,
+  "realized_pnl": -1037.4396905595434,
+  "total_trades": 302,
+  "sell_count": 148,
+  "gross_gains": 3677.19,
   "gross_losses": -4714.66,
-  "total_tds": 2117.57,
+  "total_tds": 2133.96,
   "holdings": {
     "TRXINR": {
       "qty": 26.2,
       "avg_cost": 33.478158713999996,
       "invested": 877.1277583067999,
       "last_buy_at": "2026-09-27T08:52:27+00:00"
-    },
-    "DOGEINR": {
-      "qty": 81.0,
-      "avg_cost": 9.333684209849999,
-      "invested": 756.0284209978498,
-      "last_buy_at": "2026-09-29T02:23:03+00:00"
     },
     "SHIBINR": {
       "qty": 1844178.0,
@@ -37,11 +31,17 @@
       "invested": 1516.6520467698601,
       "last_buy_at": "2026-09-30T01:07:39+00:00"
     },
-    "ORCAINR": {
-      "qty": 5.33,
-      "avg_cost": 158.607634185,
-      "invested": 845.37869020605,
-      "last_buy_at": "2026-09-30T07:25:37+00:00"
+    "ARBINR": {
+      "qty": 37.4,
+      "avg_cost": 20.9103289395,
+      "invested": 782.0463023373001,
+      "last_buy_at": "2026-09-30T14:29:45+00:00"
+    },
+    "SEIINR": {
+      "qty": 112.7,
+      "avg_cost": 7.4690905789499995,
+      "invested": 841.766508247665,
+      "last_buy_at": "2026-09-30T14:29:45+00:00"
     }
   }
 }

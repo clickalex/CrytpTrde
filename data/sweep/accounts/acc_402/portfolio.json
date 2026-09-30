@@ -1,18 +1,12 @@
 {
-  "cash_inr": 523.989877625919,
-  "realized_pnl": -3660.9072157245864,
-  "total_trades": 580,
-  "sell_count": 288,
-  "gross_gains": 2131.95,
+  "cash_inr": 533.547246918969,
+  "realized_pnl": -3649.990041052586,
+  "total_trades": 582,
+  "sell_count": 289,
+  "gross_gains": 2142.87,
   "gross_losses": -5792.83,
-  "total_tds": 2654.42,
+  "total_tds": 2662.57,
   "holdings": {
-    "TRXINR": {
-      "qty": 24.0,
-      "avg_cost": 33.478158713999996,
-      "invested": 803.4758091359998,
-      "last_buy_at": "2026-09-27T08:54:30+00:00"
-    },
     "SOLINR": {
       "qty": 0.067,
       "avg_cost": 11803.785043049998,
@@ -30,6 +24,12 @@
       "avg_cost": 1.5537278757000001e-06,
       "invested": 785.9799995631367,
       "last_buy_at": "2026-09-30T07:28:01+00:00"
+    },
+    "ARBINR": {
+      "qty": 38.1,
+      "avg_cost": 20.9103289395,
+      "invested": 796.6835325949501,
+      "last_buy_at": "2026-09-30T14:32:19+00:00"
     }
   }
 }
