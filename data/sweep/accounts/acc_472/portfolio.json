@@ -1,11 +1,11 @@
 {
-  "cash_inr": 935.0306804778475,
-  "realized_pnl": -2885.277303620017,
-  "total_trades": 712,
-  "sell_count": 353,
+  "cash_inr": 907.1247966295979,
+  "realized_pnl": -2930.5714853098416,
+  "total_trades": 716,
+  "sell_count": 355,
   "gross_gains": 3005.76,
-  "gross_losses": -5891.02,
-  "total_tds": 2492.76,
+  "gross_losses": -5936.31,
+  "total_tds": 2504.76,
   "holdings": {
     "CHRINR": {
       "qty": 274.0,
@@ -19,12 +19,6 @@
       "invested": 628.999914299757,
       "last_buy_at": "2026-09-29T09:23:25+00:00"
     },
-    "FARTCOININR": {
-      "qty": 35.04,
-      "avg_cost": 17.718546846,
-      "invested": 620.85788148384,
-      "last_buy_at": "2026-09-29T16:43:10+00:00"
-    },
     "BTCINR": {
       "qty": 7e-05,
       "avg_cost": 8411762.83942995,
@@ -37,11 +31,17 @@
       "invested": 634.7327895909,
       "last_buy_at": "2026-10-01T00:26:14+00:00"
     },
-    "BIOINR": {
-      "qty": 200.7,
-      "avg_cost": 3.10575320055,
-      "invested": 623.324667350385,
-      "last_buy_at": "2026-10-01T06:43:11+00:00"
+    "ORCAINR": {
+      "qty": 3.64,
+      "avg_cost": 167.72128873499997,
+      "invested": 610.5054909953999,
+      "last_buy_at": "2026-10-01T20:09:40+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1050.0,
+      "avg_cost": 0.5755122623249999,
+      "invested": 604.2878754412499,
+      "last_buy_at": "2026-10-01T20:09:40+00:00"
     }
   }
 }

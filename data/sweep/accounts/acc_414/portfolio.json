@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2227.759117390221,
-  "realized_pnl": 820.9993506111539,
-  "total_trades": 266,
-  "sell_count": 126,
+  "cash_inr": 2160.582001779014,
+  "realized_pnl": 750.1353697460432,
+  "total_trades": 272,
+  "sell_count": 129,
   "gross_gains": 3353.83,
-  "gross_losses": -2532.82,
-  "total_tds": 796.7,
+  "gross_losses": -2603.68,
+  "total_tds": 812.48,
   "holdings": {
-    "SHIBINR": {
-      "qty": 966801.0,
-      "avg_cost": 0.0005788672889999999,
-      "invested": 559.6494738724889,
-      "last_buy_at": "2026-09-24T15:50:42+00:00"
-    },
     "USDTINR": {
       "qty": 5.97,
       "avg_cost": 100.43047014000001,
@@ -79,17 +73,23 @@
       "invested": 501.619836860142,
       "last_buy_at": "2026-09-29T02:24:31+00:00"
     },
-    "PYTHINR": {
-      "qty": 67.2,
-      "avg_cost": 7.899936094049999,
-      "invested": 530.87570552016,
-      "last_buy_at": "2026-09-29T16:37:59+00:00"
+    "SEIINR": {
+      "qty": 75.4,
+      "avg_cost": 7.207999398599999,
+      "invested": 543.48315465444,
+      "last_buy_at": "2026-10-01T20:05:54+00:00"
     },
-    "BOMEINR": {
-      "qty": 5531.0,
-      "avg_cost": 0.10068084526499999,
-      "invested": 556.8657551607149,
-      "last_buy_at": "2026-10-01T06:39:20+00:00"
+    "ALTINR": {
+      "qty": 707.0,
+      "avg_cost": 0.77045433465,
+      "invested": 544.71121459755,
+      "last_buy_at": "2026-10-01T20:05:57+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 400.0,
+      "avg_cost": 1.3493216236499999,
+      "invested": 539.7286494599999,
+      "last_buy_at": "2026-10-01T20:05:57+00:00"
     }
   }
 }
