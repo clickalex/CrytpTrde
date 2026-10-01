@@ -1,18 +1,12 @@
 {
-  "cash_inr": 648.0250114939878,
-  "realized_pnl": -2941.105308920991,
-  "total_trades": 659,
-  "sell_count": 327,
-  "gross_gains": 2958.53,
-  "gross_losses": -5899.65,
-  "total_tds": 2748.5,
+  "cash_inr": 763.9478360101825,
+  "realized_pnl": -2954.8312881644597,
+  "total_trades": 665,
+  "sell_count": 330,
+  "gross_gains": 2975.47,
+  "gross_losses": -5930.31,
+  "total_tds": 2770.72,
   "holdings": {
-    "GALAINR": {
-      "qty": 3831.44,
-      "avg_cost": 0.227731198695,
-      "invested": 872.5384239279708,
-      "last_buy_at": "2026-09-30T07:35:29+00:00"
-    },
     "BTCINR": {
       "qty": 8e-05,
       "avg_cost": 8411762.83942995,
@@ -25,17 +19,23 @@
       "invested": 755.972186744775,
       "last_buy_at": "2026-09-30T20:00:06+00:00"
     },
-    "CHRINR": {
-      "qty": 321.0,
-      "avg_cost": 2.2210276588499998,
-      "invested": 712.94987849085,
-      "last_buy_at": "2026-09-30T20:00:06+00:00"
+    "BIOINR": {
+      "qty": 214.8,
+      "avg_cost": 3.1208758581,
+      "invested": 670.36413431988,
+      "last_buy_at": "2026-10-01T00:27:21+00:00"
     },
-    "TOSHIINR": {
-      "qty": 50458.0,
-      "avg_cost": 0.012842240911499998,
-      "invested": 647.9937919124669,
-      "last_buy_at": "2026-09-30T20:00:07+00:00"
+    "HMSTRINR": {
+      "qty": 37253.0,
+      "avg_cost": 0.017376033675,
+      "invested": 647.309382494775,
+      "last_buy_at": "2026-10-01T00:27:22+00:00"
+    },
+    "TOKENINR": {
+      "qty": 3266.7898,
+      "avg_cost": 0.23385036675,
+      "invested": 763.9399928251592,
+      "last_buy_at": "2026-10-01T00:27:22+00:00"
     }
   }
 }

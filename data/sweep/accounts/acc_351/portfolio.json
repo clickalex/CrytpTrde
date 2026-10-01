@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1130.1227279443415,
-  "realized_pnl": -3202.439798074463,
-  "total_trades": 536,
-  "sell_count": 266,
-  "gross_gains": 2333.1,
+  "cash_inr": 465.5140111671474,
+  "realized_pnl": -3174.8090350883385,
+  "total_trades": 539,
+  "sell_count": 267,
+  "gross_gains": 2360.73,
   "gross_losses": -5535.54,
-  "total_tds": 2493.22,
+  "total_tds": 2500.36,
   "holdings": {
     "USDTINR": {
       "qty": 10.54,
@@ -19,17 +19,23 @@
       "invested": 737.024077704915,
       "last_buy_at": "2026-09-27T08:51:00+00:00"
     },
-    "GALAINR": {
-      "qty": 3071.1,
-      "avg_cost": 0.22315434140999998,
-      "invested": 685.3292979042509,
-      "last_buy_at": "2026-09-30T01:05:56+00:00"
-    },
     "ORCAINR": {
       "qty": 4.4,
       "avg_cost": 158.607634185,
       "invested": 697.873590414,
       "last_buy_at": "2026-09-30T07:23:55+00:00"
+    },
+    "BTCINR": {
+      "qty": 8e-05,
+      "avg_cost": 8402275.525043402,
+      "invested": 672.1820420034721,
+      "last_buy_at": "2026-10-01T00:19:45+00:00"
+    },
+    "TOKENINR": {
+      "qty": 2985.8837,
+      "avg_cost": 0.23385036675000004,
+      "invested": 698.249998317847,
+      "last_buy_at": "2026-10-01T00:19:47+00:00"
     }
   }
 }
