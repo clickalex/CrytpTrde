@@ -1,24 +1,12 @@
 {
-  "cash_inr": 1418.072354575408,
-  "realized_pnl": -1573.335382795879,
-  "total_trades": 612,
-  "sell_count": 302,
-  "gross_gains": 3203.11,
-  "gross_losses": -4776.52,
-  "total_tds": 1972.09,
+  "cash_inr": 1360.782285904576,
+  "realized_pnl": -1569.2988405353017,
+  "total_trades": 618,
+  "sell_count": 305,
+  "gross_gains": 3221.79,
+  "gross_losses": -4791.17,
+  "total_tds": 1991.91,
   "holdings": {
-    "USDTINR": {
-      "qty": 6.13,
-      "avg_cost": 100.87113036,
-      "invested": 618.3400291068,
-      "last_buy_at": "2026-09-29T02:22:10+00:00"
-    },
-    "BRISEINR": {
-      "qty": 477297457.0,
-      "avg_cost": 1.5710538343499999e-06,
-      "invested": 749.8599999453542,
-      "last_buy_at": "2026-09-29T02:22:10+00:00"
-    },
     "SHIBINR": {
       "qty": 1109334.0,
       "avg_cost": 0.0005836744913999999,
@@ -49,11 +37,23 @@
       "invested": 616.3736329500749,
       "last_buy_at": "2026-10-01T20:01:29+00:00"
     },
-    "POPCATINR": {
-      "qty": 116.34,
-      "avg_cost": 5.2234260078,
-      "invested": 607.693381747452,
-      "last_buy_at": "2026-10-01T20:01:32+00:00"
+    "NEARINR": {
+      "qty": 1.2,
+      "avg_cost": 501.10077517499997,
+      "invested": 601.3209302099999,
+      "last_buy_at": "2026-10-02T06:25:08+00:00"
+    },
+    "BIOINR": {
+      "qty": 269.3,
+      "avg_cost": 3.0928338441,
+      "invested": 832.90015421613,
+      "last_buy_at": "2026-10-02T06:25:09+00:00"
+    },
+    "POLYXINR": {
+      "qty": 131.4164,
+      "avg_cost": 4.4376487155,
+      "invested": 583.1798186556342,
+      "last_buy_at": "2026-10-02T06:25:09+00:00"
     }
   }
 }

@@ -1,24 +1,12 @@
 {
-  "cash_inr": 829.7186710922359,
-  "realized_pnl": -3656.9939406117655,
-  "total_trades": 807,
-  "sell_count": 401,
-  "gross_gains": 2356.44,
-  "gross_losses": -6013.47,
-  "total_tds": 2716.84,
+  "cash_inr": 860.0002154354991,
+  "realized_pnl": -3656.6204935389146,
+  "total_trades": 813,
+  "sell_count": 404,
+  "gross_gains": 2367.16,
+  "gross_losses": -6023.82,
+  "total_tds": 2733.63,
   "holdings": {
-    "BTCINR": {
-      "qty": 6e-05,
-      "avg_cost": 8373037.7194464,
-      "invested": 502.382263166784,
-      "last_buy_at": "2026-09-29T02:23:28+00:00"
-    },
-    "HMSTRINR": {
-      "qty": 37218.0,
-      "avg_cost": 0.016943385459,
-      "invested": 630.598920013062,
-      "last_buy_at": "2026-09-29T02:23:28+00:00"
-    },
     "JUPINR": {
       "qty": 17.4,
       "avg_cost": 32.6519208015,
@@ -31,11 +19,23 @@
       "invested": 551.71590939465,
       "last_buy_at": "2026-10-01T20:03:56+00:00"
     },
-    "RIFINR": {
-      "qty": 67.0,
-      "avg_cost": 8.1131555505,
-      "invested": 543.5814218835,
-      "last_buy_at": "2026-10-01T20:03:56+00:00"
+    "ETHINR": {
+      "qty": 0.0019,
+      "avg_cost": 272673.73393260007,
+      "invested": 518.0800944719401,
+      "last_buy_at": "2026-10-02T06:28:08+00:00"
+    },
+    "SEIINR": {
+      "qty": 74.0,
+      "avg_cost": 7.276602182849999,
+      "invested": 538.4685615308999,
+      "last_buy_at": "2026-10-02T06:28:08+00:00"
+    },
+    "PEPEINR": {
+      "qty": 1243939.0,
+      "avg_cost": 0.00046089053009999996,
+      "invested": 573.3197051220639,
+      "last_buy_at": "2026-10-02T06:28:10+00:00"
     }
   }
 }
