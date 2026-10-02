@@ -1,10 +1,17 @@
 {
-  "cash_inr": 9396.299594506663,
+  "cash_inr": 8457.537091828663,
   "realized_pnl": -265.57694043582086,
-  "total_trades": 80,
+  "total_trades": 81,
   "sell_count": 40,
   "gross_gains": 502.53,
   "gross_losses": -768.1,
   "total_tds": 338.12,
-  "holdings": {}
+  "holdings": {
+    "PENGUINR": {
+      "qty": 1050.0,
+      "avg_cost": 0.89405952636,
+      "invested": 938.7625026779999,
+      "last_buy_at": "2026-10-02T18:37:40+00:00"
+    }
+  }
 }

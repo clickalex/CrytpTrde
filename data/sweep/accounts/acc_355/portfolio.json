@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1281.6295507518835,
-  "realized_pnl": -1167.2538021397627,
-  "total_trades": 524,
-  "sell_count": 257,
+  "cash_inr": 1331.5024492724838,
+  "realized_pnl": -1242.0784247716624,
+  "total_trades": 528,
+  "sell_count": 259,
   "gross_gains": 3034.12,
-  "gross_losses": -4201.4,
-  "total_tds": 1643.78,
+  "gross_losses": -4276.22,
+  "total_tds": 1655.95,
   "holdings": {
-    "LINKINR": {
-      "qty": 0.5,
-      "avg_cost": 1466.4771521399998,
-      "invested": 733.2385760699999,
-      "last_buy_at": "2026-09-30T14:28:18+00:00"
-    },
     "XRPINR": {
       "qty": 3.4,
       "avg_cost": 152.3051915385,
@@ -43,12 +37,6 @@
       "invested": 795.7265988671999,
       "last_buy_at": "2026-10-02T06:25:47+00:00"
     },
-    "CAKEINR": {
-      "qty": 2.12,
-      "avg_cost": 263.12422636499997,
-      "invested": 557.8233598938,
-      "last_buy_at": "2026-10-02T06:25:47+00:00"
-    },
     "SEIINR": {
       "qty": 74.7,
       "avg_cost": 7.27660218285,
@@ -66,6 +54,18 @@
       "avg_cost": 100.04989994999998,
       "invested": 548.273451726,
       "last_buy_at": "2026-10-02T13:21:36+00:00"
+    },
+    "SUIINR": {
+      "qty": 5.1,
+      "avg_cost": 114.427441128,
+      "invested": 583.5799497528,
+      "last_buy_at": "2026-10-02T18:43:15+00:00"
+    },
+    "TRXINR": {
+      "qty": 17.0,
+      "avg_cost": 33.5652892575,
+      "invested": 570.6099173775,
+      "last_buy_at": "2026-10-02T18:43:15+00:00"
     }
   }
 }

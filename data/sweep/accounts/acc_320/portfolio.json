@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1069.5009758344513,
-  "realized_pnl": -1823.2800300756799,
-  "total_trades": 467,
-  "sell_count": 229,
+  "cash_inr": 996.0825595385751,
+  "realized_pnl": -1862.2779723423466,
+  "total_trades": 471,
+  "sell_count": 231,
   "gross_gains": 2910.65,
-  "gross_losses": -4733.93,
-  "total_tds": 1660.33,
+  "gross_losses": -4772.93,
+  "total_tds": 1672.89,
   "holdings": {
     "BTCINR": {
       "qty": 6e-05,
@@ -24,12 +24,6 @@
       "avg_cost": 0.016943385459,
       "invested": 579.8534805633569,
       "last_buy_at": "2026-09-29T02:21:13+00:00"
-    },
-    "SHIBINR": {
-      "qty": 998501.0,
-      "avg_cost": 0.0005816714904,
-      "invested": 580.7995648358904,
-      "last_buy_at": "2026-09-30T01:03:28+00:00"
     },
     "BONKINR": {
       "qty": 1553552.0,
@@ -55,11 +49,17 @@
       "invested": 770.7497772975001,
       "last_buy_at": "2026-10-01T19:59:42+00:00"
     },
-    "TOKENINR": {
-      "qty": 3048.9154,
-      "avg_cost": 0.23385036675,
-      "invested": 712.9899844797229,
-      "last_buy_at": "2026-10-02T06:22:57+00:00"
+    "CHRINR": {
+      "qty": 279.0,
+      "avg_cost": 2.335499166,
+      "invested": 651.604267314,
+      "last_buy_at": "2026-10-02T18:42:23+00:00"
+    },
+    "GASINR": {
+      "qty": 4.6149,
+      "avg_cost": 143.89158583799997,
+      "invested": 664.045279483786,
+      "last_buy_at": "2026-10-02T18:42:23+00:00"
     }
   }
 }

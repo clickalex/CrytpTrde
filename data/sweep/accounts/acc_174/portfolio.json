@@ -1,11 +1,11 @@
 {
-  "cash_inr": 7054.964655843673,
-  "realized_pnl": 536.5621594579247,
-  "total_trades": 104,
-  "sell_count": 51,
+  "cash_inr": 5288.89841299095,
+  "realized_pnl": 437.1537751800872,
+  "total_trades": 108,
+  "sell_count": 52,
   "gross_gains": 2280.3,
-  "gross_losses": -1743.76,
-  "total_tds": 625.63,
+  "gross_losses": -1843.17,
+  "total_tds": 642.29,
   "holdings": {
     "GASINR": {
       "qty": 7.7067,
@@ -13,11 +13,23 @@
       "invested": 1092.203806699155,
       "last_buy_at": "2026-10-01T19:50:22+00:00"
     },
-    "POLYXINR": {
-      "qty": 394.4204,
-      "avg_cost": 4.471699732499999,
-      "invested": 1763.7295971725428,
-      "last_buy_at": "2026-10-02T13:08:07+00:00"
+    "ETHINR": {
+      "qty": 0.0052,
+      "avg_cost": 266399.133,
+      "invested": 1385.2754916,
+      "last_buy_at": "2026-10-02T18:38:45+00:00"
+    },
+    "NEARINR": {
+      "qty": 2.4,
+      "avg_cost": 465.95812263,
+      "invested": 1118.299494312,
+      "last_buy_at": "2026-10-02T18:38:45+00:00"
+    },
+    "PENGUINR": {
+      "qty": 1018.0,
+      "avg_cost": 0.89405952636,
+      "invested": 910.1525978344799,
+      "last_buy_at": "2026-10-02T18:38:45+00:00"
     }
   }
 }
