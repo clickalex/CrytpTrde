@@ -1,18 +1,12 @@
 {
-  "cash_inr": 998.5155759244027,
-  "realized_pnl": -3147.7704113685877,
-  "total_trades": 678,
-  "sell_count": 336,
-  "gross_gains": 2609.27,
+  "cash_inr": 938.117038542952,
+  "realized_pnl": -3142.3821207607157,
+  "total_trades": 680,
+  "sell_count": 337,
+  "gross_gains": 2614.66,
   "gross_losses": -5757.12,
-  "total_tds": 2275.89,
+  "total_tds": 2281.6,
   "holdings": {
-    "SHIBINR": {
-      "qty": 971554.0,
-      "avg_cost": 0.0005818717905,
-      "invested": 565.319865547437,
-      "last_buy_at": "2026-09-29T09:20:56+00:00"
-    },
     "HMSTRINR": {
       "qty": 30707.0,
       "avg_cost": 0.017138678056500004,
@@ -42,6 +36,12 @@
       "avg_cost": 0.23385036675,
       "invested": 665.6699886072737,
       "last_buy_at": "2026-10-02T06:32:45+00:00"
+    },
+    "GASINR": {
+      "qty": 4.2728,
+      "avg_cost": 146.3662935735,
+      "invested": 625.3938991808508,
+      "last_buy_at": "2026-10-02T13:27:44+00:00"
     }
   }
 }

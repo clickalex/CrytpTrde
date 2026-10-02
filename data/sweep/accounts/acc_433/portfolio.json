@@ -1,11 +1,11 @@
 {
-  "cash_inr": 4999.031144995648,
-  "realized_pnl": -23.252943037721934,
-  "total_trades": 316,
-  "sell_count": 154,
-  "gross_gains": 2078.86,
+  "cash_inr": 4504.63260861192,
+  "realized_pnl": 74.02978918753564,
+  "total_trades": 321,
+  "sell_count": 156,
+  "gross_gains": 2176.14,
   "gross_losses": -2102.13,
-  "total_tds": 829.51,
+  "total_tds": 840.79,
   "holdings": {
     "USDTINR": {
       "qty": 5.11,
@@ -18,12 +18,6 @@
       "avg_cost": 34.4506156995,
       "invested": 523.6493586324,
       "last_buy_at": "2026-09-21T15:05:45+00:00"
-    },
-    "DOGEINR": {
-      "qty": 56.0,
-      "avg_cost": 9.33368420985,
-      "invested": 522.6863157516,
-      "last_buy_at": "2026-09-29T02:25:09+00:00"
     },
     "BRISEINR": {
       "qty": 325399415.0,
@@ -43,17 +37,29 @@
       "invested": 559.2996609646444,
       "last_buy_at": "2026-09-29T16:39:43+00:00"
     },
-    "GALAINR": {
-      "qty": 2224.59,
-      "avg_cost": 0.22773119869500003,
-      "invested": 506.60854730491013,
-      "last_buy_at": "2026-09-30T07:30:34+00:00"
-    },
     "BIOINR": {
       "qty": 163.0,
       "avg_cost": 3.0925333939499997,
       "invested": 504.08294321384994,
       "last_buy_at": "2026-09-30T19:56:39+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 29.22,
+      "avg_cost": 18.92835945,
+      "invested": 553.0866631289999,
+      "last_buy_at": "2026-10-02T13:27:10+00:00"
+    },
+    "POPCATINR": {
+      "qty": 99.55,
+      "avg_cost": 5.5861694889,
+      "invested": 556.103172619995,
+      "last_buy_at": "2026-10-02T13:27:10+00:00"
+    },
+    "XDBINR": {
+      "qty": 65671.4,
+      "avg_cost": 0.007621418805,
+      "invested": 500.50924291067696,
+      "last_buy_at": "2026-10-02T13:27:10+00:00"
     }
   }
 }

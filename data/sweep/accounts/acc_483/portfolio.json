@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1495.4243652529349,
-  "realized_pnl": -3347.785711122531,
-  "total_trades": 834,
-  "sell_count": 415,
+  "cash_inr": 1416.7505957739354,
+  "realized_pnl": -3361.432981993881,
+  "total_trades": 838,
+  "sell_count": 417,
   "gross_gains": 2302.69,
-  "gross_losses": -5650.44,
-  "total_tds": 2617.55,
+  "gross_losses": -5664.09,
+  "total_tds": 2628.84,
   "holdings": {
-    "USDTINR": {
-      "qty": 5.03,
-      "avg_cost": 99.96977990999999,
-      "invested": 502.8479929473,
-      "last_buy_at": "2026-09-25T08:30:04+00:00"
-    },
     "SHIBINR": {
       "qty": 1249077.0,
       "avg_cost": 0.0005784666887999999,
@@ -25,11 +19,17 @@
       "invested": 675.1114870499999,
       "last_buy_at": "2026-10-01T20:10:21+00:00"
     },
-    "CAKEINR": {
-      "qty": 2.45,
-      "avg_cost": 260.75067018000004,
-      "invested": 638.8391419410001,
-      "last_buy_at": "2026-10-01T20:10:21+00:00"
+    "LINKINR": {
+      "qty": 0.41,
+      "avg_cost": 1447.1782375049997,
+      "invested": 593.3430773770499,
+      "last_buy_at": "2026-10-02T13:31:06+00:00"
+    },
+    "DOGEINR": {
+      "qty": 62.0,
+      "avg_cost": 9.7109494482,
+      "invested": 602.0788657884,
+      "last_buy_at": "2026-10-02T13:31:06+00:00"
     }
   }
 }
