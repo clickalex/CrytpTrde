@@ -1,24 +1,12 @@
 {
-  "cash_inr": 4575.108433423064,
-  "realized_pnl": -1502.851246207877,
-  "total_trades": 505,
-  "sell_count": 250,
+  "cash_inr": 4583.788022324061,
+  "realized_pnl": -1526.6053508534296,
+  "total_trades": 511,
+  "sell_count": 253,
   "gross_gains": 1607.2,
-  "gross_losses": -3110.03,
-  "total_tds": 1320.98,
+  "gross_losses": -3133.78,
+  "total_tds": 1336.51,
   "holdings": {
-    "SUIINR": {
-      "qty": 4.8,
-      "avg_cost": 113.30475906750002,
-      "invested": 543.862843524,
-      "last_buy_at": "2026-09-29T02:21:15+00:00"
-    },
-    "DOGEINR": {
-      "qty": 56.0,
-      "avg_cost": 9.33368420985,
-      "invested": 522.6863157516,
-      "last_buy_at": "2026-09-29T02:21:15+00:00"
-    },
     "HMSTRINR": {
       "qty": 30511.0,
       "avg_cost": 0.016943385459,
@@ -31,11 +19,23 @@
       "invested": 509.220941229,
       "last_buy_at": "2026-10-02T18:42:24+00:00"
     },
-    "PEPEINR": {
-      "qty": 1188986.0,
-      "avg_cost": 0.00042754056345000005,
-      "invested": 508.33974437416174,
-      "last_buy_at": "2026-10-02T18:42:24+00:00"
+    "ICPINR": {
+      "qty": 1.55,
+      "avg_cost": 328.642389075,
+      "invested": 509.39570306624995,
+      "last_buy_at": "2026-10-02T23:22:50+00:00"
+    },
+    "TRXINR": {
+      "qty": 15.2,
+      "avg_cost": 33.4391001945,
+      "invested": 508.2743229564,
+      "last_buy_at": "2026-10-02T23:22:50+00:00"
+    },
+    "BOMEINR": {
+      "qty": 4979.0,
+      "avg_cost": 0.10228124306399998,
+      "invested": 509.2583092156559,
+      "last_buy_at": "2026-10-02T23:22:52+00:00"
     }
   }
 }

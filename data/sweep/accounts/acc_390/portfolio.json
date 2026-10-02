@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2238.3233882161994,
-  "realized_pnl": -2966.634924418472,
-  "total_trades": 733,
-  "sell_count": 364,
-  "gross_gains": 2064.98,
-  "gross_losses": -5031.63,
-  "total_tds": 2029.01,
+  "cash_inr": 2201.3605282269186,
+  "realized_pnl": -2952.87016752614,
+  "total_trades": 737,
+  "sell_count": 366,
+  "gross_gains": 2087.28,
+  "gross_losses": -5040.16,
+  "total_tds": 2039.87,
   "holdings": {
-    "BRISEINR": {
-      "qty": 324217044.0,
-      "avg_cost": 1.5539281758000003e-06,
-      "invested": 503.8099997461884,
-      "last_buy_at": "2026-09-29T16:35:49+00:00"
-    },
     "TRXINR": {
       "qty": 17.2,
       "avg_cost": 33.565289257500005,
@@ -25,17 +19,23 @@
       "invested": 558.0621176129999,
       "last_buy_at": "2026-10-02T18:44:08+00:00"
     },
-    "GALAINR": {
-      "qty": 2275.95,
-      "avg_cost": 0.24922339942499996,
-      "invested": 567.2199959213286,
-      "last_buy_at": "2026-10-02T18:44:08+00:00"
-    },
     "XDBINR": {
       "qty": 75434.2,
       "avg_cost": 0.0074181142035,
       "invested": 559.5795104496597,
       "last_buy_at": "2026-10-02T18:44:08+00:00"
+    },
+    "RIFINR": {
+      "qty": 66.0,
+      "avg_cost": 8.498733243,
+      "invested": 560.916394038,
+      "last_buy_at": "2026-10-02T23:26:08+00:00"
+    },
+    "BIOINR": {
+      "qty": 179.2,
+      "avg_cost": 3.0690982822499993,
+      "invested": 549.9824121791999,
+      "last_buy_at": "2026-10-02T23:26:08+00:00"
     }
   }
 }

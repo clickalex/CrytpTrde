@@ -1,18 +1,12 @@
 {
-  "cash_inr": 667.7562077165906,
-  "realized_pnl": -2921.9130714536914,
-  "total_trades": 606,
-  "sell_count": 300,
+  "cash_inr": 649.3841757959359,
+  "realized_pnl": -2970.5678269676914,
+  "total_trades": 610,
+  "sell_count": 302,
   "gross_gains": 2695.42,
-  "gross_losses": -5617.29,
-  "total_tds": 2386.38,
+  "gross_losses": -5665.94,
+  "total_tds": 2399.57,
   "holdings": {
-    "TRXINR": {
-      "qty": 20.8,
-      "avg_cost": 33.8136613815,
-      "invested": 703.3241567352,
-      "last_buy_at": "2026-09-29T02:21:18+00:00"
-    },
     "ETHINR": {
       "qty": 0.002,
       "avg_cost": 269488.86219255003,
@@ -37,11 +31,17 @@
       "invested": 722.1675889428001,
       "last_buy_at": "2026-10-02T18:42:26+00:00"
     },
-    "CHRINR": {
-      "qty": 284.0,
-      "avg_cost": 2.335499166,
-      "invested": 663.281763144,
-      "last_buy_at": "2026-10-02T18:42:26+00:00"
+    "FARTCOININR": {
+      "qty": 38.41,
+      "avg_cost": 17.5412812575,
+      "invested": 673.7606131005749,
+      "last_buy_at": "2026-10-02T23:22:52+00:00"
+    },
+    "GASINR": {
+      "qty": 4.5016,
+      "avg_cost": 144.25312751849998,
+      "invested": 649.3698788372795,
+      "last_buy_at": "2026-10-02T23:22:52+00:00"
     }
   }
 }

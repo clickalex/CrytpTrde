@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1012.4400294762362,
-  "realized_pnl": -3252.8954319341237,
-  "total_trades": 687,
-  "sell_count": 341,
+  "cash_inr": 934.2354144231906,
+  "realized_pnl": -3286.528505185111,
+  "total_trades": 691,
+  "sell_count": 343,
   "gross_gains": 2614.66,
-  "gross_losses": -5867.63,
-  "total_tds": 2306.43,
+  "gross_losses": -5901.26,
+  "total_tds": 2318.06,
   "holdings": {
     "HMSTRINR": {
       "qty": 30707.0,
       "avg_cost": 0.017138678056500004,
       "invested": 526.2773870809456,
       "last_buy_at": "2026-09-30T07:31:06+00:00"
-    },
-    "BRISEINR": {
-      "qty": 331065079.0,
-      "avg_cost": 1.5716547346499998e-06,
-      "invested": 520.3199988876262,
-      "last_buy_at": "2026-09-30T19:57:01+00:00"
     },
     "APEINR": {
       "qty": 35.31,
@@ -31,11 +25,17 @@
       "invested": 1124.507545536375,
       "last_buy_at": "2026-10-02T18:45:24+00:00"
     },
-    "ALTINR": {
-      "qty": 857.0,
-      "avg_cost": 0.7873796931,
-      "invested": 674.7843969867,
-      "last_buy_at": "2026-10-02T18:45:24+00:00"
+    "TOKENINR": {
+      "qty": 2627.5356,
+      "avg_cost": 0.230345115,
+      "invested": 605.239989948594,
+      "last_buy_at": "2026-10-02T23:28:38+00:00"
+    },
+    "PEPEINR": {
+      "qty": 1471897.0,
+      "avg_cost": 0.00042313396125,
+      "invested": 622.8096081619913,
+      "last_buy_at": "2026-10-02T23:28:40+00:00"
     }
   }
 }

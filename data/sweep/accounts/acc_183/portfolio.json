@@ -1,29 +1,41 @@
 {
-  "cash_inr": 1683.6091190181073,
-  "realized_pnl": -536.7260985119034,
-  "total_trades": 163,
-  "sell_count": 80,
-  "gross_gains": 3636.85,
-  "gross_losses": -4173.57,
-  "total_tds": 1887.25,
+  "cash_inr": 980.22509782711,
+  "realized_pnl": -498.990855223684,
+  "total_trades": 169,
+  "sell_count": 82,
+  "gross_gains": 3716.1,
+  "gross_losses": -4215.08,
+  "total_tds": 1941.01,
   "holdings": {
-    "GASINR": {
-      "qty": 12.9316,
-      "avg_cost": 141.72133425449996,
-      "invested": 1832.6836060454918,
-      "last_buy_at": "2026-10-01T19:50:57+00:00"
-    },
-    "RIFINR": {
-      "qty": 430.0,
-      "avg_cost": 8.140196064,
-      "invested": 3500.28430752,
-      "last_buy_at": "2026-10-02T06:10:48+00:00"
-    },
     "ETHINR": {
       "qty": 0.0021,
       "avg_cost": 266399.133,
       "invested": 559.4381792999999,
       "last_buy_at": "2026-10-02T18:38:58+00:00"
+    },
+    "LINKINR": {
+      "qty": 0.72,
+      "avg_cost": 1384.384156155,
+      "invested": 996.7565924316,
+      "last_buy_at": "2026-10-02T23:15:44+00:00"
+    },
+    "PENGUINR": {
+      "qty": 2819.0,
+      "avg_cost": 0.9003890095199999,
+      "invested": 2538.19661783688,
+      "last_buy_at": "2026-10-02T23:15:44+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 764.0,
+      "avg_cost": 1.3285905633,
+      "invested": 1015.0431903612,
+      "last_buy_at": "2026-10-02T23:15:44+00:00"
+    },
+    "BONKINR": {
+      "qty": 4081532.0,
+      "avg_cost": 0.00036023972985000003,
+      "invested": 1470.3299850541302,
+      "last_buy_at": "2026-10-02T23:15:45+00:00"
     }
   }
 }
