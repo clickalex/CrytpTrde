@@ -1,23 +1,17 @@
 {
-  "cash_inr": 990.470541847598,
-  "realized_pnl": -2943.962016691803,
-  "total_trades": 683,
-  "sell_count": 339,
+  "cash_inr": 954.9213813652042,
+  "realized_pnl": -2965.155703964294,
+  "total_trades": 687,
+  "sell_count": 341,
   "gross_gains": 2975.67,
-  "gross_losses": -5919.58,
-  "total_tds": 2531.6,
+  "gross_losses": -5940.77,
+  "total_tds": 2544.08,
   "holdings": {
     "DOGEINR": {
       "qty": 91.0,
       "avg_cost": 9.2971294416,
       "invested": 846.0387791856,
       "last_buy_at": "2026-10-02T23:29:48+00:00"
-    },
-    "JUPINR": {
-      "qty": 18.7,
-      "avg_cost": 32.512712232,
-      "invested": 607.9877187384,
-      "last_buy_at": "2026-10-03T14:02:48+00:00"
     },
     "SHIBINR": {
       "qty": 1338454.0,
@@ -31,11 +25,17 @@
       "invested": 655.6869191547673,
       "last_buy_at": "2026-10-03T18:35:31+00:00"
     },
-    "BRISEINR": {
-      "qty": 414693181.0,
-      "avg_cost": 1.5922856449500002e-06,
-      "invested": 660.3099991649522,
-      "last_buy_at": "2026-10-03T18:35:31+00:00"
+    "PUMPINR": {
+      "qty": 1008.0,
+      "avg_cost": 0.6285417137999999,
+      "invested": 633.5700475104,
+      "last_buy_at": "2026-10-03T22:08:32+00:00"
+    },
+    "POLYXINR": {
+      "qty": 147.8934,
+      "avg_cost": 4.304449149,
+      "invested": 636.5996197727167,
+      "last_buy_at": "2026-10-03T22:08:33+00:00"
     }
   }
 }
