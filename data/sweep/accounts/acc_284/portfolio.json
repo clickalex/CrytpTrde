@@ -1,23 +1,17 @@
 {
-  "cash_inr": 341.27037786131746,
-  "realized_pnl": 219.9640596284902,
-  "total_trades": 267,
-  "sell_count": 131,
+  "cash_inr": 241.18766566087072,
+  "realized_pnl": 148.41380950858297,
+  "total_trades": 271,
+  "sell_count": 133,
   "gross_gains": 4522.72,
-  "gross_losses": -4302.72,
-  "total_tds": 2099.17,
+  "gross_losses": -4374.27,
+  "total_tds": 2121.19,
   "holdings": {
     "TOKENINR": {
       "qty": 8243.2358,
       "avg_cost": 0.22603866285,
       "invested": 1863.28999778925,
       "last_buy_at": "2026-09-24T19:43:36+00:00"
-    },
-    "SHIBINR": {
-      "qty": 1570150.0,
-      "avg_cost": 0.0005784666888,
-      "invested": 908.27947141932,
-      "last_buy_at": "2026-09-30T19:48:06+00:00"
     },
     "TRXINR": {
       "qty": 58.9,
@@ -31,11 +25,17 @@
       "invested": 1668.3150761877598,
       "last_buy_at": "2026-10-02T18:41:29+00:00"
     },
-    "RIFINR": {
-      "qty": 162.0,
-      "avg_cost": 8.4116026995,
-      "invested": 1362.679637319,
-      "last_buy_at": "2026-10-03T02:25:22+00:00"
+    "BRISEINR": {
+      "qty": 835692170.0,
+      "avg_cost": 1.5708535342500002e-06,
+      "invested": 1312.749998789552,
+      "last_buy_at": "2026-10-03T08:38:50+00:00"
+    },
+    "GASINR": {
+      "qty": 6.7302,
+      "avg_cost": 143.34276356399997,
+      "invested": 964.7254673384326,
+      "last_buy_at": "2026-10-03T08:38:52+00:00"
     }
   }
 }

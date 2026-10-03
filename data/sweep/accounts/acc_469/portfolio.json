@@ -1,23 +1,17 @@
 {
-  "cash_inr": 764.6711995232398,
-  "realized_pnl": -1958.9702096631445,
-  "total_trades": 472,
-  "sell_count": 232,
-  "gross_gains": 3523.78,
-  "gross_losses": -5482.75,
-  "total_tds": 1908.48,
+  "cash_inr": 814.6696533117329,
+  "realized_pnl": -1887.685911212744,
+  "total_trades": 476,
+  "sell_count": 234,
+  "gross_gains": 3620.4,
+  "gross_losses": -5508.08,
+  "total_tds": 1924.57,
   "holdings": {
     "HMSTRINR": {
       "qty": 42025.0,
       "avg_cost": 0.017376033675,
       "invested": 730.227815191875,
       "last_buy_at": "2026-10-01T00:26:07+00:00"
-    },
-    "ONDOINR": {
-      "qty": 14.6,
-      "avg_cost": 49.534214729999995,
-      "invested": 723.1995350579999,
-      "last_buy_at": "2026-10-01T20:09:29+00:00"
     },
     "CHRINR": {
       "qty": 232.0,
@@ -43,17 +37,23 @@
       "invested": 631.9499802415801,
       "last_buy_at": "2026-10-02T23:30:02+00:00"
     },
-    "ONEINR": {
-      "qty": 3685.0,
-      "avg_cost": 0.220700665185,
-      "invested": 813.281951206725,
-      "last_buy_at": "2026-10-02T23:30:04+00:00"
-    },
     "SOLINR": {
       "qty": 0.064,
       "avg_cost": 11936.584009350001,
       "invested": 763.9413765984001,
       "last_buy_at": "2026-10-03T02:35:58+00:00"
+    },
+    "APTINR": {
+      "qty": 9.13,
+      "avg_cost": 79.63030625549999,
+      "invested": 727.024696112715,
+      "last_buy_at": "2026-10-03T08:49:59+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 65446.0,
+      "avg_cost": 0.012447649714499999,
+      "invested": 814.648883215167,
+      "last_buy_at": "2026-10-03T08:50:01+00:00"
     }
   }
 }

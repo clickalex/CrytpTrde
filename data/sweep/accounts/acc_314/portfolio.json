@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1423.4021907625815,
-  "realized_pnl": -800.6479909063315,
-  "total_trades": 516,
-  "sell_count": 254,
+  "cash_inr": 769.6438274648913,
+  "realized_pnl": -834.9641316965377,
+  "total_trades": 521,
+  "sell_count": 256,
   "gross_gains": 4709.84,
-  "gross_losses": -5510.48,
-  "total_tds": 2049.61,
+  "gross_losses": -5544.8,
+  "total_tds": 2066.3,
   "holdings": {
     "SOLINR": {
       "qty": 0.059,
@@ -43,17 +43,23 @@
       "invested": 610.5054909953999,
       "last_buy_at": "2026-10-01T19:59:19+00:00"
     },
-    "FARTCOININR": {
-      "qty": 57.13,
-      "avg_cost": 17.472177723,
-      "invested": 998.1855133149901,
-      "last_buy_at": "2026-10-02T18:42:14+00:00"
+    "BTCINR": {
+      "qty": 8e-05,
+      "avg_cost": 8481263.96962845,
+      "invested": 678.501117570276,
+      "last_buy_at": "2026-10-03T08:40:39+00:00"
     },
-    "BONKINR": {
-      "qty": 1917722.0,
-      "avg_cost": 0.00036704993324999995,
-      "invested": 703.8997320920564,
-      "last_buy_at": "2026-10-03T02:27:04+00:00"
+    "APEINR": {
+      "qty": 52.33,
+      "avg_cost": 16.3715286735,
+      "invested": 856.7220954842549,
+      "last_buy_at": "2026-10-03T08:40:39+00:00"
+    },
+    "ONEINR": {
+      "qty": 3065.0,
+      "avg_cost": 0.25109620535999994,
+      "invested": 769.6098694283999,
+      "last_buy_at": "2026-10-03T08:40:40+00:00"
     }
   }
 }
