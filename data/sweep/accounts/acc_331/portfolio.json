@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1545.949567640802,
-  "realized_pnl": -2976.1906757331035,
-  "total_trades": 832,
-  "sell_count": 414,
+  "cash_inr": 1202.1702638280153,
+  "realized_pnl": -3006.56481196691,
+  "total_trades": 835,
+  "sell_count": 415,
   "gross_gains": 3182.03,
-  "gross_losses": -6158.25,
-  "total_tds": 2651.3,
+  "gross_losses": -6188.62,
+  "total_tds": 2660.47,
   "holdings": {
     "ICPINR": {
       "qty": 1.85,
@@ -19,17 +19,23 @@
       "invested": 609.56335944504,
       "last_buy_at": "2026-10-02T23:23:19+00:00"
     },
-    "GASINR": {
-      "qty": 6.6029,
-      "avg_cost": 143.34276356399997,
-      "invested": 946.4779335367355,
-      "last_buy_at": "2026-10-03T13:54:36+00:00"
-    },
     "PEPEINR": {
       "qty": 1546755.0,
       "avg_cost": 0.00042834176385,
       "invested": 662.5397649438067,
       "last_buy_at": "2026-10-03T13:54:37+00:00"
+    },
+    "BIOINR": {
+      "qty": 232.7,
+      "avg_cost": 3.16103602815,
+      "invested": 735.5730837505049,
+      "last_buy_at": "2026-10-03T18:26:16+00:00"
+    },
+    "ALTINR": {
+      "qty": 640.0,
+      "avg_cost": 0.80490595185,
+      "invested": 515.139809184,
+      "last_buy_at": "2026-10-03T18:26:16+00:00"
     }
   }
 }

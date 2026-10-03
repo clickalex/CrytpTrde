@@ -1,11 +1,11 @@
 {
-  "cash_inr": 775.5496160344057,
-  "realized_pnl": -3261.5669128535214,
-  "total_trades": 717,
-  "sell_count": 357,
+  "cash_inr": 566.0401435243264,
+  "realized_pnl": -3311.3425176813853,
+  "total_trades": 720,
+  "sell_count": 358,
   "gross_gains": 3169.97,
-  "gross_losses": -6431.56,
-  "total_tds": 2981.81,
+  "gross_losses": -6481.34,
+  "total_tds": 2996.84,
   "holdings": {
     "TRXINR": {
       "qty": 19.5,
@@ -13,17 +13,23 @@
       "invested": 654.52314052125,
       "last_buy_at": "2026-10-02T18:46:43+00:00"
     },
-    "GASINR": {
-      "qty": 10.8205,
-      "avg_cost": 143.34276356399997,
-      "invested": 1551.0403731442616,
-      "last_buy_at": "2026-10-03T14:04:42+00:00"
-    },
     "PEPEINR": {
       "qty": 1810540.0,
       "avg_cost": 0.0004283417638499999,
       "invested": 775.5298971209788,
       "last_buy_at": "2026-10-03T14:04:42+00:00"
+    },
+    "BIOINR": {
+      "qty": 357.7,
+      "avg_cost": 3.1610360281499994,
+      "invested": 1130.7025872692548,
+      "last_buy_at": "2026-10-03T18:37:37+00:00"
+    },
+    "ALTINR": {
+      "qty": 702.0,
+      "avg_cost": 0.8049059518499999,
+      "invested": 565.0439781987,
+      "last_buy_at": "2026-10-03T18:37:38+00:00"
     }
   }
 }
