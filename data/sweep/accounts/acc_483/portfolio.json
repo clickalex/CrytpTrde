@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1390.8364701477476,
-  "realized_pnl": -3511.416972245201,
-  "total_trades": 864,
-  "sell_count": 430,
+  "cash_inr": 1390.651584622044,
+  "realized_pnl": -3522.3492134294256,
+  "total_trades": 866,
+  "sell_count": 431,
   "gross_gains": 2368.9,
-  "gross_losses": -5880.28,
-  "total_tds": 2707.42,
+  "gross_losses": -5891.21,
+  "total_tds": 2713.44,
   "holdings": {
     "RENDERINR": {
       "qty": 3.5,
       "avg_cost": 192.88899629999997,
       "invested": 675.1114870499999,
       "last_buy_at": "2026-10-01T20:10:21+00:00"
-    },
-    "BRISEINR": {
-      "qty": 391003279.0,
-      "avg_cost": 1.5671479823999999e-06,
-      "invested": 612.7599997966342,
-      "last_buy_at": "2026-10-03T14:04:02+00:00"
     },
     "SHIBINR": {
       "qty": 1037748.0,
@@ -30,6 +24,12 @@
       "avg_cost": 8504465.531411849,
       "invested": 510.26793188471095,
       "last_buy_at": "2026-10-03T18:36:52+00:00"
+    },
+    "GALAINR": {
+      "qty": 2362.99,
+      "avg_cost": 0.25221788592,
+      "invested": 595.9883422501008,
+      "last_buy_at": "2026-10-04T22:46:47+00:00"
     }
   }
 }

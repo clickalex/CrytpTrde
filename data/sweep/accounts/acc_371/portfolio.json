@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1459.0090235619348,
-  "realized_pnl": -1572.9357852447188,
-  "total_trades": 596,
-  "sell_count": 294,
-  "gross_gains": 3285.32,
-  "gross_losses": -4858.27,
-  "total_tds": 1934.5,
+  "cash_inr": 1442.449481644885,
+  "realized_pnl": -1515.1541709823687,
+  "total_trades": 600,
+  "sell_count": 296,
+  "gross_gains": 3370.59,
+  "gross_losses": -4885.76,
+  "total_tds": 1946.94,
   "holdings": {
-    "ORCAINR": {
-      "qty": 3.36,
-      "avg_cost": 167.72128873499997,
-      "invested": 563.5435301495999,
-      "last_buy_at": "2026-10-01T20:03:05+00:00"
-    },
     "SOLINR": {
       "qty": 0.05,
       "avg_cost": 11869.9842261,
@@ -49,11 +43,17 @@
       "invested": 645.3939627135,
       "last_buy_at": "2026-10-03T08:44:04+00:00"
     },
-    "SUSHIINR": {
-      "qty": 24.1,
-      "avg_cost": 25.804661882999998,
-      "invested": 621.8923513802999,
-      "last_buy_at": "2026-10-04T15:14:20+00:00"
+    "ONDOINR": {
+      "qty": 12.7,
+      "avg_cost": 49.542226734,
+      "invested": 629.1862795218,
+      "last_buy_at": "2026-10-04T22:41:26+00:00"
+    },
+    "POPCATINR": {
+      "qty": 114.3,
+      "avg_cost": 5.408102700000001,
+      "invested": 618.1461386100001,
+      "last_buy_at": "2026-10-04T22:41:26+00:00"
     }
   }
 }
