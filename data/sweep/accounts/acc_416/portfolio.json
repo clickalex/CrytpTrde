@@ -1,18 +1,12 @@
 {
-  "cash_inr": 938.6431897244113,
-  "realized_pnl": -360.42927540472385,
-  "total_trades": 447,
-  "sell_count": 218,
+  "cash_inr": 1195.2911688207655,
+  "realized_pnl": -383.81928248602355,
+  "total_trades": 449,
+  "sell_count": 219,
   "gross_gains": 4140.35,
-  "gross_losses": -4500.81,
-  "total_tds": 1535.82,
+  "gross_losses": -4524.2,
+  "total_tds": 1546.47,
   "holdings": {
-    "ALTINR": {
-      "qty": 1381.0,
-      "avg_cost": 0.7874798431499999,
-      "invested": 1087.5096633901499,
-      "last_buy_at": "2026-10-02T06:30:48+00:00"
-    },
     "BTCINR": {
       "qty": 7e-05,
       "avg_cost": 8664394.645506598,
@@ -72,6 +66,12 @@
       "avg_cost": 119.248664535,
       "invested": 625.745442280959,
       "last_buy_at": "2026-10-05T01:23:34+00:00"
+    },
+    "BOMEINR": {
+      "qty": 7784.0,
+      "avg_cost": 0.1023663706065,
+      "invested": 796.819828800996,
+      "last_buy_at": "2026-10-05T07:45:30+00:00"
     }
   }
 }

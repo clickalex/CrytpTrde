@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2293.617463721913,
-  "realized_pnl": -2223.929287398925,
-  "total_trades": 734,
-  "sell_count": 364,
-  "gross_gains": 2616.73,
-  "gross_losses": -4840.69,
-  "total_tds": 2063.44,
+  "cash_inr": 2316.0499778676335,
+  "realized_pnl": -2211.7578600179736,
+  "total_trades": 738,
+  "sell_count": 366,
+  "gross_gains": 2643.52,
+  "gross_losses": -4855.3,
+  "total_tds": 2075.27,
   "holdings": {
-    "PEPEINR": {
-      "qty": 1409642.0,
-      "avg_cost": 0.00042333426134999995,
-      "invested": 596.7497548379366,
-      "last_buy_at": "2026-10-03T08:43:17+00:00"
-    },
     "TOSHIINR": {
       "qty": 47349.0,
       "avg_cost": 0.012447649714499999,
@@ -37,11 +31,17 @@
       "invested": 534.5759293875001,
       "last_buy_at": "2026-10-05T01:20:53+00:00"
     },
-    "ONEINR": {
-      "qty": 2365.5,
-      "avg_cost": 0.24239316601499997,
-      "invested": 573.3810342084824,
-      "last_buy_at": "2026-10-05T01:20:54+00:00"
+    "BRISEINR": {
+      "qty": 365616419.0,
+      "avg_cost": 1.5572331274500001e-06,
+      "invested": 569.3499996064396,
+      "last_buy_at": "2026-10-05T07:41:23+00:00"
+    },
+    "BIOINR": {
+      "qty": 186.7,
+      "avg_cost": 3.0995438974500003,
+      "invested": 578.684845653915,
+      "last_buy_at": "2026-10-05T07:41:26+00:00"
     }
   }
 }

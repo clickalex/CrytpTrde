@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1664.1119179387783,
-  "realized_pnl": -3473.5091675932795,
-  "total_trades": 739,
-  "sell_count": 367,
-  "gross_gains": 2267.85,
+  "cash_inr": 1557.8254407550785,
+  "realized_pnl": -3437.4040522447795,
+  "total_trades": 741,
+  "sell_count": 368,
+  "gross_gains": 2303.96,
   "gross_losses": -5741.32,
-  "total_tds": 2230.31,
+  "total_tds": 2235.8,
   "holdings": {
     "TRXINR": {
       "qty": 16.9,
       "avg_cost": 33.282866116499996,
       "invested": 562.4804373688498,
       "last_buy_at": "2026-10-02T13:17:05+00:00"
-    },
-    "NEARINR": {
-      "qty": 1.1,
-      "avg_cost": 465.9581226299999,
-      "invested": 512.5539348929999,
-      "last_buy_at": "2026-10-02T18:41:40+00:00"
     },
     "JUPINR": {
       "qty": 16.3,
@@ -36,6 +30,12 @@
       "avg_cost": 5.3874717897,
       "invested": 502.48949382531896,
       "last_buy_at": "2026-10-05T01:17:50+00:00"
+    },
+    "LINKINR": {
+      "qty": 0.46,
+      "avg_cost": 1411.8553148699998,
+      "invested": 649.4534448402,
+      "last_buy_at": "2026-10-05T07:36:47+00:00"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2482.0811325990053,
-  "realized_pnl": -2603.818338853797,
-  "total_trades": 779,
-  "sell_count": 387,
-  "gross_gains": 2248.59,
+  "cash_inr": 2423.8038853625903,
+  "realized_pnl": -2582.047796505777,
+  "total_trades": 781,
+  "sell_count": 388,
+  "gross_gains": 2270.36,
   "gross_losses": -4852.35,
-  "total_tds": 2200.52,
+  "total_tds": 2206.05,
   "holdings": {
     "FILINR": {
       "qty": 5.0,
@@ -19,12 +19,6 @@
       "invested": 521.1299999635554,
       "last_buy_at": "2026-10-02T18:42:32+00:00"
     },
-    "SEIINR": {
-      "qty": 74.7,
-      "avg_cost": 7.10754889845,
-      "invested": 530.933902714215,
-      "last_buy_at": "2026-10-03T18:25:52+00:00"
-    },
     "JUPINR": {
       "qty": 15.6,
       "avg_cost": 33.297888623999995,
@@ -36,6 +30,12 @@
       "avg_cost": 0.24239316601499997,
       "invested": 620.5022656817985,
       "last_buy_at": "2026-10-05T01:19:26+00:00"
+    },
+    "PUMPINR": {
+      "qty": 950.0,
+      "avg_cost": 0.63731485818,
+      "invested": 605.449115271,
+      "last_buy_at": "2026-10-05T07:39:11+00:00"
     }
   }
 }

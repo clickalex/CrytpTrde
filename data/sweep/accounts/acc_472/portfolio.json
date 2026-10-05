@@ -1,23 +1,17 @@
 {
-  "cash_inr": 979.7863868149477,
-  "realized_pnl": -3184.6289035480377,
-  "total_trades": 753,
-  "sell_count": 374,
+  "cash_inr": 983.7254590391128,
+  "realized_pnl": -3214.825556541363,
+  "total_trades": 757,
+  "sell_count": 376,
   "gross_gains": 3047.1,
-  "gross_losses": -6231.7,
-  "total_tds": 2622.79,
+  "gross_losses": -6261.9,
+  "total_tds": 2636.14,
   "holdings": {
     "RENDERINR": {
       "qty": 3.15,
       "avg_cost": 192.999161355,
       "invested": 607.94735826825,
       "last_buy_at": "2026-10-02T18:46:10+00:00"
-    },
-    "BRISEINR": {
-      "qty": 454774195.0,
-      "avg_cost": 1.56284153025e-06,
-      "invested": 710.7399988320119,
-      "last_buy_at": "2026-10-03T02:36:08+00:00"
     },
     "ETHINR": {
       "qty": 0.0022,
@@ -31,11 +25,17 @@
       "invested": 650.369134774359,
       "last_buy_at": "2026-10-05T01:26:10+00:00"
     },
-    "BOMEINR": {
-      "qty": 6313.0,
-      "avg_cost": 0.1034560031505,
-      "invested": 653.1177478891066,
-      "last_buy_at": "2026-10-05T01:26:12+00:00"
+    "RIFINR": {
+      "qty": 81.0,
+      "avg_cost": 8.1552185715,
+      "invested": 660.5727042915,
+      "last_buy_at": "2026-10-05T07:49:24+00:00"
+    },
+    "XDBINR": {
+      "qty": 89127.1,
+      "avg_cost": 0.007358024173499999,
+      "invested": 655.7993563139519,
+      "last_buy_at": "2026-10-05T07:49:28+00:00"
     }
   }
 }
