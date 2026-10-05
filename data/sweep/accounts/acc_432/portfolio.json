@@ -1,18 +1,12 @@
 {
-  "cash_inr": 861.8654796746604,
-  "realized_pnl": -3599.820924666182,
-  "total_trades": 781,
-  "sell_count": 388,
+  "cash_inr": 864.630427776568,
+  "realized_pnl": -3605.280337351451,
+  "total_trades": 783,
+  "sell_count": 389,
   "gross_gains": 2524.45,
-  "gross_losses": -6124.28,
-  "total_tds": 2655.35,
+  "gross_losses": -6129.74,
+  "total_tds": 2661.21,
   "holdings": {
-    "GALAINR": {
-      "qty": 2369.32,
-      "avg_cost": 0.24922339942499996,
-      "invested": 590.489984725641,
-      "last_buy_at": "2026-10-02T18:45:12+00:00"
-    },
     "SUIINR": {
       "qty": 5.1,
       "avg_cost": 113.29975156499997,
@@ -36,6 +30,12 @@
       "avg_cost": 8.1552185715,
       "invested": 562.7100814335,
       "last_buy_at": "2026-10-05T07:46:34+00:00"
+    },
+    "SHIBINR": {
+      "qty": 985355.0,
+      "avg_cost": 0.00058497644205,
+      "invested": 576.4094620561777,
+      "last_buy_at": "2026-10-05T23:22:59+00:00"
     }
   }
 }

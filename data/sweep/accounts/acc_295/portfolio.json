@@ -1,23 +1,17 @@
 {
-  "cash_inr": 447.53293980998,
-  "realized_pnl": -3204.1550715638236,
-  "total_trades": 494,
-  "sell_count": 244,
-  "gross_gains": 2777.66,
-  "gross_losses": -5981.77,
-  "total_tds": 2140.04,
+  "cash_inr": 474.50498655691183,
+  "realized_pnl": -3112.840724013383,
+  "total_trades": 498,
+  "sell_count": 246,
+  "gross_gains": 2891.92,
+  "gross_losses": -6004.71,
+  "total_tds": 2155.75,
   "holdings": {
     "ETHINR": {
       "qty": 0.0023,
       "avg_cost": 268298.67899834993,
       "invested": 617.0869616962049,
       "last_buy_at": "2026-09-29T02:20:05+00:00"
-    },
-    "FILINR": {
-      "qty": 7.89,
-      "avg_cost": 102.25320104999997,
-      "invested": 806.7777562844998,
-      "last_buy_at": "2026-10-02T18:41:46+00:00"
     },
     "GALAINR": {
       "qty": 2946.59,
@@ -37,11 +31,17 @@
       "invested": 742.500452694,
       "last_buy_at": "2026-10-05T01:18:01+00:00"
     },
-    "GASINR": {
-      "qty": 4.6548,
-      "avg_cost": 144.21406899899998,
-      "invested": 671.2876483765451,
-      "last_buy_at": "2026-10-05T07:37:03+00:00"
+    "APTINR": {
+      "qty": 9.72,
+      "avg_cost": 83.85363386399999,
+      "invested": 815.05732115808,
+      "last_buy_at": "2026-10-05T23:11:42+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1103.0,
+      "avg_cost": 0.6451866521099999,
+      "invested": 711.6408772773299,
+      "last_buy_at": "2026-10-05T23:11:42+00:00"
     }
   }
 }

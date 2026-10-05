@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2190.5846784387113,
-  "realized_pnl": -2277.416443167768,
-  "total_trades": 780,
-  "sell_count": 387,
+  "cash_inr": 2180.5530150432696,
+  "realized_pnl": -2301.357556423092,
+  "total_trades": 784,
+  "sell_count": 389,
   "gross_gains": 3069.13,
-  "gross_losses": -5346.57,
-  "total_tds": 2206.44,
+  "gross_losses": -5370.51,
+  "total_tds": 2217.34,
   "holdings": {
-    "GALAINR": {
-      "qty": 2266.64,
-      "avg_cost": 0.24922339942499996,
-      "invested": 564.8997260726819,
-      "last_buy_at": "2026-10-02T18:42:08+00:00"
-    },
     "SUIINR": {
       "qty": 4.8,
       "avg_cost": 113.29975156499998,
@@ -37,11 +31,17 @@
       "invested": 556.8316390461825,
       "last_buy_at": "2026-10-05T01:18:42+00:00"
     },
-    "GASINR": {
-      "qty": 3.7974,
-      "avg_cost": 144.214068999,
-      "invested": 547.6385056168026,
-      "last_buy_at": "2026-10-05T07:38:05+00:00"
+    "PUMPINR": {
+      "qty": 841.0,
+      "avg_cost": 0.64518665211,
+      "invested": 542.60197442451,
+      "last_buy_at": "2026-10-05T23:12:55+00:00"
+    },
+    "PEPEINR": {
+      "qty": 1242157.0,
+      "avg_cost": 0.0004388575191,
+      "invested": 545.1299393526987,
+      "last_buy_at": "2026-10-05T23:12:57+00:00"
     }
   }
 }
