@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2332.003763051583,
-  "realized_pnl": 28.911318815165885,
-  "total_trades": 489,
-  "sell_count": 239,
-  "gross_gains": 3863.31,
-  "gross_losses": -3834.4,
-  "total_tds": 1431.2,
+  "cash_inr": 2297.475650670105,
+  "realized_pnl": 40.34813716410105,
+  "total_trades": 493,
+  "sell_count": 241,
+  "gross_gains": 3895.47,
+  "gross_losses": -3855.12,
+  "total_tds": 1442.51,
   "holdings": {
-    "ADAINR": {
-      "qty": 21.9,
-      "avg_cost": 24.4516347075,
-      "invested": 535.49080009425,
-      "last_buy_at": "2026-09-29T02:22:50+00:00"
-    },
     "SHIBINR": {
       "qty": 981785.0,
       "avg_cost": 0.0005784666888,
@@ -67,11 +61,17 @@
       "invested": 576.7660408009499,
       "last_buy_at": "2026-10-04T15:14:03+00:00"
     },
-    "TOKENINR": {
-      "qty": 2500.5434,
-      "avg_cost": 0.23314931639999997,
-      "invested": 582.9999843385317,
-      "last_buy_at": "2026-10-04T22:41:13+00:00"
+    "DOTINR": {
+      "qty": 4.8536,
+      "avg_cost": 119.24866453499999,
+      "invested": 578.785318187076,
+      "last_buy_at": "2026-10-05T01:21:16+00:00"
+    },
+    "PEPEINR": {
+      "qty": 1316271.0,
+      "avg_cost": 0.00043635376785,
+      "invested": 574.3598103616873,
+      "last_buy_at": "2026-10-05T01:21:17+00:00"
     }
   }
 }
