@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1301.9713901192881,
-  "realized_pnl": -1032.1580596212216,
-  "total_trades": 582,
-  "sell_count": 286,
+  "cash_inr": 1291.9436001101074,
+  "realized_pnl": -1038.4389499332217,
+  "total_trades": 584,
+  "sell_count": 287,
   "gross_gains": 3874.52,
-  "gross_losses": -4906.64,
-  "total_tds": 1865.82,
+  "gross_losses": -4912.92,
+  "total_tds": 1871.32,
   "holdings": {
-    "RIFINR": {
-      "qty": 68.0,
-      "avg_cost": 8.168238078,
-      "invested": 555.440189304,
-      "last_buy_at": "2026-10-03T18:25:05+00:00"
-    },
     "SUSHIINR": {
       "qty": 22.5,
       "avg_cost": 25.531252246499996,
@@ -66,6 +60,12 @@
       "avg_cost": 5.30404679805,
       "invested": 557.9326826868795,
       "last_buy_at": "2026-10-06T17:37:40+00:00"
+    },
+    "BRISEINR": {
+      "qty": 359186871.0,
+      "avg_cost": 1.5415095695999997e-06,
+      "invested": 553.6899989211806,
+      "last_buy_at": "2026-10-06T22:03:35+00:00"
     }
   }
 }

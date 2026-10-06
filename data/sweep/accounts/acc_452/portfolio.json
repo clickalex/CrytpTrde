@@ -1,18 +1,12 @@
 {
-  "cash_inr": 443.5824011273194,
-  "realized_pnl": -2129.7735682975117,
-  "total_trades": 322,
-  "sell_count": 159,
+  "cash_inr": 185.58063309554313,
+  "realized_pnl": -2204.171586261331,
+  "total_trades": 326,
+  "sell_count": 161,
   "gross_gains": 3732.53,
-  "gross_losses": -5862.31,
-  "total_tds": 2691.84,
+  "gross_losses": -5936.71,
+  "total_tds": 2714.07,
   "holdings": {
-    "BRISEINR": {
-      "qty": 331681823.0,
-      "avg_cost": 1.5710538343499996e-06,
-      "invested": 521.0899998083479,
-      "last_buy_at": "2026-09-29T02:25:50+00:00"
-    },
     "USDTINR": {
       "qty": 17.33,
       "avg_cost": 99.92971989,
@@ -25,11 +19,17 @@
       "invested": 707.6258717878351,
       "last_buy_at": "2026-10-05T07:48:02+00:00"
     },
-    "GALAINR": {
-      "qty": 7163.64,
-      "avg_cost": 0.247681088655,
-      "invested": 1774.2981539325042,
-      "last_buy_at": "2026-10-06T17:45:57+00:00"
+    "PEPEINR": {
+      "qty": 4027055.0,
+      "avg_cost": 0.00042573786255,
+      "invested": 1714.4697880712902,
+      "last_buy_at": "2026-10-06T22:10:44+00:00"
+    },
+    "TOKENINR": {
+      "qty": 3246.5083,
+      "avg_cost": 0.22864256415,
+      "invested": 742.2899822462574,
+      "last_buy_at": "2026-10-06T22:10:45+00:00"
     }
   }
 }
