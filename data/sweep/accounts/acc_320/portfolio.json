@@ -1,11 +1,11 @@
 {
-  "cash_inr": 857.5864019563601,
-  "realized_pnl": -2002.1511862104717,
-  "total_trades": 497,
-  "sell_count": 244,
+  "cash_inr": 852.7808659606402,
+  "realized_pnl": -2020.8567377443842,
+  "total_trades": 499,
+  "sell_count": 245,
   "gross_gains": 3014.94,
-  "gross_losses": -5017.09,
-  "total_tds": 1752.4,
+  "gross_losses": -5035.8,
+  "total_tds": 1758.09,
   "holdings": {
     "BTCINR": {
       "qty": 6e-05,
@@ -43,12 +43,6 @@
       "invested": 615.2399992988336,
       "last_buy_at": "2026-10-02T23:22:47+00:00"
     },
-    "POPCATINR": {
-      "qty": 109.15,
-      "avg_cost": 5.37735663465,
-      "invested": 586.9384766720475,
-      "last_buy_at": "2026-10-03T21:57:20+00:00"
-    },
     "ETHINR": {
       "qty": 0.0022,
       "avg_cost": 270700.47749745,
@@ -60,6 +54,12 @@
       "avg_cost": 0.22643926305,
       "invested": 571.7099792372419,
       "last_buy_at": "2026-10-06T10:53:26+00:00"
+    },
+    "PENGUINR": {
+      "qty": 603.0,
+      "avg_cost": 0.9408796747349999,
+      "invested": 567.350443865205,
+      "last_buy_at": "2026-10-06T17:37:58+00:00"
     }
   }
 }
