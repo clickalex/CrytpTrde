@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1438.343365342051,
-  "realized_pnl": -1659.7865068134795,
-  "total_trades": 624,
-  "sell_count": 308,
-  "gross_gains": 3355.88,
-  "gross_losses": -5015.66,
-  "total_tds": 1995.97,
+  "cash_inr": 1412.4457085909416,
+  "realized_pnl": -1699.7042816092353,
+  "total_trades": 630,
+  "sell_count": 311,
+  "gross_gains": 3365.83,
+  "gross_losses": -5065.53,
+  "total_tds": 2014.18,
   "holdings": {
-    "BIOINR": {
-      "qty": 191.6,
-      "avg_cost": 3.09633909585,
-      "invested": 593.25857076486,
-      "last_buy_at": "2026-10-03T02:26:42+00:00"
-    },
     "BNBINR": {
       "qty": 0.007,
       "avg_cost": 78892.30053705,
@@ -37,23 +31,29 @@
       "invested": 634.3381983939,
       "last_buy_at": "2026-10-05T23:12:41+00:00"
     },
-    "ICPINR": {
-      "qty": 1.82,
-      "avg_cost": 350.525175,
-      "invested": 637.9558185,
-      "last_buy_at": "2026-10-05T23:12:41+00:00"
-    },
-    "POLYXINR": {
-      "qty": 145.7538,
-      "avg_cost": 4.3094566515,
-      "invested": 628.1196828914007,
-      "last_buy_at": "2026-10-05T23:12:42+00:00"
-    },
     "GALAINR": {
       "qty": 2462.51,
       "avg_cost": 0.250325049975,
       "invested": 616.4279388139373,
       "last_buy_at": "2026-10-05T23:12:43+00:00"
+    },
+    "ORCAINR": {
+      "qty": 2.38,
+      "avg_cost": 257.3856285,
+      "invested": 612.5777958299999,
+      "last_buy_at": "2026-10-06T10:52:39+00:00"
+    },
+    "GASINR": {
+      "qty": 4.2369,
+      "avg_cost": 143.83149580800003,
+      "invested": 609.3996645889154,
+      "last_buy_at": "2026-10-06T10:52:39+00:00"
+    },
+    "PENGUINR": {
+      "qty": 633.0,
+      "avg_cost": 0.955962272265,
+      "invested": 605.124118343745,
+      "last_buy_at": "2026-10-06T10:52:41+00:00"
     }
   }
 }

@@ -1,29 +1,17 @@
 {
-  "cash_inr": 1334.2094112499851,
-  "realized_pnl": -3280.064233961932,
-  "total_trades": 803,
-  "sell_count": 399,
+  "cash_inr": 1307.5416941638903,
+  "realized_pnl": -3335.6030860624214,
+  "total_trades": 809,
+  "sell_count": 402,
   "gross_gains": 2518.43,
-  "gross_losses": -5798.5,
-  "total_tds": 2541.84,
+  "gross_losses": -5854.04,
+  "total_tds": 2558.57,
   "holdings": {
-    "BRISEINR": {
-      "qty": 377031188.0,
-      "avg_cost": 1.5628415302499996e-06,
-      "invested": 589.2399988058953,
-      "last_buy_at": "2026-10-03T02:30:49+00:00"
-    },
     "RIFINR": {
       "qty": 68.0,
       "avg_cost": 8.1552185715,
       "invested": 554.554862862,
       "last_buy_at": "2026-10-05T07:42:52+00:00"
-    },
-    "FARTCOININR": {
-      "qty": 30.62,
-      "avg_cost": 18.4706737215,
-      "invested": 565.57202935233,
-      "last_buy_at": "2026-10-05T23:18:38+00:00"
     },
     "SHIBINR": {
       "qty": 962243.0,
@@ -31,11 +19,23 @@
       "invested": 562.8894865275181,
       "last_buy_at": "2026-10-05T23:18:40+00:00"
     },
-    "PENGUINR": {
-      "qty": 592.0,
-      "avg_cost": 0.9655766770649999,
-      "invested": 571.62139282248,
-      "last_buy_at": "2026-10-05T23:18:41+00:00"
+    "ARBINR": {
+      "qty": 27.5,
+      "avg_cost": 20.236319102999996,
+      "invested": 556.4987753324999,
+      "last_buy_at": "2026-10-06T10:57:35+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 45831.0,
+      "avg_cost": 0.012306438144,
+      "invested": 564.016366577664,
+      "last_buy_at": "2026-10-06T10:57:36+00:00"
+    },
+    "POPCATINR": {
+      "qty": 103.65,
+      "avg_cost": 5.4058993989,
+      "invested": 560.321472695985,
+      "last_buy_at": "2026-10-06T10:57:38+00:00"
     }
   }
 }
