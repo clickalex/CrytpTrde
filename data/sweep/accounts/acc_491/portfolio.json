@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1888.3264253090763,
-  "realized_pnl": -2010.124839579993,
-  "total_trades": 653,
-  "sell_count": 323,
+  "cash_inr": 1192.1349559566668,
+  "realized_pnl": -2045.6949419359528,
+  "total_trades": 660,
+  "sell_count": 326,
   "gross_gains": 3478.72,
-  "gross_losses": -5488.82,
-  "total_tds": 2134.36,
+  "gross_losses": -5524.39,
+  "total_tds": 2151.19,
   "holdings": {
     "SHIBINR": {
       "qty": 1003792.0,
@@ -31,23 +31,29 @@
       "invested": 566.8499999351493,
       "last_buy_at": "2026-10-06T17:48:17+00:00"
     },
-    "NEARINR": {
-      "qty": 1.1,
-      "avg_cost": 513.5594413949999,
-      "invested": 564.9153855344999,
-      "last_buy_at": "2026-10-06T22:12:43+00:00"
+    "SOLINR": {
+      "qty": 0.047,
+      "avg_cost": 11931.17590665,
+      "invested": 560.76526761255,
+      "last_buy_at": "2026-10-07T02:11:35+00:00"
     },
-    "PUMPINR": {
-      "qty": 949.0,
-      "avg_cost": 0.6149213069999999,
-      "invested": 583.560320343,
-      "last_buy_at": "2026-10-06T22:12:43+00:00"
+    "ORCAINR": {
+      "qty": 1.83,
+      "avg_cost": 306.61939308,
+      "invested": 561.1134893364,
+      "last_buy_at": "2026-10-07T02:11:35+00:00"
     },
-    "RIFINR": {
-      "qty": 69.0,
-      "avg_cost": 8.242349115,
-      "invested": 568.722088935,
-      "last_buy_at": "2026-10-06T22:12:43+00:00"
+    "CHRINR": {
+      "qty": 318.0,
+      "avg_cost": 2.29093239375,
+      "invested": 728.5165012125,
+      "last_buy_at": "2026-10-07T02:11:36+00:00"
+    },
+    "ALTINR": {
+      "qty": 638.0,
+      "avg_cost": 0.80029904955,
+      "invested": 510.5907936129,
+      "last_buy_at": "2026-10-07T02:11:37+00:00"
     }
   }
 }

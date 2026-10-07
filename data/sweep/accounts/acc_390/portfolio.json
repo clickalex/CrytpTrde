@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2526.0231305412967,
-  "realized_pnl": -3205.528269294168,
-  "total_trades": 786,
-  "sell_count": 391,
+  "cash_inr": 2044.7847320244518,
+  "realized_pnl": -3240.478392323718,
+  "total_trades": 791,
+  "sell_count": 393,
   "gross_gains": 2168.6,
-  "gross_losses": -5374.14,
-  "total_tds": 2170.89,
+  "gross_losses": -5409.09,
+  "total_tds": 2180.7,
   "holdings": {
     "DOGEINR": {
       "qty": 60.0,
@@ -19,17 +19,23 @@
       "invested": 524.9467023801,
       "last_buy_at": "2026-10-06T10:58:14+00:00"
     },
-    "SUSHIINR": {
-      "qty": 20.0,
-      "avg_cost": 25.426094694000003,
-      "invested": 508.52189388000005,
-      "last_buy_at": "2026-10-06T22:07:29+00:00"
+    "BTCINR": {
+      "qty": 5e-05,
+      "avg_cost": 8479759.8160275,
+      "invested": 423.987990801375,
+      "last_buy_at": "2026-10-07T02:05:22+00:00"
     },
-    "BIOINR": {
-      "qty": 160.5,
-      "avg_cost": 3.1525232739000004,
-      "invested": 505.97998546095005,
-      "last_buy_at": "2026-10-06T22:07:32+00:00"
+    "PUMPINR": {
+      "qty": 844.0,
+      "avg_cost": 0.611145650115,
+      "invested": 515.80692869706,
+      "last_buy_at": "2026-10-07T02:05:22+00:00"
+    },
+    "PEPEINR": {
+      "qty": 1204967.0,
+      "avg_cost": 0.00042423561179999995,
+      "invested": 511.18991244381056,
+      "last_buy_at": "2026-10-07T02:05:22+00:00"
     }
   }
 }

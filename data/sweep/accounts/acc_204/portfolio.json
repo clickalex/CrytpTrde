@@ -1,18 +1,12 @@
 {
-  "cash_inr": 152.71029110950212,
-  "realized_pnl": -2452.5122290306463,
-  "total_trades": 221,
-  "sell_count": 109,
+  "cash_inr": 393.71285415624357,
+  "realized_pnl": -2529.107111919446,
+  "total_trades": 223,
+  "sell_count": 110,
   "gross_gains": 3264.04,
-  "gross_losses": -5716.57,
-  "total_tds": 2096.95,
+  "gross_losses": -5793.16,
+  "total_tds": 2115.31,
   "holdings": {
-    "ARBINR": {
-      "qty": 95.4,
-      "avg_cost": 20.029008499499998,
-      "invested": 1910.7674108523,
-      "last_buy_at": "2026-10-06T17:30:51+00:00"
-    },
     "BNBINR": {
       "qty": 0.036,
       "avg_cost": 77165.613525,
@@ -24,6 +18,12 @@
       "avg_cost": 237.00509332500002,
       "invested": 609.10308984525,
       "last_buy_at": "2026-10-06T21:57:19+00:00"
+    },
+    "BONKINR": {
+      "qty": 4333013.0,
+      "avg_cost": 0.00036344453144999993,
+      "invested": 1574.8098795517585,
+      "last_buy_at": "2026-10-07T01:53:23+00:00"
     }
   }
 }

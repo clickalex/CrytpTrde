@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2890.702512266648,
-  "realized_pnl": -1967.1913488860873,
-  "total_trades": 560,
-  "sell_count": 277,
+  "cash_inr": 2348.6277659359016,
+  "realized_pnl": -1988.0047934978843,
+  "total_trades": 565,
+  "sell_count": 279,
   "gross_gains": 2311.62,
-  "gross_losses": -4278.78,
-  "total_tds": 1614.79,
+  "gross_losses": -4299.59,
+  "total_tds": 1626.34,
   "holdings": {
     "JUPINR": {
       "qty": 17.9,
@@ -25,23 +25,29 @@
       "invested": 602.6819693895,
       "last_buy_at": "2026-10-06T11:02:53+00:00"
     },
-    "TOKENINR": {
-      "qty": 2618.5829,
-      "avg_cost": 0.22643926304999995,
-      "invested": 592.9499821113317,
-      "last_buy_at": "2026-10-06T11:02:54+00:00"
-    },
     "RENDERINR": {
       "qty": 2.75,
       "avg_cost": 213.54995161499994,
       "invested": 587.2623669412499,
       "last_buy_at": "2026-10-06T17:47:01+00:00"
     },
-    "DOTINR": {
-      "qty": 4.8515,
-      "avg_cost": 119.91566386799998,
-      "invested": 581.7708432556019,
-      "last_buy_at": "2026-10-06T22:11:39+00:00"
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 8479759.8160275,
+      "invested": 508.78558896165,
+      "last_buy_at": "2026-10-07T02:10:18+00:00"
+    },
+    "FILINR": {
+      "qty": 5.15,
+      "avg_cost": 114.401402115,
+      "invested": 589.16722089225,
+      "last_buy_at": "2026-10-07T02:10:18+00:00"
+    },
+    "CHRINR": {
+      "qty": 256.0,
+      "avg_cost": 2.29093239375,
+      "invested": 586.4786928,
+      "last_buy_at": "2026-10-07T02:10:19+00:00"
     }
   }
 }

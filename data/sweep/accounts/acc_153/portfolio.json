@@ -1,10 +1,17 @@
 {
-  "cash_inr": 9347.464060700184,
+  "cash_inr": 8412.724341264711,
   "realized_pnl": -188.7507410750344,
-  "total_trades": 122,
+  "total_trades": 123,
   "sell_count": 61,
   "gross_gains": 1048.08,
   "gross_losses": -1236.83,
   "total_tds": 463.78,
-  "holdings": {}
+  "holdings": {
+    "BONKINR": {
+      "qty": 2571891.0,
+      "avg_cost": 0.00036344453144999993,
+      "invested": 934.7397194354718,
+      "last_buy_at": "2026-10-07T01:50:20+00:00"
+    }
+  }
 }
