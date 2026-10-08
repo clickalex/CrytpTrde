@@ -1,10 +1,23 @@
 {
-  "cash_inr": 6353.303663209077,
+  "cash_inr": 267.2368021348776,
   "realized_pnl": -2607.5003032228806,
-  "total_trades": 46,
+  "total_trades": 48,
   "sell_count": 23,
   "gross_gains": 902.65,
   "gross_losses": -3510.13,
   "total_tds": 1039.17,
-  "holdings": {}
+  "holdings": {
+    "ETHINR": {
+      "qty": 0.0209,
+      "avg_cost": 242399.175018,
+      "invested": 5066.1427578761995,
+      "last_buy_at": "2026-10-08T16:43:36+00:00"
+    },
+    "SOLINR": {
+      "qty": 0.094,
+      "avg_cost": 10850.256416999999,
+      "invested": 1019.9241031979999,
+      "last_buy_at": "2026-10-08T16:43:36+00:00"
+    }
+  }
 }

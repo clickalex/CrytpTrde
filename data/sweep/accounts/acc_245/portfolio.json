@@ -1,22 +1,16 @@
 {
-  "cash_inr": 1023.2302910815362,
-  "realized_pnl": -3434.703297976962,
-  "total_trades": 497,
-  "sell_count": 246,
+  "cash_inr": 963.5752692360032,
+  "realized_pnl": -3592.1011666692116,
+  "total_trades": 503,
+  "sell_count": 249,
   "gross_gains": 2051.27,
-  "gross_losses": -5485.99,
-  "total_tds": 2065.59,
+  "gross_losses": -5643.39,
+  "total_tds": 2084.71,
   "holdings": {
     "USDTINR": {
       "qty": 7.15,
       "avg_cost": 99.24869955,
       "invested": 709.6282017825,
-      "last_buy_at": "2026-10-08T02:26:00+00:00"
-    },
-    "DOGEINR": {
-      "qty": 79.0,
-      "avg_cost": 8.884411085550001,
-      "invested": 701.86847575845,
       "last_buy_at": "2026-10-08T02:26:00+00:00"
     },
     "XDBINR": {
@@ -25,17 +19,23 @@
       "invested": 698.9593403408614,
       "last_buy_at": "2026-10-08T02:26:00+00:00"
     },
-    "SHIBINR": {
-      "qty": 1254520.0,
-      "avg_cost": 0.00054511672215,
-      "invested": 683.859830271618,
-      "last_buy_at": "2026-10-08T02:26:01+00:00"
+    "CAKEINR": {
+      "qty": 3.1,
+      "avg_cost": 214.60152714,
+      "invested": 665.264734134,
+      "last_buy_at": "2026-10-08T16:47:40+00:00"
     },
-    "POLYXINR": {
-      "qty": 166.7387,
-      "avg_cost": 4.0911295425,
-      "invested": 682.1496214480447,
-      "last_buy_at": "2026-10-08T02:26:02+00:00"
+    "ALTINR": {
+      "qty": 902.0,
+      "avg_cost": 0.7132686561,
+      "invested": 643.3683278022,
+      "last_buy_at": "2026-10-08T16:47:40+00:00"
+    },
+    "HMSTRINR": {
+      "qty": 40450.0,
+      "avg_cost": 0.0158807934285,
+      "invested": 642.3780941828251,
+      "last_buy_at": "2026-10-08T16:47:40+00:00"
     }
   }
 }

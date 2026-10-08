@@ -1,23 +1,29 @@
 {
-  "cash_inr": 5317.648602633287,
-  "realized_pnl": -2242.73684898351,
-  "total_trades": 438,
-  "sell_count": 218,
+  "cash_inr": 4834.1971178449485,
+  "realized_pnl": -2286.70952852331,
+  "total_trades": 441,
+  "sell_count": 219,
   "gross_gains": 1111.66,
-  "gross_losses": -3354.46,
-  "total_tds": 1318.73,
+  "gross_losses": -3398.43,
+  "total_tds": 1324.16,
   "holdings": {
-    "DOGEINR": {
-      "qty": 66.0,
-      "avg_cost": 8.88441108555,
-      "invested": 586.3711316463,
-      "last_buy_at": "2026-10-08T02:22:32+00:00"
-    },
     "XDBINR": {
       "qty": 75296.1,
       "avg_cost": 0.007098635543999999,
       "invested": 534.4995717845784,
       "last_buy_at": "2026-10-08T02:22:32+00:00"
+    },
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 8065278.418497299,
+      "invested": 483.91670510983795,
+      "last_buy_at": "2026-10-08T16:46:10+00:00"
+    },
+    "CAKEINR": {
+      "qty": 2.5,
+      "avg_cost": 214.60152714,
+      "invested": 536.50381785,
+      "last_buy_at": "2026-10-08T16:46:10+00:00"
     }
   }
 }

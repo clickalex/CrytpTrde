@@ -1,10 +1,47 @@
 {
-  "cash_inr": 8612.993313052586,
+  "cash_inr": 2267.0947586571865,
   "realized_pnl": -908.4061373246182,
-  "total_trades": 64,
+  "total_trades": 70,
   "sell_count": 32,
   "gross_gains": 236.06,
   "gross_losses": -1144.47,
   "total_tds": 478.58,
-  "holdings": {}
+  "holdings": {
+    "ETHINR": {
+      "qty": 0.0071,
+      "avg_cost": 242399.17501799995,
+      "invested": 1721.0341426277998,
+      "last_buy_at": "2026-10-08T16:42:52+00:00"
+    },
+    "SOLINR": {
+      "qty": 0.127,
+      "avg_cost": 10850.256417,
+      "invested": 1377.982564959,
+      "last_buy_at": "2026-10-08T16:42:52+00:00"
+    },
+    "BNBINR": {
+      "qty": 0.015,
+      "avg_cost": 72812.2911516,
+      "invested": 1092.184367274,
+      "last_buy_at": "2026-10-08T16:42:52+00:00"
+    },
+    "ADAINR": {
+      "qty": 38.1,
+      "avg_cost": 23.167711066499997,
+      "invested": 882.6897916336499,
+      "last_buy_at": "2026-10-08T16:42:52+00:00"
+    },
+    "DOGEINR": {
+      "qty": 85.0,
+      "avg_cost": 8.32477260615,
+      "invested": 707.6056715227501,
+      "last_buy_at": "2026-10-08T16:42:52+00:00"
+    },
+    "CAKEINR": {
+      "qty": 2.63,
+      "avg_cost": 214.60152713999994,
+      "invested": 564.4020163781998,
+      "last_buy_at": "2026-10-08T16:42:52+00:00"
+    }
+  }
 }
