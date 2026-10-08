@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1648.8736901947304,
-  "realized_pnl": -2480.7602249863994,
-  "total_trades": 637,
-  "sell_count": 316,
-  "gross_gains": 3139.21,
-  "gross_losses": -5619.92,
-  "total_tds": 2037.43,
+  "cash_inr": 1294.0639536666947,
+  "realized_pnl": -2439.7945431824924,
+  "total_trades": 642,
+  "sell_count": 318,
+  "gross_gains": 3202.96,
+  "gross_losses": -5642.71,
+  "total_tds": 2051.77,
   "holdings": {
     "USDTINR": {
       "qty": 6.96,
@@ -19,23 +19,29 @@
       "invested": 976.0429581902999,
       "last_buy_at": "2026-10-08T16:55:37+00:00"
     },
-    "PYTHINR": {
-      "qty": 90.5,
-      "avg_cost": 7.568539578599999,
-      "invested": 684.9528318632999,
-      "last_buy_at": "2026-10-08T16:55:37+00:00"
-    },
     "RIFINR": {
       "qty": 95.0,
       "avg_cost": 8.1231705555,
       "invested": 771.7012027725,
       "last_buy_at": "2026-10-08T16:55:37+00:00"
     },
-    "XDBINR": {
-      "qty": 94091.3,
-      "avg_cost": 0.007510252249499999,
-      "invested": 706.6493974833793,
-      "last_buy_at": "2026-10-08T16:55:38+00:00"
+    "SEIINR": {
+      "qty": 106.8,
+      "avg_cost": 6.70795019895,
+      "invested": 716.40908124786,
+      "last_buy_at": "2026-10-08T22:50:56+00:00"
+    },
+    "APEINR": {
+      "qty": 35.58,
+      "avg_cost": 14.1101405445,
+      "invested": 502.03880057330997,
+      "last_buy_at": "2026-10-08T22:50:56+00:00"
+    },
+    "BONKINR": {
+      "qty": 1688804.0,
+      "avg_cost": 0.00032839201394999995,
+      "invested": 554.5897467268157,
+      "last_buy_at": "2026-10-08T22:50:58+00:00"
     }
   }
 }

@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1030.8837623740953,
-  "realized_pnl": -3564.520049496631,
-  "total_trades": 766,
-  "sell_count": 381,
+  "cash_inr": 1027.8849830246145,
+  "realized_pnl": -3608.6462510989327,
+  "total_trades": 770,
+  "sell_count": 383,
   "gross_gains": 2795.66,
-  "gross_losses": -6360.24,
-  "total_tds": 2612.07,
+  "gross_losses": -6404.37,
+  "total_tds": 2626.06,
   "holdings": {
-    "ICPINR": {
-      "qty": 2.53,
-      "avg_cost": 298.40708897999997,
-      "invested": 754.9699351193999,
-      "last_buy_at": "2026-10-08T16:54:25+00:00"
-    },
     "FILINR": {
       "qty": 6.93,
       "avg_cost": 101.602225725,
@@ -25,11 +19,17 @@
       "invested": 646.2782976700049,
       "last_buy_at": "2026-10-08T16:54:25+00:00"
     },
-    "XDBINR": {
-      "qty": 91508.2,
-      "avg_cost": 0.007510252249499999,
-      "invested": 687.2496648976958,
-      "last_buy_at": "2026-10-08T16:54:26+00:00"
+    "TRBINR": {
+      "qty": 0.38,
+      "avg_cost": 1846.9672220999998,
+      "invested": 701.847544398,
+      "last_buy_at": "2026-10-08T22:48:13+00:00"
+    },
+    "BONKINR": {
+      "qty": 2086682.0,
+      "avg_cost": 0.00032839201395,
+      "invested": 685.2497044532139,
+      "last_buy_at": "2026-10-08T22:48:15+00:00"
     }
   }
 }

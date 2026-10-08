@@ -1,29 +1,17 @@
 {
-  "cash_inr": 651.9690628063745,
-  "realized_pnl": -2028.3921353968362,
-  "total_trades": 487,
-  "sell_count": 240,
-  "gross_gains": 3423.65,
-  "gross_losses": -5452.05,
-  "total_tds": 1993.51,
+  "cash_inr": 736.805192717268,
+  "realized_pnl": -2081.615605611099,
+  "total_trades": 493,
+  "sell_count": 243,
+  "gross_gains": 3442.71,
+  "gross_losses": -5524.33,
+  "total_tds": 2018.08,
   "holdings": {
-    "TRXINR": {
-      "qty": 19.9,
-      "avg_cost": 33.849715399500006,
-      "invested": 673.60933645005,
-      "last_buy_at": "2026-09-09T01:31:03+00:00"
-    },
     "USDTINR": {
       "qty": 5.43,
       "avg_cost": 99.24869955000001,
       "invested": 538.9204385565,
       "last_buy_at": "2026-10-08T02:29:22+00:00"
-    },
-    "NEARINR": {
-      "qty": 2.4,
-      "avg_cost": 470.514949905,
-      "invested": 1129.2358797719999,
-      "last_buy_at": "2026-10-08T16:49:11+00:00"
     },
     "XRPINR": {
       "qty": 6.5,
@@ -37,17 +25,29 @@
       "invested": 747.1504195155001,
       "last_buy_at": "2026-10-08T16:49:11+00:00"
     },
-    "ONEINR": {
-      "qty": 3392.7,
-      "avg_cost": 0.20783138376,
-      "invested": 705.109535682552,
-      "last_buy_at": "2026-10-08T16:49:11+00:00"
-    },
     "POPCATINR": {
       "qty": 142.25,
       "avg_cost": 4.582866288,
       "invested": 651.912729468,
       "last_buy_at": "2026-10-08T16:49:12+00:00"
+    },
+    "LINKINR": {
+      "qty": 0.67,
+      "avg_cost": 1278.85604847,
+      "invested": 856.8335524749,
+      "last_buy_at": "2026-10-08T22:36:49+00:00"
+    },
+    "DOGEINR": {
+      "qty": 89.0,
+      "avg_cost": 8.445954166649999,
+      "invested": 751.6899208318499,
+      "last_buy_at": "2026-10-08T22:36:49+00:00"
+    },
+    "XDBINR": {
+      "qty": 98526.3,
+      "avg_cost": 0.007478204233499998,
+      "invested": 736.7997937710909,
+      "last_buy_at": "2026-10-08T22:36:52+00:00"
     }
   }
 }

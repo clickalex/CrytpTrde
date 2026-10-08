@@ -1,29 +1,17 @@
 {
-  "cash_inr": 1323.970526533959,
-  "realized_pnl": -1890.6743955990974,
-  "total_trades": 658,
-  "sell_count": 325,
+  "cash_inr": 1321.4751172660958,
+  "realized_pnl": -1936.4116776775872,
+  "total_trades": 664,
+  "sell_count": 328,
   "gross_gains": 3588.65,
-  "gross_losses": -5479.35,
-  "total_tds": 2126.77,
+  "gross_losses": -5525.09,
+  "total_tds": 2143.75,
   "holdings": {
     "USDTINR": {
       "qty": 6.08,
       "avg_cost": 98.86812935999998,
       "invested": 601.1182265087999,
       "last_buy_at": "2026-10-05T23:17:57+00:00"
-    },
-    "TRXINR": {
-      "qty": 18.3,
-      "avg_cost": 33.34996665,
-      "invested": 610.3043896949999,
-      "last_buy_at": "2026-10-06T17:41:07+00:00"
-    },
-    "NEARINR": {
-      "qty": 1.2,
-      "avg_cost": 470.514949905,
-      "invested": 564.6179398859999,
-      "last_buy_at": "2026-10-08T16:52:36+00:00"
     },
     "ONDOINR": {
       "qty": 13.1,
@@ -49,11 +37,23 @@
       "invested": 570.8050497349199,
       "last_buy_at": "2026-10-08T16:52:36+00:00"
     },
-    "HMSTRINR": {
-      "qty": 35729.0,
-      "avg_cost": 0.0158807934285,
-      "invested": 567.4048684068765,
-      "last_buy_at": "2026-10-08T16:52:36+00:00"
+    "LINKINR": {
+      "qty": 0.43,
+      "avg_cost": 1278.85604847,
+      "invested": 549.9081008421,
+      "last_buy_at": "2026-10-08T22:43:49+00:00"
+    },
+    "DOGEINR": {
+      "qty": 67.0,
+      "avg_cost": 8.445954166649999,
+      "invested": 565.87892916555,
+      "last_buy_at": "2026-10-08T22:43:49+00:00"
+    },
+    "BIOINR": {
+      "qty": 200.3,
+      "avg_cost": 2.82733606155,
+      "invested": 566.315413128465,
+      "last_buy_at": "2026-10-08T22:43:50+00:00"
     }
   }
 }
