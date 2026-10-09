@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2205.366114905365,
-  "realized_pnl": -2291.1008825246645,
-  "total_trades": 539,
-  "sell_count": 266,
+  "cash_inr": 2181.166894023508,
+  "realized_pnl": -2301.8610846071642,
+  "total_trades": 541,
+  "sell_count": 267,
   "gross_gains": 2373.75,
-  "gross_losses": -4664.85,
-  "total_tds": 1589.01,
+  "gross_losses": -4675.61,
+  "total_tds": 1594.28,
   "holdings": {
-    "RIFINR": {
-      "qty": 65.0,
-      "avg_cost": 8.263380625499998,
-      "invested": 537.1197406574998,
-      "last_buy_at": "2026-10-08T02:41:45+00:00"
-    },
     "USDTINR": {
       "qty": 5.09,
       "avg_cost": 99.64929974999998,
@@ -48,6 +42,12 @@
       "avg_cost": 1.5102627539999997e-06,
       "invested": 551.3299996606681,
       "last_buy_at": "2026-10-09T09:51:39+00:00"
+    },
+    "POLYXINR": {
+      "qty": 136.6992,
+      "avg_cost": 3.9889764915,
+      "invested": 545.2898952068567,
+      "last_buy_at": "2026-10-09T17:00:12+00:00"
     }
   }
 }
