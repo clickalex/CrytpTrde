@@ -1,29 +1,17 @@
 {
-  "cash_inr": 683.7288885459064,
-  "realized_pnl": -1855.1866846797038,
-  "total_trades": 545,
-  "sell_count": 269,
-  "gross_gains": 3396.58,
-  "gross_losses": -5251.8,
-  "total_tds": 2302.44,
+  "cash_inr": 876.9163075411042,
+  "realized_pnl": -1891.0023015162988,
+  "total_trades": 548,
+  "sell_count": 271,
+  "gross_gains": 3398.06,
+  "gross_losses": -5289.1,
+  "total_tds": 2313.25,
   "holdings": {
     "TRXINR": {
       "qty": 17.5,
       "avg_cost": 33.4851692175,
       "invested": 585.99046130625,
       "last_buy_at": "2026-10-05T23:18:32+00:00"
-    },
-    "PUMPINR": {
-      "qty": 1019.0,
-      "avg_cost": 0.5627932059749999,
-      "invested": 573.4862768885249,
-      "last_buy_at": "2026-10-08T16:52:51+00:00"
-    },
-    "POLYXINR": {
-      "qty": 141.4109,
-      "avg_cost": 3.8317409129999995,
-      "invested": 541.8499310741516,
-      "last_buy_at": "2026-10-08T16:52:51+00:00"
     },
     "HMSTRINR": {
       "qty": 83711.0,
@@ -48,6 +36,12 @@
       "avg_cost": 0.0005432138711999999,
       "invested": 683.7096204194255,
       "last_buy_at": "2026-10-09T16:54:01+00:00"
+    },
+    "ALTINR": {
+      "qty": 1094.0,
+      "avg_cost": 0.80029904955,
+      "invested": 875.5271602076999,
+      "last_buy_at": "2026-10-09T21:30:50+00:00"
     }
   }
 }
