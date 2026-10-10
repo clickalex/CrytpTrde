@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2424.0604908253854,
-  "realized_pnl": -3035.9099815487248,
-  "total_trades": 483,
-  "sell_count": 239,
-  "gross_gains": 2028.77,
+  "cash_inr": 1259.6029252304609,
+  "realized_pnl": -3021.485079423525,
+  "total_trades": 487,
+  "sell_count": 240,
+  "gross_gains": 2043.19,
   "gross_losses": -5064.75,
-  "total_tds": 1711.44,
+  "total_tds": 1717.6,
   "holdings": {
     "USDTINR": {
       "qty": 5.27,
@@ -31,11 +31,23 @@
       "invested": 544.65919666158,
       "last_buy_at": "2026-10-10T01:22:31+00:00"
     },
-    "PUMPINR": {
-      "qty": 1110.0,
-      "avg_cost": 0.54169159044,
-      "invested": 601.2776653884,
-      "last_buy_at": "2026-10-10T01:22:36+00:00"
+    "TRBINR": {
+      "qty": 0.375,
+      "avg_cost": 1934.0977655999998,
+      "invested": 725.2866621,
+      "last_buy_at": "2026-10-10T14:09:29+00:00"
+    },
+    "PYTHINR": {
+      "qty": 64.5,
+      "avg_cost": 7.890321689249999,
+      "invested": 508.92574895662494,
+      "last_buy_at": "2026-10-10T14:09:29+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 489.0,
+      "avg_cost": 1.1038538511,
+      "invested": 539.7845331879,
+      "last_buy_at": "2026-10-10T14:09:32+00:00"
     }
   }
 }

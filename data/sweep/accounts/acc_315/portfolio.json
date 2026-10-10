@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2351.6987346678843,
-  "realized_pnl": -1742.6477738854373,
-  "total_trades": 626,
-  "sell_count": 310,
-  "gross_gains": 3983.53,
+  "cash_inr": 1275.2762803473006,
+  "realized_pnl": -1727.7940233186773,
+  "total_trades": 630,
+  "sell_count": 311,
+  "gross_gains": 3998.38,
   "gross_losses": -5726.14,
-  "total_tds": 2004.95,
+  "total_tds": 2011.3,
   "holdings": {
     "TRXINR": {
       "qty": 15.9,
@@ -37,11 +37,23 @@
       "invested": 1015.9998236388001,
       "last_buy_at": "2026-10-10T01:30:40+00:00"
     },
-    "PUMPINR": {
-      "qty": 1143.0,
-      "avg_cost": 0.54169159044,
-      "invested": 619.15348787292,
-      "last_buy_at": "2026-10-10T01:30:41+00:00"
+    "BTCINR": {
+      "qty": 8e-05,
+      "avg_cost": 8256819.895874549,
+      "invested": 660.545591669964,
+      "last_buy_at": "2026-10-10T14:15:43+00:00"
+    },
+    "ETHINR": {
+      "qty": 0.002,
+      "avg_cost": 249116.93992185002,
+      "invested": 498.23387984370004,
+      "last_buy_at": "2026-10-10T14:15:43+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 494.0,
+      "avg_cost": 1.1038538510999998,
+      "invested": 545.3038024434,
+      "last_buy_at": "2026-10-10T14:15:46+00:00"
     }
   }
 }
