@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2329.3222079348157,
-  "realized_pnl": -3613.080000306065,
-  "total_trades": 829,
-  "sell_count": 413,
+  "cash_inr": 2303.837239087186,
+  "realized_pnl": -3621.327462764015,
+  "total_trades": 831,
+  "sell_count": 414,
   "gross_gains": 2035.64,
-  "gross_losses": -5648.76,
-  "total_tds": 2349.27,
+  "gross_losses": -5657.01,
+  "total_tds": 2354.81,
   "holdings": {
-    "HMSTRINR": {
-      "qty": 34610.0,
-      "avg_cost": 0.016218299096999997,
-      "invested": 561.3153317471699,
-      "last_buy_at": "2026-10-09T21:36:47+00:00"
-    },
     "BONKINR": {
       "qty": 1682997.0,
       "avg_cost": 0.0003355026675,
@@ -24,6 +18,12 @@
       "avg_cost": 0.011730575356499998,
       "invested": 582.3292218473729,
       "last_buy_at": "2026-10-11T02:26:28+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 24.1,
+      "avg_cost": 23.776623370499998,
+      "invested": 573.01662322905,
+      "last_buy_at": "2026-10-11T09:30:25+00:00"
     }
   }
 }
