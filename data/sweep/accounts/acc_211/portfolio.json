@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1754.5815900487119,
-  "realized_pnl": -2223.9799730717396,
-  "total_trades": 353,
-  "sell_count": 173,
-  "gross_gains": 2359.69,
-  "gross_losses": -4583.64,
-  "total_tds": 1432.92,
+  "cash_inr": 1361.8050370746014,
+  "realized_pnl": -2183.5908594759594,
+  "total_trades": 358,
+  "sell_count": 175,
+  "gross_gains": 2431.08,
+  "gross_losses": -4614.64,
+  "total_tds": 1447.81,
   "holdings": {
     "TRXINR": {
       "qty": 16.9,
@@ -31,23 +31,29 @@
       "invested": 711.94377108855,
       "last_buy_at": "2026-10-08T16:46:31+00:00"
     },
-    "CAKEINR": {
-      "qty": 3.24,
-      "avg_cost": 214.60152714,
-      "invested": 695.3089479336,
-      "last_buy_at": "2026-10-08T16:46:31+00:00"
-    },
     "ORCAINR": {
       "qty": 2.62,
       "avg_cost": 227.98157381999994,
       "invested": 597.3117234083999,
       "last_buy_at": "2026-10-10T01:21:03+00:00"
     },
-    "ONEINR": {
-      "qty": 3798.0,
-      "avg_cost": 0.197986633845,
-      "invested": 751.95323534331,
-      "last_buy_at": "2026-10-12T00:00:25+00:00"
+    "GASINR": {
+      "qty": 5.3846,
+      "avg_cost": 140.0428194165,
+      "invested": 754.074565430086,
+      "last_buy_at": "2026-10-12T06:25:57+00:00"
+    },
+    "BOMEINR": {
+      "qty": 5330.0,
+      "avg_cost": 0.09903037244099999,
+      "invested": 527.8318851105299,
+      "last_buy_at": "2026-10-12T06:25:57+00:00"
+    },
+    "TOKENINR": {
+      "qty": 2692.9555,
+      "avg_cost": 0.21672470819999998,
+      "invested": 583.6299949330851,
+      "last_buy_at": "2026-10-12T06:25:57+00:00"
     }
   }
 }

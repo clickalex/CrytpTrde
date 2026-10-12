@@ -1,17 +1,29 @@
 {
-  "cash_inr": 8705.006455587829,
-  "realized_pnl": -174.03101478795634,
-  "total_trades": 141,
-  "sell_count": 70,
+  "cash_inr": 6916.391331797238,
+  "realized_pnl": -198.00122581684468,
+  "total_trades": 145,
+  "sell_count": 71,
   "gross_gains": 1179.85,
-  "gross_losses": -1353.88,
-  "total_tds": 523.05,
+  "gross_losses": -1377.85,
+  "total_tds": 528.8,
   "holdings": {
-    "POLYXINR": {
-      "qty": 143.3063,
-      "avg_cost": 4.172251083,
-      "invested": 597.9098653757229,
-      "last_buy_at": "2026-10-11T15:59:44+00:00"
+    "BOMEINR": {
+      "qty": 8790.0,
+      "avg_cost": 0.09903037244099999,
+      "invested": 870.47697375639,
+      "last_buy_at": "2026-10-12T06:22:33+00:00"
+    },
+    "ONEINR": {
+      "qty": 4069.4,
+      "avg_cost": 0.192518441115,
+      "invested": 783.434544273381,
+      "last_buy_at": "2026-10-12T06:22:33+00:00"
+    },
+    "RIFINR": {
+      "qty": 85.0,
+      "avg_cost": 8.269389628499999,
+      "invested": 702.8981184224999,
+      "last_buy_at": "2026-10-12T06:22:33+00:00"
     }
   }
 }

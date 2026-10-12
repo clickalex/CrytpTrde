@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2383.3588063356206,
-  "realized_pnl": -340.3587525705929,
-  "total_trades": 414,
-  "sell_count": 202,
+  "cash_inr": 2335.611459335051,
+  "realized_pnl": -389.8346211496559,
+  "total_trades": 418,
+  "sell_count": 204,
   "gross_gains": 3891.37,
-  "gross_losses": -4231.7,
-  "total_tds": 1225.88,
+  "gross_losses": -4281.18,
+  "total_tds": 1237.2,
   "holdings": {
     "USDTINR": {
       "qty": 7.53,
@@ -37,12 +37,6 @@
       "invested": 638.809999959772,
       "last_buy_at": "2026-10-08T16:55:10+00:00"
     },
-    "BOMEINR": {
-      "qty": 5694.0,
-      "avg_cost": 0.102755954301,
-      "invested": 585.092403789894,
-      "last_buy_at": "2026-10-08T16:55:12+00:00"
-    },
     "BONKINR": {
       "qty": 1778331.0,
       "avg_cost": 0.00032839201394999995,
@@ -61,11 +55,17 @@
       "invested": 587.6394318795,
       "last_buy_at": "2026-10-10T19:22:46+00:00"
     },
-    "ORCAINR": {
-      "qty": 2.52,
-      "avg_cost": 236.34410299500001,
-      "invested": 595.5871395474,
-      "last_buy_at": "2026-10-11T20:54:49+00:00"
+    "DOGEINR": {
+      "qty": 67.0,
+      "avg_cost": 8.712353299649997,
+      "invested": 583.7276710765499,
+      "last_buy_at": "2026-10-12T06:40:03+00:00"
+    },
+    "TOKENINR": {
+      "qty": 2694.2013,
+      "avg_cost": 0.21672470819999998,
+      "invested": 583.8999905745607,
+      "last_buy_at": "2026-10-12T06:40:03+00:00"
     }
   }
 }

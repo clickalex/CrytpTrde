@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1311.8647434908958,
-  "realized_pnl": -2137.71428303222,
-  "total_trades": 517,
-  "sell_count": 255,
+  "cash_inr": 1321.9079625597194,
+  "realized_pnl": -2201.5806711566856,
+  "total_trades": 521,
+  "sell_count": 257,
   "gross_gains": 3131.68,
-  "gross_losses": -5269.41,
-  "total_tds": 1723.06,
+  "gross_losses": -5333.28,
+  "total_tds": 1737.06,
   "holdings": {
     "USDTINR": {
       "qty": 6.67,
       "avg_cost": 99.64929974999997,
       "invested": 664.6608293324998,
       "last_buy_at": "2026-10-08T16:56:58+00:00"
-    },
-    "BOMEINR": {
-      "qty": 9339.0,
-      "avg_cost": 0.10275595430099999,
-      "invested": 959.6378572170389,
-      "last_buy_at": "2026-10-08T16:56:59+00:00"
     },
     "LINKINR": {
       "qty": 0.52,
@@ -37,17 +31,23 @@
       "invested": 606.3979007906819,
       "last_buy_at": "2026-10-08T22:54:02+00:00"
     },
-    "RIFINR": {
-      "qty": 61.0,
-      "avg_cost": 8.248358118,
-      "invested": 503.14984519800004,
-      "last_buy_at": "2026-10-09T17:03:51+00:00"
-    },
     "BONKINR": {
       "qty": 1675754.0,
       "avg_cost": 0.0003355026675,
       "invested": 562.219937073795,
       "last_buy_at": "2026-10-09T21:39:27+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 69910.0,
+      "avg_cost": 0.0115723382775,
+      "invested": 809.022168980025,
+      "last_buy_at": "2026-10-12T06:43:11+00:00"
+    },
+    "PENGUINR": {
+      "qty": 683.0,
+      "avg_cost": 0.82848127362,
+      "invested": 565.85270988246,
+      "last_buy_at": "2026-10-12T06:43:11+00:00"
     }
   }
 }

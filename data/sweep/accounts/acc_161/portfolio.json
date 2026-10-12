@@ -1,10 +1,29 @@
 {
-  "cash_inr": 8980.309686603798,
+  "cash_inr": 6554.653703984428,
   "realized_pnl": -345.9050640008779,
-  "total_trades": 176,
+  "total_trades": 179,
   "sell_count": 88,
   "gross_gains": 1269.8,
   "gross_losses": -1615.7,
   "total_tds": 673.77,
-  "holdings": {}
+  "holdings": {
+    "BOMEINR": {
+      "qty": 9068.0,
+      "avg_cost": 0.09903037244099999,
+      "invested": 898.0074172949879,
+      "last_buy_at": "2026-10-12T06:23:02+00:00"
+    },
+    "ONEINR": {
+      "qty": 4198.1,
+      "avg_cost": 0.192518441115,
+      "invested": 808.2116676448816,
+      "last_buy_at": "2026-10-12T06:23:02+00:00"
+    },
+    "RIFINR": {
+      "qty": 87.0,
+      "avg_cost": 8.2693896285,
+      "invested": 719.4368976795,
+      "last_buy_at": "2026-10-12T06:23:02+00:00"
+    }
+  }
 }
