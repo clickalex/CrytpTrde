@@ -1,22 +1,16 @@
 {
-  "cash_inr": 2981.205838795905,
-  "realized_pnl": -860.435975354413,
-  "total_trades": 88,
-  "sell_count": 42,
+  "cash_inr": 1750.908351027169,
+  "realized_pnl": -1166.3062401122772,
+  "total_trades": 92,
+  "sell_count": 44,
   "gross_gains": 2014.13,
-  "gross_losses": -2874.56,
-  "total_tds": 941.15,
+  "gross_losses": -3180.43,
+  "total_tds": 960.18,
   "holdings": {
     "BTCINR": {
       "qty": 0.00031,
       "avg_cost": 8065278.418497301,
       "invested": 2500.236309734163,
-      "last_buy_at": "2026-10-08T16:44:12+00:00"
-    },
-    "SOLINR": {
-      "qty": 0.085,
-      "avg_cost": 10850.256417,
-      "invested": 922.2717954450001,
       "last_buy_at": "2026-10-08T16:44:12+00:00"
     },
     "BNBINR": {
@@ -25,11 +19,17 @@
       "invested": 509.68603806119995,
       "last_buy_at": "2026-10-08T16:44:12+00:00"
     },
-    "BOMEINR": {
-      "qty": 12976.0,
-      "avg_cost": 0.099030372441,
-      "invested": 1285.018112794416,
-      "last_buy_at": "2026-10-12T06:21:51+00:00"
+    "ONEINR": {
+      "qty": 11825.1,
+      "avg_cost": 0.164516487135,
+      "invested": 1945.4239120200884,
+      "last_buy_at": "2026-10-13T12:07:45+00:00"
+    },
+    "TOKENINR": {
+      "qty": 5856.8399,
+      "avg_cost": 0.19929859949999998,
+      "invested": 1167.25998956572,
+      "last_buy_at": "2026-10-13T12:07:45+00:00"
     }
   }
 }

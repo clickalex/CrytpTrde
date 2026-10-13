@@ -1,35 +1,41 @@
 {
-  "cash_inr": 3265.4098945334936,
-  "realized_pnl": -1357.4406677860188,
-  "total_trades": 290,
-  "sell_count": 143,
+  "cash_inr": 3529.7409461789575,
+  "realized_pnl": -1847.6113387328414,
+  "total_trades": 299,
+  "sell_count": 147,
   "gross_gains": 2006.22,
-  "gross_losses": -3363.64,
-  "total_tds": 1516.79,
+  "gross_losses": -3853.81,
+  "total_tds": 1550.53,
   "holdings": {
-    "HMSTRINR": {
-      "qty": 46431.0,
-      "avg_cost": 0.016312440144,
-      "invested": 757.402908326064,
-      "last_buy_at": "2026-10-11T09:16:04+00:00"
+    "NEARINR": {
+      "qty": 1.2,
+      "avg_cost": 504.906477075,
+      "invested": 605.88777249,
+      "last_buy_at": "2026-10-13T12:10:42+00:00"
     },
-    "BOMEINR": {
-      "qty": 12861.0,
-      "avg_cost": 0.09903037244099999,
-      "invested": 1273.6296199637009,
-      "last_buy_at": "2026-10-12T06:24:44+00:00"
+    "ONDOINR": {
+      "qty": 11.4,
+      "avg_cost": 46.50968322,
+      "invested": 530.210388708,
+      "last_buy_at": "2026-10-13T12:10:42+00:00"
     },
-    "ONEINR": {
-      "qty": 5292.7,
-      "avg_cost": 0.192518441115,
-      "invested": 1018.9423532893604,
-      "last_buy_at": "2026-10-12T06:24:44+00:00"
+    "TOKENINR": {
+      "qty": 3981.2622,
+      "avg_cost": 0.1992985995,
+      "invested": 793.4599807022889,
+      "last_buy_at": "2026-10-13T12:10:42+00:00"
     },
-    "RIFINR": {
-      "qty": 98.0,
-      "avg_cost": 8.2693896285,
-      "invested": 810.4001835930001,
-      "last_buy_at": "2026-10-12T06:24:44+00:00"
+    "POLYXINR": {
+      "qty": 162.1849,
+      "avg_cost": 3.9138639539999995,
+      "invested": 634.7696339930945,
+      "last_buy_at": "2026-10-13T12:10:42+00:00"
+    },
+    "SHIBINR": {
+      "qty": 990330.0,
+      "avg_cost": 0.000512768256,
+      "invested": 507.80978696448,
+      "last_buy_at": "2026-10-13T12:10:42+00:00"
     }
   }
 }
