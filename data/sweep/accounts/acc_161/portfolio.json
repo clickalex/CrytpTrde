@@ -1,23 +1,29 @@
 {
-  "cash_inr": 7239.176094049552,
-  "realized_pnl": -685.3670104297564,
-  "total_trades": 184,
-  "sell_count": 91,
+  "cash_inr": 6380.931218618836,
+  "realized_pnl": -693.9927955687564,
+  "total_trades": 187,
+  "sell_count": 92,
   "gross_gains": 1269.8,
-  "gross_losses": -1955.16,
-  "total_tds": 694.65,
+  "gross_losses": -1963.79,
+  "total_tds": 701.11,
   "holdings": {
-    "ORCAINR": {
-      "qty": 3.18,
-      "avg_cost": 205.52793261000002,
-      "invested": 653.5788256998001,
-      "last_buy_at": "2026-10-13T12:08:57+00:00"
-    },
     "TOKENINR": {
       "qty": 3648.8465,
       "avg_cost": 0.1992985995,
       "invested": 727.2099972404768,
       "last_buy_at": "2026-10-13T12:08:57+00:00"
+    },
+    "POLYXINR": {
+      "qty": 196.8417,
+      "avg_cost": 4.001995998,
+      "invested": 787.7596956395166,
+      "last_buy_at": "2026-10-13T19:35:44+00:00"
+    },
+    "GASINR": {
+      "qty": 4.4245,
+      "avg_cost": 160.24008,
+      "invested": 708.98223396,
+      "last_buy_at": "2026-10-13T19:35:44+00:00"
     }
   }
 }

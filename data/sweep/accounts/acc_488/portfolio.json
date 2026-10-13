@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1842.4019973417562,
-  "realized_pnl": -2064.2293265467747,
-  "total_trades": 509,
-  "sell_count": 252,
+  "cash_inr": 1439.3818717934082,
+  "realized_pnl": -2132.6758604433003,
+  "total_trades": 512,
+  "sell_count": 253,
   "gross_gains": 4141.4,
-  "gross_losses": -6205.6,
-  "total_tds": 2025.16,
+  "gross_losses": -6274.05,
+  "total_tds": 2037.52,
   "holdings": {
     "USDTINR": {
       "qty": 6.26,
@@ -25,17 +25,23 @@
       "invested": 681.0463790129999,
       "last_buy_at": "2026-10-13T12:28:52+00:00"
     },
-    "XDBINR": {
-      "qty": 176613.8,
-      "avg_cost": 0.007377052683000001,
-      "invested": 1302.8893071448254,
-      "last_buy_at": "2026-10-13T12:28:55+00:00"
-    },
     "PEPEINR": {
       "qty": 1920690.0,
       "avg_cost": 0.00040700980319999995,
       "invested": 781.739658908208,
       "last_buy_at": "2026-10-13T12:28:55+00:00"
+    },
+    "BTCINR": {
+      "qty": 8e-05,
+      "avg_cost": 8319994.14681435,
+      "invested": 665.599531745148,
+      "last_buy_at": "2026-10-13T20:00:32+00:00"
+    },
+    "POPCATINR": {
+      "qty": 207.5,
+      "avg_cost": 4.624128108600001,
+      "invested": 959.5065825345001,
+      "last_buy_at": "2026-10-13T20:00:36+00:00"
     }
   }
 }

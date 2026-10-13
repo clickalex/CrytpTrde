@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2758.8891250906436,
-  "realized_pnl": -866.5368464882989,
-  "total_trades": 102,
-  "sell_count": 49,
-  "gross_gains": 1541.1,
+  "cash_inr": 1962.6218799558042,
+  "realized_pnl": -817.8591562273788,
+  "total_trades": 105,
+  "sell_count": 50,
+  "gross_gains": 1589.78,
   "gross_losses": -2407.62,
-  "total_tds": 942.96,
+  "total_tds": 955.56,
   "holdings": {
     "BTCINR": {
       "qty": 0.00031,
@@ -19,17 +19,23 @@
       "invested": 873.7474938191999,
       "last_buy_at": "2026-10-08T16:44:18+00:00"
     },
-    "ONEINR": {
-      "qty": 7357.0,
-      "avg_cost": 0.16451648713499997,
-      "invested": 1210.3477958521948,
-      "last_buy_at": "2026-10-13T12:07:56+00:00"
-    },
     "TOKENINR": {
       "qty": 4251.1086,
       "avg_cost": 0.19929859950000003,
       "invested": 847.2399903024058,
       "last_buy_at": "2026-10-13T12:07:56+00:00"
+    },
+    "POLYXINR": {
+      "qty": 300.2476,
+      "avg_cost": 4.001995998,
+      "invested": 1201.5896936091046,
+      "last_buy_at": "2026-10-13T19:34:26+00:00"
+    },
+    "GASINR": {
+      "qty": 5.249,
+      "avg_cost": 160.24007999999998,
+      "invested": 841.1001799199998,
+      "last_buy_at": "2026-10-13T19:34:26+00:00"
     }
   }
 }
