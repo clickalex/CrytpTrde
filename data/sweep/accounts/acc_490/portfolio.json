@@ -1,23 +1,17 @@
 {
-  "cash_inr": 653.0771245335949,
-  "realized_pnl": -2228.8412145694756,
-  "total_trades": 386,
-  "sell_count": 190,
+  "cash_inr": 693.4327517548131,
+  "realized_pnl": -2374.609106074418,
+  "total_trades": 392,
+  "sell_count": 193,
   "gross_gains": 3726.08,
-  "gross_losses": -5954.88,
-  "total_tds": 2032.94,
+  "gross_losses": -6100.65,
+  "total_tds": 2061.61,
   "holdings": {
     "USDTINR": {
       "qty": 7.2,
       "avg_cost": 100.019854935,
       "invested": 720.142955532,
       "last_buy_at": "2026-09-02T06:28:30+00:00"
-    },
-    "SUSHIINR": {
-      "qty": 33.3,
-      "avg_cost": 23.585336775000002,
-      "invested": 785.3917146075,
-      "last_buy_at": "2026-10-13T12:29:00+00:00"
     },
     "PEPEINR": {
       "qty": 1694824.0,
@@ -31,17 +25,23 @@
       "invested": 665.599531745148,
       "last_buy_at": "2026-10-13T20:00:41+00:00"
     },
-    "POPCATINR": {
-      "qty": 269.97,
-      "avg_cost": 4.624128108600001,
-      "invested": 1248.3758654787423,
-      "last_buy_at": "2026-10-13T20:00:45+00:00"
+    "PYTHINR": {
+      "qty": 110.9,
+      "avg_cost": 8.440345763849999,
+      "invested": 936.034345210965,
+      "last_buy_at": "2026-10-15T01:07:42+00:00"
     },
-    "ORCAINR": {
-      "qty": 4.71,
-      "avg_cost": 207.19042344,
-      "invested": 975.8668944023999,
-      "last_buy_at": "2026-10-14T14:12:19+00:00"
+    "PENGUINR": {
+      "qty": 1059.0,
+      "avg_cost": 0.7730682509549999,
+      "invested": 818.6792777613449,
+      "last_buy_at": "2026-10-15T01:07:42+00:00"
+    },
+    "BRISEINR": {
+      "qty": 718784430.0,
+      "avg_cost": 1.44706807245e-06,
+      "invested": 1040.1299996271719,
+      "last_buy_at": "2026-10-15T01:07:42+00:00"
     }
   }
 }

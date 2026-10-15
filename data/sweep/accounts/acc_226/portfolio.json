@@ -1,23 +1,29 @@
 {
-  "cash_inr": 1243.4215827603794,
-  "realized_pnl": -4849.108964669021,
-  "total_trades": 574,
-  "sell_count": 286,
+  "cash_inr": 604.8719609387734,
+  "realized_pnl": -4875.400156763771,
+  "total_trades": 579,
+  "sell_count": 288,
   "gross_gains": 1618.32,
-  "gross_losses": -6467.45,
-  "total_tds": 2693.75,
+  "gross_losses": -6493.74,
+  "total_tds": 2705.64,
   "holdings": {
-    "CHILLGUYINR": {
-      "qty": 595.0,
-      "avg_cost": 0.9972941979,
-      "invested": 593.3900477505,
-      "last_buy_at": "2026-10-13T12:12:57+00:00"
+    "BTCINR": {
+      "qty": 7e-05,
+      "avg_cost": 8197723.8551208,
+      "invested": 573.840669858456,
+      "last_buy_at": "2026-10-15T00:52:45+00:00"
     },
-    "SUIINR": {
-      "qty": 6.0,
-      "avg_cost": 103.38890261699999,
-      "invested": 620.3334157019999,
-      "last_buy_at": "2026-10-14T14:01:54+00:00"
+    "ICPINR": {
+      "qty": 2.08,
+      "avg_cost": 305.56781755500003,
+      "invested": 635.5810605144001,
+      "last_buy_at": "2026-10-15T00:52:45+00:00"
+    },
+    "BIOINR": {
+      "qty": 228.7,
+      "avg_cost": 2.6439613199999994,
+      "invested": 604.6739538839998,
+      "last_buy_at": "2026-10-15T00:52:45+00:00"
     }
   }
 }
