@@ -1,18 +1,12 @@
 {
-  "cash_inr": 200.49657878210678,
-  "realized_pnl": -2283.6041552807874,
-  "total_trades": 227,
-  "sell_count": 111,
+  "cash_inr": 431.45346454581113,
+  "realized_pnl": -2353.7185143535953,
+  "total_trades": 229,
+  "sell_count": 112,
   "gross_gains": 2839.73,
-  "gross_losses": -5123.38,
-  "total_tds": 1785.64,
+  "gross_losses": -5193.49,
+  "total_tds": 1805.42,
   "holdings": {
-    "BONKINR": {
-      "qty": 6472739.0,
-      "avg_cost": 0.00031617370784999997,
-      "invested": 2046.509889575301,
-      "last_buy_at": "2026-10-14T14:10:32+00:00"
-    },
     "TOKENINR": {
       "qty": 4226.1727,
       "avg_cost": 0.19559304764999996,
@@ -36,6 +30,12 @@
       "avg_cost": 2.61141255375,
       "invested": 800.6590889797501,
       "last_buy_at": "2026-10-15T23:45:40+00:00"
+    },
+    "BOMEINR": {
+      "qty": 24520.0,
+      "avg_cost": 0.07037744313599999,
+      "invested": 1725.6549056947197,
+      "last_buy_at": "2026-10-16T02:10:23+00:00"
     }
   }
 }

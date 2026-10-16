@@ -1,18 +1,12 @@
 {
-  "cash_inr": 563.4545392568366,
-  "realized_pnl": -4277.435875158194,
-  "total_trades": 907,
-  "sell_count": 452,
+  "cash_inr": 557.4449952234207,
+  "realized_pnl": -4293.359567596301,
+  "total_trades": 909,
+  "sell_count": 453,
   "gross_gains": 2824.31,
-  "gross_losses": -7101.75,
-  "total_tds": 3446.59,
+  "gross_losses": -7117.67,
+  "total_tds": 3452.17,
   "holdings": {
-    "BONKINR": {
-      "qty": 1824207.0,
-      "avg_cost": 0.00031407055679999994,
-      "invested": 572.9297082084574,
-      "last_buy_at": "2026-10-15T01:05:48+00:00"
-    },
     "TRUMPINR": {
       "qty": 3.031,
       "avg_cost": 190.15489993500003,
@@ -24,6 +18,12 @@
       "avg_cost": 15.709536843,
       "invested": 563.18689582155,
       "last_buy_at": "2026-10-15T23:46:21+00:00"
+    },
+    "SHIBINR": {
+      "qty": 1074734.0,
+      "avg_cost": 0.0005186771089499999,
+      "invested": 557.4399240102692,
+      "last_buy_at": "2026-10-16T02:11:09+00:00"
     }
   }
 }
