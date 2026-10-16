@@ -1,18 +1,12 @@
 {
-  "cash_inr": 892.393048074993,
-  "realized_pnl": -2160.4785010826668,
-  "total_trades": 614,
-  "sell_count": 303,
+  "cash_inr": 878.9033708589467,
+  "realized_pnl": -2221.7672842600437,
+  "total_trades": 618,
+  "sell_count": 305,
   "gross_gains": 4036.5,
-  "gross_losses": -6196.97,
-  "total_tds": 2122.86,
+  "gross_losses": -6258.26,
+  "total_tds": 2134.32,
   "holdings": {
-    "BTCINR": {
-      "qty": 7e-05,
-      "avg_cost": 8319994.14681435,
-      "invested": 582.3995902770044,
-      "last_buy_at": "2026-10-13T19:58:06+00:00"
-    },
     "BONKINR": {
       "qty": 1997288.0,
       "avg_cost": 0.00031617370785,
@@ -43,17 +37,23 @@
       "invested": 620.9954075324999,
       "last_buy_at": "2026-10-16T08:05:05+00:00"
     },
-    "SUSHIINR": {
-      "qty": 25.9,
-      "avg_cost": 24.078075020999997,
-      "invested": 623.6221430438999,
-      "last_buy_at": "2026-10-16T13:15:47+00:00"
-    },
     "ALTINR": {
       "qty": 714.0,
       "avg_cost": 0.8326475157000001,
       "invested": 594.5103262098,
       "last_buy_at": "2026-10-16T13:15:51+00:00"
+    },
+    "ETHINR": {
+      "qty": 0.0023,
+      "avg_cost": 243841.93663830002,
+      "invested": 560.83645426809,
+      "last_buy_at": "2026-10-16T21:52:22+00:00"
+    },
+    "POPCATINR": {
+      "qty": 125.34,
+      "avg_cost": 4.674703883849999,
+      "invested": 585.9273848017589,
+      "last_buy_at": "2026-10-16T21:52:22+00:00"
     }
   }
 }

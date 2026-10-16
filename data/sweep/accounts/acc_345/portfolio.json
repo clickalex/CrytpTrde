@@ -1,11 +1,11 @@
 {
-  "cash_inr": 4677.2522271005455,
-  "realized_pnl": -596.3717415970618,
-  "total_trades": 395,
-  "sell_count": 194,
+  "cash_inr": 4625.762598522614,
+  "realized_pnl": -662.0364938320843,
+  "total_trades": 401,
+  "sell_count": 197,
   "gross_gains": 2628.03,
-  "gross_losses": -3224.4,
-  "total_tds": 1043.27,
+  "gross_losses": -3290.06,
+  "total_tds": 1058.32,
   "holdings": {
     "TOKENINR": {
       "qty": 2716.2519,
@@ -19,22 +19,10 @@
       "invested": 529.8499601953057,
       "last_buy_at": "2026-10-15T00:59:35+00:00"
     },
-    "NEARINR": {
-      "qty": 1.0,
-      "avg_cost": 521.72167047,
-      "invested": 521.72167047,
-      "last_buy_at": "2026-10-15T17:40:48+00:00"
-    },
     "SUIINR": {
       "qty": 5.1,
       "avg_cost": 103.5701742075,
       "invested": 528.20788845825,
-      "last_buy_at": "2026-10-15T17:40:48+00:00"
-    },
-    "RENDERINR": {
-      "qty": 2.64,
-      "avg_cost": 199.75928972999998,
-      "invested": 527.3645248872,
       "last_buy_at": "2026-10-15T17:40:48+00:00"
     },
     "POPCATINR": {
@@ -43,11 +31,23 @@
       "invested": 525.0127102765546,
       "last_buy_at": "2026-10-15T17:40:48+00:00"
     },
-    "ONEINR": {
-      "qty": 3291.3,
-      "avg_cost": 0.15789656883,
-      "invested": 519.684976990179,
-      "last_buy_at": "2026-10-16T02:01:42+00:00"
+    "LINKINR": {
+      "qty": 0.41,
+      "avg_cost": 1247.338827735,
+      "invested": 511.40891937134995,
+      "last_buy_at": "2026-10-16T21:46:18+00:00"
+    },
+    "ORCAINR": {
+      "qty": 2.64,
+      "avg_cost": 194.76180223499998,
+      "invested": 514.1711579004,
+      "last_buy_at": "2026-10-16T21:46:18+00:00"
+    },
+    "BONKINR": {
+      "qty": 1664072.0,
+      "avg_cost": 0.00030886275420000006,
+      "invested": 513.9698611071025,
+      "last_buy_at": "2026-10-16T21:46:18+00:00"
     }
   }
 }

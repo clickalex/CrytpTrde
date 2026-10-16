@@ -1,23 +1,17 @@
 {
-  "cash_inr": 656.0997615350811,
-  "realized_pnl": -2344.6453212477545,
-  "total_trades": 537,
-  "sell_count": 265,
+  "cash_inr": 658.3770492641615,
+  "realized_pnl": -2451.9959842726325,
+  "total_trades": 545,
+  "sell_count": 269,
   "gross_gains": 3624.68,
-  "gross_losses": -5969.33,
-  "total_tds": 2179.42,
+  "gross_losses": -6076.68,
+  "total_tds": 2206.54,
   "holdings": {
     "USDTINR": {
       "qty": 5.43,
       "avg_cost": 99.24869955000001,
       "invested": 538.9204385565,
       "last_buy_at": "2026-10-08T02:29:22+00:00"
-    },
-    "TRUMPINR": {
-      "qty": 4.002,
-      "avg_cost": 189.06326438999997,
-      "invested": 756.6311840887798,
-      "last_buy_at": "2026-10-10T01:28:04+00:00"
     },
     "BTCINR": {
       "qty": 9e-05,
@@ -31,23 +25,29 @@
       "invested": 721.1055978126,
       "last_buy_at": "2026-10-15T00:56:02+00:00"
     },
-    "RENDERINR": {
-      "qty": 3.47,
-      "avg_cost": 199.75928973,
-      "invested": 693.1647353631,
-      "last_buy_at": "2026-10-15T17:36:27+00:00"
+    "ORCAINR": {
+      "qty": 3.36,
+      "avg_cost": 194.76180223499998,
+      "invested": 654.3996555095999,
+      "last_buy_at": "2026-10-16T21:43:24+00:00"
     },
-    "CAKEINR": {
-      "qty": 3.16,
-      "avg_cost": 224.947027305,
-      "invested": 710.8326062838,
-      "last_buy_at": "2026-10-15T17:36:27+00:00"
+    "APTINR": {
+      "qty": 8.05,
+      "avg_cost": 85.36189361699999,
+      "invested": 687.16324361685,
+      "last_buy_at": "2026-10-16T21:43:24+00:00"
     },
-    "TOSHIINR": {
-      "qty": 59408.0,
-      "avg_cost": 0.011043546013500001,
-      "invested": 656.074981570008,
-      "last_buy_at": "2026-10-16T13:01:03+00:00"
+    "DOGEINR": {
+      "qty": 84.0,
+      "avg_cost": 8.102139045,
+      "invested": 680.57967978,
+      "last_buy_at": "2026-10-16T21:43:24+00:00"
+    },
+    "PENGUINR": {
+      "qty": 862.0,
+      "avg_cost": 0.76312335099,
+      "invested": 657.81232855338,
+      "last_buy_at": "2026-10-16T21:43:26+00:00"
     }
   }
 }

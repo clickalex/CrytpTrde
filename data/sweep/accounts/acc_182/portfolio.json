@@ -1,10 +1,23 @@
 {
-  "cash_inr": 5360.656856509678,
+  "cash_inr": 3431.6505992716184,
   "realized_pnl": -3112.86018556353,
-  "total_trades": 330,
+  "total_trades": 332,
   "sell_count": 165,
   "gross_gains": 1722.78,
   "gross_losses": -4835.64,
   "total_tds": 1526.49,
-  "holdings": {}
+  "holdings": {
+    "PYTHINR": {
+      "qty": 122.0,
+      "avg_cost": 8.781456834150001,
+      "invested": 1071.3377337663,
+      "last_buy_at": "2026-10-16T21:37:37+00:00"
+    },
+    "BIOINR": {
+      "qty": 340.7,
+      "avg_cost": 2.5173716567999995,
+      "invested": 857.6685234717598,
+      "last_buy_at": "2026-10-16T21:37:37+00:00"
+    }
+  }
 }

@@ -1,35 +1,17 @@
 {
-  "cash_inr": 2230.7162633713024,
-  "realized_pnl": -2516.738303023332,
-  "total_trades": 666,
-  "sell_count": 330,
+  "cash_inr": 2184.8878569369936,
+  "realized_pnl": -2605.4700833374163,
+  "total_trades": 674,
+  "sell_count": 334,
   "gross_gains": 3176.21,
-  "gross_losses": -5692.99,
-  "total_tds": 1898.96,
+  "gross_losses": -5781.72,
+  "total_tds": 1920.45,
   "holdings": {
-    "PENGUINR": {
-      "qty": 758.0,
-      "avg_cost": 0.770264049555,
-      "invested": 583.86014956269,
-      "last_buy_at": "2026-10-14T14:10:18+00:00"
-    },
     "TOSHIINR": {
       "qty": 51663.0,
       "avg_cost": 0.010734082358999999,
       "invested": 554.5548969130169,
       "last_buy_at": "2026-10-15T01:04:58+00:00"
-    },
-    "NEARINR": {
-      "qty": 1.0,
-      "avg_cost": 521.72167047,
-      "invested": 521.72167047,
-      "last_buy_at": "2026-10-15T17:47:59+00:00"
-    },
-    "ADAINR": {
-      "qty": 24.6,
-      "avg_cost": 23.281882123499997,
-      "invested": 572.7343002381,
-      "last_buy_at": "2026-10-15T17:47:59+00:00"
     },
     "SHIBINR": {
       "qty": 1086379.0,
@@ -37,11 +19,29 @@
       "invested": 563.479918943992,
       "last_buy_at": "2026-10-16T02:09:52+00:00"
     },
-    "PYTHINR": {
-      "qty": 60.7,
-      "avg_cost": 9.18125583375,
-      "invested": 557.302229108625,
-      "last_buy_at": "2026-10-16T13:14:09+00:00"
+    "LINKINR": {
+      "qty": 0.43,
+      "avg_cost": 1247.338827735,
+      "invested": 536.35569592605,
+      "last_buy_at": "2026-10-16T21:51:22+00:00"
+    },
+    "ARBINR": {
+      "qty": 28.3,
+      "avg_cost": 19.3299611505,
+      "invested": 547.03790055915,
+      "last_buy_at": "2026-10-16T21:51:22+00:00"
+    },
+    "POPCATINR": {
+      "qty": 115.86,
+      "avg_cost": 4.67470388385,
+      "invested": 541.611191982861,
+      "last_buy_at": "2026-10-16T21:51:22+00:00"
+    },
+    "POLYXINR": {
+      "qty": 146.8897,
+      "avg_cost": 3.718571356499999,
+      "invested": 546.219830984878,
+      "last_buy_at": "2026-10-16T21:51:26+00:00"
     }
   }
 }
