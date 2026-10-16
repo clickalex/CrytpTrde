@@ -1,23 +1,17 @@
 {
-  "cash_inr": 891.9430156378583,
-  "realized_pnl": -2210.2893378952003,
-  "total_trades": 606,
-  "sell_count": 299,
-  "gross_gains": 3978.38,
-  "gross_losses": -6188.67,
-  "total_tds": 2098.3,
+  "cash_inr": 932.445658285513,
+  "realized_pnl": -2194.2372506667416,
+  "total_trades": 610,
+  "sell_count": 301,
+  "gross_gains": 4002.74,
+  "gross_losses": -6196.97,
+  "total_tds": 2110.95,
   "holdings": {
     "PENGUINR": {
       "qty": 710.0,
       "avg_cost": 0.7702740645599999,
       "invested": 546.8945858376,
       "last_buy_at": "2026-10-13T12:26:52+00:00"
-    },
-    "HMSTRINR": {
-      "qty": 42669.0,
-      "avg_cost": 0.015961914969000002,
-      "invested": 681.078949812261,
-      "last_buy_at": "2026-10-13T12:26:53+00:00"
     },
     "BTCINR": {
       "qty": 7e-05,
@@ -37,12 +31,6 @@
       "invested": 587.5587109392,
       "last_buy_at": "2026-10-15T01:05:56+00:00"
     },
-    "APTINR": {
-      "qty": 6.87,
-      "avg_cost": 82.507617192,
-      "invested": 566.82733010904,
-      "last_buy_at": "2026-10-15T01:05:56+00:00"
-    },
     "SEIINR": {
       "qty": 96.9,
       "avg_cost": 6.2883214894499995,
@@ -54,6 +42,18 @@
       "avg_cost": 224.947027305,
       "invested": 593.8601520852001,
       "last_buy_at": "2026-10-15T17:49:26+00:00"
+    },
+    "FILINR": {
+      "qty": 5.08,
+      "avg_cost": 116.103952965,
+      "invested": 589.8080810622,
+      "last_buy_at": "2026-10-16T08:05:02+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 610.0,
+      "avg_cost": 1.01802525825,
+      "invested": 620.9954075324999,
+      "last_buy_at": "2026-10-16T08:05:05+00:00"
     }
   }
 }

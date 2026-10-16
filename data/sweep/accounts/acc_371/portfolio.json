@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1234.8508366275555,
-  "realized_pnl": -2165.5722054339353,
-  "total_trades": 748,
-  "sell_count": 370,
+  "cash_inr": 1206.0963114467936,
+  "realized_pnl": -2176.9871123277308,
+  "total_trades": 750,
+  "sell_count": 371,
   "gross_gains": 3992.0,
-  "gross_losses": -6157.6,
-  "total_tds": 2383.86,
+  "gross_losses": -6169.01,
+  "total_tds": 2388.8,
   "holdings": {
     "PENGUINR": {
       "qty": 681.0,
@@ -31,12 +31,6 @@
       "invested": 512.05068089175,
       "last_buy_at": "2026-10-15T01:01:11+00:00"
     },
-    "ONEINR": {
-      "qty": 3209.9,
-      "avg_cost": 0.15716547346499998,
-      "invested": 504.4854532753035,
-      "last_buy_at": "2026-10-15T01:01:11+00:00"
-    },
     "ARBINR": {
       "qty": 29.1,
       "avg_cost": 19.5783332745,
@@ -54,6 +48,12 @@
       "avg_cost": 6.3667389786,
       "invested": 529.0760091216599,
       "last_buy_at": "2026-10-15T23:39:30+00:00"
+    },
+    "XDBINR": {
+      "qty": 69849.1,
+      "avg_cost": 0.007400087194499999,
+      "invested": 516.8894304573499,
+      "last_buy_at": "2026-10-16T07:57:04+00:00"
     }
   }
 }
