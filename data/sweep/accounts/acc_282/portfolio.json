@@ -1,22 +1,16 @@
 {
-  "cash_inr": 610.0253940313208,
-  "realized_pnl": -3963.2101084017445,
-  "total_trades": 603,
-  "sell_count": 299,
+  "cash_inr": 591.8668185195902,
+  "realized_pnl": -3987.8821920100645,
+  "total_trades": 605,
+  "sell_count": 300,
   "gross_gains": 2467.19,
-  "gross_losses": -6430.32,
-  "total_tds": 2387.25,
+  "gross_losses": -6454.99,
+  "total_tds": 2393.05,
   "holdings": {
     "SUIINR": {
       "qty": 5.8,
       "avg_cost": 103.17658451099999,
       "invested": 598.4241901638,
-      "last_buy_at": "2026-10-16T21:42:58+00:00"
-    },
-    "PYTHINR": {
-      "qty": 68.8,
-      "avg_cost": 8.78145683415,
-      "invested": 604.1642301895199,
       "last_buy_at": "2026-10-16T21:42:58+00:00"
     },
     "ONEINR": {
@@ -36,6 +30,12 @@
       "avg_cost": 0.010867281925499997,
       "invested": 609.9914017602404,
       "last_buy_at": "2026-10-16T21:43:00+00:00"
+    },
+    "BRISEINR": {
+      "qty": 420464788.0,
+      "avg_cost": 1.4076089527499998e-06,
+      "invested": 591.8499999049307,
+      "last_buy_at": "2026-10-17T05:03:02+00:00"
     }
   }
 }
