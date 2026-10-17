@@ -1,22 +1,16 @@
 {
-  "cash_inr": 407.9546577536639,
-  "realized_pnl": -3932.4876482395457,
-  "total_trades": 599,
-  "sell_count": 297,
+  "cash_inr": 427.11083768673257,
+  "realized_pnl": -3977.243811377637,
+  "total_trades": 605,
+  "sell_count": 300,
   "gross_gains": 3137.19,
-  "gross_losses": -7069.64,
-  "total_tds": 2487.51,
+  "gross_losses": -7114.4,
+  "total_tds": 2507.03,
   "holdings": {
     "ETHINR": {
       "qty": 0.0023,
       "avg_cost": 242399.175018,
       "invested": 557.5181025414,
-      "last_buy_at": "2026-10-08T16:49:20+00:00"
-    },
-    "BNBINR": {
-      "qty": 0.008,
-      "avg_cost": 72812.29115159999,
-      "invested": 582.4983292128,
       "last_buy_at": "2026-10-08T16:49:20+00:00"
     },
     "TRXINR": {
@@ -25,17 +19,23 @@
       "invested": 619.2409789566001,
       "last_buy_at": "2026-10-12T00:05:58+00:00"
     },
-    "TOKENINR": {
-      "qty": 4094.5729,
-      "avg_cost": 0.19559304765,
-      "invested": 800.8699923360987,
-      "last_buy_at": "2026-10-15T00:56:19+00:00"
+    "SOLINR": {
+      "qty": 0.055,
+      "avg_cost": 10511.84939805,
+      "invested": 578.1517168927501,
+      "last_buy_at": "2026-10-17T19:58:35+00:00"
     },
-    "SHIBINR": {
-      "qty": 1197791.0,
-      "avg_cost": 0.00051086540505,
-      "invested": 611.9099843802446,
-      "last_buy_at": "2026-10-16T21:43:39+00:00"
+    "RIFINR": {
+      "qty": 86.0,
+      "avg_cost": 8.0590745235,
+      "invested": 693.080409021,
+      "last_buy_at": "2026-10-17T19:58:35+00:00"
+    },
+    "BOMEINR": {
+      "qty": 9683.0,
+      "avg_cost": 0.0661581215295,
+      "invested": 640.6090907701484,
+      "last_buy_at": "2026-10-17T19:58:36+00:00"
     }
   }
 }

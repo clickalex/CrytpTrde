@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1577.2622394538698,
-  "realized_pnl": -1912.9502759758125,
-  "total_trades": 673,
-  "sell_count": 333,
+  "cash_inr": 1478.1920958415326,
+  "realized_pnl": -1956.1617507394126,
+  "total_trades": 675,
+  "sell_count": 334,
   "gross_gains": 4142.74,
-  "gross_losses": -6055.64,
-  "total_tds": 2147.29,
+  "gross_losses": -6098.85,
+  "total_tds": 2152.69,
   "holdings": {
-    "CHRINR": {
-      "qty": 286.0,
-      "avg_cost": 2.0386544178,
-      "invested": 583.0551634908,
-      "last_buy_at": "2026-10-15T00:57:31+00:00"
-    },
     "LINKINR": {
       "qty": 0.47,
       "avg_cost": 1261.3898797499996,
@@ -48,6 +42,12 @@
       "avg_cost": 131.62620921449997,
       "invested": 658.1310460724999,
       "last_buy_at": "2026-10-17T09:49:26+00:00"
+    },
+    "TOKENINR": {
+      "qty": 3274.1244,
+      "avg_cost": 0.19348989660000004,
+      "invested": 633.5099916115372,
+      "last_buy_at": "2026-10-17T20:00:09+00:00"
     }
   }
 }

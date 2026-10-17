@@ -1,18 +1,12 @@
 {
-  "cash_inr": 4738.476479201064,
-  "realized_pnl": -2152.14269566207,
-  "total_trades": 585,
-  "sell_count": 291,
+  "cash_inr": 4715.300552159663,
+  "realized_pnl": -2172.73377668377,
+  "total_trades": 587,
+  "sell_count": 292,
   "gross_gains": 1612.71,
-  "gross_losses": -3764.82,
-  "total_tds": 1534.2,
+  "gross_losses": -3785.41,
+  "total_tds": 1539.26,
   "holdings": {
-    "SUIINR": {
-      "qty": 5.1,
-      "avg_cost": 103.17658451099999,
-      "invested": 526.2005810060999,
-      "last_buy_at": "2026-10-16T21:43:46+00:00"
-    },
     "PENGUINR": {
       "qty": 680.0,
       "avg_cost": 0.7706946947699999,
@@ -24,6 +18,12 @@
       "avg_cost": 22.529755247999994,
       "invested": 524.9432972783999,
       "last_buy_at": "2026-10-17T09:48:24+00:00"
+    },
+    "ICPINR": {
+      "qty": 1.74,
+      "avg_cost": 300.9909602700001,
+      "invested": 523.7242708698001,
+      "last_buy_at": "2026-10-17T19:58:44+00:00"
     }
   }
 }
