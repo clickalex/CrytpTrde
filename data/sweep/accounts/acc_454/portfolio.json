@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2083.9500210088827,
-  "realized_pnl": -2457.930447892578,
-  "total_trades": 593,
-  "sell_count": 293,
+  "cash_inr": 2045.9635109365581,
+  "realized_pnl": -2486.1495116047927,
+  "total_trades": 595,
+  "sell_count": 294,
   "gross_gains": 2581.4,
-  "gross_losses": -5039.36,
-  "total_tds": 1736.25,
+  "gross_losses": -5067.58,
+  "total_tds": 1741.04,
   "holdings": {
-    "BRISEINR": {
-      "qty": 350024998.0,
-      "avg_cost": 1.44706807245e-06,
-      "invested": 506.5099991651751,
-      "last_buy_at": "2026-10-15T01:05:50+00:00"
-    },
     "GALAINR": {
       "qty": 2543.98,
       "avg_cost": 0.20763108365999997,
@@ -48,6 +42,12 @@
       "avg_cost": 8213275.555485,
       "invested": 492.7965333291,
       "last_buy_at": "2026-10-17T00:03:28+00:00"
+    },
+    "SHIBINR": {
+      "qty": 1007344.0,
+      "avg_cost": 0.0005077607534999999,
+      "invested": 511.4897484737039,
+      "last_buy_at": "2026-10-17T09:57:17+00:00"
     }
   }
 }
