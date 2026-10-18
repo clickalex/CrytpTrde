@@ -1,17 +1,23 @@
 {
-  "cash_inr": 3834.2315746949776,
-  "realized_pnl": -1205.776447576809,
-  "total_trades": 103,
-  "sell_count": 51,
+  "cash_inr": 3647.233521526565,
+  "realized_pnl": -1386.4494371033861,
+  "total_trades": 106,
+  "sell_count": 52,
   "gross_gains": 2995.04,
-  "gross_losses": -4200.81,
-  "total_tds": 1716.11,
+  "gross_losses": -4381.48,
+  "total_tds": 1746.77,
   "holdings": {
-    "GASINR": {
-      "qty": 25.2117,
-      "avg_cost": 128.6657737365,
-      "invested": 3243.882887712517,
-      "last_buy_at": "2026-10-18T09:52:31+00:00"
+    "ORCAINR": {
+      "qty": 12.71,
+      "avg_cost": 180.92106532499997,
+      "invested": 2299.50674028075,
+      "last_buy_at": "2026-10-18T22:39:42+00:00"
+    },
+    "CHRINR": {
+      "qty": 502.0,
+      "avg_cost": 1.8327459149999998,
+      "invested": 920.0384493299999,
+      "last_buy_at": "2026-10-18T22:39:42+00:00"
     }
   }
 }

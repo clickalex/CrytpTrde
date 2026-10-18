@@ -1,23 +1,29 @@
 {
-  "cash_inr": 5081.269864068715,
-  "realized_pnl": -1061.6719486220425,
-  "total_trades": 102,
-  "sell_count": 50,
+  "cash_inr": 3847.9272107636625,
+  "realized_pnl": -1209.372747586409,
+  "total_trades": 107,
+  "sell_count": 52,
   "gross_gains": 1721.49,
-  "gross_losses": -2783.19,
-  "total_tds": 855.78,
+  "gross_losses": -2930.89,
+  "total_tds": 884.34,
   "holdings": {
-    "ORCAINR": {
-      "qty": 6.23,
-      "avg_cost": 184.88700730499997,
-      "invested": 1151.8460555101499,
-      "last_buy_at": "2026-10-18T04:58:12+00:00"
+    "CHRINR": {
+      "qty": 1011.0,
+      "avg_cost": 1.832745915,
+      "invested": 1852.906120065,
+      "last_buy_at": "2026-10-18T22:39:46+00:00"
     },
-    "GASINR": {
-      "qty": 14.374,
-      "avg_cost": 128.6657737365,
-      "invested": 1849.4418316884512,
-      "last_buy_at": "2026-10-18T09:52:34+00:00"
+    "XDBINR": {
+      "qty": 197076.8,
+      "avg_cost": 0.006582862786499999,
+      "invested": 1297.3295328025029,
+      "last_buy_at": "2026-10-18T22:39:46+00:00"
+    },
+    "POLYXINR": {
+      "qty": 261.1662,
+      "avg_cost": 3.4772097359999994,
+      "invested": 908.1296533541231,
+      "last_buy_at": "2026-10-18T22:39:46+00:00"
     }
   }
 }

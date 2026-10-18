@@ -1,11 +1,11 @@
 {
-  "cash_inr": 3744.318165120728,
-  "realized_pnl": -1516.5063544219431,
-  "total_trades": 124,
-  "sell_count": 61,
+  "cash_inr": 2383.622894849561,
+  "realized_pnl": -1581.9326549006792,
+  "total_trades": 128,
+  "sell_count": 62,
   "gross_gains": 1589.78,
-  "gross_losses": -3106.27,
-  "total_tds": 1064.2,
+  "gross_losses": -3171.7,
+  "total_tds": 1075.3,
   "holdings": {
     "BTCINR": {
       "qty": 0.00031,
@@ -13,11 +13,23 @@
       "invested": 2500.236309734163,
       "last_buy_at": "2026-10-08T16:44:18+00:00"
     },
-    "GASINR": {
-      "qty": 9.1298,
-      "avg_cost": 128.6657737365,
-      "invested": 1174.6927810594977,
-      "last_buy_at": "2026-10-18T09:53:32+00:00"
+    "ORCAINR": {
+      "qty": 6.2,
+      "avg_cost": 180.921065325,
+      "invested": 1121.710605015,
+      "last_buy_at": "2026-10-18T22:40:49+00:00"
+    },
+    "CHRINR": {
+      "qty": 429.0,
+      "avg_cost": 1.8327459149999998,
+      "invested": 786.247997535,
+      "last_buy_at": "2026-10-18T22:40:49+00:00"
+    },
+    "XDBINR": {
+      "qty": 83686.9,
+      "avg_cost": 0.006582862786499999,
+      "invested": 550.8993797275467,
+      "last_buy_at": "2026-10-18T22:40:49+00:00"
     }
   }
 }

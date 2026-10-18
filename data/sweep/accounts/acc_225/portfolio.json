@@ -1,23 +1,17 @@
 {
-  "cash_inr": 4751.233799148354,
-  "realized_pnl": -1282.7496253739291,
-  "total_trades": 252,
-  "sell_count": 123,
+  "cash_inr": 4790.169532116804,
+  "realized_pnl": -1323.8141276556792,
+  "total_trades": 256,
+  "sell_count": 125,
   "gross_gains": 1312.22,
-  "gross_losses": -2594.95,
-  "total_tds": 696.15,
+  "gross_losses": -2636.01,
+  "total_tds": 707.29,
   "holdings": {
     "NEARINR": {
       "qty": 1.0,
       "avg_cost": 485.13685720499996,
       "invested": 485.13685720499996,
       "last_buy_at": "2026-10-15T00:52:42+00:00"
-    },
-    "ADAINR": {
-      "qty": 27.6,
-      "avg_cost": 22.728052347,
-      "invested": 627.2942447772,
-      "last_buy_at": "2026-10-16T21:39:55+00:00"
     },
     "CAKEINR": {
       "qty": 2.55,
@@ -37,11 +31,17 @@
       "invested": 531.4498717658129,
       "last_buy_at": "2026-10-17T19:53:01+00:00"
     },
-    "ORCAINR": {
-      "qty": 2.85,
-      "avg_cost": 184.88700730499997,
-      "invested": 526.9279708192499,
-      "last_buy_at": "2026-10-18T05:03:40+00:00"
+    "FILINR": {
+      "qty": 5.09,
+      "avg_cost": 105.007327425,
+      "invested": 534.48729659325,
+      "last_buy_at": "2026-10-18T22:46:06+00:00"
+    },
+    "RIFINR": {
+      "qty": 70.0,
+      "avg_cost": 7.55131377,
+      "invested": 528.5919639,
+      "last_buy_at": "2026-10-18T22:46:06+00:00"
     }
   }
 }
