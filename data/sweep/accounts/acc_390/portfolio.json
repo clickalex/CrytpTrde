@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2086.408521977481,
-  "realized_pnl": -3920.8302229308783,
-  "total_trades": 881,
-  "sell_count": 439,
+  "cash_inr": 2077.948665546759,
+  "realized_pnl": -3930.582329411277,
+  "total_trades": 883,
+  "sell_count": 440,
   "gross_gains": 2291.18,
-  "gross_losses": -6212.02,
-  "total_tds": 2422.21,
+  "gross_losses": -6221.77,
+  "total_tds": 2427.37,
   "holdings": {
-    "ONEINR": {
-      "qty": 3545.8,
-      "avg_cost": 0.148151968965,
-      "invested": 525.317251556097,
-      "last_buy_at": "2026-10-18T05:13:03+00:00"
-    },
     "BONKINR": {
       "qty": 1738149.0,
       "avg_cost": 0.00030125135039999997,
@@ -24,6 +18,12 @@
       "avg_cost": 1.3851753415499998e-06,
       "invested": 521.5999990330416,
       "last_buy_at": "2026-10-18T05:13:04+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 23.1,
+      "avg_cost": 22.461653214,
+      "invested": 518.8641892434,
+      "last_buy_at": "2026-10-18T10:08:11+00:00"
     }
   }
 }
