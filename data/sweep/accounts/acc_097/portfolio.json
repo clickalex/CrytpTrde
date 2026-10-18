@@ -1,10 +1,17 @@
 {
-  "cash_inr": 9483.078498019413,
+  "cash_inr": 8536.648507513413,
   "realized_pnl": -343.661609048699,
-  "total_trades": 40,
+  "total_trades": 41,
   "sell_count": 20,
   "gross_gains": 384.1,
   "gross_losses": -727.76,
   "total_tds": 173.28,
-  "holdings": {}
+  "holdings": {
+    "CHRINR": {
+      "qty": 488.0,
+      "avg_cost": 1.93940571825,
+      "invested": 946.429990506,
+      "last_buy_at": "2026-10-18T04:56:26+00:00"
+    }
+  }
 }
