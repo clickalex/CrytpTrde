@@ -1,23 +1,17 @@
 {
-  "cash_inr": 829.9347100887796,
-  "realized_pnl": -2405.2887308324084,
-  "total_trades": 217,
-  "sell_count": 106,
+  "cash_inr": 899.4222432666514,
+  "realized_pnl": -2440.7887649997438,
+  "total_trades": 221,
+  "sell_count": 108,
   "gross_gains": 1702.59,
-  "gross_losses": -4107.89,
-  "total_tds": 1256.88,
+  "gross_losses": -4143.39,
+  "total_tds": 1269.15,
   "holdings": {
     "USDTINR": {
       "qty": 30.76,
       "avg_cost": 98.12701899,
       "invested": 3018.3871041324,
       "last_buy_at": "2026-09-22T01:49:43+00:00"
-    },
-    "BRISEINR": {
-      "qty": 510853817.0,
-      "avg_cost": 1.38757894275e-06,
-      "invested": 708.8499992926619,
-      "last_buy_at": "2026-10-17T09:41:42+00:00"
     },
     "RIFINR": {
       "qty": 82.0,
@@ -31,11 +25,17 @@
       "invested": 608.689079553555,
       "last_buy_at": "2026-10-18T22:43:14+00:00"
     },
-    "PYTHINR": {
-      "qty": 73.1,
-      "avg_cost": 7.561929675299999,
-      "invested": 552.7770592644299,
-      "last_buy_at": "2026-10-19T00:35:25+00:00"
+    "GASINR": {
+      "qty": 4.3095,
+      "avg_cost": 126.42141111600002,
+      "invested": 544.813071204402,
+      "last_buy_at": "2026-10-19T17:50:47+00:00"
+    },
+    "BOMEINR": {
+      "qty": 9755.0,
+      "avg_cost": 0.06146108418449999,
+      "invested": 599.5528762197974,
+      "last_buy_at": "2026-10-19T17:50:50+00:00"
     }
   }
 }

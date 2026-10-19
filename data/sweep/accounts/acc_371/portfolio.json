@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1215.0962370560314,
-  "realized_pnl": -2689.1512169579396,
-  "total_trades": 806,
-  "sell_count": 400,
+  "cash_inr": 1200.9784981227485,
+  "realized_pnl": -2711.566404523024,
+  "total_trades": 810,
+  "sell_count": 402,
   "gross_gains": 3992.0,
-  "gross_losses": -6681.17,
-  "total_tds": 2540.74,
+  "gross_losses": -6703.59,
+  "total_tds": 2551.05,
   "holdings": {
-    "ADAINR": {
-      "qty": 23.8,
-      "avg_cost": 22.317437142,
-      "invested": 531.1550039796,
-      "last_buy_at": "2026-10-18T05:11:56+00:00"
-    },
     "TRBINR": {
       "qty": 0.359,
       "avg_cost": 1774.4585859,
@@ -37,11 +31,17 @@
       "invested": 543.2599602530099,
       "last_buy_at": "2026-10-18T22:55:43+00:00"
     },
-    "ONEINR": {
-      "qty": 3586.9,
-      "avg_cost": 0.14517751248000002,
-      "invested": 520.737219514512,
-      "last_buy_at": "2026-10-19T11:27:48+00:00"
+    "FILINR": {
+      "qty": 5.02,
+      "avg_cost": 103.304776575,
+      "invested": 518.5899784065,
+      "last_buy_at": "2026-10-19T18:06:20+00:00"
+    },
+    "PEPEINR": {
+      "qty": 1233034.0,
+      "avg_cost": 0.0004174254084,
+      "invested": 514.6997210210856,
+      "last_buy_at": "2026-10-19T18:06:23+00:00"
     }
   }
 }
