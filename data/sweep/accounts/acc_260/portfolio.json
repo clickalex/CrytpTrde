@@ -1,11 +1,11 @@
 {
-  "cash_inr": 199.50523002420846,
-  "realized_pnl": -2204.6290178723875,
-  "total_trades": 299,
-  "sell_count": 146,
+  "cash_inr": 190.27551944862637,
+  "realized_pnl": -2212.8656429223984,
+  "total_trades": 301,
+  "sell_count": 147,
   "gross_gains": 4216.85,
-  "gross_losses": -6421.51,
-  "total_tds": 1878.36,
+  "gross_losses": -6429.75,
+  "total_tds": 1885.95,
   "holdings": {
     "JUPINR": {
       "qty": 30.8,
@@ -31,12 +31,6 @@
       "invested": 860.2322846317201,
       "last_buy_at": "2026-10-18T10:00:30+00:00"
     },
-    "POLYXINR": {
-      "qty": 220.3749,
-      "avg_cost": 3.4772097359999994,
-      "invested": 766.2897478500263,
-      "last_buy_at": "2026-10-18T22:48:25+00:00"
-    },
     "BTCINR": {
       "qty": 8e-05,
       "avg_cost": 8323109.61456975,
@@ -48,6 +42,12 @@
       "avg_cost": 0.19713535841999996,
       "invested": 797.9684465196443,
       "last_buy_at": "2026-10-20T08:05:20+00:00"
+    },
+    "PYTHINR": {
+      "qty": 95.5,
+      "avg_cost": 7.954918471499999,
+      "invested": 759.6947140282499,
+      "last_buy_at": "2026-10-20T18:53:46+00:00"
     }
   }
 }
