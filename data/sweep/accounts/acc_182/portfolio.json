@@ -1,23 +1,29 @@
 {
-  "cash_inr": 3466.430886694933,
-  "realized_pnl": -3469.237452357235,
-  "total_trades": 366,
-  "sell_count": 182,
+  "cash_inr": 2751.632118333466,
+  "realized_pnl": -3484.1305705322347,
+  "total_trades": 369,
+  "sell_count": 183,
   "gross_gains": 1722.78,
-  "gross_losses": -5192.02,
-  "total_tds": 1647.31,
+  "gross_losses": -5206.91,
+  "total_tds": 1655.72,
   "holdings": {
-    "TRUMPINR": {
-      "qty": 4.94,
-      "avg_cost": 173.109361425,
-      "invested": 855.1602454395,
-      "last_buy_at": "2026-10-18T22:43:18+00:00"
-    },
     "BOMEINR": {
       "qty": 9142.0,
       "avg_cost": 0.0614610841845,
       "invested": 561.877231614699,
       "last_buy_at": "2026-10-19T17:50:55+00:00"
+    },
+    "CHRINR": {
+      "qty": 454.0,
+      "avg_cost": 1.8915339943499998,
+      "invested": 858.7564334348999,
+      "last_buy_at": "2026-10-20T02:07:09+00:00"
+    },
+    "GASINR": {
+      "qty": 5.3924,
+      "avg_cost": 127.5681291885,
+      "invested": 687.8983798360674,
+      "last_buy_at": "2026-10-20T02:07:09+00:00"
     }
   }
 }
