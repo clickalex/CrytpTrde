@@ -1,11 +1,11 @@
 {
-  "cash_inr": 616.4108739854568,
-  "realized_pnl": -1337.071061371764,
-  "total_trades": 480,
-  "sell_count": 236,
-  "gross_gains": 3771.16,
-  "gross_losses": -5108.22,
-  "total_tds": 1920.97,
+  "cash_inr": 1540.3841525871303,
+  "realized_pnl": -1195.8118381795264,
+  "total_trades": 485,
+  "sell_count": 239,
+  "gross_gains": 3947.21,
+  "gross_losses": -5143.01,
+  "total_tds": 1943.5,
   "holdings": {
     "TRXINR": {
       "qty": 25.6,
@@ -18,18 +18,6 @@
       "avg_cost": 99.64929975,
       "invested": 653.6994063599999,
       "last_buy_at": "2026-10-08T16:50:21+00:00"
-    },
-    "ETHINR": {
-      "qty": 0.0031,
-      "avg_cost": 243486.90471105004,
-      "invested": 754.8094046042551,
-      "last_buy_at": "2026-10-15T00:58:06+00:00"
-    },
-    "ALTINR": {
-      "qty": 876.0,
-      "avg_cost": 0.84236207055,
-      "invested": 737.9091738018,
-      "last_buy_at": "2026-10-17T09:50:04+00:00"
     },
     "ARBINR": {
       "qty": 40.3,
@@ -49,11 +37,17 @@
       "invested": 590.9277586212,
       "last_buy_at": "2026-10-19T18:02:34+00:00"
     },
-    "GASINR": {
-      "qty": 4.8318,
-      "avg_cost": 127.56812918849997,
-      "invested": 616.3836866129942,
-      "last_buy_at": "2026-10-20T02:15:05+00:00"
+    "SOLINR": {
+      "qty": 0.063,
+      "avg_cost": 10607.99344605,
+      "invested": 668.30358710115,
+      "last_buy_at": "2026-10-20T08:09:50+00:00"
+    },
+    "GALAINR": {
+      "qty": 3223.97,
+      "avg_cost": 0.19713535842,
+      "invested": 635.5584814853273,
+      "last_buy_at": "2026-10-20T08:09:52+00:00"
     }
   }
 }
