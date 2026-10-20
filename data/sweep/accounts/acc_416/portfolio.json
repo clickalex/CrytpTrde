@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1042.3382819916576,
-  "realized_pnl": -1610.1769411768578,
-  "total_trades": 578,
-  "sell_count": 285,
-  "gross_gains": 4716.51,
+  "cash_inr": 1127.1804703762477,
+  "realized_pnl": -1539.2523083205078,
+  "total_trades": 582,
+  "sell_count": 287,
+  "gross_gains": 4787.43,
   "gross_losses": -6326.73,
-  "total_tds": 1970.42,
+  "total_tds": 1985.75,
   "holdings": {
-    "JUPINR": {
-      "qty": 21.0,
-      "avg_cost": 30.265345110000005,
-      "invested": 635.5722473100001,
-      "last_buy_at": "2026-10-17T20:08:16+00:00"
-    },
     "TRUMPINR": {
       "qty": 3.477,
       "avg_cost": 178.25707399499998,
@@ -37,12 +31,6 @@
       "invested": 623.5053680855999,
       "last_buy_at": "2026-10-18T22:58:40+00:00"
     },
-    "BIOINR": {
-      "qty": 347.0,
-      "avg_cost": 2.3773618869,
-      "invested": 824.9445747543,
-      "last_buy_at": "2026-10-18T22:58:40+00:00"
-    },
     "ICPINR": {
       "qty": 2.5,
       "avg_cost": 294.48120702,
@@ -54,6 +42,18 @@
       "avg_cost": 0.0615392012235,
       "invested": 694.8391210145385,
       "last_buy_at": "2026-10-20T14:12:21+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 44.82,
+      "avg_cost": 15.188756583,
+      "invested": 680.76007005006,
+      "last_buy_at": "2026-10-20T23:05:26+00:00"
+    },
+    "PYTHINR": {
+      "qty": 91.5,
+      "avg_cost": 8.202289095,
+      "invested": 750.5094521924999,
+      "last_buy_at": "2026-10-20T23:05:28+00:00"
     }
   }
 }

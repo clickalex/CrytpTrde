@@ -1,23 +1,17 @@
 {
-  "cash_inr": 2518.2843450113255,
-  "realized_pnl": -2877.2125103104795,
-  "total_trades": 673,
-  "sell_count": 334,
-  "gross_gains": 3041.8,
+  "cash_inr": 2595.494560351882,
+  "realized_pnl": -2824.3090207838754,
+  "total_trades": 675,
+  "sell_count": 335,
+  "gross_gains": 3094.7,
   "gross_losses": -5919.03,
-  "total_tds": 1968.99,
+  "total_tds": 1974.85,
   "holdings": {
     "SHIBINR": {
       "qty": 1091652.0,
       "avg_cost": 0.00051046480485,
       "invested": 557.2499251441121,
       "last_buy_at": "2026-10-15T01:03:18+00:00"
-    },
-    "TOSHIINR": {
-      "qty": 49128.0,
-      "avg_cost": 0.010844247414,
-      "invested": 532.756186954992,
-      "last_buy_at": "2026-10-16T02:07:10+00:00"
     },
     "CAKEINR": {
       "qty": 2.36,
@@ -36,6 +30,12 @@
       "avg_cost": 6.12848200965,
       "invested": 503.76122119323,
       "last_buy_at": "2026-10-20T08:15:25+00:00"
+    },
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 8376450.031949999,
+      "invested": 502.58700191699995,
+      "last_buy_at": "2026-10-20T23:04:32+00:00"
     }
   }
 }
