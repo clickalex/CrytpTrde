@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1258.8780784789874,
-  "realized_pnl": -2567.7433236344655,
-  "total_trades": 692,
-  "sell_count": 342,
-  "gross_gains": 3511.59,
+  "cash_inr": 1243.4160217315593,
+  "realized_pnl": -2543.007564447415,
+  "total_trades": 696,
+  "sell_count": 344,
+  "gross_gains": 3536.33,
   "gross_losses": -6079.4,
-  "total_tds": 2105.16,
+  "total_tds": 2115.76,
   "holdings": {
     "ONEINR": {
       "qty": 3464.2,
       "avg_cost": 0.14623910300999998,
       "invested": 506.60150064724195,
       "last_buy_at": "2026-10-20T08:11:57+00:00"
-    },
-    "CHILLGUYINR": {
-      "qty": 511.0,
-      "avg_cost": 0.98998324425,
-      "invested": 505.88143781174995,
-      "last_buy_at": "2026-10-20T14:08:05+00:00"
     },
     "SEIINR": {
       "qty": 82.0,
@@ -43,17 +37,23 @@
       "invested": 451.9707660468,
       "last_buy_at": "2026-10-21T06:37:36+00:00"
     },
-    "XRPINR": {
-      "qty": 3.9,
-      "avg_cost": 135.3457820715,
-      "invested": 527.8485500788499,
-      "last_buy_at": "2026-10-21T06:37:36+00:00"
-    },
     "BIOINR": {
       "qty": 215.4,
       "avg_cost": 2.5043521502999995,
       "invested": 539.4374531746199,
       "last_buy_at": "2026-10-21T06:37:38+00:00"
+    },
+    "LINKINR": {
+      "qty": 0.42,
+      "avg_cost": 1262.9822655449998,
+      "invested": 530.4525515288999,
+      "last_buy_at": "2026-10-21T12:38:58+00:00"
+    },
+    "BRISEINR": {
+      "qty": 397313031.0,
+      "avg_cost": 1.3412094696e-06,
+      "invested": 532.8799995726783,
+      "last_buy_at": "2026-10-21T12:39:00+00:00"
     }
   }
 }
