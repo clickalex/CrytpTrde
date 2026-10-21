@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1243.4160217315593,
-  "realized_pnl": -2543.007564447415,
-  "total_trades": 696,
-  "sell_count": 344,
-  "gross_gains": 3536.33,
+  "cash_inr": 1250.659242089815,
+  "realized_pnl": -2533.719047877025,
+  "total_trades": 698,
+  "sell_count": 345,
+  "gross_gains": 3545.62,
   "gross_losses": -6079.4,
-  "total_tds": 2115.76,
+  "total_tds": 2121.25,
   "holdings": {
     "ONEINR": {
       "qty": 3464.2,
@@ -37,12 +37,6 @@
       "invested": 451.9707660468,
       "last_buy_at": "2026-10-21T06:37:36+00:00"
     },
-    "BIOINR": {
-      "qty": 215.4,
-      "avg_cost": 2.5043521502999995,
-      "invested": 539.4374531746199,
-      "last_buy_at": "2026-10-21T06:37:38+00:00"
-    },
     "LINKINR": {
       "qty": 0.42,
       "avg_cost": 1262.9822655449998,
@@ -54,6 +48,12 @@
       "avg_cost": 1.3412094696e-06,
       "invested": 532.8799995726783,
       "last_buy_at": "2026-10-21T12:39:00+00:00"
+    },
+    "TOKENINR": {
+      "qty": 2638.9889,
+      "avg_cost": 0.20310430139999996,
+      "invested": 535.9899969368544,
+      "last_buy_at": "2026-10-21T17:55:46+00:00"
     }
   }
 }

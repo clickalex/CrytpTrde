@@ -1,18 +1,12 @@
 {
-  "cash_inr": 415.1135691446424,
-  "realized_pnl": -500.4082854161495,
-  "total_trades": 227,
-  "sell_count": 108,
-  "gross_gains": 4036.57,
-  "gross_losses": -4536.98,
-  "total_tds": 1127.28,
+  "cash_inr": 415.66575819513344,
+  "realized_pnl": -471.75194171941405,
+  "total_trades": 231,
+  "sell_count": 110,
+  "gross_gains": 4084.2,
+  "gross_losses": -4555.96,
+  "total_tds": 1140.15,
   "holdings": {
-    "TRUMPINR": {
-      "qty": 3.541,
-      "avg_cost": 179.21851447499998,
-      "invested": 634.6127597559749,
-      "last_buy_at": "2026-10-08T16:54:56+00:00"
-    },
     "TRXINR": {
       "qty": 15.8,
       "avg_cost": 32.94936645000001,
@@ -67,11 +61,17 @@
       "invested": 520.4510749979542,
       "last_buy_at": "2026-10-20T19:07:39+00:00"
     },
-    "GASINR": {
-      "qty": 4.7593,
-      "avg_cost": 130.828013316,
-      "invested": 622.6497637748388,
-      "last_buy_at": "2026-10-21T12:46:57+00:00"
+    "ONDOINR": {
+      "qty": 13.7,
+      "avg_cost": 47.464113196499994,
+      "invested": 650.2583507920499,
+      "last_buy_at": "2026-10-21T18:03:05+00:00"
+    },
+    "PENGUINR": {
+      "qty": 740.0,
+      "avg_cost": 0.8408598197999999,
+      "invested": 622.2362666519999,
+      "last_buy_at": "2026-10-21T18:03:10+00:00"
     }
   }
 }

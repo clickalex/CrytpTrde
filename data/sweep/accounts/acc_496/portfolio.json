@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1606.643347794693,
-  "realized_pnl": -2150.210043296302,
-  "total_trades": 459,
-  "sell_count": 226,
-  "gross_gains": 4155.15,
+  "cash_inr": 1028.1076909661306,
+  "realized_pnl": -2072.8223553465523,
+  "total_trades": 462,
+  "sell_count": 227,
+  "gross_gains": 4232.54,
   "gross_losses": -6305.39,
-  "total_tds": 1730.03,
+  "total_tds": 1737.13,
   "holdings": {
-    "JUPINR": {
-      "qty": 21.5,
-      "avg_cost": 29.389032172500002,
-      "invested": 631.86419170875,
-      "last_buy_at": "2026-10-18T23:03:55+00:00"
-    },
     "SHIBINR": {
       "qty": 1421117.0,
       "avg_cost": 0.00051086540505,
@@ -48,6 +42,18 @@
       "avg_cost": 83.759492817,
       "invested": 635.7345504810299,
       "last_buy_at": "2026-10-21T06:48:24+00:00"
+    },
+    "BTCINR": {
+      "qty": 7e-05,
+      "avg_cost": 8536937.983323751,
+      "invested": 597.5856588326625,
+      "last_buy_at": "2026-10-21T18:07:43+00:00"
+    },
+    "CAKEINR": {
+      "qty": 2.99,
+      "avg_cost": 228.46229406,
+      "invested": 683.1022592394,
+      "last_buy_at": "2026-10-21T18:07:43+00:00"
     }
   }
 }

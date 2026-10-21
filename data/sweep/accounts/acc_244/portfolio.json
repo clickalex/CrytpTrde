@@ -1,18 +1,12 @@
 {
-  "cash_inr": 292.1410402446602,
-  "realized_pnl": -3991.418865161228,
-  "total_trades": 341,
-  "sell_count": 169,
-  "gross_gains": 2679.82,
+  "cash_inr": 261.1966525726273,
+  "realized_pnl": -3960.109859444078,
+  "total_trades": 343,
+  "sell_count": 170,
+  "gross_gains": 2711.13,
   "gross_losses": -6671.27,
-  "total_tds": 2532.06,
+  "total_tds": 2542.31,
   "holdings": {
-    "ICPINR": {
-      "qty": 3.43,
-      "avg_cost": 289.43364449999996,
-      "invested": 992.757400635,
-      "last_buy_at": "2026-10-18T22:47:22+00:00"
-    },
     "BRISEINR": {
       "qty": 765328811.0,
       "avg_cost": 1.3390061684999999e-06,
@@ -24,6 +18,12 @@
       "avg_cost": 101.64228574499998,
       "invested": 1166.8534403525998,
       "last_buy_at": "2026-10-20T22:49:44+00:00"
+    },
+    "XDBINR": {
+      "qty": 155052.7,
+      "avg_cost": 0.006738095364000001,
+      "invested": 1044.759879045683,
+      "last_buy_at": "2026-10-21T17:46:13+00:00"
     }
   }
 }
