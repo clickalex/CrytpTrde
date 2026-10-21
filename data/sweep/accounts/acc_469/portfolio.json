@@ -1,18 +1,12 @@
 {
-  "cash_inr": 750.0893751987857,
-  "realized_pnl": -3021.8674632322964,
-  "total_trades": 605,
-  "sell_count": 300,
-  "gross_gains": 4159.12,
-  "gross_losses": -7180.98,
-  "total_tds": 2424.29,
+  "cash_inr": 768.5736876038642,
+  "realized_pnl": -3025.35305323573,
+  "total_trades": 609,
+  "sell_count": 302,
+  "gross_gains": 4192.02,
+  "gross_losses": -7217.37,
+  "total_tds": 2439.77,
   "holdings": {
-    "BONKINR": {
-      "qty": 2465261.0,
-      "avg_cost": 0.00031136650545,
-      "invested": 767.5997025921724,
-      "last_buy_at": "2026-10-20T19:10:03+00:00"
-    },
     "ARBINR": {
       "qty": 39.1,
       "avg_cost": 19.450141210500004,
@@ -25,17 +19,23 @@
       "invested": 753.949999875911,
       "last_buy_at": "2026-10-21T01:28:03+00:00"
     },
-    "ALTINR": {
-      "qty": 558.0,
-      "avg_cost": 1.4023010000999998,
-      "invested": 782.4839580557999,
-      "last_buy_at": "2026-10-21T18:05:34+00:00"
-    },
     "RIFINR": {
       "qty": 95.0,
       "avg_cost": 7.781658885,
       "invested": 739.2575940749999,
       "last_buy_at": "2026-10-21T18:05:34+00:00"
+    },
+    "SEIINR": {
+      "qty": 114.4,
+      "avg_cost": 6.504044697149999,
+      "invested": 744.06271335396,
+      "last_buy_at": "2026-10-21T21:23:49+00:00"
+    },
+    "PEPEINR": {
+      "qty": 1624853.0,
+      "avg_cost": 0.00047300868615,
+      "invested": 768.569582716886,
+      "last_buy_at": "2026-10-21T21:23:53+00:00"
     }
   }
 }
