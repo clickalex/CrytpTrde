@@ -1,29 +1,17 @@
 {
-  "cash_inr": 205.85377952973226,
-  "realized_pnl": -1785.529624495305,
-  "total_trades": 278,
-  "sell_count": 136,
-  "gross_gains": 3449.2,
-  "gross_losses": -5234.77,
-  "total_tds": 1996.92,
+  "cash_inr": 485.4338372985326,
+  "realized_pnl": -1851.1092774655046,
+  "total_trades": 283,
+  "sell_count": 139,
+  "gross_gains": 3457.55,
+  "gross_losses": -5308.7,
+  "total_tds": 2028.76,
   "holdings": {
-    "USDTINR": {
-      "qty": 10.06,
-      "avg_cost": 99.64929975,
-      "invested": 1002.471955485,
-      "last_buy_at": "2026-10-08T16:53:28+00:00"
-    },
     "POPCATINR": {
       "qty": 170.9,
       "avg_cost": 4.406001299699999,
       "invested": 752.9856221187299,
       "last_buy_at": "2026-10-18T22:57:23+00:00"
-    },
-    "ADAINR": {
-      "qty": 64.6,
-      "avg_cost": 22.045029006,
-      "invested": 1424.1088737875998,
-      "last_buy_at": "2026-10-20T08:14:43+00:00"
     },
     "ETHINR": {
       "qty": 0.004,
@@ -37,11 +25,17 @@
       "invested": 1038.139244066925,
       "last_buy_at": "2026-10-20T14:11:00+00:00"
     },
-    "FILINR": {
-      "qty": 8.1,
-      "avg_cost": 101.1515505,
-      "invested": 819.32755905,
-      "last_buy_at": "2026-10-22T10:32:22+00:00"
+    "NEARINR": {
+      "qty": 1.9,
+      "avg_cost": 491.426280345,
+      "invested": 933.7099326555,
+      "last_buy_at": "2026-10-22T22:49:11+00:00"
+    },
+    "ORCAINR": {
+      "qty": 10.41,
+      "avg_cost": 185.89852280999997,
+      "invested": 1935.2036224520998,
+      "last_buy_at": "2026-10-22T22:49:11+00:00"
     }
   }
 }

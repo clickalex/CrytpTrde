@@ -1,29 +1,17 @@
 {
-  "cash_inr": 2010.1515479465768,
-  "realized_pnl": -3524.306931676371,
-  "total_trades": 647,
-  "sell_count": 321,
+  "cash_inr": 2376.3517157698193,
+  "realized_pnl": -3567.0779830006627,
+  "total_trades": 652,
+  "sell_count": 324,
   "gross_gains": 2182.31,
-  "gross_losses": -5706.6,
-  "total_tds": 1921.78,
+  "gross_losses": -5749.37,
+  "total_tds": 1936.54,
   "holdings": {
-    "ADAINR": {
-      "qty": 23.0,
-      "avg_cost": 21.9599014635,
-      "invested": 505.0777336605,
-      "last_buy_at": "2026-10-20T02:10:19+00:00"
-    },
     "USDTINR": {
       "qty": 5.14,
       "avg_cost": 100.91119037999998,
       "invested": 518.6835185531999,
       "last_buy_at": "2026-10-21T21:04:55+00:00"
-    },
-    "ONDOINR": {
-      "qty": 11.5,
-      "avg_cost": 44.3153956245,
-      "invested": 509.62704968174995,
-      "last_buy_at": "2026-10-22T10:28:10+00:00"
     },
     "SHIBINR": {
       "qty": 1005072.0,
@@ -31,11 +19,17 @@
       "invested": 507.81966576541186,
       "last_buy_at": "2026-10-22T10:28:10+00:00"
     },
-    "ONEINR": {
-      "qty": 3432.1,
-      "avg_cost": 0.14641937309999997,
-      "invested": 502.52593041650994,
-      "last_buy_at": "2026-10-22T10:28:10+00:00"
+    "RENDERINR": {
+      "qty": 2.79,
+      "avg_cost": 179.18846946,
+      "invested": 499.9358297934,
+      "last_buy_at": "2026-10-22T22:42:35+00:00"
+    },
+    "PENGUINR": {
+      "qty": 755.0,
+      "avg_cost": 0.7861778925,
+      "invested": 593.5643088375,
+      "last_buy_at": "2026-10-22T22:42:37+00:00"
     }
   }
 }

@@ -1,10 +1,23 @@
 {
-  "cash_inr": 4061.437953159941,
+  "cash_inr": 651.1253058483718,
   "realized_pnl": -3952.1487396711955,
-  "total_trades": 176,
+  "total_trades": 178,
   "sell_count": 88,
   "gross_gains": 2991.84,
   "gross_losses": -6944.02,
   "total_tds": 1986.43,
-  "holdings": {}
+  "holdings": {
+    "ADAINR": {
+      "qty": 113.3,
+      "avg_cost": 21.493202230499996,
+      "invested": 2435.1798127156494,
+      "last_buy_at": "2026-10-22T22:38:57+00:00"
+    },
+    "APTINR": {
+      "qty": 12.68,
+      "avg_cost": 76.903220394,
+      "invested": 975.1328345959199,
+      "last_buy_at": "2026-10-22T22:38:57+00:00"
+    }
+  }
 }
