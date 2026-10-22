@@ -1,11 +1,11 @@
 {
-  "cash_inr": 819.9236707175675,
-  "realized_pnl": -2494.7345200904547,
-  "total_trades": 536,
-  "sell_count": 264,
+  "cash_inr": 806.0966190016877,
+  "realized_pnl": -2536.5350244523042,
+  "total_trades": 542,
+  "sell_count": 267,
   "gross_gains": 3331.6,
-  "gross_losses": -5826.41,
-  "total_tds": 1960.1,
+  "gross_losses": -5868.21,
+  "total_tds": 1976.5,
   "holdings": {
     "ETHINR": {
       "qty": 0.0025,
@@ -25,12 +25,6 @@
       "invested": 606.8648363778,
       "last_buy_at": "2026-10-18T22:50:36+00:00"
     },
-    "ARBINR": {
-      "qty": 31.7,
-      "avg_cost": 18.610883791499997,
-      "invested": 589.9650161905499,
-      "last_buy_at": "2026-10-18T22:50:36+00:00"
-    },
     "APEINR": {
       "qty": 42.58,
       "avg_cost": 14.159214068999999,
@@ -43,17 +37,23 @@
       "invested": 610.60333759425,
       "last_buy_at": "2026-10-18T22:50:40+00:00"
     },
-    "CAKEINR": {
-      "qty": 2.49,
-      "avg_cost": 220.39020003,
-      "invested": 548.7715980747,
-      "last_buy_at": "2026-10-20T08:07:36+00:00"
+    "PYTHINR": {
+      "qty": 73.8,
+      "avg_cost": 7.513957801349999,
+      "invested": 554.53008573963,
+      "last_buy_at": "2026-10-22T10:29:35+00:00"
     },
-    "RIFINR": {
-      "qty": 71.0,
-      "avg_cost": 7.621418805,
-      "invested": 541.120735155,
-      "last_buy_at": "2026-10-20T08:07:36+00:00"
+    "ALTINR": {
+      "qty": 595.0,
+      "avg_cost": 0.91627280745,
+      "invested": 545.18232043275,
+      "last_buy_at": "2026-10-22T10:29:35+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 24.1,
+      "avg_cost": 22.231308099000003,
+      "invested": 535.7745251859001,
+      "last_buy_at": "2026-10-22T10:29:35+00:00"
     }
   }
 }

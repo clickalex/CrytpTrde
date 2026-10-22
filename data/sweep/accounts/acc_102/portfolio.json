@@ -1,10 +1,17 @@
 {
-  "cash_inr": 6820.207002438291,
+  "cash_inr": 5457.865371538041,
   "realized_pnl": -2412.5771264417867,
-  "total_trades": 114,
+  "total_trades": 115,
   "sell_count": 57,
   "gross_gains": 388.02,
   "gross_losses": -2800.63,
   "total_tds": 767.2,
-  "holdings": {}
+  "holdings": {
+    "CAKEINR": {
+      "qty": 6.21,
+      "avg_cost": 219.378684525,
+      "invested": 1362.34163090025,
+      "last_buy_at": "2026-10-22T10:24:35+00:00"
+    }
+  }
 }
