@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1898.046123437357,
-  "realized_pnl": -3615.2692760437526,
-  "total_trades": 885,
-  "sell_count": 441,
+  "cash_inr": 1357.1644398356539,
+  "realized_pnl": -3638.792339599064,
+  "total_trades": 888,
+  "sell_count": 442,
   "gross_gains": 3245.01,
-  "gross_losses": -6860.26,
-  "total_tds": 2775.08,
+  "gross_losses": -6883.78,
+  "total_tds": 2780.63,
   "holdings": {
     "SUIINR": {
       "qty": 5.3,
@@ -19,11 +19,17 @@
       "invested": 572.751061350468,
       "last_buy_at": "2026-10-21T18:02:07+00:00"
     },
-    "GALAINR": {
-      "qty": 2830.82,
-      "avg_cost": 0.20403569686499998,
-      "invested": 577.5883313993793,
-      "last_buy_at": "2026-10-21T18:02:08+00:00"
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 8462679.225,
+      "invested": 507.7607535,
+      "last_buy_at": "2026-10-22T00:30:23+00:00"
+    },
+    "BRISEINR": {
+      "qty": 437523396.0,
+      "avg_cost": 1.3293917637e-06,
+      "invested": 581.6399990684534,
+      "last_buy_at": "2026-10-22T00:30:23+00:00"
     }
   }
 }
