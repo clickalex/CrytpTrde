@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2088.4644546556715,
-  "realized_pnl": -1197.902039681661,
-  "total_trades": 661,
-  "sell_count": 326,
+  "cash_inr": 2144.491515706087,
+  "realized_pnl": -1211.607016836621,
+  "total_trades": 663,
+  "sell_count": 327,
   "gross_gains": 4516.94,
-  "gross_losses": -5714.82,
-  "total_tds": 1907.34,
+  "gross_losses": -5728.52,
+  "total_tds": 1912.39,
   "holdings": {
-    "ETHINR": {
-      "qty": 0.0021,
-      "avg_cost": 246926.45802825,
-      "invested": 518.545561859325,
-      "last_buy_at": "2026-10-15T23:39:05+00:00"
-    },
     "SHIBINR": {
       "qty": 1124686.0,
       "avg_cost": 0.000502753251,
@@ -60,6 +54,12 @@
       "avg_cost": 0.18788149379999997,
       "invested": 522.1099892693684,
       "last_buy_at": "2026-10-22T22:47:58+00:00"
+    },
+    "BNBINR": {
+      "qty": 0.006,
+      "avg_cost": 73960.0107246,
+      "invested": 443.7600643476,
+      "last_buy_at": "2026-10-23T02:02:07+00:00"
     }
   }
 }

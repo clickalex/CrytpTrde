@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1076.7516858633894,
-  "realized_pnl": -2946.58671164099,
-  "total_trades": 583,
-  "sell_count": 289,
+  "cash_inr": 1052.4363000869057,
+  "realized_pnl": -2988.8530500635147,
+  "total_trades": 587,
+  "sell_count": 291,
   "gross_gains": 4231.87,
-  "gross_losses": -7178.43,
-  "total_tds": 2280.06,
+  "gross_losses": -7220.7,
+  "total_tds": 2294.09,
   "holdings": {
-    "SOLINR": {
-      "qty": 0.068,
-      "avg_cost": 10683.90718395,
-      "invested": 726.5056885086,
-      "last_buy_at": "2026-10-19T23:04:05+00:00"
-    },
     "TRXINR": {
       "qty": 23.0,
       "avg_cost": 33.34996665,
@@ -31,11 +25,17 @@
       "invested": 762.45925600845,
       "last_buy_at": "2026-10-22T22:53:00+00:00"
     },
-    "GASINR": {
-      "qty": 5.7339,
-      "avg_cost": 125.1875625,
-      "invested": 717.81296461875,
-      "last_buy_at": "2026-10-22T22:53:00+00:00"
+    "LINKINR": {
+      "qty": 0.58,
+      "avg_cost": 1225.425996795,
+      "invested": 710.7470781410999,
+      "last_buy_at": "2026-10-23T02:09:00+00:00"
+    },
+    "POPCATINR": {
+      "qty": 153.68,
+      "avg_cost": 4.565239879199999,
+      "invested": 701.586064635456,
+      "last_buy_at": "2026-10-23T02:09:01+00:00"
     }
   }
 }
