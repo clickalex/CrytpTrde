@@ -1,22 +1,16 @@
 {
-  "cash_inr": 1237.9058819175134,
-  "realized_pnl": -3194.317826254307,
-  "total_trades": 873,
-  "sell_count": 434,
+  "cash_inr": 1293.5760874343123,
+  "realized_pnl": -3223.4517925918462,
+  "total_trades": 877,
+  "sell_count": 436,
   "gross_gains": 4089.44,
-  "gross_losses": -7283.78,
-  "total_tds": 2734.25,
+  "gross_losses": -7312.91,
+  "total_tds": 2746.28,
   "holdings": {
     "ONDOINR": {
       "qty": 13.8,
       "avg_cost": 40.993418465999994,
       "invested": 565.7091748308,
-      "last_buy_at": "2026-10-24T18:34:11+00:00"
-    },
-    "SUSHIINR": {
-      "qty": 35.0,
-      "avg_cost": 20.595857782499998,
-      "invested": 720.8550223875,
       "last_buy_at": "2026-10-24T18:34:11+00:00"
     },
     "BIOINR": {
@@ -25,17 +19,23 @@
       "invested": 506.42779639451993,
       "last_buy_at": "2026-10-24T18:34:11+00:00"
     },
-    "POLYXINR": {
-      "qty": 146.2605,
-      "avg_cost": 3.4882262414999996,
-      "invested": 510.1897141949107,
-      "last_buy_at": "2026-10-24T18:34:13+00:00"
-    },
     "PYTHINR": {
       "qty": 74.8,
       "avg_cost": 7.089321589350001,
       "invested": 530.28125488338,
       "last_buy_at": "2026-10-24T18:34:13+00:00"
+    },
+    "TOKENINR": {
+      "qty": 3205.1961,
+      "avg_cost": 0.18117144045,
+      "invested": 580.6899943617223,
+      "last_buy_at": "2026-10-24T21:22:19+00:00"
+    },
+    "PENGUINR": {
+      "qty": 723.0,
+      "avg_cost": 0.76558704222,
+      "invested": 553.51943152506,
+      "last_buy_at": "2026-10-24T21:22:21+00:00"
     }
   }
 }
