@@ -1,23 +1,17 @@
 {
-  "cash_inr": 2646.807165750112,
-  "realized_pnl": -2252.6449231834554,
-  "total_trades": 178,
-  "sell_count": 86,
+  "cash_inr": 656.1971088322471,
+  "realized_pnl": -2390.684438800355,
+  "total_trades": 184,
+  "sell_count": 88,
   "gross_gains": 2495.34,
-  "gross_losses": -4747.96,
-  "total_tds": 950.08,
+  "gross_losses": -4886.0,
+  "total_tds": 963.42,
   "holdings": {
     "SHIBINR": {
       "qty": 1440163.0,
       "avg_cost": 0.000512768256,
       "invested": 738.469869865728,
       "last_buy_at": "2026-10-13T12:12:24+00:00"
-    },
-    "ONDOINR": {
-      "qty": 15.3,
-      "avg_cost": 44.753051343,
-      "invested": 684.7216855479,
-      "last_buy_at": "2026-10-15T00:52:20+00:00"
     },
     "POPCATINR": {
       "qty": 142.72,
@@ -37,11 +31,29 @@
       "invested": 656.856184008024,
       "last_buy_at": "2026-10-22T22:41:44+00:00"
     },
-    "NEARINR": {
-      "qty": 1.6,
-      "avg_cost": 491.42628034500007,
-      "invested": 786.2820485520001,
-      "last_buy_at": "2026-10-22T22:41:44+00:00"
+    "ETHINR": {
+      "qty": 0.0056,
+      "avg_cost": 235963.73310510002,
+      "invested": 1321.39690538856,
+      "last_buy_at": "2026-10-24T18:26:40+00:00"
+    },
+    "BNBINR": {
+      "qty": 0.009,
+      "avg_cost": 73176.33658335,
+      "invested": 658.58702925015,
+      "last_buy_at": "2026-10-24T18:26:40+00:00"
+    },
+    "LINKINR": {
+      "qty": 0.58,
+      "avg_cost": 1162.3014202799998,
+      "invested": 674.1348237623998,
+      "last_buy_at": "2026-10-24T18:26:40+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 51.17,
+      "avg_cost": 12.822210901499998,
+      "invested": 656.112531829755,
+      "last_buy_at": "2026-10-24T18:26:40+00:00"
     }
   }
 }

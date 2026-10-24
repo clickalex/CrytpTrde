@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1962.396688313493,
-  "realized_pnl": -2062.0312812256766,
-  "total_trades": 525,
-  "sell_count": 259,
+  "cash_inr": 1326.3124212383677,
+  "realized_pnl": -2153.3979514790963,
+  "total_trades": 532,
+  "sell_count": 262,
   "gross_gains": 3902.77,
-  "gross_losses": -5964.84,
-  "total_tds": 1715.66,
+  "gross_losses": -6056.21,
+  "total_tds": 1732.42,
   "holdings": {
     "XRPINR": {
       "qty": 4.4,
@@ -31,23 +31,29 @@
       "invested": 592.0718727924,
       "last_buy_at": "2026-10-22T22:52:07+00:00"
     },
-    "SOLINR": {
-      "qty": 0.055,
-      "avg_cost": 10510.647597449999,
-      "invested": 578.08561785975,
-      "last_buy_at": "2026-10-23T02:07:49+00:00"
+    "BTCINR": {
+      "qty": 7e-05,
+      "avg_cost": 8123210.6155199995,
+      "invested": 568.6247430863999,
+      "last_buy_at": "2026-10-24T18:38:49+00:00"
     },
-    "ARBINR": {
-      "qty": 33.5,
-      "avg_cost": 17.915842444499997,
-      "invested": 600.18072189075,
-      "last_buy_at": "2026-10-23T22:46:27+00:00"
+    "USDTINR": {
+      "qty": 5.77,
+      "avg_cost": 101.05140045,
+      "invested": 583.0665805965,
+      "last_buy_at": "2026-10-24T18:38:49+00:00"
     },
-    "POPCATINR": {
-      "qty": 128.71,
-      "avg_cost": 4.563837778500001,
-      "invested": 587.4115604707351,
-      "last_buy_at": "2026-10-23T22:46:27+00:00"
+    "ORCAINR": {
+      "qty": 3.27,
+      "avg_cost": 175.39278256499998,
+      "invested": 573.5343989875499,
+      "last_buy_at": "2026-10-24T18:38:49+00:00"
+    },
+    "SHIBINR": {
+      "qty": 1153105.0,
+      "avg_cost": 0.0004929385461,
+      "invested": 568.4099022006405,
+      "last_buy_at": "2026-10-24T18:38:49+00:00"
     }
   }
 }
