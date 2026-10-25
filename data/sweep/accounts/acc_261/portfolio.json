@@ -1,22 +1,16 @@
 {
-  "cash_inr": 802.4837635344005,
-  "realized_pnl": -3897.7752830665513,
-  "total_trades": 612,
-  "sell_count": 303,
+  "cash_inr": 776.2625111956296,
+  "realized_pnl": -3936.4534934916014,
+  "total_trades": 616,
+  "sell_count": 305,
   "gross_gains": 2606.72,
-  "gross_losses": -6504.44,
-  "total_tds": 2045.66,
+  "gross_losses": -6543.12,
+  "total_tds": 2055.9,
   "holdings": {
     "BONKINR": {
       "qty": 1740287.0,
       "avg_cost": 0.00030675960315000003,
       "invested": 533.8497494871041,
-      "last_buy_at": "2026-10-24T18:28:45+00:00"
-    },
-    "CHRINR": {
-      "qty": 300.0,
-      "avg_cost": 1.7653449313499998,
-      "invested": 529.6034794049999,
       "last_buy_at": "2026-10-24T18:28:45+00:00"
     },
     "SHIBINR": {
@@ -37,11 +31,17 @@
       "invested": 539.497372949535,
       "last_buy_at": "2026-10-24T18:28:47+00:00"
     },
-    "ARBINR": {
-      "qty": 30.7,
-      "avg_cost": 17.343985658999998,
-      "invested": 532.4603597313,
-      "last_buy_at": "2026-10-25T01:42:34+00:00"
+    "JUPINR": {
+      "qty": 18.1,
+      "avg_cost": 28.8321978945,
+      "invested": 521.86278189045,
+      "last_buy_at": "2026-10-25T06:40:07+00:00"
+    },
+    "BRISEINR": {
+      "qty": 399447011.0,
+      "avg_cost": 1.2955410468e-06,
+      "invested": 517.4999987720711,
+      "last_buy_at": "2026-10-25T06:40:09+00:00"
     }
   }
 }
