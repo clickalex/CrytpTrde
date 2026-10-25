@@ -1,18 +1,12 @@
 {
-  "cash_inr": 810.7530820031488,
-  "realized_pnl": -3889.3684973364443,
-  "total_trades": 610,
-  "sell_count": 302,
+  "cash_inr": 802.4837635344005,
+  "realized_pnl": -3897.7752830665513,
+  "total_trades": 612,
+  "sell_count": 303,
   "gross_gains": 2606.72,
-  "gross_losses": -6496.03,
-  "total_tds": 2040.36,
+  "gross_losses": -6504.44,
+  "total_tds": 2045.66,
   "holdings": {
-    "GASINR": {
-      "qty": 4.4745,
-      "avg_cost": 120.21411101700001,
-      "invested": 537.8980397455665,
-      "last_buy_at": "2026-10-24T18:28:45+00:00"
-    },
     "BONKINR": {
       "qty": 1740287.0,
       "avg_cost": 0.00030675960315000003,
@@ -42,6 +36,12 @@
       "avg_cost": 7.089321589350001,
       "invested": 539.497372949535,
       "last_buy_at": "2026-10-24T18:28:47+00:00"
+    },
+    "ARBINR": {
+      "qty": 30.7,
+      "avg_cost": 17.343985658999998,
+      "invested": 532.4603597313,
+      "last_buy_at": "2026-10-25T01:42:34+00:00"
     }
   }
 }
