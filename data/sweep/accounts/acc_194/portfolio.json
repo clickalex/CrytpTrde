@@ -1,29 +1,35 @@
 {
-  "cash_inr": 1478.0376963098327,
-  "realized_pnl": -3357.8840745289517,
-  "total_trades": 327,
-  "sell_count": 162,
+  "cash_inr": 654.5707805523532,
+  "realized_pnl": -3395.7546139066217,
+  "total_trades": 332,
+  "sell_count": 164,
   "gross_gains": 4080.56,
-  "gross_losses": -7438.49,
-  "total_tds": 2663.93,
+  "gross_losses": -7476.36,
+  "total_tds": 2678.47,
   "holdings": {
-    "SUIINR": {
-      "qty": 7.3,
-      "avg_cost": 93.9297303945,
-      "invested": 685.68703187985,
-      "last_buy_at": "2026-10-24T18:25:31+00:00"
-    },
     "DOTINR": {
       "qty": 9.7007,
       "avg_cost": 104.057904951,
       "invested": 1009.4345185581656,
       "last_buy_at": "2026-10-25T06:35:42+00:00"
     },
-    "SEIINR": {
-      "qty": 147.8,
-      "avg_cost": 5.4465603192,
-      "invested": 805.00161517776,
-      "last_buy_at": "2026-10-25T06:35:42+00:00"
+    "FARTCOININR": {
+      "qty": 84.57,
+      "avg_cost": 12.675991828499999,
+      "invested": 1072.0086289362448,
+      "last_buy_at": "2026-10-25T11:56:37+00:00"
+    },
+    "FILINR": {
+      "qty": 5.76,
+      "avg_cost": 92.989321425,
+      "invested": 535.618491408,
+      "last_buy_at": "2026-10-25T11:56:37+00:00"
+    },
+    "BIOINR": {
+      "qty": 288.5,
+      "avg_cost": 2.26729698195,
+      "invested": 654.115179292575,
+      "last_buy_at": "2026-10-25T11:56:37+00:00"
     }
   }
 }

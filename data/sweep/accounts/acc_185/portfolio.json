@@ -1,18 +1,12 @@
 {
-  "cash_inr": 4801.356824834718,
-  "realized_pnl": -1557.7068752471273,
-  "total_trades": 299,
-  "sell_count": 147,
+  "cash_inr": 4803.401727711382,
+  "realized_pnl": -1589.187753399326,
+  "total_trades": 303,
+  "sell_count": 149,
   "gross_gains": 1728.7,
-  "gross_losses": -3286.4,
-  "total_tds": 930.92,
+  "gross_losses": -3317.88,
+  "total_tds": 941.75,
   "holdings": {
-    "BTCINR": {
-      "qty": 7e-05,
-      "avg_cost": 8285503.270794748,
-      "invested": 579.9852289556324,
-      "last_buy_at": "2026-10-22T10:26:46+00:00"
-    },
     "LINKINR": {
       "qty": 0.46,
       "avg_cost": 1162.30142028,
@@ -31,11 +25,17 @@
       "invested": 536.0896164720095,
       "last_buy_at": "2026-10-24T18:25:04+00:00"
     },
-    "APTINR": {
-      "qty": 7.42,
-      "avg_cost": 71.86867738049999,
-      "invested": 533.2655861633099,
-      "last_buy_at": "2026-10-24T18:25:04+00:00"
+    "FARTCOININR": {
+      "qty": 42.29,
+      "avg_cost": 12.675991828499997,
+      "invested": 536.0676944272649,
+      "last_buy_at": "2026-10-25T11:56:22+00:00"
+    },
+    "FILINR": {
+      "qty": 5.73,
+      "avg_cost": 92.98932142499999,
+      "invested": 532.82881176525,
+      "last_buy_at": "2026-10-25T11:56:22+00:00"
     }
   }
 }

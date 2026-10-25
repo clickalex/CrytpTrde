@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1262.0703970074642,
-  "realized_pnl": -1873.2622898290745,
-  "total_trades": 615,
-  "sell_count": 303,
+  "cash_inr": 1251.8732657243145,
+  "realized_pnl": -1878.8735684835242,
+  "total_trades": 617,
+  "sell_count": 304,
   "gross_gains": 4881.35,
-  "gross_losses": -6754.53,
-  "total_tds": 1911.04,
+  "gross_losses": -6760.14,
+  "total_tds": 1916.36,
   "holdings": {
-    "TRXINR": {
-      "qty": 16.1,
-      "avg_cost": 33.34996664999999,
-      "invested": 536.9344630649999,
-      "last_buy_at": "2026-10-22T10:32:20+00:00"
-    },
     "SHIBINR": {
       "qty": 1142392.0,
       "avg_cost": 0.0005013511502999999,
@@ -60,6 +54,12 @@
       "avg_cost": 4.4570778252,
       "invested": 540.86639408802,
       "last_buy_at": "2026-10-25T01:52:16+00:00"
+    },
+    "CAKEINR": {
+      "qty": 2.56,
+      "avg_cost": 209.45381456999996,
+      "invested": 536.2017652991999,
+      "last_buy_at": "2026-10-25T12:02:15+00:00"
     }
   }
 }

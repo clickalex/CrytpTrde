@@ -1,17 +1,29 @@
 {
-  "cash_inr": 3843.454937580772,
-  "realized_pnl": -688.6723048581466,
-  "total_trades": 127,
-  "sell_count": 63,
+  "cash_inr": 950.4279525385973,
+  "realized_pnl": -749.162114830317,
+  "total_trades": 131,
+  "sell_count": 64,
   "gross_gains": 3089.98,
-  "gross_losses": -3778.67,
-  "total_tds": 1624.43,
+  "gross_losses": -3839.16,
+  "total_tds": 1662.3,
   "holdings": {
-    "DOTINR": {
-      "qty": 36.9355,
-      "avg_cost": 104.05790495099998,
-      "invested": 3843.43074831766,
-      "last_buy_at": "2026-10-25T06:32:35+00:00"
+    "RIFINR": {
+      "qty": 527.0,
+      "avg_cost": 7.1877690885,
+      "invested": 3787.9543096394996,
+      "last_buy_at": "2026-10-25T11:55:16+00:00"
+    },
+    "SEIINR": {
+      "qty": 355.3,
+      "avg_cost": 5.348012669999999,
+      "invested": 1900.1489016509997,
+      "last_buy_at": "2026-10-25T11:55:16+00:00"
+    },
+    "BIOINR": {
+      "qty": 419.0,
+      "avg_cost": 2.26729698195,
+      "invested": 949.99743543705,
+      "last_buy_at": "2026-10-25T11:55:16+00:00"
     }
   }
 }
