@@ -1,10 +1,17 @@
 {
-  "cash_inr": 8099.2234009962995,
+  "cash_inr": 7295.5392797563,
   "realized_pnl": -1505.4205116204678,
-  "total_trades": 104,
+  "total_trades": 105,
   "sell_count": 52,
   "gross_gains": 218.74,
   "gross_losses": -1724.16,
   "total_tds": 395.33,
-  "holdings": {}
+  "holdings": {
+    "RIFINR": {
+      "qty": 112.0,
+      "avg_cost": 7.1757510825,
+      "invested": 803.68412124,
+      "last_buy_at": "2026-10-25T22:47:59+00:00"
+    }
+  }
 }

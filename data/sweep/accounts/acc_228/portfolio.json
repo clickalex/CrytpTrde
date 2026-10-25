@@ -1,10 +1,17 @@
 {
-  "cash_inr": 964.9320722967199,
+  "cash_inr": 195.0391788270199,
   "realized_pnl": -5883.495149013006,
-  "total_trades": 360,
+  "total_trades": 361,
   "sell_count": 180,
   "gross_gains": 1853.92,
   "gross_losses": -7737.41,
   "total_tds": 3151.55,
-  "holdings": {}
+  "holdings": {
+    "ICPINR": {
+      "qty": 2.86,
+      "avg_cost": 269.193319395,
+      "invested": 769.8928934697,
+      "last_buy_at": "2026-10-25T22:56:04+00:00"
+    }
+  }
 }
