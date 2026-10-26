@@ -1,11 +1,11 @@
 {
-  "cash_inr": 694.5961311819506,
-  "realized_pnl": -1566.1782963200137,
-  "total_trades": 419,
-  "sell_count": 205,
+  "cash_inr": 642.5761265445705,
+  "realized_pnl": -1619.1129229149933,
+  "total_trades": 423,
+  "sell_count": 207,
   "gross_gains": 4679.74,
-  "gross_losses": -6245.87,
-  "total_tds": 1719.52,
+  "gross_losses": -6298.8,
+  "total_tds": 1732.15,
   "holdings": {
     "USDTINR": {
       "qty": 6.36,
@@ -31,12 +31,6 @@
       "invested": 638.7221666826,
       "last_buy_at": "2026-10-24T18:35:00+00:00"
     },
-    "ORCAINR": {
-      "qty": 3.78,
-      "avg_cost": 175.39278256499998,
-      "invested": 662.9847180956999,
-      "last_buy_at": "2026-10-24T18:35:00+00:00"
-    },
     "BIOINR": {
       "qty": 284.4,
       "avg_cost": 2.28532399095,
@@ -49,17 +43,23 @@
       "invested": 655.98891662304,
       "last_buy_at": "2026-10-24T18:35:01+00:00"
     },
-    "APEINR": {
-      "qty": 50.92,
-      "avg_cost": 12.79917639,
-      "invested": 651.7340617788,
-      "last_buy_at": "2026-10-25T12:02:06+00:00"
-    },
     "HMSTRINR": {
       "qty": 48248.0,
       "avg_cost": 0.014395568186999998,
       "invested": 694.5573738863759,
       "last_buy_at": "2026-10-25T23:06:35+00:00"
+    },
+    "ARBINR": {
+      "qty": 38.6,
+      "avg_cost": 17.1867500805,
+      "invested": 663.4085531073001,
+      "last_buy_at": "2026-10-26T20:33:22+00:00"
+    },
+    "JUPINR": {
+      "qty": 22.4,
+      "avg_cost": 28.471657714499997,
+      "invested": 637.7651328047999,
+      "last_buy_at": "2026-10-26T20:33:22+00:00"
     }
   }
 }

@@ -1,18 +1,12 @@
 {
-  "cash_inr": 361.81507239025166,
-  "realized_pnl": -4951.959750944019,
-  "total_trades": 725,
-  "sell_count": 361,
+  "cash_inr": 340.4588349313789,
+  "realized_pnl": -4977.886332583272,
+  "total_trades": 727,
+  "sell_count": 362,
   "gross_gains": 2378.07,
-  "gross_losses": -7330.07,
-  "total_tds": 3096.4,
+  "gross_losses": -7356.0,
+  "total_tds": 3101.35,
   "holdings": {
-    "XDBINR": {
-      "qty": 79755.9,
-      "avg_cost": 0.006520769755500001,
-      "invested": 520.0698605426825,
-      "last_buy_at": "2026-10-25T06:42:53+00:00"
-    },
     "DOGEINR": {
       "qty": 68.0,
       "avg_cost": 7.7648336766,
@@ -24,6 +18,12 @@
       "avg_cost": 0.432698291025,
       "invested": 541.7382603633,
       "last_buy_at": "2026-10-26T01:39:17+00:00"
+    },
+    "BIOINR": {
+      "qty": 226.0,
+      "avg_cost": 2.2590846778500002,
+      "invested": 510.55313719410003,
+      "last_buy_at": "2026-10-26T20:26:35+00:00"
     }
   }
 }
