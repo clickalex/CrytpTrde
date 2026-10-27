@@ -1,18 +1,12 @@
 {
-  "cash_inr": 527.7685511010668,
-  "realized_pnl": -4643.710368572149,
-  "total_trades": 855,
-  "sell_count": 426,
-  "gross_gains": 3324.17,
+  "cash_inr": 557.599185514702,
+  "realized_pnl": -4631.61708423154,
+  "total_trades": 857,
+  "sell_count": 427,
+  "gross_gains": 3336.26,
   "gross_losses": -7967.8,
-  "total_tds": 3178.48,
+  "total_tds": 3184.42,
   "holdings": {
-    "BOMEINR": {
-      "qty": 9349.0,
-      "avg_cost": 0.06217315103999999,
-      "invested": 581.2567890729599,
-      "last_buy_at": "2026-10-24T18:38:32+00:00"
-    },
     "TRXINR": {
       "qty": 16.2,
       "avg_cost": 33.399040174499994,
@@ -24,6 +18,12 @@
       "avg_cost": 0.0003070600533,
       "invested": 527.7499477477227,
       "last_buy_at": "2026-10-26T01:46:38+00:00"
+    },
+    "BRISEINR": {
+      "qty": 431886280.0,
+      "avg_cost": 1.29103429455e-06,
+      "invested": 557.5799988256238,
+      "last_buy_at": "2026-10-27T22:01:09+00:00"
     }
   }
 }
