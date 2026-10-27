@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1227.4658230335258,
-  "realized_pnl": -3298.7200772325814,
-  "total_trades": 881,
-  "sell_count": 438,
-  "gross_gains": 3886.76,
-  "gross_losses": -7185.59,
-  "total_tds": 2723.84,
+  "cash_inr": 1282.8007758315139,
+  "realized_pnl": -3301.981643521018,
+  "total_trades": 885,
+  "sell_count": 440,
+  "gross_gains": 3904.26,
+  "gross_losses": -7206.35,
+  "total_tds": 2735.17,
   "holdings": {
-    "XRPINR": {
-      "qty": 4.7,
-      "avg_cost": 129.57713919149998,
-      "invested": 609.01255420005,
-      "last_buy_at": "2026-10-24T18:33:01+00:00"
-    },
     "BRISEINR": {
       "qty": 415147016.0,
       "avg_cost": 1.2955410468e-06,
@@ -31,11 +25,17 @@
       "invested": 529.755356955825,
       "last_buy_at": "2026-10-26T20:30:06+00:00"
     },
-    "POLYXINR": {
-      "qty": 156.1884,
-      "avg_cost": 3.3680461815,
-      "invested": 526.0497442145946,
-      "last_buy_at": "2026-10-27T05:34:03+00:00"
+    "NEARINR": {
+      "qty": 1.1,
+      "avg_cost": 469.10283419999996,
+      "invested": 516.01311762,
+      "last_buy_at": "2026-10-27T17:13:15+00:00"
+    },
+    "ALTINR": {
+      "qty": 829.0,
+      "avg_cost": 0.6623924307,
+      "invested": 549.1233250503,
+      "last_buy_at": "2026-10-27T17:13:15+00:00"
     }
   }
 }
