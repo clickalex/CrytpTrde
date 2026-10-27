@@ -1,11 +1,11 @@
 {
-  "cash_inr": 206.35239320677329,
-  "realized_pnl": -2618.704955036586,
-  "total_trades": 326,
-  "sell_count": 160,
-  "gross_gains": 4365.41,
-  "gross_losses": -6984.14,
-  "total_tds": 2000.28,
+  "cash_inr": 232.58821739261373,
+  "realized_pnl": -2669.2816756090856,
+  "total_trades": 330,
+  "sell_count": 162,
+  "gross_gains": 4373.98,
+  "gross_losses": -7043.28,
+  "total_tds": 2020.15,
   "holdings": {
     "SHIBINR": {
       "qty": 1713529.0,
@@ -19,18 +19,6 @@
       "invested": 771.1199988542409,
       "last_buy_at": "2026-10-22T22:43:30+00:00"
     },
-    "ORCAINR": {
-      "qty": 6.42,
-      "avg_cost": 175.392782565,
-      "invested": 1126.0216640673,
-      "last_buy_at": "2026-10-24T18:28:42+00:00"
-    },
-    "CAKEINR": {
-      "qty": 4.3,
-      "avg_cost": 211.59702564,
-      "invested": 909.867210252,
-      "last_buy_at": "2026-10-25T06:40:03+00:00"
-    },
     "ETHINR": {
       "qty": 0.0029,
       "avg_cost": 235608.30057765,
@@ -42,6 +30,18 @@
       "avg_cost": 0.13397072188499998,
       "invested": 825.3400292447309,
       "last_buy_at": "2026-10-26T20:23:08+00:00"
+    },
+    "PYTHINR": {
+      "qty": 134.6,
+      "avg_cost": 7.4994360440999985,
+      "invested": 1009.4240915358598,
+      "last_buy_at": "2026-10-27T05:30:40+00:00"
+    },
+    "APEINR": {
+      "qty": 75.1,
+      "avg_cost": 12.380549181,
+      "invested": 929.7792434930999,
+      "last_buy_at": "2026-10-27T05:30:40+00:00"
     }
   }
 }

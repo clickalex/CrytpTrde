@@ -1,11 +1,11 @@
 {
-  "cash_inr": 625.0661893316088,
-  "realized_pnl": -2063.8103998668244,
-  "total_trades": 373,
-  "sell_count": 182,
+  "cash_inr": 653.7155108060088,
+  "realized_pnl": -2101.9495054758245,
+  "total_trades": 375,
+  "sell_count": 183,
   "gross_gains": 4014.88,
-  "gross_losses": -6078.71,
-  "total_tds": 1488.39,
+  "gross_losses": -6116.85,
+  "total_tds": 1495.28,
   "holdings": {
     "SHIBINR": {
       "qty": 1475675.0,
@@ -37,12 +37,6 @@
       "invested": 638.8321314374999,
       "last_buy_at": "2026-10-24T18:32:34+00:00"
     },
-    "ORCAINR": {
-      "qty": 4.14,
-      "avg_cost": 175.39278256499998,
-      "invested": 726.1261198190998,
-      "last_buy_at": "2026-10-24T18:32:34+00:00"
-    },
     "BONKINR": {
       "qty": 2257239.0,
       "avg_cost": 0.00030675960315,
@@ -60,6 +54,12 @@
       "avg_cost": 0.7575850532249998,
       "invested": 625.0076689106248,
       "last_buy_at": "2026-10-25T06:45:12+00:00"
+    },
+    "PYTHINR": {
+      "qty": 87.0,
+      "avg_cost": 7.499436044099999,
+      "invested": 652.4509358367,
+      "last_buy_at": "2026-10-27T05:33:41+00:00"
     }
   }
 }
