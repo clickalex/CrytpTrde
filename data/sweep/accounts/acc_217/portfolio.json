@@ -1,10 +1,29 @@
 {
-  "cash_inr": 6242.439396159527,
+  "cash_inr": 4551.487464761048,
   "realized_pnl": -2557.980573631166,
-  "total_trades": 426,
+  "total_trades": 429,
   "sell_count": 213,
   "gross_gains": 1369.49,
   "gross_losses": -3927.5,
   "total_tds": 1199.53,
-  "holdings": {}
+  "holdings": {
+    "CAKEINR": {
+      "qty": 2.96,
+      "avg_cost": 210.59552514,
+      "invested": 623.3627544144,
+      "last_buy_at": "2026-10-28T07:18:48+00:00"
+    },
+    "POLYXINR": {
+      "qty": 166.5355,
+      "avg_cost": 3.3740551845,
+      "invested": 561.8999671782998,
+      "last_buy_at": "2026-10-28T07:18:48+00:00"
+    },
+    "APEINR": {
+      "qty": 40.74,
+      "avg_cost": 12.412597196999998,
+      "invested": 505.68920980577997,
+      "last_buy_at": "2026-10-28T07:18:48+00:00"
+    }
+  }
 }

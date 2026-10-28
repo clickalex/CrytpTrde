@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2559.6727380489333,
-  "realized_pnl": -2414.5979774123703,
-  "total_trades": 378,
-  "sell_count": 186,
+  "cash_inr": 2487.7266465203697,
+  "realized_pnl": -2438.07079635657,
+  "total_trades": 382,
+  "sell_count": 188,
   "gross_gains": 2836.82,
-  "gross_losses": -5251.45,
-  "total_tds": 1340.38,
+  "gross_losses": -5274.92,
+  "total_tds": 1352.22,
   "holdings": {
-    "JUPINR": {
-      "qty": 19.8,
-      "avg_cost": 29.132648044499998,
-      "invested": 576.8264312811,
-      "last_buy_at": "2026-10-25T01:39:10+00:00"
-    },
     "DOTINR": {
       "qty": 7.8328,
       "avg_cost": 103.15755600150001,
@@ -31,17 +25,23 @@
       "invested": 516.744212985,
       "last_buy_at": "2026-10-25T11:57:10+00:00"
     },
-    "RIFINR": {
-      "qty": 89.0,
-      "avg_cost": 7.075601032500001,
-      "invested": 629.7284918925001,
-      "last_buy_at": "2026-10-26T20:19:25+00:00"
-    },
     "ORCAINR": {
       "qty": 2.93,
       "avg_cost": 173.27961651,
       "invested": 507.70927637430003,
       "last_buy_at": "2026-10-26T20:19:25+00:00"
+    },
+    "CAKEINR": {
+      "qty": 2.95,
+      "avg_cost": 210.59552513999998,
+      "invested": 621.256799163,
+      "last_buy_at": "2026-10-28T07:18:30+00:00"
+    },
+    "GASINR": {
+      "qty": 5.0762,
+      "avg_cost": 122.5185636675,
+      "invested": 621.9287328889635,
+      "last_buy_at": "2026-10-28T07:18:35+00:00"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2300.9530262255025,
-  "realized_pnl": -3602.578729432883,
-  "total_trades": 329,
-  "sell_count": 163,
-  "gross_gains": 2005.14,
+  "cash_inr": 1655.0256648647314,
+  "realized_pnl": -3584.405576928683,
+  "total_trades": 332,
+  "sell_count": 164,
+  "gross_gains": 2023.31,
   "gross_losses": -5607.71,
-  "total_tds": 1669.21,
+  "total_tds": 1680.1,
   "holdings": {
     "USDTINR": {
       "qty": 6.71,
@@ -13,17 +13,23 @@
       "invested": 664.6147603095,
       "last_buy_at": "2026-09-09T16:55:56+00:00"
     },
-    "LINKINR": {
-      "qty": 0.92,
-      "avg_cost": 1162.30142028,
-      "invested": 1069.3173066576,
-      "last_buy_at": "2026-10-24T18:24:47+00:00"
-    },
     "BIOINR": {
       "qty": 305.8,
       "avg_cost": 2.2672969819500004,
       "invested": 693.3394170803101,
       "last_buy_at": "2026-10-25T11:56:12+00:00"
+    },
+    "POLYXINR": {
+      "qty": 300.3092,
+      "avg_cost": 3.3740551844999995,
+      "invested": 1013.2598132130472,
+      "last_buy_at": "2026-10-28T07:15:09+00:00"
+    },
+    "GASINR": {
+      "qty": 5.7891,
+      "avg_cost": 122.51856366749999,
+      "invested": 709.2722169275243,
+      "last_buy_at": "2026-10-28T07:15:13+00:00"
     }
   }
 }
