@@ -1,23 +1,17 @@
 {
-  "cash_inr": 175.15814837082144,
-  "realized_pnl": -1633.151723182093,
-  "total_trades": 237,
-  "sell_count": 115,
+  "cash_inr": 171.1846071243882,
+  "realized_pnl": -1690.5673495872152,
+  "total_trades": 241,
+  "sell_count": 117,
   "gross_gains": 3772.98,
-  "gross_losses": -5406.11,
-  "total_tds": 1901.51,
+  "gross_losses": -5463.53,
+  "total_tds": 1915.07,
   "holdings": {
     "BIOINR": {
       "qty": 256.5,
       "avg_cost": 2.28532399095,
       "invested": 586.185603678675,
       "last_buy_at": "2026-10-24T18:36:06+00:00"
-    },
-    "ONEINR": {
-      "qty": 5464.4,
-      "avg_cost": 0.13327968654000003,
-      "invested": 728.293519129176,
-      "last_buy_at": "2026-10-25T17:04:56+00:00"
     },
     "FARTCOININR": {
       "qty": 165.2,
@@ -37,17 +31,23 @@
       "invested": 608.8498308995603,
       "last_buy_at": "2026-10-28T07:37:14+00:00"
     },
-    "BRISEINR": {
-      "qty": 530709773.0,
-      "avg_cost": 1.2880297930500001e-06,
-      "invested": 683.5699990868026,
-      "last_buy_at": "2026-10-28T07:37:15+00:00"
-    },
     "SOLINR": {
       "qty": 0.065,
       "avg_cost": 10420.111952250001,
       "invested": 677.3072768962501,
       "last_buy_at": "2026-10-29T00:48:47+00:00"
+    },
+    "HMSTRINR": {
+      "qty": 45198.0,
+      "avg_cost": 0.014615898296999998,
+      "invested": 660.6093712278059,
+      "last_buy_at": "2026-10-29T14:04:33+00:00"
+    },
+    "PENGUINR": {
+      "qty": 868.0,
+      "avg_cost": 0.788311088565,
+      "invested": 684.25402487442,
+      "last_buy_at": "2026-10-29T14:04:34+00:00"
     }
   }
 }

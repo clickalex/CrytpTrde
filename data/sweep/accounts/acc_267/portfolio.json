@@ -1,23 +1,17 @@
 {
-  "cash_inr": 1330.4607225960833,
-  "realized_pnl": -3058.241241141252,
-  "total_trades": 756,
-  "sell_count": 375,
+  "cash_inr": 1277.469355561661,
+  "realized_pnl": -3093.105099634602,
+  "total_trades": 760,
+  "sell_count": 377,
   "gross_gains": 4462.59,
-  "gross_losses": -7520.81,
-  "total_tds": 2331.34,
+  "gross_losses": -7555.67,
+  "total_tds": 2341.77,
   "holdings": {
     "SUIINR": {
       "qty": 5.9,
       "avg_cost": 92.8581248595,
       "invested": 547.86293667105,
       "last_buy_at": "2026-10-27T05:30:57+00:00"
-    },
-    "NEARINR": {
-      "qty": 1.1,
-      "avg_cost": 469.1929692450001,
-      "invested": 516.1122661695001,
-      "last_buy_at": "2026-10-27T21:45:58+00:00"
     },
     "BIOINR": {
       "qty": 236.7,
@@ -31,17 +25,23 @@
       "invested": 537.669564432,
       "last_buy_at": "2026-10-28T14:39:31+00:00"
     },
-    "SUSHIINR": {
-      "qty": 26.7,
-      "avg_cost": 20.9884459785,
-      "invested": 560.39150762595,
-      "last_buy_at": "2026-10-28T14:39:36+00:00"
-    },
     "BOMEINR": {
       "qty": 8715.0,
       "avg_cost": 0.06542201866200001,
       "invested": 570.15289263933,
       "last_buy_at": "2026-10-28T20:06:45+00:00"
+    },
+    "LINKINR": {
+      "qty": 0.45,
+      "avg_cost": 1192.757050485,
+      "invested": 536.74067271825,
+      "last_buy_at": "2026-10-29T13:50:47+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 49899.0,
+      "avg_cost": 0.010971437977499998,
+      "invested": 547.4637836392724,
+      "last_buy_at": "2026-10-29T13:50:52+00:00"
     }
   }
 }

@@ -1,10 +1,17 @@
 {
-  "cash_inr": 9088.230600751658,
+  "cash_inr": 8179.4110441487,
   "realized_pnl": -638.3626430603207,
-  "total_trades": 64,
+  "total_trades": 65,
   "sell_count": 32,
   "gross_gains": 426.29,
   "gross_losses": -1064.64,
   "total_tds": 273.42,
-  "holdings": {}
+  "holdings": {
+    "XDBINR": {
+      "qty": 159091.5,
+      "avg_cost": 0.005712558851999999,
+      "invested": 908.8195566029578,
+      "last_buy_at": "2026-10-29T13:34:55+00:00"
+    }
+  }
 }

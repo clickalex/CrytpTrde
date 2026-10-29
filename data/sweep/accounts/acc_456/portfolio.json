@@ -1,18 +1,12 @@
 {
-  "cash_inr": 774.9515005448125,
-  "realized_pnl": -2547.6203509328343,
-  "total_trades": 712,
-  "sell_count": 352,
-  "gross_gains": 4363.43,
-  "gross_losses": -6911.04,
-  "total_tds": 2398.01,
+  "cash_inr": 787.2470754953364,
+  "realized_pnl": -2538.044844374724,
+  "total_trades": 716,
+  "sell_count": 354,
+  "gross_gains": 4374.14,
+  "gross_losses": -6912.17,
+  "total_tds": 2408.77,
   "holdings": {
-    "HMSTRINR": {
-      "qty": 36695.0,
-      "avg_cost": 0.014318452648500003,
-      "invested": 525.4156199367076,
-      "last_buy_at": "2026-10-26T01:46:24+00:00"
-    },
     "BNBINR": {
       "qty": 0.006,
       "avg_cost": 75817.49370194998,
@@ -43,17 +37,23 @@
       "invested": 559.1609639616,
       "last_buy_at": "2026-10-28T07:41:15+00:00"
     },
-    "PYTHINR": {
-      "qty": 73.4,
-      "avg_cost": 7.3573231231500005,
-      "invested": 540.02751723921,
-      "last_buy_at": "2026-10-28T20:24:07+00:00"
-    },
     "LINKINR": {
       "qty": 0.42,
       "avg_cost": 1203.78357099,
       "invested": 505.58909981579995,
       "last_buy_at": "2026-10-29T00:53:25+00:00"
+    },
+    "BRISEINR": {
+      "qty": 421149215.0,
+      "avg_cost": 1.2538786259999997e-06,
+      "invested": 528.0699990451785,
+      "last_buy_at": "2026-10-29T14:08:11+00:00"
+    },
+    "ALTINR": {
+      "qty": 772.0,
+      "avg_cost": 0.6786167388000001,
+      "invested": 523.8921223536,
+      "last_buy_at": "2026-10-29T14:08:11+00:00"
     }
   }
 }
