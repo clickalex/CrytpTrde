@@ -1,18 +1,12 @@
 {
-  "cash_inr": 576.2508029160554,
-  "realized_pnl": -3954.245261546352,
-  "total_trades": 675,
-  "sell_count": 335,
+  "cash_inr": 547.8045082458531,
+  "realized_pnl": -4038.2217743861534,
+  "total_trades": 679,
+  "sell_count": 337,
   "gross_gains": 4301.38,
-  "gross_losses": -8255.61,
-  "total_tds": 2664.0,
+  "gross_losses": -8339.59,
+  "total_tds": 2674.79,
   "holdings": {
-    "XDBINR": {
-      "qty": 116586.0,
-      "avg_cost": 0.00502753251,
-      "invested": 586.13990521086,
-      "last_buy_at": "2026-10-30T03:15:20+00:00"
-    },
     "POLYXINR": {
       "qty": 173.3633,
       "avg_cost": 3.2558781254999998,
@@ -31,11 +25,17 @@
       "invested": 530.3296223500274,
       "last_buy_at": "2026-10-30T03:15:21+00:00"
     },
-    "BRISEINR": {
-      "qty": 480963510.0,
-      "avg_cost": 1.1980950481499998e-06,
-      "invested": 576.239999671843,
-      "last_buy_at": "2026-10-30T03:15:22+00:00"
+    "PENGUINR": {
+      "qty": 752.0,
+      "avg_cost": 0.7290623189850001,
+      "invested": 548.25486387672,
+      "last_buy_at": "2026-10-30T10:46:39+00:00"
+    },
+    "TOKENINR": {
+      "qty": 3127.3828,
+      "avg_cost": 0.17516243745,
+      "invested": 547.7999940872058,
+      "last_buy_at": "2026-10-30T10:46:40+00:00"
     }
   }
 }

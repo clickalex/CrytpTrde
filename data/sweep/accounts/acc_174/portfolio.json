@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2586.4660315629794,
-  "realized_pnl": -2040.400686725114,
-  "total_trades": 234,
-  "sell_count": 114,
+  "cash_inr": 2933.612817324449,
+  "realized_pnl": -2148.8198326638103,
+  "total_trades": 236,
+  "sell_count": 115,
   "gross_gains": 2764.45,
-  "gross_losses": -4804.88,
-  "total_tds": 1184.82,
+  "gross_losses": -4913.3,
+  "total_tds": 1193.12,
   "holdings": {
-    "XDBINR": {
-      "qty": 183945.9,
-      "avg_cost": 0.0050976375449999995,
-      "invested": 937.6895260888153,
-      "last_buy_at": "2026-10-29T19:17:40+00:00"
-    },
     "CAKEINR": {
       "qty": 3.89,
       "avg_cost": 192.798861255,
@@ -42,6 +36,12 @@
       "avg_cost": 0.16691007333,
       "invested": 646.60962408042,
       "last_buy_at": "2026-10-30T02:56:50+00:00"
+    },
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 7897043.1597056985,
+      "invested": 473.82258958234195,
+      "last_buy_at": "2026-10-30T10:27:50+00:00"
     }
   }
 }
