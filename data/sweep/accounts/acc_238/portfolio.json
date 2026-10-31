@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2524.7063118580722,
-  "realized_pnl": -3899.2402885001784,
-  "total_trades": 693,
-  "sell_count": 345,
+  "cash_inr": 2001.2028054705224,
+  "realized_pnl": -3914.570477826578,
+  "total_trades": 696,
+  "sell_count": 346,
   "gross_gains": 2217.53,
-  "gross_losses": -6116.75,
-  "total_tds": 2047.01,
+  "gross_losses": -6132.08,
+  "total_tds": 2051.86,
   "holdings": {
     "FILINR": {
       "qty": 6.23,
@@ -19,11 +19,17 @@
       "invested": 502.22999710387,
       "last_buy_at": "2026-10-30T10:31:56+00:00"
     },
-    "TRXINR": {
-      "qty": 15.6,
-      "avg_cost": 32.060034005999995,
-      "invested": 500.13653049359993,
-      "last_buy_at": "2026-10-31T15:47:12+00:00"
+    "BNBINR": {
+      "qty": 0.007,
+      "avg_cost": 71880.99583665,
+      "invested": 503.16697085655005,
+      "last_buy_at": "2026-10-31T19:41:39+00:00"
+    },
+    "SHIBINR": {
+      "qty": 1051664.0,
+      "avg_cost": 0.00047571273749999997,
+      "invested": 500.2899603702,
+      "last_buy_at": "2026-10-31T19:41:39+00:00"
     }
   }
 }
