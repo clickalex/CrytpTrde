@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1356.7422993065607,
-  "realized_pnl": -2819.899256453141,
-  "total_trades": 770,
-  "sell_count": 382,
-  "gross_gains": 4354.72,
+  "cash_inr": 1330.9198069024108,
+  "realized_pnl": -2809.676057526941,
+  "total_trades": 772,
+  "sell_count": 383,
+  "gross_gains": 4364.94,
   "gross_losses": -7174.57,
-  "total_tds": 2429.64,
+  "total_tds": 2435.13,
   "holdings": {
-    "TRBINR": {
-      "qty": 0.332,
-      "avg_cost": 1620.3276589500001,
-      "invested": 537.9487827714,
-      "last_buy_at": "2026-10-30T03:05:37+00:00"
-    },
     "DOGEINR": {
       "qty": 68.0,
       "avg_cost": 7.759625874000001,
@@ -42,6 +36,12 @@
       "avg_cost": 0.014414596696499998,
       "invested": 581.4415869467205,
       "last_buy_at": "2026-10-30T21:58:51+00:00"
+    },
+    "ARBINR": {
+      "qty": 33.9,
+      "avg_cost": 16.7701258725,
+      "invested": 568.5072670777499,
+      "last_buy_at": "2026-10-31T15:54:29+00:00"
     }
   }
 }
