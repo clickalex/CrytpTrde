@@ -1,18 +1,12 @@
 {
-  "cash_inr": 750.7648520854686,
-  "realized_pnl": -4428.520844132116,
-  "total_trades": 661,
-  "sell_count": 328,
+  "cash_inr": 791.355696674613,
+  "realized_pnl": -4443.661645096329,
+  "total_trades": 663,
+  "sell_count": 329,
   "gross_gains": 2611.33,
-  "gross_losses": -7039.8,
-  "total_tds": 2175.71,
+  "gross_losses": -7054.94,
+  "total_tds": 2181.45,
   "holdings": {
-    "TOSHIINR": {
-      "qty": 56052.0,
-      "avg_cost": 0.010508744746500001,
-      "invested": 589.036160530818,
-      "last_buy_at": "2026-10-30T03:02:13+00:00"
-    },
     "TOKENINR": {
       "qty": 2914.038,
       "avg_cost": 0.17516243744999999,
@@ -36,6 +30,12 @@
       "avg_cost": 0.7419916904399999,
       "invested": 499.36040766611995,
       "last_buy_at": "2026-11-01T09:45:45+00:00"
+    },
+    "BONKINR": {
+      "qty": 1765313.0,
+      "avg_cost": 0.0002988477492,
+      "invested": 527.5598166834995,
+      "last_buy_at": "2026-11-01T16:32:32+00:00"
     }
   }
 }
