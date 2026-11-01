@@ -1,35 +1,29 @@
 {
-  "cash_inr": 303.87640569782025,
-  "realized_pnl": -2324.1660840936784,
-  "total_trades": 452,
-  "sell_count": 224,
+  "cash_inr": 453.1714740872487,
+  "realized_pnl": -2395.8129503798145,
+  "total_trades": 455,
+  "sell_count": 226,
   "gross_gains": 5791.77,
-  "gross_losses": -8115.88,
-  "total_tds": 3222.78,
+  "gross_losses": -8187.53,
+  "total_tds": 3242.6,
   "holdings": {
-    "ALTINR": {
-      "qty": 1448.0,
-      "avg_cost": 0.60821125365,
-      "invested": 880.6898952851999,
-      "last_buy_at": "2026-10-30T03:03:38+00:00"
-    },
     "BOMEINR": {
       "qty": 14334.0,
       "avg_cost": 0.061568244737999996,
       "invested": 882.519220074492,
       "last_buy_at": "2026-10-30T03:03:39+00:00"
     },
-    "BRISEINR": {
-      "qty": 996815578.0,
-      "avg_cost": 1.1742593362499999e-06,
-      "invested": 1170.51999898594,
-      "last_buy_at": "2026-10-30T21:56:42+00:00"
-    },
     "PEPEINR": {
       "qty": 2407575.0,
       "avg_cost": 0.00050485640205,
       "invested": 1215.4796521655287,
       "last_buy_at": "2026-10-31T02:02:31+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 91.3,
+      "avg_cost": 19.829709899999997,
+      "invested": 1810.4525138699998,
+      "last_buy_at": "2026-11-01T09:47:24+00:00"
     }
   }
 }
