@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2623.3869744888207,
-  "realized_pnl": -2634.526073431268,
-  "total_trades": 681,
-  "sell_count": 338,
+  "cash_inr": 2137.903532645622,
+  "realized_pnl": -2652.824870831618,
+  "total_trades": 684,
+  "sell_count": 339,
   "gross_gains": 3531.23,
-  "gross_losses": -6165.76,
-  "total_tds": 1969.02,
+  "gross_losses": -6184.06,
+  "total_tds": 1974.26,
   "holdings": {
     "DOGEINR": {
       "qty": 71.0,
@@ -19,12 +19,6 @@
       "invested": 541.7899377890999,
       "last_buy_at": "2026-11-03T09:57:15+00:00"
     },
-    "ALTINR": {
-      "qty": 933.0,
-      "avg_cost": 0.5807701399499999,
-      "invested": 541.85854057335,
-      "last_buy_at": "2026-11-03T09:57:15+00:00"
-    },
     "GALAINR": {
       "qty": 3796.12,
       "avg_cost": 0.168943119345,
@@ -36,6 +30,18 @@
       "avg_cost": 4.8491652709499995,
       "invested": 513.0416856665099,
       "last_buy_at": "2026-11-03T09:57:16+00:00"
+    },
+    "BTCINR": {
+      "qty": 6e-05,
+      "avg_cost": 7834431.25129665,
+      "invested": 470.065875077799,
+      "last_buy_at": "2026-11-03T18:21:49+00:00"
+    },
+    "PYTHINR": {
+      "qty": 79.2,
+      "avg_cost": 6.739096864500001,
+      "invested": 533.7364716684001,
+      "last_buy_at": "2026-11-03T18:21:49+00:00"
     }
   }
 }
