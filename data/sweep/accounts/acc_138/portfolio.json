@@ -1,11 +1,11 @@
 {
-  "cash_inr": 718.5751441860831,
-  "realized_pnl": -2045.600649561522,
-  "total_trades": 122,
-  "sell_count": 59,
+  "cash_inr": 1881.3216566677409,
+  "realized_pnl": -2424.9612760953723,
+  "total_trades": 125,
+  "sell_count": 61,
   "gross_gains": 2252.83,
-  "gross_losses": -4298.41,
-  "total_tds": 1039.48,
+  "gross_losses": -4677.77,
+  "total_tds": 1070.26,
   "holdings": {
     "CAKEINR": {
       "qty": 10.51,
@@ -13,23 +13,17 @@
       "invested": 2026.31603179005,
       "last_buy_at": "2026-10-30T02:54:34+00:00"
     },
-    "ORCAINR": {
-      "qty": 12.69,
-      "avg_cost": 160.02976489499997,
-      "invested": 2030.7777165175496,
-      "last_buy_at": "2026-10-31T01:51:38+00:00"
-    },
-    "RIFINR": {
-      "qty": 211.0,
-      "avg_cost": 6.746107368,
-      "invested": 1423.428654648,
-      "last_buy_at": "2026-10-31T01:51:38+00:00"
-    },
     "TRXINR": {
       "qty": 22.8,
       "avg_cost": 31.395037673999994,
       "invested": 715.8068589671999,
       "last_buy_at": "2026-10-31T19:34:16+00:00"
+    },
+    "TOKENINR": {
+      "qty": 10959.7509,
+      "avg_cost": 0.1716571857,
+      "invested": 1881.319995467042,
+      "last_buy_at": "2026-11-03T09:51:01+00:00"
     }
   }
 }

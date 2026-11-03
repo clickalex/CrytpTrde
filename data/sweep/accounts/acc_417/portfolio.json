@@ -1,23 +1,17 @@
 {
-  "cash_inr": 4586.802134152681,
-  "realized_pnl": -1513.254970603059,
-  "total_trades": 479,
-  "sell_count": 237,
+  "cash_inr": 4557.5977789620065,
+  "realized_pnl": -1561.881440834709,
+  "total_trades": 483,
+  "sell_count": 239,
   "gross_gains": 2436.13,
-  "gross_losses": -3949.37,
-  "total_tds": 1254.78,
+  "gross_losses": -3998.0,
+  "total_tds": 1264.76,
   "holdings": {
     "USDTINR": {
       "qty": 5.53,
       "avg_cost": 101.05140045000002,
       "invested": 558.8142444885001,
       "last_buy_at": "2026-10-24T18:36:20+00:00"
-    },
-    "DOGEINR": {
-      "qty": 69.0,
-      "avg_cost": 7.7648336766,
-      "invested": 535.7735236854,
-      "last_buy_at": "2026-10-25T12:02:54+00:00"
     },
     "LINKINR": {
       "qty": 0.47,
@@ -31,11 +25,17 @@
       "invested": 520.6691429186247,
       "last_buy_at": "2026-10-30T03:12:09+00:00"
     },
-    "SUSHIINR": {
-      "qty": 25.7,
-      "avg_cost": 19.8297099,
-      "invested": 509.62354443,
-      "last_buy_at": "2026-11-01T16:45:08+00:00"
+    "FARTCOININR": {
+      "qty": 42.76,
+      "avg_cost": 11.91785595,
+      "invested": 509.60752042199994,
+      "last_buy_at": "2026-11-03T10:00:40+00:00"
+    },
+    "SHIBINR": {
+      "qty": 1090192.0,
+      "avg_cost": 0.0004644959319,
+      "invested": 506.3897489899248,
+      "last_buy_at": "2026-11-03T10:00:40+00:00"
     }
   }
 }

@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2357.509432603698,
-  "realized_pnl": -1793.410017321479,
-  "total_trades": 719,
-  "sell_count": 356,
+  "cash_inr": 2292.0462223738045,
+  "realized_pnl": -1850.880787558355,
+  "total_trades": 723,
+  "sell_count": 358,
   "gross_gains": 4609.54,
-  "gross_losses": -6402.91,
-  "total_tds": 2058.72,
+  "gross_losses": -6460.38,
+  "total_tds": 2069.61,
   "holdings": {
-    "SOLINR": {
-      "qty": 0.054,
-      "avg_cost": 9832.83205905,
-      "invested": 530.9729311887,
-      "last_buy_at": "2026-10-30T03:08:57+00:00"
-    },
     "ICPINR": {
       "qty": 2.09,
       "avg_cost": 251.27647545,
@@ -37,17 +31,23 @@
       "invested": 507.691746109548,
       "last_buy_at": "2026-10-30T03:08:57+00:00"
     },
-    "HMSTRINR": {
-      "qty": 43553.0,
-      "avg_cost": 0.014116149547499998,
-      "invested": 614.8006612422674,
-      "last_buy_at": "2026-10-30T03:08:58+00:00"
-    },
     "ETHINR": {
       "qty": 0.0025,
       "avg_cost": 226955.4364077,
       "invested": 567.38859101925,
       "last_buy_at": "2026-10-30T10:40:06+00:00"
+    },
+    "USDTINR": {
+      "qty": 5.62,
+      "avg_cost": 101.502075675,
+      "invested": 570.4416652935,
+      "last_buy_at": "2026-11-03T09:58:55+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 656.0,
+      "avg_cost": 0.87260738565,
+      "invested": 572.4304449864,
+      "last_buy_at": "2026-11-03T09:58:55+00:00"
     }
   }
 }
