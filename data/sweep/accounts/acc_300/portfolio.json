@@ -1,18 +1,12 @@
 {
-  "cash_inr": 233.4720216740759,
-  "realized_pnl": -2088.4756229723816,
-  "total_trades": 132,
-  "sell_count": 63,
+  "cash_inr": 242.69698961181052,
+  "realized_pnl": -2142.4820462615085,
+  "total_trades": 134,
+  "sell_count": 64,
   "gross_gains": 3068.72,
-  "gross_losses": -5157.19,
-  "total_tds": 1058.3,
+  "gross_losses": -5211.2,
+  "total_tds": 1067.95,
   "holdings": {
-    "GASINR": {
-      "qty": 8.4662,
-      "avg_cost": 120.214111017,
-      "invested": 1017.7567066921254,
-      "last_buy_at": "2026-10-24T18:30:39+00:00"
-    },
     "ICPINR": {
       "qty": 2.79,
       "avg_cost": 251.27647544999996,
@@ -42,6 +36,12 @@
       "avg_cost": 95.01635843699998,
       "invested": 933.8682788980543,
       "last_buy_at": "2026-11-03T09:56:37+00:00"
+    },
+    "DOGEINR": {
+      "qty": 125.0,
+      "avg_cost": 7.559025323849999,
+      "invested": 944.8781654812499,
+      "last_buy_at": "2026-11-04T07:16:00+00:00"
     }
   }
 }

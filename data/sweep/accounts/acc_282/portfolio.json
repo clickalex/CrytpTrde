@@ -1,18 +1,12 @@
 {
-  "cash_inr": 531.4637327144522,
-  "realized_pnl": -5118.6578082083015,
-  "total_trades": 735,
-  "sell_count": 366,
-  "gross_gains": 2599.19,
+  "cash_inr": 542.87783445043,
+  "realized_pnl": -5082.249636537106,
+  "total_trades": 737,
+  "sell_count": 367,
+  "gross_gains": 2635.6,
   "gross_losses": -7717.8,
-  "total_tds": 2773.54,
+  "total_tds": 2779.14,
   "holdings": {
-    "BONKINR": {
-      "qty": 1864274.0,
-      "avg_cost": 0.00028042013999999996,
-      "invested": 522.7799760783599,
-      "last_buy_at": "2026-11-03T09:55:59+00:00"
-    },
     "BIOINR": {
       "qty": 251.0,
       "avg_cost": 2.0803168385999995,
@@ -24,6 +18,12 @@
       "avg_cost": 0.060677910793499996,
       "invested": 531.3564648186795,
       "last_buy_at": "2026-11-03T09:55:59+00:00"
+    },
+    "PENGUINR": {
+      "qty": 735.0,
+      "avg_cost": 0.737655193275,
+      "invested": 542.176567057125,
+      "last_buy_at": "2026-11-04T07:14:15+00:00"
     }
   }
 }
