@@ -1,23 +1,17 @@
 {
-  "cash_inr": 790.2076071870125,
-  "realized_pnl": -3501.355232163019,
-  "total_trades": 919,
-  "sell_count": 457,
+  "cash_inr": 782.8644305542626,
+  "realized_pnl": -3510.7274895645187,
+  "total_trades": 921,
+  "sell_count": 458,
   "gross_gains": 3938.2,
-  "gross_losses": -7439.57,
-  "total_tds": 3054.08,
+  "gross_losses": -7448.94,
+  "total_tds": 3059.27,
   "holdings": {
     "TRBINR": {
       "qty": 0.311,
       "avg_cost": 1674.2083858500002,
       "invested": 520.67880799935,
       "last_buy_at": "2026-11-04T07:23:46+00:00"
-    },
-    "SOLINR": {
-      "qty": 0.054,
-      "avg_cost": 9773.6433795,
-      "invested": 527.7767424929999,
-      "last_buy_at": "2026-11-04T16:13:45+00:00"
     },
     "SUSHIINR": {
       "qty": 27.1,
@@ -36,6 +30,12 @@
       "avg_cost": 4.05397387395,
       "invested": 526.773365181063,
       "last_buy_at": "2026-11-04T22:36:21+00:00"
+    },
+    "USDTINR": {
+      "qty": 5.19,
+      "avg_cost": 100.30027507499999,
+      "invested": 520.55842763925,
+      "last_buy_at": "2026-11-05T03:16:00+00:00"
     }
   }
 }

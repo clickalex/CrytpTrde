@@ -1,10 +1,23 @@
 {
-  "cash_inr": 3033.5165832616112,
+  "cash_inr": 758.435137624311,
   "realized_pnl": -4588.382390673283,
-  "total_trades": 448,
+  "total_trades": 450,
   "sell_count": 224,
   "gross_gains": 2722.64,
   "gross_losses": -7311.02,
   "total_tds": 2378.08,
-  "holdings": {}
+  "holdings": {
+    "TRUMPINR": {
+      "qty": 12.064,
+      "avg_cost": 125.71835776500001,
+      "invested": 1516.66626807696,
+      "last_buy_at": "2026-11-05T02:58:15+00:00"
+    },
+    "GASINR": {
+      "qty": 6.3386,
+      "avg_cost": 119.6502662355,
+      "invested": 758.4151775603402,
+      "last_buy_at": "2026-11-05T02:58:15+00:00"
+    }
+  }
 }
