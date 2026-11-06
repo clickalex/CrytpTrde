@@ -1,10 +1,17 @@
 {
-  "cash_inr": 7592.234785266689,
+  "cash_inr": 6081.713844437789,
   "realized_pnl": -1857.5021949687632,
-  "total_trades": 76,
+  "total_trades": 77,
   "sell_count": 38,
   "gross_gains": 315.52,
   "gross_losses": -2173.04,
   "total_tds": 550.27,
-  "holdings": {}
+  "holdings": {
+    "XRPINR": {
+      "qty": 12.6,
+      "avg_cost": 119.8826143515,
+      "invested": 1510.5209408289,
+      "last_buy_at": "2026-11-06T07:13:45+00:00"
+    }
+  }
 }

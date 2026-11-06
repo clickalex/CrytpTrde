@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1204.7350776558262,
-  "realized_pnl": -3362.877583535687,
-  "total_trades": 535,
-  "sell_count": 265,
+  "cash_inr": 1107.7637148251135,
+  "realized_pnl": -3450.379961274558,
+  "total_trades": 539,
+  "sell_count": 267,
   "gross_gains": 4233.21,
-  "gross_losses": -7596.12,
-  "total_tds": 1973.14,
+  "gross_losses": -7683.62,
+  "total_tds": 1986.97,
   "holdings": {
-    "LINKINR": {
-      "qty": 0.58,
-      "avg_cost": 1133.9990161499998,
-      "invested": 657.7194293669999,
-      "last_buy_at": "2026-11-03T10:03:24+00:00"
-    },
     "JUPINR": {
       "qty": 23.9,
       "avg_cost": 24.891293426999994,
@@ -25,17 +19,23 @@
       "invested": 592.50041485635,
       "last_buy_at": "2026-11-03T10:03:24+00:00"
     },
-    "GALAINR": {
-      "qty": 4802.56,
-      "avg_cost": 0.168943119345,
-      "invested": 811.3594672415232,
-      "last_buy_at": "2026-11-03T10:03:24+00:00"
-    },
     "PUMPINR": {
       "qty": 1961.0,
       "avg_cost": 0.409323269355,
       "invested": 802.682931205155,
       "last_buy_at": "2026-11-03T10:03:26+00:00"
+    },
+    "ICPINR": {
+      "qty": 2.93,
+      "avg_cost": 247.861358745,
+      "invested": 726.23378112285,
+      "last_buy_at": "2026-11-06T07:40:30+00:00"
+    },
+    "BOMEINR": {
+      "qty": 11310.0,
+      "avg_cost": 0.0652948280985,
+      "invested": 738.4845057940349,
+      "last_buy_at": "2026-11-06T07:40:32+00:00"
     }
   }
 }

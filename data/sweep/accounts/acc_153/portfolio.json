@@ -1,23 +1,29 @@
 {
-  "cash_inr": 6185.823204581049,
-  "realized_pnl": -1808.4347727040895,
-  "total_trades": 256,
-  "sell_count": 127,
+  "cash_inr": 5529.039228501469,
+  "realized_pnl": -1883.3910758384218,
+  "total_trades": 261,
+  "sell_count": 129,
   "gross_gains": 1356.4,
-  "gross_losses": -3164.87,
-  "total_tds": 857.91,
+  "gross_losses": -3239.83,
+  "total_tds": 868.65,
   "holdings": {
-    "TOKENINR": {
-      "qty": 3033.6626,
-      "avg_cost": 0.1716571857,
-      "invested": 520.7499842793449,
-      "last_buy_at": "2026-11-03T09:51:33+00:00"
+    "ETHINR": {
+      "qty": 0.0027,
+      "avg_cost": 224640.9687522,
+      "invested": 606.53061563094,
+      "last_buy_at": "2026-11-06T07:17:54+00:00"
     },
-    "TRUMPINR": {
-      "qty": 4.897,
-      "avg_cost": 128.05185393,
-      "invested": 627.06992869521,
-      "last_buy_at": "2026-11-04T22:14:53+00:00"
+    "XRPINR": {
+      "qty": 4.6,
+      "avg_cost": 119.88261435150001,
+      "invested": 551.4600260169,
+      "last_buy_at": "2026-11-06T07:17:54+00:00"
+    },
+    "GASINR": {
+      "qty": 4.941,
+      "avg_cost": 113.52308617649999,
+      "invested": 560.9175687980864,
+      "last_buy_at": "2026-11-06T07:17:54+00:00"
     }
   }
 }

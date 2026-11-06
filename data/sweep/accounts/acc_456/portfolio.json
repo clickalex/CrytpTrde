@@ -1,18 +1,12 @@
 {
-  "cash_inr": 887.4882489008821,
-  "realized_pnl": -2985.525197358483,
-  "total_trades": 754,
-  "sell_count": 374,
+  "cash_inr": 854.6673864836965,
+  "realized_pnl": -3099.6644223294784,
+  "total_trades": 758,
+  "sell_count": 376,
   "gross_gains": 4488.93,
-  "gross_losses": -7474.44,
-  "total_tds": 2521.48,
+  "gross_losses": -7588.58,
+  "total_tds": 2532.81,
   "holdings": {
-    "FILINR": {
-      "qty": 7.21,
-      "avg_cost": 88.55267420999999,
-      "invested": 638.4647810541,
-      "last_buy_at": "2026-11-03T10:02:01+00:00"
-    },
     "JUPINR": {
       "qty": 23.2,
       "avg_cost": 24.891293426999994,
@@ -31,17 +25,23 @@
       "invested": 609.5849117357999,
       "last_buy_at": "2026-11-04T16:21:47+00:00"
     },
-    "BIOINR": {
-      "qty": 276.3,
-      "avg_cost": 2.1995955481499996,
-      "invested": 607.748249953845,
-      "last_buy_at": "2026-11-04T16:21:49+00:00"
-    },
     "BOMEINR": {
       "qty": 8926.0,
       "avg_cost": 0.066283309092,
       "invested": 591.644816955192,
       "last_buy_at": "2026-11-04T16:21:50+00:00"
+    },
+    "ORCAINR": {
+      "qty": 4.2,
+      "avg_cost": 138.99825439499998,
+      "invested": 583.792668459,
+      "last_buy_at": "2026-11-06T07:37:54+00:00"
+    },
+    "SHIBINR": {
+      "qty": 1239469.0,
+      "avg_cost": 0.00045968872949999994,
+      "invested": 569.7699298646354,
+      "last_buy_at": "2026-11-06T07:37:55+00:00"
     }
   }
 }

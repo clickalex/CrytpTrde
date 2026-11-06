@@ -1,22 +1,16 @@
 {
-  "cash_inr": 1231.371415954838,
-  "realized_pnl": -2636.3742092664943,
-  "total_trades": 683,
-  "sell_count": 338,
+  "cash_inr": 1197.7118097525517,
+  "realized_pnl": -2728.5444307827365,
+  "total_trades": 687,
+  "sell_count": 340,
   "gross_gains": 5008.26,
-  "gross_losses": -7644.54,
-  "total_tds": 2092.34,
+  "gross_losses": -7736.71,
+  "total_tds": 2102.48,
   "holdings": {
     "BTCINR": {
       "qty": 7e-05,
       "avg_cost": 7791673.78984995,
       "invested": 545.4171652894964,
-      "last_buy_at": "2026-11-03T09:59:55+00:00"
-    },
-    "FILINR": {
-      "qty": 6.52,
-      "avg_cost": 88.55267421,
-      "invested": 577.3634358492,
       "last_buy_at": "2026-11-03T09:59:55+00:00"
     },
     "JUPINR": {
@@ -43,11 +37,17 @@
       "invested": 511.35991555128476,
       "last_buy_at": "2026-11-04T00:07:52+00:00"
     },
-    "TOKENINR": {
-      "qty": 3052.893,
-      "avg_cost": 0.1728589863,
-      "invested": 527.7199892623659,
-      "last_buy_at": "2026-11-04T16:15:38+00:00"
+    "ORCAINR": {
+      "qty": 3.77,
+      "avg_cost": 138.99825439499998,
+      "invested": 524.0234190691499,
+      "last_buy_at": "2026-11-06T07:33:47+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 584.0,
+      "avg_cost": 0.8774145880499999,
+      "invested": 512.4101194212,
+      "last_buy_at": "2026-11-06T07:33:47+00:00"
     }
   }
 }

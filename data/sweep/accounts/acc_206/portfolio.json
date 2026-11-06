@@ -1,23 +1,29 @@
 {
-  "cash_inr": 2803.1278072181776,
-  "realized_pnl": -4078.9573863274045,
-  "total_trades": 502,
-  "sell_count": 250,
+  "cash_inr": 2369.75015623726,
+  "realized_pnl": -4154.334886002614,
+  "total_trades": 507,
+  "sell_count": 252,
   "gross_gains": 2055.76,
-  "gross_losses": -6134.68,
-  "total_tds": 1731.11,
+  "gross_losses": -6210.06,
+  "total_tds": 1744.24,
   "holdings": {
-    "TRUMPINR": {
-      "qty": 6.726,
-      "avg_cost": 125.71835776500001,
-      "invested": 845.58167432739,
-      "last_buy_at": "2026-11-05T02:58:38+00:00"
+    "BTCINR": {
+      "qty": 7e-05,
+      "avg_cost": 7626480.1882269,
+      "invested": 533.853613175883,
+      "last_buy_at": "2026-11-06T07:21:23+00:00"
     },
-    "ORCAINR": {
-      "qty": 3.73,
-      "avg_cost": 145.087377435,
-      "invested": 541.17591783255,
-      "last_buy_at": "2026-11-05T02:58:38+00:00"
+    "SUIINR": {
+      "qty": 7.0,
+      "avg_cost": 86.47956817499998,
+      "invested": 605.3569772249999,
+      "last_buy_at": "2026-11-06T07:21:23+00:00"
+    },
+    "GASINR": {
+      "qty": 5.2185,
+      "avg_cost": 113.52308617649999,
+      "invested": 592.4202252120651,
+      "last_buy_at": "2026-11-06T07:21:23+00:00"
     }
   }
 }

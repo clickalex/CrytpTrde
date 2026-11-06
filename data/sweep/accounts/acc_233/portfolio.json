@@ -1,18 +1,12 @@
 {
-  "cash_inr": 4850.18308063103,
-  "realized_pnl": -1963.7015378431452,
-  "total_trades": 412,
-  "sell_count": 204,
+  "cash_inr": 4743.67763771144,
+  "realized_pnl": -2046.7560009479607,
+  "total_trades": 416,
+  "sell_count": 206,
   "gross_gains": 1661.32,
-  "gross_losses": -3625.06,
-  "total_tds": 1102.78,
+  "gross_losses": -3708.11,
+  "total_tds": 1112.39,
   "holdings": {
-    "SEIINR": {
-      "qty": 101.2,
-      "avg_cost": 4.979760936149999,
-      "invested": 503.9518067383799,
-      "last_buy_at": "2026-10-30T03:00:28+00:00"
-    },
     "SHIBINR": {
       "qty": 1055132.0,
       "avg_cost": 0.00047571273749999997,
@@ -25,11 +19,17 @@
       "invested": 538.544875869,
       "last_buy_at": "2026-11-04T15:59:23+00:00"
     },
-    "TOKENINR": {
-      "qty": 3117.57,
-      "avg_cost": 0.1728589863,
-      "invested": 538.899989919291,
-      "last_buy_at": "2026-11-04T15:59:24+00:00"
+    "PENGUINR": {
+      "qty": 792.0,
+      "avg_cost": 0.6695030842499999,
+      "invested": 530.2464427259999,
+      "last_buy_at": "2026-11-06T07:23:10+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 600.0,
+      "avg_cost": 0.8774145880499999,
+      "invested": 526.44875283,
+      "last_buy_at": "2026-11-06T07:23:10+00:00"
     }
   }
 }
