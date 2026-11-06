@@ -1,10 +1,23 @@
 {
-  "cash_inr": 2383.4300809692086,
+  "cash_inr": 642.0612568668013,
   "realized_pnl": -5350.642143387717,
-  "total_trades": 374,
+  "total_trades": 376,
   "sell_count": 187,
   "gross_gains": 1834.76,
   "gross_losses": -7185.41,
   "total_tds": 2265.91,
-  "holdings": {}
+  "holdings": {
+    "BTCINR": {
+      "qty": 0.00015,
+      "avg_cost": 7583768.295052949,
+      "invested": 1137.5652442579424,
+      "last_buy_at": "2026-11-06T21:15:44+00:00"
+    },
+    "ETHINR": {
+      "qty": 0.0027,
+      "avg_cost": 223630.95549794997,
+      "invested": 603.8035798444649,
+      "last_buy_at": "2026-11-06T21:15:44+00:00"
+    }
+  }
 }
