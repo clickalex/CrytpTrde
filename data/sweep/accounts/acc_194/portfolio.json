@@ -1,18 +1,12 @@
 {
-  "cash_inr": 720.6250600006002,
-  "realized_pnl": -3850.9830269948843,
-  "total_trades": 387,
-  "sell_count": 192,
+  "cash_inr": 607.3260945287377,
+  "realized_pnl": -3863.517503354234,
+  "total_trades": 389,
+  "sell_count": 193,
   "gross_gains": 4363.59,
-  "gross_losses": -8214.61,
-  "total_tds": 2934.34,
+  "gross_losses": -8227.14,
+  "total_tds": 2939.33,
   "holdings": {
-    "CHILLGUYINR": {
-      "qty": 583.0,
-      "avg_cost": 0.8774145880499999,
-      "invested": 511.53270483315,
-      "last_buy_at": "2026-11-06T07:20:35+00:00"
-    },
     "BTCINR": {
       "qty": 0.00017,
       "avg_cost": 7583768.295052951,
@@ -24,6 +18,12 @@
       "avg_cost": 223630.95549794997,
       "invested": 693.2559620436449,
       "last_buy_at": "2026-11-06T21:16:31+00:00"
+    },
+    "GASINR": {
+      "qty": 5.4446,
+      "avg_cost": 111.54211818749998,
+      "invested": 607.3022166836624,
+      "last_buy_at": "2026-11-07T14:20:30+00:00"
     }
   }
 }
