@@ -1,35 +1,17 @@
 {
-  "cash_inr": 219.3238965264544,
-  "realized_pnl": -1826.1425670815383,
-  "total_trades": 171,
-  "sell_count": 82,
-  "gross_gains": 2187.51,
-  "gross_losses": -4013.64,
-  "total_tds": 1214.97,
+  "cash_inr": 566.7007873701923,
+  "realized_pnl": -1854.6237610619596,
+  "total_trades": 177,
+  "sell_count": 86,
+  "gross_gains": 2267.33,
+  "gross_losses": -4121.94,
+  "total_tds": 1250.59,
   "holdings": {
-    "ARBINR": {
-      "qty": 52.5,
-      "avg_cost": 16.118149047,
-      "invested": 846.2028249675,
-      "last_buy_at": "2026-10-30T03:04:08+00:00"
-    },
     "RENDERINR": {
       "qty": 3.93,
       "avg_cost": 154.181001975,
       "invested": 605.93133776175,
       "last_buy_at": "2026-11-04T07:15:10+00:00"
-    },
-    "BRISEINR": {
-      "qty": 996811694.0,
-      "avg_cost": 1.0946400465e-06,
-      "invested": 1091.1499990719037,
-      "last_buy_at": "2026-11-06T07:27:01+00:00"
-    },
-    "SHIBINR": {
-      "qty": 1682551.0,
-      "avg_cost": 0.00045968872949999994,
-      "invested": 773.4497315089544,
-      "last_buy_at": "2026-11-06T07:27:02+00:00"
     },
     "TRXINR": {
       "qty": 18.2,
@@ -43,11 +25,17 @@
       "invested": 1965.1305605431498,
       "last_buy_at": "2026-11-07T14:23:20+00:00"
     },
-    "CHILLGUYINR": {
-      "qty": 1005.0,
-      "avg_cost": 0.8717060351999999,
-      "invested": 876.0645653759999,
-      "last_buy_at": "2026-11-07T14:23:20+00:00"
+    "APTINR": {
+      "qty": 15.19,
+      "avg_cost": 59.817621863999996,
+      "invested": 908.6296761141599,
+      "last_buy_at": "2026-11-09T19:27:28+00:00"
+    },
+    "PEPEINR": {
+      "qty": 4369428.0,
+      "avg_cost": 0.0005187772589999999,
+      "invested": 2266.759881237852,
+      "last_buy_at": "2026-11-09T19:27:30+00:00"
     }
   }
 }

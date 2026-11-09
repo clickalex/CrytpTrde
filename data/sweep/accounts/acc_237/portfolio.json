@@ -1,11 +1,11 @@
 {
-  "cash_inr": 889.0235239111896,
-  "realized_pnl": -3079.702791240162,
-  "total_trades": 375,
-  "sell_count": 184,
-  "gross_gains": 2833.74,
-  "gross_losses": -5913.51,
-  "total_tds": 1477.05,
+  "cash_inr": 1073.3991957725098,
+  "realized_pnl": -3128.109205888917,
+  "total_trades": 380,
+  "sell_count": 187,
+  "gross_gains": 2859.33,
+  "gross_losses": -5987.51,
+  "total_tds": 1494.63,
   "holdings": {
     "BNBINR": {
       "qty": 0.007,
@@ -19,23 +19,11 @@
       "invested": 917.745013185,
       "last_buy_at": "2026-11-04T15:59:48+00:00"
     },
-    "PENGUINR": {
-      "qty": 846.0,
-      "avg_cost": 0.6695030842499999,
-      "invested": 566.3996092755,
-      "last_buy_at": "2026-11-06T07:23:26+00:00"
-    },
     "HMSTRINR": {
       "qty": 55207.0,
       "avg_cost": 0.013053557517,
       "invested": 720.647749841019,
       "last_buy_at": "2026-11-06T07:23:26+00:00"
-    },
-    "CHRINR": {
-      "qty": 416.0,
-      "avg_cost": 1.5509236743,
-      "invested": 645.1842485088,
-      "last_buy_at": "2026-11-06T07:23:29+00:00"
     },
     "ONDOINR": {
       "qty": 16.6,
@@ -43,11 +31,17 @@
       "invested": 615.1382320083,
       "last_buy_at": "2026-11-07T07:37:10+00:00"
     },
-    "PEPEINR": {
-      "qty": 1202096.0,
-      "avg_cost": 0.00049303869615,
-      "invested": 592.6798444871304,
-      "last_buy_at": "2026-11-07T07:37:10+00:00"
+    "TOSHIINR": {
+      "qty": 90689.0,
+      "avg_cost": 0.009243849615,
+      "invested": 838.315477734735,
+      "last_buy_at": "2026-11-09T19:21:51+00:00"
+    },
+    "TOKENINR": {
+      "qty": 4792.2056,
+      "avg_cost": 0.14932372454999998,
+      "invested": 715.5899890013675,
+      "last_buy_at": "2026-11-09T19:21:53+00:00"
     }
   }
 }
