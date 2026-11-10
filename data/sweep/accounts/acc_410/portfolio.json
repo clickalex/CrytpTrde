@@ -1,11 +1,11 @@
 {
-  "cash_inr": 971.0418349066946,
-  "realized_pnl": -3450.649374048502,
-  "total_trades": 453,
-  "sell_count": 224,
+  "cash_inr": 412.20100913008923,
+  "realized_pnl": -3483.163046194102,
+  "total_trades": 456,
+  "sell_count": 225,
   "gross_gains": 4583.24,
-  "gross_losses": -8033.9,
-  "total_tds": 2356.04,
+  "gross_losses": -8066.41,
+  "total_tds": 2361.96,
   "holdings": {
     "USDTINR": {
       "qty": 7.2,
@@ -19,12 +19,6 @@
       "invested": 676.91869470225,
       "last_buy_at": "2026-11-06T07:34:48+00:00"
     },
-    "CHRINR": {
-      "qty": 417.0,
-      "avg_cost": 1.4958411468000001,
-      "invested": 623.7657582156,
-      "last_buy_at": "2026-11-09T19:39:44+00:00"
-    },
     "BRISEINR": {
       "qty": 559890138.0,
       "avg_cost": 1.0752109368e-06,
@@ -36,6 +30,18 @@
       "avg_cost": 0.000518777259,
       "invested": 599.409770811852,
       "last_buy_at": "2026-11-09T19:39:45+00:00"
+    },
+    "BTCINR": {
+      "qty": 7e-05,
+      "avg_cost": 7542407.726503649,
+      "invested": 527.9685408552554,
+      "last_buy_at": "2026-11-10T02:59:57+00:00"
+    },
+    "CHILLGUYINR": {
+      "qty": 731.0,
+      "avg_cost": 0.8429629708499998,
+      "invested": 616.2059316913499,
+      "last_buy_at": "2026-11-10T02:59:59+00:00"
     }
   }
 }

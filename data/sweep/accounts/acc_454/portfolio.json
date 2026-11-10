@@ -1,23 +1,17 @@
 {
-  "cash_inr": 2442.5021943136567,
-  "realized_pnl": -3330.8383197199228,
-  "total_trades": 710,
-  "sell_count": 353,
+  "cash_inr": 2344.7628074555064,
+  "realized_pnl": -3358.152376717323,
+  "total_trades": 712,
+  "sell_count": 354,
   "gross_gains": 2855.21,
-  "gross_losses": -6186.03,
-  "total_tds": 2047.47,
+  "gross_losses": -6213.34,
+  "total_tds": 2052.4,
   "holdings": {
     "SHIBINR": {
       "qty": 1132788.0,
       "avg_cost": 0.0004596887295,
       "invested": 520.729876512846,
       "last_buy_at": "2026-11-06T07:37:47+00:00"
-    },
-    "SUIINR": {
-      "qty": 5.9,
-      "avg_cost": 88.15107250950001,
-      "invested": 520.0913278060501,
-      "last_buy_at": "2026-11-06T15:55:29+00:00"
     },
     "BIOINR": {
       "qty": 256.9,
@@ -30,6 +24,12 @@
       "avg_cost": 11.894821438500001,
       "invested": 610.561184438205,
       "last_buy_at": "2026-11-09T19:44:12+00:00"
+    },
+    "ICPINR": {
+      "qty": 2.43,
+      "avg_cost": 240.98105031,
+      "invested": 585.5839522533,
+      "last_buy_at": "2026-11-10T03:04:30+00:00"
     }
   }
 }

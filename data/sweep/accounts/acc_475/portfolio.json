@@ -1,11 +1,11 @@
 {
-  "cash_inr": 2166.71967674963,
-  "realized_pnl": -1552.81550701054,
-  "total_trades": 430,
-  "sell_count": 211,
+  "cash_inr": 1465.0156329122942,
+  "realized_pnl": -1584.6709786720598,
+  "total_trades": 433,
+  "sell_count": 212,
   "gross_gains": 5115.31,
-  "gross_losses": -6668.13,
-  "total_tds": 1459.62,
+  "gross_losses": -6699.99,
+  "total_tds": 1464.97,
   "holdings": {
     "BOMEINR": {
       "qty": 12718.0,
@@ -24,12 +24,6 @@
       "avg_cost": 12.0330285075,
       "invested": 574.45678094805,
       "last_buy_at": "2026-11-06T07:39:08+00:00"
-    },
-    "SEIINR": {
-      "qty": 121.2,
-      "avg_cost": 4.6762061346,
-      "invested": 566.75618351352,
-      "last_buy_at": "2026-11-06T21:43:57+00:00"
     },
     "APEINR": {
       "qty": 51.02,
@@ -54,6 +48,18 @@
       "avg_cost": 0.0002870300432999999,
       "invested": 702.8998361961574,
       "last_buy_at": "2026-11-09T19:46:26+00:00"
+    },
+    "BTCINR": {
+      "qty": 8e-05,
+      "avg_cost": 7542407.726503648,
+      "invested": 603.3926181202919,
+      "last_buy_at": "2026-11-10T03:06:42+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 67273.0,
+      "avg_cost": 0.0093329831595,
+      "invested": 627.8577760890435,
+      "last_buy_at": "2026-11-10T03:06:47+00:00"
     }
   }
 }

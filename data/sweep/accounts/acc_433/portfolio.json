@@ -1,23 +1,17 @@
 {
-  "cash_inr": 4557.656956186302,
-  "realized_pnl": -1553.5043275251005,
-  "total_trades": 517,
-  "sell_count": 256,
+  "cash_inr": 4527.723833024952,
+  "realized_pnl": -1579.8924842853005,
+  "total_trades": 519,
+  "sell_count": 257,
   "gross_gains": 2898.28,
-  "gross_losses": -4451.78,
-  "total_tds": 1349.72,
+  "gross_losses": -4478.17,
+  "total_tds": 1354.49,
   "holdings": {
     "LINKINR": {
       "qty": 0.48,
       "avg_cost": 1082.4618004200001,
       "invested": 519.5816642016,
       "last_buy_at": "2026-11-06T07:36:21+00:00"
-    },
-    "SUIINR": {
-      "qty": 5.7,
-      "avg_cost": 88.15107250950001,
-      "invested": 502.46111330415005,
-      "last_buy_at": "2026-11-06T15:53:34+00:00"
     },
     "ORCAINR": {
       "qty": 3.61,
@@ -36,6 +30,12 @@
       "avg_cost": 3.5115612031500003,
       "invested": 506.36712549423,
       "last_buy_at": "2026-11-09T19:42:10+00:00"
+    },
+    "ICPINR": {
+      "qty": 2.08,
+      "avg_cost": 240.98105031,
+      "invested": 501.24058464480004,
+      "last_buy_at": "2026-11-10T03:02:22+00:00"
     }
   }
 }

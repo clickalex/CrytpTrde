@@ -1,18 +1,12 @@
 {
-  "cash_inr": 1652.5781174151773,
-  "realized_pnl": -3501.219733908557,
-  "total_trades": 554,
-  "sell_count": 275,
+  "cash_inr": 1032.8040840936474,
+  "realized_pnl": -3540.914058722465,
+  "total_trades": 557,
+  "sell_count": 276,
   "gross_gains": 4346.5,
-  "gross_losses": -7847.74,
-  "total_tds": 2041.38,
+  "gross_losses": -7887.43,
+  "total_tds": 2048.18,
   "holdings": {
-    "GALAINR": {
-      "qty": 4444.21,
-      "avg_cost": 0.16170227073,
-      "invested": 718.6388486009732,
-      "last_buy_at": "2026-11-07T01:36:23+00:00"
-    },
     "SUSHIINR": {
       "qty": 38.2,
       "avg_cost": 18.496712734499997,
@@ -30,6 +24,18 @@
       "avg_cost": 26.067055013999997,
       "invested": 677.7434303639999,
       "last_buy_at": "2026-11-09T19:48:31+00:00"
+    },
+    "BTCINR": {
+      "qty": 8e-05,
+      "avg_cost": 7542407.726503648,
+      "invested": 603.3926181202919,
+      "last_buy_at": "2026-11-10T03:08:51+00:00"
+    },
+    "POLYXINR": {
+      "qty": 224.1598,
+      "avg_cost": 3.0716020335,
+      "invested": 688.5296975089533,
+      "last_buy_at": "2026-11-10T03:08:56+00:00"
     }
   }
 }

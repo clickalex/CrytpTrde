@@ -1,18 +1,12 @@
 {
-  "cash_inr": 907.9570732781832,
-  "realized_pnl": -3955.1083731325134,
-  "total_trades": 668,
-  "sell_count": 332,
+  "cash_inr": 918.6570763474332,
+  "realized_pnl": -3987.2468011366136,
+  "total_trades": 670,
+  "sell_count": 333,
   "gross_gains": 4542.56,
-  "gross_losses": -8497.65,
-  "total_tds": 2573.66,
+  "gross_losses": -8529.79,
+  "total_tds": 2579.94,
   "holdings": {
-    "JUPINR": {
-      "qty": 25.3,
-      "avg_cost": 26.067055014,
-      "invested": 659.4964918542,
-      "last_buy_at": "2026-11-09T19:47:42+00:00"
-    },
     "BIOINR": {
       "qty": 329.7,
       "avg_cost": 2.0258352114000004,
@@ -30,6 +24,12 @@
       "avg_cost": 0.00028703004329999995,
       "invested": 605.2998624526853,
       "last_buy_at": "2026-11-09T19:47:46+00:00"
+    },
+    "ORCAINR": {
+      "qty": 4.39,
+      "avg_cost": 139.03831441499997,
+      "invested": 610.3782002818499,
+      "last_buy_at": "2026-11-10T03:08:01+00:00"
     }
   }
 }
