@@ -1,24 +1,12 @@
 {
-  "cash_inr": 4527.723833024952,
-  "realized_pnl": -1579.8924842853005,
-  "total_trades": 519,
-  "sell_count": 257,
+  "cash_inr": 4979.424074749602,
+  "realized_pnl": -1647.2010712506003,
+  "total_trades": 522,
+  "sell_count": 259,
   "gross_gains": 2898.28,
-  "gross_losses": -4478.17,
-  "total_tds": 1354.49,
+  "gross_losses": -4545.48,
+  "total_tds": 1364.09,
   "holdings": {
-    "LINKINR": {
-      "qty": 0.48,
-      "avg_cost": 1082.4618004200001,
-      "invested": 519.5816642016,
-      "last_buy_at": "2026-11-06T07:36:21+00:00"
-    },
-    "ORCAINR": {
-      "qty": 3.61,
-      "avg_cost": 140.38032508499998,
-      "invested": 506.77297355684993,
-      "last_buy_at": "2026-11-07T07:46:47+00:00"
-    },
     "BOMEINR": {
       "qty": 8072.0,
       "avg_cost": 0.0624265306665,
@@ -36,6 +24,12 @@
       "avg_cost": 240.98105031,
       "invested": 501.24058464480004,
       "last_buy_at": "2026-11-10T03:02:22+00:00"
+    },
+    "NEARINR": {
+      "qty": 1.4,
+      "avg_cost": 355.5326775,
+      "invested": 497.74574849999993,
+      "last_buy_at": "2026-11-10T18:26:24+00:00"
     }
   }
 }

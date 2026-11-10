@@ -1,10 +1,17 @@
 {
-  "cash_inr": 5658.530701471709,
+  "cash_inr": 2830.389433519709,
   "realized_pnl": -3663.249695410367,
-  "total_trades": 62,
+  "total_trades": 63,
   "sell_count": 31,
   "gross_gains": 654.21,
   "gross_losses": -4317.46,
   "total_tds": 678.18,
-  "holdings": {}
+  "holdings": {
+    "ARBINR": {
+      "qty": 179.0,
+      "avg_cost": 15.799671887999999,
+      "invested": 2828.141267952,
+      "last_buy_at": "2026-11-10T18:07:06+00:00"
+    }
+  }
 }

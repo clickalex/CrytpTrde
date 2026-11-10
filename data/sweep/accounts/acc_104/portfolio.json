@@ -1,10 +1,23 @@
 {
-  "cash_inr": 4827.892900007872,
+  "cash_inr": 2366.454859052579,
   "realized_pnl": -3925.450540179487,
-  "total_trades": 140,
+  "total_trades": 142,
   "sell_count": 70,
   "gross_gains": 523.71,
   "gross_losses": -4449.2,
   "total_tds": 1246.67,
-  "holdings": {}
+  "holdings": {
+    "ARBINR": {
+      "qty": 91.6,
+      "avg_cost": 15.799671887999999,
+      "invested": 1447.2499449407999,
+      "last_buy_at": "2026-11-10T18:07:27+00:00"
+    },
+    "GASINR": {
+      "qty": 9.4588,
+      "avg_cost": 107.2216450305,
+      "invested": 1014.1880960144935,
+      "last_buy_at": "2026-11-10T18:07:27+00:00"
+    }
+  }
 }

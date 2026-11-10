@@ -1,24 +1,12 @@
 {
-  "cash_inr": 510.79572849694017,
-  "realized_pnl": -3633.766473584268,
-  "total_trades": 712,
-  "sell_count": 353,
+  "cash_inr": 520.0376264172409,
+  "realized_pnl": -3683.6119287336533,
+  "total_trades": 716,
+  "sell_count": 355,
   "gross_gains": 4320.11,
-  "gross_losses": -7953.88,
-  "total_tds": 2711.38,
+  "gross_losses": -8003.73,
+  "total_tds": 2721.76,
   "holdings": {
-    "BRISEINR": {
-      "qty": 509171293.0,
-      "avg_cost": 1.0836235409999998e-06,
-      "invested": 551.7499994962084,
-      "last_buy_at": "2026-11-07T14:23:17+00:00"
-    },
-    "LINKINR": {
-      "qty": 0.5,
-      "avg_cost": 1070.994619695,
-      "invested": 535.4973098475,
-      "last_buy_at": "2026-11-09T19:27:15+00:00"
-    },
     "BTCINR": {
       "qty": 6e-05,
       "avg_cost": 7542407.72650365,
@@ -42,6 +30,18 @@
       "avg_cost": 0.154140941955,
       "invested": 510.7799221751225,
       "last_buy_at": "2026-11-10T10:30:23+00:00"
+    },
+    "NEARINR": {
+      "qty": 1.4,
+      "avg_cost": 355.5326775,
+      "invested": 497.74574849999993,
+      "last_buy_at": "2026-11-10T18:18:17+00:00"
+    },
+    "PEPEINR": {
+      "qty": 979164.0,
+      "avg_cost": 0.00053109571515,
+      "invested": 520.0298048291346,
+      "last_buy_at": "2026-11-10T18:18:18+00:00"
     }
   }
 }

@@ -1,10 +1,23 @@
 {
-  "cash_inr": 3123.343499130324,
+  "cash_inr": 126.07844114312451,
   "realized_pnl": -3840.9897729631593,
-  "total_trades": 166,
+  "total_trades": 168,
   "sell_count": 83,
   "gross_gains": 4530.46,
   "gross_losses": -8371.41,
   "total_tds": 3035.7,
-  "holdings": {}
+  "holdings": {
+    "SOLINR": {
+      "qty": 0.3,
+      "avg_cost": 8310.8517492,
+      "invested": 2493.2555247599994,
+      "last_buy_at": "2026-11-10T18:10:01+00:00"
+    },
+    "ARBINR": {
+      "qty": 31.9,
+      "avg_cost": 15.799671887999999,
+      "invested": 504.00953322719994,
+      "last_buy_at": "2026-11-10T18:10:01+00:00"
+    }
+  }
 }
