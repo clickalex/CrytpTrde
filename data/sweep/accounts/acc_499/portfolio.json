@@ -1,29 +1,29 @@
 {
-  "cash_inr": 1505.4205302180505,
-  "realized_pnl": -4192.091548858858,
-  "total_trades": 699,
-  "sell_count": 348,
-  "gross_gains": 3358.59,
-  "gross_losses": -7550.74,
-  "total_tds": 2320.42,
+  "cash_inr": 1488.0660872241801,
+  "realized_pnl": -4200.587139750225,
+  "total_trades": 703,
+  "sell_count": 350,
+  "gross_gains": 3362.8,
+  "gross_losses": -7563.45,
+  "total_tds": 2333.72,
   "holdings": {
-    "BOMEINR": {
-      "qty": 13443.0,
-      "avg_cost": 0.060677910793499996,
-      "invested": 815.6931547970205,
-      "last_buy_at": "2026-11-03T10:03:30+00:00"
-    },
-    "HMSTRINR": {
-      "qty": 40016.0,
-      "avg_cost": 0.0130325260065,
-      "invested": 521.509560676104,
-      "last_buy_at": "2026-11-07T14:29:28+00:00"
-    },
     "PENGUINR": {
       "qty": 1009.0,
       "avg_cost": 0.639087514065,
       "invested": 644.839301691585,
       "last_buy_at": "2026-11-10T03:09:13+00:00"
+    },
+    "BIOINR": {
+      "qty": 344.6,
+      "avg_cost": 2.01692185695,
+      "invested": 695.03127190497,
+      "last_buy_at": "2026-11-10T10:46:34+00:00"
+    },
+    "BONKINR": {
+      "qty": 2239010.0,
+      "avg_cost": 0.00028482674219999993,
+      "invested": 637.7299240532219,
+      "last_buy_at": "2026-11-10T10:46:36+00:00"
     }
   }
 }

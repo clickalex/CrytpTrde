@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2151.099600008814,
-  "realized_pnl": -3417.541074160605,
-  "total_trades": 782,
-  "sell_count": 389,
-  "gross_gains": 3618.49,
-  "gross_losses": -7036.13,
-  "total_tds": 2246.34,
+  "cash_inr": 2141.231622365064,
+  "realized_pnl": -3435.8288661287547,
+  "total_trades": 786,
+  "sell_count": 391,
+  "gross_gains": 3620.54,
+  "gross_losses": -7056.47,
+  "total_tds": 2257.1,
   "holdings": {
-    "ONDOINR": {
-      "qty": 15.0,
-      "avg_cost": 37.05652000049999,
-      "invested": 555.8478000074998,
-      "last_buy_at": "2026-11-07T07:39:40+00:00"
-    },
     "BRISEINR": {
       "qty": 507261035.0,
       "avg_cost": 1.0836235409999998e-06,
@@ -25,11 +19,17 @@
       "invested": 542.3395612635,
       "last_buy_at": "2026-11-09T19:26:52+00:00"
     },
-    "ARBINR": {
-      "qty": 30.9,
-      "avg_cost": 17.3830441785,
-      "invested": 537.13606511565,
-      "last_buy_at": "2026-11-10T02:47:23+00:00"
+    "RENDERINR": {
+      "qty": 3.35,
+      "avg_cost": 161.131415445,
+      "invested": 539.7902417407499,
+      "last_buy_at": "2026-11-10T10:30:04+00:00"
+    },
+    "DOGEINR": {
+      "qty": 76.0,
+      "avg_cost": 7.026527507999998,
+      "invested": 534.0160906079999,
+      "last_buy_at": "2026-11-10T10:30:04+00:00"
     }
   }
 }
