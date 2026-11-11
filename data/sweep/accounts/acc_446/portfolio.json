@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2013.9509189747314,
-  "realized_pnl": -2511.7608738437243,
-  "total_trades": 619,
-  "sell_count": 306,
+  "cash_inr": 2012.7681659951502,
+  "realized_pnl": -2536.012098647476,
+  "total_trades": 621,
+  "sell_count": 307,
   "gross_gains": 4186.25,
-  "gross_losses": -6697.99,
-  "total_tds": 1783.05,
+  "gross_losses": -6722.24,
+  "total_tds": 1788.12,
   "holdings": {
-    "PEPEINR": {
-      "qty": 1022365.0,
-      "avg_cost": 0.0005187772589999999,
-      "invested": 530.379712397535,
-      "last_buy_at": "2026-11-09T19:43:26+00:00"
-    },
     "TOSHIINR": {
       "qty": 55818.0,
       "avg_cost": 0.009243849615,
@@ -48,6 +42,12 @@
       "avg_cost": 0.00028052029004999995,
       "invested": 503.47978022377026,
       "last_buy_at": "2026-11-10T18:27:10+00:00"
+    },
+    "CHRINR": {
+      "qty": 346.0,
+      "avg_cost": 1.4515748246999998,
+      "invested": 502.24488934619995,
+      "last_buy_at": "2026-11-11T16:04:33+00:00"
     }
   }
 }
