@@ -1,22 +1,16 @@
 {
-  "cash_inr": 2488.2475788057886,
-  "realized_pnl": -3117.6056602324365,
-  "total_trades": 472,
-  "sell_count": 234,
+  "cash_inr": 2431.799218388089,
+  "realized_pnl": -3145.1810146639364,
+  "total_trades": 474,
+  "sell_count": 235,
   "gross_gains": 3001.01,
-  "gross_losses": -6118.64,
-  "total_tds": 2059.29,
+  "gross_losses": -6146.22,
+  "total_tds": 2064.87,
   "holdings": {
     "BTCINR": {
       "qty": 7e-05,
       "avg_cost": 7379961.8416524,
       "invested": 516.597328915668,
-      "last_buy_at": "2026-11-10T18:12:58+00:00"
-    },
-    "ARBINR": {
-      "qty": 37.0,
-      "avg_cost": 15.799671887999997,
-      "invested": 584.5878598559999,
       "last_buy_at": "2026-11-10T18:12:58+00:00"
     },
     "CAKEINR": {
@@ -30,6 +24,12 @@
       "avg_cost": 1.0420612702500001e-06,
       "invested": 626.1199997358675,
       "last_buy_at": "2026-11-10T18:12:58+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 55.28,
+      "avg_cost": 10.99647549,
+      "invested": 607.8851650872,
+      "last_buy_at": "2026-11-12T20:24:25+00:00"
     }
   }
 }

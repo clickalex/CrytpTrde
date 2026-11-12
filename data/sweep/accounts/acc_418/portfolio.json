@@ -1,35 +1,17 @@
 {
-  "cash_inr": 510.3155526376398,
-  "realized_pnl": -1704.6982549224986,
-  "total_trades": 193,
-  "sell_count": 92,
+  "cash_inr": 480.8669656761755,
+  "realized_pnl": -1859.518393702278,
+  "total_trades": 199,
+  "sell_count": 95,
   "gross_gains": 3041.11,
-  "gross_losses": -4745.82,
-  "total_tds": 956.83,
+  "gross_losses": -4900.64,
+  "total_tds": 978.8,
   "holdings": {
     "USDTINR": {
       "qty": 7.17,
       "avg_cost": 99.28875957,
       "invested": 711.9004061169,
       "last_buy_at": "2026-09-02T17:03:08+00:00"
-    },
-    "NEARINR": {
-      "qty": 2.7,
-      "avg_cost": 367.5506835,
-      "invested": 992.38684545,
-      "last_buy_at": "2026-11-06T07:35:21+00:00"
-    },
-    "FARTCOININR": {
-      "qty": 43.25,
-      "avg_cost": 11.8787974305,
-      "invested": 513.757988869125,
-      "last_buy_at": "2026-11-07T07:45:58+00:00"
-    },
-    "BRISEINR": {
-      "qty": 777954675.0,
-      "avg_cost": 1.083623541e-06,
-      "invested": 843.0099996610041,
-      "last_buy_at": "2026-11-07T14:27:03+00:00"
     },
     "ICPINR": {
       "qty": 2.75,
@@ -60,6 +42,24 @@
       "avg_cost": 25.9879364745,
       "invested": 761.44653870285,
       "last_buy_at": "2026-11-10T18:25:34+00:00"
+    },
+    "RENDERINR": {
+      "qty": 5.53,
+      "avg_cost": 155.2325775,
+      "invested": 858.436153575,
+      "last_buy_at": "2026-11-12T20:38:46+00:00"
+    },
+    "ORCAINR": {
+      "qty": 4.9,
+      "avg_cost": 126.96021838499998,
+      "invested": 622.1050700865,
+      "last_buy_at": "2026-11-12T20:38:46+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 80631.0,
+      "avg_cost": 0.008945402466,
+      "invested": 721.276746236046,
+      "last_buy_at": "2026-11-12T20:38:46+00:00"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1315.3006466087593,
-  "realized_pnl": -1281.005400354948,
-  "total_trades": 208,
-  "sell_count": 102,
+  "cash_inr": 1920.966504503855,
+  "realized_pnl": -1438.672152600784,
+  "total_trades": 213,
+  "sell_count": 104,
   "gross_gains": 4661.08,
-  "gross_losses": -5942.08,
-  "total_tds": 1856.68,
+  "gross_losses": -6099.75,
+  "total_tds": 1889.98,
   "holdings": {
     "ETHINR": {
       "qty": 0.0041,
@@ -19,17 +19,23 @@
       "invested": 1224.1366650513,
       "last_buy_at": "2026-11-10T18:11:20+00:00"
     },
-    "ORCAINR": {
-      "qty": 16.72,
-      "avg_cost": 129.72435976499997,
-      "invested": 2168.9912952707996,
-      "last_buy_at": "2026-11-10T23:45:19+00:00"
+    "BTCINR": {
+      "qty": 9e-05,
+      "avg_cost": 7296295.18793175,
+      "invested": 656.6665669138575,
+      "last_buy_at": "2026-11-12T20:22:36+00:00"
     },
-    "PEPEINR": {
-      "qty": 2770715.0,
-      "avg_cost": 0.0004747112369999999,
-      "invested": 1315.2895450244548,
-      "last_buy_at": "2026-11-11T22:19:53+00:00"
+    "ALTINR": {
+      "qty": 2547.0,
+      "avg_cost": 0.53269811595,
+      "invested": 1356.78210132465,
+      "last_buy_at": "2026-11-12T20:22:36+00:00"
+    },
+    "RIFINR": {
+      "qty": 118.0,
+      "avg_cost": 5.713560352499999,
+      "invested": 674.2001215949999,
+      "last_buy_at": "2026-11-12T20:22:36+00:00"
     }
   }
 }

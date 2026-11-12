@@ -1,24 +1,12 @@
 {
-  "cash_inr": 240.965905020494,
-  "realized_pnl": -3632.7575132394213,
-  "total_trades": 198,
-  "sell_count": 97,
-  "gross_gains": 3405.88,
-  "gross_losses": -7038.62,
-  "total_tds": 1699.7,
+  "cash_inr": 145.54610668302803,
+  "realized_pnl": -3623.535743532513,
+  "total_trades": 202,
+  "sell_count": 99,
+  "gross_gains": 3446.61,
+  "gross_losses": -7070.13,
+  "total_tds": 1711.96,
   "holdings": {
-    "JUPINR": {
-      "qty": 25.5,
-      "avg_cost": 24.788138875500003,
-      "invested": 632.0975413252501,
-      "last_buy_at": "2026-11-06T21:19:07+00:00"
-    },
-    "BONKINR": {
-      "qty": 2041451.0,
-      "avg_cost": 0.00028572809264999994,
-      "invested": 583.299900468435,
-      "last_buy_at": "2026-11-07T07:36:18+00:00"
-    },
     "CHRINR": {
       "qty": 1550.0,
       "avg_cost": 1.4498722738500003,
@@ -30,6 +18,18 @@
       "avg_cost": 0.14611892294999998,
       "invested": 963.8599884630866,
       "last_buy_at": "2026-11-10T18:14:16+00:00"
+    },
+    "GASINR": {
+      "qty": 6.8368,
+      "avg_cost": 106.13601848850001,
+      "invested": 725.6307312021769,
+      "last_buy_at": "2026-11-12T20:25:51+00:00"
+    },
+    "POPCATINR": {
+      "qty": 178.41,
+      "avg_cost": 3.2629887790500005,
+      "invested": 582.1498280703106,
+      "last_buy_at": "2026-11-12T20:25:52+00:00"
     }
   }
 }
