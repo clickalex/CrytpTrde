@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2471.1931266789697,
-  "realized_pnl": -3498.1061353874597,
-  "total_trades": 636,
-  "sell_count": 316,
+  "cash_inr": 2385.05371781932,
+  "realized_pnl": -3515.4637382924598,
+  "total_trades": 638,
+  "sell_count": 317,
   "gross_gains": 2626.69,
-  "gross_losses": -6124.79,
-  "total_tds": 1885.11,
+  "gross_losses": -6142.15,
+  "total_tds": 1890.19,
   "holdings": {
-    "LINKINR": {
-      "qty": 0.51,
-      "avg_cost": 1028.5410135,
-      "invested": 524.555916885,
-      "last_buy_at": "2026-11-10T18:15:45+00:00"
-    },
     "DOTINR": {
       "qty": 5.9194,
       "avg_cost": 84.602756238,
@@ -30,6 +24,12 @@
       "avg_cost": 176.25407299499997,
       "invested": 616.8892554825,
       "last_buy_at": "2026-11-13T08:36:19+00:00"
+    },
+    "XRPINR": {
+      "qty": 5.7,
+      "avg_cost": 103.2036250245,
+      "invested": 588.26066263965,
+      "last_buy_at": "2026-11-13T23:04:35+00:00"
     }
   }
 }

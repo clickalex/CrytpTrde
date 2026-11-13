@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2488.044069736722,
-  "realized_pnl": -2609.391025175232,
-  "total_trades": 801,
-  "sell_count": 398,
+  "cash_inr": 2311.8227030388816,
+  "realized_pnl": -2647.2882000802315,
+  "total_trades": 805,
+  "sell_count": 400,
   "gross_gains": 4737.19,
-  "gross_losses": -7346.54,
-  "total_tds": 2280.6,
+  "gross_losses": -7384.44,
+  "total_tds": 2290.71,
   "holdings": {
-    "LINKINR": {
-      "qty": 0.52,
-      "avg_cost": 1028.5410135000002,
-      "invested": 534.8413270200001,
-      "last_buy_at": "2026-11-10T18:22:38+00:00"
-    },
     "RENDERINR": {
       "qty": 3.42,
       "avg_cost": 157.886553825,
@@ -25,17 +19,23 @@
       "invested": 533.6761813383,
       "last_buy_at": "2026-11-10T18:22:38+00:00"
     },
-    "CHILLGUYINR": {
-      "qty": 623.0,
-      "avg_cost": 0.8237341612499999,
-      "invested": 513.1863824587499,
-      "last_buy_at": "2026-11-12T20:35:24+00:00"
-    },
     "BRISEINR": {
       "qty": 497282697.0,
       "avg_cost": 1.00600725225e-06,
       "invested": 500.2699996004393,
       "last_buy_at": "2026-11-13T08:45:58+00:00"
+    },
+    "XRPINR": {
+      "qty": 5.8,
+      "avg_cost": 103.20362502450001,
+      "invested": 598.5810251421001,
+      "last_buy_at": "2026-11-13T23:14:31+00:00"
+    },
+    "PENGUINR": {
+      "qty": 922.0,
+      "avg_cost": 0.626528697795,
+      "invested": 577.65945936699,
+      "last_buy_at": "2026-11-13T23:14:32+00:00"
     }
   }
 }
