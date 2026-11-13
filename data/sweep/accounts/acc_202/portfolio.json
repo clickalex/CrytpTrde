@@ -1,23 +1,29 @@
 {
-  "cash_inr": 1390.2281374645586,
-  "realized_pnl": -4948.965823098643,
-  "total_trades": 476,
-  "sell_count": 237,
+  "cash_inr": 650.6136602700371,
+  "realized_pnl": -4963.582467319393,
+  "total_trades": 479,
+  "sell_count": 238,
   "gross_gains": 2722.64,
-  "gross_losses": -7671.6,
-  "total_tds": 2476.05,
+  "gross_losses": -7686.22,
+  "total_tds": 2481.57,
   "holdings": {
-    "LINKINR": {
-      "qty": 0.55,
-      "avg_cost": 1028.5410135,
-      "invested": 565.697557425,
-      "last_buy_at": "2026-11-10T18:13:12+00:00"
-    },
     "SUIINR": {
       "qty": 7.6,
       "avg_cost": 81.452035665,
       "invested": 619.0354710539999,
       "last_buy_at": "2026-11-12T20:24:41+00:00"
+    },
+    "BTCINR": {
+      "qty": 9e-05,
+      "avg_cost": 7051065.77250075,
+      "invested": 634.5959195250675,
+      "last_buy_at": "2026-11-13T08:32:48+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 74394.0,
+      "avg_cost": 0.008745102365999999,
+      "invested": 650.5831454162039,
+      "last_buy_at": "2026-11-13T08:32:48+00:00"
     }
   }
 }

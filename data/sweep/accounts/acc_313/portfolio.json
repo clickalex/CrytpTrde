@@ -1,28 +1,16 @@
 {
-  "cash_inr": 4523.945781775953,
-  "realized_pnl": -1335.2126844777315,
-  "total_trades": 426,
-  "sell_count": 210,
+  "cash_inr": 4925.9984711738025,
+  "realized_pnl": -1395.2518865656814,
+  "total_trades": 429,
+  "sell_count": 212,
   "gross_gains": 2863.72,
-  "gross_losses": -4198.97,
-  "total_tds": 1113.45,
+  "gross_losses": -4259.01,
+  "total_tds": 1123.04,
   "holdings": {
-    "SOLINR": {
-      "qty": 0.059,
-      "avg_cost": 8628.327407699999,
-      "invested": 509.0713170542999,
-      "last_buy_at": "2026-11-10T10:32:13+00:00"
-    },
     "NEARINR": {
       "qty": 1.4,
       "avg_cost": 355.5326775,
       "invested": 497.74574849999993,
-      "last_buy_at": "2026-11-10T18:19:37+00:00"
-    },
-    "ARBINR": {
-      "qty": 32.2,
-      "avg_cost": 15.799671887999999,
-      "invested": 508.7494347936,
       "last_buy_at": "2026-11-10T18:19:37+00:00"
     },
     "TRBINR": {
@@ -42,6 +30,12 @@
       "avg_cost": 56.5797707475,
       "invested": 502.42836423780005,
       "last_buy_at": "2026-11-12T20:31:54+00:00"
+    },
+    "ORCAINR": {
+      "qty": 4.12,
+      "avg_cost": 132.55860618,
+      "invested": 546.1414574616,
+      "last_buy_at": "2026-11-13T08:41:37+00:00"
     }
   }
 }

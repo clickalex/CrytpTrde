@@ -1,24 +1,12 @@
 {
-  "cash_inr": 1620.5262882298944,
-  "realized_pnl": -4042.586573652664,
-  "total_trades": 410,
-  "sell_count": 203,
+  "cash_inr": 774.0767433090668,
+  "realized_pnl": -4072.4552229051637,
+  "total_trades": 415,
+  "sell_count": 205,
   "gross_gains": 2469.35,
-  "gross_losses": -6511.89,
-  "total_tds": 1742.65,
+  "gross_losses": -6541.76,
+  "total_tds": 1754.39,
   "holdings": {
-    "SOLINR": {
-      "qty": 0.068,
-      "avg_cost": 8310.851749200001,
-      "invested": 565.1379189456001,
-      "last_buy_at": "2026-11-10T18:14:19+00:00"
-    },
-    "LINKINR": {
-      "qty": 0.62,
-      "avg_cost": 1028.5410135,
-      "invested": 637.69542837,
-      "last_buy_at": "2026-11-10T18:14:19+00:00"
-    },
     "SUIINR": {
       "qty": 8.7,
       "avg_cost": 81.452035665,
@@ -30,6 +18,24 @@
       "avg_cost": 10.99647549,
       "invested": 682.7711631741,
       "last_buy_at": "2026-11-12T20:25:55+00:00"
+    },
+    "BTCINR": {
+      "qty": 9e-05,
+      "avg_cost": 7051065.77250075,
+      "invested": 634.5959195250675,
+      "last_buy_at": "2026-11-13T08:34:21+00:00"
+    },
+    "TOSHIINR": {
+      "qty": 98210.0,
+      "avg_cost": 0.008745102365999999,
+      "invested": 858.8565033648599,
+      "last_buy_at": "2026-11-13T08:34:21+00:00"
+    },
+    "RIFINR": {
+      "qty": 90.0,
+      "avg_cost": 5.7135603525,
+      "invested": 514.220431725,
+      "last_buy_at": "2026-11-13T08:34:21+00:00"
     }
   }
 }
