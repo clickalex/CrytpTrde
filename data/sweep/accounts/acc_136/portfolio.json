@@ -1,11 +1,11 @@
 {
-  "cash_inr": 3448.3463063026575,
-  "realized_pnl": -2055.513957554421,
-  "total_trades": 153,
-  "sell_count": 75,
+  "cash_inr": 1344.0701725094204,
+  "realized_pnl": -2168.0195283480207,
+  "total_trades": 158,
+  "sell_count": 76,
   "gross_gains": 2336.95,
-  "gross_losses": -4392.48,
-  "total_tds": 984.33,
+  "gross_losses": -4504.99,
+  "total_tds": 998.84,
   "holdings": {
     "TRXINR": {
       "qty": 22.6,
@@ -13,17 +13,35 @@
       "invested": 709.5278514324,
       "last_buy_at": "2026-10-31T19:34:07+00:00"
     },
-    "SOLINR": {
-      "qty": 0.188,
-      "avg_cost": 8310.8517492,
-      "invested": 1562.4401288496,
-      "last_buy_at": "2026-11-10T18:09:19+00:00"
-    },
     "RIFINR": {
       "qty": 217.0,
       "avg_cost": 5.7135603525,
       "invested": 1239.8425964925,
       "last_buy_at": "2026-11-13T08:27:12+00:00"
+    },
+    "BTCINR": {
+      "qty": 0.00014,
+      "avg_cost": 6919257.29019525,
+      "invested": 968.6960206273349,
+      "last_buy_at": "2026-11-14T03:31:29+00:00"
+    },
+    "ICPINR": {
+      "qty": 4.73,
+      "avg_cost": 247.80126871499996,
+      "invested": 1172.10000102195,
+      "last_buy_at": "2026-11-14T03:31:29+00:00"
+    },
+    "POLYXINR": {
+      "qty": 274.2513,
+      "avg_cost": 3.000495498,
+      "invested": 822.8897909706474,
+      "last_buy_at": "2026-11-14T03:31:29+00:00"
+    },
+    "GASINR": {
+      "qty": 5.5257,
+      "avg_cost": 104.24218104300002,
+      "invested": 576.0110197893051,
+      "last_buy_at": "2026-11-14T03:31:29+00:00"
     }
   }
 }

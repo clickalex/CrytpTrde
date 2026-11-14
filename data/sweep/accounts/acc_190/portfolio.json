@@ -1,23 +1,29 @@
 {
-  "cash_inr": 2795.2192576004336,
-  "realized_pnl": -3907.3673865873598,
-  "total_trades": 514,
-  "sell_count": 256,
+  "cash_inr": 2007.5071176204092,
+  "realized_pnl": -3937.8374330701117,
+  "total_trades": 519,
+  "sell_count": 258,
   "gross_gains": 2271.36,
-  "gross_losses": -6178.71,
-  "total_tds": 2275.69,
+  "gross_losses": -6209.18,
+  "total_tds": 2285.61,
   "holdings": {
-    "BTCINR": {
-      "qty": 7e-05,
-      "avg_cost": 7051065.772500749,
-      "invested": 493.5746040750524,
-      "last_buy_at": "2026-11-13T08:31:46+00:00"
+    "ETHINR": {
+      "qty": 0.0033,
+      "avg_cost": 195716.73296174998,
+      "invested": 645.8652187737749,
+      "last_buy_at": "2026-11-14T03:34:10+00:00"
     },
-    "SOLINR": {
-      "qty": 0.066,
-      "avg_cost": 8002.89034545,
-      "invested": 528.1907627997,
-      "last_buy_at": "2026-11-13T22:59:50+00:00"
+    "ICPINR": {
+      "qty": 2.52,
+      "avg_cost": 247.80126871500002,
+      "invested": 624.4591971618,
+      "last_buy_at": "2026-11-14T03:34:10+00:00"
+    },
+    "DOGEINR": {
+      "qty": 77.0,
+      "avg_cost": 6.47740478385,
+      "invested": 498.76016835645,
+      "last_buy_at": "2026-11-14T03:34:10+00:00"
     }
   }
 }

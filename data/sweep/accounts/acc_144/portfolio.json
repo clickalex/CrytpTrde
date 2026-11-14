@@ -1,10 +1,35 @@
 {
-  "cash_inr": 4809.843718129829,
+  "cash_inr": 1178.0594525513598,
   "realized_pnl": -3404.8333083985335,
-  "total_trades": 228,
+  "total_trades": 232,
   "sell_count": 114,
   "gross_gains": 1858.9,
   "gross_losses": -5263.73,
   "total_tds": 1785.27,
-  "holdings": {}
+  "holdings": {
+    "BTCINR": {
+      "qty": 0.0002,
+      "avg_cost": 6919257.290195251,
+      "invested": 1383.8514580390502,
+      "last_buy_at": "2026-11-14T03:31:53+00:00"
+    },
+    "SOLINR": {
+      "qty": 0.132,
+      "avg_cost": 7760.827674599998,
+      "invested": 1024.4292530471998,
+      "last_buy_at": "2026-11-14T03:31:53+00:00"
+    },
+    "ICPINR": {
+      "qty": 2.9,
+      "avg_cost": 247.80126871499996,
+      "invested": 718.6236792734999,
+      "last_buy_at": "2026-11-14T03:31:53+00:00"
+    },
+    "POLYXINR": {
+      "qty": 168.2655,
+      "avg_cost": 3.000495498,
+      "invested": 504.87987521871895,
+      "last_buy_at": "2026-11-14T03:31:53+00:00"
+    }
+  }
 }

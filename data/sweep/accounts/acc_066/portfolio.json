@@ -1,10 +1,17 @@
 {
-  "cash_inr": 6528.062260765064,
+  "cash_inr": 3264.032343027074,
   "realized_pnl": -2686.6616194018907,
-  "total_trades": 48,
+  "total_trades": 49,
   "sell_count": 24,
   "gross_gains": 250.64,
   "gross_losses": -2937.28,
   "total_tds": 785.27,
-  "holdings": {}
+  "holdings": {
+    "POLYXINR": {
+      "qty": 1087.8303,
+      "avg_cost": 3.0004954980000003,
+      "invested": 3264.0299177379898,
+      "last_buy_at": "2026-11-14T03:28:04+00:00"
+    }
+  }
 }

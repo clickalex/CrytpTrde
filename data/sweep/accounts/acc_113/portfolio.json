@@ -1,18 +1,12 @@
 {
-  "cash_inr": 5987.593185019534,
-  "realized_pnl": -1843.334976418082,
-  "total_trades": 121,
-  "sell_count": 59,
+  "cash_inr": 4939.52915682819,
+  "realized_pnl": -1875.3778065100819,
+  "total_trades": 125,
+  "sell_count": 60,
   "gross_gains": 382.26,
-  "gross_losses": -2225.59,
-  "total_tds": 443.89,
+  "gross_losses": -2257.63,
+  "total_tds": 449.93,
   "holdings": {
-    "ORCAINR": {
-      "qty": 4.9,
-      "avg_cost": 129.724359765,
-      "invested": 635.6493628485,
-      "last_buy_at": "2026-11-10T23:42:05+00:00"
-    },
     "ALTINR": {
       "qty": 1080.0,
       "avg_cost": 0.53269811595,
@@ -24,6 +18,24 @@
       "avg_cost": 5.7135603525,
       "invested": 514.220431725,
       "last_buy_at": "2026-11-12T20:18:51+00:00"
+    },
+    "BTCINR": {
+      "qty": 8e-05,
+      "avg_cost": 6919257.29019525,
+      "invested": 553.54058321562,
+      "last_buy_at": "2026-11-14T03:30:23+00:00"
+    },
+    "SOLINR": {
+      "qty": 0.07,
+      "avg_cost": 7760.827674599997,
+      "invested": 543.2579372219999,
+      "last_buy_at": "2026-11-14T03:30:23+00:00"
+    },
+    "POLYXINR": {
+      "qty": 182.9131,
+      "avg_cost": 3.000495498,
+      "invested": 548.8299330752237,
+      "last_buy_at": "2026-11-14T03:30:23+00:00"
     }
   }
 }
