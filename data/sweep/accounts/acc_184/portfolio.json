@@ -1,17 +1,29 @@
 {
-  "cash_inr": 2395.3576682614776,
-  "realized_pnl": -4083.105251276368,
-  "total_trades": 485,
-  "sell_count": 242,
+  "cash_inr": 1294.3058129678666,
+  "realized_pnl": -4135.397039921968,
+  "total_trades": 489,
+  "sell_count": 243,
   "gross_gains": 2630.58,
-  "gross_losses": -6713.66,
-  "total_tds": 2495.12,
+  "gross_losses": -6765.95,
+  "total_tds": 2504.87,
   "holdings": {
-    "CHRINR": {
-      "qty": 756.0,
-      "avg_cost": 1.3576340778,
-      "invested": 1026.3713628168,
-      "last_buy_at": "2026-11-15T09:56:02+00:00"
+    "APTINR": {
+      "qty": 15.06,
+      "avg_cost": 47.693456811000004,
+      "invested": 718.26345957366,
+      "last_buy_at": "2026-11-15T17:35:26+00:00"
+    },
+    "GASINR": {
+      "qty": 7.8046,
+      "avg_cost": 101.53212068999999,
+      "invested": 792.4175891371739,
+      "last_buy_at": "2026-11-15T17:35:29+00:00"
+    },
+    "POLYXINR": {
+      "qty": 201.9208,
+      "avg_cost": 2.7471158715,
+      "invested": 554.6998344659772,
+      "last_buy_at": "2026-11-15T17:35:31+00:00"
     }
   }
 }
