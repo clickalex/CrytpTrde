@@ -1,18 +1,12 @@
 {
-  "cash_inr": 803.2749941485608,
-  "realized_pnl": -4417.703151491483,
-  "total_trades": 921,
-  "sell_count": 459,
+  "cash_inr": 803.977638292858,
+  "realized_pnl": -4435.834081110256,
+  "total_trades": 923,
+  "sell_count": 460,
   "gross_gains": 3947.18,
-  "gross_losses": -8364.91,
-  "total_tds": 3144.11,
+  "gross_losses": -8383.04,
+  "total_tds": 3149.54,
   "holdings": {
-    "BRISEINR": {
-      "qty": 554795814.0,
-      "avg_cost": 1.0098129541499998e-06,
-      "invested": 560.2399998853938,
-      "last_buy_at": "2026-11-13T17:01:00+00:00"
-    },
     "SHIBINR": {
       "qty": 1307184.0,
       "avg_cost": 0.00041281850610000003,
@@ -24,6 +18,12 @@
       "avg_cost": 47.693456811,
       "invested": 535.12058541942,
       "last_buy_at": "2026-11-15T17:49:27+00:00"
+    },
+    "BONKINR": {
+      "qty": 2164955.0,
+      "avg_cost": 0.0002475709236,
+      "invested": 535.979908902438,
+      "last_buy_at": "2026-11-16T02:38:15+00:00"
     }
   }
 }
