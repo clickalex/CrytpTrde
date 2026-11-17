@@ -1,18 +1,12 @@
 {
-  "cash_inr": 2037.3651174722363,
-  "realized_pnl": -3716.994721357619,
-  "total_trades": 768,
-  "sell_count": 382,
+  "cash_inr": 2029.2887847311767,
+  "realized_pnl": -3731.692199283313,
+  "total_trades": 770,
+  "sell_count": 383,
   "gross_gains": 3531.54,
-  "gross_losses": -7248.53,
-  "total_tds": 2195.88,
+  "gross_losses": -7263.23,
+  "total_tds": 2200.91,
   "holdings": {
-    "PEPEINR": {
-      "qty": 1266172.0,
-      "avg_cost": 0.00040841190389999995,
-      "invested": 517.1197171848708,
-      "last_buy_at": "2026-11-15T17:48:31+00:00"
-    },
     "BONKINR": {
       "qty": 2077788.0,
       "avg_cost": 0.00024757092359999994,
@@ -30,6 +24,12 @@
       "avg_cost": 1.38497504145,
       "invested": 508.28584021215,
       "last_buy_at": "2026-11-17T04:29:38+00:00"
+    },
+    "RIFINR": {
+      "qty": 92.0,
+      "avg_cost": 5.494231742999999,
+      "invested": 505.46932035599997,
+      "last_buy_at": "2026-11-17T14:07:13+00:00"
     }
   }
 }
