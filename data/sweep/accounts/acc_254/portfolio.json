@@ -1,29 +1,29 @@
 {
-  "cash_inr": 2123.9470232261815,
-  "realized_pnl": -3804.5836209704894,
-  "total_trades": 893,
-  "sell_count": 445,
+  "cash_inr": 2070.335941206808,
+  "realized_pnl": -3841.6188733334116,
+  "total_trades": 897,
+  "sell_count": 447,
   "gross_gains": 3163.5,
-  "gross_losses": -6967.97,
-  "total_tds": 2508.63,
+  "gross_losses": -7005.01,
+  "total_tds": 2518.59,
   "holdings": {
-    "SEIINR": {
-      "qty": 124.8,
-      "avg_cost": 4.1396021667,
-      "invested": 516.62235040416,
-      "last_buy_at": "2026-11-15T10:02:27+00:00"
-    },
-    "POPCATINR": {
-      "qty": 170.14,
-      "avg_cost": 3.0311414133000003,
-      "invested": 515.718400058862,
-      "last_buy_at": "2026-11-15T10:02:29+00:00"
-    },
     "SUIINR": {
       "qty": 7.0,
       "avg_cost": 75.777533832,
       "invested": 530.442736824,
       "last_buy_at": "2026-11-16T20:55:56+00:00"
+    },
+    "BIOINR": {
+      "qty": 305.4,
+      "avg_cost": 1.7073580524,
+      "invested": 521.42714920296,
+      "last_buy_at": "2026-11-18T14:35:55+00:00"
+    },
+    "BOMEINR": {
+      "qty": 9794.0,
+      "avg_cost": 0.052841169381,
+      "invested": 517.526412917514,
+      "last_buy_at": "2026-11-18T14:35:57+00:00"
     }
   }
 }
