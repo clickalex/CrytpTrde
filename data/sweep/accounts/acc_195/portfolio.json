@@ -1,11 +1,11 @@
 {
-  "cash_inr": 3052.252350061648,
-  "realized_pnl": -1880.4582327358357,
-  "total_trades": 266,
-  "sell_count": 131,
+  "cash_inr": 2224.371729420808,
+  "realized_pnl": -1933.1650630709555,
+  "total_trades": 269,
+  "sell_count": 132,
   "gross_gains": 3153.77,
-  "gross_losses": -5034.27,
-  "total_tds": 1214.18,
+  "gross_losses": -5086.98,
+  "total_tds": 1221.51,
   "holdings": {
     "SOLINR": {
       "qty": 0.065,
@@ -19,17 +19,23 @@
       "invested": 1486.6093151909997,
       "last_buy_at": "2026-11-15T09:57:03+00:00"
     },
-    "ONEINR": {
-      "qty": 6003.6,
-      "avg_cost": 0.13079596529999998,
-      "invested": 785.2466572750799,
-      "last_buy_at": "2026-11-17T13:56:48+00:00"
-    },
     "ORCAINR": {
       "qty": 8.89,
       "avg_cost": 121.12147046999999,
       "invested": 1076.7698724783,
       "last_buy_at": "2026-11-18T14:32:06+00:00"
+    },
+    "BTCINR": {
+      "qty": 0.00014,
+      "avg_cost": 6509753.25,
+      "invested": 911.3654549999999,
+      "last_buy_at": "2026-11-18T22:20:18+00:00"
+    },
+    "CAKEINR": {
+      "qty": 3.89,
+      "avg_cost": 164.96716235999997,
+      "invested": 641.7222615804,
+      "last_buy_at": "2026-11-18T22:20:18+00:00"
     }
   }
 }

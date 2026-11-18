@@ -1,17 +1,23 @@
 {
-  "cash_inr": 2904.5098646489664,
-  "realized_pnl": -4173.483591252017,
-  "total_trades": 535,
-  "sell_count": 267,
+  "cash_inr": 2350.4654191875516,
+  "realized_pnl": -4197.419264462116,
+  "total_trades": 538,
+  "sell_count": 268,
   "gross_gains": 2271.36,
-  "gross_losses": -6444.83,
-  "total_tds": 2338.23,
+  "gross_losses": -6468.77,
+  "total_tds": 2343.83,
   "holdings": {
-    "ORCAINR": {
-      "qty": 4.82,
-      "avg_cost": 121.12147046999998,
-      "invested": 583.8054876653999,
-      "last_buy_at": "2026-11-18T14:31:45+00:00"
+    "BTCINR": {
+      "qty": 8e-05,
+      "avg_cost": 6509753.249999999,
+      "invested": 520.78026,
+      "last_buy_at": "2026-11-18T22:20:03+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 65.79,
+      "avg_cost": 8.9303799585,
+      "invested": 587.5296974697151,
+      "last_buy_at": "2026-11-18T22:20:03+00:00"
     }
   }
 }

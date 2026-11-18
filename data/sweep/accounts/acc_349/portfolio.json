@@ -1,11 +1,11 @@
 {
-  "cash_inr": 585.7170745609163,
-  "realized_pnl": -3232.0954839859187,
-  "total_trades": 509,
-  "sell_count": 251,
+  "cash_inr": 627.5779008812538,
+  "realized_pnl": -3357.4041893789436,
+  "total_trades": 516,
+  "sell_count": 255,
   "gross_gains": 4456.49,
-  "gross_losses": -7688.53,
-  "total_tds": 1957.5,
+  "gross_losses": -7813.84,
+  "total_tds": 1980.25,
   "holdings": {
     "USDTINR": {
       "qty": 6.36,
@@ -13,23 +13,11 @@
       "invested": 640.0753941582,
       "last_buy_at": "2026-08-31T07:16:35+00:00"
     },
-    "ONDOINR": {
-      "qty": 19.4,
-      "avg_cost": 32.3454616485,
-      "invested": 627.5019559809,
-      "last_buy_at": "2026-11-15T10:11:07+00:00"
-    },
     "ADAINR": {
       "qty": 37.5,
       "avg_cost": 16.1051295405,
       "invested": 603.94235776875,
       "last_buy_at": "2026-11-15T10:11:07+00:00"
-    },
-    "FILINR": {
-      "qty": 9.64,
-      "avg_cost": 61.87270089,
-      "invested": 596.4528365796,
-      "last_buy_at": "2026-11-18T14:42:22+00:00"
     },
     "JUPINR": {
       "qty": 22.0,
@@ -37,17 +25,23 @@
       "invested": 582.178249653,
       "last_buy_at": "2026-11-18T14:42:22+00:00"
     },
-    "ONEINR": {
-      "qty": 4576.8,
-      "avg_cost": 0.12865275423,
-      "invested": 588.817925559864,
-      "last_buy_at": "2026-11-18T14:42:22+00:00"
+    "APTINR": {
+      "qty": 19.27,
+      "avg_cost": 45.155654544,
+      "invested": 870.1494630628799,
+      "last_buy_at": "2026-11-18T22:27:50+00:00"
     },
-    "TOKENINR": {
-      "qty": 4089.7374,
-      "avg_cost": 0.1432145715,
-      "invested": 585.7099892885241,
-      "last_buy_at": "2026-11-18T14:42:24+00:00"
+    "PEPEINR": {
+      "qty": 1830680.0,
+      "avg_cost": 0.00038888264415,
+      "invested": 711.919678992522,
+      "last_buy_at": "2026-11-18T22:27:50+00:00"
+    },
+    "SUSHIINR": {
+      "qty": 38.9,
+      "avg_cost": 16.1051295405,
+      "invested": 626.4895391254499,
+      "last_buy_at": "2026-11-18T22:27:53+00:00"
     }
   }
 }

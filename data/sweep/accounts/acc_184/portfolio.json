@@ -1,10 +1,23 @@
 {
-  "cash_inr": 3133.413278123837,
+  "cash_inr": 1555.5804871894368,
   "realized_pnl": -4309.527313079549,
-  "total_trades": 500,
+  "total_trades": 502,
   "sell_count": 250,
   "gross_gains": 2630.58,
   "gross_losses": -6940.08,
   "total_tds": 2557.01,
-  "holdings": {}
+  "holdings": {
+    "BTCINR": {
+      "qty": 0.00014,
+      "avg_cost": 6509753.25,
+      "invested": 911.3654549999999,
+      "last_buy_at": "2026-11-18T22:19:45+00:00"
+    },
+    "CAKEINR": {
+      "qty": 4.04,
+      "avg_cost": 164.96716235999997,
+      "invested": 666.4673359343999,
+      "last_buy_at": "2026-11-18T22:19:45+00:00"
+    }
+  }
 }

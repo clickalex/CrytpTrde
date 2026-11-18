@@ -1,17 +1,29 @@
 {
-  "cash_inr": 2932.702970271294,
-  "realized_pnl": -2089.5374238957857,
-  "total_trades": 235,
-  "sell_count": 117,
+  "cash_inr": 1767.793362826467,
+  "realized_pnl": -2209.7620397498354,
+  "total_trades": 239,
+  "sell_count": 118,
   "gross_gains": 4661.08,
-  "gross_losses": -6750.6,
-  "total_tds": 2045.38,
+  "gross_losses": -6870.82,
+  "total_tds": 2073.53,
   "holdings": {
-    "ORCAINR": {
-      "qty": 24.21,
-      "avg_cost": 121.12147047,
-      "invested": 2932.3508000787,
-      "last_buy_at": "2026-11-18T14:30:32+00:00"
+    "BTCINR": {
+      "qty": 0.00022,
+      "avg_cost": 6509753.25,
+      "invested": 1432.145715,
+      "last_buy_at": "2026-11-18T22:19:03+00:00"
+    },
+    "CAKEINR": {
+      "qty": 4.54,
+      "avg_cost": 164.96716236,
+      "invested": 748.9509171144,
+      "last_buy_at": "2026-11-18T22:19:03+00:00"
+    },
+    "POLYXINR": {
+      "qty": 663.5869,
+      "avg_cost": 2.66399133,
+      "invested": 1767.789748301577,
+      "last_buy_at": "2026-11-18T22:19:03+00:00"
     }
   }
 }

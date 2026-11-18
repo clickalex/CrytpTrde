@@ -1,11 +1,11 @@
 {
-  "cash_inr": 1916.533218329327,
-  "realized_pnl": -4371.781925477931,
-  "total_trades": 368,
-  "sell_count": 183,
+  "cash_inr": 1149.4892551393268,
+  "realized_pnl": -4402.669868915031,
+  "total_trades": 371,
+  "sell_count": 184,
   "gross_gains": 2008.77,
-  "gross_losses": -6380.55,
-  "total_tds": 1934.7,
+  "gross_losses": -6411.44,
+  "total_tds": 1941.93,
   "holdings": {
     "TRXINR": {
       "qty": 33.1,
@@ -13,11 +13,17 @@
       "invested": 1023.62855339745,
       "last_buy_at": "2026-10-31T22:52:18+00:00"
     },
-    "ORCAINR": {
-      "qty": 6.22,
-      "avg_cost": 121.12147046999999,
-      "invested": 753.3755463233999,
-      "last_buy_at": "2026-11-18T14:31:10+00:00"
+    "BTCINR": {
+      "qty": 0.00011,
+      "avg_cost": 6509753.25,
+      "invested": 716.0728575,
+      "last_buy_at": "2026-11-18T22:19:36+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 85.8,
+      "avg_cost": 8.9303799585,
+      "invested": 766.2266004393,
+      "last_buy_at": "2026-11-18T22:19:36+00:00"
     }
   }
 }
