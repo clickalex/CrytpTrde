@@ -1,23 +1,17 @@
 {
-  "cash_inr": 4635.818436668826,
-  "realized_pnl": -1449.2223698627683,
-  "total_trades": 310,
-  "sell_count": 152,
-  "gross_gains": 2645.55,
-  "gross_losses": -4094.77,
-  "total_tds": 799.12,
+  "cash_inr": 4609.71390916631,
+  "realized_pnl": -1452.3315440569213,
+  "total_trades": 316,
+  "sell_count": 155,
+  "gross_gains": 2726.36,
+  "gross_losses": -4178.69,
+  "total_tds": 814.56,
   "holdings": {
     "TRXINR": {
       "qty": 16.0,
       "avg_cost": 32.149167550499996,
       "invested": 514.3866808079999,
       "last_buy_at": "2026-11-10T18:24:09+00:00"
-    },
-    "HMSTRINR": {
-      "qty": 38286.0,
-      "avg_cost": 0.013404082692,
-      "invested": 513.188709945912,
-      "last_buy_at": "2026-11-11T22:37:13+00:00"
     },
     "CHRINR": {
       "qty": 399.0,
@@ -31,17 +25,23 @@
       "invested": 514.42744187835,
       "last_buy_at": "2026-11-17T14:13:47+00:00"
     },
-    "CHILLGUYINR": {
-      "qty": 669.0,
-      "avg_cost": 0.77285793585,
-      "invested": 517.04195908365,
-      "last_buy_at": "2026-11-18T22:30:06+00:00"
+    "TOSHIINR": {
+      "qty": 63780.0,
+      "avg_cost": 0.008190271088999999,
+      "invested": 522.37549005642,
+      "last_buy_at": "2026-11-21T03:06:40+00:00"
     },
-    "BONKINR": {
-      "qty": 2089834.0,
-      "avg_cost": 0.00024646927305,
-      "invested": 515.0798667751737,
-      "last_buy_at": "2026-11-19T04:10:41+00:00"
+    "BOMEINR": {
+      "qty": 10710.0,
+      "avg_cost": 0.048394507160999994,
+      "invested": 518.3051716943099,
+      "last_buy_at": "2026-11-21T03:06:41+00:00"
+    },
+    "PUMPINR": {
+      "qty": 1963.0,
+      "avg_cost": 0.26092092526499994,
+      "invested": 512.1877762951949,
+      "last_buy_at": "2026-11-21T03:06:43+00:00"
     }
   }
 }

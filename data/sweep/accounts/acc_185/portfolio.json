@@ -1,23 +1,29 @@
 {
-  "cash_inr": 5206.203446404025,
-  "realized_pnl": -2594.7767746594586,
-  "total_trades": 404,
-  "sell_count": 201,
+  "cash_inr": 4591.134228703942,
+  "realized_pnl": -2643.817952365517,
+  "total_trades": 409,
+  "sell_count": 203,
   "gross_gains": 1853.49,
-  "gross_losses": -4448.26,
-  "total_tds": 1222.77,
+  "gross_losses": -4497.3,
+  "total_tds": 1232.05,
   "holdings": {
-    "BTCINR": {
-      "qty": 7e-05,
-      "avg_cost": 6509753.25,
-      "invested": 455.68272749999994,
-      "last_buy_at": "2026-11-18T22:19:48+00:00"
+    "BNBINR": {
+      "qty": 0.009,
+      "avg_cost": 57754.630984049996,
+      "invested": 519.79167885645,
+      "last_buy_at": "2026-11-21T02:50:58+00:00"
     },
-    "FARTCOININR": {
-      "qty": 58.29,
-      "avg_cost": 8.9303799585,
-      "invested": 520.551847780965,
-      "last_buy_at": "2026-11-18T22:19:48+00:00"
+    "NEARINR": {
+      "qty": 1.7,
+      "avg_cost": 295.92336774,
+      "invested": 503.069725158,
+      "last_buy_at": "2026-11-21T02:50:58+00:00"
+    },
+    "TOKENINR": {
+      "qty": 4137.7393,
+      "avg_cost": 0.12328471155,
+      "invested": 510.1199960695989,
+      "last_buy_at": "2026-11-21T02:50:58+00:00"
     }
   }
 }

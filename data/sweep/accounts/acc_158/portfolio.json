@@ -1,29 +1,29 @@
 {
-  "cash_inr": 2561.6975590320785,
-  "realized_pnl": -3746.6079341022532,
-  "total_trades": 359,
-  "sell_count": 178,
+  "cash_inr": 2438.3883434465106,
+  "realized_pnl": -3793.5736599893453,
+  "total_trades": 363,
+  "sell_count": 180,
   "gross_gains": 1886.68,
-  "gross_losses": -5633.25,
-  "total_tds": 1749.21,
+  "gross_losses": -5680.22,
+  "total_tds": 1761.79,
   "holdings": {
-    "BTCINR": {
-      "qty": 0.00011,
-      "avg_cost": 6509753.25,
-      "invested": 716.0728575,
-      "last_buy_at": "2026-11-18T22:18:26+00:00"
-    },
-    "CAKEINR": {
-      "qty": 3.56,
-      "avg_cost": 164.96716235999997,
-      "invested": 587.2830980015999,
-      "last_buy_at": "2026-11-18T22:18:26+00:00"
-    },
     "ORCAINR": {
       "qty": 5.27,
       "avg_cost": 121.28171054999999,
       "invested": 639.1546145984998,
       "last_buy_at": "2026-11-19T13:53:30+00:00"
+    },
+    "TOKENINR": {
+      "qty": 6173.5148,
+      "avg_cost": 0.12328471155,
+      "invested": 761.0999913676559,
+      "last_buy_at": "2026-11-21T02:48:57+00:00"
+    },
+    "RIFINR": {
+      "qty": 119.0,
+      "avg_cost": 5.0926300425,
+      "invested": 606.0229750574999,
+      "last_buy_at": "2026-11-21T02:48:57+00:00"
     }
   }
 }

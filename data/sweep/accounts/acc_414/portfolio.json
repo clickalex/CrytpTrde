@@ -1,23 +1,17 @@
 {
-  "cash_inr": 2158.413272365703,
-  "realized_pnl": -2382.4210383910818,
-  "total_trades": 565,
-  "sell_count": 279,
+  "cash_inr": 2083.5218270599576,
+  "realized_pnl": -2516.772442810826,
+  "total_trades": 569,
+  "sell_count": 281,
   "gross_gains": 4560.82,
-  "gross_losses": -6943.19,
-  "total_tds": 1605.11,
+  "gross_losses": -7077.54,
+  "total_tds": 1614.93,
   "holdings": {
     "TRXINR": {
       "qty": 16.4,
       "avg_cost": 32.013964983,
       "invested": 525.0290257212,
       "last_buy_at": "2026-11-14T03:45:13+00:00"
-    },
-    "BOMEINR": {
-      "qty": 10592.0,
-      "avg_cost": 0.05285218588649999,
-      "invested": 559.8103529098079,
-      "last_buy_at": "2026-11-15T10:17:07+00:00"
     },
     "CHRINR": {
       "qty": 414.0,
@@ -37,17 +31,23 @@
       "invested": 564.8615048076,
       "last_buy_at": "2026-11-17T14:15:30+00:00"
     },
-    "APTINR": {
-      "qty": 12.3,
-      "avg_cost": 45.155654544,
-      "invested": 555.4145508912001,
-      "last_buy_at": "2026-11-18T22:31:09+00:00"
-    },
     "ORCAINR": {
       "qty": 4.55,
       "avg_cost": 118.31726906999998,
       "invested": 538.3435742684999,
       "last_buy_at": "2026-11-18T22:31:09+00:00"
+    },
+    "FILINR": {
+      "qty": 9.07,
+      "avg_cost": 57.936803924999985,
+      "invested": 525.4868115997499,
+      "last_buy_at": "2026-11-21T03:08:12+00:00"
+    },
+    "PENGUINR": {
+      "qty": 1110.0,
+      "avg_cost": 0.46888250409,
+      "invested": 520.4595795399,
+      "last_buy_at": "2026-11-21T03:08:15+00:00"
     }
   }
 }
