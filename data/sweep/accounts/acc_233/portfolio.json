@@ -1,18 +1,12 @@
 {
-  "cash_inr": 4668.448529102812,
-  "realized_pnl": -2546.909784414409,
-  "total_trades": 455,
-  "sell_count": 226,
+  "cash_inr": 4646.499312122425,
+  "realized_pnl": -2579.255405014009,
+  "total_trades": 457,
+  "sell_count": 227,
   "gross_gains": 1768.46,
-  "gross_losses": -4315.4,
-  "total_tds": 1212.08,
+  "gross_losses": -4347.75,
+  "total_tds": 1217.08,
   "holdings": {
-    "SUSHIINR": {
-      "qty": 32.8,
-      "avg_cost": 16.209285592500002,
-      "invested": 531.664567434,
-      "last_buy_at": "2026-11-18T14:34:32+00:00"
-    },
     "ARBINR": {
       "qty": 43.0,
       "avg_cost": 12.144195062999996,
@@ -24,6 +18,12 @@
       "avg_cost": 0.00022403566184999994,
       "invested": 518.7099919169667,
       "last_buy_at": "2026-11-21T02:54:40+00:00"
+    },
+    "PEPEINR": {
+      "qty": 1431537.0,
+      "avg_cost": 0.00036064033005000004,
+      "invested": 516.2699761587869,
+      "last_buy_at": "2026-11-22T03:43:25+00:00"
     }
   }
 }
