@@ -1,17 +1,29 @@
 {
-  "cash_inr": 6022.278269191163,
-  "realized_pnl": -2381.229415140695,
-  "total_trades": 351,
-  "sell_count": 175,
+  "cash_inr": 4858.112362827121,
+  "realized_pnl": -2413.1088796271447,
+  "total_trades": 355,
+  "sell_count": 176,
   "gross_gains": 2173.57,
-  "gross_losses": -4554.75,
-  "total_tds": 1045.04,
+  "gross_losses": -4586.63,
+  "total_tds": 1050.24,
   "holdings": {
-    "CHRINR": {
-      "qty": 413.0,
-      "avg_cost": 1.3353006166499997,
-      "invested": 551.4791546764499,
-      "last_buy_at": "2026-11-22T03:39:49+00:00"
+    "ETHINR": {
+      "qty": 0.0034,
+      "avg_cost": 175625.3309811,
+      "invested": 597.12612533574,
+      "last_buy_at": "2026-11-25T02:42:13+00:00"
+    },
+    "TRBINR": {
+      "qty": 0.405,
+      "avg_cost": 1337.4037677000001,
+      "invested": 541.6485259185001,
+      "last_buy_at": "2026-11-25T02:42:13+00:00"
+    },
+    "POLYXINR": {
+      "qty": 210.3751,
+      "avg_cost": 2.565844280999999,
+      "invested": 539.789747199803,
+      "last_buy_at": "2026-11-25T02:42:13+00:00"
     }
   }
 }

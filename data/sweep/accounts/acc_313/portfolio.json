@@ -1,23 +1,17 @@
 {
-  "cash_inr": 4691.060117756555,
-  "realized_pnl": -2007.023242288455,
-  "total_trades": 464,
-  "sell_count": 230,
+  "cash_inr": 4660.434726950455,
+  "realized_pnl": -2041.068727897605,
+  "total_trades": 466,
+  "sell_count": 231,
   "gross_gains": 2901.63,
-  "gross_losses": -4908.68,
-  "total_tds": 1210.27,
+  "gross_losses": -4942.73,
+  "total_tds": 1215.2,
   "holdings": {
     "CAKEINR": {
       "qty": 3.27,
       "avg_cost": 161.17147546500001,
       "invested": 527.03072477055,
       "last_buy_at": "2026-11-21T03:00:36+00:00"
-    },
-    "ARBINR": {
-      "qty": 43.3,
-      "avg_cost": 12.150204065999997,
-      "invested": 526.1038360577999,
-      "last_buy_at": "2026-11-21T18:38:33+00:00"
     },
     "SUIINR": {
       "qty": 7.4,
@@ -30,6 +24,12 @@
       "avg_cost": 1.3256862118500001,
       "invested": 520.99468125705,
       "last_buy_at": "2026-11-22T20:12:49+00:00"
+    },
+    "FARTCOININR": {
+      "qty": 62.1,
+      "avg_cost": 8.3374916625,
+      "invested": 517.75823224125,
+      "last_buy_at": "2026-11-25T02:43:56+00:00"
     }
   }
 }
