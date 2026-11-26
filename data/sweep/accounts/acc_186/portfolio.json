@@ -1,10 +1,17 @@
 {
-  "cash_inr": 1596.8084226195278,
+  "cash_inr": 798.41889801886,
   "realized_pnl": -5951.381133724917,
-  "total_trades": 422,
+  "total_trades": 423,
   "sell_count": 211,
   "gross_gains": 1834.76,
   "gross_losses": -7786.14,
   "total_tds": 2451.78,
-  "holdings": {}
+  "holdings": {
+    "HMSTRINR": {
+      "qty": 61332.0,
+      "avg_cost": 0.013017503498999997,
+      "invested": 798.3895246006679,
+      "last_buy_at": "2026-11-26T15:50:16+00:00"
+    }
+  }
 }
