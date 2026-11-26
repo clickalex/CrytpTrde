@@ -1,10 +1,17 @@
 {
-  "cash_inr": 1073.7232484840845,
+  "cash_inr": 429.6482619290846,
   "realized_pnl": -5570.047325269216,
-  "total_trades": 628,
+  "total_trades": 629,
   "sell_count": 314,
   "gross_gains": 2452.79,
   "gross_losses": -8022.88,
   "total_tds": 3356.2,
-  "holdings": {}
+  "holdings": {
+    "SUSHIINR": {
+      "qty": 39.0,
+      "avg_cost": 16.514743245,
+      "invested": 644.0749865549999,
+      "last_buy_at": "2026-11-26T05:36:37+00:00"
+    }
+  }
 }
