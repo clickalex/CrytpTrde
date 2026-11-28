@@ -1,10 +1,17 @@
 {
-  "cash_inr": 1789.5783045215212,
+  "cash_inr": 1076.4063933698212,
   "realized_pnl": -5533.713988580781,
-  "total_trades": 562,
+  "total_trades": 563,
   "sell_count": 281,
   "gross_gains": 2250.09,
   "gross_losses": -7783.84,
   "total_tds": 2676.73,
-  "holdings": {}
+  "holdings": {
+    "TRXINR": {
+      "qty": 22.6,
+      "avg_cost": 31.5562792545,
+      "invested": 713.1719111517001,
+      "last_buy_at": "2026-11-28T03:03:01+00:00"
+    }
+  }
 }
